@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
+namespace Appalachia.Prototype.KOCPrototype.Inventory
 {
     [Serializable]
     [CreateAssetMenu(fileName = "InventoryItem", menuName = "KOC/Inventory/Item", order = 100)]

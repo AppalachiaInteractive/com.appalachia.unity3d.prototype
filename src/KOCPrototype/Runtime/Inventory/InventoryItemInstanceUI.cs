@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
+namespace Appalachia.Prototype.KOCPrototype.Inventory
 {
     public class InventoryItemInstanceUI : MonoBehaviour
     {

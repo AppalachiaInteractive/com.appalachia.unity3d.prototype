@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
+namespace Appalachia.Prototype.KOCPrototype.Inventory
 {
     [Serializable]
     [CreateAssetMenu(

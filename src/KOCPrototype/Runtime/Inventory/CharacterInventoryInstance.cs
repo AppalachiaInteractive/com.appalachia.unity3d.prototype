@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
+namespace Appalachia.Prototype.KOCPrototype.Inventory
 {
     [Serializable]
     public class CharacterInventoryInstance

@@ -1,6 +1,6 @@
 using System;
 
-namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
+namespace Appalachia.Prototype.KOCPrototype.Inventory
 {
     [Flags]
     public enum InventoryState

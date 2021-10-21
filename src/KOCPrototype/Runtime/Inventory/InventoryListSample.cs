@@ -2,7 +2,7 @@ using Appalachia.UI.Controls.ListView;
 using Appalachia.UI.Core.Icons;
 using UnityEngine;
 
-namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
+namespace Appalachia.Prototype.KOCPrototype.Inventory
 {
     [ExecuteAlways]
     public class InventoryListSample : MonoBehaviour
@@ -10,13 +10,13 @@ namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
         public CharacterInventoryInstance characterInventoryInstance;
         public InventoryItemLibrary inventoryItemLibrary;
         public UIIconLibrary iconLibrary;
-        private Controls.ListView.ListView _listView;
+        private UI.Controls.ListView.ListView _listView;
 
         private void OnEnable()
         {
             if (_listView == null)
             {
-                _listView = GetComponent<Controls.ListView.ListView>();
+                _listView = GetComponent<UI.Controls.ListView.ListView>();
             }
 
             if (characterInventoryInstance == null)
@@ -48,7 +48,7 @@ namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
             _listView.Initialize(inventoryItemLibrary.items.Count, GetItemByIndex);
         }
 
-        private ListViewItem GetItemByIndex(Controls.ListView.ListView view, int index)
+        private ListViewItem GetItemByIndex(UI.Controls.ListView.ListView view, int index)
         {
             var first = view.ItemPrefabDataList[0];
             var newInstance = view.NewListViewItem(first.prefabObject.name);

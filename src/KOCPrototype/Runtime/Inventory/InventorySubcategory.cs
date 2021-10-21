@@ -1,4 +1,4 @@
-namespace Appalachia.UI.KOCPrototype.Runtime.Inventory
+namespace Appalachia.Prototype.KOCPrototype.Inventory
 {
     public enum InventorySubcategory
     {
