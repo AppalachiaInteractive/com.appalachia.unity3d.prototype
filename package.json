@@ -1,7 +1,7 @@
 {
   "name": "com.appalachia.unity3d.prototype",
   "displayName": "Appalachia.Prototype for Unity3D",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "unity": "2020.3",
   "description": "Prototype space for creating and testing new features.",
   "keywords": [
