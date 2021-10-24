@@ -22,19 +22,19 @@
     "registry": "http://35.211.123.13:4873/"
   },
   "dependencies": {
-    "com.appalachia.unity3d.doozy.doozy-ui": "0.1.11",
-    "com.appalachia.unity3d.demigiant.dotween": "0.1.6",
+    "com.appalachia.unity3d.doozy.doozy-ui": "0.1.12",
+    "com.appalachia.unity3d.demigiant.dotween": "0.1.7",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.mathematics": "1.2.4",
     "com.unity.inputsystem": "1.1.1",
     "com.unity.cinemachine": "2.8.0-pre.1",
-    "com.appalachia.unity3d.utility": "0.1.0",
-    "com.appalachia.unity3d.ui": "0.1.2",
-    "com.appalachia.unity3d.simulation": "0.1.10",
-    "com.appalachia.unity3d.globals": "0.1.3",
-    "com.appalachia.unity3d.editing": "0.1.6",
-    "com.appalachia.unity3d.core": "0.1.3",
-    "com.appalachia.unity3d.ci": "0.1.0"
+    "com.appalachia.unity3d.utility": "0.1.1",
+    "com.appalachia.unity3d.ui": "0.1.3",
+    "com.appalachia.unity3d.simulation": "0.1.11",
+    "com.appalachia.unity3d.globals": "0.1.4",
+    "com.appalachia.unity3d.editing": "0.1.7",
+    "com.appalachia.unity3d.core": "0.1.4",
+    "com.appalachia.unity3d.ci": "0.1.1"
   },
   "scripts": {
     "preversion": "bash ~/com.appalachia/appa/appa package unity3d preversion",
