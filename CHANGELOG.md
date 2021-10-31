@@ -12,9 +12,17 @@
 ## Releasing
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| c7a47b34783dc97e28afd5f00b14cfb3f65352ee | 2021-10-31 | Chris Schubert | Updating package dependencies for all packages |
+| bd766037896e62ee89a3655249237f25dd524c41 | 2021-10-31 | Chris Schubert | Refactoring menus and adding application manager setup |
+| 6b47174d3929c445d5efa2fc5a5b64102ce3ef2e | 2021-10-29 | Chris Schubert | Updating to support VFX on builtin renderer |
 
 
- ## Tag: `v0.1.3, origin/main`
+ ## Tag: `v0.1.4`
+| Hash | Date | Author | Changes |
+|------|------|--------|---------|
+
+
+ ## Tag: `v0.1.3`
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
 | 2c13c16ad40899c3157a1411fa9a08c08de5bcdf | 2021-10-24 | Chris Schubert | Automatic dependency updates |
