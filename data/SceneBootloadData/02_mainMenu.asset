@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca32ae92ae8c4374bbe46da43af63b37, type: 3}
+  m_Name: 02_mainMenu
+  m_EditorClassIdentifier: 
+  _niceName: 
+  _cachedName: 
+  id: 2
+  profileName: mainMenu
+  _category: 
+  _scenes:
+    _capacityIncreaseMultiplier: 2
+    _values:
+    - {fileID: 11400000, guid: bc9f95569c703724fb0951eba1169ed3, type: 2}
+    - {fileID: 11400000, guid: 4055ab42bbfaa0f4cae62778eaa50f76, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    noTracking: 0
+    _count: 2
