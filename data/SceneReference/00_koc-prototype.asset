@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _niceName: 
   _cachedName: 
+  setActiveOnLoad: 1
   sceneReference:
     m_AssetGUID: dd70419edc238574ab17553d58280d61
     m_SubObjectName: 

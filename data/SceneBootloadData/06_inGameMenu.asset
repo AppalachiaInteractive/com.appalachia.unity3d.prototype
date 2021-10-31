@@ -17,6 +17,7 @@ MonoBehaviour:
   id: 5
   profileName: inGameMenu
   _category: 
+  entryScene: {fileID: 11400000, guid: 8b9ac2dc4ee83294a8ba09b291954fa9, type: 2}
   _scenes:
     _capacityIncreaseMultiplier: 2
     _values:
