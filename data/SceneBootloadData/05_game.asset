@@ -17,10 +17,10 @@ MonoBehaviour:
   id: 4
   profileName: game
   _category: 
+  entryScene: {fileID: 11400000, guid: 457d25418c2709d4c9b9bb84068c7610, type: 2}
   _scenes:
     _capacityIncreaseMultiplier: 2
     _values:
-    - {fileID: 11400000, guid: 457d25418c2709d4c9b9bb84068c7610, type: 2}
     - {fileID: 11400000, guid: b509dd76cc2ea4648bd82417b6f7d6b5, type: 2}
     - {fileID: 0}
     - {fileID: 0}
@@ -36,5 +36,6 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 0}
     noTracking: 0
-    _count: 2
+    _count: 1

@@ -17,11 +17,12 @@ MonoBehaviour:
   id: 1
   profileName: splashScreen
   _category: 
+  entryScene: {fileID: 11400000, guid: 8590c1fd03a4c0d4a8163a67827184cf, type: 2}
   _scenes:
     _capacityIncreaseMultiplier: 2
     _values:
     - {fileID: 11400000, guid: 56822488fd7909244b5b030181416fc1, type: 2}
-    - {fileID: 11400000, guid: 8590c1fd03a4c0d4a8163a67827184cf, type: 2}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -37,4 +38,4 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     noTracking: 0
-    _count: 2
+    _count: 1

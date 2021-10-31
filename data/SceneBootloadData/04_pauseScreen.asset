@@ -17,6 +17,7 @@ MonoBehaviour:
   id: 6
   profileName: pauseScreen
   _category: 
+  entryScene: {fileID: 11400000, guid: 7e8cec60cd4e35e4aa9de898d7ba6f55, type: 2}
   _scenes:
     _capacityIncreaseMultiplier: 2
     _values:
