@@ -8,7 +8,7 @@ namespace Appalachia.Prototype.KOCPrototype
 {
     internal static partial class PKG
     {
-        public const int Priority = -270000;
+        public const int Priority = -273000;
         public const string Name = "Prototype/KOCPrototype";
         public const string Prefix = Root + Name + "/";
         public const string Root = "Appalachia/";
