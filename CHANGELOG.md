@@ -14,6 +14,7 @@ C:/Users/Chris/com.appalachia/unity3d/appa/Assets/Appalachia.Prototype
 ## Releasing
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| c8eb235298baceacf48ccdfe78e1fbb76f50ca16 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 0b5ad07ea3d79394a7342eab7d1b4f52cb1ddc13 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 253a8f752bb1fbbab310b13d15fd335c969f3766 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 7fbc6dba4be5fc310f7b82638d83fdf805762956 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
