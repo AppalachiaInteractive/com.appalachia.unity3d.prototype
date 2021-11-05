@@ -15,6 +15,7 @@ C:/Users/Chris/com.appalachia/unity3d/appa/Assets/Appalachia.Prototype
 `0.2.0`
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 55bac1ecb0a5f90b3e07c748c56d650c9d1393fe | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 45ab25156be9d3398db328eb5810e90aac96b9fa | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 8a32395cf1229166e16d59fe6bc03b8534353bc1 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | d26cf6d2e4f811706497daf789748e9a63337d31 | 2021-11-03 | Chris Schubert | Committing before testing the package v. repo switch |
