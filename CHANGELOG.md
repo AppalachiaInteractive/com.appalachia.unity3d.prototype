@@ -1,6 +1,4 @@
 ```
-C:/Users/Chris/com.appalachia/unity3d/appa/Assets/Appalachia.Prototype
- Let's go!  
  ________   ___  ___   ________   ________    ________   _______    ________      
 |\   ____\ |\  \|\  \ |\   __  \ |\   ___  \ |\   ____\ |\  ___ \  |\   ____\     
 \ \  \___| \ \  \\\  \\ \  \|\  \\ \  \\ \  \\ \  \___| \ \   __/| \ \  \___|_    
@@ -14,6 +12,7 @@ C:/Users/Chris/com.appalachia/unity3d/appa/Assets/Appalachia.Prototype
 ## Releasing
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 5d8474782a3dacc507c4e47acedaf9cab8a0aaf7 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 7e7a97cdadbaee4ebde1610b0376a904a919b70f | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 3e098e92f6735acc015a248b29a3f15f25852fa1 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
 | 14bba88324ffc5592982360f9c730e1a5794a993 | 2021-11-05 | Chris Schubert | Updating changelog and releaselog |
@@ -41,11 +40,6 @@ C:/Users/Chris/com.appalachia/unity3d/appa/Assets/Appalachia.Prototype
 
 
  ## Tag: `v0.2.1`
-| Hash | Date | Author | Changes |
-|------|------|--------|---------|
-
-
- ## Tag: `v0.2.0`
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
 | d141b7c1dd65f95ee604a55a31962f0d4bac066a | 2021-10-31 | Chris Schubert | Updating changelog and releaselog |
