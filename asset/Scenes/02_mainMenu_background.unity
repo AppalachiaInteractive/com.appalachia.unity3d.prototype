@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 69b9777cd81522b488b62ba8f6a2bb2a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7a2a69df8f3fe2d40918ab0a37d266d6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.33887306, g: 0.33625084, b: 0.34836757, a: 1}
+  m_IndirectSpecularColor: {r: 0.07777593, g: 0.077205546, b: 0.078689694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000004, guid: 3373874e074805c499e40b8c58fd0a40, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 67d8d8908318ccc4585e9bd3625b028d, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ba75eb0abff9c1c418a9ee7cd47da7ec, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -175,7 +175,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
     m_Bits: 2
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 1
+  antialiasingMode: 3
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -270,7 +270,9 @@ MonoBehaviour:
   depthOfFieldAutoFocus: {fileID: 0}
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
+  m_BeforeTransparentBundles:
+  - assemblyQualifiedName: Appalachia.Rendering.PostProcessing.Blur.Blur, Appalachia.Rendering.PostProcessing,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_BeforeStackBundles:
   - assemblyQualifiedName: BeautifyForPPS.Beautify, Kronnect.Beautify, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -306,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 3852edaafb5072d42bfd14d63b962b1c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: b3f0f9610fd75f04bb6287df7be16e1d, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
