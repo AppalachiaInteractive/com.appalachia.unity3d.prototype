@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 5a746bfd674be62419a66b3c34f13f2a, type: 2}
+  sharedProfile: {fileID: 11400000, guid: b6f909e1d694fb24093c85204b6ee06c, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -381,7 +381,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1451266863}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 14fd832304b68f24a9d52d2f8e43df52, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fc318ab62db691e4e8f470b23b2f04f2, type: 2}
   m_InitialState: 1
   m_WrapMode: 1
   m_DirectorUpdateMode: 1
@@ -399,14 +399,18 @@ PlayableDirector:
     value: {fileID: 1692057715}
   - key: {fileID: 7587033898492866139, guid: 9e4b12e1223694a49a42a109737834d9, type: 2}
     value: {fileID: 1682085481}
-  - key: {fileID: 114876417173165056, guid: 14fd832304b68f24a9d52d2f8e43df52, type: 2}
-    value: {fileID: 0}
   - key: {fileID: 114598943278732118, guid: 14fd832304b68f24a9d52d2f8e43df52, type: 2}
     value: {fileID: 791037435}
   - key: {fileID: 2910936607683170164, guid: 14fd832304b68f24a9d52d2f8e43df52, type: 2}
     value: {fileID: 1692057715}
   - key: {fileID: 7587033898492866139, guid: 14fd832304b68f24a9d52d2f8e43df52, type: 2}
     value: {fileID: 1682085481}
+  - key: {fileID: 114598943278732118, guid: fc318ab62db691e4e8f470b23b2f04f2, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2910936607683170164, guid: fc318ab62db691e4e8f470b23b2f04f2, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7587033898492866139, guid: fc318ab62db691e4e8f470b23b2f04f2, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1603587653
@@ -505,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 2d9d63b2b9e89ef459ff5f180366a20d, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 24645dcfb0620084693aaabd90b0cf1c, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 0
@@ -539,7 +543,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692057708}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: be2b03239c8554a4086b6f5d22241eac, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 317b05f3ab70ffd44ba41b4b063b978c, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -594,7 +598,7 @@ VisualEffect:
       - m_Value: {x: 1.66, y: 2.8, z: 1}
         m_Name: Sphere Motion Speed
         m_Overridden: 1
-      - m_Value: {x: -0, y: 37.007366, z: 90}
+      - m_Value: {x: -0, y: 0, z: 90}
         m_Name: VectorFieldTransform_angles
         m_Overridden: 1
       - m_Value: {x: 0, y: 0, z: 0}
@@ -776,7 +780,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692057708}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1021,4 +1025,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   - assemblyQualifiedName: DynamicFogAndMist.DynamicFogPPS, Kronnect.DynamicFog,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_AfterStackBundles: []
+  m_AfterStackBundles:
+  - assemblyQualifiedName: Appalachia.Rendering.PostProcessing.Blur.Blur, Appalachia.Rendering.PostProcessing,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
