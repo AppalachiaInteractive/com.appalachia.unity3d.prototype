@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex:
-        m_Texture: {fileID: 8900000, guid: 3b61b98a8a31f1841a52f402f9623c38, type: 3}
+        m_Texture: {fileID: 8900000, guid: 77bb9fde607212f4295ecdde2787eec5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -32,14 +32,14 @@ Material:
     - <noninit>: 1
     - _EnableFog: 0
     - _EnableRotation: 1
-    - _Exposure: 0.33
-    - _FogFill: 0
-    - _FogHeight: 0
-    - _FogSmoothness: 0.01
+    - _Exposure: 0.05
+    - _FogFill: 0.042
+    - _FogHeight: 0.207
+    - _FogSmoothness: 0.738
     - _Rotation: 0
-    - _RotationSpeed: 0.25
+    - _RotationSpeed: 1
     - __dirty: 0
     m_Colors:
     - <noninit>: {r: 1, g: 1, b: 1, a: 1}
-    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
