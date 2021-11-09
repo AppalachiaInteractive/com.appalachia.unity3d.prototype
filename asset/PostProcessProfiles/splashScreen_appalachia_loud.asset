@@ -26,8 +26,8 @@ MonoBehaviour:
     overrideState: 1
     value: 0
   keyValue:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 3
   eyeAdaptation:
     overrideState: 0
     value: 1
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: splash_appalachia_postfx_loud
+  m_Name: splashScreen_appalachia_loud
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -5602375849201314950}
