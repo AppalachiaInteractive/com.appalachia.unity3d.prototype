@@ -15,6 +15,8 @@ C:/Users/Chris/com.appalachia/unity3d/appa/Assets/Appalachia.Prototype
 `0.2.0`
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| fe5248d6c79e1e21ddf6501c74748adec421673c | 2021-11-13 | Chris Schubert | Reorganizing assets and expanding the area manager framework |
+| a25d5c64f2bbb8f2bc0b6c4c6eed641131f3ce4d | 2021-11-09 | Chris Schubert | Updating changelog and releaselog |
 | 7e98720af311cc379e724389c1d4c916ec487a23 | 2021-11-09 | Chris Schubert | Updating changelog and releaselog |
 | bf7ccb24319d8844075e5d88b95da0d3508eb483 | 2021-11-09 | Chris Schubert | Moving application code to protoype library |
 | 4ab603127fa1663e70364b46e56450f768768e5b | 2021-11-08 | Chris Schubert | Updating changelog and releaselog |
