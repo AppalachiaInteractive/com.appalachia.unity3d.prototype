@@ -9,8 +9,6 @@ using Appalachia.Prototype.KOC.Application.Collections;
 using Appalachia.Utility.Logging;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
@@ -109,14 +107,14 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 var sceneName = $"{name}_{_scenes.Count}";
                 var outputPath = AppaPath.Combine(otherDirectory, $"{sceneName}.unity");
 
-                var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
+                var scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Additive);
 
-                EditorSceneManager.SaveScene(scene, outputPath);
+                UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene, outputPath);
                 AssetDatabaseManager.Refresh();
 
-                EditorSceneManager.CloseScene(scene, true);
+                UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene, true);
 
-                var asset = AssetDatabaseManager.LoadAssetAtPath<SceneAsset>(outputPath);
+                var asset = AssetDatabaseManager.LoadAssetAtPath<UnityEditor.SceneAsset>(outputPath);
                 var reference = SceneReference.CreateNew(sceneName);
 
                 reference.SetSelection(asset);
@@ -147,7 +145,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         private static readonly ProfilerMarker _PRF_CreateAsset =
             new ProfilerMarker(_PRF_PFX + nameof(CreateAsset));
 
-        [MenuItem(PKG.Menu.Assets.Base + nameof(SceneBootloadData), priority = PKG.Menu.Assets.Priority)]
+        [UnityEditor.MenuItem(PKG.Menu.Assets.Base + nameof(SceneBootloadData), priority = PKG.Menu.Assets.Priority)]
         public static void CreateAsset()
         {
             using (_PRF_CreateAsset.Auto())
