@@ -10,8 +10,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu.SubAreas.NewGame
 
         private const string _PRF_PFX = nameof(NewGameManager) + ".";
 
-        private static readonly ProfilerMarker _PRF_NewGame = new ProfilerMarker(_PRF_PFX + nameof(NewGame));
-
         private static readonly ProfilerMarker
             _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
 

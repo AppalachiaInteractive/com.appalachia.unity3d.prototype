@@ -8,7 +8,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 {
     [ExecuteAlways]
     public abstract class AreaManager<TAM, TAMD> : AreaManagerBase<TAM, TAMD>
-        where TAM : AreaManagerBase<TAM, TAMD>
+        where TAM : AreaManager<TAM, TAMD>
         where TAMD : AreaMetadata<TAMD>
     {
         #region Profiling

@@ -20,7 +20,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
         where TE : Enum
         where TA : AreaManager<TA, TAM>
         where TAM : AreaMetadata<TAM>
-
     {
         #region Profiling
 
