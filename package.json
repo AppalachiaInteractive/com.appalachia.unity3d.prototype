@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "com.appalachia.unity3d.prototype",
   "displayName": "Appalachia.Prototype for Unity3D",
   "version": "0.2.0",
@@ -22,10 +23,12 @@
     "registry": "http://35.211.123.13:4873/"
   },
   "dependencies": {
+    "com.appalachia.unity3d.audio": "0.2.0",
     "com.appalachia.unity3d.ci": "0.2.0",
     "com.appalachia.unity3d.core": "0.2.0",
     "com.appalachia.unity3d.editing": "0.2.0",
     "com.appalachia.unity3d.globals": "0.2.0",
+    "com.appalachia.unity3d.rendering": "0.2.0",
     "com.appalachia.unity3d.simulation": "0.2.0",
     "com.appalachia.unity3d.third-party.demigiant": "0.2.0",
     "com.appalachia.unity3d.third-party.doozy": "0.2.0",
