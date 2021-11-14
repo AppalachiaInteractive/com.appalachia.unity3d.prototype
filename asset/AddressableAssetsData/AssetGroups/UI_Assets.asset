@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: UI_Assets
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: UI_Assets
   m_Data:
     m_SerializedData: []
   m_GUID: 7ee21c11b3c2e9f41beae7661c612e65

@@ -36,6 +36,8 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
         #endregion
 
+        protected override bool DestroyObjectOfSubsequentInstances => true;
+
         private void Initialize()
         {
             _initialized = true;
