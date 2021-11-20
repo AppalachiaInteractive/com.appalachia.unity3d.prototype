@@ -38,10 +38,11 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         #region Event Functions
 
-        private void Awake()
+        protected override void Awake()
         {
             using (_PRF_Awake.Auto())
             {
+                base.Awake();
                 AppaLog.Context.Bootload.Info(nameof(Awake));
 
                 if (bootloadProgress == null)

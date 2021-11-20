@@ -92,7 +92,7 @@ namespace Appalachia.Prototype.KOC.Data
                 var storageFileNameWithoutExtension =
                     _config.GetDataStorageFileNameWithoutExtension(settings, postfix);
 
-                var fileName = $"{storageFileExtension}{storageFileNameWithoutExtension}";
+                var fileName = $"{storageFileNameWithoutExtension}{storageFileExtension}";
 
                 var filePath = AppaPath.Combine(storageDirectory, dataSetName, fileName);
 

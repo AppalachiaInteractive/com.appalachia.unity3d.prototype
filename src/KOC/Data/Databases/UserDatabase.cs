@@ -11,7 +11,7 @@ namespace Appalachia.Prototype.KOC.Data.Databases
     {
         #region Fields and Autoproperties
 
-        public QualitySettingsCollection QualitySettings { get; set; }
+        public QualitySettingLevelCollection QualitySettingLevel { get; set; }
         public SavedGameCollection SavedGames { get; set; }
         public UserSettingsCollection UserSettings { get; set; }
 
@@ -35,11 +35,11 @@ namespace Appalachia.Prototype.KOC.Data.Databases
         {
             using (_PRF_OnInitialize.Auto())
             {
-                var qualitySettings = QualitySettings;
+                var qualitySettings = QualitySettingLevel;
                 var savedGames = SavedGames;
                 var userSettings = UserSettings;
 
-                RegisterCollection<QualitySettingLevel, QualitySettingsCollection>(ref qualitySettings);
+                RegisterCollection<QualitySettingLevel, QualitySettingLevelCollection>(ref qualitySettings);
                 RegisterCollection<SavedGame, SavedGameCollection>(ref savedGames);
                 RegisterCollection<UserSettings, UserSettingsCollection>(ref userSettings);
             }

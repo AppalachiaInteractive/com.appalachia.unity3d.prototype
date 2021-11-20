@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   metadata: {fileID: 11400000, guid: 4d741ac8b6be244498ffd3ca546da3d1, type: 2}
@@ -206,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   references: []
@@ -287,7 +289,7 @@ MonoBehaviour:
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
   CanvasName: MainMenu_Settings
-  CustomCanvasName: 1
+  CustomCanvasName: 0
   DontDestroyCanvasOnLoad: 1
 --- !u!114 &1599960246
 MonoBehaviour:
@@ -363,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   uiFadeSettings: {fileID: 11400000, guid: 05d38c6fa6853cd4eb168a4a7e9612e2, type: 2}
@@ -912,6 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   uiFadeSettings: {fileID: 11400000, guid: 713f24783240c3c4bae7ad3bc5a523ef, type: 2}

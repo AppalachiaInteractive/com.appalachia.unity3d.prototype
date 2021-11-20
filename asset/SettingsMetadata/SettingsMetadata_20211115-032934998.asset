@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SettingsMetadata_20211115-032934998
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags:
     - Doozy Graph
     - Doozy Canvas

@@ -2,13 +2,14 @@ using Appalachia.Data.Core.Documents;
 using Appalachia.Data.Model.Fields.Quality;
 using Appalachia.Data.Model.Fields.Quality.Settings;
 using Appalachia.Prototype.KOC.Data.Collections.User;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Data.Documents.User
 {
-    public class QualitySettingLevel : AppaDocument<QualitySettingLevel, QualitySettingsCollection>
+    public class QualitySettingLevel : AppaDocument<QualitySettingLevel, QualitySettingLevelCollection>
     {
         #region Fields and Autoproperties
+
+        public QualitySettingsPresetType Preset { get; set; }
 
         /// <summary>
         ///     <para>Global anisotropic filtering mode.</para>
@@ -226,8 +227,6 @@ namespace Appalachia.Prototype.KOC.Data.Documents.User
         ///     <para>The default resolution of the shadow maps.</para>
         /// </summary>
         public QualitySettingShadowResolution ShadowResolution { get; set; }
-
-        public QualitySettingsPresetType Preset { get; set; }
 
         /// <summary>
         ///     <para>A texture size limit applied to most textures.</para>

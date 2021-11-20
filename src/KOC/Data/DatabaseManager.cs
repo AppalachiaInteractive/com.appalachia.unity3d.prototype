@@ -142,15 +142,9 @@ namespace Appalachia.Prototype.KOC.Data
                         overrideActiveDataSetName = string.Empty;
                     }
                 );
-                
-                initializationData.Initialize(
-                    this,
-                    nameof(DatabaseConfiguration),
-                    () =>
-                    {
-                        configuration = DatabaseConfiguration.instance;
-                    }
-                );
+
+                configuration = DatabaseConfiguration.instance;
+                configuration.Initialize();
             }
         }
 

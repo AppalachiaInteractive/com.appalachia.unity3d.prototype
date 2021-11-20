@@ -220,7 +220,7 @@ GameObject:
   m_Layer: 0
   m_Name: ApplicationLifetimeComponents
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: 1cf508b46f780c949b95f6da10fb4d00, type: 3}
+  m_Icon: {fileID: 2800000, guid: 30bc373f5412c6c4b8234c36529e35d4, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   asset: {fileID: 11400000, guid: b9273a7abb34d6a4f8808db02a66809f, type: 2}
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags:
     - dataSet
     - DatabaseConfiguration
@@ -365,9 +367,9 @@ MonoBehaviour:
   overrideActiveDataSetName: 
   databases:
     currentGame: {fileID: 0}
-    metadata: {fileID: 11400000, guid: 58e3ac242614bb04d9fa7a7433ed9ae7, type: 2}
-    dataSetName: 
-    user: {fileID: 11400000, guid: b1e73b470cb9fbf4d9f0e79b45a348d8, type: 2}
+    metadata: {fileID: 11400000, guid: 394b67ba5971ddf4796d07fb132937fe, type: 2}
+    dataSetName: chris
+    user: {fileID: 11400000, guid: 9e4251d094124fb48a50d79554a44513, type: 2}
   configuration: {fileID: 11400000, guid: 0c56e3f733ebcd04ab7533548990535f, type: 2}
 --- !u!1 &248413333
 GameObject:
@@ -412,7 +414,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

@@ -166,10 +166,11 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         #region Event Functions
 
-        private void Awake()
+        protected override void Awake()
         {
             using (_PRF_Awake.Auto())
             {
+                base.Awake();
                 Initialize();
             }
         }

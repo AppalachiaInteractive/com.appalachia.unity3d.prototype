@@ -49,8 +49,9 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
 
         #region Event Functions
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             if (fadeRange == Vector2.zero)
             {
                 fadeRange = new Vector2(0.0f, 1.0f);

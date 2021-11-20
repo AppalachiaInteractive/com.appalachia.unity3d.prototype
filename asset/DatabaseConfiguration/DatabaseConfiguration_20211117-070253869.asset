@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: DatabaseConfiguration_20211117-070253869
   m_EditorClassIdentifier: 
   _initializationData:
+    _nonSerializedTags: []
     _tags:
     - General
-    - Game State
-    - Metadata
-    - User
     _resetToken: 2021-11-18-1821
   _cachedName: 
   _niceName: 
   activeConfiguration: 10
-  editor: {fileID: 0}
-  runtime: {fileID: 0}
+  editor: {fileID: 11400000, guid: 1d45ef5cc0d111245991fe2c7472bdb0, type: 2}
+  runtime: {fileID: 11400000, guid: 0c10aa4fd2f278d469ebcd20cc4e89f4, type: 2}

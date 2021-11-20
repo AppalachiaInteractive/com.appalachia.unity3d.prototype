@@ -32,10 +32,11 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         #region Event Functions
 
-        private void Awake()
+        protected override void Awake()
         {
             using (_PRF_Awake.Auto())
             {
+                base.Awake();
                 Initialize();
             }
         }
@@ -188,7 +189,10 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
             {
                 if (developer == null)
                 {
-                    developer = LoadOrCreateNew<DatabaseEnvironmentConfiguration>(username);
+                    developer = LoadOrCreateNew<DatabaseEnvironmentConfiguration>(
+                        username,
+                        ownerType: typeof(DatabaseConfiguration)
+                    );
                 }
 
                 developer.userSaveLocation = new DatabaseLocationConfiguration(
@@ -336,6 +340,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
                 initializationData.Initialize(
                     this,
                     APPASTR.General,
+                    (developer == null) || (developer2 == null) || (editor == null) || (runtime == null),
                     () =>
                     {
                         var username = Environment.UserName.ToLower();
