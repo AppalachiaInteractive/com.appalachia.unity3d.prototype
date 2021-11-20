@@ -10,28 +10,38 @@ namespace Appalachia.Prototype.KOC.Inventory
 {
     public class InventoryItemInstanceUI : MonoBehaviour
     {
+        #region Constants and Static Readonly
+
         private static readonly Vector2 _spritePivot = new Vector2(0.5f, 0.5f);
-        public InventoryItemInstance inventoryItemInstance;
+
+        #endregion
+
+        
+
+        [NonSerialized] public CharacterInventoryInstance characterInventoryInstance;
+        [NonSerialized] public ClickEventListener clickEventListener;
 
         [Header("Selected Item")]
         public GameObject selected;
 
-        public TMP_Text primary;
-        public TMP_Text secondary;
-        public TMP_Text tertiary;
-        public Image preview;
-        public Image highlight;
-
         [Header("Unselected Item")]
         public GameObject unselected;
 
-        public TMP_Text primary_unselected;
+        public Image highlight;
         public Image highlight_unselected;
-        [NonSerialized] public CharacterInventoryInstance characterInventoryInstance;
-        [NonSerialized] public ClickEventListener clickEventListener;
+        public Image preview;
         [NonSerialized] public int index;
+        public InventoryItemInstance inventoryItemInstance;
         [NonSerialized] public ListViewItem listViewItem;
+
+        public TMP_Text primary;
+
+        public TMP_Text primary_unselected;
+        public TMP_Text secondary;
+        public TMP_Text tertiary;
         [NonSerialized] public UIIconLibrary uiIconLibrary;
+
+      
 
         public void Display(
             int index,
@@ -74,10 +84,7 @@ namespace Appalachia.Prototype.KOC.Inventory
             {
                 var spriteRect = new Rect(
                     Vector2.zero,
-                    new Vector2(
-                        itemInstance.metadata.preview.width,
-                        itemInstance.metadata.preview.height
-                    )
+                    new Vector2(itemInstance.metadata.preview.width, itemInstance.metadata.preview.height)
                 );
 
                 preview.overrideSprite = Sprite.Create(
@@ -99,11 +106,7 @@ namespace Appalachia.Prototype.KOC.Inventory
                 );
 
                 highlight.gameObject.SetActive(true);
-                highlight.overrideSprite = Sprite.Create(
-                    favoriteIcon.icon,
-                    spriteRect,
-                    _spritePivot
-                );
+                highlight.overrideSprite = Sprite.Create(favoriteIcon.icon, spriteRect, _spritePivot);
                 highlight.color = favoriteIcon.tint;
 
                 highlight_unselected.gameObject.SetActive(true);

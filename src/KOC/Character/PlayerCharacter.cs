@@ -8,9 +8,13 @@ namespace Appalachia.Prototype.KOC.Character
     [DisallowMultipleComponent]
     public class PlayerCharacter : MonoBehaviour
     {
+        
+
         public PlayerParts parts;
         public PlayerSettings settings;
         public PlayerState state;
+
+ 
         public event PlayerCharacterEvent OnJump;
         public event PlayerCharacterEvent OnLand;
 
@@ -51,7 +55,7 @@ namespace Appalachia.Prototype.KOC.Character
             UpdateMoving(transform, 0.1f, characterController);
         }
 
-        public void Simulate(CharacterController characterController/*, BOTDPlayerInput input*/)
+        public void Simulate(CharacterController characterController /*, BOTDPlayerInput input*/)
         {
             var t = transform;
             var deltaTime = Time.deltaTime;
@@ -62,7 +66,7 @@ namespace Appalachia.Prototype.KOC.Character
             var run = 0f;
             var move = Vector2.zero;
             var look = Vector2.zero;
-            
+
             state.movement.jumpStart = false;
             if (!state.movement.jumping && jump)
             {
@@ -106,11 +110,7 @@ namespace Appalachia.Prototype.KOC.Character
 
             var angularSpeed = 360f *
                                deltaTime *
-                               Mathf.Lerp(
-                                   settings.looking.lookSpeed,
-                                   settings.looking.runLookSpeed,
-                                   run
-                               );
+                               Mathf.Lerp(settings.looking.lookSpeed, settings.looking.runLookSpeed, run);
             var lookX = look.x;
             var lookY = look.y * Mathf.Sign(move.y);
             state.looking.lookingAngles.x = state.looking.lookingAngles.x + (lookX * angularSpeed);

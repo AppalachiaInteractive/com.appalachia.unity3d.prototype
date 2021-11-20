@@ -13,6 +13,8 @@ namespace Appalachia.Prototype.KOC.Gameplay
     {
         public delegate void AudioTransformsUpdater(Transform root, Transform eye);
 
+        
+
         public AudioTransformsUpdater audioTransformsUpdater;
         public PlayerCamera playerCameraPrefab;
 
@@ -26,6 +28,31 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
         public PlayerController playerController { get; set; }
         public SpawnPoint lastPlayerSpawnPoint { get; private set; }
+
+   
+
+        #region Event Functions
+
+        protected override void Start()
+        {
+            base.Start();
+            
+            defaultCamera = Camera.main;
+
+            var cameraTransform = defaultCamera.transform;
+            cameraTransform.localPosition = Vector3.zero;
+            cameraTransform.localRotation = Quaternion.identity;
+            cameraTransform.localScale = Vector3.one;
+
+            //BOTDPlayerInput.SelectInputMapping();
+        }
+
+        #endregion
+
+        public static GameController FindGameController()
+        {
+            return GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
 
         public void DespawnPlayer()
         {
@@ -71,18 +98,6 @@ namespace Appalachia.Prototype.KOC.Gameplay
             StartCoroutine(SpawnPlayerCo(spawnPoint, reset, nextFrame));
         }
 
-        protected void Start()
-        {
-            defaultCamera = Camera.main;
-
-            var cameraTransform = defaultCamera.transform;
-            cameraTransform.localPosition = Vector3.zero;
-            cameraTransform.localRotation = Quaternion.identity;
-            cameraTransform.localScale = Vector3.one;
-
-            //BOTDPlayerInput.SelectInputMapping();
-        }
-
         private IEnumerator SpawnPlayerCo(SpawnPoint spawnPoint, bool reset, bool nextFrame)
         {
             if (nextFrame)
@@ -121,7 +136,6 @@ namespace Appalachia.Prototype.KOC.Gameplay
                 }
             }
 
-
             var cam = spawnPoint.playerCamera ? spawnPoint.playerCamera : defaultCamera;
             var cameraTransform = cam.transform;
             cameraTransform.parent = playerCamera.eyeTransform
@@ -141,7 +155,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
             }
 
             spawnPoint.Spawn(playerController, reset);
-            
+
             using (var enumerator = GameAgent.GetEnumerator())
             {
                 for (var i = enumerator; i.MoveNext();)
@@ -154,11 +168,6 @@ namespace Appalachia.Prototype.KOC.Gameplay
             }
 
             Profiler.EndSample();
-        }
-
-        public static GameController FindGameController()
-        {
-            return GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         }
     }
 } // Gameplay

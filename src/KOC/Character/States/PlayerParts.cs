@@ -7,15 +7,20 @@ namespace Appalachia.Prototype.KOC.Character.States
     [Serializable]
     public struct PlayerParts : IEquatable<PlayerParts>
     {
+        
+
         public Transform leftFoot;
         public Transform leftHand;
         public Transform mouth;
         public Transform rightFoot;
         public Transform rightHand;
 
+    
+
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(PlayerParts other)
+        [DebuggerStepThrough]
+        public bool Equals(PlayerParts other)
         {
             return Equals(leftFoot,  other.leftFoot) &&
                    Equals(rightFoot, other.rightFoot) &&
@@ -24,12 +29,14 @@ namespace Appalachia.Prototype.KOC.Character.States
                    Equals(mouth,     other.mouth);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is PlayerParts other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -42,12 +49,14 @@ namespace Appalachia.Prototype.KOC.Character.States
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(PlayerParts left, PlayerParts right)
+        [DebuggerStepThrough]
+        public static bool operator ==(PlayerParts left, PlayerParts right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(PlayerParts left, PlayerParts right)
+        [DebuggerStepThrough]
+        public static bool operator !=(PlayerParts left, PlayerParts right)
         {
             return !left.Equals(right);
         }

@@ -1,5 +1,6 @@
 using System;
 using Appalachia.Core.Scriptables;
+using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Collections;
 using Appalachia.Utility.Enums;
 using Appalachia.Utility.Logging;
@@ -15,16 +16,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
     public class AreaSceneBootloadDataCollection : AppalachiaMetadataCollection<
         AreaSceneBootloadDataCollection, SceneBootloadData, AppaList_SceneBootloadData>
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(AreaSceneBootloadDataCollection) + ".";
-
-        private static readonly ProfilerMarker _PRF_GetByArea =
-            new ProfilerMarker(_PRF_PFX + nameof(GetByArea));
-
-        #endregion
-
-        #region Fields
+        #region Fields and Autoproperties
 
         public AppaLookup_SceneBootloadData areas;
 
@@ -40,6 +32,15 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
             }
         }
 
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(AreaSceneBootloadDataCollection) + ".";
+
+        private static readonly ProfilerMarker _PRF_GetByArea =
+            new ProfilerMarker(_PRF_PFX + nameof(GetByArea));
+
+        #endregion
+
 #if UNITY_EDITOR
         private static readonly ProfilerMarker _PRF_RegisterNecessaryInstances =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterNecessaryInstances));
@@ -48,7 +49,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         {
             using (_PRF_RegisterNecessaryInstances.Auto())
             {
-                areas.PopulateEnumKeys(area => SceneBootloadData.LoadOrCreateNew(area.ToString()));
+                areas.PopulateEnumKeys(area => LoadOrCreateNew<SceneBootloadData>(area.ToString()));
             }
         }
 #endif

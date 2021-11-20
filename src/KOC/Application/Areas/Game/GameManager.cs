@@ -5,22 +5,9 @@ namespace Appalachia.Prototype.KOC.Application.Areas.Game
 {
     public class GameManager : AreaManager<GameManager, GameMetadata>
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(GameManager) + ".";
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
-
-        private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
-
-        #endregion
-
         public override ApplicationArea Area => ApplicationArea.Game;
+        public override ApplicationArea ParentArea => ApplicationArea.None;
+        public override bool HasParent => false;
 
         public override void Activate()
         {
@@ -45,5 +32,20 @@ namespace Appalachia.Prototype.KOC.Application.Areas.Game
                 AppaLog.Context.Area.Info(nameof(ResetArea));
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(GameManager) + ".";
+
+        private static readonly ProfilerMarker _PRF_ResetArea =
+            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
+
+        private static readonly ProfilerMarker
+            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
+
+        private static readonly ProfilerMarker _PRF_Deactivate =
+            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
+
+        #endregion
     }
 }

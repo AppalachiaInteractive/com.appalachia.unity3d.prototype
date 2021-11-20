@@ -7,6 +7,10 @@ namespace Appalachia.Prototype.KOC.Crafting.Base
     public abstract class CraftingIconComponent<T> : CraftingComponent<T>
         where T : CraftingIconComponent<T>
     {
+        
+
         public Texture2D icon;
+
+     
     }
 }

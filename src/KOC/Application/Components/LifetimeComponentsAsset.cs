@@ -5,17 +5,21 @@ namespace Appalachia.Prototype.KOC.Application.Components
 {
     public class LifetimeComponentsAsset : SingletonAppalachiaObject<LifetimeComponentsAsset>
     {
+        #region Fields and Autoproperties
+
         public InputActionAsset inputActions;
-        
-        public InputActionReference point;
+        public InputActionReference cancel;
         public InputActionReference leftClick;
         public InputActionReference middleClick;
+        public InputActionReference move;
+
+        public InputActionReference point;
         public InputActionReference rightClick;
         public InputActionReference scrollWheel;
-        public InputActionReference move;
         public InputActionReference submit;
-        public InputActionReference cancel;
-        public InputActionReference trackedDevicePosition;
         public InputActionReference trackedDeviceOrientation;
+        public InputActionReference trackedDevicePosition;
+
+        #endregion
     }
 }

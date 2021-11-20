@@ -8,32 +8,19 @@ namespace Appalachia.Prototype.KOC.Gameplay
 {
     public abstract class GameAgent : MonoBehaviour
     {
+        #region Constants and Static Readonly
+
         private static readonly Dictionary<string, GameAgent> lookup = new();
         private static readonly HashSet<GameAgent> agents = new();
 
+        #endregion
+
+        
+
         public string agentIdentifier;
 
-        public virtual void OnAfterSpawnPlayer(SpawnPoint point, bool reset)
-        {
-        }
 
-        public virtual void OnBeforeSpawnPlayer(bool reset)
-        {
-        }
-
-        public virtual void OnSpawn(SpawnPoint spawnPoint, bool reset)
-        {
-        }
-
-        [DebuggerStepThrough] public override string ToString()
-        {
-            if (!string.IsNullOrEmpty(agentIdentifier))
-            {
-                return $"{base.ToString()} '{agentIdentifier}'";
-            }
-
-            return base.ToString();
-        }
+        #region Event Functions
 
         protected void Awake()
         {
@@ -67,6 +54,20 @@ namespace Appalachia.Prototype.KOC.Gameplay
             {
                 lookup.Remove(agentIdentifier);
             }
+        }
+
+        #endregion
+
+        public virtual void OnAfterSpawnPlayer(SpawnPoint point, bool reset)
+        {
+        }
+
+        public virtual void OnBeforeSpawnPlayer(bool reset)
+        {
+        }
+
+        public virtual void OnSpawn(SpawnPoint spawnPoint, bool reset)
+        {
         }
 
         public static GameAgent Find(string id)
@@ -106,6 +107,17 @@ namespace Appalachia.Prototype.KOC.Gameplay
         public static HashSet<GameAgent>.Enumerator GetEnumerator()
         {
             return agents.GetEnumerator();
+        }
+
+        [DebuggerStepThrough]
+        public override string ToString()
+        {
+            if (!string.IsNullOrEmpty(agentIdentifier))
+            {
+                return $"{base.ToString()} '{agentIdentifier}'";
+            }
+
+            return base.ToString();
         }
     }
 } // Gameplay

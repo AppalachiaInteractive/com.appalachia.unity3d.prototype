@@ -1,19 +1,45 @@
 // ReSharper disable All
 // DO NOT MODIFY: START
 
+using System.Resources;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
 using Appalachia.Utility.Constants;
 
+[assembly: AssemblyTitle("Appalachia.Prototype.KOC")]
+[assembly: AssemblyDescription("Prototype space for creating and testing new features.")]
+[assembly: AssemblyCompany("Appalachia Interactive")]
+[assembly: AssemblyProduct("Keepers Of Creation")]
+[assembly: AssemblyCopyright("Copyright © Appalachia Interactive 2021")]
+[assembly: AssemblyTrademark("Keepers Of Creation")]
+[assembly: AssemblyCulture("")]
+[assembly: NeutralResourcesLanguage("en")]
+[assembly: AssemblyVersion("0.2.0.0")]
+[assembly: AssemblyFileVersion("0.2.0.0")]
 
 namespace Appalachia.Prototype.KOC
 {
     internal static partial class PKG
     {
-        public const int Priority = -288000;
+        public const string AssemblyTitle = "Appalachia.Prototype.KOC";
+        public const string AssemblyDescription = "Prototype space for creating and testing new features.";
+        public const string AssemblyCompany = "Appalachia Interactive";
+        public const string AssemblyProduct = "Keepers Of Creation";
+        public const string AssemblyCopyright = "Copyright © Appalachia Interactive 2021";
+        public const string AssemblyTrademark = "Keepers Of Creation";
+        public const string AssemblyCulture = "";
+        public const string NeutralResourcesLanguage = "en";
+        public const string AssemblyVersion = "0.2.0.0";
+        public const string AssemblyFileVersion = "0.2.0.0";
+        public const int Priority = -277000;
         public const string Name = "Prototype/KOC";
         public const string Prefix = Root + Name + "/";
         public const string Root = "Appalachia/";
         public const string Version = "0.2.0";
-        public const string BuildDate = "2021-11-12T21:38:46.8977811Z";
+        public const int VersionInt = 2000;
+        public const string BuildDate = "2021-11-19T00:01:29.0089865Z";
         
         public static partial class Prefs
         {
@@ -198,7 +224,7 @@ namespace Appalachia.Prototype.KOC
         }
 
 // DO NOT MODIFY: END
-// MODIFICATIONS ALLOWED: START
+#region User Modifiable
         public static partial class Menu
         {
             public static partial class Appalachia
@@ -208,49 +234,102 @@ namespace Appalachia.Prototype.KOC
                     public static partial class Crafting
                     {
                         public const int Priority = Components.Priority + 100;
-                        public const string Base = Components.Base + nameof(Crafting) +  "/";
-                        
+                        public const string Base = Components.Base + nameof(Crafting) + "/";
+
                         public static partial class Craftable
-                        { 
+                        {
                             public const int Priority = Crafting.Priority + 0;
-                            public const string Base = Crafting.Base + nameof(Craftable) +  "/";
+                            public const string Base = Crafting.Base + nameof(Craftable) + "/";
                         }
+
                         public static partial class Item
-                        { 
+                        {
                             public const int Priority = Craftable.Priority + 1;
-                            public const string Base = Crafting.Base + nameof(Item) +  "/";
+                            public const string Base = Crafting.Base + nameof(Item) + "/";
                         }
+
                         public static partial class Knowledge
-                        { 
+                        {
                             public const int Priority = Item.Priority + 1;
-                            public const string Base = Crafting.Base + nameof(Knowledge) +  "/";
+                            public const string Base = Crafting.Base + nameof(Knowledge) + "/";
                         }
+
                         public static partial class Material
-                        { 
+                        {
                             public const int Priority = Knowledge.Priority + 1;
-                            public const string Base = Crafting.Base + nameof(Material) +  "/";
+                            public const string Base = Crafting.Base + nameof(Material) + "/";
                         }
+
                         public static partial class MaterialCategory
-                        { 
+                        {
                             public const int Priority = Material.Priority + 1;
-                            public const string Base = Crafting.Base + nameof(MaterialCategory) +  "/";
+                            public const string Base = Crafting.Base + nameof(MaterialCategory) + "/";
                         }
+
                         public static partial class Skill
-                        { 
+                        {
                             public const int Priority = MaterialCategory.Priority + 1;
-                            public const string Base = Crafting.Base + nameof(Skill) +  "/";
+                            public const string Base = Crafting.Base + nameof(Skill) + "/";
                         }
+
                         public static partial class Tool
-                        { 
+                        {
                             public const int Priority = Skill.Priority + 1;
-                            public const string Base = Crafting.Base + nameof(Tool) +  "/";
+                            public const string Base = Crafting.Base + nameof(Tool) + "/";
                         }
                     }
                 }
             }
         }
-// MODIFICATIONS ALLOWED: END
-// DO NOT MODIFY: START        
+#endregion // User Modifiable
+
+// DO NOT MODIFY: START       
+
+        internal static int ConvertFromVersion(string version)
+        {
+            using (_PRF_ConvertFromVersion.Auto())
+            {
+                var parts = version.Split('.');
+
+                var majorString = parts[0];
+                var minorString = parts[1];
+                var patchString = parts[2];
+
+                var major = int.Parse(majorString);
+                var minor = int.Parse(minorString);
+                var patch = int.Parse(patchString);
+
+                var result = (major * 1_000_000) + (minor * 1_000) + patch;
+
+                return result;
+            }
+        }
+
+        internal static string ConvertToVersion(int version)
+        {
+            using (_PRF_ConvertToVersion.Auto())
+            {
+                var majorInt = version / 1_000_000;
+                var minorInt = (version / 1_000) % 1_000;
+                var patchInt = version % 1_000; 
+
+                var result = $"{majorInt}.{minorInt}.{patchInt}";
+
+                return result;
+            }
+        }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(PKG) + ".";
+
+        private static readonly Unity.Profiling.ProfilerMarker _PRF_ConvertToVersion =
+            new Unity.Profiling.ProfilerMarker(_PRF_PFX + nameof(ConvertToVersion));
+
+        private static readonly Unity.Profiling.ProfilerMarker _PRF_ConvertFromVersion =
+            new Unity.Profiling.ProfilerMarker(_PRF_PFX + nameof(ConvertFromVersion));
+
+        #endregion 
     }
 }
 // DO NOT MODIFY: END

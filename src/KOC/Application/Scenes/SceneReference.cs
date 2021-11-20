@@ -4,12 +4,16 @@ using UnityEngine.AddressableAssets;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
-    public class SceneReference : AppalachiaObject<SceneReference>
+    public class SceneReference  : AppalachiaObject
     {
-        public bool setActiveOnLoad;
-        
+        #region Fields and Autoproperties
+
         [ReadOnly] public AssetReference sceneReference;
-        
+
+        public bool setActiveOnLoad;
+
+        #endregion
+
 #if UNITY_EDITOR
         [OnValueChanged(nameof(UpdateSelection))]
         public UnityEditor.SceneAsset sceneAsset;
@@ -34,7 +38,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         )]
         public static void CreateAsset()
         {
-            CreateNew();
+            CreateNew<SceneReference>();
         }
 #endif
     }

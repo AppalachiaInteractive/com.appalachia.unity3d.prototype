@@ -11,11 +11,10 @@ namespace Appalachia.Prototype.KOC.Application.Collections
         {
         }
 
-        public AppaList_SceneBootloadData(int capacity, float capacityIncreaseMultiplier = 2, bool noTracking = false) : base(
-            capacity,
-            capacityIncreaseMultiplier,
-            noTracking
-        )
+        public AppaList_SceneBootloadData(
+            int capacity,
+            float capacityIncreaseMultiplier = 2,
+            bool noTracking = false) : base(capacity, capacityIncreaseMultiplier, noTracking)
         {
         }
 
@@ -27,5 +26,4 @@ namespace Appalachia.Prototype.KOC.Application.Collections
         {
         }
     }
-    
 }

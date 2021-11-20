@@ -7,11 +7,23 @@ namespace Appalachia.Prototype.KOC.Character.Settings
     [Serializable]
     public struct PlayerSettings : IEquatable<PlayerSettings>
     {
+        
+
         [SerializeField] public Breathing breathing;
         [SerializeField] public PlayerFootPlanting footPlanting;
         [SerializeField] public PlayerJumping jumping;
         [SerializeField] public PlayerLocomotion locomotion;
         [SerializeField] public PlayerLooking looking;
+
+
+        public static PlayerSettings Create()
+        {
+            var instance = new PlayerSettings();
+
+            instance.Initialize();
+
+            return instance;
+        }
 
         public void Initialize()
         {
@@ -54,18 +66,10 @@ namespace Appalachia.Prototype.KOC.Character.Settings
             };
         }
 
-        public static PlayerSettings Create()
-        {
-            var instance = new PlayerSettings();
-
-            instance.Initialize();
-
-            return instance;
-        }
-
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(PlayerSettings other)
+        [DebuggerStepThrough]
+        public bool Equals(PlayerSettings other)
         {
             return looking.Equals(other.looking) &&
                    footPlanting.Equals(other.footPlanting) &&
@@ -73,12 +77,14 @@ namespace Appalachia.Prototype.KOC.Character.Settings
                    locomotion.Equals(other.locomotion);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is PlayerSettings other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -90,12 +96,14 @@ namespace Appalachia.Prototype.KOC.Character.Settings
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(PlayerSettings left, PlayerSettings right)
+        [DebuggerStepThrough]
+        public static bool operator ==(PlayerSettings left, PlayerSettings right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(PlayerSettings left, PlayerSettings right)
+        [DebuggerStepThrough]
+        public static bool operator !=(PlayerSettings left, PlayerSettings right)
         {
             return !left.Equals(right);
         }

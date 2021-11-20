@@ -12,7 +12,10 @@ namespace Appalachia.Prototype.KOC.Crafting
             options = new List<CraftingRecipeElementOption>();
         }
 
+        
+
         public List<CraftingRecipeElementOption> options;
+
 
         [ButtonGroup]
         public void NewOptions()

@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +5,11 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
 {
     public class ScreenFadeManager : UIFadeManager<ScreenFadeManager>
     {
+        #region Fields and Autoproperties
+
         public Image FullScreenBlack;
+
+        #endregion
 
         protected override void ExecuteFade(float time)
         {

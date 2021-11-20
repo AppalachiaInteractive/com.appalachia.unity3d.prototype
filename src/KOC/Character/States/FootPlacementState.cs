@@ -7,6 +7,8 @@ namespace Appalachia.Prototype.KOC.Character.States
     [Serializable]
     public struct FootPlacementState : IEquatable<FootPlacementState>
     {
+        
+
         [SerializeField] public bool audioStale;
 
         [SerializeField] public bool grounded;
@@ -22,9 +24,11 @@ namespace Appalachia.Prototype.KOC.Character.States
         [SerializeField] public Vector3 normal;
         [SerializeField] public Vector3 position;
 
+
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(FootPlacementState other)
+        [DebuggerStepThrough]
+        public bool Equals(FootPlacementState other)
         {
             return position.Equals(other.position) &&
                    lastPlantedPosition.Equals(other.lastPlantedPosition) &&
@@ -36,12 +40,14 @@ namespace Appalachia.Prototype.KOC.Character.States
                    (audioStale == other.audioStale);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is FootPlacementState other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -57,12 +63,14 @@ namespace Appalachia.Prototype.KOC.Character.States
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(FootPlacementState left, FootPlacementState right)
+        [DebuggerStepThrough]
+        public static bool operator ==(FootPlacementState left, FootPlacementState right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(FootPlacementState left, FootPlacementState right)
+        [DebuggerStepThrough]
+        public static bool operator !=(FootPlacementState left, FootPlacementState right)
         {
             return !left.Equals(right);
         }

@@ -9,6 +9,8 @@ namespace Appalachia.Prototype.KOC.Gameplay
     [DisallowMultipleComponent]
     public class FirstPersonCamera : PlayerCamera
     {
+        
+
         [Space(9)]
         [Range(0, 10)]
         public float eyeHeight = 1.8f;
@@ -27,6 +29,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
         private TypedInterpolator<LinearAngle> _pitch;
         private TypedInterpolator<LinearAngle> _roll;
         private TypedInterpolator<LinearAngle> _yaw;
+
 
         public Quaternion targetRotation => Quaternion.Euler(_pitch.target, _yaw.target, _roll.target);
 

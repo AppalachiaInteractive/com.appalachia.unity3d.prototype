@@ -6,6 +6,8 @@ namespace Appalachia.Prototype.KOC.Character.States
     [Serializable]
     public struct BreathingState
     {
+        
+
         [SerializeField] public BreathDirection state;
         [SerializeField] public float currentIntensity;
 
@@ -18,6 +20,8 @@ namespace Appalachia.Prototype.KOC.Character.States
 
         [SerializeField] public RespirationSpeed speed;
         [SerializeField] public RespirationStyle style;
+
+
         public bool exhaling => state == BreathDirection.Exhale;
 
         public bool inhaling => state == BreathDirection.Inhale;

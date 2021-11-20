@@ -4,7 +4,6 @@ using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Collections;
 using Appalachia.Utility.Enums;
 using Sirenix.OdinInspector;
-using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.State
 {
@@ -13,11 +12,12 @@ namespace Appalachia.Prototype.KOC.Application.State
     {
         public ApplicationState()
         {
-            currentArea = ApplicationArea.None;
-            nextArea = ApplicationArea.SplashScreen;
-            
-            substates.PopulateEnumKeys(area => new ApplicationSubstate(area), true);
+            Initiailze();
         }
+
+        
+
+        public AppaLookup_ApplicationSubstate substates;
 
         [HorizontalGroup("A"), SmartLabel, ReadOnly]
         public ApplicationArea currentArea;
@@ -25,9 +25,44 @@ namespace Appalachia.Prototype.KOC.Application.State
         [HorizontalGroup("A"), SmartLabel, ReadOnly]
         public ApplicationArea nextArea;
 
-        public AppaLookup_ApplicationSubstate substates;
+        [NonSerialized] private bool _initialized;
 
-        public ApplicationSubstate current => substates.Get(currentArea);
-        public ApplicationSubstate next => substates.Get(nextArea);
+
+        public ApplicationSubstate current
+        {
+            get
+            {
+                Initiailze();
+
+                return substates.Get(currentArea);
+            }
+        }
+
+        public ApplicationSubstate next
+        {
+            get
+            {
+                Initiailze();
+
+                return substates.Get(nextArea);
+            }
+        }
+
+        private void Initiailze()
+        {
+            if (_initialized)
+            {
+                return;
+            }
+
+            currentArea = ApplicationArea.None;
+            nextArea = ApplicationArea.SplashScreen;
+
+            substates ??= new AppaLookup_ApplicationSubstate();
+
+            substates.PopulateEnumKeys(area => new ApplicationSubstate(area), true);
+
+            _initialized = true;
+        }
     }
 }

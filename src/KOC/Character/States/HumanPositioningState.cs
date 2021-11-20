@@ -7,6 +7,8 @@ namespace Appalachia.Prototype.KOC.Character.States
     [Serializable]
     public struct HumanPositioningState : IEquatable<HumanPositioningState>
     {
+        
+
         [SerializeField] public FootPlacementState leftFoot;
 
         [SerializeField] public FootPlacementState rightFoot;
@@ -14,6 +16,9 @@ namespace Appalachia.Prototype.KOC.Character.States
         [SerializeField] public HumanFeet feetPlanted;
 
         [SerializeField] public Vector3 lastVegetationPosition;
+
+        
+
         public bool hasAnyFootPlanted => feetPlanted != HumanFeet.Neither;
         public bool hasBothFeetPlanted => feetPlanted == HumanFeet.Both;
 
@@ -21,7 +26,8 @@ namespace Appalachia.Prototype.KOC.Character.States
 
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(HumanPositioningState other)
+        [DebuggerStepThrough]
+        public bool Equals(HumanPositioningState other)
         {
             return leftFoot.Equals(other.leftFoot) &&
                    rightFoot.Equals(other.rightFoot) &&
@@ -29,12 +35,14 @@ namespace Appalachia.Prototype.KOC.Character.States
                    lastVegetationPosition.Equals(other.lastVegetationPosition);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is HumanPositioningState other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -46,12 +54,14 @@ namespace Appalachia.Prototype.KOC.Character.States
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(HumanPositioningState left, HumanPositioningState right)
+        [DebuggerStepThrough]
+        public static bool operator ==(HumanPositioningState left, HumanPositioningState right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(HumanPositioningState left, HumanPositioningState right)
+        [DebuggerStepThrough]
+        public static bool operator !=(HumanPositioningState left, HumanPositioningState right)
         {
             return !left.Equals(right);
         }

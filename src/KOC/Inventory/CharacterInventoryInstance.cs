@@ -6,8 +6,97 @@ namespace Appalachia.Prototype.KOC.Inventory
     [Serializable]
     public class CharacterInventoryInstance
     {
-        public List<InventoryItemInstance> items;
+        
+
         public InventoryItemInstanceUI selectedItem;
+        public List<InventoryItemInstance> items;
+
+    
+
+        public IEnumerable<InventoryItemInstance> GetAllItems()
+        {
+            return GetItems(InventoryState.Owned);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetAllItems(InventoryCategory category)
+        {
+            return GetItems(InventoryState.Owned, true, category);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetAllItems(
+            InventoryCategory category,
+            InventorySubcategory subcategory)
+        {
+            return GetItems(InventoryState.Owned, true, category, true, subcategory);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetEquippedItems()
+        {
+            return GetItems(InventoryState.Equipped);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetEquippedItems(InventoryCategory category)
+        {
+            return GetItems(InventoryState.Equipped, true, category);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetEquippedItems(
+            InventoryCategory category,
+            InventorySubcategory subcategory)
+        {
+            return GetItems(InventoryState.Equipped, true, category, true, subcategory);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetFavoritedItems()
+        {
+            return GetItems(InventoryState.Favorited);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetFavoritedItems(InventoryCategory category)
+        {
+            return GetItems(InventoryState.Favorited, true, category);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetFavoritedItems(
+            InventoryCategory category,
+            InventorySubcategory subcategory)
+        {
+            return GetItems(InventoryState.Favorited, true, category, true, subcategory);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetUnequippedItems()
+        {
+            return GetItems(InventoryState.Equipped, false);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetUnequippedItems(InventoryCategory category)
+        {
+            return GetItems(InventoryState.Equipped, false, category);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetUnequippedItems(
+            InventoryCategory category,
+            InventorySubcategory subcategory)
+        {
+            return GetItems(InventoryState.Equipped, false, category, true, subcategory);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetUnfavoritedItems()
+        {
+            return GetItems(InventoryState.Favorited, false);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetUnfavoritedItems(InventoryCategory category)
+        {
+            return GetItems(InventoryState.Favorited, false, category);
+        }
+
+        public IEnumerable<InventoryItemInstance> GetUnfavoritedItems(
+            InventoryCategory category,
+            InventorySubcategory subcategory)
+        {
+            return GetItems(InventoryState.Favorited, false, category, true, subcategory);
+        }
 
         public void Validate()
         {
@@ -83,91 +172,6 @@ namespace Appalachia.Prototype.KOC.Inventory
 
                 yield return item;
             }
-        }
-
-        public IEnumerable<InventoryItemInstance> GetAllItems()
-        {
-            return GetItems(InventoryState.Owned);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetAllItems(InventoryCategory category)
-        {
-            return GetItems(InventoryState.Owned, true, category);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetAllItems(
-            InventoryCategory category,
-            InventorySubcategory subcategory)
-        {
-            return GetItems(InventoryState.Owned, true, category, true, subcategory);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetEquippedItems()
-        {
-            return GetItems(InventoryState.Equipped);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetEquippedItems(InventoryCategory category)
-        {
-            return GetItems(InventoryState.Equipped, true, category);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetEquippedItems(
-            InventoryCategory category,
-            InventorySubcategory subcategory)
-        {
-            return GetItems(InventoryState.Equipped, true, category, true, subcategory);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetUnequippedItems()
-        {
-            return GetItems(InventoryState.Equipped, false);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetUnequippedItems(InventoryCategory category)
-        {
-            return GetItems(InventoryState.Equipped, false, category);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetUnequippedItems(
-            InventoryCategory category,
-            InventorySubcategory subcategory)
-        {
-            return GetItems(InventoryState.Equipped, false, category, true, subcategory);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetFavoritedItems()
-        {
-            return GetItems(InventoryState.Favorited);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetFavoritedItems(InventoryCategory category)
-        {
-            return GetItems(InventoryState.Favorited, true, category);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetFavoritedItems(
-            InventoryCategory category,
-            InventorySubcategory subcategory)
-        {
-            return GetItems(InventoryState.Favorited, true, category, true, subcategory);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetUnfavoritedItems()
-        {
-            return GetItems(InventoryState.Favorited, false);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetUnfavoritedItems(InventoryCategory category)
-        {
-            return GetItems(InventoryState.Favorited, false, category);
-        }
-
-        public IEnumerable<InventoryItemInstance> GetUnfavoritedItems(
-            InventoryCategory category,
-            InventorySubcategory subcategory)
-        {
-            return GetItems(InventoryState.Favorited, false, category, true, subcategory);
         }
     }
 }

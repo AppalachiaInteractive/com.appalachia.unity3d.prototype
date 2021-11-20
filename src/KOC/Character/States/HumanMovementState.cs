@@ -7,6 +7,8 @@ namespace Appalachia.Prototype.KOC.Character.States
     [Serializable]
     public struct HumanMovementState : IEquatable<HumanMovementState>
     {
+        
+
         [SerializeField] public bool jumping;
         [SerializeField] public bool jumpStart;
         [SerializeField] public bool swimming;
@@ -15,9 +17,11 @@ namespace Appalachia.Prototype.KOC.Character.States
         [SerializeField] public float speedScalar;
         [SerializeField] public Vector2 movingSpeed;
 
+
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(HumanMovementState other)
+        [DebuggerStepThrough]
+        public bool Equals(HumanMovementState other)
         {
             return movingSpeed.Equals(other.movingSpeed) &&
                    speedScalar.Equals(other.speedScalar) &&
@@ -28,12 +32,14 @@ namespace Appalachia.Prototype.KOC.Character.States
                    (jumpStart == other.jumpStart);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is HumanMovementState other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -48,12 +54,14 @@ namespace Appalachia.Prototype.KOC.Character.States
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(HumanMovementState left, HumanMovementState right)
+        [DebuggerStepThrough]
+        public static bool operator ==(HumanMovementState left, HumanMovementState right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(HumanMovementState left, HumanMovementState right)
+        [DebuggerStepThrough]
+        public static bool operator !=(HumanMovementState left, HumanMovementState right)
         {
             return !left.Equals(right);
         }

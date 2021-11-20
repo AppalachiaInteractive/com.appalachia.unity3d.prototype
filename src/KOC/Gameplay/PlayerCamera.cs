@@ -5,12 +5,15 @@ namespace Appalachia.Prototype.KOC.Gameplay
 {
     public abstract class PlayerCamera : MonoBehaviour
     {
-        public Transform eyeTransform;
+        
 
-        private Camera _playerCamera;
+        public Transform eyeTransform;
 
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public DepthOfFieldAutoFocus autoFocus { get; private set; }
+
+        private Camera _playerCamera;
+
 
         public Camera playerCamera
         {

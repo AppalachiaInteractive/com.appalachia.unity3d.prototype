@@ -1,7 +1,9 @@
 using System.Collections;
+using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Behaviours;
 using Appalachia.Core.Execution.Hooks;
+using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Components;
 using Appalachia.Prototype.KOC.Application.Scenes;
 using Appalachia.Prototype.KOC.Application.Screens.Fading;
@@ -15,34 +17,12 @@ using UnityEngine.SceneManagement;
 
 namespace Appalachia.Prototype.KOC.Application
 {
+    [InspectorIcon(Icons.Squirrel.Red)]
     [AlwaysInitializeOnLoad]
     [ExecutionOrder(-10000)]
     public class ApplicationManager : SingletonAppalachiaBehaviour<ApplicationManager>
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(ApplicationManager) + ".";
-
-        private static readonly ProfilerMarker _PRF_IsNextStateReady =
-            new ProfilerMarker(_PRF_PFX + nameof(IsNextStateReady));
-
-        private static readonly ProfilerMarker _PRF_Reset = new ProfilerMarker(_PRF_PFX + nameof(Reset));
-        private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
-
-        private static readonly ProfilerMarker _PRF_OnApplicationFocus =
-            new ProfilerMarker(_PRF_PFX + nameof(OnApplicationFocus));
-
-        private static readonly ProfilerMarker _PRF_TransitionTo =
-            new ProfilerMarker(_PRF_PFX + nameof(TransitionTo));
-
-        private static readonly ProfilerMarker _PRF_OnAwake = new ProfilerMarker(_PRF_PFX + nameof(OnAwake));
-
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-        #endregion
-
-        #region Fields
+        #region Fields and Autoproperties
 
         [Title("Application State"), InlineProperty, HideLabel]
         public ApplicationState state;
@@ -93,19 +73,6 @@ namespace Appalachia.Prototype.KOC.Application
 
         #region Event Functions
 
-        private void Reset()
-        {
-            using (_PRF_Reset.Auto())
-            {
-                AppaLog.Context.Bootload.Info(nameof(Reset));
-
-                state = null;
-                _bootloads = null;
-
-                Initialize();
-            }
-        }
-
         private void Update()
         {
             using (_PRF_Update.Auto())
@@ -150,19 +117,23 @@ namespace Appalachia.Prototype.KOC.Application
             }
         }
 
-        protected override void OnAwake()
+        protected override void Awake()
         {
-            using (_PRF_OnAwake.Auto())
+            using (_PRF_Awake.Auto())
             {
-                AppaLog.Context.Bootload.Info(nameof(OnAwake));
+                base.Awake();
+                
+                AppaLog.Context.Bootload.Info(nameof(Awake));
                 instance.Initialize();
             }
         }
 
-        private void Initialize()
+        public override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
+                base.Initialize();
+                
                 AppaLog.Context.Bootload.Info(nameof(Initialize));
                 name = nameof(ApplicationManager);
 
@@ -247,5 +218,27 @@ namespace Appalachia.Prototype.KOC.Application
             _isSceneLoading = false;
             yield return null;
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(ApplicationManager) + ".";
+
+        private static readonly ProfilerMarker _PRF_IsNextStateReady =
+            new ProfilerMarker(_PRF_PFX + nameof(IsNextStateReady));
+
+        private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
+
+        private static readonly ProfilerMarker _PRF_OnApplicationFocus =
+            new ProfilerMarker(_PRF_PFX + nameof(OnApplicationFocus));
+
+        private static readonly ProfilerMarker _PRF_TransitionTo =
+            new ProfilerMarker(_PRF_PFX + nameof(TransitionTo));
+
+        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        #endregion
     }
 }

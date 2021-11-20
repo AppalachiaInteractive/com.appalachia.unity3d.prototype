@@ -17,6 +17,8 @@ namespace Appalachia.Prototype.KOC.Application.State
             substate = ApplicationStates.NotLoaded;
         }
 
+        
+
         [HorizontalGroup("A"), ShowInInspector, ReadOnly]
         public readonly ApplicationArea area;
 

@@ -8,6 +8,8 @@ namespace Appalachia.Prototype.KOC.Character.Settings
     [Serializable]
     public struct PlayerFootPlanting : IEquatable<PlayerFootPlanting>
     {
+        
+
         [PropertyRange(0, 10f)]
         [Tooltip("[0, 10]")]
         public float runStepDistance;
@@ -22,9 +24,12 @@ namespace Appalachia.Prototype.KOC.Character.Settings
 
         public LayerMask floorLayers;
 
+    
+
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(PlayerFootPlanting other)
+        [DebuggerStepThrough]
+        public bool Equals(PlayerFootPlanting other)
         {
             return floorLayers.Equals(other.floorLayers) &&
                    walkStepDistance.Equals(other.walkStepDistance) &&
@@ -32,12 +37,14 @@ namespace Appalachia.Prototype.KOC.Character.Settings
                    stopSpeedThreshold.Equals(other.stopSpeedThreshold);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is PlayerFootPlanting other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -49,12 +56,14 @@ namespace Appalachia.Prototype.KOC.Character.Settings
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(PlayerFootPlanting left, PlayerFootPlanting right)
+        [DebuggerStepThrough]
+        public static bool operator ==(PlayerFootPlanting left, PlayerFootPlanting right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(PlayerFootPlanting left, PlayerFootPlanting right)
+        [DebuggerStepThrough]
+        public static bool operator !=(PlayerFootPlanting left, PlayerFootPlanting right)
         {
             return !left.Equals(right);
         }

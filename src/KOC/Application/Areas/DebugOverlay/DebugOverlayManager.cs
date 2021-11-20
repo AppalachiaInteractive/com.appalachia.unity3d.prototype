@@ -13,31 +13,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
 {
     public class DebugOverlayManager : AreaManager<DebugOverlayManager, DebugOverlayMetadata>
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(DebugOverlayManager) + ".";
-
-        private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
-
-        private static readonly ProfilerMarker _PRF_DisableInput =
-            new ProfilerMarker(_PRF_PFX + nameof(DisableInput));
-
-        private static readonly ProfilerMarker _PRF_EnableInput =
-            new ProfilerMarker(_PRF_PFX + nameof(EnableInput));
-
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-        #endregion
-
-        #region Fields
+        #region Fields and Autoproperties
 
         [FoldoutGroup("Editor Only")]
         [BoxGroup("Editor Only/Graphy")]
@@ -51,6 +27,8 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
         #endregion
 
         public override ApplicationArea Area => ApplicationArea.DebugOverlay;
+        public override ApplicationArea ParentArea => ApplicationArea.None;
+        public override bool HasParent => false;
 
         public override void Activate()
         {
@@ -129,25 +107,54 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
             }
         }
 
-        private void Initialize()
+        public override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
+                base.Initialize();
+                
                 AppaLog.Context.Area.Info(nameof(Initialize));
 
                 if (graphyInstance == null)
                 {
-                    metadata.graphyPrefab.GetReference(menuCanvasFader.transform, go => graphyInstance = go);
+                    metadata.graphyPrefab.GetReference(
+                        canvas.canvasGroup.transform,
+                        go => graphyInstance = go
+                    );
                 }
 
                 if (inGameConsoleInstance == null)
                 {
                     metadata.inGameConsolePrefab.GetReference(
-                        menuCanvasFader.transform,
+                        canvas.canvasGroup.transform,
                         go => inGameConsoleInstance = go
                     );
                 }
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(DebugOverlayManager) + ".";
+
+        private static readonly ProfilerMarker
+            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
+
+        private static readonly ProfilerMarker _PRF_Deactivate =
+            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
+
+        private static readonly ProfilerMarker _PRF_ResetArea =
+            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
+
+        private static readonly ProfilerMarker _PRF_DisableInput =
+            new ProfilerMarker(_PRF_PFX + nameof(DisableInput));
+
+        private static readonly ProfilerMarker _PRF_EnableInput =
+            new ProfilerMarker(_PRF_PFX + nameof(EnableInput));
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        #endregion
     }
 }

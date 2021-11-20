@@ -12,23 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a93ff9155749c43a22bf6b67476399, type: 3}
   m_Name: DebugOverlayMetadata_20211110-022302858
   m_EditorClassIdentifier: 
+  _initializationData:
+    _tags: []
+    _resetToken: 
   _cachedName: 
   _niceName: 
+  additionalShaderChannels: 0
+  blockingObjects: 0
+  blocksRaycasts: 0
+  fullscreen: 0
+  ignoreParentGroups: 0
+  ignoreReversedGraphics: 0
+  interactable: 0
+  pixelPerfect: 0
+  resetScaleToOne: 0
+  match: 0
+  referencePixelsPerUnit: 1
+  graph: {fileID: 0}
+  sortingOrder: 0
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  renderMode: 0
+  uiScaleMode: 0
+  screenMatchMode: 0
+  canvasName: 
+  graphControllerName: 
+  viewCategory: 
+  viewName: 
+  referenceResolution: {x: 0, y: 0}
+  testGraph: {fileID: 0}
   graphyPrefab:
     _assetReference:
-      m_AssetGUID: 0abab5bb77339e4428787a870eb31bd3
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-    _directReference: {fileID: 177638, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+    _directReference: {fileID: 0}
   inGameConsolePrefab:
     _assetReference:
-      m_AssetGUID: 67117722a812a2e46ab8cb8eafbf5f5e
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-    _directReference: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
-  captureScreenshot: {fileID: -79616292676720681, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
-  debugLogToggle: {fileID: -2526880167548780575, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
-  graphyToggleActive: {fileID: 9114599639279734414, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
-  graphyToggleModes: {fileID: 897213483841755979, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
+    _directReference: {fileID: 0}
+  captureScreenshot: {fileID: 0}
+  debugLogToggle: {fileID: 0}
+  graphyToggleActive: {fileID: 0}
+  graphyToggleModes: {fileID: 0}

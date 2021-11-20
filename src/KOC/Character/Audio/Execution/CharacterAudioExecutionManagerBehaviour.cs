@@ -9,18 +9,36 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
     public class CharacterAudioExecutionManagerBehaviour : AudioExecutionManagerSingletonBehaviour<
         CharacterAudioExecutionManagerBehaviour>
     {
+        
+
         [SerializeField] public CharacterBreathingAudioProcessor breathing;
         [SerializeField] public CharacterFootstepAudioProcessor footsteps;
         [SerializeField] public PlayerCharacter player;
 
-        private void OnDie(PlayerCharacter pc)
+        #region Event Functions
+
+        private void Update()
         {
-            breathing.OnDie(pc, this);
-            footsteps.OnDie(pc, this);
+            if (breathing == null)
+            {
+                breathing = new CharacterBreathingAudioProcessor();
+            }
+
+            if (footsteps == null)
+            {
+                footsteps = new CharacterFootstepAudioProcessor();
+            }
+
+            HandleExecution<CharacterBreathingAudioProcessor, HumanBreathingSounds, AudioContext3,
+                AudioContextParameters3>(this, breathing);
+            HandleExecution<CharacterFootstepAudioProcessor, FootstepSounds, AudioContext3,
+                AudioContextParameters3>(this, footsteps);
         }
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
+            
             player = FindObjectOfType<PlayerCharacter>();
 
             player.OnStep += OnStep;
@@ -37,6 +55,14 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
             player.OnSleeping_Start += OnSleeping_Start;
             player.OnSleeping_End += OnSleeping_End;
             player.OnDie += OnDie;
+        }
+
+        #endregion
+
+        private void OnDie(PlayerCharacter pc)
+        {
+            breathing.OnDie(pc, this);
+            footsteps.OnDie(pc, this);
         }
 
         private void OnInWater_End(PlayerCharacter pc)
@@ -249,24 +275,6 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
         {
             breathing.OnVocalize_Start(pc, this);
             footsteps.OnVocalize_Start(pc, this);
-        }
-
-        private void Update()
-        {
-            if (breathing == null)
-            {
-                breathing = new CharacterBreathingAudioProcessor();
-            }
-
-            if (footsteps == null)
-            {
-                footsteps = new CharacterFootstepAudioProcessor();
-            }
-
-            HandleExecution<CharacterBreathingAudioProcessor, HumanBreathingSounds, AudioContext3,
-                AudioContextParameters3>(this, breathing);
-            HandleExecution<CharacterFootstepAudioProcessor, FootstepSounds, AudioContext3,
-                AudioContextParameters3>(this, footsteps);
         }
     }
 }

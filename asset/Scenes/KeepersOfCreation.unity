@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.33887306, g: 0.33625084, b: 0.34836757, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,20 +156,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state:
+    substates:
+      initializerCount: 64
+      values:
+        _capacityIncreaseMultiplier: 2
+        _values: []
+        noTracking: 0
+        _count: 0
+      keys:
+        _capacityIncreaseMultiplier: 2
+        _values: 
+        noTracking: 0
+        _count: 0
     currentArea: 10
     nextArea: 10
-    game:
-      substate: 0
-    inGameMenu:
-      substate: 0
-    loadingScreen:
-      substate: 0
-    mainMenu:
-      substate: 0
-    pauseScreen:
-      substate: 0
-    splashScreen:
-      substate: 0
   _bootloads: {fileID: 11400000, guid: 2046275db144cb44da3ef2ef6456ab10, type: 2}
 --- !u!4 &1521710921
 Transform:
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52128c3b524156641b60338795e4fb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1
+  uiFadeSettings: {fileID: 11400000, guid: dcbac9b510a72ef44a0371a1f0053e6b, type: 2}
   FullScreenBlack: {fileID: 0}
 --- !u!222 &1678663665064809065
 CanvasRenderer:
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -8,8 +8,12 @@ namespace Appalachia.Prototype.KOC.Crafting
     [Serializable]
     public class Craftable : CraftingIconComponent<Craftable>
     {
+        #region Fields and Autoproperties
+
         public List<CraftedItem> craftedItems;
         public List<CraftingRecipe> recipes;
+
+        #endregion
 
 #if UNITY_EDITOR
         [ButtonGroup]
@@ -20,7 +24,7 @@ namespace Appalachia.Prototype.KOC.Crafting
                 craftedItems = new List<CraftedItem>();
             }
 
-            craftedItems.Add(CraftedItem.CreateNew());
+            craftedItems.Add(CreateNew<CraftedItem>());
         }
 
         [ButtonGroup]
@@ -41,7 +45,7 @@ namespace Appalachia.Prototype.KOC.Crafting
         )]
         private static void MENU_CREATE()
         {
-            var created = CreateNew();
+            var created = CreateNew<Craftable>();
             UnityEditor.Selection.activeObject = created;
         }
 #endif

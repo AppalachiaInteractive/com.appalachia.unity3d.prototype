@@ -13,16 +13,7 @@ namespace Appalachia.Prototype.KOC.Application.References
     [Serializable]
     public class AppaAsset
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(AppaAsset) + ".";
-
-        private static readonly ProfilerMarker _PRF_GetReference =
-            new ProfilerMarker(_PRF_PFX + nameof(GetReference));
-
-        #endregion
-
-        #region Fields
+        #region Fields and Autoproperties
 
         [SerializeField, ReadOnly]
         private AssetReferenceGameObject _assetReference;
@@ -93,5 +84,14 @@ namespace Appalachia.Prototype.KOC.Application.References
             _assetReference = new AssetReferenceGameObject(directReferenceGuid);
         }
 #endif
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(AppaAsset) + ".";
+
+        private static readonly ProfilerMarker _PRF_GetReference =
+            new ProfilerMarker(_PRF_PFX + nameof(GetReference));
+
+        #endregion
     }
 }

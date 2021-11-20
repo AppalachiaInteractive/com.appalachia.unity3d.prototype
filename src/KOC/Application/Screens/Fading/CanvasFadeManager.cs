@@ -1,6 +1,4 @@
-using Appalachia.Core.Extensions;
 using Appalachia.Utility.Extensions;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Screens.Fading
@@ -8,12 +6,22 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
     [RequireComponent(typeof(CanvasGroup))]
     public class CanvasFadeManager : UIFadeManager<CanvasFadeManager>
     {
+        #region Fields and Autoproperties
+
         public CanvasGroup menuCanvasGroup;
 
-        private void Awake()
+        #endregion
+
+        #region Event Functions
+
+        protected override void Awake()
         {
+            base.Awake();
+            
             this.GetOrCreateComponent(ref menuCanvasGroup);
         }
+
+        #endregion
 
         protected override void ExecuteFade(float time)
         {

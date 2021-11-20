@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889794c411054f7ca8e6fbdc6728c846, type: 3}
+  m_Name: _UIButtonDatabase
+  m_EditorClassIdentifier: 
+  DatabaseType: 0
+  CategoryNames:
+  - Custom
+  - DebugOverlay
+  - Game
+  - General
+  - HUD
+  - InGameMenu
+  - LoadingScreen
+  - MainMenu
+  - PauseMenu
+  - SplashScreen
+  - StartScreen
+  - Test
+  Categories:
+  - {fileID: 11400000, guid: 1b157b717f834da42a1ca3ee35049816, type: 2}
+  - {fileID: 11400000, guid: 89010f8b943283548b501b29577dc62b, type: 2}
+  - {fileID: 11400000, guid: f10c5095ed5e82f488f774914c9a1e8e, type: 2}
+  - {fileID: 11400000, guid: 3c4d2187b1868ce46b9acd1450346f55, type: 2}
+  - {fileID: 11400000, guid: 1072d9e63a74bbb4fab3a2a360b6f31a, type: 2}
+  - {fileID: 11400000, guid: f11f7a097c4c78f4490c7af4143512ae, type: 2}
+  - {fileID: 11400000, guid: 6f65882963d1fe746b297ad1bcf83f8c, type: 2}
+  - {fileID: 11400000, guid: cea757101e9110b46be9c1179a525977, type: 2}
+  - {fileID: 11400000, guid: 5250df9ef0857164580a97048426bba3, type: 2}
+  - {fileID: 11400000, guid: aa02da2f49d50c543aa1194fe86430b9, type: 2}
+  - {fileID: 11400000, guid: 237eeabb70034d543930315d308a126b, type: 2}

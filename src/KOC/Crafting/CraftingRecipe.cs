@@ -12,7 +12,11 @@ namespace Appalachia.Prototype.KOC.Crafting
             elements = new List<CraftingRecipeElement>();
         }
 
+        
+
         public List<CraftingRecipeElement> elements;
+
+      
 
         [ButtonGroup]
         public void NewElement()

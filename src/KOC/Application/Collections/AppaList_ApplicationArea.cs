@@ -1,9 +1,9 @@
 using System;
 using Appalachia.Core.Collections;
+using Appalachia.Prototype.KOC.Application.Areas;
 
 namespace Appalachia.Prototype.KOC.Application.Collections
 {
-
     [Serializable]
     public sealed class AppaList_ApplicationArea : AppaList<ApplicationArea>
     {
@@ -11,11 +11,10 @@ namespace Appalachia.Prototype.KOC.Application.Collections
         {
         }
 
-        public AppaList_ApplicationArea(int capacity, float capacityIncreaseMultiplier = 2, bool noTracking = false) : base(
-            capacity,
-            capacityIncreaseMultiplier,
-            noTracking
-        )
+        public AppaList_ApplicationArea(
+            int capacity,
+            float capacityIncreaseMultiplier = 2,
+            bool noTracking = false) : base(capacity, capacityIncreaseMultiplier, noTracking)
         {
         }
 

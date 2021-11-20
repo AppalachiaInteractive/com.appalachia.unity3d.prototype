@@ -8,6 +8,8 @@ namespace Appalachia.Prototype.KOC.Character.Settings
     [Serializable]
     public struct PlayerLocomotion : IEquatable<PlayerLocomotion>
     {
+        
+
         [PropertyRange(0f, 10f)]
         [Tooltip("[0, 10]")]
         public float runSpeed;
@@ -16,19 +18,24 @@ namespace Appalachia.Prototype.KOC.Character.Settings
         [Tooltip("[0, 10]")]
         public float walkSpeed;
 
+     
+
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(PlayerLocomotion other)
+        [DebuggerStepThrough]
+        public bool Equals(PlayerLocomotion other)
         {
             return walkSpeed.Equals(other.walkSpeed) && runSpeed.Equals(other.runSpeed);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is PlayerLocomotion other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -36,12 +43,14 @@ namespace Appalachia.Prototype.KOC.Character.Settings
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(PlayerLocomotion left, PlayerLocomotion right)
+        [DebuggerStepThrough]
+        public static bool operator ==(PlayerLocomotion left, PlayerLocomotion right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(PlayerLocomotion left, PlayerLocomotion right)
+        [DebuggerStepThrough]
+        public static bool operator !=(PlayerLocomotion left, PlayerLocomotion right)
         {
             return !left.Equals(right);
         }

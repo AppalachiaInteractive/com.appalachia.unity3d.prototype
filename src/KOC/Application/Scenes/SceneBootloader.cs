@@ -10,18 +10,6 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 {
     public static class SceneBootloader
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(SceneBootloader) + ".";
-
-        private static readonly ProfilerMarker _PRF_CheckAreaLoadState =
-            new ProfilerMarker(_PRF_PFX + nameof(CheckAreaLoadState));
-
-        private static readonly ProfilerMarker _PRF_BootloadEntryScene =
-            new ProfilerMarker(_PRF_PFX + nameof(BootloadEntryScene));
-
-        #endregion
-
         public static void CheckAreaLoadState(SceneBootloadData bootloadData, ApplicationSubstate state)
         {
             using (_PRF_CheckAreaLoadState.Auto())
@@ -98,5 +86,17 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 bootloadData.entrySceneBootloadProgress = bootloadProgress;
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(SceneBootloader) + ".";
+
+        private static readonly ProfilerMarker _PRF_CheckAreaLoadState =
+            new ProfilerMarker(_PRF_PFX + nameof(CheckAreaLoadState));
+
+        private static readonly ProfilerMarker _PRF_BootloadEntryScene =
+            new ProfilerMarker(_PRF_PFX + nameof(BootloadEntryScene));
+
+        #endregion
     }
 }

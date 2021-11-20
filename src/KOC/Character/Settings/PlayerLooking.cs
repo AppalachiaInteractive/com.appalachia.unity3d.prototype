@@ -8,6 +8,8 @@ namespace Appalachia.Prototype.KOC.Character.Settings
     [Serializable]
     public struct PlayerLooking : IEquatable<PlayerLooking>
     {
+        
+
         [PropertyRange(0.1f, 2f)]
         [Tooltip("[0.1, 2]")]
         public float lookSpeed;
@@ -24,9 +26,11 @@ namespace Appalachia.Prototype.KOC.Character.Settings
         [Tooltip("[0.1, 2]")]
         public float runLookSpeed;
 
+
         #region IEquatable
 
-        [DebuggerStepThrough] public bool Equals(PlayerLooking other)
+        [DebuggerStepThrough]
+        public bool Equals(PlayerLooking other)
         {
             return lookSpeed.Equals(other.lookSpeed) &&
                    runLookSpeed.Equals(other.runLookSpeed) &&
@@ -34,12 +38,14 @@ namespace Appalachia.Prototype.KOC.Character.Settings
                    pitchLimitMax.Equals(other.pitchLimitMax);
         }
 
-        [DebuggerStepThrough] public override bool Equals(object obj)
+        [DebuggerStepThrough]
+        public override bool Equals(object obj)
         {
             return obj is PlayerLooking other && Equals(other);
         }
 
-        [DebuggerStepThrough] public override int GetHashCode()
+        [DebuggerStepThrough]
+        public override int GetHashCode()
         {
             unchecked
             {
@@ -51,12 +57,14 @@ namespace Appalachia.Prototype.KOC.Character.Settings
             }
         }
 
-        [DebuggerStepThrough] public static bool operator ==(PlayerLooking left, PlayerLooking right)
+        [DebuggerStepThrough]
+        public static bool operator ==(PlayerLooking left, PlayerLooking right)
         {
             return left.Equals(right);
         }
 
-        [DebuggerStepThrough] public static bool operator !=(PlayerLooking left, PlayerLooking right)
+        [DebuggerStepThrough]
+        public static bool operator !=(PlayerLooking left, PlayerLooking right)
         {
             return !left.Equals(right);
         }

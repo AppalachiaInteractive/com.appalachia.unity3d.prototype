@@ -7,16 +7,21 @@ namespace Appalachia.Prototype.KOC.Inventory
     [ExecuteAlways]
     public class InventoryListSample : MonoBehaviour
     {
+        
+
         public CharacterInventoryInstance characterInventoryInstance;
         public InventoryItemLibrary inventoryItemLibrary;
         public UIIconLibrary iconLibrary;
-        private UI.Controls.ListView.ListView _listView;
+        private ListView _listView;
+
+
+        #region Event Functions
 
         private void OnEnable()
         {
             if (_listView == null)
             {
-                _listView = GetComponent<UI.Controls.ListView.ListView>();
+                _listView = GetComponent<ListView>();
             }
 
             if (characterInventoryInstance == null)
@@ -48,13 +53,14 @@ namespace Appalachia.Prototype.KOC.Inventory
             _listView.Initialize(inventoryItemLibrary.items.Count, GetItemByIndex);
         }
 
-        private ListViewItem GetItemByIndex(UI.Controls.ListView.ListView view, int index)
+        #endregion
+
+        private ListViewItem GetItemByIndex(ListView view, int index)
         {
             var first = view.ItemPrefabDataList[0];
             var newInstance = view.NewListViewItem(first.prefabObject.name);
 
-            var inventoryUIComponent =
-                newInstance.gameObject.GetComponent<InventoryItemInstanceUI>();
+            var inventoryUIComponent = newInstance.gameObject.GetComponent<InventoryItemInstanceUI>();
             var instance = characterInventoryInstance.items[index];
 
             inventoryUIComponent.Display(index, instance, characterInventoryInstance, iconLibrary);

@@ -13,11 +13,15 @@ namespace Appalachia.Prototype.KOC.Crafting
     [Serializable]
     public class CraftingMaterial : CraftingIconComponent<CraftingMaterial>
     {
+        #region Fields and Autoproperties
+
         [NonSerialized] private bool _categoriesInitialized;
 
         [NonSerialized]
         [ShowInInspector]
         private List<CraftingMaterialCategory> _categories;
+
+        #endregion
 
 #if UNITY_EDITOR
         public void RefreshCategories()
@@ -52,7 +56,7 @@ namespace Appalachia.Prototype.KOC.Crafting
         )]
         private static void MENU_CREATE()
         {
-            var created = CreateNew();
+            var created = CreateNew<CraftingMaterial>();
             UnityEditor.Selection.activeObject = created;
         }
 #endif

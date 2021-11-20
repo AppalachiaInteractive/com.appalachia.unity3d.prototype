@@ -1,5 +1,6 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Scriptables;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Crafting
@@ -8,6 +9,8 @@ namespace Appalachia.Prototype.KOC.Crafting
     [InlineEditor]
     public class CraftingIngredient
     {
+        #region Fields and Autoproperties
+
         [SmartLabel]
         [HideIf(nameof(_showMaterial))]
         public CraftedItem item;
@@ -28,19 +31,21 @@ namespace Appalachia.Prototype.KOC.Crafting
         [HideIf(nameof(_showMaterial))]
         public int itemCount = 1;
 
+        #endregion
+
         private bool _showMaterial => ingredientType == CraftingIngredientType.MaterialCategory;
 
 #if UNITY_EDITOR
         [ButtonGroup]
         public void NewCraftedItem()
         {
-            item = CraftedItem.CreateNew();
+            item = AppalachiaObject.CreateNew<CraftedItem>();
         }
 
         [ButtonGroup]
         public void NewMaterialCategory()
         {
-            material = CraftingMaterialCategory.CreateNew();
+            material = AppalachiaObject.CreateNew<CraftingMaterialCategory>();
         }
 #endif
     }

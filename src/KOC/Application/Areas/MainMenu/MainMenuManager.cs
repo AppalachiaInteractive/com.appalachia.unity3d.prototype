@@ -5,32 +5,9 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
 {
     public class MainMenuManager : AreaManager<MainMenuManager, MainMenuMetadata>
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(MainMenuManager) + ".";
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
-
-        private static readonly ProfilerMarker _PRF_NewGame = new ProfilerMarker(_PRF_PFX + nameof(NewGame));
-
-        private static readonly ProfilerMarker
-            _PRF_LoadGame = new ProfilerMarker(_PRF_PFX + nameof(LoadGame));
-
-        private static readonly ProfilerMarker
-            _PRF_Settings = new ProfilerMarker(_PRF_PFX + nameof(Settings));
-
-        private static readonly ProfilerMarker _PRF_Quit = new ProfilerMarker(_PRF_PFX + nameof(Quit));
-
-        private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
-
-        #endregion
-
         public override ApplicationArea Area => ApplicationArea.MainMenu;
+        public override ApplicationArea ParentArea => ApplicationArea.None;
+        public override bool HasParent => false;
 
         public override void Activate()
         {
@@ -87,5 +64,30 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
                 AppaLog.Context.Area.Info(nameof(ResetArea));
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(MainMenuManager) + ".";
+
+        private static readonly ProfilerMarker _PRF_ResetArea =
+            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
+
+        private static readonly ProfilerMarker _PRF_NewGame = new ProfilerMarker(_PRF_PFX + nameof(NewGame));
+
+        private static readonly ProfilerMarker
+            _PRF_LoadGame = new ProfilerMarker(_PRF_PFX + nameof(LoadGame));
+
+        private static readonly ProfilerMarker
+            _PRF_Settings = new ProfilerMarker(_PRF_PFX + nameof(Settings));
+
+        private static readonly ProfilerMarker _PRF_Quit = new ProfilerMarker(_PRF_PFX + nameof(Quit));
+
+        private static readonly ProfilerMarker
+            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
+
+        private static readonly ProfilerMarker _PRF_Deactivate =
+            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
+
+        #endregion
     }
 }

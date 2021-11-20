@@ -6,6 +6,8 @@ namespace Appalachia.Prototype.KOC.Crafting
     [Serializable]
     public class CraftingKnowledge : CraftingIconComponent<CraftingKnowledge>
     {
+        #region Menu Items
+
 #if UNITY_EDITOR
         [UnityEditor.MenuItem(
             PKG.Menu.Appalachia.Components.Crafting.Knowledge.Base,
@@ -14,9 +16,11 @@ namespace Appalachia.Prototype.KOC.Crafting
         )]
         private static void MENU_CREATE()
         {
-            var created = CreateNew();
+            var created = CreateNew<CraftingKnowledge>();
             UnityEditor.Selection.activeObject = created;
         }
 #endif
+
+        #endregion
     }
 }

@@ -1,5 +1,12 @@
-using Appalachia.Prototype.KOC.Application.Areas.Base;
+using System;
+using Appalachia.CI.Integration.Attributes;
+using Appalachia.Core.Aspects.Criticality;
+using Appalachia.Core.Behaviours;
+using Appalachia.Core.Scriptables;
+using Appalachia.Prototype.KOC.Application.Components;
+using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Scenes;
+using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Logging;
 using Unity.Profiling;
 using UnityEngine;
@@ -7,56 +14,153 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Application.Areas
 {
     [ExecuteAlways]
-    public abstract class AreaManager<TAM, TAMD> : AreaManagerBase<TAM, TAMD>
-        where TAM : AreaManager<TAM, TAMD>
-        where TAMD : AreaMetadata<TAMD>
+    [Serializable]
+    [InspectorIcon(Icons.Squirrel.Blue)]
+    public abstract class AreaManager<T, TM> : SingletonAppalachiaBehaviour<T>, IAreaManager
+        where T : AreaManager<T, TM>
+        where TM : AreaMetadata<T, TM>
     {
-        #region Profiling
+        #region Fields and Autoproperties
 
-        private const string _PRF_PFX = nameof(AreaManager<TAM, TAMD>) + ".";
+        [SerializeField] public TM metadata;
 
-        private static readonly ProfilerMarker _PRF_OnceAwake =
-            new ProfilerMarker(_PRF_PFX + nameof(OnceAwake));
+        protected ApplicationLifetimeComponents lifetimeComponents;
 
-        private static readonly ProfilerMarker _PRF_OnReset = new ProfilerMarker(_PRF_PFX + nameof(OnReset));
+        [SerializeField] protected SceneBootloadData _bootloadData;
 
-        #endregion
-
-        #region Fields
-
-        protected SceneBootloadData _bootloadData;
+        [SerializeField] protected UICanvasAreaComponentSet canvas;
+        [SerializeField] protected UIViewComponentSet view;
+        [SerializeField] protected CriticalReferenceHolder criticalReferences;
 
         #endregion
-
-        public abstract ApplicationArea Area { get; }
-
-        protected override string AreaName => Area.ToString();
 
         protected SceneBootloadData bootloadData => _bootloadData;
 
+        #region Event Functions
+
+        protected override void OnEnable()
+        {
+            using (_PRF_OnEnable.Auto())
+            {
+                base.OnEnable();
+                
+                AppaLog.Context.Area.Info(nameof(OnEnable));
+                Initialize();
+                Activate();
+            }
+        }
+
+        protected override void OnDisable()
+        {
+            using (_PRF_OnDisable.Auto())
+            {
+                base.OnDisable();
+                
+                AppaLog.Context.Area.Info(nameof(OnDisable));
+                Deactivate();
+            }
+        }
+
+        #endregion
+
         protected abstract void ResetArea();
 
-        protected override void OnceAwake()
+        protected override void Awake()
         {
-            using (_PRF_OnceAwake.Auto())
+            using (_PRF_Awake.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnceAwake));
+                base.Awake();
+                
+                AppaLog.Context.Area.Info(nameof(Awake));
 
-                _bootloadData = AreaSceneBootloadDataCollection.instance.GetByArea(Area);
+                Initialize();
             }
         }
 
-        protected override void OnReset(bool resetting)
+        public override void Initialize()
         {
-            using (_PRF_OnReset.Auto())
+            using (_PRF_Initialize.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnReset));
+                base.Initialize();
+                
+                AppaLog.Context.Area.Info(nameof(Initialize));
 
-                if (resetting)
+                AreaManagerRegistry.Register(this);
+
+                if (metadata == null)
                 {
-                    _bootloadData = null;
+                    metadata = SingletonAppalachiaObject<TM>.instance;
+                    SetDirty();
                 }
+
+                if (lifetimeComponents == null)
+                {
+                    lifetimeComponents = ApplicationLifetimeComponents.instance;
+                    SetDirty();
+                }
+
+                if (_bootloadData == null)
+                {
+                    _bootloadData = AreaSceneBootloadDataCollection.instance.GetByArea(Area);
+                }
+
+                name = typeof(T).Name;
+
+                var baseObjectName = name.Replace("Manager", string.Empty);
+
+                var fullObjectName = $"{baseObjectName} - {metadata.viewName}";
+
+                canvas.Configure(gameObject, fullObjectName);
+                metadata.Apply(canvas);
+
+                view.Configure(canvas.canvas.gameObject, fullObjectName);
+                metadata.Apply(view);
+
+                if (HasParent)
+                {
+                    var parent = AreaManagerRegistry.GetManager(ParentArea);
+
+                    if (parent != null)
+                    {
+                        canvas.graphController.enabled = false;
+                    }
+                }
+
+                gameObject.GetOrCreateComponent(ref criticalReferences);
             }
         }
+
+        #region IAreaManager Members
+
+        public abstract ApplicationArea Area { get; }
+
+        public abstract ApplicationArea ParentArea { get; }
+
+        public abstract bool HasParent { get; }
+
+        public string AreaName => Area.ToString();
+
+        public abstract void Activate();
+
+        public abstract void Deactivate();
+
+        #endregion
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(AreaManager<T, TM>) + ".";
+
+        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
+
+        private static readonly ProfilerMarker
+            _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
+
+        private static readonly ProfilerMarker _PRF_OnDisable =
+            new ProfilerMarker(_PRF_PFX + nameof(OnDisable));
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        #endregion
     }
 }

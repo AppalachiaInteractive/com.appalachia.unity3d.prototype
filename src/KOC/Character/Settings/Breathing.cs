@@ -7,6 +7,8 @@ namespace Appalachia.Prototype.KOC.Character.Settings
     [Serializable]
     public struct Breathing
     {
+        
+
         [Range(0, 10)] public float breathingPeriod;
         [Range(0, 10)] public float breathingPeriodIntensityFactor;
         [Range(0, 1)] public float breathingPeriodVariance;
@@ -25,6 +27,7 @@ namespace Appalachia.Prototype.KOC.Character.Settings
 
         [Range(0, 1)] public float volumeOverPace;
         [Range(0, 1)] public float volumeOverPaceVariance;
+
 
         public float GetBreathingPeriod()
         {

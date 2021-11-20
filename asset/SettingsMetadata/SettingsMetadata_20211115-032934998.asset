@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2348fb268ac84ddd8cae1673c9479f0e, type: 3}
+  m_Name: SettingsMetadata_20211115-032934998
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _tags:
+    - Doozy Graph
+    - Doozy Canvas
+    - Doozy View
+    - View
+    - Canvas Group
+    - Canvas Scaling
+    - Canvas
+    - Graphic Raycaster
+    _resetToken: 202111151234
+  _cachedName: SettingsMetadata_20211115-032934998
+  _niceName: Settings Metadata_20211115-032934998
+  additionalShaderChannels: 25
+  blockingObjects: 0
+  blocksRaycasts: 1
+  fullscreen: 1
+  ignoreParentGroups: 0
+  ignoreReversedGraphics: 0
+  interactable: 1
+  pixelPerfect: 0
+  resetScaleToOne: 1
+  match: 1
+  referencePixelsPerUnit: 100
+  graph: {fileID: 11400000, guid: c3037465bf9724842bea225e513c7b78, type: 2}
+  sortingOrder: 0
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  renderMode: 0
+  uiScaleMode: 1
+  screenMatchMode: 0
+  canvasName: MainMenu_Settings
+  graphControllerName: Graph Controller - MainMenu_Settings
+  viewCategory: MainMenu
+  viewName: MainMenu_Settings
+  referenceResolution: {x: 1920, y: 1080}
+  testGraph: {fileID: 11400000, guid: a100e98456770404b87f2c595419a74d, type: 2}

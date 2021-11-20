@@ -5,6 +5,7 @@ using System.Linq;
 using Appalachia.CI.Integration.Assets;
 using Appalachia.CI.Integration.FileSystem;
 using Appalachia.Core.Scriptables;
+using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Collections;
 using Appalachia.Utility.Logging;
 using Sirenix.OdinInspector;
@@ -13,27 +14,19 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
-    public class SceneBootloadData : CategorizableAutonamedIdentifiableAppalachiaObject<SceneBootloadData>
+    public class SceneBootloadData : CategorizableAutonamedIdentifiableAppalachiaObject
     {
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(SceneBootloadData) + ".";
-
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
-
-        #endregion
-
-        #region Fields
+        #region Fields and Autoproperties
 
         public ApplicationArea area;
-
-        [PropertyOrder(140)]
-        [NonSerialized, ShowInInspector]
-        public SceneBootloadProgress entrySceneBootloadProgress;
 
         [PropertyOrder(150)]
         [NonSerialized, ShowInInspector]
         public List<SceneBootloadProgress> bootloadProgress;
+
+        [PropertyOrder(140)]
+        [NonSerialized, ShowInInspector]
+        public SceneBootloadProgress entrySceneBootloadProgress;
 
         [PropertyOrder(80)] public SceneReference entryScene;
 
@@ -77,6 +70,15 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 yield return scene;
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(SceneBootloadData) + ".";
+
+        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
+
+        #endregion
+
 #if UNITY_EDITOR
 
         private static readonly ProfilerMarker _PRF_CreateScene =
@@ -107,7 +109,10 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 var sceneName = $"{name}_{_scenes.Count}";
                 var outputPath = AppaPath.Combine(otherDirectory, $"{sceneName}.unity");
 
-                var scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Additive);
+                var scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(
+                    UnityEditor.SceneManagement.NewSceneSetup.EmptyScene,
+                    UnityEditor.SceneManagement.NewSceneMode.Additive
+                );
 
                 UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene, outputPath);
                 AssetDatabaseManager.Refresh();
@@ -115,7 +120,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene, true);
 
                 var asset = AssetDatabaseManager.LoadAssetAtPath<UnityEditor.SceneAsset>(outputPath);
-                var reference = SceneReference.CreateNew(sceneName);
+                var reference = CreateNew<SceneReference>(sceneName);
 
                 reference.SetSelection(asset);
 
@@ -145,12 +150,15 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         private static readonly ProfilerMarker _PRF_CreateAsset =
             new ProfilerMarker(_PRF_PFX + nameof(CreateAsset));
 
-        [UnityEditor.MenuItem(PKG.Menu.Assets.Base + nameof(SceneBootloadData), priority = PKG.Menu.Assets.Priority)]
+        [UnityEditor.MenuItem(
+            PKG.Menu.Assets.Base + nameof(SceneBootloadData),
+            priority = PKG.Menu.Assets.Priority
+        )]
         public static void CreateAsset()
         {
             using (_PRF_CreateAsset.Auto())
             {
-                CreateNew();
+                CreateNew<SceneBootloadData>();
             }
         }
 #endif

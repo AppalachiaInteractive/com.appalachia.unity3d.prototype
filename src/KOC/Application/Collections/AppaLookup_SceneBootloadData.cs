@@ -1,5 +1,6 @@
 using System;
 using Appalachia.Core.Collections;
+using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Scenes;
 using Appalachia.Utility.Colors;
 using UnityEngine;

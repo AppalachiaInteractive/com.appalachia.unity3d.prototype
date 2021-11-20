@@ -14,6 +14,8 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
     public class CharacterFootstepAudioProcessor : CharacterAudioExecutionProcessor<FootstepSounds,
         AudioContext3, AudioContextParameters3>
     {
+        
+
         [Tooltip("Amount of attenuation when walking on flat ground opposed to rocky terrain")]
         [Range(0, 1)]
         public float footstepElevationAttenuation = 0.5f;

@@ -10,17 +10,29 @@ namespace Appalachia.Prototype.KOC.Gameplay.Audio
 {
     public class PlayerFoleyZone : Zone
     {
+        #region Constants and Static Readonly
+
         public static readonly List<PlayerFoleyZone> overrides = new();
+
+        #endregion
+
+        
 
         internal bool isOverride;
 
         internal int lastFrame = -1;
+
+     
+
+        #region Event Functions
 
         protected new void OnDisable()
         {
             base.OnDisable();
             overrides.Remove(this);
         }
+
+        #endregion
 
         protected override void OnProbe(Vector3 lpos, int thisFrame)
         {

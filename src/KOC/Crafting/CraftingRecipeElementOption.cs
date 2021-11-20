@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Scriptables;
 using Appalachia.Core.Timing;
 using Sirenix.OdinInspector;
 
@@ -18,6 +19,8 @@ namespace Appalachia.Prototype.KOC.Crafting
             tools = new List<CraftingTool>();
         }
 
+        #region Fields and Autoproperties
+
         [SmartLabel] public Duration craftingTime;
 
         public List<CraftingIngredient> ingredients;
@@ -27,6 +30,8 @@ namespace Appalachia.Prototype.KOC.Crafting
         [InlineEditor] public List<CraftingSkill> skills;
 
         [InlineEditor] public List<CraftingTool> tools;
+
+        #endregion
 
 #if UNITY_EDITOR
         [ButtonGroup]
@@ -48,7 +53,7 @@ namespace Appalachia.Prototype.KOC.Crafting
                 knowledges = new List<CraftingKnowledge>();
             }
 
-            knowledges.Add(CraftingKnowledge.CreateNew());
+            knowledges.Add(AppalachiaObject.CreateNew<CraftingKnowledge>());
         }
 
         [ButtonGroup]
@@ -59,7 +64,7 @@ namespace Appalachia.Prototype.KOC.Crafting
                 skills = new List<CraftingSkill>();
             }
 
-            skills.Add(CraftingSkill.CreateNew());
+            skills.Add(AppalachiaObject.CreateNew<CraftingSkill>());
         }
 
         [ButtonGroup]
@@ -70,7 +75,7 @@ namespace Appalachia.Prototype.KOC.Crafting
                 tools = new List<CraftingTool>();
             }
 
-            tools.Add(CraftingTool.CreateNew());
+            tools.Add(AppalachiaObject.CreateNew<CraftingTool>());
         }
 #endif
     }

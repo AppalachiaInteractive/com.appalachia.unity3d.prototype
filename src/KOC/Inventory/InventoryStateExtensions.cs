@@ -7,9 +7,7 @@ namespace Appalachia.Prototype.KOC.Inventory
             return initial | adding;
         }
 
-        public static InventoryState RemoveFlag(
-            this InventoryState initial,
-            InventoryState removing)
+        public static InventoryState RemoveFlag(this InventoryState initial, InventoryState removing)
         {
             return initial & ~removing;
         }

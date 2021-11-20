@@ -6,6 +6,8 @@ namespace Appalachia.Prototype.KOC.Gameplay
 {
     public class CameraRumble : AppalachiaBehaviour
     {
+        
+
         public RumbleInfo innerDisplacement = new()
         {
             phase = 0.3f, frequency = 0.01f, amplitude = new Vector2(0.01f, 0.01f)
@@ -28,15 +30,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
         private double _time;
 
-        protected void OnEnable()
-        {
-            _time = 0;
-        }
-
-        protected void OnValidate()
-        {
-            _time = 0;
-        }
+        #region Event Functions
 
         private void LateUpdate()
         {
@@ -50,6 +44,20 @@ namespace Appalachia.Prototype.KOC.Gameplay
             transform.localPosition = position;
             transform.localRotation = rotation;
         }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            
+            _time = 0;
+        }
+
+        protected void OnValidate()
+        {
+            _time = 0;
+        }
+
+        #endregion
 
         private static Vector3 Rumble(double time, RumbleInfo outer, RumbleInfo inner)
         {
@@ -65,12 +73,19 @@ namespace Appalachia.Prototype.KOC.Gameplay
             return new Vector3((float) x, (float) y, 0f);
         }
 
+        #region Nested type: RumbleInfo
+
         [Serializable]
         public struct RumbleInfo
         {
+            
+
             public float frequency;
             public float phase;
             public Vector2 amplitude;
+
         }
+
+        #endregion
     }
 } // Gameplay

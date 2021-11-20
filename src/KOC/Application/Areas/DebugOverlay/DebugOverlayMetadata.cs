@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 
 namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
 {
-    public sealed class DebugOverlayMetadata : AreaMetadata<DebugOverlayMetadata>
+    public sealed class DebugOverlayMetadata : AreaMetadata<DebugOverlayManager, DebugOverlayMetadata>
     {
+        #region Fields and Autoproperties
+
         [FoldoutGroup("Editor Only")]
         [BoxGroup("Editor Only/Graphy")]
         public AppaAsset graphyPrefab;
@@ -25,5 +27,8 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
         [BoxGroup("Editor Only/Input")]
         public InputActionReference graphyToggleModes;
 
+        #endregion
+
+        public override ApplicationArea Area => ApplicationArea.DebugOverlay;
     }
 }
