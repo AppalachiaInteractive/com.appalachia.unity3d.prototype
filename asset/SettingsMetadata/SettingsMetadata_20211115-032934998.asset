@@ -23,6 +23,7 @@ MonoBehaviour:
     - Canvas Scaling
     - Canvas
     - Graphic Raycaster
+    - backgroundColor
     _resetToken: 202111151234
   _cachedName: SettingsMetadata_20211115-032934998
   _niceName: Settings Metadata_20211115-032934998
@@ -50,4 +51,10 @@ MonoBehaviour:
   viewCategory: MainMenu
   viewName: MainMenu_Settings
   referenceResolution: {x: 1920, y: 1080}
+  templateEnabled: 1
+  selectedTemplate: {fileID: 21300000, guid: 735c1cf1044b6a04cac6802167f6e65e, type: 3}
+  templates:
+  - {fileID: 21300000, guid: 735c1cf1044b6a04cac6802167f6e65e, type: 3}
+  - {fileID: 21300000, guid: dff71eca565c35e4a9b5955ff9985690, type: 3}
   testGraph: {fileID: 11400000, guid: a100e98456770404b87f2c595419a74d, type: 2}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0.6}

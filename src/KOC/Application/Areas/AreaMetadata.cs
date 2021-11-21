@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Assets;
 using Appalachia.CI.Integration.Extensions;
 using Appalachia.CI.Integration.FileSystem;
+using Appalachia.Core.Collections.Implementations.Sets;
 using Appalachia.Core.Scriptables;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Graphs;
@@ -24,73 +26,91 @@ namespace Appalachia.Prototype.KOC.Application.Areas
     {
         #region Fields and Autoproperties
 
-        [FoldoutGroup(APPASTR.Canvas)]
+        private const string FOLDOUT_GROUP_ = APPASTR.Common;
+        private const string FOLDOUT_GROUP = FOLDOUT_GROUP_ + "/";
+        
+        [FoldoutGroup(FOLDOUT_GROUP_)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas)]
         public AdditionalCanvasShaderChannels additionalShaderChannels;
 
-        [FoldoutGroup(APPASTR.Graphic_Raycaster)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Graphic_Raycaster)]
         public GraphicRaycaster.BlockingObjects blockingObjects;
 
-        [FoldoutGroup(APPASTR.Canvas_Group)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Group)]
         public bool blocksRaycasts;
 
-        [FoldoutGroup(APPASTR.View)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.View)]
         public bool fullscreen;
 
-        [FoldoutGroup(APPASTR.Canvas_Group)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Group)]
         public bool ignoreParentGroups;
 
-        [FoldoutGroup(APPASTR.Graphic_Raycaster)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Graphic_Raycaster)]
         public bool ignoreReversedGraphics;
 
-        [FoldoutGroup(APPASTR.Canvas_Group)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Group)]
         public bool interactable;
 
-        [FoldoutGroup(APPASTR.Canvas)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas)]
         public bool pixelPerfect;
 
-        [FoldoutGroup(APPASTR.View), EnableIf(nameof(fullscreen))]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.View), EnableIf(nameof(fullscreen))]
         public bool resetScaleToOne;
 
-        [FoldoutGroup(APPASTR.Canvas_Scaling)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Scaling)]
         [Range(0f, 1f)]
         public float match;
 
-        [FoldoutGroup(APPASTR.Canvas_Scaling)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Scaling)]
         [Range(1f, 200f)]
         public float referencePixelsPerUnit;
 
-        [FoldoutGroup(APPASTR.Doozy_Graph)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_Graph)]
         public Graph graph;
 
-        [FoldoutGroup(APPASTR.Canvas)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas)]
         public int sortingOrder;
 
-        [FoldoutGroup(APPASTR.Graphic_Raycaster)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Graphic_Raycaster)]
         public LayerMask blockingMask;
 
-        [FoldoutGroup(APPASTR.Canvas)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas)]
         public RenderMode renderMode;
 
-        [FoldoutGroup(APPASTR.Canvas_Scaling)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Scaling)]
         public CanvasScaler.ScaleMode uiScaleMode;
 
-        [FoldoutGroup(APPASTR.Canvas_Scaling)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Scaling)]
         public CanvasScaler.ScreenMatchMode screenMatchMode;
 
-        [FoldoutGroup(APPASTR.Doozy_Canvas)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_Canvas)]
         public string canvasName;
 
-        [FoldoutGroup(APPASTR.Doozy_Graph)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_Graph)]
         public string graphControllerName;
 
-        [FoldoutGroup(APPASTR.Doozy_View)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_View)]
         public string viewCategory;
 
-        [FoldoutGroup(APPASTR.Doozy_View)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_View)]
         public string viewName;
 
-        [FoldoutGroup(APPASTR.Canvas_Scaling)]
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Scaling)]
         public Vector2 referenceResolution;
+
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates)]
+        public bool templateEnabled;
+
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates)]
+        [Range(0.0f, 1.0f)]
+        public float templateAlpha;
+
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates)]
+        [ValueDropdown(nameof(templates))]
+        public Sprite selectedTemplate;
+
+        [FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates)]
+        public List<Sprite> templates;
 
         private string _defaultCanvasName;
         private string _defaultCategoryName;
@@ -399,6 +419,15 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                         ignoreReversedGraphics = false;
                     }
                 );
+                
+                initializationData.Initialize(
+                    this,
+                    nameof(templateAlpha),
+                    () =>
+                    {
+                        templateAlpha = 1.0f;
+                    }
+                    );
             }
         }
 
