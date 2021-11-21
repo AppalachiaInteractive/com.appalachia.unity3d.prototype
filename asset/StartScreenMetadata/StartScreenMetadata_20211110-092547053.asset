@@ -7,10 +7,43 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 209a9761a77f4ccbadad315450148cf2, type: 3}
   m_Name: StartScreenMetadata_20211110-092547053
   m_EditorClassIdentifier: 
-  _niceName: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
   _cachedName: 
+  _niceName: 
+  additionalShaderChannels: 0
+  blockingObjects: 0
+  blocksRaycasts: 0
+  fullscreen: 0
+  ignoreParentGroups: 0
+  ignoreReversedGraphics: 0
+  interactable: 0
+  pixelPerfect: 0
+  resetScaleToOne: 0
+  match: 0
+  referencePixelsPerUnit: 1
+  graph: {fileID: 11400000, guid: 0ff731920be147c4386ec7e9c3162ca0, type: 2}
+  sortingOrder: 0
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  renderMode: 0
+  uiScaleMode: 0
+  screenMatchMode: 0
+  canvasName: StartScreen
+  graphControllerName: Graph Controller - StartScreen
+  viewCategory: 
+  viewName: 
+  referenceResolution: {x: 0, y: 0}
+  templateEnabled: 0
+  templateAlpha: 0
+  selectedTemplate: {fileID: 0}
+  templates: []
+  testGraph: {fileID: 0}

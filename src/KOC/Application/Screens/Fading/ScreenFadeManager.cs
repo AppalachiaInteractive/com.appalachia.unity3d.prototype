@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Application.Screens.Fading
 {
-    public class ScreenFadeManager : UIFadeManager<ScreenFadeManager>
+    public class ScreenFadeManager : FadeManager<ScreenFadeManager>
     {
         #region Fields and Autoproperties
 

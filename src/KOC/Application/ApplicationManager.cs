@@ -180,7 +180,7 @@ namespace Appalachia.Prototype.KOC.Application
 
             if (fadeOut)
             {
-                _screenFader.FadeScreenOut();
+                _screenFader.FadeOut();
 
                 while (_screenFader.IsFading)
                 {
@@ -207,7 +207,7 @@ namespace Appalachia.Prototype.KOC.Application
 
             if (fadeIn)
             {
-                _screenFader.FadeScreenIn();
+                _screenFader.FadeIn();
 
                 while (_screenFader.IsFading)
                 {

@@ -28,6 +28,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         [SerializeField] protected SceneBootloadData _bootloadData;
 
+        [SerializeField] protected UITemplateComponentSet template;
         [SerializeField] protected UICanvasAreaComponentSet canvas;
         [SerializeField] protected UIViewComponentSet view;
         [SerializeField] protected CriticalReferenceHolder criticalReferences;
@@ -59,6 +60,77 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                 AppaLog.Context.Area.Info(nameof(OnDisable));
                 Deactivate();
             }
+        }
+
+        protected virtual void Update()
+        {
+            using (_PRF_Update.Auto())
+            {
+#if UNITY_EDITOR
+                
+                var isTemplateImageEnabled = template.image.enabled;
+                var shouldAssignTemplateSprite = metadata.selectedTemplate != template.image.sprite;
+                var shouldDisableTemplate = !metadata.templateEnabled && template.image.enabled;
+                var isCurrentFading = template.canvasFadeManager.IsFading;
+                
+                if (metadata.templateEnabled)
+                {
+                    var fadeRange = template.canvasFadeManager.fadeSettings.fadeRange;
+                    fadeRange.y = metadata.templateAlpha;
+                    
+                    if (isCurrentFading)
+                    {
+                        fadeRange.x = Math.Min(fadeRange.x, fadeRange.y);
+                    }
+                    else
+                    {
+                        fadeRange.x = fadeRange.y;
+                    }
+                    
+                    template.canvasFadeManager.fadeSettings.fadeRange = fadeRange;
+
+                    if (shouldAssignTemplateSprite)
+                    {
+                        template.image.sprite = metadata.selectedTemplate;
+                    }
+                    
+                    if (!isTemplateImageEnabled && !isCurrentFading)
+                    {
+                        fadeRange.x = 0f;
+                        template.canvasFadeManager.fadeSettings.fadeRange = fadeRange;
+                        template.image.enabled = true;
+                        template.canvasFadeManager.OnFadeInCompleted += OnTemplateFadeInComplete;
+                        template.canvasFadeManager.FadeIn();
+                    }
+                }
+                else if (shouldDisableTemplate)
+                {
+                    var fadeRange = template.canvasFadeManager.fadeSettings.fadeRange;
+                    
+                    if (!isCurrentFading)
+                    {
+                        fadeRange.x = 0f;
+                        template.canvasFadeManager.fadeSettings.fadeRange = fadeRange;
+                        template.canvasFadeManager.OnFadeOutCompleted += DisableTemplate;
+                        template.canvasFadeManager.FadeOut();
+                    }
+                }
+#endif
+            }
+        }
+
+        private void OnTemplateFadeInComplete()
+        {
+            var fadeRange = template.canvasFadeManager.fadeSettings.fadeRange;
+            fadeRange.x = metadata.templateAlpha;
+            template.canvasFadeManager.fadeSettings.fadeRange = fadeRange;
+            template.canvasFadeManager.OnFadeInCompleted -= OnTemplateFadeInComplete;
+        }
+
+        private void DisableTemplate()
+        {
+            template.image.enabled = false;
+            template.canvasFadeManager.OnFadeOutCompleted -= DisableTemplate;
         }
 
         #endregion
@@ -113,8 +185,11 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                 canvas.Configure(gameObject, fullObjectName);
                 metadata.Apply(canvas);
 
-                view.Configure(canvas.canvas.gameObject, fullObjectName);
+                view.Configure(canvas.gameObject, fullObjectName);
                 metadata.Apply(view);
+                
+                template.Configure(view.gameObject, fullObjectName);
+                metadata.Apply(template);
 
                 if (HasParent)
                 {
@@ -160,6 +235,8 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         private static readonly ProfilerMarker _PRF_Initialize =
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
 
         #endregion
     }

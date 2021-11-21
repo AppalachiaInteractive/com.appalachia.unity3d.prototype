@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
+using Appalachia.CI.Integration.Assets;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
@@ -29,8 +30,8 @@ namespace Appalachia.Prototype.KOC.Application.References
                     );
                 }
 
-                var assetpath = UnityEditor.AssetDatabase.GetAssetPath(obj);
-                var guid = UnityEditor.AssetDatabase.AssetPathToGUID(assetpath);
+                var assetpath = AssetDatabaseManager.GetAssetPath(obj);
+                var guid = AssetDatabaseManager.AssetPathToGUID(assetpath);
 
                 var e = settings.CreateOrMoveEntry(guid, group, false, false);
                 var entriesAdded = new List<AddressableAssetEntry> {e};

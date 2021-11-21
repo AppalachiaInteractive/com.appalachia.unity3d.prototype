@@ -148,6 +148,11 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
                 var manager = GetManager();
 
+                if (manager == null)
+                {
+                    return null;
+                }
+                
                 _defaultCategoryName = (manager.HasParent ? manager.ParentArea : manager.Area).ToString();
 
                 return _defaultCategoryName;
@@ -196,6 +201,19 @@ namespace Appalachia.Prototype.KOC.Application.Areas
         }
 
         #endregion
+
+        public void Apply(UITemplateComponentSet target)
+        {
+            Initialize();
+
+            Apply(target.rect);
+            Apply(target.canvas);
+            Apply(target.canvasGroup);
+
+            target.image.enabled = templateEnabled;
+            target.image.sprite = selectedTemplate;
+            target.gameObject.SetDirty();
+        }
 
         public void Apply(UIViewComponentSet target)
         {

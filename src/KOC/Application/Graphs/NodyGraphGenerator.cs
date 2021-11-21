@@ -62,12 +62,12 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
             graph.name = Path.GetFileNameWithoutExtension(path);
             graph.Id = Guid.NewGuid().ToString();
             graph.SetGraphVersionAndLastModifiedTime();
-            if (UnityEditor.AssetDatabase.LoadAssetAtPath<ScriptableObject>(path) != null)
+            if (AssetDatabaseManager.LoadAssetAtPath<ScriptableObject>(path) != null)
             {
-                UnityEditor.AssetDatabase.MoveAssetToTrash(path);
+                AssetDatabaseManager.MoveAssetToTrash(path);
             }
 
-            UnityEditor.AssetDatabase.CreateAsset(graph, path);
+            AssetDatabaseManager.CreateAsset(graph, path);
             if (createSubGraph)
             {
                 CreateEnterAndExitNodes(graph);
@@ -101,7 +101,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
                 return null;
             }
 
-            var graph = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(UnityEditor.FileUtil.GetProjectRelativePath(path));
+            var graph = AssetDatabaseManager.LoadAssetAtPath<T>(UnityEditor.FileUtil.GetProjectRelativePath(path));
             return graph == null ? null : graph;
         }
 
@@ -131,7 +131,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
             UnityEditor.EditorUtility.SetDirty(graph);
             if (saveAssets)
             {
-                UnityEditor.AssetDatabase.SaveAssets();
+                AssetDatabaseManager.SaveAssets();
             }
         }
 
@@ -257,7 +257,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
                 graph.Nodes.Add(enterNode);
                 if (!UnityEditor.EditorUtility.IsPersistent(enterNode))
                 {
-                    UnityEditor.AssetDatabase.AddObjectToAsset(enterNode, graph);
+                    AssetDatabaseManager.AddObjectToAsset(enterNode, graph);
                 }
 
                 enterNodeWasCreated = true;
@@ -306,7 +306,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
                 graph.Nodes.Add(exitNode);
                 if (!UnityEditor.EditorUtility.IsPersistent(exitNode))
                 {
-                    UnityEditor.AssetDatabase.AddObjectToAsset(exitNode, graph);
+                    AssetDatabaseManager.AddObjectToAsset(exitNode, graph);
                 }
             }
 

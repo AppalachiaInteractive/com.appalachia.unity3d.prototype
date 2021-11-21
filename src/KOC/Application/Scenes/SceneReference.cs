@@ -1,3 +1,4 @@
+using Appalachia.CI.Integration.Assets;
 using Appalachia.Core.Scriptables;
 using Sirenix.OdinInspector;
 using UnityEngine.AddressableAssets;
@@ -26,7 +27,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         private void UpdateSelection()
         {
-            UnityEditor.AssetDatabase.TryGetGUIDAndLocalFileIdentifier(sceneAsset, out var guid, out long _);
+            AssetDatabaseManager.TryGetGUIDAndLocalFileIdentifier(sceneAsset, out var guid, out long _);
 
             sceneReference = new AssetReference(guid);
             SetDirty();

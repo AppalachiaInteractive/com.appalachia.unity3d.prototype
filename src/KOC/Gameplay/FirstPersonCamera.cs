@@ -31,7 +31,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
         private TypedInterpolator<LinearAngle> _yaw;
 
 
-        public Quaternion targetRotation => Quaternion.Euler(_pitch.target, _yaw.target, _roll.target);
+        public Quaternion targetRotation => Quaternion.Euler(_pitch.max, _yaw.max, _roll.max);
 
         public float pitch
         {
@@ -60,9 +60,9 @@ namespace Appalachia.Prototype.KOC.Gameplay
             _yaw.Update(interpolationDeltaTime);
             _roll.Update(interpolationDeltaTime);
 
-            _pitch.time = 0f;
-            _yaw.time = 0f;
-            _roll.time = 0f;
+            _pitch.percentage = 0f;
+            _yaw.percentage = 0f;
+            _roll.percentage = 0f;
 
             var position = playerPosition;
             var angles = playerAngles;
@@ -106,12 +106,12 @@ namespace Appalachia.Prototype.KOC.Gameplay
             _spring.position = position;
             _spring.velocity = Vector3.zero;
 
-            _pitch.value = angles.x + (_pitch.value - _pitch.target);
-            _pitch.target = angles.x;
-            _yaw.value = angles.y + (_yaw.value - _yaw.target);
-            _yaw.target = angles.y;
-            _roll.value = angles.z + (_roll.value - _roll.target);
-            _roll.target = angles.z;
+            _pitch.current = angles.x + (_pitch.current - _pitch.max);
+            _pitch.max = angles.x;
+            _yaw.current = angles.y + (_yaw.current - _yaw.max);
+            _yaw.max = angles.y;
+            _roll.current = angles.z + (_roll.current - _roll.max);
+            _roll.max = angles.z;
         }
     }
 } // Gameplay
