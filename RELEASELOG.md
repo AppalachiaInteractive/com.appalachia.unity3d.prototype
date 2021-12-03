@@ -13,6 +13,7 @@
 `0.2.0`
 | Hash | Date | Author | Changes |
 |------|------|--------|---------|
+| 4b432f6e85bcf149355857e3b491ec9a76e3aaaf | 2021-12-02 | Chris Schubert | Updating changelog and releaselog |
 | 33c6521a9f0be421e09a1a28fb51f5c274cfb196 | 2021-12-02 | Chris Schubert | Area managers, splash screens, input device button templates, and icons. |
 | 93ac24504444da079d25981e81a8640932d4a4c1 | 2021-11-21 | Chris Schubert | Adding controller sprites and template system |
 | f076f968bf8fd049c41374c6ad551682466be17c | 2021-11-20 | Chris Schubert | Prference initialization and UI templates |
