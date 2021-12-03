@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d8652c65804ceba2c04b7a88b786b1, type: 3}
   m_Name: StartScreen_CanvasFadeManager_UIFadeSettings
   m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
   _cachedName: 
   _niceName: 
   _startVisible: 0
   fadeRange: {x: 0, y: 1}
-  _fadeInDuration: 1
+  _fadeInDuration: 2
   _fadeIn: 1
   _fadeOutDuration: 1
   _fadeOut: 1

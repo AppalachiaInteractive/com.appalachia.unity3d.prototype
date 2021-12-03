@@ -1,10 +1,12 @@
 using System;
 using Appalachia.Core.Behaviours;
+using Appalachia.Prototype.KOC.Application;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public class CameraRumble : AppalachiaBehaviour
+    public class CameraRumble : AppalachiaApplicationBehaviour
     {
         
 

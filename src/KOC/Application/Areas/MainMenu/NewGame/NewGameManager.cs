@@ -7,21 +7,20 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu.NewGame
     {
         public override ApplicationArea Area => ApplicationArea.MainMenu_NewGame;
         public override ApplicationArea ParentArea => ApplicationArea.MainMenu;
-        public override bool HasParent => true;
 
-        public override void Activate()
+        protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(Activate));
+                AppaLog.Context.Area.Info(nameof(OnActivation));
             }
         }
 
-        public override void Deactivate()
+        protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(Deactivate));
+                AppaLog.Context.Area.Info(nameof(OnDeactivation));
             }
         }
 
@@ -38,10 +37,10 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu.NewGame
         private const string _PRF_PFX = nameof(NewGameManager) + ".";
 
         private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
+            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
 
         private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
+            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
 
         private static readonly ProfilerMarker _PRF_ResetArea =
             new ProfilerMarker(_PRF_PFX + nameof(ResetArea));

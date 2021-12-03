@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Appalachia.CI.Integration.Assets;
+using Appalachia.CI.Integration.FileSystem;
 using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Utility.Extensions;
 using Doozy.Engine.Nody;
@@ -59,7 +60,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
             }
 
             var graph = ScriptableObject.CreateInstance<T>();
-            graph.name = Path.GetFileNameWithoutExtension(path);
+            graph.name = AppaPath.GetFileNameWithoutExtension(path);
             graph.Id = Guid.NewGuid().ToString();
             graph.SetGraphVersionAndLastModifiedTime();
             if (AssetDatabaseManager.LoadAssetAtPath<ScriptableObject>(path) != null)
@@ -128,7 +129,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
         {
             graph.SetGraphVersionAndLastModifiedTime();
             graph.IsDirty = true;
-            UnityEditor.EditorUtility.SetDirty(graph);
+            graph.MarkAsModified();
             if (saveAssets)
             {
                 AssetDatabaseManager.SaveAssets();
@@ -157,7 +158,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
             node.OnCreate();
             node.AddDefaultSockets();
             node.hideFlags = NodySettings.Instance.DefaultHideFlagsForNodes;
-            UnityEditor.EditorUtility.SetDirty(node);
+            node.MarkAsModified();
             return node;
         }
 
@@ -174,7 +175,7 @@ namespace Appalachia.Prototype.KOC.Application.Graphs
                 graph.Nodes.Add(startNode);
                 if (!UnityEditor.EditorUtility.IsPersistent(startNode))
                 {
-                    UnityEditor. AssetDatabase.AddObjectToAsset(startNode, graph);
+                    AssetDatabaseManager.AddObjectToAsset(startNode, graph);
                 }
 
                 startNodeWasCreated = true;

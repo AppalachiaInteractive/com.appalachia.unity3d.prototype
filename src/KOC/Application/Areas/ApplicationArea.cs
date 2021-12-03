@@ -6,7 +6,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         SplashScreen = 1000,
         SplashScreen_Appalachia = 1100,
-        SplashScreen_Partners = 1200,
+        SplashScreen_BokBok = 1200,
         SplashScreen_Disclaimer = 1300,
 
         StartScreen = 2000,

@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Appalachia.Core.Behaviours;
 using Appalachia.Utility.Logging;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public abstract class GameAgent : MonoBehaviour
+    public abstract class GameAgent: AppalachiaBehaviour
     {
         #region Constants and Static Readonly
 
@@ -22,8 +22,10 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
         #region Event Functions
 
-        protected void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             agents.Add(this);
 
             if (!string.IsNullOrEmpty(agentIdentifier))
@@ -46,8 +48,10 @@ namespace Appalachia.Prototype.KOC.Gameplay
             }
         }
 
-        protected void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
+            
             agents.Remove(this);
 
             if (!string.IsNullOrEmpty(agentIdentifier))

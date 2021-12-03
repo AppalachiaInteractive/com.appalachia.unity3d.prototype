@@ -28,26 +28,24 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
 
         public override ApplicationArea Area => ApplicationArea.DebugOverlay;
         public override ApplicationArea ParentArea => ApplicationArea.None;
-        public override bool HasParent => false;
+        
 
-        public override void Activate()
+        protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(Activate));
+                AppaLog.Context.Area.Info(nameof(OnActivation));
 
                 Initialize();
                 EnableInput();
             }
         }
 
-        public override void Deactivate()
+        protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(Deactivate));
-
-                DisableInput();
+                AppaLog.Context.Area.Info(nameof(OnDeactivation));
             }
         }
 
@@ -61,30 +59,12 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
                 inGameConsoleInstance.DestroySafely();
             }
         }
-
-        private void DisableInput()
-        {
-            using (_PRF_DisableInput.Auto())
-            {
-                AppaLog.Context.Area.Info(nameof(DisableInput));
-
-                metadata.graphyToggleActive.action.Disable();
-                metadata.graphyToggleModes.action.Disable();
-                metadata.debugLogToggle.action.Disable();
-                metadata.captureScreenshot.action.Disable();
-            }
-        }
-
+        
         private void EnableInput()
         {
             using (_PRF_EnableInput.Auto())
             {
                 AppaLog.Context.Area.Info(nameof(EnableInput));
-
-                metadata.graphyToggleActive.action.Enable();
-                metadata.graphyToggleModes.action.Enable();
-                metadata.debugLogToggle.action.Enable();
-                metadata.captureScreenshot.action.Enable();
 
                 metadata.graphyToggleActive.action.performed += _ =>
                 {
@@ -107,7 +87,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
             }
         }
 
-        public override void Initialize()
+        protected override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
@@ -138,16 +118,13 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
         private const string _PRF_PFX = nameof(DebugOverlayManager) + ".";
 
         private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
+            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
 
         private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
+            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
 
         private static readonly ProfilerMarker _PRF_ResetArea =
             new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
-
-        private static readonly ProfilerMarker _PRF_DisableInput =
-            new ProfilerMarker(_PRF_PFX + nameof(DisableInput));
 
         private static readonly ProfilerMarker _PRF_EnableInput =
             new ProfilerMarker(_PRF_PFX + nameof(EnableInput));

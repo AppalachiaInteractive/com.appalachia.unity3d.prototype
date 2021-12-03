@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df30b6700e55804e93eef58395b4ba3, type: 3}
+  m_Name: DisclaimerSplashScreenMetadata
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags:
+    - Doozy Graph
+    - Doozy Canvas
+    - Doozy View
+    - View
+    - Canvas Group
+    - Canvas Scaling
+    - Canvas
+    - Graphic Raycaster
+    - _templateAlpha
+    - _defaultReferences
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  _hideCursor: 0
+  _updateCursorLockState: 0
+  _cursorLockState: 0
+  _hasCustomCursor: 0
+  _cursor: 0
+  _onEnableMapState:
+    Player:
+      _overrideEnabled: 0
+      _value: 0
+    Debug:
+      _overrideEnabled: 0
+      _value: 0
+    GenericMenu:
+      _overrideEnabled: 0
+      _value: 0
+    MainMenu:
+      _overrideEnabled: 0
+      _value: 0
+    InGameMenu:
+      _overrideEnabled: 0
+      _value: 0
+    PauseMenu:
+      _overrideEnabled: 0
+      _value: 0
+    DeathMenu:
+      _overrideEnabled: 0
+      _value: 0
+    LoadingScreen:
+      _overrideEnabled: 0
+      _value: 0
+  _onDisableMapState:
+    Player:
+      _overrideEnabled: 0
+      _value: 0
+    Debug:
+      _overrideEnabled: 0
+      _value: 0
+    GenericMenu:
+      _overrideEnabled: 0
+      _value: 0
+    MainMenu:
+      _overrideEnabled: 0
+      _value: 0
+    InGameMenu:
+      _overrideEnabled: 0
+      _value: 0
+    PauseMenu:
+      _overrideEnabled: 0
+      _value: 0
+    DeathMenu:
+      _overrideEnabled: 0
+      _value: 0
+    LoadingScreen:
+      _overrideEnabled: 0
+      _value: 0
+  _blocksRaycasts: 1
+  _interactable: 1
+  _ignoreParentGroups: 0
+  _uiScaleMode: 1
+  _screenMatchMode: 0
+  _match: 1
+  _referenceResolution: {x: 1920, y: 1080}
+  _referencePixelsPerUnit: 100
+  _renderMode: 0
+  _additionalShaderChannels: 25
+  _pixelPerfect: 0
+  _sortingOrder: 0
+  _fullscreen: 1
+  _resetScaleToOne: 1
+  _blockingObjects: 0
+  _ignoreReversedGraphics: 0
+  _blockingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _graph: {fileID: 11400000, guid: 06fe357cf981a7443ad213df6b3c1585, type: 2}
+  _canvasName: SplashScreen_Disclaimer
+  _graphControllerName: Graph Controller - SplashScreen_Disclaimer
+  _viewCategory: SplashScreen_Disclaimer
+  _viewName: SplashScreen_Disclaimer
+  _doesDrawMenu: 0
+  _templateEnabled: 0
+  _templateAlpha: 1
+  _selectedTemplate: {fileID: 0}
+  _templates: []
+  _defaultReferences: {fileID: 11400000, guid: 0cef21e8417475241b8f52a8a9a1a6b8, type: 2}
+  _loadBehaviour: 1
+  _setEntrySceneActive: 1
+  testGraph: {fileID: 11400000, guid: c12012201eebc2c439accfe9e9d716c7, type: 2}
+  order: 999
+  canSkip: 0
+  unloadSceneImmediately: 0
+  timelineAsset: {fileID: 11400000, guid: fc318ab62db691e4e8f470b23b2f04f2, type: 2}
+  timelineStartSignalAsset: {fileID: 11400000, guid: 66f18d49481607a45bb4e7a8e70bae98, type: 2}
+  timelineEndSignalAsset: {fileID: 11400000, guid: 3f4cb9fa1781e014aa78b9735a82babd, type: 2}
+  retroactive: 0
+  emitOnce: 0
+  autoPlayTimeline: 1
+  wrapMode: 0

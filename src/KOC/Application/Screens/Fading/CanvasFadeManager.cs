@@ -19,7 +19,7 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
         {
             base.Awake();
 
-            this.GetOrCreateComponent(ref menuCanvasGroup);
+            this.gameObject.CreateOrGetComponent(ref menuCanvasGroup);
         }
 
         private void Update()

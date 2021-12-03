@@ -1,0 +1,309 @@
+using System;
+using System.Collections.Generic;
+using Appalachia.CI.Integration.Attributes;
+using Appalachia.Core.Attributes.Editing;
+using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls;
+using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Logging;
+using Unity.Profiling;
+using UnityEngine.InputSystem;
+
+namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
+{
+    [DoNotReorderFields]
+    [Serializable, SmartLabelChildren, SmartLabel]
+    public sealed class GamepadMetadata : DeviceMetadata
+    {
+        #region Fields and Autoproperties
+
+        public ControlButtonMetadata dpad;
+        public ControlButtonMetadata dpad_up;
+        public ControlButtonMetadata dpad_down;
+        public ControlButtonMetadata dpad_left;
+        public ControlButtonMetadata dpad_right;
+        public ControlButtonMetadata start;
+        public ControlButtonMetadata select;
+        public ControlButtonMetadata leftStick;
+        public ControlButtonMetadata rightStick;
+        public ControlButtonMetadata leftStickPress;
+        public ControlButtonMetadata rightStickPress;
+        public ControlButtonMetadata leftShoulder;
+        public ControlButtonMetadata rightShoulder;
+        public ControlButtonMetadata leftTrigger;
+        public ControlButtonMetadata rightTrigger;
+        public ControlButtonMetadata buttonSouth;
+        public ControlButtonMetadata buttonEast;
+        public ControlButtonMetadata buttonWest;
+        public ControlButtonMetadata buttonNorth;
+
+        #endregion
+
+        public override bool CanResolve(InputControl control)
+        {
+            switch (control.name)
+            {
+                case "dpad":
+                case "dpad/up":
+                case "dpad/down":
+                case "dpad/left":
+                case "dpad/right":
+                case "start":
+                case "select":
+                case "leftStick":
+                case "rightStick":
+                case "leftStickPress":
+                case "rightStickPress":
+                case "leftShoulder":
+                case "rightShoulder":
+                case "leftTrigger":
+                case "rightTrigger":
+                case "buttonSouth":
+                case "buttonEast":
+                case "buttonWest":
+                case "buttonNorth":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public override IEnumerable<ControlButtonMetadata> GetAll()
+        {
+            /*if (_controls != null)
+            {
+                return _controls;
+            }*/
+
+            _controls = new[]
+            {
+                dpad,
+                dpad_up,
+                dpad_down,
+                dpad_left,
+                dpad_right,
+                start,
+                select,
+                leftStickPress,
+                rightStickPress,
+                leftShoulder,
+                rightShoulder,
+                buttonSouth,
+                buttonEast,
+                buttonWest,
+                buttonNorth,
+                leftStick,
+                rightStick,
+                leftTrigger,
+                rightTrigger,
+            };
+
+            return _controls;
+        }
+
+        public override ControlButtonMetadata Resolve(InputControl control)
+        {
+            return control.name switch
+            {
+                "dpad"            => dpad,
+                "dpad/up"         => dpad_up,
+                "dpad/down"       => dpad_down,
+                "dpad/left"       => dpad_left,
+                "dpad/right"      => dpad_right,
+                "start"           => start,
+                "select"          => @select,
+                "leftStickPress"  => leftStickPress,
+                "rightStickPress" => rightStickPress,
+                "leftShoulder"    => leftShoulder,
+                "rightShoulder"   => rightShoulder,
+                "buttonSouth"     => buttonSouth,
+                "buttonEast"      => buttonEast,
+                "buttonWest"      => buttonWest,
+                "buttonNorth"     => buttonNorth,
+                "leftStick"       => leftStick,
+                "rightStick"      => rightStick,
+                "leftTrigger"     => leftTrigger,
+                "rightTrigger"    => rightTrigger,
+                _                 => throw new NotSupportedException(control.name)
+            };
+        }
+
+        internal override void PopulateAll()
+        {
+            using (_PRF_SetAll.Auto())
+            {
+                _ = GetAll();
+
+                if (deviceName == null)
+                {
+                    AppaLog.Warn("This metadata is not yet setup!");
+                    return;
+                }
+
+                if (dpad == null)
+                {
+                    dpad = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(dpad)}");
+                    this.MarkAsModified();
+                    _controls[0] = dpad;
+                }
+
+                if (dpad_up == null)
+                {
+                    dpad_up = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(dpad_up)}");
+                    this.MarkAsModified();
+                    _controls[1] = dpad_up;
+                }
+
+                if (dpad_down == null)
+                {
+                    dpad_down = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(dpad_down)}");
+                    this.MarkAsModified();
+                    _controls[2] = dpad_down;
+                }
+
+                if (dpad_left == null)
+                {
+                    dpad_left = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(dpad_left)}");
+                    this.MarkAsModified();
+                    _controls[3] = dpad_left;
+                }
+
+                if (dpad_right == null)
+                {
+                    dpad_right = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(dpad_right)}");
+                    this.MarkAsModified();
+                    _controls[4] = dpad_right;
+                }
+
+                if (start == null)
+                {
+                    start = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(start)}");
+                    this.MarkAsModified();
+                    _controls[5] = start;
+                }
+
+                if (select == null)
+                {
+                    select = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(select)}");
+                    this.MarkAsModified();
+                    _controls[6] = select;
+                }
+
+                if (leftStickPress == null)
+                {
+                    leftStickPress =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftStickPress)}");
+                    this.MarkAsModified();
+                    _controls[7] = leftStickPress;
+                }
+
+                if (rightStickPress == null)
+                {
+                    rightStickPress =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightStickPress)}");
+                    this.MarkAsModified();
+                    _controls[8] = rightStickPress;
+                }
+
+                if (leftShoulder == null)
+                {
+                    leftShoulder =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftShoulder)}");
+                    this.MarkAsModified();
+                    _controls[9] = leftShoulder;
+                }
+
+                if (rightShoulder == null)
+                {
+                    rightShoulder =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightShoulder)}");
+                    this.MarkAsModified();
+                    _controls[10] = rightShoulder;
+                }
+
+                if (buttonSouth == null)
+                {
+                    buttonSouth =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(buttonSouth)}");
+                    this.MarkAsModified();
+                    _controls[11] = buttonSouth;
+                }
+
+                if (buttonEast == null)
+                {
+                    buttonEast = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(buttonEast)}");
+                    this.MarkAsModified();
+                    _controls[12] = buttonEast;
+                }
+
+                if (buttonWest == null)
+                {
+                    buttonWest = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(buttonWest)}");
+                    this.MarkAsModified();
+                    _controls[13] = buttonWest;
+                }
+
+                if (buttonNorth == null)
+                {
+                    buttonNorth =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(buttonNorth)}");
+                    this.MarkAsModified();
+                    _controls[14] = buttonNorth;
+                }
+
+                if (leftStick == null)
+                {
+                    leftStick =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftStick)}");
+                    this.MarkAsModified();
+                    _controls[15] = leftStick;
+                }
+
+                if (rightStick == null)
+                {
+                    rightStick =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightStick)}");
+                    this.MarkAsModified();
+                    _controls[16] = rightStick;
+                }
+
+                if (leftTrigger == null)
+                {
+                    leftTrigger =
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftTrigger)}");
+                    this.MarkAsModified();
+                    _controls[17] = leftTrigger;
+                }
+
+                if (rightTrigger == null)
+                {
+                    rightTrigger=
+                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightTrigger)}");
+                    this.MarkAsModified();
+                    _controls[18] = rightTrigger;
+                }
+            }
+        }
+        
+#if UNITY_EDITOR
+        [UnityEditor.MenuItem(PKG.Menu.Assets.Base + nameof(GamepadMetadata), priority = PKG.Menu.Assets.Priority)]
+        public static void CreateAsset()
+        {
+            CreateNew<GamepadMetadata>();
+        }
+#endif
+        
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(GamepadMetadata) + ".";
+
+        private static readonly ProfilerMarker _PRF_SetAll =
+            new ProfilerMarker(_PRF_PFX + nameof(PopulateAll));
+
+        private static readonly ProfilerMarker _PRF_CanResolve =
+            new ProfilerMarker(_PRF_PFX + nameof(CanResolve));
+
+        private static readonly ProfilerMarker _PRF_Resolve = new ProfilerMarker(_PRF_PFX + nameof(Resolve));
+
+        #endregion
+    }
+}

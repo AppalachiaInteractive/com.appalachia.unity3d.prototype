@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f85a88fd7864549b391a9fe94047a5, type: 3}
+  m_Name: buttonWest
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  device: {fileID: 11400000, guid: b393e3dec60e21441b1df98bf149f99a, type: 2}
+  data:
+    name: buttonWest
+    displayName: X
+    shortDisplayName: X
+    path: /XInputControllerWindows/buttonWest
+  images:
+    illustrative: {fileID: 21300000, guid: d2cbe53bc3c327d4790046a7a5db5a97, type: 3}
+    outline: {fileID: 21300000, guid: c69f763a74e6e2b4e857b44ea58aa37b, type: 3}
+    reversedOutline: {fileID: 21300000, guid: dd76b839a9ee2ce4aadc1f5b03474997, type: 3}
+  imageNameOverride:
+    _overrideEnabled: 0
+    _value: 
+  _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

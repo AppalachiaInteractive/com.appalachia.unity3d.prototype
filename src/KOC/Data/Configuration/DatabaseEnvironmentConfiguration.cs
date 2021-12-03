@@ -3,12 +3,14 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Scriptables;
 using Appalachia.Data.Core;
 using Appalachia.Data.Core.Configuration;
+using Appalachia.Prototype.KOC.Application;
+using Appalachia.Prototype.KOC.Application.Scriptables;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Data.Configuration
 {
-    public class DatabaseEnvironmentConfiguration : AppalachiaObject
+    public class DatabaseEnvironmentConfiguration : AppalachiaApplicationObject
     {
         #region Fields and Autoproperties
 

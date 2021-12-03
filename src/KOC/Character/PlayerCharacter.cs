@@ -1,3 +1,4 @@
+using Appalachia.Core.Behaviours;
 using Appalachia.Prototype.KOC.Character.Settings;
 using Appalachia.Prototype.KOC.Character.States;
 using Appalachia.Utility.Extensions;
@@ -6,7 +7,7 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Character
 {
     [DisallowMultipleComponent]
-    public class PlayerCharacter : MonoBehaviour
+    public class PlayerCharacter: AppalachiaBehaviour
     {
         
 

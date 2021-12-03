@@ -1,3 +1,4 @@
+using Appalachia.Core.Behaviours;
 using Appalachia.UI.Controls.ListView;
 using Appalachia.UI.Core.Icons;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Inventory
 {
     [ExecuteAlways]
-    public class InventoryListSample : MonoBehaviour
+    public class InventoryListSample: AppalachiaBehaviour
     {
         
 
@@ -17,8 +18,10 @@ namespace Appalachia.Prototype.KOC.Inventory
 
         #region Event Functions
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
+            
             if (_listView == null)
             {
                 _listView = GetComponent<ListView>();

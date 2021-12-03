@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f85a88fd7864549b391a9fe94047a5, type: 3}
+  m_Name: leftShoulder
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  device: {fileID: 11400000, guid: b393e3dec60e21441b1df98bf149f99a, type: 2}
+  data:
+    name: leftShoulder
+    displayName: Left Bumper
+    shortDisplayName: LB
+    path: /XInputControllerWindows/leftShoulder
+  images:
+    illustrative: {fileID: 21300000, guid: d602be8992f7cf743a832c1cc4d82f0b, type: 3}
+    outline: {fileID: 21300000, guid: 404fdcb95c890e049ab65e5677a19af9, type: 3}
+    reversedOutline: {fileID: 21300000, guid: a22e22710de5f6549a2db73d3ef55fa6, type: 3}
+  imageNameOverride:
+    _overrideEnabled: 0
+    _value: 
+  _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

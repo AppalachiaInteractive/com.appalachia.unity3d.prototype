@@ -104,7 +104,7 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
         /*
         
             [DisallowMultipleComponent]
-    public class PlayerFoley : MonoBehaviour
+    public class PlayerFoley: AppalachiaBehaviour
     {
         public FoleyAudioCollection foley;
 

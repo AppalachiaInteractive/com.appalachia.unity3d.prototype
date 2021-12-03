@@ -1,7 +1,7 @@
 #region
 
 using System.Collections.Generic;
-using Appalachia.Audio.Components;
+using Appalachia.Audio.Behaviours;
 using UnityEngine;
 
 #endregion

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f85a88fd7864549b391a9fe94047a5, type: 3}
+  m_Name: scroll
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  device: {fileID: 11400000, guid: cec8b06ec57b49343a91fb14104fe758, type: 2}
+  data:
+    name: scroll
+    displayName: Scroll
+    shortDisplayName: 
+    path: /Mouse/scroll
+  images:
+    illustrative: {fileID: 21300000, guid: b7ca947809c434744b798da41ab9def5, type: 3}
+    outline: {fileID: 21300000, guid: f021430720d9ed942b5682f310f10434, type: 3}
+    reversedOutline: {fileID: 21300000, guid: 50a5e1b82b5f5734eac9b446ce4e793c, type: 3}
+  imageNameOverride:
+    _overrideEnabled: 0
+    _value: 
+  _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

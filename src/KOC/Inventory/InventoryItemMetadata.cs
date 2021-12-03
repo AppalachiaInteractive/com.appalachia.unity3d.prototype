@@ -1,11 +1,13 @@
 using System;
 using Appalachia.Core.Scriptables;
+using Appalachia.Prototype.KOC.Application;
+using Appalachia.Prototype.KOC.Application.Scriptables;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Inventory
 {
     [Serializable]
-    public class InventoryItemMetadata : AppalachiaObject
+    public class InventoryItemMetadata : AppalachiaApplicationObject
     {
         #region Fields and Autoproperties
 

@@ -107,9 +107,10 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
                     return ".asset";
                 }
 
-                // ReSharper disable once UnusedVariable
                 const string prefix = "appa";
                 const char separator = '.';
+                
+                // ReSharper disable once UnusedVariable
                 const char postfixq = 'q';
                 const char encrypted = 'e';
                 const char unencrypted = 'u';
@@ -329,15 +330,15 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
             }
         }
 
-        public override void Initialize()
+        protected override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
                 base.Initialize();
                 
-                initializationData.Reset(this, "2021-11-19-01");
+                initializer.Reset(this, "2021-11-19-01");
 
-                initializationData.Initialize(
+                initializer.Initialize(
                     this,
                     APPASTR.General,
                     (developer == null) || (developer2 == null) || (editor == null) || (runtime == null),

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f85a88fd7864549b391a9fe94047a5, type: 3}
+  m_Name: numpad7
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  device: {fileID: 11400000, guid: 62a48ad575a18b445990a32ac3fb8b01, type: 2}
+  data:
+    name: numpad7
+    displayName: Num 7
+    shortDisplayName: 
+    path: /Keyboard/numpad7
+  images:
+    illustrative: {fileID: 21300000, guid: e6c452003c8f742a7bdb4edd5ac48c59, type: 3}
+    outline: {fileID: 21300000, guid: 49a17f19262c544baa7bd0d5199fe65a, type: 3}
+    reversedOutline: {fileID: 21300000, guid: dd0816a02f3ca4f2f89d505bcc5ead9a, type: 3}
+  imageNameOverride:
+    _overrideEnabled: 0
+    _value: 
+  _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

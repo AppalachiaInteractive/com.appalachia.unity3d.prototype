@@ -1,6 +1,7 @@
 using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Behaviours;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Data.Configuration;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -9,7 +10,7 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Data
 {
     [ExecuteAlways]
-    public class DatabaseManager : SingletonAppalachiaBehaviour<DatabaseManager>
+    public class DatabaseManager : SingletonAppalachiaApplicationBehaviour<DatabaseManager>
     {
         #region Fields and Autoproperties
 
@@ -29,16 +30,6 @@ namespace Appalachia.Prototype.KOC.Data
         #endregion
 
         #region Event Functions
-
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                base.OnEnable();
-                
-                Initialize();
-            }
-        }
 
         protected override void OnDisable()
         {
@@ -126,7 +117,7 @@ namespace Appalachia.Prototype.KOC.Data
             }
         }
 
-        public override void Initialize()
+        protected override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
@@ -144,7 +135,7 @@ namespace Appalachia.Prototype.KOC.Data
                 );
 
                 configuration = DatabaseConfiguration.instance;
-                configuration.Initialize();
+                configuration.InitializeExternal();
             }
         }
 

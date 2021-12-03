@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a93ff9155749c43a22bf6b67476399, type: 3}
+  m_Name: DebugOverlayMetadata
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  additionalShaderChannels: 0
+  blockingObjects: 0
+  blocksRaycasts: 0
+  fullscreen: 0
+  ignoreParentGroups: 0
+  ignoreReversedGraphics: 0
+  interactable: 0
+  pixelPerfect: 0
+  resetScaleToOne: 0
+  match: 0
+  referencePixelsPerUnit: 1
+  graph: {fileID: 0}
+  sortingOrder: 0
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  renderMode: 0
+  uiScaleMode: 0
+  screenMatchMode: 0
+  canvasName: 
+  graphControllerName: 
+  viewCategory: 
+  viewName: 
+  referenceResolution: {x: 0, y: 0}
+  testGraph: {fileID: 0}
+  graphyPrefab:
+    _assetReference:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    _directReference: {fileID: 0}
+  inGameConsolePrefab:
+    _assetReference:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    _directReference: {fileID: 0}
+  captureScreenshot: {fileID: 0}
+  debugLogToggle: {fileID: 0}
+  graphyToggleActive: {fileID: 0}
+  graphyToggleModes: {fileID: 0}

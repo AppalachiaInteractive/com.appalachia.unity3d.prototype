@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8665834fe2b64f22bf67a6a79c3cc420, type: 3}
+  m_Name: DeviceButtonLookup
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  keyboard: {fileID: 11400000, guid: 62a48ad575a18b445990a32ac3fb8b01, type: 2}
+  mouse: {fileID: 11400000, guid: cec8b06ec57b49343a91fb14104fe758, type: 2}
+  gamepads:
+    _capacityIncreaseMultiplier: 2
+    _values:
+    - {fileID: 11400000, guid: b393e3dec60e21441b1df98bf149f99a, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    noTracking: 0
+    _count: 1
+  assetRootPath: Assets/Appalachia.Prototype/asset/Input/Sprites

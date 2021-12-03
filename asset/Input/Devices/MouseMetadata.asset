@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6611d9a5635745d6a99200893ad47fff, type: 3}
+  m_Name: MouseMetadata
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  deviceName: Mouse
+  supportedDeviceSubstrings: []
+  controller:
+    illustrative: {fileID: 0}
+    outline: {fileID: 0}
+    reversedOutline: {fileID: 0}
+  lines:
+    illustrative: {fileID: 0}
+    outline: {fileID: 0}
+    reversedOutline: {fileID: 0}
+  buttons:
+    illustrative: {fileID: 0}
+    outline: {fileID: 0}
+    reversedOutline: {fileID: 0}
+  scroll: {fileID: 11400000, guid: 9f2212d3bf2d30949a91d29a34f45cb3, type: 2}
+  leftButton: {fileID: 11400000, guid: e2c341babd7a2e64e82a0cd89258c347, type: 2}
+  rightButton: {fileID: 11400000, guid: 30c244b6f791bcf4eabed717edc361f6, type: 2}
+  middleButton: {fileID: 11400000, guid: 1d4c8e7eeba9da64792c7c426fdda481, type: 2}
+  forwardButton: {fileID: 11400000, guid: 7e87e0366183eeb4aa3be29c32bfd6a6, type: 2}
+  backButton: {fileID: 11400000, guid: dd9fb4f3f1d4e9e4d8ae248f16f57d5b, type: 2}

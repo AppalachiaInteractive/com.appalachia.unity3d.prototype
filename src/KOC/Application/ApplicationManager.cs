@@ -1,9 +1,9 @@
 using System.Collections;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Behaviours;
 using Appalachia.Core.Execution.Hooks;
 using Appalachia.Prototype.KOC.Application.Areas;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components;
 using Appalachia.Prototype.KOC.Application.Scenes;
 using Appalachia.Prototype.KOC.Application.Screens.Fading;
@@ -14,56 +14,47 @@ using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application
 {
     [InspectorIcon(Icons.Squirrel.Red)]
     [AlwaysInitializeOnLoad]
-    [ExecutionOrder(-10000)]
-    public class ApplicationManager : SingletonAppalachiaBehaviour<ApplicationManager>
+    [ExecutionOrder(ExecutionOrders.ApplicationManager)]
+    public class ApplicationManager : SingletonAppalachiaApplicationBehaviour<ApplicationManager>
     {
         #region Fields and Autoproperties
 
+        [FormerlySerializedAs("applicationAreaStateCollection")]
+        [FormerlySerializedAs("applicationAreaStates")]
+        [FormerlySerializedAs("applicationState")]
+        [FormerlySerializedAs("state")]
         [Title("Application State"), InlineProperty, HideLabel]
-        public ApplicationState state;
+        public ApplicationAreaStateCollection areaStates;
 
         private ApplicationLifetimeComponents _lifetimeComponents;
 
-        [Title("Bootload Data")]
+        [FormerlySerializedAs("_lifetimeComponentsAsset")]
         [SerializeField]
-        private AreaSceneBootloadDataCollection _bootloads;
+        private LifetimeMetadata lifetimeMetadata;
+
+        [FormerlySerializedAs("_bootloads")]
+        [Title("Area Scene Information")]
+        [SerializeField]
+        private AreaSceneInformationCollection _areaSceneInfos;
 
         private bool _isApplicationFocused;
         private bool _isSceneLoading;
         private FrameEnd _frameEnd;
         private FrameStart _frameStart;
-
+        private Canvas _canvas;
         private ScreenFadeManager _screenFader;
+
+        private bool _hasStarted;
 
         #endregion
 
         public bool IsApplicationFocused => _isApplicationFocused;
-
-        public bool IsNextStateReady
-        {
-            get
-            {
-                using (_PRF_IsNextStateReady.Auto())
-                {
-                    if (state.next == null)
-                    {
-                        return false;
-                    }
-
-                    if (state.next.substate != ApplicationStates.LoadComplete)
-                    {
-                        return false;
-                    }
-
-                    return true;
-                }
-            }
-        }
 
         public bool IsSceneLoading
         {
@@ -73,21 +64,56 @@ namespace Appalachia.Prototype.KOC.Application
 
         #region Event Functions
 
+        protected override void Awake()
+        {
+            using (_PRF_Awake.Auto())
+            {
+                base.Awake();
+
+                AppaLog.Context.Application.Info(nameof(Awake));
+                instance.Initialize();
+
+                AreaRegistry.RegisterApplicationManager(this);
+            }
+        }
+
         private void Update()
         {
             using (_PRF_Update.Auto())
             {
+                if (!UnityEngine.Application.isPlaying)
+                {
+                    return;
+                }
+
                 AppaLog.Context.Bootload.Trace(nameof(Update));
 
-                Initialize();
+                foreach (var areaStateEntry in areaStates.Areas)
+                {
+                    var area = areaStateEntry.Key;
+                    var areaState = areaStateEntry.Value;
 
-                var currentBootloadData = _bootloads.GetByArea(state.currentArea);
+                    var areaSceneInfo = _areaSceneInfos.GetByArea(area);
 
-                SceneBootloader.CheckAreaLoadState(currentBootloadData, state.current);
+                    areaSceneInfo.CheckAreaLoadState(areaState);
 
-                var nextBootloadData = _bootloads.GetByArea(state.nextArea);
+                    if ((areaState.State == ApplicationAreaStates.Load) &&
+                        (areaState.Substate == ApplicationAreaSubstates.Complete))
+                    {
+                        var areaMetadata = AreaRegistry.GetMetadata(area);
 
-                SceneBootloader.CheckAreaLoadState(nextBootloadData, state.next);
+                        if (areaMetadata.LoadBehaviour == LoadBehaviour.ActivateImmediately)
+                        {
+                            areaState.QueueActivate();
+                        }
+
+                        if (areaMetadata.SetEntrySceneActive)
+                        {
+                            areaSceneInfo.entryScene.OnActivateComplete += scene =>
+                                SceneManager.SetActiveScene(scene.Scene.Scene);
+                        }
+                    }
+                }
             }
         }
 
@@ -101,6 +127,20 @@ namespace Appalachia.Prototype.KOC.Application
 
         #endregion
 
+        public void Activate(ApplicationArea area)
+        {
+            var areaState = areaStates.Areas[area];
+
+            areaState.QueueLoad();
+        }
+
+        public void Deactivate(ApplicationArea area)
+        {
+            var areaState = areaStates.Areas[area];
+
+            areaState.QueueUnload();
+        }
+
         public void ExitApplication()
         {
             AppaLog.Context.Application.Info(nameof(ExitApplication));
@@ -108,60 +148,43 @@ namespace Appalachia.Prototype.KOC.Application
             UnityEngine.Application.Quit();
         }
 
-        public void TransitionTo(ApplicationArea area)
-        {
-            using (_PRF_TransitionTo.Auto())
-            {
-                AppaLog.Context.Bootload.Info(nameof(TransitionTo));
-                state.currentArea = area;
-            }
-        }
-
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-                
-                AppaLog.Context.Bootload.Info(nameof(Awake));
-                instance.Initialize();
-            }
-        }
-
-        public override void Initialize()
+        protected override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
                 base.Initialize();
-                
-                AppaLog.Context.Bootload.Info(nameof(Initialize));
+
+                AppaLog.Context.Application.Info(nameof(Initialize));
                 name = nameof(ApplicationManager);
 
-                if (state == null)
+                if (areaStates == null)
                 {
-                    state = new ApplicationState();
+                    areaStates = ApplicationAreaStateCollection.CreateNew();
                 }
 
                 _lifetimeComponents = ApplicationLifetimeComponents.instance;
-                _lifetimeComponents.SetAsSiblingTo(transform);
-                gameObject.GetOrCreateComponent(ref _frameStart);
-                gameObject.GetOrCreateComponent(ref _frameEnd);
-                gameObject.GetOrCreateComponent(ref _screenFader);
+                _lifetimeComponents.gameObject.SetAsSiblingTo(transform);
 
-                if (_bootloads == null)
+                lifetimeMetadata = _lifetimeComponents.metadata;
+
+                gameObject.CreateOrGetComponent(ref _frameStart);
+                gameObject.CreateOrGetComponent(ref _frameEnd);
+
+                gameObject.CreateOrGetComponentInChild(ref _canvas, "Canvas - FullScreenBlack", false);
+
+                _canvas.gameObject.CreateOrGetComponent(ref _screenFader);
+
+                if (_areaSceneInfos == null)
                 {
-                    _bootloads = AreaSceneBootloadDataCollection.instance;
+                    _areaSceneInfos = AreaSceneInformationCollection.instance;
                 }
 
-                if (state.currentArea == ApplicationArea.None)
-                {
-                    state.currentArea = ApplicationArea.SplashScreen;
-                }
+                areaStates.Initialize();
 
-                if ((state.nextArea == ApplicationArea.None) &&
-                    (state.currentArea == ApplicationArea.SplashScreen))
+                if (!_hasStarted && (areaStates.LoadCount == 0) && (areaStates.ActivateCount == 0))
                 {
-                    state.nextArea = ApplicationArea.MainMenu;
+                    Activate(ApplicationArea.SplashScreen);
+                    _hasStarted = true;
                 }
 
                 DontDestroyOnLoadSafe(gameObject);
@@ -174,7 +197,7 @@ namespace Appalachia.Prototype.KOC.Application
             bool fadeOut = true,
             bool fadeIn = true)
         {
-            AppaLog.Context.Bootload.Info(nameof(LoadScene));
+            AppaLog.Context.Application.Info(nameof(LoadScene));
 
             _isSceneLoading = true;
 
@@ -198,7 +221,7 @@ namespace Appalachia.Prototype.KOC.Application
                 }
             }
 
-            var load = sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
+            var load = sceneToLoad.reference.LoadSceneAsync(LoadSceneMode.Additive);
 
             while (!load.IsDone)
             {
@@ -223,16 +246,10 @@ namespace Appalachia.Prototype.KOC.Application
 
         private const string _PRF_PFX = nameof(ApplicationManager) + ".";
 
-        private static readonly ProfilerMarker _PRF_IsNextStateReady =
-            new ProfilerMarker(_PRF_PFX + nameof(IsNextStateReady));
-
         private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
 
         private static readonly ProfilerMarker _PRF_OnApplicationFocus =
             new ProfilerMarker(_PRF_PFX + nameof(OnApplicationFocus));
-
-        private static readonly ProfilerMarker _PRF_TransitionTo =
-            new ProfilerMarker(_PRF_PFX + nameof(TransitionTo));
 
         private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 

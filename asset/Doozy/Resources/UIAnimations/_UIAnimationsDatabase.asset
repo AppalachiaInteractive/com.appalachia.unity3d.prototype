@@ -23,7 +23,6 @@ MonoBehaviour:
     - Scale
     - Slide
     - Uncategorized
-    - Uncategorized
     DatabaseType: 1
     Databases:
     - {fileID: 11400000, guid: 8c6ef36a151e4be46b9976a8293cc70b, type: 2}
@@ -34,8 +33,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 94c9be9c0ca4fdc48a38595e65d4dd58, type: 2}
     - {fileID: 11400000, guid: 67698ae6846c9a54c8bb8e788285a30a, type: 2}
     - {fileID: 11400000, guid: 449a437e97970c345afaf9d335af35d4, type: 2}
-    - {fileID: 11400000, guid: 3459ad7ecd311684a820ff502b5acf85, type: 2}
-    - {fileID: 11400000, guid: dd3bbe80b3783c7489070be7d57c4fa3, type: 2}
+    - {fileID: 0}
   Hide:
     DatabaseNames:
     - Basic
@@ -47,7 +45,6 @@ MonoBehaviour:
     - Scale
     - Slide
     - Uncategorized
-    - Uncategorized
     DatabaseType: 2
     Databases:
     - {fileID: 11400000, guid: 1b08c632a509b614181576389ef25ebc, type: 2}
@@ -58,8 +55,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5cc54cfcd21d26546be54db4451e4065, type: 2}
     - {fileID: 11400000, guid: 451487294b711bf4ea50830836f44a3e, type: 2}
     - {fileID: 11400000, guid: 90e01018ab79dce47b7ee263cbcb51c1, type: 2}
-    - {fileID: 11400000, guid: dd3bbe80b3783c7489070be7d57c4fa3, type: 2}
-    - {fileID: 11400000, guid: f74b14a14b1a2cd488dc8edae996dee2, type: 2}
+    - {fileID: 0}
   Loop:
     DatabaseNames:
     - Elastic
@@ -69,7 +65,6 @@ MonoBehaviour:
     - Organic
     - Rotate
     - Scale
-    - Uncategorized
     - Uncategorized
     - Uncommon
     DatabaseType: 3
@@ -81,8 +76,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: fa4b58cb43ab40f49abdcb593426f8fc, type: 2}
     - {fileID: 11400000, guid: 0b12952b7799009448599378106124c9, type: 2}
     - {fileID: 11400000, guid: 5fd51270beca15142bd11b62ace39ff1, type: 2}
-    - {fileID: 11400000, guid: f74b14a14b1a2cd488dc8edae996dee2, type: 2}
-    - {fileID: 11400000, guid: 08865f3418b4c214799ba32b95d5bb4a, type: 2}
+    - {fileID: 0}
     - {fileID: 11400000, guid: cc23f54e9bc61404283b001b53956d85, type: 2}
   Punch:
     DatabaseNames:
@@ -94,7 +88,6 @@ MonoBehaviour:
     - Slide
     - Stretch
     - Uncategorized
-    - Uncategorized
     DatabaseType: 4
     Databases:
     - {fileID: 11400000, guid: e97cfe968e848d34287529b9c50fea0f, type: 2}
@@ -104,8 +97,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1c1a6b647483a284abe5221ae974e609, type: 2}
     - {fileID: 11400000, guid: 4c25a292884d6a3469345003ab04a455, type: 2}
     - {fileID: 11400000, guid: dc5ee88b8daa45c429ba98ffc3745618, type: 2}
-    - {fileID: 11400000, guid: 08865f3418b4c214799ba32b95d5bb4a, type: 2}
-    - {fileID: 11400000, guid: 3459ad7ecd311684a820ff502b5acf85, type: 2}
+    - {fileID: 0}
   State:
     DatabaseNames:
     - Basic
@@ -126,5 +118,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: cda1ae1506d7efc4f9412c4c5f136a3a, type: 2}
     - {fileID: 11400000, guid: 5c9b9339e29765b43a05e39aa06d4d17, type: 2}
     - {fileID: 11400000, guid: bb46711dccd6fc349b93d15c940d3f5b, type: 2}
-    - {fileID: 11400000, guid: 247a49e078d28364cb87444d35fbcc32, type: 2}
+    - {fileID: 11400000, guid: 3459ad7ecd311684a820ff502b5acf85, type: 2}
     - {fileID: 11400000, guid: d7ba7c8628d1f0b4696b7b944ce60f89, type: 2}

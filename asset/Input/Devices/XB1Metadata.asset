@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a03b90e981c4169b66a1830b6cf25b6, type: 3}
+  m_Name: XB1Metadata
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  deviceName: XB1
+  supportedDeviceSubstrings:
+  - XInput
+  controller:
+    illustrative: {fileID: 0}
+    outline: {fileID: 0}
+    reversedOutline: {fileID: 0}
+  lines:
+    illustrative: {fileID: 0}
+    outline: {fileID: 0}
+    reversedOutline: {fileID: 0}
+  buttons:
+    illustrative: {fileID: 0}
+    outline: {fileID: 0}
+    reversedOutline: {fileID: 0}
+  dpad: {fileID: 11400000, guid: 4fdc4e5bebb2c4a4a90b4f8bc30ff9f5, type: 2}
+  dpad_up: {fileID: 11400000, guid: 9098b4798a9036e468df384b7aedab2e, type: 2}
+  dpad_down: {fileID: 11400000, guid: 4808b3f19910dc94480bac7a81518ebc, type: 2}
+  dpad_left: {fileID: 11400000, guid: c31c63d8354be6341b449bb9976d70f8, type: 2}
+  dpad_right: {fileID: 11400000, guid: 61c815315bc680142bc3dcabfc82471f, type: 2}
+  start: {fileID: 11400000, guid: 1ffa436bde55d254aadb0ecac3303659, type: 2}
+  select: {fileID: 11400000, guid: fd40ba700fb759141b36a35451c3d3eb, type: 2}
+  leftStick: {fileID: 11400000, guid: 399e51e229f06384291eb49485b047d7, type: 2}
+  rightStick: {fileID: 11400000, guid: c73b58a27e4287046bd0631968fcb0cd, type: 2}
+  leftStickPress: {fileID: 11400000, guid: 927ba53ea0175954bbae979365a7742b, type: 2}
+  rightStickPress: {fileID: 11400000, guid: 5b887b2500ba3ac44a44c6b3dbb1868c, type: 2}
+  leftShoulder: {fileID: 11400000, guid: c4747b4e81750294d88b74def281feb7, type: 2}
+  rightShoulder: {fileID: 11400000, guid: f131f2dbce5a75942a84757494036a8b, type: 2}
+  leftTrigger: {fileID: 11400000, guid: 3ea2e581d9361e44fa5f292bc1a2230d, type: 2}
+  rightTrigger: {fileID: 11400000, guid: 6c454b6bf307c354698df9e147305fad, type: 2}
+  buttonSouth: {fileID: 11400000, guid: ff3933c11ebdecb45ac8efb1fbfbe794, type: 2}
+  buttonEast: {fileID: 11400000, guid: 850c6cfbb31a9cb41ae374aa3d224bdc, type: 2}
+  buttonWest: {fileID: 11400000, guid: 278e4453af4a42e48b299ccdbfa2e2b0, type: 2}
+  buttonNorth: {fileID: 11400000, guid: abe1436bee857e34e8a055f5dc40275a, type: 2}

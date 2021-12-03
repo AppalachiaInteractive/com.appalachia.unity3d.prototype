@@ -2,6 +2,7 @@ using System.Collections;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Behaviours;
 using Appalachia.Core.Scriptables;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Utility.Interpolation;
 using Appalachia.Utility.Interpolation.Modes;
 using Sirenix.OdinInspector;
@@ -12,15 +13,18 @@ using UnityEngine.Serialization;
 namespace Appalachia.Prototype.KOC.Application.Screens.Fading
 {
     [ExecuteAlways, SmartLabelChildren]
-    public abstract class FadeManager<T> : AppalachiaBehaviour
+    public abstract class FadeManager<T> : AppalachiaApplicationBehaviour
     {
-        public delegate void FadeInHandler();
-        public delegate void FadeOutHandler();
         public delegate void FadeHandler(bool fadeIn);
+
+        public delegate void FadeInHandler();
+
+        public delegate void FadeOutHandler();
 
         #region Fields and Autoproperties
 
-        [FormerlySerializedAs("uiFadeSettings")] public FadeSettings fadeSettings;
+        [FormerlySerializedAs("uiFadeSettings"), SerializeField]
+        public FadeSettings fadeSettings;
 
         private bool _isFading;
 
@@ -46,14 +50,12 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
             base.OnEnable();
 
             Initialize();
-            ExecuteFade(
-                fadeSettings.startVisible ? fadeSettings.maximumAlpha : fadeSettings.minimumAlpha
-            );
+            ExecuteFade(fadeSettings.startVisible ? fadeSettings.maximumAlpha : fadeSettings.minimumAlpha);
         }
 
         #endregion
 
-        public override void Initialize()
+        protected override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
@@ -82,6 +84,8 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
                 return;
             }
 
+            Initialize();
+            
             StartCoroutine(FadeScreenInCoroutine());
         }
 
@@ -93,6 +97,8 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
                 return;
             }
 
+            Initialize();
+            
             StartCoroutine(FadeScreenOutCoroutine());
         }
 

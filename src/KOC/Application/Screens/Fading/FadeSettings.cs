@@ -1,5 +1,6 @@
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Scriptables;
+using Appalachia.Prototype.KOC.Application.Scriptables;
 using Appalachia.Utility.Interpolation;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace Appalachia.Prototype.KOC.Application.Screens.Fading
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     [SmartLabelChildren]
-    public class FadeSettings  : AppalachiaObject
+    public class FadeSettings  : AppalachiaApplicationObject
     {
         [BoxGroup("Settings")]
         [ToggleLeft]

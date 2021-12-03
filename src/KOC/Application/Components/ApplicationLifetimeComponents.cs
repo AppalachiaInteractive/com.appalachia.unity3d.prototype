@@ -1,23 +1,36 @@
 using System;
+using System.Collections.Generic;
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Behaviours;
+using Appalachia.Prototype.KOC.Application.Components.Controls;
+using Appalachia.Prototype.KOC.Application.Components.Cursors;
+using Appalachia.Prototype.KOC.Application.Extensions;
+using Appalachia.Prototype.KOC.Application.Input;
 using Appalachia.Prototype.KOC.Data;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Logging;
 using Doozy.Engine.UI;
 using Doozy.Engine.UI.Base;
+using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Components
 {
     [ExecuteAlways]
+    [ExecutionOrder(ExecutionOrders.ApplicationLifetimeComponents)]
     public class ApplicationLifetimeComponents : SingletonAppalachiaBehaviour<ApplicationLifetimeComponents>
     {
         #region Fields and Autoproperties
 
-        public LifetimeComponentsAsset asset;
+        [FormerlySerializedAs("asset")]
+        [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        public LifetimeMetadata metadata;
+
         [SerializeField] public UICanvas masterCanvas;
         [SerializeField] private AudioListener _audioListener;
         [NonSerialized] private bool _initialized;
@@ -25,10 +38,44 @@ namespace Appalachia.Prototype.KOC.Application.Components
         [SerializeField] private EventSystem _eventSystem;
         [SerializeField] private InputSystemUIInputModule _inputSystemUIInputModule;
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private CursorManager _cursorManager;
+        private KOCInputActions _inputActions;
+
+        private Queue<Action> _nextFrameActions;
 
         #endregion
 
+        public AudioListener AudioListener => _audioListener;
+
+        public ControlScheme CurrentControlScheme
+        {
+            get
+            {
+                switch (_playerInput.currentControlScheme)
+                {
+                    case "Gamepad":
+                        return ControlScheme.Gamepad;
+                    case "KeyboardMouse":
+                        return ControlScheme.KeyboardMouse;
+                    default:
+                        throw new NotSupportedException(_playerInput.currentControlScheme);
+                }
+            }
+        }
+
+        public CursorManager CursorManager => _cursorManager;
+        public DatabaseManager DatabaseManager => _databasManager;
+        public EventSystem EventSystem => _eventSystem;
+        public InputSystemUIInputModule InputSystemUIInputModule => _inputSystemUIInputModule;
+
+        public KOCInputActions InputActions => _inputActions;
+        public PlayerInput PlayerInput => _playerInput;
+
+        public UICanvas UICanvas => masterCanvas;
+
         protected override bool DestroyObjectOfSubsequentInstances => true;
+
+        protected override bool InitializeAlways => true;
 
         #region Event Functions
 
@@ -40,16 +87,20 @@ namespace Appalachia.Prototype.KOC.Application.Components
                 {
                     Initialize();
                 }
-            }
-        }
 
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                base.OnEnable();
+                _nextFrameActions ??= new Queue<Action>();
 
-                Initialize();
+                while (_nextFrameActions.Count > 0)
+                {
+                    try
+                    {
+                        _nextFrameActions.Dequeue()();
+                    }
+                    catch (Exception ex)
+                    {
+                        AppaLog.Exception("Failed to process queued action.", ex);
+                    }
+                }
             }
         }
 
@@ -65,7 +116,7 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
         #endregion
 
-        public override void Initialize()
+        protected override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
@@ -73,74 +124,93 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
                 _initialized = true;
 
-                asset = LifetimeComponentsAsset.instance;
+                _inputActions = new KOCInputActions();
+
+                metadata = LifetimeMetadata.instance;
 
                 gameObject.name = nameof(ApplicationLifetimeComponents);
 
-                gameObject.GetOrCreateComponent(ref _eventSystem);
-                gameObject.GetOrCreateComponent(ref _inputSystemUIInputModule);
-                gameObject.GetOrCreateComponent(ref _playerInput);
-                gameObject.GetOrCreateComponent(ref _audioListener);
-                gameObject.GetOrCreateComponent(ref _databasManager);
+                DoSafe(() => gameObject.CreateOrGetComponent(ref _eventSystem));
+                DoSafe(() => gameObject.CreateOrGetComponent(ref _inputSystemUIInputModule));
+                DoSafe(() => gameObject.CreateOrGetComponent(ref _playerInput));
+                DoSafe(() => gameObject.CreateOrGetComponent(ref _audioListener));
+                DoSafe(
+                    () => gameObject.CreateOrGetComponentInChild(ref _databasManager, nameof(DatabaseManager))
+                );
+                DoSafe(
+                    () => gameObject.CreateOrGetComponentInChild(ref _cursorManager, nameof(CursorManager))
+                );
 
-                _playerInput.actions = asset.inputActions;
-                _playerInput.notificationBehavior = PlayerNotifications.InvokeCSharpEvents;
-                _playerInput.neverAutoSwitchControlSchemes = false;
-                _playerInput.uiInputModule = _inputSystemUIInputModule;
+                DoSafe(
+                    () =>
+                    {
+                        _playerInput.enabled = false;
+                        _inputSystemUIInputModule.enabled = false;
 
-                AssignDefaultActions();
+                        var asset = LifetimeMetadata.instance.inputActionAsset;
 
-                gameObject.GetOrCreateComponentInChild(ref masterCanvas, NamesDatabase.MASTER_CANVAS);
+                        _inputSystemUIInputModule.UnassignActions();
+                        _inputSystemUIInputModule.actionsAsset = asset;
+                        _inputSystemUIInputModule.point = asset.FindAction(InputActions.GenericMenu.Point.id)
+                                                               .GetReference();
+                        _inputSystemUIInputModule.leftClick = asset
+                                                             .FindAction(InputActions.GenericMenu.Click.id)
+                                                             .GetReference();
+                        _inputSystemUIInputModule.move = asset
+                                                        .FindAction(InputActions.GenericMenu.Navigate.id)
+                                                        .GetReference();
+                        _inputSystemUIInputModule.submit = asset
+                                                          .FindAction(InputActions.GenericMenu.Submit.id)
+                                                          .GetReference();
+                        _inputSystemUIInputModule.cancel = asset
+                                                          .FindAction(InputActions.GenericMenu.Cancel.id)
+                                                          .GetReference();
+
+                        _inputSystemUIInputModule.enabled = true;
+
+                        _playerInput.uiInputModule = _inputSystemUIInputModule;
+                        _playerInput.actions = asset;
+                        _playerInput.notificationBehavior = PlayerNotifications.InvokeCSharpEvents;
+                        _playerInput.neverAutoSwitchControlSchemes = false;
+                        _playerInput.enabled = true;
+                    }
+                );
+
+                DoSafe(
+                    () => gameObject.CreateOrGetComponentInChild(
+                        ref masterCanvas,
+                        NamesDatabase.MASTER_CANVAS
+                    )
+                );
+
+                DoSafe(() => _cursorManager.InitializeExternal());
+                
+                DontDestroyOnLoadSafe(gameObject);
             }
         }
 
-        public void AssignDefaultActions()
+        public void DoNextFrame(Action action)
         {
-            using (_PRF_AssignDefaultActions.Auto())
+            _nextFrameActions ??= new Queue<Action>();
+
+            _nextFrameActions.Enqueue(action);
+        }
+
+        private void DoSafe(Action action)
+        {
+            try
             {
-                _inputSystemUIInputModule.actionsAsset = asset.inputActions;
-
-                asset.point.action.Enable();
-                asset.leftClick.action.Enable();
-                asset.middleClick.action.Enable();
-                asset.rightClick.action.Enable();
-                asset.scrollWheel.action.Enable();
-                asset.move.action.Enable();
-                asset.submit.action.Enable();
-                asset.cancel.action.Enable();
-                asset.trackedDevicePosition.action.Enable();
-                asset.trackedDeviceOrientation.action.Enable();
-
-                _inputSystemUIInputModule.point = null;
-                _inputSystemUIInputModule.leftClick = null;
-                _inputSystemUIInputModule.middleClick = null;
-                _inputSystemUIInputModule.rightClick = null;
-                _inputSystemUIInputModule.scrollWheel = null;
-                _inputSystemUIInputModule.move = null;
-                _inputSystemUIInputModule.submit = null;
-                _inputSystemUIInputModule.cancel = null;
-                _inputSystemUIInputModule.trackedDevicePosition = null;
-                _inputSystemUIInputModule.trackedDeviceOrientation = null;
-
-                _inputSystemUIInputModule.point = asset.point;
-                _inputSystemUIInputModule.leftClick = asset.leftClick;
-                _inputSystemUIInputModule.middleClick = asset.middleClick;
-                _inputSystemUIInputModule.rightClick = asset.rightClick;
-                _inputSystemUIInputModule.scrollWheel = asset.scrollWheel;
-                _inputSystemUIInputModule.move = asset.move;
-                _inputSystemUIInputModule.submit = asset.submit;
-                _inputSystemUIInputModule.cancel = asset.cancel;
-                _inputSystemUIInputModule.trackedDevicePosition = asset.trackedDevicePosition;
-                _inputSystemUIInputModule.trackedDeviceOrientation = asset.trackedDeviceOrientation;
+                action();
+            }
+            catch (Exception ex)
+            {
+                AppaLog.Exception(ex);
             }
         }
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(ApplicationLifetimeComponents) + ".";
-
-        private static readonly ProfilerMarker _PRF_AssignDefaultActions =
-            new ProfilerMarker(_PRF_PFX + nameof(AssignDefaultActions));
 
         private static readonly ProfilerMarker _PRF_Initialize =
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));

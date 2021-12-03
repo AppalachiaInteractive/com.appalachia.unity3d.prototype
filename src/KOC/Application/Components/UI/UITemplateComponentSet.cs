@@ -1,4 +1,5 @@
 using System;
+using Appalachia.Core.Attributes.Editing;
 using Appalachia.Prototype.KOC.Application.Screens.Fading;
 using Appalachia.Utility.Extensions;
 using Doozy.Engine.UI;
@@ -8,11 +9,13 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Application.Components.UI
 {
-    [Serializable]
-    public struct UITemplateComponentSet
+    [Serializable, SmartLabelChildren]
+    public struct UITemplateComponentSet : IComponentSet
     {
         #region Fields and Autoproperties
 
+        public GameObject GameObject => gameObject;
+        
         public Canvas canvas;
         public CanvasFadeManager canvasFadeManager;
         public CanvasGroup canvasGroup;
@@ -28,13 +31,13 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
             {
                 var targetName = $"Template - {baseName}";
 
-                parent.FindOrCreateChild(ref gameObject, targetName);
+                parent.CreateOrGetChild(ref gameObject, targetName, true);
 
-                gameObject.GetOrCreateComponent(ref rect);
-                gameObject.GetOrCreateComponent(ref canvasFadeManager);
-                gameObject.GetOrCreateComponent(ref canvasGroup);
-                gameObject.GetOrCreateComponent(ref canvas);
-                gameObject.GetOrCreateComponent(ref image);
+                gameObject.CreateOrGetComponent(ref rect);
+                gameObject.CreateOrGetComponent(ref canvasFadeManager);
+                gameObject.CreateOrGetComponent(ref canvasGroup);
+                gameObject.CreateOrGetComponent(ref canvas);
+                gameObject.CreateOrGetComponent(ref image);
             }
         }
 

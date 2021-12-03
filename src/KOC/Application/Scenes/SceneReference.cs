@@ -1,15 +1,17 @@
 using Appalachia.CI.Integration.Assets;
-using Appalachia.Core.Scriptables;
+using Appalachia.Prototype.KOC.Application.Scriptables;
+using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
-    public class SceneReference  : AppalachiaObject
+    public class SceneReference : AppalachiaApplicationObject
     {
         #region Fields and Autoproperties
 
-        [ReadOnly] public AssetReference sceneReference;
+        [FormerlySerializedAs("sceneReference")] [ReadOnly] public AssetReference reference;
 
         public bool setActiveOnLoad;
 
@@ -22,15 +24,16 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         public void SetSelection(UnityEditor.SceneAsset asset)
         {
             sceneAsset = asset;
+            this.MarkAsModified();
             UpdateSelection();
         }
 
         private void UpdateSelection()
         {
-            AssetDatabaseManager.TryGetGUIDAndLocalFileIdentifier(sceneAsset, out var guid, out long _);
+            AssetDatabaseManager.TryGetGUIDAndLocalFileIdentifier(sceneAsset, out var guid, out var _);
 
-            sceneReference = new AssetReference(guid);
-            SetDirty();
+            reference = new AssetReference(guid);
+            this.MarkAsModified();
         }
 
         [UnityEditor.MenuItem(

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Linq;
 using Appalachia.Core.Behaviours;
+using Appalachia.Prototype.KOC.Application;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Utility.Logging;
 using UnityEngine;
 using UnityEngine.Profiling;
@@ -9,7 +11,7 @@ using Object = UnityEngine.Object;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public class GameController : AppalachiaBehaviour
+    public class GameController : AppalachiaApplicationBehaviour
     {
         public delegate void AudioTransformsUpdater(Transform root, Transform eye);
 

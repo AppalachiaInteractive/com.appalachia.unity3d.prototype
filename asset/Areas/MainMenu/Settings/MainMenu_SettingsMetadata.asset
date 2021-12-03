@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2348fb268ac84ddd8cae1673c9479f0e, type: 3}
+  m_Name: MainMenu_SettingsMetadata
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags:
+    - Doozy Graph
+    - Doozy Canvas
+    - Doozy View
+    - View
+    - Canvas Group
+    - Canvas Scaling
+    - Canvas
+    - Graphic Raycaster
+    - backgroundColor
+    - templateAlpha
+    - _defaultReferences
+    _resetToken: 202111151234
+  _cachedName: SettingsMetadata_20211115-032934998
+  _niceName: Settings Metadata_20211115-032934998
+  hideCursor: 0
+  updateCursorLockState: 0
+  cursorLockState: 0
+  hasCustomCursor: 1
+  cursor: 180
+  onEnable:
+    Player:
+      _overrideEnabled: 0
+      _value: 0
+    Debug:
+      _overrideEnabled: 0
+      _value: 0
+    GenericMenu:
+      _overrideEnabled: 0
+      _value: 0
+    MainMenu:
+      _overrideEnabled: 0
+      _value: 0
+    InGameMenu:
+      _overrideEnabled: 0
+      _value: 0
+    PauseMenu:
+      _overrideEnabled: 0
+      _value: 0
+    DeathMenu:
+      _overrideEnabled: 0
+      _value: 0
+    LoadingScreen:
+      _overrideEnabled: 0
+      _value: 0
+  onDisable:
+    Player:
+      _overrideEnabled: 0
+      _value: 0
+    Debug:
+      _overrideEnabled: 0
+      _value: 0
+    GenericMenu:
+      _overrideEnabled: 0
+      _value: 0
+    MainMenu:
+      _overrideEnabled: 0
+      _value: 0
+    InGameMenu:
+      _overrideEnabled: 0
+      _value: 0
+    PauseMenu:
+      _overrideEnabled: 0
+      _value: 0
+    DeathMenu:
+      _overrideEnabled: 0
+      _value: 0
+    LoadingScreen:
+      _overrideEnabled: 0
+      _value: 0
+  blocksRaycasts: 1
+  interactable: 1
+  ignoreParentGroups: 0
+  uiScaleMode: 1
+  screenMatchMode: 0
+  match: 1
+  referenceResolution: {x: 1920, y: 1080}
+  referencePixelsPerUnit: 100
+  renderMode: 0
+  additionalShaderChannels: 25
+  pixelPerfect: 0
+  sortingOrder: 0
+  fullscreen: 1
+  resetScaleToOne: 1
+  blockingObjects: 0
+  ignoreReversedGraphics: 0
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  graph: {fileID: 11400000, guid: c3037465bf9724842bea225e513c7b78, type: 2}
+  canvasName: MainMenu_Settings
+  graphControllerName: Graph Controller - MainMenu_Settings
+  viewCategory: MainMenu
+  viewName: MainMenu_Settings
+  doesDrawMenu: 1
+  templateEnabled: 0
+  templateAlpha: 1
+  selectedTemplate: {fileID: 21300000, guid: 735c1cf1044b6a04cac6802167f6e65e, type: 3}
+  templates:
+  - {fileID: 21300000, guid: 735c1cf1044b6a04cac6802167f6e65e, type: 3}
+  - {fileID: 21300000, guid: dff71eca565c35e4a9b5955ff9985690, type: 3}
+  - {fileID: 21300000, guid: 21f30296c0ea8bb43a2011e56e822bdc, type: 3}
+  - {fileID: 21300000, guid: faeae85a3ddf6454b826953f7b47e6c9, type: 3}
+  - {fileID: 21300000, guid: 66f4c267b1e70be4d93f1f075d1fda9b, type: 3}
+  - {fileID: 21300000, guid: 18a2e651e3cc47245abd06b0a5fd2309, type: 3}
+  _defaultReferences: {fileID: 0}
+  testGraph: {fileID: 11400000, guid: a100e98456770404b87f2c595419a74d, type: 2}

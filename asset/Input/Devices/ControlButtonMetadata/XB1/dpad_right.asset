@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f85a88fd7864549b391a9fe94047a5, type: 3}
+  m_Name: dpad_right
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _nonSerializedTags: []
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  device: {fileID: 11400000, guid: b393e3dec60e21441b1df98bf149f99a, type: 2}
+  data:
+    name: 
+    displayName: 
+    shortDisplayName: 
+    path: 
+  images:
+    illustrative: {fileID: 21300000, guid: b0c49d6f5c1fde34b98a2d0a1ae2c187, type: 3}
+    outline: {fileID: 21300000, guid: 1fa8f745a931d2d48ab5860ce428104f, type: 3}
+    reversedOutline: {fileID: 21300000, guid: 2cdeb5c512cb9104d956e9ea97563804, type: 3}
+  imageNameOverride:
+    _overrideEnabled: 1
+    _value: dpad_right
+  _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

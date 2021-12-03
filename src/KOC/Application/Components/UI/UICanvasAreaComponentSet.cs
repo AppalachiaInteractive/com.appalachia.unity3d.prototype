@@ -1,4 +1,5 @@
 using System;
+using Appalachia.Core.Attributes.Editing;
 using Appalachia.Prototype.KOC.Application.Screens.Fading;
 using Appalachia.Utility.Extensions;
 using Doozy.Engine.Nody;
@@ -9,11 +10,13 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Application.Components.UI
 {
-    [Serializable]
-    public struct UICanvasAreaComponentSet
+    [Serializable, SmartLabelChildren]
+    public struct UICanvasAreaComponentSet : IComponentSet
     {
         #region Fields and Autoproperties
 
+        public GameObject GameObject => gameObject;
+        
         public Canvas canvas;
         public CanvasFadeManager canvasFadeManager;
         public CanvasGroup canvasGroup;
@@ -33,16 +36,16 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
             {
                 var targetName = $"Canvas - {name}";
 
-                parent.FindOrCreateChild(ref gameObject, targetName);
+                parent.CreateOrGetChild(ref gameObject, targetName, true);
 
-                gameObject.GetOrCreateComponent(ref rect);
-                gameObject.GetOrCreateComponent(ref canvasFadeManager);
-                gameObject.GetOrCreateComponent(ref canvasGroup);
-                gameObject.GetOrCreateComponent(ref canvas);
-                gameObject.GetOrCreateComponent(ref canvasScaler);
-                gameObject.GetOrCreateComponent(ref graphicRaycaster);
-                gameObject.GetOrCreateComponent(ref uiCanvas);
-                gameObject.GetOrCreateComponent(ref graphController);
+                gameObject.CreateOrGetComponent(ref rect);
+                gameObject.CreateOrGetComponent(ref canvasFadeManager);
+                gameObject.CreateOrGetComponent(ref canvasGroup);
+                gameObject.CreateOrGetComponent(ref canvas);
+                gameObject.CreateOrGetComponent(ref canvasScaler);
+                gameObject.CreateOrGetComponent(ref graphicRaycaster);
+                gameObject.CreateOrGetComponent(ref uiCanvas);
+                gameObject.CreateOrGetComponent(ref graphController);
             }
         }
 
