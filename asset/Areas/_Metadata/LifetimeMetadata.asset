@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba6130a6ab744bcfa8beab257537ba5d, type: 3}
   m_Name: LifetimeMetadata
@@ -33,11 +33,11 @@ MonoBehaviour:
     _resetToken: 
   _cachedName: 
   _niceName: 
-  singletonLookup: {fileID: 11400000, guid: e861ccb9419e6614eb2a27f7f8fc41a0, type: 2}
+  singletonLookup: {fileID: 0}
   uiStyle: {fileID: 11400000, guid: 7a0d499cf2ad0dd41be5333552e8f7f4, type: 2}
   deviceButtons: {fileID: 11400000, guid: 4a128e515e4776f409543bb3d500bcd3, type: 2}
   inputActionAsset: {fileID: -944628639613478452, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
   audioMixer: {fileID: 24100000, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
   criticalReferences:
-  - {fileID: 11400000, guid: e861ccb9419e6614eb2a27f7f8fc41a0, type: 2}
-  splashScreenFinishedAsset: {fileID: 11400000, guid: 6cd563022770fac4595845bcdcbfd7a7, type: 2}
+  - {fileID: 0}
+  splashScreenFinishedAsset: {fileID: 0}
