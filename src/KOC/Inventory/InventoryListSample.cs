@@ -1,12 +1,13 @@
-using Appalachia.Core.Behaviours;
+using Appalachia.Core.Objects.Root;
 using Appalachia.UI.Controls.ListView;
 using Appalachia.UI.Core.Icons;
+using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Inventory
 {
     [ExecuteAlways]
-    public class InventoryListSample: AppalachiaBehaviour
+    public sealed class InventoryListSample : AppalachiaBehaviour<InventoryListSample>
     {
         
 
@@ -18,9 +19,9 @@ namespace Appalachia.Prototype.KOC.Inventory
 
         #region Event Functions
 
-        protected override void OnEnable()
+        protected override async AppaTask WhenEnabled()
         {
-            base.OnEnable();
+            await base.WhenEnabled();
             
             if (_listView == null)
             {

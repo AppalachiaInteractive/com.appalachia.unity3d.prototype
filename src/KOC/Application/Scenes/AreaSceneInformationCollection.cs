@@ -1,13 +1,10 @@
 using System;
-using Appalachia.Core.Scriptables;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Scriptables;
 using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Collections;
-using Appalachia.Utility.Enums;
-using Appalachia.Utility.Extensions;
-using Appalachia.Utility.Logging;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
-using Unity.Profiling;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
@@ -15,36 +12,22 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
     [InlineEditor(Expanded = true, ObjectFieldMode = InlineEditorObjectFieldModes.Boxed)]
     [HideLabel]
     [LabelWidth(0)]
-    public class AreaSceneInformationCollection : AppalachiaMetadataCollection<AreaSceneInformationCollection,
-        AreaSceneInformation, AppaList_AreaSceneInformation>
+    public class AreaSceneInformationCollection : AppalachiaObjectLookupCollection<ApplicationArea,
+        AreaSceneInformation, ApplicationAreaList, AreaSceneInformationList, AreaSceneInformationLookup,
+        AreaSceneInformationCollection>
     {
-        #region Fields and Autoproperties
+        public override bool HasDefault => false;
 
-        [SerializeField] public AppaLookup_AreaSceneInformation areas;
-
-        #endregion
-
-        public AreaSceneInformation GetByArea(ApplicationArea area)
+        protected override ApplicationArea GetUniqueKeyFromValue(AreaSceneInformation value)
         {
-            using (_PRF_GetByArea.Auto())
-            {
-                AppaLog.Context.Bootload.Trace(nameof(GetByArea));
-
-                return areas.Get(area);
-            }
+            return value.Area;
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
-
-                if (areas == null)
-                {
-                    areas = new AppaLookup_AreaSceneInformation();
-                    this.MarkAsModified();
-                }
+                await base.Initialize(initializer);
             }
         }
 
@@ -52,25 +35,8 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         private const string _PRF_PFX = nameof(AreaSceneInformationCollection) + ".";
 
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-        private static readonly ProfilerMarker _PRF_GetByArea =
-            new ProfilerMarker(_PRF_PFX + nameof(GetByArea));
+        
 
         #endregion
-
-#if UNITY_EDITOR
-        private static readonly ProfilerMarker _PRF_RegisterNecessaryInstances =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterNecessaryInstances));
-
-        protected override void RegisterNecessaryInstances()
-        {
-            using (_PRF_RegisterNecessaryInstances.Auto())
-            {
-                areas.PopulateEnumKeys(area => LoadOrCreateNew<AreaSceneInformation>(area.ToString()));
-            }
-        }
-#endif
     }
 }

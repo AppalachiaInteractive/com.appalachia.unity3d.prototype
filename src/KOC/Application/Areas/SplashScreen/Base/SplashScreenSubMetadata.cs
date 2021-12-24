@@ -8,14 +8,20 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         where T : AreaManager<T, TM>
         where TM : AreaMetadata<T, TM>
     {
+        
+        
         #region Fields and Autoproperties
 
         [BoxGroup("Timeline Execution")]
         public int order;
 
-        [BoxGroup("Timeline Execution")]
-        public bool canSkip;
+        [BoxGroup("Timeline Skipping")]
+        public TimelineSkipMode timelineSkipMode;
 
+        [BoxGroup("Timeline Skipping")]
+        [ShowIf(nameof(_showSkipDelay))]
+        public int skipFrameDelay;
+        
         [BoxGroup("Timeline Execution")]
         public bool unloadSceneImmediately;
 
@@ -30,25 +36,25 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         public bool emitOnce;
 
         [BoxGroup("Timeline Director")]
+        public TimelinePlayMode timelinePlayMode;
+
+        [BoxGroup("Timeline Director")]
+        [ShowIf(nameof(_showFrameDelay))]
         public int frameDelay;
-
-        [BoxGroup("Timeline Director")]
-        public bool enableDirector;
-
-        [BoxGroup("Timeline Director")]
-        public bool autoPlayTimeline;
 
         [BoxGroup("Timeline Director")]
         public DirectorWrapMode wrapMode;
 
         #endregion
 
+        private bool _showSkipDelay => timelineSkipMode == TimelineSkipMode.AfterDelay;
+        private bool _showFrameDelay => timelinePlayMode == TimelinePlayMode.AfterDelay;
+
         #region ISplashScreenSubMetadata Members
 
-        public bool AutoPlayTimeline => autoPlayTimeline;
-        public bool CanSkip => canSkip;
+        public TimelineSkipMode TimelineSkipMode => timelineSkipMode;
+        public int SkipFrameDelay => skipFrameDelay;
         public bool EmitOnce => emitOnce;
-        public bool EnableDirector => enableDirector;
         public bool Retroactive => retroactive;
         public bool UnloadSceneImmediately => unloadSceneImmediately;
         public DirectorWrapMode WrapMode => wrapMode;

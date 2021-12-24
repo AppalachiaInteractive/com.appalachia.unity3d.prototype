@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
-using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls;
-using Appalachia.Prototype.KOC.Application.Scriptables;
+using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 {
-    [Serializable, SmartLabelChildren, SmartLabel]
-    public abstract class DeviceMetadata : AppalachiaApplicationObject
+    [Serializable]
+    public abstract class DeviceMetadata : AppalachiaObject
     {
         #region Fields and Autoproperties
 
@@ -29,21 +30,6 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
         public abstract IEnumerable<ControlButtonMetadata> GetAll();
 
         public abstract ControlButtonMetadata Resolve(InputControl control);
-
-        protected override void Initialize()
-        {
-            using (_PRF_Initialize.Auto())
-            {
-                base.Initialize();
-                
-                PopulateAll();
-
-                foreach (var control in _controls)
-                {
-                    control.device = this;
-                }
-            }
-        }
 
         public bool CanResolve(InputDevice device)
         {
@@ -64,8 +50,27 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 
             return false;
         }
+#if UNITY_EDITOR
 
         internal abstract void PopulateAll();
+
+#endif
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+#if UNITY_EDITOR
+                PopulateAll();
+#endif
+                foreach (var control in _controls)
+                {
+                    control.device = this;
+                }
+
+                await AppaTask.CompletedTask;
+            }
+        }
 
         #region Profiling
 

@@ -1,0 +1,6 @@
+namespace Appalachia.Prototype.KOC.Application.Areas.PauseMenu
+{
+    public interface IPauseMenuMetadata : IAreaMetadata
+    {
+    }
+}

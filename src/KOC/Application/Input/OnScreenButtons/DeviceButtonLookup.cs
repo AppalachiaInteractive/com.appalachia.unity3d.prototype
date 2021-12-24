@@ -1,20 +1,19 @@
 using Appalachia.CI.Integration.Assets;
-using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Scriptables;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Extensions;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Collections;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices;
-using Appalachia.Utility.Extensions;
-using Appalachia.Utility.Logging;
+using Appalachia.Utility.Async;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine.InputSystem;
 
 namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 {
-    [SmartLabelChildren, SmartLabel]
-    public class DeviceButtonLookup : SingletonAppalachiaObject<DeviceButtonLookup>
+    public sealed class DeviceButtonLookup : SingletonAppalachiaObject<DeviceButtonLookup>
     {
         #region Fields and Autoproperties
 
@@ -33,43 +32,14 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 
 #endif
 
-        #region Event Functions
-
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-
-                Initialize();
-            }
-        }
-
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                base.OnEnable();
-
-                Initialize();
-            }
-        }
-
-        #endregion
-
-        protected override void Initialize()
-        {
-            using (_PRF_Initialize.Auto())
-            {
-                base.Initialize();
-            }
-        }
-
-        public bool CanResolve(OnScreenButtonMetadata metadata, out InputControl control, out DeviceMetadata resolver)
+        public bool CanResolve(
+            OnScreenButtonMetadata metadata,
+            out InputControl control,
+            out DeviceMetadata resolver)
         {
             using (_PRF_CanResolve.Auto())
             {
-                foreach(var iterator in metadata.actionReference.action.controls)
+                foreach (var iterator in metadata.actionReference.action.controls)
                 {
                     control = iterator;
 
@@ -188,15 +158,21 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
             }
         }
 
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
+            }
+        }
+
         private void LogFailure(OnScreenButtonMetadata control)
         {
             using (_PRF_LogFailure.Auto())
             {
                 var actionName = control.actionReference.ToFormattedName();
-                
-                AppaLog.Error(
-                    $"Could not resolve {{ action: {actionName} }}"
-                );
+
+                Context.Log.Error(ZString.Format("Could not resolve {{ action: {0} }}", actionName));
             }
         }
 
@@ -207,18 +183,24 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
                 var deviceName = control?.device?.name ?? "<null>";
                 var controlName = control?.name ?? "<null>";
                 var controlPath = control?.path ?? "<null>";
-                
-                AppaLog.Error(
-                    $"Could not resolve {{ device: {deviceName}, control:{controlName}, path:{controlPath} }}"
+
+                Context.Log.Error(
+                    ZString.Format(
+                        "Could not resolve {{ device: {0}, control:{1}, path:{2} }}",
+                        deviceName,
+                        controlName,
+                        controlPath
+                    )
                 );
             }
         }
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_GetBestControl = new ProfilerMarker(_PRF_PFX + nameof(GetBestControl));
-
         private const string _PRF_PFX = nameof(DeviceButtonLookup) + ".";
+
+        private static readonly ProfilerMarker _PRF_GetBestControl =
+            new ProfilerMarker(_PRF_PFX + nameof(GetBestControl));
 
         private static readonly ProfilerMarker _PRF_CanResolve =
             new ProfilerMarker(_PRF_PFX + nameof(CanResolve));
@@ -233,13 +215,10 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 
         private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
         #endregion
 
 #if UNITY_EDITOR
-        
+
         [Button]
         public void Sync()
         {
@@ -251,7 +230,9 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
                     {
                         if (!keyboard.CanResolve(control))
                         {
-                            AppaLog.Warn($"Keyboard can not resolve key {control.name}");
+                            Context.Log.Warn(
+                                ZString.Format("Keyboard can not resolve key {0}", control.name)
+                            );
                             continue;
                         }
 
@@ -264,10 +245,12 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
                     {
                         if (!mouse.CanResolve(control))
                         {
-                            AppaLog.Warn($"Keyboard can not resolve key {control.name}");
+                            Context.Log.Warn(
+                                ZString.Format("Keyboard can not resolve key {0}", control.name)
+                            );
                             continue;
                         }
-                        
+
                         var metadata = mouse.Resolve(control);
                         metadata.data = new ControlInfoData(control);
                         metadata.device = mouse;
@@ -291,7 +274,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
                 }
             }
         }
-        
+
         [Button]
         [EnableIf(nameof(_canFindSprites))]
         public void FindSprites()
@@ -332,14 +315,14 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
                 {
                     if (keyboard == null)
                     {
-                        keyboard = LoadOrCreateNew<KeyboardMetadata>(nameof(KeyboardMetadata));
+                        keyboard = KeyboardMetadata.LoadOrCreateNew(nameof(KeyboardMetadata));
                     }
 
                     keyboard.deviceName = Keyboard.current.device.name;
 
                     if (mouse == null)
                     {
-                        mouse = LoadOrCreateNew<MouseMetadata>(nameof(MouseMetadata));
+                        mouse = MouseMetadata.LoadOrCreateNew(nameof(MouseMetadata));
                     }
 
                     mouse.deviceName = Mouse.current.device.name;
@@ -357,7 +340,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
                         gamepad.PopulateAll();
                     }
 
-                    this.MarkAsModified();
+                    MarkAsModified();
                 }
             }
         }

@@ -1,6 +1,7 @@
 using Appalachia.Audio.Contextual.Context.Contexts;
 using Appalachia.Audio.Contextual.Execution;
 using Appalachia.Prototype.KOC.Character.Audio.Sounds;
+using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Character.Audio.Execution
@@ -9,11 +10,15 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
     public class CharacterAudioExecutionManagerBehaviour : AudioExecutionManagerSingletonBehaviour<
         CharacterAudioExecutionManagerBehaviour>
     {
-        
+        #region Fields and Autoproperties
 
         [SerializeField] public CharacterBreathingAudioProcessor breathing;
         [SerializeField] public CharacterFootstepAudioProcessor footsteps;
         [SerializeField] public PlayerCharacter player;
+
+        #endregion
+
+        
 
         #region Event Functions
 
@@ -35,10 +40,10 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
                 AudioContextParameters3>(this, footsteps);
         }
 
-        protected override void OnEnable()
+        protected override async AppaTask WhenEnabled()
         {
-            base.OnEnable();
-            
+            await base.WhenEnabled();
+
             player = FindObjectOfType<PlayerCharacter>();
 
             player.OnStep += OnStep;
@@ -104,7 +109,7 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
         /*
         
             [DisallowMultipleComponent]
-    public class PlayerFoley: AppalachiaBehaviour
+    public class PlayerFoley : AppalachiaBehaviour<PlayerFoley>
     {
         public FoleyAudioCollection foley;
 

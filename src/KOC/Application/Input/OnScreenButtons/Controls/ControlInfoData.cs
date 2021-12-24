@@ -1,6 +1,7 @@
 using System;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -36,8 +37,13 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls
 
         public override string ToString()
         {
-            return
-                $"{{ name: \"{name}\", displayName: \"{displayName}\", shortDisplayName: \"{shortDisplayName}\", path: \"{path}\" }}\"";
+            return ZString.Format(
+                "{{ name: \"{0}\", displayName: \"{1}\", shortDisplayName: \"{2}\", path: \"{3}\" }}\"",
+                name,
+                displayName,
+                shortDisplayName,
+                path
+            );
         }
 
         public string GetDisplayText(InputAction action, OnScreenButtonTextStyle style)

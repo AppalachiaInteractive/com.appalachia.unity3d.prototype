@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Appalachia.Core.Behaviours;
-using Appalachia.Utility.Logging;
+using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Async;
+using Appalachia.Utility.Execution;
+using Appalachia.Utility.Strings;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public abstract class GameAgent: AppalachiaBehaviour
+    public abstract class GameAgent : AppalachiaBehaviour<GameAgent>
     {
         #region Constants and Static Readonly
 
@@ -42,15 +44,15 @@ namespace Appalachia.Prototype.KOC.Gameplay
                     }
                     else
                     {
-                        AppaLog.Exception(e);
+                        Context.Log.Error(e);
                     }
                 }
             }
         }
 
-        protected override void OnDestroy()
+        protected override async AppaTask WhenDestroyed()
         {
-            base.OnDestroy();
+            await base.WhenDestroyed();
             
             agents.Remove(this);
 
@@ -80,7 +82,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
             if (!string.IsNullOrEmpty(id))
             {
 #if UNITY_EDITOR
-                if (!UnityEngine.Application.isPlaying)
+                if (!AppalachiaApplication.IsPlayingOrWillPlay)
                 {
                     foreach (var i in FindObjectsOfType<GameAgent>())
                     {
@@ -118,7 +120,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
         {
             if (!string.IsNullOrEmpty(agentIdentifier))
             {
-                return $"{base.ToString()} '{agentIdentifier}'";
+                return ZString.Format("{0} '{1}'", base.ToString(), agentIdentifier);
             }
 
             return base.ToString();

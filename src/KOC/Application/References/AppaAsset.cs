@@ -1,5 +1,8 @@
 using System;
+using Appalachia.CI.Integration.Addressables;
 using Appalachia.CI.Integration.Assets;
+using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -11,16 +14,18 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 namespace Appalachia.Prototype.KOC.Application.References
 {
     [Serializable]
-    public class AppaAsset
+    [HideLabel, InlineProperty]
+    public class AppaAsset : AppalachiaSimpleBase
     {
         #region Fields and Autoproperties
 
-        [SerializeField, ReadOnly]
+        [SerializeField, ReadOnly, LabelText("Addres.")]
         private AssetReferenceGameObject _assetReference;
 
 #if UNITY_EDITOR
         [OnValueChanged(nameof(UpdateReference))]
         [SerializeField]
+        [LabelText("Direct")]
         private GameObject _directReference;
 #endif
 
@@ -39,7 +44,7 @@ namespace Appalachia.Prototype.KOC.Application.References
                 }
 
 #if UNITY_EDITOR
-                if (UnityEngine.Application.isPlaying)
+                if (AppalachiaApplication.IsPlayingOrWillPlay)
                 {
 #endif
                     Action<AsyncOperationHandle<GameObject>> completionHandler =
@@ -62,7 +67,7 @@ namespace Appalachia.Prototype.KOC.Application.References
                 }
 
                 _instance.transform.SetParent(parent);
-                _instance.gameObject.hideFlags = HideFlags.DontSave;
+                _instance.gameObject.hideFlags = HideFlags.DontSaveInBuild | HideFlags.DontSaveInEditor;
 
                 return default;
 #endif

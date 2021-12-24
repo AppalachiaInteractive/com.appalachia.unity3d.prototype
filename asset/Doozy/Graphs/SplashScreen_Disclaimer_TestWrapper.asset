@@ -1,6 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5350183514847145154
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e021c5c27274514469ad2992883d55db, type: 3}
+  m_Name: SplashScreen_Disclaimer_TestWrapper
+  m_EditorClassIdentifier: 
+  DebugMode: 0
+  m_nodes:
+  - {fileID: 2188917206063850228}
+  m_isSubGraph: 0
+  m_version: 1
+  m_description: 
+  m_id: 7a3b2414-cce4-41a8-9ae6-769d2786a9a9
+  m_lastModified: 132836324000803288
+--- !u!114 &2188917206063850228
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17,14 +37,7 @@ MonoBehaviour:
   m_inputSockets: []
   m_outputSockets:
   - m_connectionMode: 0
-    m_connections:
-    - m_inputConnectionPoint: {x: -2, y: 4}
-      m_outputConnectionPoint: {x: -2, y: 4}
-      m_id: 1a72bbd4-5da8-437f-bb29-4e76f727f630
-      m_inputNodeId: c174d8df-1da8-414f-a910-6f5cfa5fcbec
-      m_inputSocketId: d439c3a5-6b5f-4c47-bac5-a4a2afd0df42
-      m_outputNodeId: 89c6aa45-084b-4660-a1dd-94c2096669d4
-      m_outputSocketId: 944b71f8-a809-46bd-b101-05a1d8cac3ab
+    m_connections: []
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 106, y: 4}
@@ -36,8 +49,8 @@ MonoBehaviour:
     m_width: 0
     m_x: 0
     m_y: 0
-    m_id: 944b71f8-a809-46bd-b101-05a1d8cac3ab
-    m_nodeId: 89c6aa45-084b-4660-a1dd-94c2096669d4
+    m_id: fe45d9de-3f6a-4422-82be-27df1ef9ad7f
+    m_nodeId: fdf4eb06-e22a-4aff-ab4a-9296b5f76a96
     m_socketName: OutputSocket_0
     m_value: '{"ButtonCategory":"General","ButtonName":"Unnamed","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Doozy.DoozyUI,
@@ -56,28 +69,8 @@ MonoBehaviour:
   m_y: -16
   m_minimumInputSocketsCount: 1
   m_minimumOutputSocketsCount: 1
-  m_graphId: 
-  m_id: 89c6aa45-084b-4660-a1dd-94c2096669d4
+  m_graphId: 7a3b2414-cce4-41a8-9ae6-769d2786a9a9
+  m_id: fdf4eb06-e22a-4aff-ab4a-9296b5f76a96
   m_name: Start
   m_notes: 
   ErrorNodeIsNotConnected: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e021c5c27274514469ad2992883d55db, type: 3}
-  m_Name: SplashScreen_Disclaimer_TestWrapper
-  m_EditorClassIdentifier: 
-  DebugMode: 0
-  m_nodes:
-  - {fileID: -5350183514847145154}
-  m_isSubGraph: 0
-  m_version: 1
-  m_description: 
-  m_id: 
-  m_lastModified: 132827024240992125

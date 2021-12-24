@@ -7,6 +7,7 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
 {
     public interface IFontStyle : IApplicationStyle
     {
+        public bool AutoSize { get; }
         public Color Color { get; }
         public FontWeight FontWeight { get; }
         public HorizontalAlignmentOptions HorizontalAlignment { get; }
@@ -14,7 +15,13 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
         public TextAlignmentOptions Alignment { get; }
 
         public TMP_FontAsset Font { get; }
+
+        public Vector2Int FontRange { get; }
         public VerticalAlignmentOptions VerticalAlignment { get; }
+
+        public bool EnableWordWrapping { get; }
+
+        public TextOverflowModes OverflowMode { get; }
 
         public void Apply(TextMeshPro component)
         {
@@ -26,6 +33,11 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
                 component.alignment = Alignment;
                 component.horizontalAlignment = HorizontalAlignment;
                 component.verticalAlignment = VerticalAlignment;
+                component.enableAutoSizing = AutoSize;
+                component.fontSizeMin = FontRange.x;
+                component.fontSizeMax = FontRange.y;
+                component.overflowMode = OverflowMode;
+                component.enableWordWrapping = EnableWordWrapping;
             }
         }
 
@@ -39,6 +51,11 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
                 component.alignment = Alignment;
                 component.horizontalAlignment = HorizontalAlignment;
                 component.verticalAlignment = VerticalAlignment;
+                component.enableAutoSizing = AutoSize;
+                component.fontSizeMin = FontRange.x;
+                component.fontSizeMax = FontRange.y;
+                component.overflowMode = OverflowMode;
+                component.enableWordWrapping = EnableWordWrapping;
             }
         }
 

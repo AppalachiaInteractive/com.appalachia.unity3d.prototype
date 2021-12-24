@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: KeepersOfCreation_V01
+  m_EditorClassIdentifier: 
+  m_GroupName: KeepersOfCreation_V01
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cc276e4f06ab2424bb34d2a3a84fc577
+  m_SerializeEntries:
+  - m_GUID: 0cef21e8417475241b8f52a8a9a1a6b8
+    m_Address: AreaMetadataDefaultReferences
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: fd173961fe107f949849fcaac49210c5
+    m_Address: AreaSceneInformation_DebugOverlay
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: cd6c54448f286f3438f6bbeb3277b66a
+    m_Address: AreaSceneInformation_Game
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: d4cf258bef22dd347a9e104b1cab887a
+    m_Address: AreaSceneInformation_HUD
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 7d2472c76de7c03458028b2afc68a6b5
+    m_Address: AreaSceneInformation_InGameMenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 1a2ccb3c3e7c9204ca58d0e9e401e010
+    m_Address: AreaSceneInformation_LoadingScreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 5d5c77f43e6b0d34da85e387a851dcef
+    m_Address: AreaSceneInformation_MainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 395c95ad67fc90644b41dabe5674aa64
+    m_Address: AreaSceneInformation_MainMenu_LoadGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 754acfa6450fc39428a80095fb2cf48a
+    m_Address: AreaSceneInformation_MainMenu_NewGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 16faabc86ce349c488274750cc4f4882
+    m_Address: AreaSceneInformation_MainMenu_Settings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: a10e806180ab1464d97b83a3391c3e6d
+    m_Address: AreaSceneInformation_None
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 292647fcfbcdc5a4c8d35baf7a29598b
+    m_Address: AreaSceneInformation_PauseMenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 5f0b430a57af839409b56bc3c624be01
+    m_Address: AreaSceneInformation_SplashScreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: a6d97d40c2cd1d14598c54cf611988fa
+    m_Address: AreaSceneInformation_SplashScreen_Appalachia
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 8f6d46da78171e345bfde0761e3b0868
+    m_Address: AreaSceneInformation_SplashScreen_BokBok
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: b1b89b90e53ed204296756ff5315a872
+    m_Address: AreaSceneInformation_SplashScreen_Disclaimer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 57a00cda7a1d9634eaefa2d627014761
+    m_Address: AreaSceneInformation_StartEnvironment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: c056903a63bd35442af5c454b40fb17a
+    m_Address: AreaSceneInformation_StartScreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: c032f570179fe43498a15e7e8af5cc95
+    m_Address: AreaSceneInformationCollection_MainInternal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 1780e6bb93a2c1f4ab95db46a7cc2fab
+    m_Address: MainAreaSceneInformationCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 771162dd75d13184c8c710737052c250
+    m_Address: SceneReference_StartEnvironment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: fe311ee5cdaa8a04ab199a04dfd6f4e4
+    m_Address: SceneReference_SplashScreen_Disclaimer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 9846b760586bf0541804f28d4d134860
+    m_Address: SceneReference_SplashScreen_BokBok
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: a15c37a9ac88ff443b74f978ea27aa5c
+    m_Address: SceneReference_SplashScreen_Appalachia
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: cff6e77b041785d418835cf32bd6be15
+    m_Address: SceneReference_SplashScreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 0aebe2399aefdff45a4fa354f9c99aa6
+    m_Address: SceneReference_PauseMenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 32cb3a68285e9b642949e8209d39bb27
+    m_Address: SceneReference_MainMenu_Settings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: f7406dc436bd45a4bad346ec68e9284a
+    m_Address: SceneReference_MainMenu_NewGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: e39916f12ffd4eb499b078f8bd18b3e5
+    m_Address: SceneReference_MainMenu_LoadGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 52fd60d243e6e724a87d56cf4c21aae2
+    m_Address: SceneReference_MainMenu_Background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: a01b3fc4ca0a4824cb6ff1a7f256c6c0
+    m_Address: SceneReference_MainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 8d01cab6ac00e1c45ab9e85336a74ac7
+    m_Address: SceneReference_LoadingScreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 3fd05077e7063364a975682b0892f35d
+    m_Address: SceneReference_InGameMenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 0efc06f2ed73eb8459d8cb30f18d9837
+    m_Address: SceneReference_HUD
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 3bbbad58f8859d84cb6299e06fb630de
+    m_Address: SceneReference_Game
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: accdccbdfd4d5bf4b987cd59b8f634bb
+    m_Address: SceneReference_DebugOverlay
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: a5cc3a34bb9745e489e242fe1b3ffe59
+    m_Address: FontAssetCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: b9273a7abb34d6a4f8808db02a66809f
+    m_Address: LifetimeMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 079fb5036133ed342a872f2046b60150
+    m_Address: SceneAsset_KeepersOfCreation_V01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: e861ccb9419e6614eb2a27f7f8fc41a0
+    m_Address: SingletonAppalachiaObjectRepository
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: d27861f1f4465bd44914c3a403208396
+    m_Address: ApplicationStyleElementDefaultLookup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: 5abb958cbaee15d4bb3815b9c28cf5f7
+    m_Address: DatabaseConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f116d6afb7cbaea408fbe1d8e75c4e9d, type: 2}
+    - {fileID: 11400000, guid: a3a49237952e2e8439eed4b8959c14dc, type: 2}

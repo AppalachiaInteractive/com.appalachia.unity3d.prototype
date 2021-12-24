@@ -1,5 +1,5 @@
 using System;
-using Appalachia.Core.Behaviours;
+using Appalachia.Core.Objects.Root;
 using Appalachia.UI.Controls.Common;
 using Appalachia.UI.Controls.ListView;
 using Appalachia.UI.Core.Icons;
@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Inventory
 {
-    public class InventoryItemInstanceUI: AppalachiaBehaviour
+    public sealed class InventoryItemInstanceUI : AppalachiaBehaviour<InventoryItemInstanceUI>
     {
         #region Constants and Static Readonly
 

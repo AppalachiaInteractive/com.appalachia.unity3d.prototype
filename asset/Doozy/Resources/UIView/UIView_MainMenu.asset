@@ -15,6 +15,9 @@ MonoBehaviour:
   CategoryName: MainMenu
   DatabaseType: 2
   Names:
-  - Root
-  - MainMenu_Settings
   - 
+  - MainMenu
+  - MainMenu_LoadGame
+  - MainMenu_NewGame
+  - MainMenu_Settings
+  - Root

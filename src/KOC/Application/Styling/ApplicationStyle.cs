@@ -1,9 +1,8 @@
-using Appalachia.Core.Scriptables;
-using Appalachia.Prototype.KOC.Application.Scriptables;
+using Appalachia.Core.Objects.Root;
 
 namespace Appalachia.Prototype.KOC.Application.Styling
 {
-    public abstract class ApplicationStyle : AppalachiaApplicationObject
+    public abstract class ApplicationStyle : AppalachiaObject<ApplicationStyle>
     {
     }
 }

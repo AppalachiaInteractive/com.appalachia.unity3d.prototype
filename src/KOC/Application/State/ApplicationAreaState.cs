@@ -1,8 +1,9 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Utility.Colors;
-using Appalachia.Utility.Logging;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -12,8 +13,17 @@ namespace Appalachia.Prototype.KOC.Application.State
     [Serializable]
     [SmartLabelChildren]
     [HideReferenceObjectPicker]
-    public class ApplicationAreaState
+    public class ApplicationAreaState : AppalachiaSimpleBase
     {
+        #region Constants and Static Readonly
+
+        private const int BASE_SIZE = 100;
+        private const int STATE_SIZE = BASE_SIZE + 4;
+        private const int SUBSTATE_SIZE = BASE_SIZE + 2;
+        private const int NEXT_SIZE = BASE_SIZE + 0;
+
+        #endregion
+
         public ApplicationAreaState(ApplicationArea area)
         {
             _area = area;
@@ -24,16 +34,22 @@ namespace Appalachia.Prototype.KOC.Application.State
 
         #region Fields and Autoproperties
 
-        [ShowInInspector, ReadOnly, SerializeField]
+        [ReadOnly, SerializeField, HorizontalGroup("1"), PropertyOrder(0)]
+        [HideLabel]
         private ApplicationArea _area;
 
-        [ShowInInspector, ReadOnly, SerializeField, GUIColor(nameof(GetNextStateColor))]
+        [ReadOnly, SerializeField, HorizontalGroup("1", NEXT_SIZE), PropertyOrder(30)]
+        [LabelText("Next")]
+        [GUIColor(nameof(GetNextStateColor))]
         private ApplicationAreaStates _nextState;
 
-        [ShowInInspector, ReadOnly, SerializeField, GUIColor(nameof(GetStateColor))]
+        [ReadOnly, SerializeField, HorizontalGroup("1", STATE_SIZE), PropertyOrder(10)]
+        [GUIColor(nameof(GetStateColor))]
         private ApplicationAreaStates _state;
 
-        [ShowInInspector, ReadOnly, SerializeField, GUIColor(nameof(GetStateColor))]
+        [ReadOnly, SerializeField, HorizontalGroup("1", SUBSTATE_SIZE), PropertyOrder(20)]
+        [LabelText("Subs.")]
+        [GUIColor(nameof(GetStateColor))]
         private ApplicationAreaSubstates _substate;
 
         #endregion
@@ -48,8 +64,7 @@ namespace Appalachia.Prototype.KOC.Application.State
         public bool IsAtRest =>
             !HasStateChangedTriggered && (_substate != ApplicationAreaSubstates.InProgress);
 
-        private Color GetNextStateColor =>
-            GetStateColorInternal(_nextState, ApplicationAreaSubstates.InProgress);
+        private Color GetNextStateColor => GetStateColorInternal(_nextState, _substate);
 
         private Color GetStateColor => GetStateColorInternal(_state, _substate);
 
@@ -108,13 +123,16 @@ namespace Appalachia.Prototype.KOC.Application.State
                 }
                 else
                 {
-                    AppaLog.Error(
-                        $"You should not call {nameof(MarkStateTransitionCompleted)} when no state change is triggered."
+                    Context.Log.Error(
+                        ZString.Format(
+                            "You should not call {0} when no state change is triggered.",
+                            nameof(MarkStateTransitionCompleted)
+                        )
                     );
                 }
             }
         }
-        
+
         public void QueueActivate()
         {
             using (_PRF_InitiateLoad.Auto())
@@ -190,10 +208,10 @@ namespace Appalachia.Prototype.KOC.Application.State
                 switch (substate)
                 {
                     case ApplicationAreaSubstates.None:
-                        subset = ColorPalette.Default.disabled;
+                        subset = ColorPalette.Default.disabledLight;
                         break;
                     case ApplicationAreaSubstates.InProgress:
-                        subset = ColorPalette.Default.highlight;
+                        subset = ColorPalette.Default.highlightLight;
                         break;
                     case ApplicationAreaSubstates.Failed:
                         subset = ColorPalette.Default.bad;
@@ -210,11 +228,11 @@ namespace Appalachia.Prototype.KOC.Application.State
                     case ApplicationAreaStates.None:
                         return subset.First;
                     case ApplicationAreaStates.Load:
-                        return subset.Quarter;
+                        return subset.OneThird;
                     case ApplicationAreaStates.Activate:
-                        return subset.Half;
+                        return subset.TwoThirds;
                     case ApplicationAreaStates.Unload:
-                        return subset.ThreeQuarters;
+                        return subset.Last;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(state), state, null);
                 }
@@ -225,7 +243,9 @@ namespace Appalachia.Prototype.KOC.Application.State
         {
             using (_PRF_LogIllegalStateTransition.Auto())
             {
-                AppaLog.Error($"Can not set area [{_area}] to state [{from}] from current state [{to}]");
+                Context.Log.Error(
+                    ZString.Format("Can not set area [{0}] from state [{1}] to state [{2}]", _area, from, to)
+                );
             }
         }
 
@@ -233,8 +253,13 @@ namespace Appalachia.Prototype.KOC.Application.State
         {
             using (_PRF_LogIllegalSubstateTransition.Auto())
             {
-                AppaLog.Error(
-                    $"Can not set area [{_area}] to substate [{from}] from current substate [{to}]"
+                Context.Log.Error(
+                    ZString.Format(
+                        "Can not set area [{0}] from substate [{1}] to substate [{2}]",
+                        _area,
+                        from,
+                        to
+                    )
                 );
             }
         }

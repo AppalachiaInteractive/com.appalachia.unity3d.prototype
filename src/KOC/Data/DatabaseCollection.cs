@@ -5,6 +5,7 @@ using Appalachia.Data.Core;
 using Appalachia.Data.Core.AccessLayer;
 using Appalachia.Prototype.KOC.Data.Configuration;
 using Appalachia.Prototype.KOC.Data.Databases;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
@@ -92,7 +93,11 @@ namespace Appalachia.Prototype.KOC.Data
                 var storageFileNameWithoutExtension =
                     _config.GetDataStorageFileNameWithoutExtension(settings, postfix);
 
-                var fileName = $"{storageFileNameWithoutExtension}{storageFileExtension}";
+                var fileName = ZString.Format(
+                    "{0}{1}",
+                    storageFileNameWithoutExtension,
+                    storageFileExtension
+                );
 
                 var filePath = AppaPath.Combine(storageDirectory, dataSetName, fileName);
 

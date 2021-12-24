@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: InGameMenu_Newaction
   m_EditorClassIdentifier: 
   _initializationData:
-    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   _cachedName: 
@@ -32,4 +31,4 @@ MonoBehaviour:
     _value: 0
   _textStyle:
     _overrideEnabled: 0
-    _value: 10
+    _value: 0

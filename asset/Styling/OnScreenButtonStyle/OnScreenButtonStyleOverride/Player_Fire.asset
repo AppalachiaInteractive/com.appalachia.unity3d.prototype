@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Player_Fire
   m_EditorClassIdentifier: 
   _initializationData:
-    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   _cachedName: 

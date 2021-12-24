@@ -15,4 +15,5 @@ MonoBehaviour:
   CategoryName: LoadingScreen
   DatabaseType: 2
   Names:
+  - LoadingScreen
   - Root

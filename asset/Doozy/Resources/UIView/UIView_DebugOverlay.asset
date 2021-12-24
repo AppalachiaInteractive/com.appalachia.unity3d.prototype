@@ -15,4 +15,5 @@ MonoBehaviour:
   CategoryName: DebugOverlay
   DatabaseType: 2
   Names:
+  - DebugOverlay
   - Root

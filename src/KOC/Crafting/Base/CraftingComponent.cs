@@ -1,5 +1,4 @@
 using System;
-using Appalachia.Core.Scriptables;
 
 namespace Appalachia.Prototype.KOC.Crafting.Base
 {

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: GenericMenu_Submit
   m_EditorClassIdentifier: 
   _initializationData:
-    _nonSerializedTags: []
-    _tags: []
+    _tags:
+    - OnScreenButtonStyleOverride
     _resetToken: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: GenericMenu_Submit
+  _niceName: Generic Menu_Submit
   actionReference: {fileID: -5228898086740488312, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
   style: {fileID: 11400000, guid: 5da96f2dabeb00b47a588c900094ce96, type: 2}

@@ -13,24 +13,22 @@ MonoBehaviour:
   m_Name: MainMenu_MiddleClick
   m_EditorClassIdentifier: 
   _initializationData:
-    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   _cachedName: 
   _niceName: 
   _spriteColor:
     _overrideEnabled: 0
-    _value: {r: 0, g: 0, b: 0, a: 0}
+    _value: {r: 1, g: 1, b: 1, a: 1}
   _textColor:
     _overrideEnabled: 0
-    _value: {r: 0, g: 0, b: 0, a: 0}
+    _value: {r: 1, g: 1, b: 1, a: 1}
   _font:
     _overrideEnabled: 0
-    _value: {fileID: 0}
+    _value: {fileID: 11400000, guid: afee15da68d82f64bb278296bd0d9861, type: 2}
   _spriteStyle:
     _overrideEnabled: 0
     _value: 0
   _textStyle:
     _overrideEnabled: 0
-    _value: 10
-  _defaults: {fileID: 0}
+    _value: 0

@@ -15,4 +15,5 @@ MonoBehaviour:
   CategoryName: PauseMenu
   DatabaseType: 2
   Names:
+  - PauseMenu
   - Root

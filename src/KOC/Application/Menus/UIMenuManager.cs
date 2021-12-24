@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Appalachia.Core.Behaviours;
-using Appalachia.Core.Scriptables;
-using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Menus.Components;
 using Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements;
 using Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups;
 using Appalachia.Prototype.KOC.Application.Menus.Metadata.Wrappers;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
-using Appalachia.Utility.Logging;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -22,11 +20,17 @@ namespace Appalachia.Prototype.KOC.Application.Menus
     {
         #region Fields and Autoproperties
 
-        [SerializeField, InlineEditor(InlineEditorObjectFieldModes.Boxed)] private UIMenuBackgroundMetadataGroup _backgroundMetadataGroup;
-        [SerializeField, InlineEditor(InlineEditorObjectFieldModes.Boxed)] private UIMenuButtonMetadataGroup _buttonMetadataGroup;
+        [SerializeField, InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        private UIMenuBackgroundMetadataGroup _backgroundMetadataGroup;
 
-        [SerializeField] private List<UIMenuButtonWrapper> _buttons;
-        [SerializeField] private List<UIMenuBackgroundWrapper> _backgrounds;
+        [SerializeField, InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        private UIMenuButtonMetadataGroup _buttonMetadataGroup;
+
+        [SerializeField, HideLabel, InlineProperty]
+        private List<UIMenuButtonWrapper> _buttons;
+
+        [SerializeField, HideLabel, InlineProperty]
+        private List<UIMenuBackgroundWrapper> _backgrounds;
 
         #endregion
 
@@ -52,11 +56,11 @@ namespace Appalachia.Prototype.KOC.Application.Menus
             }
         }
 
-        protected override void OnEnable()
+        protected override async AppaTask WhenEnabled()
         {
             using (_PRF_OnEnable.Auto())
             {
-                base.OnEnable();
+                await base.WhenEnabled();
 
                 Initialize();
 
@@ -65,6 +69,17 @@ namespace Appalachia.Prototype.KOC.Application.Menus
         }
 
         #endregion
+
+#if UNITY_EDITOR
+        public void CreateMetadata(string metadataName)
+        {
+            using (_PRF_CreateMetadata.Auto())
+            {
+                LoadOrCreateNewIfNull(ref _buttonMetadataGroup,     metadataName + "_ButtonMetadata");
+                LoadOrCreateNewIfNull(ref _backgroundMetadataGroup, metadataName + "_BackgroundMetadata");
+            }
+        }
+#endif
 
         protected override void Initialize()
         {
@@ -88,15 +103,6 @@ namespace Appalachia.Prototype.KOC.Application.Menus
             }
         }
 
-        public void CreateMetadata(string metadataName)
-        {
-            using (_PRF_CreateMetadata.Auto())
-            {
-                AppalachiaObject.LoadOrCreateNewIfNull(ref _buttonMetadataGroup,     metadataName + "_ButtonMetadata");
-                AppalachiaObject.LoadOrCreateNewIfNull(ref _backgroundMetadataGroup, metadataName + "_BackgroundMetadata");
-            }
-        }
-
         private UIMenuBackgroundWrapper CreateUIMenuBackground(UIMenuBackgroundMetadata metadata, int index)
         {
             using (_PRF_CreateUIMenuBackground.Auto())
@@ -105,21 +111,25 @@ namespace Appalachia.Prototype.KOC.Application.Menus
 
                 try
                 {
-                    var hasSprite = metadata.sprite != null;
-
-                    backgroundName = hasSprite ? metadata.sprite.name : $"Background Image {index}";
+                    backgroundName = GetBackgroundBaseName(metadata, index);
 
                     var background = new UIMenuBackgroundWrapper { metadata = metadata };
+
                     background.components.Configure(gameObject, backgroundName);
 
                     return background;
                 }
                 catch (Exception ex)
                 {
-                    AppaLog.Error(
-                        $"Error building {nameof(UIMenuBackgroundWrapper)} {backgroundName}: {ex.Message}"
+                    Context.Log.Error(
+                        ZString.Format(
+                            "Error building {0} {1}: {2}",
+                            nameof(UIMenuBackgroundWrapper),
+                            backgroundName,
+                            ex.Message
+                        )
                     );
-                    AppaLog.Exception(ex);
+                    Context.Log.Error(ex);
                     return null;
                 }
             }
@@ -131,19 +141,50 @@ namespace Appalachia.Prototype.KOC.Application.Menus
             {
                 try
                 {
+                    var buttonName = GetButtonBaseName(metadata, index);
                     var button = new UIMenuButtonWrapper { metadata = metadata };
-                    button.components.Configure(gameObject, metadata.text);
+                    button.components.Configure(gameObject, buttonName);
 
                     return button;
                 }
                 catch (Exception ex)
                 {
-                    var buttonName = metadata == null ? "[MISSING]" : metadata.text;
+                    var buttonName = GetButtonBaseName(metadata, index);
 
-                    AppaLog.Error($"Error building {nameof(UIMenuButtonWrapper)} {buttonName}: {ex.Message}");
-                    AppaLog.Exception(ex);
+                    Context.Log.Error(
+                        ZString.Format(
+                            "Error building {0} {1}: {2}",
+                            nameof(UIMenuButtonWrapper),
+                            buttonName,
+                            ex.Message
+                        )
+                    );
+                    Context.Log.Error(ex);
                     return null;
                 }
+            }
+        }
+
+        private string GetBackgroundBaseName(UIMenuBackgroundMetadata metadata, int index)
+        {
+            using (_PRF_GetBackgroundBaseName.Auto())
+            {
+                var hasSprite = metadata.sprite != null;
+
+                var backgroundName =
+                    hasSprite ? metadata.sprite.name : ZString.Format("Background Image {0}", index);
+
+                return backgroundName;
+            }
+        }
+
+        private string GetButtonBaseName(UIMenuButtonMetadata metadata, int index)
+        {
+            using (_PRF_GetButtonBaseName.Auto())
+            {
+                var buttonName = metadata == null ? "[MISSING]" : metadata.text;
+
+                return buttonName;
             }
         }
 
@@ -201,23 +242,27 @@ namespace Appalachia.Prototype.KOC.Application.Menus
             {
                 if (_backgrounds != null)
                 {
-                    foreach (var uiMenuBackground in _backgrounds)
+                    for (var index = 0; index < _backgrounds.Count; index++)
                     {
+                        var uiMenuBackground = _backgrounds[index];
                         var metadata = uiMenuBackground.metadata;
                         var components = uiMenuBackground.components;
 
-                        metadata.Apply(components);
+                        var backgroundName = GetBackgroundBaseName(metadata, index);
+                        metadata.Apply(gameObject, backgroundName, ref components);
                     }
                 }
 
                 if (_buttons != null)
                 {
-                    foreach (var uiMenuButton in _buttons)
+                    for (var index = 0; index < _buttons.Count; index++)
                     {
+                        var uiMenuButton = _buttons[index];
                         var metadata = uiMenuButton.metadata;
                         var components = uiMenuButton.components;
 
-                        metadata.Apply(components);
+                        var buttonName = GetButtonBaseName(metadata, index);
+                        metadata.Apply(gameObject, buttonName, ref components);
                     }
                 }
             }
@@ -227,14 +272,22 @@ namespace Appalachia.Prototype.KOC.Application.Menus
 
         private const string _PRF_PFX = nameof(UIMenuManager) + ".";
 
+        private static readonly ProfilerMarker _PRF_GetBackgroundBaseName =
+            new ProfilerMarker(_PRF_PFX + nameof(GetBackgroundBaseName));
+
+        private static readonly ProfilerMarker _PRF_GetButtonBaseName =
+            new ProfilerMarker(_PRF_PFX + nameof(GetButtonBaseName));
+
         private static readonly ProfilerMarker _PRF_CreateUIMenuBackground =
             new ProfilerMarker(_PRF_PFX + nameof(CreateUIMenuBackground));
 
         private static readonly ProfilerMarker _PRF_CreateUIMenuButton =
             new ProfilerMarker(_PRF_PFX + nameof(CreateUIMenuButton));
 
+#if UNITY_EDITOR
         private static readonly ProfilerMarker _PRF_CreateMetadata =
             new ProfilerMarker(_PRF_PFX + nameof(CreateMetadata));
+#endif
 
         private static readonly ProfilerMarker _PRF_UpdateMenus =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateMenus));

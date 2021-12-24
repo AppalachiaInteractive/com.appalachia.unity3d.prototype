@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: _FUTURE
+  m_EditorClassIdentifier: 
+  m_GroupName: _FUTURE
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 39fd79169a465f042b9da2f03e3d870a
+  m_SerializeEntries:
+  - m_GUID: da3aa5a5d9365a644a9e7c418af56078
+    m_Address: SceneAsset_SplashScreen_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 682c3f047de73f045830244666846c7a
+    m_Address: SceneAsset_SplashScreen_Appalachia_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 475185afa8bb6774784e1de6f2fbd1ea
+    m_Address: SplashScreen_BokBokMetadata_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e8a3e5994f91c84c9a618fdbec2d949
+    m_Address: SplashScreen_AppalachiaMetadata_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ada6988114c588548ba75b1b7ad2e376
+    m_Address: SceneReferenceElement_SplashScreen_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 370cfeb3cd7ac204eb60d750ae23e2b1
+    m_Address: SceneReferenceElement_SplashScreen_BokBok_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0af7f4877afc0b0438d81d5bd0a8a74d
+    m_Address: SceneReferenceElement_SplashScreen_Appalachia_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c401293b9697f2f40ae0e4f8cbd33c20
+    m_Address: SceneAsset_SplashScreen_BokBok_V02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f43e774fa5a9c1944a1bea555ab26f9b, type: 2}
+    - {fileID: 11400000, guid: 45ac7db79869a0a4a8787b5c3b45476f, type: 2}

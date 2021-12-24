@@ -125,7 +125,7 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
                 startSignalEmitter.retroactive = retroactive;
                 startSignalEmitter.emitOnce = emitOnce;
                 startSignalEmitter.name = startAsset.name;
-                
+
                 endSignalEmitter.asset = endAsset;
                 endSignalEmitter.retroactive = retroactive;
                 endSignalEmitter.emitOnce = emitOnce;

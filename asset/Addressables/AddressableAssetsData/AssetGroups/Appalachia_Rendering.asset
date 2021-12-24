@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Appalachia_Rendering
+  m_EditorClassIdentifier: 
+  m_GroupName: Appalachia_Rendering
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3be5303a49a617d40b89c75d37796c0c
+  m_SerializeEntries:
+  - m_GUID: 7de8af9775b0209449481865f115430d
+    m_Address: RuntimeRenderingOptions
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9f868f3f1c65d0142b8045a4fbb3eb94
+    m_Address: PrefabModelTypeOptionsLookup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  - m_GUID: e78302f9e8272c445a36e65f4e2c4a3c
+    m_Address: PrefabContentTypeOptionsLookup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - KeepersOfCreation_V01
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: abd0de1917137e04c8b19308c9a0162d, type: 2}
+    - {fileID: 11400000, guid: c17a89342b1baea4cb017a35160ed25d, type: 2}

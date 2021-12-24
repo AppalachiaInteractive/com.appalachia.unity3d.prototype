@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Appalachia.Utility.Async;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,11 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
     [ExecuteAlways]
     public class CompositeGraphic : Graphic
     {
+        #region Fields and Autoproperties
+
         public Graphic[] graphics;
+
+        #endregion
 
         public override Color color
         {
@@ -16,15 +21,19 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
             set => throw new NotImplementedException();
         }
 
-        protected override void OnEnable()
+        #region Event Functions
+
+        protected override async AppaTask WhenEnabled()
         {
-            base.OnEnable();
+            await base.WhenEnabled();
 
             if ((graphics == null) || (graphics.Length == 0))
             {
                 graphics = GetComponentsInChildren<Graphic>().Where(g => g != this).ToArray();
             }
         }
+
+        #endregion
 
         public override void CrossFadeColor(
             Color targetColor,
@@ -37,7 +46,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
             {
                 graphics = GetComponentsInChildren<Graphic>();
             }
-            
+
             foreach (var graphic in graphics)
             {
                 if (graphic == null)
@@ -49,7 +58,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
                 {
                     continue;
                 }
-                
+
                 graphic.CrossFadeColor(targetColor, duration, ignoreTimeScale, useAlpha, useRGB);
             }
         }

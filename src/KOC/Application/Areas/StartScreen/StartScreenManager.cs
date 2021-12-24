@@ -1,19 +1,24 @@
-using Appalachia.Utility.Logging;
 using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Areas.StartScreen
 {
-    public class StartScreenManager : AreaManager<StartScreenManager, StartScreenMetadata>
+    public abstract class StartScreenManager<T, TM> : AreaManager<T, TM>, IStartScreenManager
+        where T : StartScreenManager<T, TM>
+        where TM : StartScreenMetadata<T, TM>
     {
-        public override ApplicationArea Area => ApplicationArea.StartScreen;
-        public override ApplicationArea ParentArea => ApplicationArea.None;
-        
+        public void Continue()
+        {
+            using (_PRF_Continue.Auto())
+            {
+                Context.Log.Info(nameof(Continue), this);
+            }
+        }
 
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnActivation));
+                Context.Log.Info(nameof(OnActivation), this);
             }
         }
 
@@ -21,15 +26,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.StartScreen
         {
             using (_PRF_Deactivate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnDeactivation));
-            }
-        }
-
-        public void Continue()
-        {
-            using (_PRF_Continue.Auto())
-            {
-                AppaLog.Context.Area.Info(nameof(Continue));
+                Context.Log.Info(nameof(OnDeactivation), this);
             }
         }
 
@@ -37,19 +34,26 @@ namespace Appalachia.Prototype.KOC.Application.Areas.StartScreen
         {
             using (_PRF_ResetArea.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(ResetArea));
+                Context.Log.Info(nameof(ResetArea), this);
             }
         }
 
+        #region IStartScreenManager Members
+
+        public override ApplicationArea Area => ApplicationArea.StartScreen;
+        public override ApplicationArea ParentArea => ApplicationArea.None;
+
+        #endregion
+
         #region Profiling
 
-        private const string _PRF_PFX = nameof(StartScreenManager) + ".";
+        private const string _PRF_PFX = nameof(StartScreenManager<T, TM>) + ".";
 
         private static readonly ProfilerMarker _PRF_ResetArea =
             new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
-        private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
+        private static readonly ProfilerMarker _PRF_Activate =
+            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
 
         private static readonly ProfilerMarker _PRF_Deactivate =
             new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));

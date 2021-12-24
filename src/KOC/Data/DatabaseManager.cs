@@ -1,8 +1,8 @@
 using System;
 using Appalachia.CI.Constants;
-using Appalachia.Core.Behaviours;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Data.Configuration;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -29,14 +29,17 @@ namespace Appalachia.Prototype.KOC.Data
 
         #endregion
 
+        
+
         #region Event Functions
 
-        protected override void OnDisable()
+        protected override async AppaTask WhenDisabled()
+
         {
             using (_PRF_OnDisable.Auto())
             {
-                base.OnDisable();
-                
+                await base.WhenDisabled();
+
                 databases?.Dispose();
             }
         }
@@ -48,6 +51,8 @@ namespace Appalachia.Prototype.KOC.Data
         {
             using (_PRF_CreateDatabases.Auto())
             {
+                Context.Log.Info(nameof(CreateDatabases), this);
+
                 var dataSetName = GetDataSetName();
                 databases = DatabaseCollection.CreateOrLoad(configuration, dataSetName);
             }
@@ -57,6 +62,7 @@ namespace Appalachia.Prototype.KOC.Data
         {
             using (_PRF_LoadGame.Auto())
             {
+                Context.Log.Info(nameof(LoadGame), this);
                 databases.LoadGame(configuration, gameId);
             }
         }
@@ -65,6 +71,7 @@ namespace Appalachia.Prototype.KOC.Data
         {
             using (_PRF_NewGame.Auto())
             {
+                Context.Log.Info(nameof(NewGame), this);
             }
         }
 
@@ -72,16 +79,29 @@ namespace Appalachia.Prototype.KOC.Data
         {
             using (_PRF_SaveGame.Auto())
             {
+                Context.Log.Info(nameof(SaveGame), this);
             }
         }
 
-        protected override void Awake()
+        protected override void Initialize()
         {
-            using (_PRF_Awake.Auto())
+            using (_PRF_Initialize.Auto())
             {
-                base.Awake();
+                base.Initialize();
 
-                Initialize();
+                await initializer.Do(
+                    this,
+                    nameof(dataSet),
+                    () =>
+                    {
+                        dataSet = ActiveDataSet.Developer;
+                        overrideActiveDataSet = false;
+                        overrideActiveDataSetName = string.Empty;
+                    }
+                );
+
+                configuration = DatabaseConfiguration.instance;
+                configuration.InitializeExternal();
             }
         }
 
@@ -114,28 +134,6 @@ namespace Appalachia.Prototype.KOC.Data
                     return nameof(ActiveDataSet.Beta);
                 default:
                     throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        protected override void Initialize()
-        {
-            using (_PRF_Initialize.Auto())
-            {
-                base.Initialize();
-                    
-                initializationData.Initialize(
-                    this,
-                    nameof(dataSet),
-                    () =>
-                    {
-                        dataSet = ActiveDataSet.Developer;
-                        overrideActiveDataSet = false;
-                        overrideActiveDataSetName = string.Empty;
-                    }
-                );
-
-                configuration = DatabaseConfiguration.instance;
-                configuration.InitializeExternal();
             }
         }
 

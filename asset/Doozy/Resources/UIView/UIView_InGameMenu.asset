@@ -15,4 +15,5 @@ MonoBehaviour:
   CategoryName: InGameMenu
   DatabaseType: 2
   Names:
+  - InGameMenu
   - Root

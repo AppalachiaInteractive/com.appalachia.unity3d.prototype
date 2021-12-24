@@ -1,7 +1,8 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Prototype.KOC.Application.Screens.Fading;
+using Appalachia.Prototype.KOC.Application.Components.Fading;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Doozy.Engine.UI;
 using Unity.Profiling;
 using UnityEngine;
@@ -14,8 +15,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
     {
         #region Fields and Autoproperties
 
-        public GameObject GameObject => gameObject;
-        
         public Canvas canvas;
         public CanvasFadeManager canvasFadeManager;
         public CanvasGroup canvasGroup;
@@ -27,22 +26,28 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
 
         #endregion
 
+        #region IComponentSet Members
+
+        public GameObject GameObject => gameObject;
+
         public void Configure(GameObject parent, string baseName)
         {
             using (_PRF_ConfigureView.Auto())
             {
-                var targetName = $"View - {baseName}";
+                var targetName = ZString.Format("View - {0}", baseName);
 
-                parent.CreateOrGetChild(ref gameObject, targetName, true);
+                parent.GetOrCreateChild(ref gameObject, targetName, true);
 
-                gameObject.CreateOrGetComponent(ref rect);
-                gameObject.CreateOrGetComponent(ref canvasFadeManager);
-                gameObject.CreateOrGetComponent(ref canvasGroup);
-                gameObject.CreateOrGetComponent(ref canvas);
-                gameObject.CreateOrGetComponent(ref graphicRaycaster);
-                gameObject.CreateOrGetComponent(ref uiView);
+                gameObject.GetOrCreateComponent(ref rect);
+                gameObject.GetOrCreateComponent(ref canvasFadeManager);
+                gameObject.GetOrCreateComponent(ref canvasGroup);
+                gameObject.GetOrCreateComponent(ref canvas);
+                gameObject.GetOrCreateComponent(ref graphicRaycaster);
+                gameObject.GetOrCreateComponent(ref uiView);
             }
         }
+
+        #endregion
 
         #region Profiling
 

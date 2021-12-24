@@ -1,24 +1,34 @@
-using System.Linq;
+using System;
 using Appalachia.Prototype.KOC.Application.Extensions;
+using Appalachia.Prototype.KOC.Application.Input;
+using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
-using Appalachia.Utility.Logging;
 using Unity.Profiling;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
 namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
 {
-    public abstract class SplashScreenSubManager<T, TM> : AreaManager<T, TM>
+    public abstract class SplashScreenSubManager<T, TM> : AreaManager<T, TM>,
+                                                          KOCInputActions.ISplashScreenActions
         where T : SplashScreenSubManager<T, TM>
         where TM : SplashScreenSubMetadata<T, TM>
     {
         #region Fields and Autoproperties
 
-        private SignalReceiver _signalReceiver;
-        private PlayableDirector _playableDirector;
+        protected SignalReceiver _signalReceiver;
+        protected PlayableDirector _playableDirector;
+
+        private bool _didPlayTimeline;
+
+        [NonSerialized] private bool _alreadySkipping;
+
+        protected bool hasSkipEnablingBeenSignaled;
 
         #endregion
 
+        
         public override ApplicationArea ParentArea => ApplicationArea.SplashScreen;
 
         #region Event Functions
@@ -28,14 +38,17 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
             using (_PRF_Update.Auto())
             {
                 base.Update();
-                
-                if (!_playableDirector.enabled)
+
+                if (AppalachiaApplication.IsPlaying)
                 {
-                    if (metadata.enableDirector)
+                    if (!_didPlayTimeline && (areaMetadata.timelinePlayMode == TimelinePlayMode.AfterDelay))
                     {
-                        if (WakeDuration > metadata.frameDelay)
+                        if (AwakeDuration > areaMetadata.frameDelay)
                         {
-                            _playableDirector.enabled = true;                            
+                            _didPlayTimeline = true;
+
+                            _playableDirector.enabled = true;
+                            _playableDirector.Play();
                         }
                     }
                 }
@@ -48,7 +61,14 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         {
             using (_PRF_OnTimelineEnd.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnTimelineEnd));
+                Context.Log.Info(nameof(OnTimelineEnd), this);
+
+                var parent = AreaRegistry.GetParentManager(this);
+
+                if (parent is ISplashScreenManager splashScreenManager)
+                {
+                    splashScreenManager.NotifyTimelineCompleted(this);
+                }
             }
         }
 
@@ -56,7 +76,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         {
             using (_PRF_OnTimelineStart.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnTimelineStart));
+                Context.Log.Info(nameof(OnTimelineStart), this);
             }
         }
 
@@ -68,33 +88,39 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
 
                 var directorName = GetChildObjectName("Director");
 
-                gameObject.CreateOrGetComponentInChild(ref _playableDirector, directorName);
+                gameObject.GetOrCreateComponentInChild(ref _playableDirector, directorName);
 
-                _playableDirector.gameObject.CreateOrGetComponent(ref _signalReceiver);
+                _playableDirector.gameObject.GetOrCreateComponent(ref _signalReceiver);
+
                 _playableDirector.enabled = false;
 
+                _playableDirector.playOnAwake = areaMetadata.timelinePlayMode == TimelinePlayMode.Auto;
+                _playableDirector.playableAsset = areaMetadata.timelineAsset;
+                _playableDirector.extrapolationMode = areaMetadata.wrapMode;
+
+                _playableDirector.enabled = true;
+
 #if UNITY_EDITOR
-                CreateAreaAsset(ref metadata.timelineAsset,            metadata);
-                CreateAreaAsset(ref metadata.timelineStartSignalAsset, metadata, "Start");
-                CreateAreaAsset(ref metadata.timelineEndSignalAsset,  metadata, "Stop");
+                CreateAreaAsset(ref areaMetadata.timelineAsset,            areaMetadata);
+                CreateAreaAsset(ref areaMetadata.timelineStartSignalAsset, areaMetadata, "Start");
+                CreateAreaAsset(ref areaMetadata.timelineEndSignalAsset,   areaMetadata, "Stop");
 
 #endif
-                var signalTrack = metadata.timelineAsset.GetOrCreateSignalTrack();
+                var signalTrack = areaMetadata.timelineAsset.GetOrCreateSignalTrack();
 
                 signalTrack.SetStartAndEndEmitters(
-                    metadata.timelineStartSignalAsset,
-                    metadata.timelineEndSignalAsset,
-                    metadata.retroactive,
-                    metadata.emitOnce
+                    areaMetadata.timelineStartSignalAsset,
+                    areaMetadata.timelineEndSignalAsset,
+                    areaMetadata.retroactive,
+                    areaMetadata.emitOnce
                 );
 
-                _signalReceiver.ConnectMethodToSignal(metadata.timelineStartSignalAsset, OnTimelineStart);
-                _signalReceiver.ConnectMethodToSignal(metadata.timelineEndSignalAsset, OnTimelineEnd);
+#if UNITY_EDITOR
+                _signalReceiver.ConnectMethodToSignal(areaMetadata.timelineStartSignalAsset, OnTimelineStart);
+                _signalReceiver.ConnectMethodToSignal(areaMetadata.timelineEndSignalAsset,   OnTimelineEnd);
 
-                _playableDirector.playableAsset = metadata.timelineAsset;
-                _playableDirector.playOnAwake = metadata.autoPlayTimeline;
-                _playableDirector.extrapolationMode = metadata.wrapMode;
                 _playableDirector.SetGenericBinding(signalTrack, _signalReceiver);
+#endif
             }
         }
 
@@ -102,7 +128,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         {
             using (_PRF_Activate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnActivation));
+                Context.Log.Info(nameof(OnActivation), this);
             }
         }
 
@@ -110,7 +136,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         {
             using (_PRF_Deactivate.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(OnDeactivation));
+                Context.Log.Info(nameof(OnDeactivation), this);
             }
         }
 
@@ -118,13 +144,81 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         {
             using (_PRF_ResetArea.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(ResetArea));
+                Context.Log.Info(nameof(ResetArea), this);
             }
         }
+
+        private void SkipTimeline()
+        {
+            using (_PRF_SkipTimeline.Auto())
+            {
+                canvas.canvasFadeManager.ForceActive();
+
+                canvas.canvasFadeManager.FadeOutCompleted += () =>
+                {
+                    _playableDirector.Stop();
+                    _playableDirector.enabled = false;
+
+                    enabled = false;
+                };
+
+                canvas.canvasFadeManager.FadeOut();
+                _alreadySkipping = true;
+            }
+        }
+
+        #region ISplashScreenActions Members
+
+        public virtual void OnContinue(InputAction.CallbackContext context)
+        {
+            using (_PRF_OnContinue.Auto())
+            {
+                if (_alreadySkipping)
+                {
+                    return;
+                }
+
+                switch (areaMetadata.timelineSkipMode)
+                {
+                    case TimelineSkipMode.None:
+                        return;
+
+                    case TimelineSkipMode.AfterDelay:
+
+                        if (WakeDuration > areaMetadata.skipFrameDelay)
+                        {
+                            SkipTimeline();
+                        }
+
+                        break;
+
+                    case TimelineSkipMode.OnceSignalled:
+                        if (hasSkipEnablingBeenSignaled)
+                        {
+                            SkipTimeline();
+                        }
+
+                        break;
+
+                    case TimelineSkipMode.Immediately:
+
+                        SkipTimeline();
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        #endregion
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(SplashScreenSubManager<T, TM>) + ".";
+
+        private static readonly ProfilerMarker _PRF_SkipTimeline =
+            new ProfilerMarker(_PRF_PFX + nameof(SkipTimeline));
 
         private static readonly ProfilerMarker _PRF_OnTimelineStart =
             new ProfilerMarker(_PRF_PFX + nameof(OnTimelineStart));
@@ -145,6 +239,9 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
 
         private static readonly ProfilerMarker _PRF_Deactivate =
             new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
+
+        private static readonly ProfilerMarker _PRF_OnContinue =
+            new ProfilerMarker(_PRF_PFX + nameof(OnContinue));
 
         #endregion
     }

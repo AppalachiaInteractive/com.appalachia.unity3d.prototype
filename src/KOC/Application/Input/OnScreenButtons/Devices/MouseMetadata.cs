@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls;
-using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Unity.Profiling;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -12,11 +12,13 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 {
     [DoNotReorderFields]
     [Serializable, SmartLabelChildren, SmartLabel]
-    public sealed class MouseMetadata : DeviceMetadata
+    public sealed class MouseMetadata : DeviceMetadata<MouseMetadata>
     {
         #region Fields and Autoproperties
 
-        [FormerlySerializedAs("Scroll")] public ControlButtonMetadata scroll;
+        [FormerlySerializedAs("Scroll")]
+        public ControlButtonMetadata scroll;
+
         public ControlButtonMetadata leftButton;
         public ControlButtonMetadata rightButton;
         public ControlButtonMetadata middleButton;
@@ -80,6 +82,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                 }
             }
         }
+#if UNITY_EDITOR
 
         internal override void PopulateAll()
         {
@@ -89,57 +92,69 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 
                 if (scroll == null)
                 {
-                    scroll = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(scroll)}");
+                    scroll = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(scroll))
+                    );
                     this.MarkAsModified();
                     _controls[0] = scroll;
                 }
 
                 if (leftButton == null)
                 {
-                    leftButton = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftButton)}");
+                    leftButton = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(leftButton))
+                    );
                     this.MarkAsModified();
                     _controls[1] = leftButton;
                 }
 
                 if (rightButton == null)
                 {
-                    rightButton =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightButton)}");
+                    rightButton = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(rightButton))
+                    );
                     this.MarkAsModified();
                     _controls[2] = rightButton;
                 }
 
                 if (middleButton == null)
                 {
-                    middleButton =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(middleButton)}");
+                    middleButton = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(middleButton))
+                    );
                     this.MarkAsModified();
                     _controls[3] = middleButton;
                 }
 
                 if (forwardButton == null)
                 {
-                    forwardButton =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(forwardButton)}");
+                    forwardButton = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(forwardButton))
+                    );
                     this.MarkAsModified();
                     _controls[4] = forwardButton;
                 }
 
                 if (backButton == null)
                 {
-                    backButton = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(backButton)}");
+                    backButton = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(backButton))
+                    );
                     this.MarkAsModified();
                     _controls[5] = backButton;
                 }
             }
         }
+#endif
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(MouseMetadata) + ".";
 
+#if UNITY_EDITOR
         private static readonly ProfilerMarker _PRF_SetAll =
             new ProfilerMarker(_PRF_PFX + nameof(PopulateAll));
+#endif
 
         private static readonly ProfilerMarker _PRF_CanResolve =
             new ProfilerMarker(_PRF_PFX + nameof(CanResolve));

@@ -1,8 +1,6 @@
 using System;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Menus.Components;
-using Doozy.Engine.Extensions;
-using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -13,34 +11,68 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements
     {
         #region Fields and Autoproperties
 
-        [OnValueChanged(nameof(OnValuesChanged))]
         public Sprite sprite;
 
-        [OnValueChanged(nameof(OnValuesChanged))]
         public Color color;
 
-        [OnValueChanged(nameof(OnValuesChanged))]
         public Vector2 anchorMin;
 
-        [OnValueChanged(nameof(OnValuesChanged))]
         public Vector2 anchorMax;
 
         #endregion
 
-        public override void Apply(UIMenuBackgroundComponentSet component)
+        public override void Apply(
+            GameObject parent,
+            string baseName,
+            ref UIMenuBackgroundComponentSet component)
         {
             using (_PRF_Apply.Auto())
             {
-                var rect = component.rect;
-                
-                rect.Reset(RectResetOptions.Transforms);
+                using (var scope = initializer.Scope(
+                           this,
+                           nameof(component),
+                           (component.image == null) ||
+                           (component.rect == null) ||
+                           (component.gameObject == null)
+                       ))
+                {
+                    if (scope.ShouldInitialize)
+                    {
+                        component.Configure(parent, baseName);
+                        scope.MarkInitialized();
+                    }
+                }
 
-                rect.anchorMin = anchorMin;
-                rect.anchorMax = anchorMax;
-                component.image.sprite = sprite;
-                component.image.color = color;
+                using (var scope = initializer.Scope(this, nameof(RectResetOptions)))
+                {
+                    if (scope.ShouldInitialize)
+                    {
+                        component.rect.Reset(RectResetOptions.Transforms);
+                        scope.MarkInitialized();
+                    }
+                }
 
-                _hasConfiguredAlready = true;
+                if (component.rect.anchorMin != anchorMin)
+                {
+                    component.rect.anchorMin = anchorMin;
+                }
+
+                if (component.rect.anchorMax != anchorMax)
+                {
+                    component.rect.anchorMax = anchorMax;
+                }
+
+                if (component.image.sprite != sprite)
+                {
+                    component.image.sprite = sprite;
+                }
+
+                if (component.image.color != color)
+                {
+                    component.image.color = color;
+                }
+
+                await initializer.Do(this, nameof(component.image), () => { });
             }
         }
 

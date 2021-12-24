@@ -5,7 +5,7 @@ using Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements;
 namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Wrappers
 {
     [Serializable]
-    public class UIMenuButtonWrapper: UIElementWrapper<UIMenuButtonMetadata, UIMenuButtonComponentSet>
+    public class UIMenuButtonWrapper : UIElementWrapper<UIMenuButtonMetadata, UIMenuButtonComponentSet>
     {
     }
 }

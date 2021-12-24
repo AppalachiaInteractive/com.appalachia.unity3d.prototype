@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e2ce54640bf43c6adeea9f26af0ff66, type: 3}
-  m_Name: GenericMenu_Submit
+  m_Name: GenericMenu_Apply
   m_EditorClassIdentifier: 
   _initializationData:
-    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   _cachedName: 
@@ -32,4 +31,4 @@ MonoBehaviour:
     _value: 0
   _textStyle:
     _overrideEnabled: 0
-    _value: 10
+    _value: 0

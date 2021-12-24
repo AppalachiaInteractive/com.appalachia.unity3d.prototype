@@ -1,10 +1,6 @@
 using System;
 using System.Collections;
 using System.Linq;
-using Appalachia.Core.Behaviours;
-using Appalachia.Prototype.KOC.Application;
-using Appalachia.Prototype.KOC.Application.Behaviours;
-using Appalachia.Utility.Logging;
 using UnityEngine;
 using UnityEngine.Profiling;
 using Object = UnityEngine.Object;
@@ -60,12 +56,12 @@ namespace Appalachia.Prototype.KOC.Gameplay
         {
             if (playerController)
             {
-                Destroy(playerController.gameObject);
+                Object.Destroy(playerController.gameObject);
             }
 
             if (playerCamera)
             {
-                Destroy(playerCamera.gameObject);
+                Object.Destroy(playerCamera.gameObject);
             }
 
             playerController = null;
@@ -113,18 +109,18 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
             if (!playerPrefab)
             {
-                AppaLog.Error("Missing player prefab");
+                Context.Log.Error("Missing player prefab");
                 yield break;
             }
 
             if (!playerController)
             {
-                playerController = Instantiate(playerPrefab);
+                playerController = Object.Instantiate(playerPrefab);
             }
 
             if (!playerCamera)
             {
-                playerCamera = Instantiate(playerCameraPrefab);
+                playerCamera = Object.Instantiate(playerCameraPrefab);
             }
 
             using (var enumerator = GameAgent.GetEnumerator())

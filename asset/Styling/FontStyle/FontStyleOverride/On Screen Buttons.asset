@@ -13,26 +13,40 @@ MonoBehaviour:
   m_Name: On Screen Buttons
   m_EditorClassIdentifier: 
   _initializationData:
-    _nonSerializedTags: []
     _tags: []
     _resetToken: 
   _cachedName: 
   _niceName: 
   _font:
-    overrideEnabled: 0
-    value: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
+    _overrideEnabled: 0
+    _value: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
   _fontSize:
-    overrideEnabled: 0
-    value: 16
+    _overrideEnabled: 0
+    _value: 16
+  _autoSize:
+    _overrideEnabled: 0
+    _value: 0
+  _fontRange:
+    _overrideEnabled: 0
+    _value: {x: 0, y: 0}
   _fontWeight:
-    overrideEnabled: 0
-    value: 400
+    _overrideEnabled: 0
+    _value: 400
   _alignment:
-    overrideEnabled: 0
-    value: 4098
+    _overrideEnabled: 0
+    _value: 4098
   _horizontalAlignment:
-    overrideEnabled: 0
-    value: 2
+    _overrideEnabled: 0
+    _value: 2
   _verticalAlignment:
-    overrideEnabled: 0
-    value: 512
+    _overrideEnabled: 0
+    _value: 512
+  _color:
+    _overrideEnabled: 0
+    _value: {r: 0, g: 0, b: 0, a: 0}
+  _enableWordWrapping:
+    _overrideEnabled: 0
+    _value: 0
+  _overflowMode:
+    _overrideEnabled: 0
+    _value: 0

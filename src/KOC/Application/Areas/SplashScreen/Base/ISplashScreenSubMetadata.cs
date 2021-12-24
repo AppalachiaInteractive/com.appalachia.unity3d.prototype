@@ -5,10 +5,9 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
 {
     public interface ISplashScreenSubMetadata
     {
-        public bool AutoPlayTimeline { get; }
-        public bool CanSkip { get; }
+        public TimelineSkipMode TimelineSkipMode { get; }
+        public int SkipFrameDelay { get; }
         public bool EmitOnce { get; }
-        public bool EnableDirector { get; }
         public bool Retroactive { get; }
         public bool UnloadSceneImmediately { get; }
         public DirectorWrapMode WrapMode { get; }

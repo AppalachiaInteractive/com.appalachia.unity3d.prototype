@@ -2,13 +2,14 @@
 
 using System.Collections.Generic;
 using Appalachia.Audio.Behaviours;
+using Appalachia.Utility.Async;
 using UnityEngine;
 
 #endregion
 
 namespace Appalachia.Prototype.KOC.Gameplay.Audio
 {
-    public class PlayerFoleyZone : Zone
+    public class PlayerFoleyZone : Zone<PlayerFoleyZone>
     {
         #region Constants and Static Readonly
 
@@ -26,9 +27,9 @@ namespace Appalachia.Prototype.KOC.Gameplay.Audio
 
         #region Event Functions
 
-        protected new void OnDisable()
+        protected override async AppaTask WhenDisabled()
         {
-            base.OnDisable();
+            await base.WhenDisabled();
             overrides.Remove(this);
         }
 

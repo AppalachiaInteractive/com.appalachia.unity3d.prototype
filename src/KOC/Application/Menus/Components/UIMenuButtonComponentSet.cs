@@ -2,6 +2,7 @@ using System;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Doozy.Engine.UI;
 using TMPro;
 using Unity.Profiling;
@@ -15,8 +16,6 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
     {
         #region Fields and Autoproperties
 
-        public GameObject GameObject => gameObject;
-        
         public GameObject gameObject;
         public RectTransform rect;
 
@@ -28,38 +27,43 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
 
         #region IComponentSet Members
 
+        public GameObject GameObject => gameObject;
+
         public void Configure(GameObject parent, string baseName)
         {
             using (_PRF_Configure.Auto())
             {
-                var targetName = $"UI Menu Button - {baseName}";
+                var targetName = ZString.Format("UI Menu Button - {0}", baseName);
 
-                parent.CreateOrGetChild(ref gameObject, targetName, true);
-                gameObject.CreateOrGetComponent(ref rect);
+                parent.GetOrCreateChild(ref gameObject, targetName, true);
+                gameObject.GetOrCreateComponent(ref rect);
 
-                gameObject.CreateOrGetChild(
+                gameObject.GetOrCreateChild(
                     ref buttonWrapper.gameObject,
-                    $"UI Menu Button - Wrapper - {baseName}", true
+                    ZString.Format("UI Menu Button - Wrapper - {0}", baseName),
+                    true
                 );
-                buttonWrapper.gameObject.CreateOrGetComponent(ref buttonWrapper.rect);
-                buttonWrapper.gameObject.CreateOrGetComponent(ref buttonWrapper.button);
-                buttonWrapper.gameObject.CreateOrGetComponent(ref buttonWrapper.composite);
-                buttonWrapper.gameObject.CreateOrGetComponent(ref buttonWrapper.doozyButton);
+                buttonWrapper.gameObject.GetOrCreateComponent(ref buttonWrapper.rect);
+                buttonWrapper.gameObject.GetOrCreateComponent(ref buttonWrapper.button);
+                buttonWrapper.gameObject.GetOrCreateComponent(ref buttonWrapper.composite);
+                buttonWrapper.gameObject.GetOrCreateComponent(ref buttonWrapper.doozyButton);
 
-                buttonWrapper.gameObject.CreateOrGetChild(
+                buttonWrapper.gameObject.GetOrCreateChild(
                     ref buttonImage.gameObject,
-                    $"UI Menu Button - Image - {baseName}", true
+                    ZString.Format("UI Menu Button - Image - {0}", baseName),
+                    true
                 );
-                buttonImage.gameObject.CreateOrGetComponent(ref buttonImage.rect);
-                buttonImage.gameObject.CreateOrGetComponent(ref buttonImage.image);
+                buttonImage.gameObject.GetOrCreateComponent(ref buttonImage.rect);
+                buttonImage.gameObject.GetOrCreateComponent(ref buttonImage.image);
 
-                buttonWrapper.gameObject.CreateOrGetChild(
+                buttonWrapper.gameObject.GetOrCreateChild(
                     ref buttonText.gameObject,
-                    $"UI Menu Button - TMP - {baseName}", true
+                    ZString.Format("UI Menu Button - TMP - {0}", baseName),
+                    true
                 );
 
-                buttonText.gameObject.CreateOrGetComponent(ref buttonText.rect);
-                buttonText.gameObject.CreateOrGetComponent(ref buttonText.textMesh);
+                buttonText.gameObject.GetOrCreateComponent(ref buttonText.rect);
+                buttonText.gameObject.GetOrCreateComponent(ref buttonText.textMesh);
             }
         }
 

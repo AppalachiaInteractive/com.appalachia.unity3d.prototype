@@ -15,4 +15,5 @@ MonoBehaviour:
   CategoryName: HUD
   DatabaseType: 2
   Names:
+  - HUD
   - Root

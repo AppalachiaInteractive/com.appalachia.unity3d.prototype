@@ -1,10 +1,10 @@
-using Appalachia.Core.Behaviours;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Rendering.PostProcessing.AutoFocus;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public abstract class PlayerCamera: AppalachiaBehaviour
+    public abstract class PlayerCamera : AppalachiaBehaviour<PlayerCamera>
     {
         
 

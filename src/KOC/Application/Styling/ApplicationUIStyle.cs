@@ -1,5 +1,7 @@
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Styling.Fonts;
 using Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Application.Styling
@@ -18,42 +20,30 @@ namespace Appalachia.Prototype.KOC.Application.Styling
 
         #region Event Functions
 
-        protected override void Awake()
-        {
-            base.Awake();
-
-            Initialize();
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-
-            Initialize();
-        }
-
         #endregion
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            base.Initialize();
+            await base.Initialize(initializer);
 
-            initializer.Initialize(
+#if UNITY_EDITOR
+            await initializer.Do(
                 this,
                 nameof(defaultFont),
                 defaultFont == null,
-                () => { defaultFont = LoadOrCreateNew<FontStyle>("Default Font"); }
+                () => { defaultFont = FontStyle.LoadOrCreateNew("Default Font"); }
             );
 
-            initializer.Initialize(
+            await initializer.Do(
                 this,
                 nameof(OnScreenButtonStyle),
                 onScreenButtonStyle == null,
                 () =>
                 {
-                    onScreenButtonStyle = LoadOrCreateNew<OnScreenButtonStyle>(nameof(OnScreenButtonStyle));
+                    onScreenButtonStyle = OnScreenButtonStyle.LoadOrCreateNew(nameof(OnScreenButtonStyle));
                 }
             );
+#endif
         }
     }
 }

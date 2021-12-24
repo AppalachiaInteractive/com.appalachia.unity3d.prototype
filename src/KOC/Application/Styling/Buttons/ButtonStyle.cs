@@ -1,103 +1,85 @@
 using System;
-using Appalachia.Core.Overrides.Implementations;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Styling.Base;
-using Appalachia.Prototype.KOC.Application.Styling.Overrides;
+using Appalachia.Utility.Async;
+using Sirenix.OdinInspector;
 using TMPro;
 using Unity.Profiling;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Application.Styling.Buttons
 {
-    public interface IButtonStyle : IApplicationStyle
-    {
-        Color DisabledColor { get; }
-        Color HighlightedColor { get; }
-        Color NormalColor { get; }
-        Color PressedColor { get; }
-        Color SelectedColor { get; }
-        float ColorMultiplier { get; }
-        float FadeDuration { get; }
-        float FontSize { get; }
-        TextAlignmentOptions Alignment { get; }
-
-        public void Apply(Button component)
-        {
-            using (_PRF_Apply.Auto())
-            {
-            }
-        }
-
-        public void Apply(TextMeshProUGUI component)
-        {
-            using (_PRF_Apply.Auto())
-            {
-            }
-        }
-
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(IButtonStyle) + ".";
-
-        private static readonly ProfilerMarker _PRF_Apply = new ProfilerMarker(_PRF_PFX + nameof(Apply));
-
-        #endregion
-    }
-
     [Serializable]
     public class ButtonStyle : ApplicationStyleElementDefault<ButtonStyle, ButtonStyleOverride, IButtonStyle>,
                                IButtonStyle
     {
         #region Fields and Autoproperties
 
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private TextAlignmentOptions _alignment;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private float _fontSize;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private Color _normalColor;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private Color _highlightedColor;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private Color _pressedColor;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private Color _selectedColor;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private Color _disabledColor;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private float _colorMultiplier;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
         private float _fadeDuration;
 
         #endregion
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(_normalColor),
                     () => _normalColor = new Color(255f / 255f, 255f / 255f, 255f / 255f, 1.0f)
                 );
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(_highlightedColor),
                     () => _highlightedColor = new Color(245f / 255f, 245f / 255f, 245f / 255f, 1.0f)
                 );
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(_pressedColor),
                     () => _pressedColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1.0f)
                 );
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(_selectedColor),
                     () => _selectedColor = new Color(245f / 255f, 245f / 255f, 245f / 255f, 1.0f)
                 );
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(_disabledColor),
                     () => _disabledColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 0.5f)
                 );
 
-                initializer.Initialize(this, nameof(_colorMultiplier), () => _colorMultiplier = 1.0f);
-                initializer.Initialize(this, nameof(_fadeDuration),    () => _fadeDuration = .1f);
-                initializer.Initialize(this, nameof(_fontSize),        () => _fontSize = 14f);
-                initializer.Initialize(
+                await initializer.Do(this, nameof(_colorMultiplier), () => _colorMultiplier = 1.0f);
+                await initializer.Do(this, nameof(_fadeDuration),    () => _fadeDuration = .1f);
+                await initializer.Do(this, nameof(_fontSize),        () => _fontSize = 14f);
+                await initializer.Do(
                     this,
                     nameof(_alignment),
                     () => _alignment = TextAlignmentOptions.Center
@@ -126,102 +108,7 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Buttons
         private static readonly ProfilerMarker _PRF_RegisterOverride =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterOverride));
 
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-        #endregion
-    }
-
-    [Serializable]
-    public class ButtonStyleOverride :
-        ApplicationStyleElementOverride<ButtonStyle, ButtonStyleOverride, IButtonStyle>,
-        IButtonStyle
-    {
-        #region Fields and Autoproperties
-
-        private OverridableTextAlignmentOptions _alignment;
-        private OverridableFloat _fontSize;
-        private OverridableColor _normalColor;
-        private OverridableColor _highlightedColor;
-        private OverridableColor _pressedColor;
-        private OverridableColor _selectedColor;
-        private OverridableColor _disabledColor;
-        private OverridableFloat _colorMultiplier;
-        private OverridableFloat _fadeDuration;
-
-        #endregion
-
-        public override void SyncWithDefault()
-        {
-            using (_PRF_SyncWithDefault.Auto())
-            {
-                if (!_alignment.overrideEnabled)
-                {
-                    _alignment.value = Defaults.Alignment;
-                }
-
-                if (!_fontSize.overrideEnabled)
-                {
-                    _fontSize.value = Defaults.FontSize;
-                }
-
-                if (!_normalColor.overrideEnabled)
-                {
-                    _normalColor.value = Defaults.NormalColor;
-                }
-
-                if (!_highlightedColor.overrideEnabled)
-                {
-                    _highlightedColor.value = Defaults.HighlightedColor;
-                }
-
-                if (!_pressedColor.overrideEnabled)
-                {
-                    _pressedColor.value = Defaults.PressedColor;
-                }
-
-                if (!_selectedColor.overrideEnabled)
-                {
-                    _selectedColor.value = Defaults.SelectedColor;
-                }
-
-                if (!_disabledColor.overrideEnabled)
-                {
-                    _disabledColor.value = Defaults.DisabledColor;
-                }
-
-                if (!_colorMultiplier.overrideEnabled)
-                {
-                    _colorMultiplier.value = Defaults.ColorMultiplier;
-                }
-
-                if (!_fadeDuration.overrideEnabled)
-                {
-                    _fadeDuration.value = Defaults.FadeDuration;
-                }
-            }
-        }
-
-        #region IButtonStyle Members
-
-        public TextAlignmentOptions Alignment => _alignment.Get(Defaults.Alignment);
-        public float FontSize => _fontSize.Get(Defaults.FontSize);
-        public Color NormalColor => _normalColor.Get(Defaults.NormalColor);
-        public Color HighlightedColor => _highlightedColor.Get(Defaults.HighlightedColor);
-        public Color PressedColor => _pressedColor.Get(Defaults.PressedColor);
-        public Color SelectedColor => _selectedColor.Get(Defaults.SelectedColor);
-        public Color DisabledColor => _disabledColor.Get(Defaults.DisabledColor);
-        public float ColorMultiplier => _colorMultiplier.Get(Defaults.ColorMultiplier);
-        public float FadeDuration => _fadeDuration.Get(Defaults.FadeDuration);
-
-        #endregion
-
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(ButtonStyleOverride) + ".";
-
-        private static readonly ProfilerMarker _PRF_SyncWithDefault =
-            new ProfilerMarker(_PRF_PFX + nameof(SyncWithDefault));
+        
 
         #endregion
     }

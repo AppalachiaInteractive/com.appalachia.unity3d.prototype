@@ -1,19 +1,22 @@
-using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Behaviours;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Components;
-using Appalachia.Prototype.KOC.Application.Input;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Behaviours
 {
-    [SmartLabelChildren]
-    [ExecuteAlways]
-    public class AppalachiaApplicationBehaviour : AppalachiaBehaviour
+    public abstract class AppalachiaApplicationBehaviour<T> : AppalachiaBehaviour<T>
+        where T : AppalachiaApplicationBehaviour<T>
     {
-        protected static ApplicationLifetimeComponents LifetimeComponents => ApplicationLifetimeComponents.instance;
+        static AppalachiaApplicationBehaviour()
+        {
+            RegisterDependency<LifetimeComponentManager>(i => _lifetimeComponentManager = i);
+        }
 
-        protected static KOCInputActions InputActions => ApplicationLifetimeComponents.instance.InputActions;
+        #region Static Fields and Autoproperties
 
-        protected override bool InitializeAlways => true;
+        private static LifetimeComponentManager _lifetimeComponentManager;
+
+        #endregion
+
+        protected static LifetimeComponents LifetimeComponents => _lifetimeComponentManager.Components;
     }
 }

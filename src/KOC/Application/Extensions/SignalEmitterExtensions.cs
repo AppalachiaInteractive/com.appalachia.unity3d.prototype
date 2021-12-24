@@ -19,6 +19,10 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
             }
         }
 
+        #region Profiling
+
         private const string _PRF_PFX = nameof(SignalEmitterExtensions) + ".";
+
+        #endregion
     }
 }

@@ -5,13 +5,18 @@ using TMPro;
 namespace Appalachia.Prototype.KOC.Application.Styling.Overrides
 {
     [Serializable]
-    public class OverridableTextAlignmentOptions : Overridable<TextAlignmentOptions, OverridableTextAlignmentOptions>
+    public class
+        OverridableTextAlignmentOptions : Overridable<TextAlignmentOptions, OverridableTextAlignmentOptions>
     {
-        public OverridableTextAlignmentOptions(bool overrideEnabled, TextAlignmentOptions value) : base(overrideEnabled, value)
+        public OverridableTextAlignmentOptions(bool overrideEnabled, TextAlignmentOptions value) : base(
+            overrideEnabled,
+            value
+        )
         {
         }
 
-        public OverridableTextAlignmentOptions(Overridable<TextAlignmentOptions, OverridableTextAlignmentOptions> value) : base(value)
+        public OverridableTextAlignmentOptions(
+            Overridable<TextAlignmentOptions, OverridableTextAlignmentOptions> value) : base(value)
         {
         }
 

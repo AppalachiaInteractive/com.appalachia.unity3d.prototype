@@ -5,6 +5,7 @@ using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons;
 using Appalachia.Prototype.KOC.Application.Styling.Base;
 using Appalachia.Prototype.KOC.Application.Styling.Fonts;
 using Appalachia.Prototype.KOC.Application.Styling.Overrides;
+using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -18,19 +19,19 @@ namespace Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons
     {
         #region Fields and Autoproperties
 
-        [SerializeField, SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
         private OverridableColor _spriteColor;
 
-        [SerializeField, SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
         private OverridableColor _textColor;
 
-        [SerializeField, SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
         private OverridableFontStyleOverride _font;
 
-        [SerializeField, SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
         private OverridableOnScreenButtonSpriteStyle _spriteStyle;
 
-        [SerializeField, SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
         private OverridableOnScreenButtonTextStyle _textStyle;
 
         #endregion

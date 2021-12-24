@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Scriptables;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Timing;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Crafting
 {
     [Serializable]
-    public class CraftingRecipeElementOption
+    public class CraftingRecipeElementOption : AppalachiaSimpleBase
     {
         public CraftingRecipeElementOption()
         {

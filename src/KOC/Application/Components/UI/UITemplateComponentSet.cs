@@ -1,8 +1,8 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Prototype.KOC.Application.Screens.Fading;
+using Appalachia.Prototype.KOC.Application.Components.Fading;
 using Appalachia.Utility.Extensions;
-using Doozy.Engine.UI;
+using Appalachia.Utility.Strings;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,32 +14,36 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
     {
         #region Fields and Autoproperties
 
-        public GameObject GameObject => gameObject;
-        
         public Canvas canvas;
         public CanvasFadeManager canvasFadeManager;
         public CanvasGroup canvasGroup;
         public GameObject gameObject;
-        public RectTransform rect;
         public Image image;
+        public RectTransform rect;
 
         #endregion
+
+        #region IComponentSet Members
+
+        public GameObject GameObject => gameObject;
 
         public void Configure(GameObject parent, string baseName)
         {
             using (_PRF_Configure.Auto())
             {
-                var targetName = $"Template - {baseName}";
+                var targetName = ZString.Format("Template - {0}", baseName);
 
-                parent.CreateOrGetChild(ref gameObject, targetName, true);
+                parent.GetOrCreateChild(ref gameObject, targetName, true);
 
-                gameObject.CreateOrGetComponent(ref rect);
-                gameObject.CreateOrGetComponent(ref canvasFadeManager);
-                gameObject.CreateOrGetComponent(ref canvasGroup);
-                gameObject.CreateOrGetComponent(ref canvas);
-                gameObject.CreateOrGetComponent(ref image);
+                gameObject.GetOrCreateComponent(ref rect);
+                gameObject.GetOrCreateComponent(ref canvasFadeManager);
+                gameObject.GetOrCreateComponent(ref canvasGroup);
+                gameObject.GetOrCreateComponent(ref canvas);
+                gameObject.GetOrCreateComponent(ref image);
             }
         }
+
+        #endregion
 
         #region Profiling
 

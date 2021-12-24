@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls;
-using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Unity.Profiling;
 using UnityEngine.InputSystem;
 
@@ -11,7 +11,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 {
     [DoNotReorderFields]
     [Serializable, SmartLabelChildren, SmartLabel]
-    public sealed class KeyboardMetadata : DeviceMetadata
+    public sealed class KeyboardMetadata : DeviceMetadata<KeyboardMetadata>
     {
         #region Fields and Autoproperties
 
@@ -601,6 +601,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
             }
         }
 
+#if UNITY_EDITOR
         internal override void PopulateAll()
         {
             using (_PRF_SetAll.Auto())
@@ -609,792 +610,1005 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 
                 if (escape == null)
                 {
-                    escape = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(escape)}");
+                    escape = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(escape))
+                    );
                     this.MarkAsModified();
                     _controls[0] = escape;
                 }
 
                 if (space == null)
                 {
-                    space = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(space)}");
+                    space = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(space))
+                    );
                     this.MarkAsModified();
                     _controls[1] = space;
                 }
 
                 if (enter == null)
                 {
-                    enter = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(enter)}");
+                    enter = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(enter))
+                    );
                     this.MarkAsModified();
                     _controls[2] = enter;
                 }
 
                 if (tab == null)
                 {
-                    tab = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(tab)}");
+                    tab = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(tab))
+                    );
                     this.MarkAsModified();
                     _controls[3] = tab;
                 }
 
                 if (backquote == null)
                 {
-                    backquote = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(backquote)}");
+                    backquote = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(backquote))
+                    );
                     this.MarkAsModified();
                     _controls[4] = backquote;
                 }
 
                 if (quote == null)
                 {
-                    quote = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(quote)}");
+                    quote = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(quote))
+                    );
                     this.MarkAsModified();
                     _controls[5] = quote;
                 }
 
                 if (semicolon == null)
                 {
-                    semicolon = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(semicolon)}");
+                    semicolon = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(semicolon))
+                    );
                     this.MarkAsModified();
                     _controls[6] = semicolon;
                 }
 
                 if (comma == null)
                 {
-                    comma = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(comma)}");
+                    comma = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(comma))
+                    );
                     this.MarkAsModified();
                     _controls[7] = comma;
                 }
 
                 if (period == null)
                 {
-                    period = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(period)}");
+                    period = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(period))
+                    );
                     this.MarkAsModified();
                     _controls[8] = period;
                 }
 
                 if (slash == null)
                 {
-                    slash = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(slash)}");
+                    slash = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(slash))
+                    );
                     this.MarkAsModified();
                     _controls[9] = slash;
                 }
 
                 if (backslash == null)
                 {
-                    backslash = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(backslash)}");
+                    backslash = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(backslash))
+                    );
                     this.MarkAsModified();
                     _controls[10] = backslash;
                 }
 
                 if (leftBracket == null)
                 {
-                    leftBracket =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftBracket)}");
+                    leftBracket = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(leftBracket))
+                    );
                     this.MarkAsModified();
                     _controls[11] = leftBracket;
                 }
 
                 if (rightBracket == null)
                 {
-                    rightBracket =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightBracket)}");
+                    rightBracket = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(rightBracket))
+                    );
                     this.MarkAsModified();
                     _controls[12] = rightBracket;
                 }
 
                 if (minus == null)
                 {
-                    minus = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(minus)}");
+                    minus = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(minus))
+                    );
                     this.MarkAsModified();
                     _controls[13] = minus;
                 }
 
                 if (equals == null)
                 {
-                    equals = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(equals)}");
+                    equals = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(equals))
+                    );
                     this.MarkAsModified();
                     _controls[14] = equals;
                 }
 
                 if (upArrow == null)
                 {
-                    upArrow = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(upArrow)}");
+                    upArrow = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(upArrow))
+                    );
                     this.MarkAsModified();
                     _controls[15] = upArrow;
                 }
 
                 if (downArrow == null)
                 {
-                    downArrow = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(downArrow)}");
+                    downArrow = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(downArrow))
+                    );
                     this.MarkAsModified();
                     _controls[16] = downArrow;
                 }
 
                 if (leftArrow == null)
                 {
-                    leftArrow = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftArrow)}");
+                    leftArrow = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(leftArrow))
+                    );
                     this.MarkAsModified();
                     _controls[17] = leftArrow;
                 }
 
                 if (rightArrow == null)
                 {
-                    rightArrow = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightArrow)}");
+                    rightArrow = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(rightArrow))
+                    );
                     this.MarkAsModified();
                     _controls[18] = rightArrow;
                 }
 
                 if (a == null)
                 {
-                    a = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(a)}");
+                    a = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(a))
+                    );
                     this.MarkAsModified();
                     _controls[19] = a;
                 }
 
                 if (b == null)
                 {
-                    b = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(b)}");
+                    b = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(b))
+                    );
                     this.MarkAsModified();
                     _controls[20] = b;
                 }
 
                 if (c == null)
                 {
-                    c = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(c)}");
+                    c = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(c))
+                    );
                     this.MarkAsModified();
                     _controls[21] = c;
                 }
 
                 if (d == null)
                 {
-                    d = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(d)}");
+                    d = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(d))
+                    );
                     this.MarkAsModified();
                     _controls[22] = d;
                 }
 
                 if (e == null)
                 {
-                    e = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(e)}");
+                    e = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(e))
+                    );
                     this.MarkAsModified();
                     _controls[23] = e;
                 }
 
                 if (f == null)
                 {
-                    f = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f)}");
+                    f = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f))
+                    );
                     this.MarkAsModified();
                     _controls[24] = f;
                 }
 
                 if (g == null)
                 {
-                    g = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(g)}");
+                    g = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(g))
+                    );
                     this.MarkAsModified();
                     _controls[25] = g;
                 }
 
                 if (h == null)
                 {
-                    h = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(h)}");
+                    h = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(h))
+                    );
                     this.MarkAsModified();
                     _controls[26] = h;
                 }
 
                 if (i == null)
                 {
-                    i = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(i)}");
+                    i = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(i))
+                    );
                     this.MarkAsModified();
                     _controls[27] = i;
                 }
 
                 if (j == null)
                 {
-                    j = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(j)}");
+                    j = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(j))
+                    );
                     this.MarkAsModified();
                     _controls[28] = j;
                 }
 
                 if (k == null)
                 {
-                    k = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(k)}");
+                    k = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(k))
+                    );
                     this.MarkAsModified();
                     _controls[29] = k;
                 }
 
                 if (l == null)
                 {
-                    l = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(l)}");
+                    l = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(l))
+                    );
                     this.MarkAsModified();
                     _controls[30] = l;
                 }
 
                 if (m == null)
                 {
-                    m = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(m)}");
+                    m = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(m))
+                    );
                     this.MarkAsModified();
                     _controls[31] = m;
                 }
 
                 if (n == null)
                 {
-                    n = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(n)}");
+                    n = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(n))
+                    );
                     this.MarkAsModified();
                     _controls[32] = n;
                 }
 
                 if (o == null)
                 {
-                    o = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(o)}");
+                    o = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(o))
+                    );
                     this.MarkAsModified();
                     _controls[33] = o;
                 }
 
                 if (p == null)
                 {
-                    p = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(p)}");
+                    p = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(p))
+                    );
                     this.MarkAsModified();
                     _controls[34] = p;
                 }
 
                 if (q == null)
                 {
-                    q = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(q)}");
+                    q = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(q))
+                    );
                     this.MarkAsModified();
                     _controls[35] = q;
                 }
 
                 if (r == null)
                 {
-                    r = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(r)}");
+                    r = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(r))
+                    );
                     this.MarkAsModified();
                     _controls[36] = r;
                 }
 
                 if (s == null)
                 {
-                    s = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(s)}");
+                    s = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(s))
+                    );
                     this.MarkAsModified();
                     _controls[37] = s;
                 }
 
                 if (t == null)
                 {
-                    t = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(t)}");
+                    t = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(t))
+                    );
                     this.MarkAsModified();
                     _controls[38] = t;
                 }
 
                 if (u == null)
                 {
-                    u = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(u)}");
+                    u = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(u))
+                    );
                     this.MarkAsModified();
                     _controls[39] = u;
                 }
 
                 if (v == null)
                 {
-                    v = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(v)}");
+                    v = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(v))
+                    );
                     this.MarkAsModified();
                     _controls[40] = v;
                 }
 
                 if (w == null)
                 {
-                    w = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(w)}");
+                    w = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(w))
+                    );
                     this.MarkAsModified();
                     _controls[41] = w;
                 }
 
                 if (x == null)
                 {
-                    x = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(x)}");
+                    x = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(x))
+                    );
                     this.MarkAsModified();
                     _controls[42] = x;
                 }
 
                 if (y == null)
                 {
-                    y = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(y)}");
+                    y = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(y))
+                    );
                     this.MarkAsModified();
                     _controls[43] = y;
                 }
 
                 if (z == null)
                 {
-                    z = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(z)}");
+                    z = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(z))
+                    );
                     this.MarkAsModified();
                     _controls[44] = z;
                 }
 
                 if (_1 == null)
                 {
-                    _1 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_1)}");
+                    _1 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_1))
+                    );
                     this.MarkAsModified();
                     _controls[45] = _1;
                 }
 
                 if (_2 == null)
                 {
-                    _2 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_2)}");
+                    _2 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_2))
+                    );
                     this.MarkAsModified();
                     _controls[46] = _2;
                 }
 
                 if (_3 == null)
                 {
-                    _3 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_3)}");
+                    _3 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_3))
+                    );
                     this.MarkAsModified();
                     _controls[47] = _3;
                 }
 
                 if (_4 == null)
                 {
-                    _4 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_4)}");
+                    _4 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_4))
+                    );
                     this.MarkAsModified();
                     _controls[48] = _4;
                 }
 
                 if (_5 == null)
                 {
-                    _5 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_5)}");
+                    _5 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_5))
+                    );
                     this.MarkAsModified();
                     _controls[49] = _5;
                 }
 
                 if (_6 == null)
                 {
-                    _6 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_6)}");
+                    _6 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_6))
+                    );
                     this.MarkAsModified();
                     _controls[50] = _6;
                 }
 
                 if (_7 == null)
                 {
-                    _7 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_7)}");
+                    _7 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_7))
+                    );
                     this.MarkAsModified();
                     _controls[51] = _7;
                 }
 
                 if (_8 == null)
                 {
-                    _8 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_8)}");
+                    _8 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_8))
+                    );
                     this.MarkAsModified();
                     _controls[52] = _8;
                 }
 
                 if (_9 == null)
                 {
-                    _9 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_9)}");
+                    _9 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_9))
+                    );
                     this.MarkAsModified();
                     _controls[53] = _9;
                 }
 
                 if (_0 == null)
                 {
-                    _0 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(_0)}");
+                    _0 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(_0))
+                    );
                     this.MarkAsModified();
                     _controls[54] = _0;
                 }
 
                 if (leftShift == null)
                 {
-                    leftShift = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftShift)}");
+                    leftShift = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(leftShift))
+                    );
                     this.MarkAsModified();
                     _controls[55] = leftShift;
                 }
 
                 if (rightShift == null)
                 {
-                    rightShift = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightShift)}");
+                    rightShift = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(rightShift))
+                    );
                     this.MarkAsModified();
                     _controls[56] = rightShift;
                 }
 
                 if (shift == null)
                 {
-                    shift = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(shift)}");
+                    shift = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(shift))
+                    );
                     this.MarkAsModified();
                     _controls[57] = shift;
                 }
 
                 if (leftAlt == null)
                 {
-                    leftAlt = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftAlt)}");
+                    leftAlt = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(leftAlt))
+                    );
                     this.MarkAsModified();
                     _controls[58] = leftAlt;
                 }
 
                 if (rightAlt == null)
                 {
-                    rightAlt = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightAlt)}");
+                    rightAlt = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(rightAlt))
+                    );
                     this.MarkAsModified();
                     _controls[59] = rightAlt;
                 }
 
                 if (alt == null)
                 {
-                    alt = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(alt)}");
+                    alt = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(alt))
+                    );
                     this.MarkAsModified();
                     _controls[60] = alt;
                 }
 
                 if (leftCtrl == null)
                 {
-                    leftCtrl = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftCtrl)}");
+                    leftCtrl = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(leftCtrl))
+                    );
                     this.MarkAsModified();
                     _controls[61] = leftCtrl;
                 }
 
                 if (rightCtrl == null)
                 {
-                    rightCtrl = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightCtrl)}");
+                    rightCtrl = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(rightCtrl))
+                    );
                     this.MarkAsModified();
                     _controls[62] = rightCtrl;
                 }
 
                 if (ctrl == null)
                 {
-                    ctrl = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(ctrl)}");
+                    ctrl = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(ctrl))
+                    );
                     this.MarkAsModified();
                     _controls[63] = ctrl;
                 }
 
                 if (leftMeta == null)
                 {
-                    leftMeta = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(leftMeta)}");
+                    leftMeta = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(leftMeta))
+                    );
                     this.MarkAsModified();
                     _controls[64] = leftMeta;
                 }
 
                 if (rightMeta == null)
                 {
-                    rightMeta = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(rightMeta)}");
+                    rightMeta = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(rightMeta))
+                    );
                     this.MarkAsModified();
                     _controls[65] = rightMeta;
                 }
 
                 if (contextMenu == null)
                 {
-                    contextMenu =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(contextMenu)}");
+                    contextMenu = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(contextMenu))
+                    );
                     this.MarkAsModified();
                     _controls[66] = contextMenu;
                 }
 
                 if (backspace == null)
                 {
-                    backspace = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(backspace)}");
+                    backspace = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(backspace))
+                    );
                     this.MarkAsModified();
                     _controls[67] = backspace;
                 }
 
                 if (pageDown == null)
                 {
-                    pageDown = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(pageDown)}");
+                    pageDown = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(pageDown))
+                    );
                     this.MarkAsModified();
                     _controls[68] = pageDown;
                 }
 
                 if (pageUp == null)
                 {
-                    pageUp = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(pageUp)}");
+                    pageUp = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(pageUp))
+                    );
                     this.MarkAsModified();
                     _controls[69] = pageUp;
                 }
 
                 if (home == null)
                 {
-                    home = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(home)}");
+                    home = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(home))
+                    );
                     this.MarkAsModified();
                     _controls[70] = home;
                 }
 
                 if (end == null)
                 {
-                    end = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(end)}");
+                    end = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(end))
+                    );
                     this.MarkAsModified();
                     _controls[71] = end;
                 }
 
                 if (insert == null)
                 {
-                    insert = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(insert)}");
+                    insert = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(insert))
+                    );
                     this.MarkAsModified();
                     _controls[72] = insert;
                 }
 
                 if (delete == null)
                 {
-                    delete = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(delete)}");
+                    delete = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(delete))
+                    );
                     this.MarkAsModified();
                     _controls[73] = delete;
                 }
 
                 if (capsLock == null)
                 {
-                    capsLock = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(capsLock)}");
+                    capsLock = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(capsLock))
+                    );
                     this.MarkAsModified();
                     _controls[74] = capsLock;
                 }
 
                 if (numLock == null)
                 {
-                    numLock = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numLock)}");
+                    numLock = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numLock))
+                    );
                     this.MarkAsModified();
                     _controls[75] = numLock;
                 }
 
                 if (printScreen == null)
                 {
-                    printScreen =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(printScreen)}");
+                    printScreen = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(printScreen))
+                    );
                     this.MarkAsModified();
                     _controls[76] = printScreen;
                 }
 
                 if (scrollLock == null)
                 {
-                    scrollLock = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(scrollLock)}");
+                    scrollLock = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(scrollLock))
+                    );
                     this.MarkAsModified();
                     _controls[77] = scrollLock;
                 }
 
                 if (pause == null)
                 {
-                    pause = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(pause)}");
+                    pause = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(pause))
+                    );
                     this.MarkAsModified();
                     _controls[78] = pause;
                 }
 
                 if (numpadEnter == null)
                 {
-                    numpadEnter =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpadEnter)}");
+                    numpadEnter = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpadEnter))
+                    );
                     this.MarkAsModified();
                     _controls[79] = numpadEnter;
                 }
 
                 if (numpadDivide == null)
                 {
-                    numpadDivide =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpadDivide)}");
+                    numpadDivide = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpadDivide))
+                    );
                     this.MarkAsModified();
                     _controls[80] = numpadDivide;
                 }
 
                 if (numpadMultiply == null)
                 {
-                    numpadMultiply =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpadMultiply)}");
+                    numpadMultiply = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpadMultiply))
+                    );
                     this.MarkAsModified();
                     _controls[81] = numpadMultiply;
                 }
 
                 if (numpadPlus == null)
                 {
-                    numpadPlus = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpadPlus)}");
+                    numpadPlus = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpadPlus))
+                    );
                     this.MarkAsModified();
                     _controls[82] = numpadPlus;
                 }
 
                 if (numpadMinus == null)
                 {
-                    numpadMinus =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpadMinus)}");
+                    numpadMinus = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpadMinus))
+                    );
                     this.MarkAsModified();
                     _controls[83] = numpadMinus;
                 }
 
                 if (numpadPeriod == null)
                 {
-                    numpadPeriod =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpadPeriod)}");
+                    numpadPeriod = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpadPeriod))
+                    );
                     this.MarkAsModified();
                     _controls[84] = numpadPeriod;
                 }
 
                 if (numpadEquals == null)
                 {
-                    numpadEquals =
-                        LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpadEquals)}");
+                    numpadEquals = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpadEquals))
+                    );
                     this.MarkAsModified();
                     _controls[85] = numpadEquals;
                 }
 
                 if (numpad1 == null)
                 {
-                    numpad1 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad1)}");
+                    numpad1 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad1))
+                    );
                     this.MarkAsModified();
                     _controls[86] = numpad1;
                 }
 
                 if (numpad2 == null)
                 {
-                    numpad2 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad2)}");
+                    numpad2 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad2))
+                    );
                     this.MarkAsModified();
                     _controls[87] = numpad2;
                 }
 
                 if (numpad3 == null)
                 {
-                    numpad3 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad3)}");
+                    numpad3 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad3))
+                    );
                     this.MarkAsModified();
                     _controls[88] = numpad3;
                 }
 
                 if (numpad4 == null)
                 {
-                    numpad4 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad4)}");
+                    numpad4 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad4))
+                    );
                     this.MarkAsModified();
                     _controls[89] = numpad4;
                 }
 
                 if (numpad5 == null)
                 {
-                    numpad5 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad5)}");
+                    numpad5 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad5))
+                    );
                     this.MarkAsModified();
                     _controls[90] = numpad5;
                 }
 
                 if (numpad6 == null)
                 {
-                    numpad6 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad6)}");
+                    numpad6 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad6))
+                    );
                     this.MarkAsModified();
                     _controls[91] = numpad6;
                 }
 
                 if (numpad7 == null)
                 {
-                    numpad7 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad7)}");
+                    numpad7 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad7))
+                    );
                     this.MarkAsModified();
                     _controls[92] = numpad7;
                 }
 
                 if (numpad8 == null)
                 {
-                    numpad8 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad8)}");
+                    numpad8 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad8))
+                    );
                     this.MarkAsModified();
                     _controls[93] = numpad8;
                 }
 
                 if (numpad9 == null)
                 {
-                    numpad9 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad9)}");
+                    numpad9 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad9))
+                    );
                     this.MarkAsModified();
                     _controls[94] = numpad9;
                 }
 
                 if (numpad0 == null)
                 {
-                    numpad0 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(numpad0)}");
+                    numpad0 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(numpad0))
+                    );
                     this.MarkAsModified();
                     _controls[95] = numpad0;
                 }
 
                 if (f1 == null)
                 {
-                    f1 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f1)}");
+                    f1 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f1))
+                    );
                     this.MarkAsModified();
                     _controls[96] = f1;
                 }
 
                 if (f2 == null)
                 {
-                    f2 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f2)}");
+                    f2 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f2))
+                    );
                     this.MarkAsModified();
                     _controls[97] = f2;
                 }
 
                 if (f3 == null)
                 {
-                    f3 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f3)}");
+                    f3 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f3))
+                    );
                     this.MarkAsModified();
                     _controls[98] = f3;
                 }
 
                 if (f4 == null)
                 {
-                    f4 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f4)}");
+                    f4 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f4))
+                    );
                     this.MarkAsModified();
                     _controls[99] = f4;
                 }
 
                 if (f5 == null)
                 {
-                    f5 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f5)}");
+                    f5 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f5))
+                    );
                     this.MarkAsModified();
                     _controls[100] = f5;
                 }
 
                 if (f6 == null)
                 {
-                    f6 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f6)}");
+                    f6 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f6))
+                    );
                     this.MarkAsModified();
                     _controls[101] = f6;
                 }
 
                 if (f7 == null)
                 {
-                    f7 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f7)}");
+                    f7 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f7))
+                    );
                     this.MarkAsModified();
                     _controls[102] = f7;
                 }
 
                 if (f8 == null)
                 {
-                    f8 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f8)}");
+                    f8 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f8))
+                    );
                     this.MarkAsModified();
                     _controls[103] = f8;
                 }
 
                 if (f9 == null)
                 {
-                    f9 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f9)}");
+                    f9 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f9))
+                    );
                     this.MarkAsModified();
                     _controls[104] = f9;
                 }
 
                 if (f10 == null)
                 {
-                    f10 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f10)}");
+                    f10 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f10))
+                    );
                     this.MarkAsModified();
                     _controls[105] = f10;
                 }
 
                 if (f11 == null)
                 {
-                    f11 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f11)}");
+                    f11 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f11))
+                    );
                     this.MarkAsModified();
                     _controls[106] = f11;
                 }
 
                 if (f12 == null)
                 {
-                    f12 = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(f12)}");
+                    f12 = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(f12))
+                    );
                     this.MarkAsModified();
                     _controls[107] = f12;
                 }
 
                 if (wasd == null)
                 {
-                    wasd = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(wasd)}");
+                    wasd = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(wasd))
+                    );
                     this.MarkAsModified();
                     _controls[108] = wasd;
                 }
 
                 if (arrowkeys == null)
                 {
-                    arrowkeys = LoadOrCreateNew<ControlButtonMetadata>($"{deviceName}/{nameof(arrowkeys)}");
+                    arrowkeys = ControlButtonMetadata.LoadOrCreateNew(
+                        ZString.Format("{0}/{1}", deviceName, nameof(arrowkeys))
+                    );
                     this.MarkAsModified();
                     _controls[109] = arrowkeys;
                 }
             }
         }
+#endif
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(KeyboardMetadata) + ".";
+#if UNITY_EDITOR
 
         private static readonly ProfilerMarker _PRF_SetAll =
             new ProfilerMarker(_PRF_PFX + nameof(PopulateAll));
+#endif
 
         private static readonly ProfilerMarker _PRF_CanResolve =
             new ProfilerMarker(_PRF_PFX + nameof(CanResolve));

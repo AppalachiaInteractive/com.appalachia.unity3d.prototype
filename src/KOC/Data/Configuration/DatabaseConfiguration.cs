@@ -2,9 +2,14 @@ using System;
 using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.FileSystem;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Scriptables;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Data.Core;
 using Appalachia.Data.Core.Configuration;
+using Appalachia.Prototype.KOC.Data.Collections;
+using Appalachia.Utility.Async;
+using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
@@ -16,11 +21,11 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         public ActiveDatabaseConfiguration activeConfiguration;
 
-        [SmartLabel, BoxGroup(APPASTR.Developer), ReadOnly, NonSerialized, ShowInInspector]
-        public DatabaseEnvironmentConfiguration developer;
+        [SmartLabel, BoxGroup(APPASTR.Developer), ReadOnly]
+        public UserSpecificDatabaseEnvironmentConfiguration developer;
 
-        [SmartLabel, BoxGroup(APPASTR.Developer), ReadOnly, NonSerialized, ShowInInspector]
-        public DatabaseEnvironmentConfiguration developer2;
+        [SmartLabel, BoxGroup(APPASTR.Developer), ReadOnly]
+        public UserSpecificDatabaseEnvironmentConfiguration developer2;
 
         [SmartLabel, BoxGroup(APPASTR.Editor), ReadOnly]
         public DatabaseEnvironmentConfiguration editor;
@@ -30,26 +35,6 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         #endregion
 
-        #region Event Functions
-
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-                Initialize();
-            }
-        }
-
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                Initialize();
-            }
-        }
-
-        #endregion
 
         public string GetDataStorageFileExtension(DatabaseConfigurationSettings settings)
         {
@@ -66,9 +51,9 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
         {
             using (_PRF_GetDataStorageFileNameWithoutExtension.Auto())
             {
-                var fullPostfix = postfix == null ? string.Empty : $"-{postfix}";
+                var fullPostfix = postfix == null ? string.Empty : ZString.Format("-{0}", postfix);
 
-                var fileName = $"{settings.name}{fullPostfix}";
+                var fileName = ZString.Format("{0}{1}", settings.name, fullPostfix);
 
                 return fileName;
             }
@@ -84,9 +69,9 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
                     case ActiveDatabaseConfiguration.Editor:
                         return editor;
                     case ActiveDatabaseConfiguration.Developer:
-                        return developer;
+                        return developer.GetContext();
                     case ActiveDatabaseConfiguration.Developer2:
-                        return developer2;
+                        return developer2.GetContext();
                     case ActiveDatabaseConfiguration.Runtime:
 #endif
                         return runtime;
@@ -109,7 +94,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
                 const string prefix = "appa";
                 const char separator = '.';
-                
+
                 // ReSharper disable once UnusedVariable
                 const char postfixq = 'q';
                 const char encrypted = 'e';
@@ -126,122 +111,188 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
                     _                              => throw new ArgumentOutOfRangeException()
                 };
 
-                var result =
-                    $"{separator}{prefix}{(settings.isEncrypted ? encrypted : unencrypted)}{techChar}";
+                var result = ZString.Format(
+                    "{0}{1}{2}{3}",
+                    separator,
+                    prefix,
+                    settings.isEncrypted ? encrypted : unencrypted,
+                    techChar
+                );
 
                 return result;
             }
         }
 
-        private static readonly ProfilerMarker _PRF_ConfigureDeveloper2Defaults = new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloper2Defaults));
-        private void ConfigureDeveloper2Defaults(string username)
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
+
+#if UNITY_EDITOR
+                initializer.Reset(this, "2021-11-19-01");
+
+                await initializer.Do(this, nameof(runtime), runtime == null, ConfigureRuntimeDefaults);
+
+                await initializer.Do(this, nameof(editor), editor == null, ConfigureEditorDefaults);
+
+                if (developer != null)
+                {
+                    developer.SetObjectOwnership(this);
+                }
+
+                await initializer.Do(
+                    this,
+                    nameof(developer),
+                    (developer == null) || !developer.HasContext(),
+                    () =>
+                    {
+                        activeConfiguration = ActiveDatabaseConfiguration.Developer;
+
+                        ConfigureDeveloperDefaults();
+                    }
+                );
+
+                if (developer2 != null)
+                {
+                    developer2.SetObjectOwnership(this);
+                }
+
+                await initializer.Do(
+                    this,
+                    nameof(developer2),
+                    (developer2 == null) || !developer2.HasContext(),
+                    ConfigureDeveloper2Defaults
+                );
+
+                developer.SetObjectOwnership(this);
+                developer2.SetObjectOwnership(this);
+#endif
+            }
+        }
+
+#if UNITY_EDITOR
+        private static void ConfigureDefaultsInternal(
+            string contextName,
+            ref UserSpecificDatabaseEnvironmentConfiguration config,
+            bool isEncrypted,
+            (DataLocation loc, DatabaseTechnology tech, string key) user,
+            (DataLocation loc, DatabaseTechnology tech, string key) metadata,
+            (DataLocation loc, DatabaseTechnology tech, string key) gameState)
+        {
+            using (_PRF_ConfigureDeveloperDefaultsInternal.Auto())
+            {
+                if (config == null)
+                {
+                    config = new UserSpecificDatabaseEnvironmentConfiguration();
+                }
+
+                DatabaseEnvironmentConfiguration context;
+
+                if (config.HasContext())
+                {
+                    context = config.GetContext();
+                }
+                else
+                {
+                    context = config.CreateNew(contextName);
+                }
+
+                var contextKey = config.GetContextKey();
+
+                if (context.userSaveLocation == null)
+                {
+                    context.userSaveLocation = new DatabaseLocationConfiguration(
+                        user.loc,
+                        true,
+                        true,
+                        AppaPath.Combine("Data", contextKey)
+                    );
+
+                    context.user.name = "User";
+                    context.user.technology = user.tech;
+                    context.user.isEncrypted = isEncrypted;
+                    context.user.key = user.key;
+                    Modifications.MarkAsModified(context);
+                }
+
+                if (context.metadataSaveLocation == null)
+                {
+                    context.metadataSaveLocation = new DatabaseLocationConfiguration(
+                        metadata.loc,
+                        true,
+                        true,
+                        AppaPath.Combine("Data", contextKey)
+                    );
+
+                    context.metadata.name = "Metadata";
+                    context.metadata.technology = metadata.tech;
+                    context.metadata.isEncrypted = isEncrypted;
+                    context.metadata.key = metadata.key;
+                    Modifications.MarkAsModified(context);
+                }
+
+                if (context.gameStateSaveLocation == null)
+                {
+                    context.gameStateSaveLocation = new DatabaseLocationConfiguration(
+                        gameState.loc,
+                        true,
+                        true,
+                        AppaPath.Combine("Data", contextKey)
+                    );
+
+                    context.gameState.name = "GameState";
+                    context.gameState.technology = gameState.tech;
+                    context.gameState.isEncrypted = isEncrypted;
+                    context.gameState.key = gameState.key;
+                    Modifications.MarkAsModified(context);
+                }
+            }
+        }
+
+        private void ConfigureDeveloper2Defaults()
         {
             using (_PRF_ConfigureDeveloper2Defaults.Auto())
             {
-                var developer2Name = username + "2";
-
-                if (developer2 == null)
-                {
-                    developer2 = LoadOrCreateNew<DatabaseEnvironmentConfiguration>(developer2Name);
-                }
-
-                developer2.userSaveLocation = new DatabaseLocationConfiguration(
-                    DataLocation.ApplicationData,
+                ConfigureDefaultsInternal(
+                    nameof(developer2),
+                    ref developer2,
                     true,
-                    true,
-                    AppaPath.Combine("Data", developer2Name)
+                    (DataLocation.ApplicationData, DatabaseTechnology.Json,
+                        APPASTR.EncryptionKeys.DB_DEVELOPER2_USER),
+                    (DataLocation.LocalApplicationData, DatabaseTechnology.Json,
+                        APPASTR.EncryptionKeys.DB_DEVELOPER2_METADATA),
+                    (DataLocation.CommonApplicationData, DatabaseTechnology.Json,
+                        APPASTR.EncryptionKeys.DB_DEVELOPER2_GAMESTATE)
                 );
-
-                developer2.metadataSaveLocation = new DatabaseLocationConfiguration(
-                    DataLocation.LocalApplicationData,
-                    true,
-                    true,
-                    AppaPath.Combine("Data", developer2Name)
-                );
-
-                developer2.gameStateSaveLocation = new DatabaseLocationConfiguration(
-                    DataLocation.CommonApplicationData,
-                    true,
-                    true,
-                    AppaPath.Combine("Data", developer2Name)
-                );
-
-                developer2.user.name = "User";
-                developer2.user.technology = DatabaseTechnology.Json;
-                developer2.user.isEncrypted = true;
-                developer2.user.key = APPASTR.EncryptionKeys.DB_DEVELOPER2_USER;
-
-                developer2.metadata.name = "Metadata";
-                developer2.metadata.technology = DatabaseTechnology.Json;
-                developer2.metadata.isEncrypted = true;
-                developer2.metadata.key = APPASTR.EncryptionKeys.DB_DEVELOPER2_METADATA;
-
-                developer2.gameState.name = "GameState";
-                developer2.gameState.technology = DatabaseTechnology.Json;
-                developer2.gameState.isEncrypted = true;
-                developer2.gameState.key = APPASTR.EncryptionKeys.DB_DEVELOPER2_GAMESTATE;
             }
         }
 
-        private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaults = new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloperDefaults));
-        private void ConfigureDeveloperDefaults(string username)
+        private void ConfigureDeveloperDefaults()
         {
             using (_PRF_ConfigureDeveloperDefaults.Auto())
             {
-                if (developer == null)
-                {
-                    developer = LoadOrCreateNew<DatabaseEnvironmentConfiguration>(
-                        username,
-                        ownerType: typeof(DatabaseConfiguration)
-                    );
-                }
-
-                developer.userSaveLocation = new DatabaseLocationConfiguration(
-                    DataLocation.PrototypeHardcoded,
+                ConfigureDefaultsInternal(
+                    nameof(developer),
+                    ref developer,
                     false,
-                    false,
-                    AppaPath.Combine("Data", username)
+                    (DataLocation.PrototypeHardcoded, DatabaseTechnology.ScriptableObject,
+                        APPASTR.EncryptionKeys.DB_DEVELOPER_USER),
+                    (DataLocation.PrototypeHardcoded, DatabaseTechnology.ScriptableObject,
+                        APPASTR.EncryptionKeys.DB_DEVELOPER_METADATA),
+                    (DataLocation.PrototypeHardcoded, DatabaseTechnology.ScriptableObject,
+                        APPASTR.EncryptionKeys.DB_DEVELOPER_GAMESTATE)
                 );
-
-                developer.metadataSaveLocation = new DatabaseLocationConfiguration(
-                    DataLocation.PrototypeHardcoded,
-                    false,
-                    false,
-                    AppaPath.Combine("Data", username)
-                );
-
-                developer.gameStateSaveLocation = new DatabaseLocationConfiguration(
-                    DataLocation.PrototypeHardcoded,
-                    true,
-                    true,
-                    AppaPath.Combine("Data", username)
-                );
-
-                developer.user.name = "User";
-                developer.user.technology = DatabaseTechnology.ScriptableObject;
-                developer.user.isEncrypted = false;
-                developer.user.key = APPASTR.EncryptionKeys.DB_DEVELOPER_USER;
-
-                developer.metadata.name = "Metadata";
-                developer.metadata.technology = DatabaseTechnology.ScriptableObject;
-                developer.metadata.isEncrypted = false;
-                developer.metadata.key = APPASTR.EncryptionKeys.DB_DEVELOPER_METADATA;
-
-                developer.gameState.name = "GameState";
-                developer.gameState.technology = DatabaseTechnology.ScriptableObject;
-                developer.gameState.isEncrypted = false;
-                developer.gameState.key = APPASTR.EncryptionKeys.DB_DEVELOPER_GAMESTATE;
             }
         }
 
-        private static readonly ProfilerMarker _PRF_ConfigureEditorDefaults = new ProfilerMarker(_PRF_PFX + nameof(ConfigureEditorDefaults));
         private void ConfigureEditorDefaults()
         {
             using (_PRF_ConfigureEditorDefaults.Auto())
             {
                 if (editor == null)
                 {
-                    editor = LoadOrCreateNew<DatabaseEnvironmentConfiguration>(APPASTR.Editor);
+                    editor = DatabaseEnvironmentConfiguration.LoadOrCreateNew(APPASTR.Editor);
                 }
 
                 editor.userSaveLocation = new DatabaseLocationConfiguration(
@@ -282,14 +333,13 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
             }
         }
 
-        private static readonly ProfilerMarker _PRF_ConfigureRuntimeDefaults = new ProfilerMarker(_PRF_PFX + nameof(ConfigureRuntimeDefaults));
         private void ConfigureRuntimeDefaults()
         {
             using (_PRF_ConfigureRuntimeDefaults.Auto())
             {
                 if (runtime == null)
                 {
-                    runtime = LoadOrCreateNew<DatabaseEnvironmentConfiguration>(APPASTR.Runtime);
+                    runtime = DatabaseEnvironmentConfiguration.LoadOrCreateNew(APPASTR.Runtime);
                 }
 
                 runtime.userSaveLocation = new DatabaseLocationConfiguration(
@@ -329,45 +379,28 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
                 runtime.gameState.key = APPASTR.EncryptionKeys.DB_RUNTIME_GAMESTATE;
             }
         }
-
-        protected override void Initialize()
-        {
-            using (_PRF_Initialize.Auto())
-            {
-                base.Initialize();
-                
-                initializer.Reset(this, "2021-11-19-01");
-
-                initializer.Initialize(
-                    this,
-                    APPASTR.General,
-                    (developer == null) || (developer2 == null) || (editor == null) || (runtime == null),
-                    () =>
-                    {
-                        var username = Environment.UserName.ToLower();
-
-                        if (username == "janic")
-                        {
-                            username = "janice";
-                        }
-
-                        activeConfiguration = ActiveDatabaseConfiguration.Developer;
-
-                        ConfigureRuntimeDefaults();
-
-                        ConfigureEditorDefaults();
-
-                        ConfigureDeveloperDefaults(username);
-
-                        ConfigureDeveloper2Defaults(username);
-                    }
-                );
-            }
-        }
+#endif
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(DatabaseConfiguration) + ".";
+
+#if UNITY_EDITOR
+        private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaultsInternal =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDefaultsInternal));
+
+        private static readonly ProfilerMarker _PRF_ConfigureDeveloper2Defaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloper2Defaults));
+
+        private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloperDefaults));
+
+        private static readonly ProfilerMarker _PRF_ConfigureEditorDefaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureEditorDefaults));
+
+        private static readonly ProfilerMarker _PRF_ConfigureRuntimeDefaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureRuntimeDefaults));
+#endif
 
         private static readonly ProfilerMarker _PRF_GetDataLocation =
             new ProfilerMarker(_PRF_PFX + nameof(GetEnvironment));
@@ -381,13 +414,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
         private static readonly ProfilerMarker _PRF_GetDataStorageFileNameWithoutExtension =
             new ProfilerMarker(_PRF_PFX + nameof(GetDataStorageFileNameWithoutExtension));
 
-        private static readonly ProfilerMarker _PRF_GetFileExtensionForTechnology =
-            new ProfilerMarker(_PRF_PFX + nameof(GetFileExtension));
-
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
-
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+        
 
         private static readonly ProfilerMarker
             _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));

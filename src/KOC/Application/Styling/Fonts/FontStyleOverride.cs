@@ -2,6 +2,7 @@ using System;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Application.Styling.Base;
 using Appalachia.Prototype.KOC.Application.Styling.Overrides;
+using Sirenix.OdinInspector;
 using TMPro;
 using Unity.Profiling;
 using UnityEngine;
@@ -15,13 +16,38 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
     {
         #region Fields and Autoproperties
 
-        [SerializeField] private OverridableTMP_FontAsset _font;
-        [SerializeField] private OverridableInt _fontSize;
-        [SerializeField] private OverridableFontWeight _fontWeight;
-        [SerializeField] private OverridableTextAlignmentOptions _alignment;
-        [SerializeField] private OverridableHorizontalAlignmentOptions _horizontalAlignment;
-        [SerializeField] private OverridableVerticalAlignmentOptions _verticalAlignment;
-        [SerializeField] private OverridableColor _color;
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableTMP_FontAsset _font;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableInt _fontSize;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableBool _autoSize;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableVector2Int _fontRange;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableFontWeight _fontWeight;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableTextAlignmentOptions _alignment;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableHorizontalAlignmentOptions _horizontalAlignment;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableVerticalAlignmentOptions _verticalAlignment;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableColor _color;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableBool _enableWordWrapping;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OverridableTextOverflowModes _overflowMode;
 
         #endregion
 
@@ -32,6 +58,16 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
                 if (!_font.overrideEnabled)
                 {
                     _font.value = Defaults.Font;
+                }
+
+                if (!_autoSize.overrideEnabled)
+                {
+                    _autoSize.value = Defaults.AutoSize;
+                }
+
+                if (!_fontRange.overrideEnabled)
+                {
+                    _fontRange.value = Defaults.FontRange;
                 }
 
                 if (!_fontSize.overrideEnabled)
@@ -58,10 +94,22 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
                 {
                     _verticalAlignment.value = Defaults.VerticalAlignment;
                 }
+
+                if (!_enableWordWrapping.overrideEnabled)
+                {
+                    _enableWordWrapping.value = Defaults.EnableWordWrapping;
+                }
+
+                if (!_overflowMode.overrideEnabled)
+                {
+                    _overflowMode.value = Defaults.OverflowMode;
+                }
             }
         }
 
         #region IFontStyle Members
+
+        public bool AutoSize => _autoSize.Get(Defaults.AutoSize);
 
         public Color Color => _color.Get(Defaults.Color);
 
@@ -75,9 +123,14 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Fonts
         public TextAlignmentOptions Alignment => _alignment.Get(Defaults.Alignment);
 
         public TMP_FontAsset Font => _font.Get(Defaults.Font);
+        public Vector2Int FontRange => _fontRange.Get(Defaults.FontRange);
 
         public VerticalAlignmentOptions VerticalAlignment =>
             _verticalAlignment.Get(Defaults.VerticalAlignment);
+
+        public bool EnableWordWrapping => _enableWordWrapping.Get(Defaults.EnableWordWrapping);
+
+        public TextOverflowModes OverflowMode => _overflowMode.Get(Defaults.OverflowMode);
 
         #endregion
 

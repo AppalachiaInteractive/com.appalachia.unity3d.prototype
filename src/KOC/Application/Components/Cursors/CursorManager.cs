@@ -1,9 +1,10 @@
 using System;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Behaviours;
-using Appalachia.Core.Extensions;
 using Appalachia.Prototype.KOC.Application.Behaviours;
+using Appalachia.Prototype.KOC.Application.Components.Cursors.Collections;
 using Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata;
+using Appalachia.Utility.Enums;
+using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -14,119 +15,266 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 {
     [ExecuteAlways]
     [ExecutionOrder(ExecutionOrders.CursorManager)]
+    [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Canvas))]
+    [CallStaticConstructorInEditor]
     public class CursorManager : SingletonAppalachiaApplicationBehaviour<CursorManager>
     {
-        #region Fields and Autoproperties
+        public delegate void CursorColorChangeHandler(Color newColor);
 
-        [NonSerialized, ShowInInspector, OnValueChanged(nameof(Reapply))]
-        private bool _drawDirect;
+        public delegate void CursorLockModeChangeHandler(bool locked);
 
-        [NonSerialized, ShowInInspector, OnValueChanged(nameof(Reapply))]
-        private CursorMetadata _currentMetadata;
+        public delegate void CursorStateChangeHandler(CursorState state);
 
-        [NonSerialized, ShowInInspector, OnValueChanged(nameof(Reapply))]
-        private Cursors _current;
+        public delegate void CursorTypeChangeHandler(CursorMetadata oldCursor, CursorMetadata newCursor);
 
-        [NonSerialized, ShowInInspector, OnValueChanged(nameof(Reapply))]
-        private Color _color;
+        public delegate void CursorVisibilityChangeHandler(bool visible);
 
-        [NonSerialized, ShowInInspector, ReadOnly]
-        [PreviewField(64f, ObjectFieldAlignment.Right)]
-        private Texture2D _referenceTexture;
+        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
+        static CursorManager()
+        {
+            MainSimpleCursorLookup.InstanceAvailable += i => _mainSimpleCursorLookup = i;
+            MainComplexCursorLookup.InstanceAvailable += i => _mainComplexCursorLookup = i;
+        }
 
-        [NonSerialized, ShowInInspector, ReadOnly]
-        [PreviewField(64f, ObjectFieldAlignment.Right)]
-        private Texture2D _texture;
+        #region Static Fields and Autoproperties
 
-        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-        public CursorMetadataLookup cursors;
+        private static MainComplexCursorLookup _mainComplexCursorLookup;
+
+        private static MainSimpleCursorLookup _mainSimpleCursorLookup;
 
         #endregion
 
-        public Color Color => _color;
+        #region Fields and Autoproperties
 
-        public Cursors Current => _current;
+        [SerializeField, HideLabel, FoldoutGroup("State Data"), InlineProperty]
+        public CursorStateData stateData;
+
+        [BoxGroup("Current")]
+        [NonSerialized, ShowInInspector, OnValueChanged(nameof(UIChangedCursorType))]
+        private CursorMetadata _currentMetadata;
+
+        [NonSerialized] private CursorMetadata _previousMetadata;
+
+        [BoxGroup("Current")]
+        [NonSerialized, ShowInInspector, OnValueChanged(nameof(UIChangedCursorColor))]
+        private Color _currentColor;
+
+        [FoldoutGroup("Lookups")]
+        [NonSerialized, ShowInInspector, ReadOnly]
+        private SimpleCursorInstance _simpleCursorInstance;
+
+        [FoldoutGroup("Lookups")]
+        [NonSerialized, ShowInInspector, ReadOnly]
+        private ComplexCursorInstance _currentComplexCursorInstance;
+
+        [FoldoutGroup("Lookups")]
+        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        [SerializeField]
+        private MainSimpleCursorLookup _simpleCursors;
+
+        [FoldoutGroup("Lookups")]
+        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        [SerializeField]
+        private MainComplexCursorLookup _complexCursors;
+
+        [FoldoutGroup("State Data")]
+        [ReadOnly]
+        private Vector2 _currentPosition;
+
+        [FoldoutGroup("State Data")]
+        [ReadOnly]
+        private Vector2 _screenSize;
+
+        [SerializeField]
+        [ReadOnly, HideInInspector]
+        private ComplexCursorInstanceLookup _complexCursorInstances;
+
+        private RectTransform m_RectTransform;
+
+        #endregion
+
+        public Color CurrentColor => _currentColor;
+
+        public CursorMetadata Current => _currentMetadata;
+
+        /// <summary>
+        ///     The RectTransform component used by the Graphic. Cached for speed.
+        /// </summary>
+        public RectTransform rectTransform
+        {
+            get
+            {
+                gameObject.GetOrCreateComponent(ref m_RectTransform);
+
+                return m_RectTransform;
+            }
+        }
+
+        public Vector2 currentPosition => _currentPosition;
+        public Vector2 screenSize => _screenSize;
+
+        public event CursorColorChangeHandler CursorColorChanged;
+        public event CursorLockModeChangeHandler CursorLockedChanged;
+        public event CursorStateChangeHandler CursorStateChanged;
+        public event CursorTypeChangeHandler CursorTypeChanged;
+        public event CursorVisibilityChangeHandler CursorVisibilityChanged;
 
         #region Event Functions
 
-        [Button]
-        private void ResetModifications()
-        {
-            SetCursor();
-        }
-
-        protected override void Start()
-        {
-            using (_PRF_Start.Auto())
-            {
-                Initialize();
-            }
-        }
-
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                Initialize();
-            }
-        }
-
-        private void OnGUI()
+        private void Update()
         {
             using (_PRF_Update.Auto())
             {
-                if (UnityEngine.Application.isPlaying && !_drawDirect)
-                {
-                    return;
-                }
-                
-                if (Mouse.current == null)
-                {
-                    return;
-                }
-
-                if (_texture == null)
-                {
-                    return;
-                }
-
                 var screenWidth = Screen.width;
                 var screenHeight = Screen.height;
 
-                var position = Mouse.current.position.ReadValue();
+                _screenSize.x = screenWidth;
+                _screenSize.y = screenHeight;
 
-                var inScreen = (position.x >= 0) &&
-                               (position.x < screenWidth) &&
-                               (position.y >= 0) &&
-                               (position.y < screenHeight);
-
-                if (!inScreen)
+                if (AppalachiaApplication.IsPlayingOrWillPlay)
                 {
-                    return;
+                    if (Mouse.current is { wasUpdatedThisFrame: true })
+                    {
+                        _currentPosition = Mouse.current.position.ReadValue();
+                    }
+
+                    if (Pointer.current is { wasUpdatedThisFrame: true })
+                    {
+                        _currentPosition = Pointer.current.position.ReadValue();
+                    }
+
+                    if (Gamepad.current is { wasUpdatedThisFrame: true })
+                    {
+                        _currentPosition += Gamepad.current.leftStick.ReadValue();
+                        _currentPosition += Gamepad.current.rightStick.ReadValue();
+                    }
+                }
+                else
+                {
+                    var updated = false;
+
+                    if (Mouse.current != null)
+                    {
+                        updated = true;
+                        var mousePosition = Mouse.current.position.ReadValue();
+
+                        if (mousePosition == Vector2.zero)
+                        {
+                            _currentPosition = screenSize * .5f;
+                        }
+                        else
+                        {
+                            _currentPosition = mousePosition;
+                        }
+                    }
+
+                    if (Gamepad.current != null)
+                    {
+                        _currentPosition += Gamepad.current.leftStick.ReadValue();
+                        _currentPosition += Gamepad.current.rightStick.ReadValue();
+                    }
+
+                    if (!updated)
+                    {
+                        _currentPosition = screenSize * .5f;
+                    }
                 }
 
-                var x = position.x;
-                var y = screenHeight - position.y;
-
-                x -= _currentMetadata.hotspot.x;
-                y -= _currentMetadata.hotspot.y;
-
-                var rect = new Rect(x, y, _texture.width, _texture.height);
-
-                GUI.DrawTexture(
-                    rect,
-                    _texture,
-                    ScaleMode.ScaleToFit,
-                    true,
-                    0f,
-                    _color,
-                    Vector4.zero,
-                    Vector4.zero
-                );
+                currentPosition.ClampValue(Vector2.zero, new Vector2(screenWidth, screenHeight));
             }
         }
 
         #endregion
+
+        public void ConfineSystemCursor()
+        {
+            using (_PRF_ConfineSystemCursor.Auto())
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+        }
+
+        public void HideSystemCursor()
+        {
+            using (_PRF_HideSystemCursor.Auto())
+            {
+                Cursor.visible = false;
+            }
+        }
+
+        public void LockSystemCursor()
+        {
+            using (_PRF_LockSystemCursor.Auto())
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+
+        public void ReleaseSystemCursor()
+        {
+            using (_PRF_ReleaseSystemCursor.Auto())
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+
+        public void SetCursorColor(Color color)
+        {
+            using (_PRF_SetCursorColor.Auto())
+            {
+                if (_currentColor != color)
+                {
+                    _currentColor = color;
+
+                    CursorColorChanged?.Invoke(_currentColor);
+                }
+            }
+        }
+
+        public void SetCursorLocked(bool locked)
+        {
+            using (_PRF_SetCursorLocked.Auto())
+            {
+                CursorLockedChanged?.Invoke(locked);
+            }
+        }
+
+        public void SetCursorState(CursorState state)
+        {
+            using (_PRF_SetCursorState.Auto())
+            {
+                CursorStateChanged?.Invoke(state);
+            }
+        }
+
+        public void SetCursorType(ComplexCursors cursor)
+        {
+            using (_PRF_SetCursorType.Auto())
+            {
+                var targetMetadata = _complexCursors.Lookup[cursor];
+
+                SetCursorTypeInternal(targetMetadata);
+            }
+        }
+
+        public void SetCursorType(SimpleCursors cursor)
+        {
+            using (_PRF_SetCursorType.Auto())
+            {
+                var targetMetadata = _simpleCursors.Lookup[cursor];
+
+                SetCursorTypeInternal(targetMetadata);
+            }
+        }
+
+        public void SetCursorVisible(bool visible)
+        {
+            using (_PRF_SetCursorVisible.Auto())
+            {
+                CursorVisibilityChanged?.Invoke(visible);
+            }
+        }
 
         protected override void Initialize()
         {
@@ -134,156 +282,208 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
             {
                 base.Initialize();
 
-                cursors = CursorMetadataLookup.instance;
+                _mainSimpleCursorLookup.InitializeExternal();
+                _mainComplexCursorLookup.InitializeExternal();
 
-                ResetCursor();
+#if UNITY_EDITOR
+                if (_complexCursorInstances == null)
+                {
+                    _complexCursorInstances = new ComplexCursorInstanceLookup();
+                }
+
+                _complexCursorInstances.SetObjectOwnership(this);
+
+                for (var i = 0; i < transform.childCount; i++)
+                {
+                    var child = transform.GetChild(i);
+
+                    var childCursorInstance = child.GetComponent<ComplexCursorInstance>();
+
+                    if (childCursorInstance == null)
+                    {
+                        continue;
+                    }
+
+                    var childType = childCursorInstance.metadata.complexCursorValue;
+
+                    if (_complexCursorInstances.ContainsKey(childType))
+                    {
+                        _complexCursorInstances[childType] = childCursorInstance;
+                    }
+                    else
+                    {
+                        _complexCursorInstances.Add(childType, childCursorInstance);
+                    }
+                }
+
+                foreach (var complexCursorType in EnumValueManager.GetAllValues<ComplexCursors>())
+                {
+                    if (!_complexCursorInstances.ContainsKey(complexCursorType))
+                    {
+                        if (!_complexCursors.Lookup.Items.ContainsKey(complexCursorType))
+                        {
+                            continue;
+                        }
+
+                        var complexCursorMetadata = _complexCursors.Lookup.Items.Get(complexCursorType);
+
+                        if (complexCursorMetadata == null)
+                        {
+                            continue;
+                        }
+
+                        if (complexCursorMetadata.prefab == null)
+                        {
+                            continue;
+                        }
+
+                        var prefabInstance = UnityEditor.PrefabUtility.InstantiatePrefab(
+                            complexCursorMetadata.prefab,
+                            transform
+                        ) as GameObject;
+
+                        var cursorInstance = prefabInstance.GetComponent<ComplexCursorInstance>();
+
+                        if (cursorInstance == null)
+                        {
+                            prefabInstance.DestroySafely();
+                        }
+
+                        _complexCursorInstances.Add(complexCursorType, cursorInstance);
+                    }
+                }
+#endif
             }
         }
 
-        public void ConfineCursor()
+        [ButtonGroup("Confine")]
+        private void ConfineSoftwareCursor()
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
 
-        public void HideCursor()
+        [ButtonGroup("Hide")]
+        private void HideSoftwareCursor()
         {
             Cursor.visible = false;
         }
 
-        public void LockCursor()
+        [ButtonGroup("Lock")]
+        private void LockSoftwareCursor()
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        public void ReleaseCursor()
+        [ButtonGroup("Confine")]
+        private void ReleaseSoftwareCursor()
         {
             Cursor.lockState = CursorLockMode.None;
         }
 
-        public void ResetCursor()
+        private void SetCursorTypeInternal(CursorMetadata targetMetadata)
         {
-            ReleaseCursor();
-
-            SetCursor();
-
-            ShowCursor();
-        }
-
-        public void SetCursor(Cursors? cursor = null, Color? color = null)
-        {
-            if (cursor.HasValue)
+            using (_PRF_SetCursorTypeInternal.Auto())
             {
-                _currentMetadata = cursors.Items[cursor.Value];
-            }
-            else
-            {
-                _currentMetadata = cursors.defaultValue;
-            }
-
-            if (cursor.HasValue)
-            {
-                _current = cursor.Value;
-            }
-            else
-            {
-                _current = cursors.defaultValue.value;
-            }
-
-            if (_color == default)
-            {
-                _color = Color.white;
-            }
-
-            if (color.HasValue)
-            {
-                _color = color.Value;
-            }
-            else
-            {
-                if (_currentMetadata.modifyColor)
+                if (targetMetadata != _currentMetadata)
                 {
-                    _color = _currentMetadata.cursorColor;
+                    _previousMetadata = _currentMetadata;
+                    _currentMetadata = targetMetadata;
+
+                    CursorTypeChanged?.Invoke(_previousMetadata, _currentMetadata);
+
+                    _previousMetadata = _currentMetadata;
                 }
             }
-
-            if (color.HasValue)
-            {
-                ApplyCursor(_currentMetadata.texture, _color, _currentMetadata.hotspot);
-            }
-            else if (_currentMetadata.modifyColor)
-            {
-                ApplyCursor(_currentMetadata.texture, _currentMetadata.cursorColor, _currentMetadata.hotspot);
-            }
-            else
-            {
-                ApplyCursor(_currentMetadata.texture, _color, _currentMetadata.hotspot);
-            }
         }
 
-        public void SetLockState(CursorLockMode lockMode)
-        {
-            Cursor.lockState = lockMode;
-        }
-
-        public void ShowCursor()
+        [ButtonGroup("Hide")]
+        private void ShowSoftwareCursor()
         {
             Cursor.visible = true;
         }
 
-        private void ApplyCursor(Texture2D texture, Color color, Vector2 hotspot)
+        private void UIChangedCursorColor()
         {
-            if (_referenceTexture == null)
-            {
-                _referenceTexture = Instantiate(texture);
-            }
-            else if ((_referenceTexture.width == texture.width) &&
-                     (_referenceTexture.height == texture.height))
-            {
-                _referenceTexture.Copy(texture);
-            }
-            else
-            {
-                _referenceTexture.DestroySafely();
-
-                _referenceTexture = Instantiate(texture);
-            }
-
-            if (_texture == null)
-            {
-                _texture = Instantiate(_referenceTexture);
-            }
-            else if ((_texture.width == _referenceTexture.width) &&
-                     (_texture.height == _referenceTexture.height))
-            {
-                _texture.Copy(_referenceTexture);
-            }
-            else
-            {
-                _texture.DestroySafely();
-
-                _texture = Instantiate(_referenceTexture);
-            }
-
-            _texture.Multiply(color);
-
-            _color = color;
-            Cursor.SetCursor(_texture, hotspot, CursorMode.Auto);
+            CursorColorChanged?.Invoke(_currentColor);
         }
 
-        private void Reapply()
+        private void UIChangedCursorType()
         {
-            using (_PRF_Reapply.Auto())
+            if (_currentMetadata is ComplexCursorMetadata cc)
             {
-                SetCursor(_current, _color);
+                if (_previousMetadata is ComplexCursorMetadata pc)
+                {
+                    CursorTypeChanged?.Invoke(pc, cc);
+                }
+                else if (_previousMetadata is SimpleCursorMetadata ps)
+                {
+                    CursorTypeChanged?.Invoke(ps, cc);
+                }
+                else
+                {
+                    CursorTypeChanged?.Invoke(null, cc);
+                }
             }
+            else if (_currentMetadata is SimpleCursorMetadata cs)
+            {
+                if (_previousMetadata is ComplexCursorMetadata pc)
+                {
+                    CursorTypeChanged?.Invoke(pc, cs);
+                }
+                else if (_previousMetadata is SimpleCursorMetadata ps)
+                {
+                    CursorTypeChanged?.Invoke(ps, cs);
+                }
+                else
+                {
+                    CursorTypeChanged?.Invoke(null, cs);
+                }
+            }
+
+            _previousMetadata = _currentMetadata;
+        }
+
+        [ButtonGroup("Lock")]
+        private void UnlockSoftwareCursor()
+        {
+            Cursor.lockState = CursorLockMode.None;
         }
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(CursorManager) + ".";
 
-        private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(OnGUI));
-        private static readonly ProfilerMarker _PRF_Reapply = new ProfilerMarker(_PRF_PFX + nameof(Reapply));
+        private static readonly ProfilerMarker _PRF_SetCursorLocked =
+            new ProfilerMarker(_PRF_PFX + nameof(SetCursorLocked));
+
+        private static readonly ProfilerMarker _PRF_SetCursorVisible =
+            new ProfilerMarker(_PRF_PFX + nameof(SetCursorVisible));
+
+        private static readonly ProfilerMarker _PRF_SetCursorState =
+            new ProfilerMarker(_PRF_PFX + nameof(SetCursorState));
+
+        private static readonly ProfilerMarker _PRF_SetCursorColor =
+            new ProfilerMarker(_PRF_PFX + nameof(SetCursorColor));
+
+        private static readonly ProfilerMarker _PRF_SetCursorTypeInternal =
+            new ProfilerMarker(_PRF_PFX + nameof(SetCursorTypeInternal));
+
+        private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
+
+        private static readonly ProfilerMarker _PRF_ConfineSystemCursor =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfineSystemCursor));
+
+        private static readonly ProfilerMarker _PRF_HideSystemCursor =
+            new ProfilerMarker(_PRF_PFX + nameof(HideSystemCursor));
+
+        private static readonly ProfilerMarker _PRF_LockSystemCursor =
+            new ProfilerMarker(_PRF_PFX + nameof(LockSystemCursor));
+
+        private static readonly ProfilerMarker _PRF_ReleaseSystemCursor =
+            new ProfilerMarker(_PRF_PFX + nameof(ReleaseSystemCursor));
+
+        private static readonly ProfilerMarker _PRF_SetCursorType =
+            new ProfilerMarker(_PRF_PFX + nameof(SetCursorType));
 
         private static readonly ProfilerMarker
             _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));

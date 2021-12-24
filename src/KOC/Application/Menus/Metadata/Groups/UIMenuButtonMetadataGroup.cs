@@ -1,6 +1,5 @@
 using Appalachia.Prototype.KOC.Application.Menus.Components;
 using Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements;
-using Appalachia.Utility.Extensions;
 using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups

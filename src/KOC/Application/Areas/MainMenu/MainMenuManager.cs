@@ -1,35 +1,18 @@
-using Appalachia.Utility.Logging;
 using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
 {
-    public class MainMenuManager : AreaManager<MainMenuManager, MainMenuMetadata>
+    public abstract class MainMenuManager<T, TM> : AreaManager<T, TM>, IMainMenuManager
+        where T : MainMenuManager<T, TM>
+        where TM : MainMenuMetadata<T, TM>
     {
-        public override ApplicationArea Area => ApplicationArea.MainMenu;
-        public override ApplicationArea ParentArea => ApplicationArea.None;
         
-
-        protected override void OnActivation()
-        {
-            using (_PRF_Activate.Auto())
-            {
-                AppaLog.Context.Area.Info(nameof(OnActivation));
-            }
-        }
-
-        protected override void OnDeactivation()
-        {
-            using (_PRF_Deactivate.Auto())
-            {
-                AppaLog.Context.Area.Info(nameof(OnDeactivation));
-            }
-        }
 
         public void LoadGame()
         {
             using (_PRF_LoadGame.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(LoadGame));
+                Context.Log.Info(nameof(LoadGame), this);
             }
         }
 
@@ -37,7 +20,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
         {
             using (_PRF_NewGame.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(NewGame));
+                Context.Log.Info(nameof(NewGame), this);
             }
         }
 
@@ -45,7 +28,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
         {
             using (_PRF_Quit.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(Quit));
+                Context.Log.Info(nameof(Quit), this);
             }
         }
 
@@ -53,7 +36,23 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
         {
             using (_PRF_Settings.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(Settings));
+                Context.Log.Info(nameof(Settings), this);
+            }
+        }
+
+        protected override void OnActivation()
+        {
+            using (_PRF_Activate.Auto())
+            {
+                Context.Log.Info(nameof(OnActivation), this);
+            }
+        }
+
+        protected override void OnDeactivation()
+        {
+            using (_PRF_Deactivate.Auto())
+            {
+                Context.Log.Info(nameof(OnDeactivation), this);
             }
         }
 
@@ -61,13 +60,20 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
         {
             using (_PRF_ResetArea.Auto())
             {
-                AppaLog.Context.Area.Info(nameof(ResetArea));
+                Context.Log.Info(nameof(ResetArea), this);
             }
         }
 
+        #region IMainMenuManager Members
+
+        public override ApplicationArea Area => ApplicationArea.MainMenu;
+        public override ApplicationArea ParentArea => ApplicationArea.None;
+
+        #endregion
+
         #region Profiling
 
-        private const string _PRF_PFX = nameof(MainMenuManager) + ".";
+        private const string _PRF_PFX = nameof(MainMenuManager<T, TM>) + ".";
 
         private static readonly ProfilerMarker _PRF_ResetArea =
             new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
@@ -82,8 +88,8 @@ namespace Appalachia.Prototype.KOC.Application.Areas.MainMenu
 
         private static readonly ProfilerMarker _PRF_Quit = new ProfilerMarker(_PRF_PFX + nameof(Quit));
 
-        private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
+        private static readonly ProfilerMarker _PRF_Activate =
+            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
 
         private static readonly ProfilerMarker _PRF_Deactivate =
             new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));

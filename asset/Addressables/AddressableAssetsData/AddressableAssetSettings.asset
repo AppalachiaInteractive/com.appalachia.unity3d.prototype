@@ -42,8 +42,33 @@ MonoBehaviour:
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: 79239a710456220488ad5150c9d8626e, type: 2}
+  - {fileID: 11400000, guid: 9f345fd9987e9f240bb40726b2854ade, type: 2}
   - {fileID: 11400000, guid: da3c3b7e23fdfcc49b33638287f5be14, type: 2}
+  - {fileID: 11400000, guid: 82a3da51ec834354ca0a239f80bffedf, type: 2}
   - {fileID: 11400000, guid: 12d9235499d4828409194aa3c34fb871, type: 2}
+  - {fileID: 11400000, guid: 058d58a759f362341a86bea1fe5164e5, type: 2}
+  - {fileID: 11400000, guid: 606689d972edcf446af9664fe2af79dc, type: 2}
+  - {fileID: 11400000, guid: 98f0ee50bc2b1c44085eda4e06921ba3, type: 2}
+  - {fileID: 11400000, guid: 012c041a7a2fbb647bf11a2f0bbf907f, type: 2}
+  - {fileID: 11400000, guid: 4cbba3e9c55e3d547b1b457b696cc4a1, type: 2}
+  - {fileID: 11400000, guid: eba3f50e9d18a1640a4b4b3d6c239e1b, type: 2}
+  - {fileID: 11400000, guid: 304ae84ca4debf74da21d953b107105d, type: 2}
+  - {fileID: 11400000, guid: a7dd41ccef14a554d992897373dc0e79, type: 2}
+  - {fileID: 11400000, guid: 4b1d34f69dbde0d4e9da970a7a32ebbf, type: 2}
+  - {fileID: 11400000, guid: dec50fbf2496b1f4abe10e41ebcfcf19, type: 2}
+  - {fileID: 11400000, guid: 7488defcc4e359944bed7df4676e0e85, type: 2}
+  - {fileID: 11400000, guid: 851762ba1caabc244903dc72ce0ec6c4, type: 2}
+  - {fileID: 11400000, guid: 43d7736e8464fca479302c49f9c58cd2, type: 2}
+  - {fileID: 11400000, guid: 45216054d51015f46b80631e8f2e63b6, type: 2}
+  - {fileID: 11400000, guid: 31222680a43917540afedff087571c55, type: 2}
+  - {fileID: 11400000, guid: adba6f28eb40a3042ab2fb871d7a179c, type: 2}
+  - {fileID: 11400000, guid: 421f82814a19b074fb952408f881577e, type: 2}
+  - {fileID: 11400000, guid: 4e00ed9318e701b4d92d17cfa601bc75, type: 2}
+  - {fileID: 11400000, guid: 7de81c35cbf8e63499dd8acd57d7dfdc, type: 2}
+  - {fileID: 11400000, guid: 1201fc2274a2b704ca7197aedf28d653, type: 2}
+  - {fileID: 11400000, guid: 4da36ba9d91511d4880904b030358266, type: 2}
+  - {fileID: 11400000, guid: 4ceef90bd7a782546953e970f37bbd18, type: 2}
+  - {fileID: 11400000, guid: 3474c6c19b6cc6849b33230add10d79c, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -85,6 +110,24 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - KeepersOfCreation_V01
+    - DebugOverlay_V01
+    - Game_V01
+    - HUD_V01
+    - InGameMenu_V01
+    - LoadingScreen_V01
+    - MainMenu_V01
+    - MainMenu_Background_V01
+    - MainMenu_LoadGame_V01
+    - MainMenu_NewGame_V01
+    - MainMenu_Settings_V01
+    - PauseMenu_V01
+    - SplashScreen_V01
+    - SplashScreen_Appalachia_V01
+    - SplashScreen_BokBok_V01
+    - SplashScreen_Disclaimer_V01
+    - StartEnvironment_V01
+    - StartScreen_V01
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 32cdd6833a9084a43b709b2885f1b249, type: 2}

@@ -1,6 +1,5 @@
 using System;
 using Appalachia.Core.Collections;
-using Appalachia.Prototype.KOC.Application.Menus.Metadata;
 using Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups;
 
 namespace Appalachia.Prototype.KOC.Application.Menus.Collections

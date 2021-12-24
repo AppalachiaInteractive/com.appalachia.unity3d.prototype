@@ -1,7 +1,10 @@
 using System;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons;
 using Appalachia.Prototype.KOC.Application.Styling.Base;
 using Appalachia.Prototype.KOC.Application.Styling.Fonts;
+using Appalachia.Utility.Async;
+using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -14,42 +17,53 @@ namespace Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons
     {
         #region Fields and Autoproperties
 
-        [SerializeField] private Color _spriteColor;
-        [SerializeField] private Color _textColor;
-        [SerializeField] private FontStyleOverride _font;
-        [SerializeField] private OnScreenButtonSpriteStyle _spriteStyle;
-        [SerializeField] private OnScreenButtonTextStyle _textStyle;
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private Color _spriteColor;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private Color _textColor;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private FontStyleOverride _font;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OnScreenButtonSpriteStyle _spriteStyle;
+
+        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        private OnScreenButtonTextStyle _textStyle;
 
         #endregion
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
-                initializer.Initialize(
+#if UNITY_EDITOR
+                await initializer.Do(
                     this,
                     nameof(_font),
                     _font == null,
-                    () => { _font = LoadOrCreateNew<FontStyleOverride>("On Screen Buttons"); }
+                    () => { _font = LoadOrCreateNew("On Screen Buttons"); }
                 );
-
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(OnScreenButtonSpriteStyle),
                     () => { _spriteStyle = OnScreenButtonSpriteStyle.Outline; }
                 );
 
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(OnScreenButtonTextStyle),
                     () => { _textStyle = OnScreenButtonTextStyle.DisplayName; }
                 );
 
-                initializer.Initialize(this, nameof(_spriteColor), () => _spriteColor = Color.white);
-                initializer.Initialize(this, nameof(_textColor),   () => _textColor = Color.white);
+                await initializer.Do(this, nameof(_spriteColor), () => _spriteColor = Color.white);
+                await initializer.Do(this, nameof(_textColor),   () => _textColor = Color.white);
 
+#endif
+                
                 _font.SyncWithDefault();
             }
         }
@@ -68,8 +82,7 @@ namespace Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons
 
         private const string _PRF_PFX = nameof(OnScreenButtonStyle) + ".";
 
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+        
 
         private static readonly ProfilerMarker _PRF_RegisterOverride =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterOverride));

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 10b0f12554604a445952fb6b95d8b335
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - metadata: {fileID: 11400000, guid: b9273a7abb34d6a4f8808db02a66809f, type: 2}
+  - masterCanvas: {instanceID: 0}
+  - _audioListener: {instanceID: 0}
+  - _databasManager: {instanceID: 0}
+  - _eventSystem: {instanceID: 0}
+  - _inputSystemUIInputModule: {instanceID: 0}
+  - _playerInput: {instanceID: 0}
+  - _cursorManager: {instanceID: 0}
+  - _singletonLookup: {fileID: 11400000, guid: e861ccb9419e6614eb2a27f7f8fc41a0, type: 2}
+  executionOrder: -29999
+  icon: {fileID: 2800000, guid: 69b4c2a2bfc416f4d944529169697458, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

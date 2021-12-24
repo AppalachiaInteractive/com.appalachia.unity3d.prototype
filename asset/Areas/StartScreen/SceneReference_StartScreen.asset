@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f96537ee52427cb0b40616c3416959, type: 3}
+  m_Name: SceneReference_StartScreen
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _tags: []
+    _resetToken: 
+  _cachedName: 
+  _niceName: 
+  currentVersion: 1
+  elements:
+    initializerCount: 64
+    _object: {fileID: 11400000}
+    keys:
+      _capacityIncreaseMultiplier: 2
+      _values: 01000000
+      noTracking: 0
+      _count: 1
+    values:
+      _capacityIncreaseMultiplier: 2
+      _values:
+      - {fileID: 11400000, guid: c0eff4f20730827439d953927212a1b6, type: 2}
+      noTracking: 0
+      _count: 1

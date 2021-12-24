@@ -1,91 +1,64 @@
+using System;
 using System.Collections.Generic;
 using Appalachia.CI.Integration.Assets;
-using Appalachia.CI.Integration.Core;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Scriptables;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons;
+using Appalachia.Prototype.KOC.Application.Scenes;
 using Appalachia.Prototype.KOC.Application.Styling;
+using Appalachia.Utility.Async;
+using Appalachia.Utility.Execution;
+using Appalachia.Utility.Logging;
 using Appalachia.Utility.Reflection.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.InputSystem;
-using UnityEngine.Timeline;
 
 namespace Appalachia.Prototype.KOC.Application.Components
 {
-    public class LifetimeMetadata : SingletonAppalachiaObject<LifetimeMetadata>
+    public sealed class LifetimeMetadata : SingletonAppalachiaObject<LifetimeMetadata>
     {
+        static LifetimeMetadata()
+        {
+        }
+
+        [Serializable]
+        public struct ClearCameraSettings
+        {
+            public bool enabled;
+            public Color color; //000000
+
+            public bool enabledEditor;
+            public Color colorEditor; //33322B
+        }
+        
         #region Fields and Autoproperties
 
-        public SingletonAppalachiaObjectLookup singletonLookup;
+        [InlineProperty, HideLabel, BoxGroup("Clear Camera")]
+        public ClearCameraSettings clearCamera;
+
+        public AppaLogFormats logFormats;
         public ApplicationUIStyle uiStyle;
         public DeviceButtonLookup deviceButtons;
-        public InputActionAsset inputActionAsset;
         public AudioMixer audioMixer;
+        public ApplicationStyleElementDefaultLookup styleLookup;
+
+        public MainAreaSceneInformationCollection areaSceneInformationCollection;
 
         public List<ScriptableObject> criticalReferences;
 
-        public SignalAsset splashScreenFinishedAsset;
-
         #endregion
 
-        #region Event Functions
-
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-                Initialize();
-            }
-        }
-
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                base.OnEnable();
-
-                Initialize();
-            }
-        }
-
-        #endregion
-
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
-                initializer.Initialize(
-                    this, nameof(inputActionAsset), inputActionAsset == null,
-                    () =>
-                    {
-                        inputActionAsset =
-                            AssetDatabaseManager.FindFirstAssetMatch<InputActionAsset>("KOCInputActions");
-                    });
-                initializer.Initialize(
-                    this,
-                    nameof(SingletonAppalachiaObjectLookup),
-                    singletonLookup == null,
-                    () =>
-                    {
-                        if (singletonLookup == null)
-                        {
-                            singletonLookup =
-                                LoadOrCreateNew<SingletonAppalachiaObjectLookup>(
-                                    nameof(SingletonAppalachiaObjectLookup)
-                                );
-                        }
-                    }
-                );
-
-                singletonLookup.InitializeExternal();
-
-                initializer.Initialize(
+#if UNITY_EDITOR
+                await initializer.Do(
                     this,
                     nameof(ApplicationUIStyle),
                     uiStyle == null,
@@ -93,14 +66,14 @@ namespace Appalachia.Prototype.KOC.Application.Components
                     {
                         if (uiStyle == null)
                         {
-                            uiStyle = LoadOrCreateNew<ApplicationUIStyle>(nameof(ApplicationUIStyle));
+                            uiStyle = ApplicationUIStyle.LoadOrCreateNew(nameof(ApplicationUIStyle));
                         }
                     }
                 );
 
                 uiStyle.InitializeExternal();
 
-                initializer.Initialize(
+                await initializer.Do(
                     this,
                     nameof(DeviceButtonLookup),
                     deviceButtons == null,
@@ -108,16 +81,23 @@ namespace Appalachia.Prototype.KOC.Application.Components
                     {
                         if (deviceButtons == null)
                         {
-                            deviceButtons = LoadOrCreateNew<DeviceButtonLookup>(nameof(DeviceButtonLookup));
+                            deviceButtons = DeviceButtonLookup.LoadOrCreateNew(nameof(DeviceButtonLookup));
                         }
                     }
                 );
+#endif
 
                 deviceButtons.InitializeExternal();
 
-                if (!UnityEngine.Application.isPlaying)
+                await initializer.Do(
+                    this,
+                    nameof(MainAreaSceneInformationCollection),
+                    areaSceneInformationCollection == null,
+                    () => { areaSceneInformationCollection = MainAreaSceneInformationCollection.instance; }
+                );
+
+                if (!AppalachiaApplication.IsPlaying)
                 {
-                    singletonLookup.Scan();
                     Scan();
                 }
             }
@@ -172,8 +152,7 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
         private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+        
 
         private static readonly ProfilerMarker _PRF_OnEnable = new(_PRF_PFX + nameof(OnEnable));
 

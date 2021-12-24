@@ -230,15 +230,6 @@ namespace Appalachia.Prototype.KOC.Application.Input
             ""id"": ""033e1767-5bd2-4be6-b360-4ea0a68ea9cd"",
             ""actions"": [
                 {
-                    ""name"": ""Screenshot"",
-                    ""type"": ""Button"",
-                    ""id"": ""3a6e67bf-ae32-46dc-9279-866528af3792"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Toggle Debug Log"",
                     ""type"": ""Button"",
                     ""id"": ""7e24db0c-6283-4461-bc0f-56639659a438"",
@@ -264,9 +255,60 @@ namespace Appalachia.Prototype.KOC.Application.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Screenshot"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a6e67bf-ae32-46dc-9279-866528af3792"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Toggle Debug Overlays"",
+                    ""type"": ""Button"",
+                    ""id"": ""2245b45f-55ca-4672-919b-728fa33fcac2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""99dc8417-d312-4429-9420-fcfa413a2f13"",
+                    ""path"": ""<Keyboard>/f9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Toggle Debug Log"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""808c0870-e236-4a23-8679-432011f719f7"",
+                    ""path"": ""<Keyboard>/f10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Toggle Graphy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48498484-c9a8-4ab4-b5f6-d39e993383df"",
+                    ""path"": ""<Keyboard>/f11"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Toggle Graphy Mode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
                 {
                     ""name"": """",
                     ""id"": ""cedd2789-1ba2-4a15-98f8-6d14ac704732"",
@@ -280,34 +322,12 @@ namespace Appalachia.Prototype.KOC.Application.Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""99dc8417-d312-4429-9420-fcfa413a2f13"",
-                    ""path"": ""<Keyboard>/f11"",
+                    ""id"": ""8c5517a6-628d-476e-b73e-a1df56c597be"",
+                    ""path"": ""<Keyboard>/f8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Toggle Debug Log"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""808c0870-e236-4a23-8679-432011f719f7"",
-                    ""path"": ""<Keyboard>/f9"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Toggle Graphy"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""48498484-c9a8-4ab4-b5f6-d39e993383df"",
-                    ""path"": ""<Keyboard>/f10"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Toggle Graphy Mode"",
+                    ""action"": ""Toggle Debug Overlays"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -851,6 +871,271 @@ namespace Appalachia.Prototype.KOC.Application.Input
             ""id"": ""0dec1137-8c33-4696-b10f-9fc391cffd62"",
             ""actions"": [],
             ""bindings"": []
+        },
+        {
+            ""name"": ""Splash Screen"",
+            ""id"": ""059f762b-e4d5-4fa9-baad-e7d02c58561e"",
+            ""actions"": [
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""a5733590-4361-4e92-92fc-95729e80c6dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3910d083-2e75-4b3f-9eba-3dfe58ee97bd"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13d3eeb3-203c-42d5-adff-526d57873676"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee1f429a-b242-4c54-9740-16502f35bad3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39bc6878-2ccd-4717-adae-7af101e48a63"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c05c71a-06c6-46ca-a80b-ca4948cd3de2"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61924ce3-a321-48bc-9f2b-cd6111e103c0"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84c61f4a-2786-43e6-b45b-4130c45ffb16"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e8b8740-301b-46e2-aaf9-9042f782d0dc"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e7cc657-2d59-48ff-9d14-e7d81e9d010d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7497606-707b-4030-9bad-9926a878b4f0"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""259cadd7-42e5-4183-98e2-c52ca1f9c72c"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""544e05aa-a324-4022-8bec-030552925dd5"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""487013b1-4fb2-48fb-9d77-c0134e77bc75"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1bbc535f-135b-4c04-948c-7699afa9ed21"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f47679d-ec0f-411e-ae45-5cf6d1b07fc7"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Start Screen"",
+            ""id"": ""1c0e4289-ac86-4d3c-b9b8-65d3b9f55b3c"",
+            ""actions"": [
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""d42d9c49-4397-433a-bfaf-2181e40d86ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b8d88e16-06e4-48b3-a2f1-faaa9f1e7155"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50cbd24d-5489-4c8d-a248-696fb431f8d5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a7fbe6c-bcf4-40ac-879d-7d269a0f33d0"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""109d0563-1272-4105-b528-67419c3eb234"",
+                    ""path"": ""<Mouse>/*"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4929c7cf-23b2-46e8-9132-4da61af7dd89"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cec67595-851a-46df-a503-f8a7e4697183"",
+                    ""path"": ""<Gamepad>/*"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -890,10 +1175,11 @@ namespace Appalachia.Prototype.KOC.Application.Input
             m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
             // Debug
             m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
-            m_Debug_Screenshot = m_Debug.FindAction("Screenshot", throwIfNotFound: true);
             m_Debug_ToggleDebugLog = m_Debug.FindAction("Toggle Debug Log", throwIfNotFound: true);
             m_Debug_ToggleGraphy = m_Debug.FindAction("Toggle Graphy", throwIfNotFound: true);
             m_Debug_ToggleGraphyMode = m_Debug.FindAction("Toggle Graphy Mode", throwIfNotFound: true);
+            m_Debug_Screenshot = m_Debug.FindAction("Screenshot", throwIfNotFound: true);
+            m_Debug_ToggleDebugOverlays = m_Debug.FindAction("Toggle Debug Overlays", throwIfNotFound: true);
             // Main Menu
             m_MainMenu = asset.FindActionMap("Main Menu", throwIfNotFound: true);
             // Generic Menu
@@ -914,6 +1200,12 @@ namespace Appalachia.Prototype.KOC.Application.Input
             m_DeathMenu = asset.FindActionMap("Death Menu", throwIfNotFound: true);
             // Loading Screen
             m_LoadingScreen = asset.FindActionMap("Loading Screen", throwIfNotFound: true);
+            // Splash Screen
+            m_SplashScreen = asset.FindActionMap("Splash Screen", throwIfNotFound: true);
+            m_SplashScreen_Continue = m_SplashScreen.FindAction("Continue", throwIfNotFound: true);
+            // Start Screen
+            m_StartScreen = asset.FindActionMap("Start Screen", throwIfNotFound: true);
+            m_StartScreen_Continue = m_StartScreen.FindAction("Continue", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1022,18 +1314,20 @@ namespace Appalachia.Prototype.KOC.Application.Input
         // Debug
         private readonly InputActionMap m_Debug;
         private IDebugActions m_DebugActionsCallbackInterface;
-        private readonly InputAction m_Debug_Screenshot;
         private readonly InputAction m_Debug_ToggleDebugLog;
         private readonly InputAction m_Debug_ToggleGraphy;
         private readonly InputAction m_Debug_ToggleGraphyMode;
+        private readonly InputAction m_Debug_Screenshot;
+        private readonly InputAction m_Debug_ToggleDebugOverlays;
         public struct DebugActions
         {
             private @KOCInputActions m_Wrapper;
             public DebugActions(@KOCInputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Screenshot => m_Wrapper.m_Debug_Screenshot;
             public InputAction @ToggleDebugLog => m_Wrapper.m_Debug_ToggleDebugLog;
             public InputAction @ToggleGraphy => m_Wrapper.m_Debug_ToggleGraphy;
             public InputAction @ToggleGraphyMode => m_Wrapper.m_Debug_ToggleGraphyMode;
+            public InputAction @Screenshot => m_Wrapper.m_Debug_Screenshot;
+            public InputAction @ToggleDebugOverlays => m_Wrapper.m_Debug_ToggleDebugOverlays;
             public InputActionMap Get() { return m_Wrapper.m_Debug; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1043,9 +1337,6 @@ namespace Appalachia.Prototype.KOC.Application.Input
             {
                 if (m_Wrapper.m_DebugActionsCallbackInterface != null)
                 {
-                    @Screenshot.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
-                    @Screenshot.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
-                    @Screenshot.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
                     @ToggleDebugLog.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleDebugLog;
                     @ToggleDebugLog.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleDebugLog;
                     @ToggleDebugLog.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleDebugLog;
@@ -1055,13 +1346,16 @@ namespace Appalachia.Prototype.KOC.Application.Input
                     @ToggleGraphyMode.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleGraphyMode;
                     @ToggleGraphyMode.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleGraphyMode;
                     @ToggleGraphyMode.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleGraphyMode;
+                    @Screenshot.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
+                    @Screenshot.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
+                    @Screenshot.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
+                    @ToggleDebugOverlays.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleDebugOverlays;
+                    @ToggleDebugOverlays.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleDebugOverlays;
+                    @ToggleDebugOverlays.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnToggleDebugOverlays;
                 }
                 m_Wrapper.m_DebugActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Screenshot.started += instance.OnScreenshot;
-                    @Screenshot.performed += instance.OnScreenshot;
-                    @Screenshot.canceled += instance.OnScreenshot;
                     @ToggleDebugLog.started += instance.OnToggleDebugLog;
                     @ToggleDebugLog.performed += instance.OnToggleDebugLog;
                     @ToggleDebugLog.canceled += instance.OnToggleDebugLog;
@@ -1071,6 +1365,12 @@ namespace Appalachia.Prototype.KOC.Application.Input
                     @ToggleGraphyMode.started += instance.OnToggleGraphyMode;
                     @ToggleGraphyMode.performed += instance.OnToggleGraphyMode;
                     @ToggleGraphyMode.canceled += instance.OnToggleGraphyMode;
+                    @Screenshot.started += instance.OnScreenshot;
+                    @Screenshot.performed += instance.OnScreenshot;
+                    @Screenshot.canceled += instance.OnScreenshot;
+                    @ToggleDebugOverlays.started += instance.OnToggleDebugOverlays;
+                    @ToggleDebugOverlays.performed += instance.OnToggleDebugOverlays;
+                    @ToggleDebugOverlays.canceled += instance.OnToggleDebugOverlays;
                 }
             }
         }
@@ -1289,6 +1589,72 @@ namespace Appalachia.Prototype.KOC.Application.Input
             }
         }
         public LoadingScreenActions @LoadingScreen => new LoadingScreenActions(this);
+
+        // Splash Screen
+        private readonly InputActionMap m_SplashScreen;
+        private ISplashScreenActions m_SplashScreenActionsCallbackInterface;
+        private readonly InputAction m_SplashScreen_Continue;
+        public struct SplashScreenActions
+        {
+            private @KOCInputActions m_Wrapper;
+            public SplashScreenActions(@KOCInputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Continue => m_Wrapper.m_SplashScreen_Continue;
+            public InputActionMap Get() { return m_Wrapper.m_SplashScreen; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(SplashScreenActions set) { return set.Get(); }
+            public void SetCallbacks(ISplashScreenActions instance)
+            {
+                if (m_Wrapper.m_SplashScreenActionsCallbackInterface != null)
+                {
+                    @Continue.started -= m_Wrapper.m_SplashScreenActionsCallbackInterface.OnContinue;
+                    @Continue.performed -= m_Wrapper.m_SplashScreenActionsCallbackInterface.OnContinue;
+                    @Continue.canceled -= m_Wrapper.m_SplashScreenActionsCallbackInterface.OnContinue;
+                }
+                m_Wrapper.m_SplashScreenActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Continue.started += instance.OnContinue;
+                    @Continue.performed += instance.OnContinue;
+                    @Continue.canceled += instance.OnContinue;
+                }
+            }
+        }
+        public SplashScreenActions @SplashScreen => new SplashScreenActions(this);
+
+        // Start Screen
+        private readonly InputActionMap m_StartScreen;
+        private IStartScreenActions m_StartScreenActionsCallbackInterface;
+        private readonly InputAction m_StartScreen_Continue;
+        public struct StartScreenActions
+        {
+            private @KOCInputActions m_Wrapper;
+            public StartScreenActions(@KOCInputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Continue => m_Wrapper.m_StartScreen_Continue;
+            public InputActionMap Get() { return m_Wrapper.m_StartScreen; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(StartScreenActions set) { return set.Get(); }
+            public void SetCallbacks(IStartScreenActions instance)
+            {
+                if (m_Wrapper.m_StartScreenActionsCallbackInterface != null)
+                {
+                    @Continue.started -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnContinue;
+                    @Continue.performed -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnContinue;
+                    @Continue.canceled -= m_Wrapper.m_StartScreenActionsCallbackInterface.OnContinue;
+                }
+                m_Wrapper.m_StartScreenActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Continue.started += instance.OnContinue;
+                    @Continue.performed += instance.OnContinue;
+                    @Continue.canceled += instance.OnContinue;
+                }
+            }
+        }
+        public StartScreenActions @StartScreen => new StartScreenActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         public InputControlScheme KeyboardMouseScheme
         {
@@ -1315,10 +1681,11 @@ namespace Appalachia.Prototype.KOC.Application.Input
         }
         public interface IDebugActions
         {
-            void OnScreenshot(InputAction.CallbackContext context);
             void OnToggleDebugLog(InputAction.CallbackContext context);
             void OnToggleGraphy(InputAction.CallbackContext context);
             void OnToggleGraphyMode(InputAction.CallbackContext context);
+            void OnScreenshot(InputAction.CallbackContext context);
+            void OnToggleDebugOverlays(InputAction.CallbackContext context);
         }
         public interface IMainMenuActions
         {
@@ -1345,6 +1712,14 @@ namespace Appalachia.Prototype.KOC.Application.Input
         }
         public interface ILoadingScreenActions
         {
+        }
+        public interface ISplashScreenActions
+        {
+            void OnContinue(InputAction.CallbackContext context);
+        }
+        public interface IStartScreenActions
+        {
+            void OnContinue(InputAction.CallbackContext context);
         }
     }
 }

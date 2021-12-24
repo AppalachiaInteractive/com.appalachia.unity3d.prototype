@@ -1,4 +1,3 @@
-using Appalachia.Utility.Logging;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -63,7 +62,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
                 return true;
             }
 
-            AppaLog.Warn("SnapToFloor: Failed to to snap " + agentTransform + " at " + this, this);
+            Context.Log.Warn("SnapToFloor: Failed to to snap " + agentTransform + " at " + this, this);
             agentTransform.localPosition = position;
             return false;
         }

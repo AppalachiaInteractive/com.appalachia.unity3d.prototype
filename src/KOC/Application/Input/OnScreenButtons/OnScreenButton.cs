@@ -1,9 +1,10 @@
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Extensions;
-using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using TMPro;
 using Unity.Profiling;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 {
     [SmartLabelChildren, SmartLabel]
-    public class OnScreenButton : AppalachiaApplicationBehaviour
+    public sealed class OnScreenButton : AppalachiaApplicationBehaviour<OnScreenButton>
     {
         #region Fields and Autoproperties
 
@@ -24,26 +25,6 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 
         #region Event Functions
 
-        protected override void Start()
-        {
-            using (_PRF_Start.Auto())
-            {
-                base.Start();
-
-                Initialize();
-            }
-        }
-
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                base.OnEnable();
-
-                Initialize();
-            }
-        }
-
         #endregion
 
         protected override void Initialize()
@@ -54,21 +35,21 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 
                 var baseName = metadata.actionReference.ToFormattedName();
 
-                var buttonName = $"{nameof(OnScreenButton)} - {baseName}";
+                var buttonName = ZString.Format("{0} - {1}", nameof(OnScreenButton), baseName);
 
                 gameObject.name = buttonName;
 
-                gameObject.CreateOrGetComponentInChild(ref text,  $"Text - {baseName}");
-                gameObject.CreateOrGetComponentInChild(ref image, $"Image - {baseName}");
+                gameObject.GetOrCreateComponentInChild(ref text,  ZString.Format("Text - {0}",  baseName));
+                gameObject.GetOrCreateComponentInChild(ref image, ZString.Format("Image - {0}", baseName));
 
-                initializationData.Initialize(
+                await initializer.Do(
                     this,
                     nameof(text),
                     Initializer.TagState.NonSerialized,
                     () => { text.rectTransform.Reset(RectResetOptions.All); }
                 );
 
-                initializationData.Initialize(
+                await initializer.Do(
                     this,
                     nameof(image),
                     Initializer.TagState.NonSerialized,

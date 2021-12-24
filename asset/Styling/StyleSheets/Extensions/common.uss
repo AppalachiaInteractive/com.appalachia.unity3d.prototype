@@ -1,0 +1,50 @@
+/* Collapsed Marker State */
+Annotation {
+    width: 18px;
+    height: 18px;
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/notebook_collapsed.png");
+}
+
+/* Active Marker State */
+Annotation:checked {
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/notebook_active.png");
+}
+
+/* Selected Marker State */
+Annotation:hover:focus:checked {
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/notebook_selected.png");
+}
+
+/* Collapsed Marker State */
+SkipTargetMarker {
+    width: 18px;
+    height: 18px;
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/targeting_collapsed.png");
+}
+
+/* Active Marker State */
+SkipTargetMarker:checked {
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/targeting_active.png");
+}
+
+/* Selected Marker State */
+SkipTargetMarker:hover:focus:checked {
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/targeting_selected.png");
+}
+
+/* Collapsed Marker State */
+SkipEnabledMarker {
+    width: 18px;
+    height: 18px;
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/padlock-open_collapsed.png");
+}
+
+/* Active Marker State */
+SkipEnabledMarker:checked {
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/padlock-open_active.png");
+}
+
+/* Selected Marker State */
+SkipEnabledMarker:hover:focus:checked {
+    background-image: resource("Assets/Appalachia.Prototype/asset/Sprites/UI/Icons/padlock-open_selected.png");
+}

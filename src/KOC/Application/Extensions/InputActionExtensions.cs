@@ -1,13 +1,17 @@
 using Appalachia.CI.Integration.Assets;
+using Appalachia.Utility.Strings;
 using UnityEngine.InputSystem;
 
 namespace Appalachia.Prototype.KOC.Application.Extensions
 {
     public static class InputActionExtensions
     {
+#if UNITY_EDITOR
         public static InputActionReference[] InputActionReferences =>
             AssetDatabaseManager.FindAssets<InputActionReference>().ToArray();
+#endif
 
+#if UNITY_EDITOR
         public static InputActionReference GetReference(this InputAction action)
         {
             foreach (var reference in InputActionReferences)
@@ -20,6 +24,7 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
 
             return null;
         }
+#endif
 
         public static string ToFormattedName(this InputActionReference action)
         {
@@ -36,7 +41,7 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
             var mapName = action.actionMap.name.Replace(" ", string.Empty).Trim();
             var actionName = action.name.Replace(" ", string.Empty).Trim();
 
-            return $"{mapName}_{actionName}";
+            return ZString.Format("{0}_{1}", mapName, actionName);
         }
 
         public static string ToReferenceAssetName(this InputAction action)
@@ -44,7 +49,7 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
             var mapName = action.actionMap.name;
             var actionName = action.name;
 
-            return $"{mapName}/{actionName}";
+            return ZString.Format("{0}/{1}", mapName, actionName);
         }
     }
 }

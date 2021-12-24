@@ -1,15 +1,16 @@
-using System.Collections;
-using Appalachia.CI.Integration.Attributes;
+using System;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Execution.Hooks;
+using Appalachia.Core.Objects.Dependencies;
 using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components;
 using Appalachia.Prototype.KOC.Application.Scenes;
-using Appalachia.Prototype.KOC.Application.Screens.Fading;
 using Appalachia.Prototype.KOC.Application.State;
+using Appalachia.Utility.Async;
+using Appalachia.Utility.Constants;
+using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
-using Appalachia.Utility.Logging;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -18,82 +19,76 @@ using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application
 {
-    [InspectorIcon(Icons.Squirrel.Red)]
-    [AlwaysInitializeOnLoad]
+    [CallStaticConstructorInEditor]
     [ExecutionOrder(ExecutionOrders.ApplicationManager)]
-    public class ApplicationManager : SingletonAppalachiaApplicationBehaviour<ApplicationManager>
+    public class ApplicationManager : GlobalSingletonAppalachiaBehaviour<ApplicationManager>
     {
-        #region Fields and Autoproperties
+        static ApplicationManager()
+        {
+            RegisterDependency<MainAreaSceneInformationCollection>(
+                i => _mainAreaSceneInformationCollection = i
+            );
+        }
 
-        [FormerlySerializedAs("applicationAreaStateCollection")]
-        [FormerlySerializedAs("applicationAreaStates")]
-        [FormerlySerializedAs("applicationState")]
-        [FormerlySerializedAs("state")]
-        [Title("Application State"), InlineProperty, HideLabel]
-        public ApplicationAreaStateCollection areaStates;
+        protected override void AwakeActual()
+        {
+            AppalachiaRepositoryDependencyManager.ResolveRepositoryDependencies().Forget();
+        }
 
-        private ApplicationLifetimeComponents _lifetimeComponents;
+        #region Static Fields and Autoproperties
 
-        [FormerlySerializedAs("_lifetimeComponentsAsset")]
-        [SerializeField]
-        private LifetimeMetadata lifetimeMetadata;
-
-        [FormerlySerializedAs("_bootloads")]
         [Title("Area Scene Information")]
-        [SerializeField]
-        private AreaSceneInformationCollection _areaSceneInfos;
-
-        private bool _isApplicationFocused;
-        private bool _isSceneLoading;
-        private FrameEnd _frameEnd;
-        private FrameStart _frameStart;
-        private Canvas _canvas;
-        private ScreenFadeManager _screenFader;
-
-        private bool _hasStarted;
+        [ShowInInspector, InlineEditor, HideLabel]
+        private static MainAreaSceneInformationCollection _mainAreaSceneInformationCollection;
 
         #endregion
 
-        public bool IsApplicationFocused => _isApplicationFocused;
+        #region Fields and Autoproperties
 
-        public bool IsSceneLoading
-        {
-            get => _isSceneLoading;
-            set => _isSceneLoading = value;
-        }
+        [NonSerialized] public ApplicationArea PrimarySubSceneArea;
+
+        [FormerlySerializedAs("areaStates"), SerializeField]
+        [Title("Application State"), InlineProperty, HideLabel]
+        private ApplicationAreaStateCollection _areaStates;
+
+        [SerializeField] private LifetimeComponentManager _lifetimeComponentManager;
+
+        [NonSerialized] private bool _isApplicationFocused;
+
+        [NonSerialized] private bool _hasStarted;
+
+        #endregion
+
+        public bool HasSubSceneManagerBeenIdentified => PrimarySubSceneArea != ApplicationArea.None;
+
+        public bool IsApplicationFocused => _isApplicationFocused;
 
         #region Event Functions
 
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-
-                AppaLog.Context.Application.Info(nameof(Awake));
-                instance.Initialize();
-
-                AreaRegistry.RegisterApplicationManager(this);
-            }
-        }
-
-        private void Update()
+        protected override void Update()
         {
             using (_PRF_Update.Auto())
             {
-                if (!UnityEngine.Application.isPlaying)
+                base.Update();
+
+                if (!DependenciesAreReady)
                 {
                     return;
                 }
 
-                AppaLog.Context.Bootload.Trace(nameof(Update));
+                if (!AppalachiaApplication.IsPlaying)
+                {
+                    return;
+                }
 
-                foreach (var areaStateEntry in areaStates.Areas)
+                Context.Log.Trace(nameof(Update), this);
+
+                foreach (var areaStateEntry in _areaStates.Areas)
                 {
                     var area = areaStateEntry.Key;
                     var areaState = areaStateEntry.Value;
 
-                    var areaSceneInfo = _areaSceneInfos.GetByArea(area);
+                    var areaSceneInfo = _mainAreaSceneInformationCollection.Lookup.Items.Get(area);
 
                     areaSceneInfo.CheckAreaLoadState(areaState);
 
@@ -102,15 +97,10 @@ namespace Appalachia.Prototype.KOC.Application
                     {
                         var areaMetadata = AreaRegistry.GetMetadata(area);
 
-                        if (areaMetadata.LoadBehaviour == LoadBehaviour.ActivateImmediately)
+                        if (areaMetadata.SceneBehaviour.setEntrySceneActive)
                         {
-                            areaState.QueueActivate();
-                        }
-
-                        if (areaMetadata.SetEntrySceneActive)
-                        {
-                            areaSceneInfo.entryScene.OnActivateComplete += scene =>
-                                SceneManager.SetActiveScene(scene.Scene.Scene);
+                            areaSceneInfo.entryScene.OnActivateComplete -= SceneLoad_SetActive;
+                            areaSceneInfo.entryScene.OnActivateComplete += SceneLoad_SetActive;
                         }
                     }
                 }
@@ -127,124 +117,271 @@ namespace Appalachia.Prototype.KOC.Application
 
         #endregion
 
-        public void Activate(ApplicationArea area)
+        public void ActivateManager(ApplicationArea area)
         {
-            var areaState = areaStates.Areas[area];
+            using (_PRF_ActivateManager.Auto())
+            {
+                var manager = AreaRegistry.GetManager(area);
 
-            areaState.QueueLoad();
+                manager.Activate();
+            }
         }
 
-        public void Deactivate(ApplicationArea area)
+        public void ActivateScene(ApplicationArea area)
         {
-            var areaState = areaStates.Areas[area];
+            using (_PRF_ActivateManager.Auto())
+            {
+                Context.Log.Info(
+                    ZString.Format(
+                        "{0} instructed to {1} area [{2}].",
+                        nameof(ApplicationManager),
+                        nameof(ActivateScene),
+                        area.FormatForLogging()
+                    ),
+                    this
+                );
 
-            areaState.QueueUnload();
+                var areaState = _areaStates.Areas[area];
+
+                areaState.QueueActivate();
+            }
+        }
+
+        public void DeactivateManager(ApplicationArea area)
+        {
+            using (_PRF_DeactivateManager.Auto())
+            {
+                var manager = AreaRegistry.GetManager(area);
+
+                manager.Deactivate();
+            }
+        }
+
+        public void DestroyScene(ApplicationArea area)
+        {
+            using (_PRF_DestroyScene.Auto())
+            {
+                Context.Log.Info(
+                    ZString.Format(
+                        "{0} instructed to {1} area [{2}].",
+                        nameof(ApplicationManager),
+                        nameof(DestroyScene),
+                        area.FormatForLogging()
+                    ),
+                    this
+                );
+
+                var areaState = _areaStates.Areas[area];
+
+                areaState.QueueUnload();
+            }
         }
 
         public void ExitApplication()
         {
-            AppaLog.Context.Application.Info(nameof(ExitApplication));
+            Context.Log.Warn(nameof(ExitApplication), this);
 
-            UnityEngine.Application.Quit();
+            AppalachiaApplication.Quit();
+        }
+
+        public void GetAreaInfo(
+            ApplicationArea area,
+            out AreaSceneInformation info,
+            out ApplicationAreaState state)
+        {
+            using (_PRF_GetAreaInfo.Auto())
+            {
+                info = _mainAreaSceneInformationCollection.Lookup[area];
+                state = _areaStates.Areas[area];
+            }
+        }
+
+        public void LoadScene(ApplicationArea area, bool autoActivate = false)
+        {
+            using (_PRF_LoadScene.Auto())
+            {
+                Context.Log.Info(
+                    ZString.Format(
+                        "{0} instructed to {1}{2} area [{3}].",
+                        nameof(ApplicationManager),
+                        nameof(LoadScene),
+                        autoActivate ? " and Activate" : string.Empty,
+                        area.FormatForLogging()
+                    ),
+                    this
+                );
+
+                var areaState = _areaStates.Areas[area];
+
+                if (autoActivate)
+                {
+                    var areaSceneInfo = _mainAreaSceneInformationCollection.Lookup.Items.Get(area);
+
+                    if (areaSceneInfo.entryScene == null)
+                    {
+                        areaSceneInfo.entryScene = new BootloadedScene(
+                            areaSceneInfo.entrySceneReference,
+                            areaSceneInfo.Area
+                        );
+                    }
+
+                    areaSceneInfo.entryScene.OnLoadComplete -= SceneLoad_OnLoadComplete;
+                    areaSceneInfo.entryScene.OnLoadComplete += SceneLoad_OnLoadComplete;
+
+                    areaSceneInfo.entryScene.OnActivateComplete -= SceneLoad_OnActivateComplete;
+                    areaSceneInfo.entryScene.OnActivateComplete += SceneLoad_OnActivateComplete;
+                }
+
+                areaState.QueueLoad();
+            }
         }
 
         protected override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
+                Context.Log.Info(nameof(Initialize), this);
+
                 base.Initialize();
 
-                AppaLog.Context.Application.Info(nameof(Initialize));
-                name = nameof(ApplicationManager);
-
-                if (areaStates == null)
+                try
                 {
-                    areaStates = ApplicationAreaStateCollection.CreateNew();
+                    if (!_hasStarted)
+                    {
+                        enabled = true;
+                    }
+                }
+                catch (MissingReferenceException)
+                {
+                    return;
                 }
 
-                _lifetimeComponents = ApplicationLifetimeComponents.instance;
-                _lifetimeComponents.gameObject.SetAsSiblingTo(transform);
-
-                lifetimeMetadata = _lifetimeComponents.metadata;
-
-                gameObject.CreateOrGetComponent(ref _frameStart);
-                gameObject.CreateOrGetComponent(ref _frameEnd);
-
-                gameObject.CreateOrGetComponentInChild(ref _canvas, "Canvas - FullScreenBlack", false);
-
-                _canvas.gameObject.CreateOrGetComponent(ref _screenFader);
-
-                if (_areaSceneInfos == null)
+                if (name != nameof(ApplicationManager))
                 {
-                    _areaSceneInfos = AreaSceneInformationCollection.instance;
+                    name = nameof(ApplicationManager);
                 }
 
-                areaStates.Initialize();
-
-                if (!_hasStarted && (areaStates.LoadCount == 0) && (areaStates.ActivateCount == 0))
+                if (_lifetimeComponentManager == null)
                 {
-                    Activate(ApplicationArea.SplashScreen);
+                    _lifetimeComponentManager = LifetimeComponentManager.instance;
+                    _lifetimeComponentManager.gameObject.SetAsSiblingTo(transform);
+                }
+
+                if (!_lifetimeComponentManager.gameObject.activeSelf)
+                {
+                    _lifetimeComponentManager.gameObject.SetActive(true);
+                }
+
+                if (_lifetimeComponentManager.enabled)
+                {
+                    _lifetimeComponentManager.enabled = true;
+                }
+                else
+                {
+                    _lifetimeComponentManager.InitializeExternal();
+                }
+
+                if (_areaStates == null)
+                {
+                    _areaStates = ApplicationAreaStateCollection.CreateNew(this);
+                }
+
+                _areaStates.Areas.SetObjectOwnership(this);
+                _areaStates.Initialize(this);
+
+                if (AppalachiaApplication.IsPlaying)
+                {
+                    if (!_hasStarted)
+                    {
+                        if (!RunningAsSubScene)
+                        {
+                            if ((_areaStates.LoadCount == 0) && (_areaStates.ActivateCount == 0))
+                            {
+                                LoadScene(ApplicationArea.StartEnvironment, true);
+                                LoadScene(ApplicationArea.DebugOverlay,     true);
+                                LoadScene(ApplicationArea.SplashScreen,     true);
+                            }
+                        }
+                    }
+
                     _hasStarted = true;
                 }
 
-                DontDestroyOnLoadSafe(gameObject);
+                gameObject.transform.SetSiblingIndex(0);
+                _lifetimeComponentManager.transform.SetSiblingIndex(1);
+
+                DontDestroyOnLoadSafe();
             }
         }
 
-        private IEnumerator LoadScene(
-            SceneReference sceneToLoad,
-            Scene sceneToUnload = default(Scene),
-            bool fadeOut = true,
-            bool fadeIn = true)
+        private static void SceneLoad_OnActivateComplete(BootloadedScene s, ApplicationArea area)
         {
-            AppaLog.Context.Application.Info(nameof(LoadScene));
-
-            _isSceneLoading = true;
-
-            if (fadeOut)
+            using (_PRF_SceneLoad_OnActivateComplete.Auto())
             {
-                _screenFader.FadeOut();
-
-                while (_screenFader.IsFading)
-                {
-                    yield return new WaitForEndOfFrame();
-                }
+                instance.Context.Log.Info(
+                    ZString.Format(
+                        "{0}: {1}.",
+                        nameof(SceneLoad_OnActivateComplete),
+                        area.FormatForLogging()
+                    ),
+                    instance
+                );
+                var manager = AreaRegistry.GetManager(area);
+                manager.Activate();
             }
+        }
 
-            if (sceneToUnload != default)
+        private static void SceneLoad_OnLoadComplete(BootloadedScene s, ApplicationArea area)
+        {
+            using (_PRF_SceneLoad_OnLoadComplete.Auto())
             {
-                var unload = SceneManager.UnloadSceneAsync(sceneToUnload);
-
-                while (!unload.isDone)
-                {
-                    yield return new WaitForEndOfFrame();
-                }
+                instance.Context.Log.Info(
+                    ZString.Format("{0}: {1}.", nameof(SceneLoad_OnLoadComplete), area.FormatForLogging()),
+                    instance
+                );
+                instance.ActivateManager(area);
             }
+        }
 
-            var load = sceneToLoad.reference.LoadSceneAsync(LoadSceneMode.Additive);
-
-            while (!load.IsDone)
+        private static void SceneLoad_SetActive(BootloadedScene s, ApplicationArea area)
+        {
+            using (_PRF_SceneLoad_SetActive.Auto())
             {
-                yield return new WaitForEndOfFrame();
+                instance.Context.Log.Info(
+                    ZString.Format("{0}: {1}.", nameof(SceneLoad_SetActive), area.FormatForLogging()),
+                    instance
+                );
+                SceneManager.SetActiveScene(s.Scene.Scene);
             }
-
-            if (fadeIn)
-            {
-                _screenFader.FadeIn();
-
-                while (_screenFader.IsFading)
-                {
-                    yield return new WaitForEndOfFrame();
-                }
-            }
-
-            _isSceneLoading = false;
-            yield return null;
         }
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(ApplicationManager) + ".";
+
+        private static readonly ProfilerMarker _PRF_DeactivateManager =
+            new ProfilerMarker(_PRF_PFX + nameof(DeactivateManager));
+
+        private static readonly ProfilerMarker _PRF_GetAreaInfo =
+            new ProfilerMarker(_PRF_PFX + nameof(GetAreaInfo));
+
+        private static readonly ProfilerMarker _PRF_SceneLoad_SetActive =
+            new ProfilerMarker(_PRF_PFX + nameof(SceneLoad_SetActive));
+
+        private static readonly ProfilerMarker _PRF_SceneLoad_OnLoadComplete =
+            new ProfilerMarker(_PRF_PFX + nameof(SceneLoad_OnLoadComplete));
+
+        private static readonly ProfilerMarker _PRF_SceneLoad_OnActivateComplete =
+            new ProfilerMarker(_PRF_PFX + nameof(SceneLoad_OnActivateComplete));
+
+        private static readonly ProfilerMarker _PRF_ActivateManager =
+            new ProfilerMarker(_PRF_PFX + nameof(ActivateScene));
+
+        private static readonly ProfilerMarker _PRF_LoadScene =
+            new ProfilerMarker(_PRF_PFX + nameof(LoadScene));
+
+        private static readonly ProfilerMarker _PRF_DestroyScene =
+            new ProfilerMarker(_PRF_PFX + nameof(DestroyScene));
 
         private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
 

@@ -13,7 +13,7 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
             foreach (var track in asset.GetRootTracks())
             {
                 yield return track;
-                
+
                 foreach (var childTrack in track.GetChildTracks())
                 {
                     yield return childTrack;

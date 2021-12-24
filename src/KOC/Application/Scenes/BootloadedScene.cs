@@ -1,4 +1,8 @@
 using System;
+using Appalachia.Prototype.KOC.Application.Areas;
+using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Logging;
+using Appalachia.Utility.Strings;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -12,18 +16,21 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
     [Serializable]
     public class BootloadedScene
     {
-        public delegate void BootloadSceneEventHandler(BootloadedScene scene);
+        public delegate void BootloadSceneEventHandler(BootloadedScene scene, ApplicationArea area);
 
-        public BootloadedScene(SceneReference sceneReference)
+        public BootloadedScene(SceneReference sceneReference, ApplicationArea area)
         {
             _sceneReference = sceneReference;
+            _area = area;
         }
 
         #region Fields and Autoproperties
 
+        private ApplicationArea _area;
+
         private AsyncOperation _activateOperation;
         private AsyncOperationHandle<SceneInstance> _loadOperation;
-        private AsyncOperationHandle<SceneInstance> _unloadOperation;
+        private AsyncOperation _unloadOperation;
         private AsyncOperationStatus _status;
         private SceneInstance _scene;
         private SceneReference _sceneReference;
@@ -36,7 +43,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         public AsyncOperationHandle<SceneInstance> LoadOperation => _loadOperation;
 
-        public AsyncOperationHandle<SceneInstance> UnloadOperation => _unloadOperation;
+        public AsyncOperation UnloadOperation => _unloadOperation;
 
         public SceneInstance Scene => _scene;
         public event BootloadSceneEventHandler OnActivateComplete;
@@ -56,7 +63,16 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         {
             using (_PRF_Activate.Auto())
             {
-                OnActivateStarted?.Invoke(this);
+                AppaLog.Context.Bootload.Info(
+                    ZString.Format("{0}: {1}", nameof(Activate), _area),
+                    _sceneReference
+                );
+
+                AppaLog.Context.Bootload.Info(
+                    ZString.Format("{0}: {1}", nameof(OnActivateStarted), _area),
+                    _sceneReference
+                );
+                OnActivateStarted?.Invoke(this, _area);
 
                 _activateOperation = _scene.ActivateAsync();
 
@@ -65,7 +81,12 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                     _status = AsyncOperationStatus.Succeeded;
                     _sceneState = SceneState.Activated;
 
-                    OnActivateComplete?.Invoke(this);
+                    AppaLog.Context.Bootload.Info(
+                        ZString.Format("{0}: {1}", nameof(OnActivateComplete), _area),
+                        _sceneReference
+                    );
+
+                    OnActivateComplete?.Invoke(this, _area);
                 };
             }
         }
@@ -74,7 +95,16 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         {
             using (_PRF_Load.Auto())
             {
-                OnLoadStarted?.Invoke(this);
+                AppaLog.Context.Bootload.Info(
+                    ZString.Format("{0}: {1}", nameof(Load), _area),
+                    _sceneReference
+                );
+
+                AppaLog.Context.Bootload.Info(
+                    ZString.Format("{0}: {1}", nameof(OnLoadStarted), _area),
+                    _sceneReference
+                );
+                OnLoadStarted?.Invoke(this, _area);
 
                 _loadOperation = _sceneReference.reference.LoadSceneAsync(LoadSceneMode.Additive, false);
 
@@ -87,11 +117,19 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                         _scene = handle.Result;
                         _sceneState = SceneState.Loaded;
 
-                        OnLoadComplete?.Invoke(this);
+                        AppaLog.Context.Bootload.Info(
+                            ZString.Format("{0}: {1}", nameof(OnLoadComplete), _area),
+                            _sceneReference
+                        );
+                        OnLoadComplete?.Invoke(this, _area);
                     }
                     else
                     {
-                        OnLoadFailed?.Invoke(this);
+                        AppaLog.Context.Bootload.Info(
+                            ZString.Format("{0}: {1}", nameof(OnLoadFailed), _area),
+                            _sceneReference
+                        );
+                        OnLoadFailed?.Invoke(this, _area);
                     }
                 };
             }
@@ -101,9 +139,49 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         {
             using (_PRF_Unload.Auto())
             {
-                OnUnloadStarted?.Invoke(this);
+                AppaLog.Context.Bootload.Info(
+                    ZString.Format("{0}: {1}", nameof(Unload), _area),
+                    _sceneReference
+                );
 
-                _unloadOperation = _sceneReference.reference.UnLoadScene();
+                AppaLog.Context.Bootload.Info(
+                    ZString.Format("{0}: {1}", nameof(OnUnloadStarted), _area),
+                    _sceneReference
+                );
+                OnUnloadStarted?.Invoke(this, _area);
+
+                _scene.Scene.DestroySafely();
+
+                _unloadOperation = SceneManager.UnloadSceneAsync(
+                    _scene.Scene,
+                    UnloadSceneOptions.UnloadAllEmbeddedSceneObjects
+                );
+
+                _loadOperation = default;
+                _scene = default;
+
+                _unloadOperation.completed += s =>
+                {
+                    _status = AsyncOperationStatus.Succeeded;
+
+                    Resources.UnloadUnusedAssets();
+
+                    if (_status == AsyncOperationStatus.Succeeded)
+                    {
+                        _sceneState = SceneState.Unloaded;
+
+                        AppaLog.Context.Bootload.Info(
+                            ZString.Format("{0}: {1}", nameof(OnUnloadComplete), _area),
+                            _sceneReference
+                        );
+                        OnUnloadComplete?.Invoke(this, _area);
+                    }
+                    /*else
+                    {
+                        AppaLog.Context.Bootload.Info($"{nameof(OnUnloadFailed)}: {_area}", _sceneReference);
+                        OnUnloadFailed?.Invoke(this, _area);
+                    }*/
+                };
             }
         }
 
@@ -130,7 +208,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
             if ((_sceneState == state) || (invert && (_sceneState != state)))
             {
-                AppaLog.Warn(
+                Context.Log.Warn(
                     $"[{memberName}] was called when the scene [{_sceneReference.name}]] was {message}."
                 );
 

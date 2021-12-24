@@ -7,8 +7,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
     {
         #region Static Fields and Autoproperties
 
-        private static ApplicationManager _applicationManager;
-
         private static Dictionary<ApplicationArea, IAreaManager> _managerLookup =
             new Dictionary<ApplicationArea, IAreaManager>();
 
@@ -21,7 +19,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
         {
             using (_PRF_GetApplicationManager.Auto())
             {
-                return _applicationManager;
+                return ApplicationManager.instance;
             }
         }
 
@@ -55,19 +53,20 @@ namespace Appalachia.Prototype.KOC.Application.Areas
             }
         }
 
-        public static void RegisterApplicationManager(ApplicationManager manager)
+        public static IAreaManager GetParentManager(IAreaManager manager)
         {
-            using (_PRF_RegisterApplicationManager.Auto())
+            var parentArea = manager.ParentArea;
+
+            if (parentArea == ApplicationArea.None)
             {
-                if (manager == null)
-                {
-                    return;
-                }
-
-                _applicationManager = manager;
+                return null;
             }
-        }
 
+            var parentManager = GetManager(parentArea);
+
+            return parentManager;
+        }
+        
         public static void RegisterManager<T, TM>(AreaManager<T, TM> manager)
             where T : AreaManager<T, TM>
             where TM : AreaMetadata<T, TM>
@@ -127,9 +126,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         private static readonly ProfilerMarker _PRF_RegisterMetadata =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterMetadata));
-
-        private static readonly ProfilerMarker _PRF_RegisterApplicationManager =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterApplicationManager));
 
         private static readonly ProfilerMarker _PRF_Initialize =
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));

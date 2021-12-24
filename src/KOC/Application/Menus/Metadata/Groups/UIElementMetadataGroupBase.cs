@@ -1,16 +1,15 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Scriptables;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements;
-using Appalachia.Prototype.KOC.Application.Scriptables;
-using Appalachia.Utility.Extensions;
 using Unity.Profiling;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups
 {
     [SmartLabelChildren]
-    public abstract class UIElementMetadataGroupBase<TE, TC> : AppalachiaApplicationObject
+    public abstract class UIElementMetadataGroupBase<TE, TC> : AppalachiaObject<>
         where TE : UIElementMetadataBase<TC>
         where TC : IComponentSet
     {
@@ -33,7 +32,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups
 
                 for (var i = 0; i < elements.Length; i++)
                 {
-                    initializer.Initialize(
+                    await initializer.Do(
                         this,
                         i.ToString(),
                         () =>
@@ -41,7 +40,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups
                             var element = elements[i];
 
                             InitializeElement(element);
-                            
+
                             this.MarkAsModified();
                         }
                     );
@@ -49,11 +48,9 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups
             }
         }
 
-        protected abstract void InitializeElement(TE element);
-
         #endregion
 
-        public void Apply(TC[] components)
+        public void Apply(GameObject parent, string baseName, TC[] components)
         {
             using (_PRF_Apply.Auto())
             {
@@ -67,10 +64,12 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups
                     var component = components[index];
                     var element = elements[index];
 
-                    element.Apply(component);
+                    element.Apply(parent, baseName, ref component);
                 }
             }
         }
+
+        protected abstract void InitializeElement(TE element);
 
         #region Profiling
 

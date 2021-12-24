@@ -20,7 +20,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
         #region Event Functions
 
-        protected new void Awake()
+        protected void Awake()
         {
             base.Awake();
 

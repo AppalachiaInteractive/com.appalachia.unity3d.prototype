@@ -1,6 +1,6 @@
 using System;
 using System.Reflection;
-using Appalachia.Prototype.KOC.Application.Scriptables;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Styling.Base;
 using Appalachia.Prototype.KOC.Application.Styling.Fonts;
 using Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons;
@@ -10,8 +10,7 @@ using Unity.Profiling;
 namespace Appalachia.Prototype.KOC.Application.Styling
 {
     [Serializable]
-    public class
-        ApplicationStyleElementDefaultLookup : SingletonAppalachiaApplicationObject<
+    public class ApplicationStyleElementDefaultLookup : SingletonAppalachiaObject<
             ApplicationStyleElementDefaultLookup>
     {
         #region Fields and Autoproperties

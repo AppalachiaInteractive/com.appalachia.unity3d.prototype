@@ -1,7 +1,8 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Prototype.KOC.Application.Screens.Fading;
+using Appalachia.Prototype.KOC.Application.Components.Fading;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Doozy.Engine.Nody;
 using Doozy.Engine.UI;
 using Unity.Profiling;
@@ -15,8 +16,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
     {
         #region Fields and Autoproperties
 
-        public GameObject GameObject => gameObject;
-        
         public Canvas canvas;
         public CanvasFadeManager canvasFadeManager;
         public CanvasGroup canvasGroup;
@@ -30,24 +29,33 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
 
         #endregion
 
+        #region IComponentSet Members
+
+        public GameObject GameObject => gameObject;
+
         public void Configure(GameObject parent, string name)
         {
             using (_PRF_Configure.Auto())
             {
-                var targetName = $"Canvas - {name}";
+                var targetName = ZString.Format("Canvas - {0}", name);
 
-                parent.CreateOrGetChild(ref gameObject, targetName, true);
+                parent.GetOrCreateChild(ref gameObject, targetName, true);
 
-                gameObject.CreateOrGetComponent(ref rect);
-                gameObject.CreateOrGetComponent(ref canvasFadeManager);
-                gameObject.CreateOrGetComponent(ref canvasGroup);
-                gameObject.CreateOrGetComponent(ref canvas);
-                gameObject.CreateOrGetComponent(ref canvasScaler);
-                gameObject.CreateOrGetComponent(ref graphicRaycaster);
-                gameObject.CreateOrGetComponent(ref uiCanvas);
-                gameObject.CreateOrGetComponent(ref graphController);
+                gameObject.GetOrCreateComponent(ref rect);
+                gameObject.GetOrCreateComponent(ref canvasFadeManager);
+                gameObject.GetOrCreateComponent(ref canvasGroup);
+                gameObject.GetOrCreateComponent(ref canvas);
+                gameObject.GetOrCreateComponent(ref canvasScaler);
+                gameObject.GetOrCreateComponent(ref graphicRaycaster);
+                gameObject.GetOrCreateComponent(ref uiCanvas);
+                gameObject.GetOrCreateComponent(ref graphController);
+
+                uiCanvas.DontDestroyCanvasOnLoad = false;
+                graphController.DontDestroyControllerOnLoad = false;
             }
         }
+
+        #endregion
 
         #region Profiling
 

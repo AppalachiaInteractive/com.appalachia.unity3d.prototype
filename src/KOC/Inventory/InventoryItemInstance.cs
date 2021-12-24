@@ -1,9 +1,10 @@
 using System;
+using Appalachia.Core.Objects.Root;
 
 namespace Appalachia.Prototype.KOC.Inventory
 {
     [Serializable]
-    public class InventoryItemInstance
+    public class InventoryItemInstance : AppalachiaSimpleBase
     {
         
 

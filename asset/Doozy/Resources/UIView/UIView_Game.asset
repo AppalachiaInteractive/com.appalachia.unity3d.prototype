@@ -15,4 +15,5 @@ MonoBehaviour:
   CategoryName: Game
   DatabaseType: 2
   Names:
+  - Game
   - Root

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MainMenu_LoadGame_V01
+  m_EditorClassIdentifier: 
+  m_GroupName: MainMenu_LoadGame_V01
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a1c5742e396c7004889bb36337e3c5e1
+  m_SerializeEntries:
+  - m_GUID: 5614ed779d335f143a8513e6628e2dc1
+    m_Address: SceneReferenceElement_MainMenu_LoadGame_V01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainMenu_LoadGame_V01
+  - m_GUID: a57240ac800e8df4bab43c72c5f7fa31
+    m_Address: MainMenu_LoadGame_V01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainMenu_LoadGame_V01
+  - m_GUID: 7bd68a42668e24e45af57eb536b0b853
+    m_Address: MainMenu_LoadGameMetadata_V01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainMenu_LoadGame_V01
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 20f667d20204512488e2dd71c706d6bf, type: 2}
+    - {fileID: 11400000, guid: 556e02367a4214f489423fde61a28474, type: 2}

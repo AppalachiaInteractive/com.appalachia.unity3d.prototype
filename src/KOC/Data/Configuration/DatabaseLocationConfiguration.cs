@@ -1,6 +1,7 @@
 using System;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.CI.Integration.FileSystem;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Data.Core;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;
@@ -8,7 +9,7 @@ using Unity.Profiling;
 namespace Appalachia.Prototype.KOC.Data.Configuration
 {
     [Serializable, DoNotReorderFields]
-    public class DatabaseLocationConfiguration
+    public class DatabaseLocationConfiguration : AppalachiaSimpleBase
     {
         #region Constants and Static Readonly
 

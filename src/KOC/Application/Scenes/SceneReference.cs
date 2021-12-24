@@ -1,38 +1,76 @@
-using Appalachia.CI.Integration.Assets;
-using Appalachia.Prototype.KOC.Application.Scriptables;
-using Appalachia.Utility.Extensions;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
+using Appalachia.Prototype.KOC.Application.Areas;
+using Appalachia.Prototype.KOC.Application.Scenes.Collections;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
+using Unity.Profiling;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
-    public class SceneReference : AppalachiaApplicationObject
+    public class SceneReference : AppalachiaObject<SceneReference>
     {
         #region Fields and Autoproperties
 
-        [FormerlySerializedAs("sceneReference")] [ReadOnly] public AssetReference reference;
+        [SerializeField] public AreaVersion currentVersion;
 
-        public bool setActiveOnLoad;
+        [Title("Elements")]
+        [SerializeField, HideLabel, InlineProperty]
+        public SceneReferenceElementLookup elements;
+
+        #endregion
+
+        public AssetReference reference => elements[currentVersion].reference;
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
+
+                elements ??= new SceneReferenceElementLookup();
+
+                elements.SetObjectOwnership(this);
+            }
+        }
+
+#if UNITY_EDITOR
+        protected override bool IsDataValid()
+        {
+            using (_PRF_IsDataValid.Auto())
+            {
+                return (currentVersion != AreaVersion.None) || (elements == null) || (elements.Count == 0);
+            }
+        }
+#endif
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(SceneReference) + ".";
+
+        
+
+#if UNITY_EDITOR
+        private static readonly ProfilerMarker _PRF_IsDataValid =
+            new ProfilerMarker(_PRF_PFX + nameof(IsDataValid));
+#endif
 
         #endregion
 
 #if UNITY_EDITOR
-        [OnValueChanged(nameof(UpdateSelection))]
-        public UnityEditor.SceneAsset sceneAsset;
 
-        public void SetSelection(UnityEditor.SceneAsset asset)
+        public void SetSelection(AreaVersion version, UnityEditor.SceneAsset asset)
         {
-            sceneAsset = asset;
-            this.MarkAsModified();
-            UpdateSelection();
-        }
+            elements ??= new SceneReferenceElementLookup();
 
-        private void UpdateSelection()
-        {
-            AssetDatabaseManager.TryGetGUIDAndLocalFileIdentifier(sceneAsset, out var guid, out var _);
+            var sceneReference = SceneReferenceElement.LoadOrCreateNew(asset.name);
 
-            reference = new AssetReference(guid);
+            sceneReference.version = version;
+            sceneReference.SetSelection(asset);
+
+            elements.AddOrUpdate(version, sceneReference);
             this.MarkAsModified();
         }
 
@@ -44,6 +82,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         {
             CreateNew<SceneReference>();
         }
+
 #endif
     }
 }

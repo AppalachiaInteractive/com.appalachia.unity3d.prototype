@@ -1,12 +1,12 @@
+using System;
+using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Scriptables;
-using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Extensions;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons;
 using Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons;
 using Appalachia.Utility.Extensions;
-using Appalachia.Utility.Logging;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using TMPro;
 using Unity.Profiling;
@@ -22,55 +22,45 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
     {
         #region Fields and Autoproperties
 
-        [OnValueChanged(nameof(Initialize))]
+        [OnValueChanged(nameof(InitializeSynchronous))]
         [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
         public OnScreenButtonMetadata metadata;
 
-        [SmartLabel]
-        public TextMeshProUGUI text;
+        [SmartLabel] public TextMeshProUGUI text;
 
         [FormerlySerializedAs("button")]
         public Image image;
 
         #endregion
 
-        #region Event Functions
+        [NonSerialized] private static AppaContext _context;
 
-        protected override void Start()
+        private static AppaContext StaticContext
         {
-            using (_PRF_Start.Auto())
+            get
             {
-                base.Start();
+                if (_context == null)
+                {
+                    _context = new AppaContext(typeof(OnScreenInputButton));
+                }
 
-                Initialize();
+                return _context;
             }
-        }
+        }        
 
-        protected override void OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                base.OnEnable();
-
-                Initialize();
-            }
-        }
-
-        #endregion
-
-#if UNITY_EDITOR
         [Button]
         public static void Populate()
         {
+#if UNITY_EDITOR
             using (_PRF_Populate.Auto())
             {
-                var actions = InputActions;
+                var actions = LifetimeComponentManager.instance.GetActions();
 
                 foreach (var action in actions)
                 {
                     var targetName = action.ToFormattedName();
 
-                    var metadata = AppalachiaObject.LoadOrCreateNew<OnScreenButtonMetadata>(targetName);
+                    var metadata = OnScreenButtonMetadata.LoadOrCreateNew(targetName);
 
                     if (metadata.actionReference == null)
                     {
@@ -80,8 +70,13 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
 
                         if (metadata.actionReference == null)
                         {
-                            AppaLog.Error(
-                                $"Missing [{nameof(InputActionReference)}] for [{nameof(OnScreenButtonMetadata)}] {targetName}."
+                            StaticContext.Log.Error(
+                                ZString.Format(
+                                    "Missing [{0}] for [{1}] {2}.",
+                                    nameof(InputActionReference),
+                                    nameof(OnScreenButtonMetadata),
+                                    targetName
+                                )
                             );
                         }
                     }
@@ -93,15 +88,20 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
 
                         if (metadata.style == null)
                         {
-                            AppaLog.Error(
-                                $"Missing [{nameof(OnScreenButtonStyleOverride)}] for [{nameof(OnScreenButtonMetadata)}] {targetName}."
+                            StaticContext.Log.Error(
+                                ZString.Format(
+                                    "Missing [{0}] for [{1}] {2}.",
+                                    nameof(OnScreenButtonStyleOverride),
+                                    nameof(OnScreenButtonMetadata),
+                                    targetName
+                                )
                             );
                         }
                     }
                 }
             }
-        }
 #endif
+        }
 
         protected override void Initialize()
         {
@@ -115,26 +115,25 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
                 var action = metadata.actionReference.action;
 
                 var targetName = action.ToFormattedName();
-                var baseName = $"{nameof(OnScreenInputButton)} - {targetName}";
+                var baseName = ZString.Format("{0} - {1}", nameof(OnScreenInputButton), targetName);
 
-                var uiStyle = LifetimeComponents.metadata.uiStyle;
+                var uiStyle = LifetimeComponents.Metadata.uiStyle;
                 var fontStyle = uiStyle.onScreenButtonStyle.Font;
 
                 gameObject.name = baseName;
 
-                gameObject.CreateOrGetComponentInChild(ref text, targetName, false);
-                text.name = $"Text - {baseName}";
+                gameObject.GetOrCreateComponentInChild(ref text, targetName, false);
+                text.name = ZString.Format("Text - {0}", baseName);
                 text.rectTransform.Reset(RectResetOptions.All);
 
-                gameObject.CreateOrGetComponentInChild(ref image, targetName, false);
-                image.name = $"Image - {baseName}";
+                gameObject.GetOrCreateComponentInChild(ref image, targetName, false);
+                image.name = ZString.Format("Image - {0}", baseName);
                 image.rectTransform.Reset(RectResetOptions.All);
 
                 fontStyle.ToApplicable.Apply(text);
 
-                var buttonLookup = DeviceButtonLookup.instance;
-                metadata.ApplyImage(buttonLookup, image);
-                metadata.ApplyText(buttonLookup, text);
+                metadata.ApplyImage(_deviceButtonLookup, image);
+                metadata.ApplyText(_deviceButtonLookup, text);
             }
         }
 
@@ -146,12 +145,12 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         private static readonly ProfilerMarker
-            _PRF_Populate = new ProfilerMarker(_PRF_PFX + nameof(Populate));
-
-        private static readonly ProfilerMarker
             _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
 
         private static readonly ProfilerMarker _PRF_Start = new ProfilerMarker(_PRF_PFX + nameof(Start));
+
+        private static readonly ProfilerMarker
+            _PRF_Populate = new ProfilerMarker(_PRF_PFX + nameof(Populate));
 
         #endregion
     }

@@ -1,79 +1,45 @@
 using System;
-using Appalachia.Core.Scriptables;
-using Appalachia.Prototype.KOC.Application.Scriptables;
-using Appalachia.Utility.Extensions;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata
 {
-    public class CursorMetadata : AppalachiaApplicationObject
+    [Serializable]
+    public abstract class CursorMetadata : AppalachiaObject
     {
         #region Fields and Autoproperties
 
+        [BoxGroup("Color")]
         [OnValueChanged(nameof(OnChanged))]
-        [PreviewField(64f, ObjectFieldAlignment.Left)] public Texture2D texture;
-        
-        [OnValueChanged(nameof(OnChanged))] public Vector2 hotspot;
-        [OnValueChanged(nameof(OnChanged))] public bool modifyColor;
+        public bool modifyColor;
 
+        [BoxGroup("Color")] public float cursorColorChangeDuration = 0.1f;
+
+        [BoxGroup("Color")]
         [OnValueChanged(nameof(OnChanged))]
         public float scale;
 
+        [BoxGroup("Color")]
         [OnValueChanged(nameof(OnChanged))]
         [EnableIf(nameof(modifyColor))]
         public Color cursorColor;
 
-        [ReadOnly] public Cursors value;
-        
         #endregion
 
-        public bool HasTexture => texture != null;
+        public abstract bool isSimple { get; }
 
-        [Button]
-        [EnableIf(nameof(HasTexture))]
-        public void SetHotspotToCenter()
+        protected abstract void OnChanged();
+
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            hotspot = new Vector2((int)(texture.width / 2.0f), (int)(texture.height / 2.0f));
-            
-            OnChanged();
-        }
+            await base.Initialize(initializer);
 
-        private void OnChanged()
-        {
-            if (cursorColor == default)
-            {
-                cursorColor = Color.white;
-            }
+            await initializer.Do(this, nameof(scale), () => { scale = 1.0f; });
 
-            if ((texture != null) && Enum.TryParse(texture.name, out value))
-            {
-            }
-            
-           this.MarkAsModified();
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-
-            initializer.Initialize(
-                this,
-                nameof(scale),
-                () =>
-                {
-                    scale = 1.0f;
-                }
-            );
-
-            initializer.Initialize(
-                this,
-                nameof(cursorColor),
-                () =>
-                {
-                    cursorColor = Color.white;
-                }
-            );
+            await initializer.Do(this, nameof(cursorColor), () => { cursorColor = Color.white; });
         }
     }
 }

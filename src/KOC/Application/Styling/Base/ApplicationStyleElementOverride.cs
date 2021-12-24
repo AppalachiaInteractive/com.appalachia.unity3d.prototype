@@ -1,10 +1,13 @@
 using System;
-using Appalachia.Utility.Extensions;
+using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Styling.Base
 {
+    [CallStaticConstructorInEditor]
     [Serializable]
     public abstract class
         ApplicationStyleElementOverride<TDefault, TOverride, TInterface> : ApplicationStyleElement<TInterface>
@@ -12,27 +15,42 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Base
         where TOverride : ApplicationStyleElementOverride<TDefault, TOverride, TInterface>, TInterface
         where TInterface : IApplicationStyle
     {
+        static ApplicationStyleElementOverride()
+        {
+            ApplicationStyleElementDefaultLookup.InstanceAvailable +=
+                i => _applicationStyleElementDefaultLookup = i;
+        }
+
+        #region Static Fields and Autoproperties
+
+        private static ApplicationStyleElementDefaultLookup _applicationStyleElementDefaultLookup;
+
+        #endregion
+
         public TDefault Defaults
         {
             get
             {
-                var lookup = ApplicationStyleElementDefaultLookup.instance;
+                if (_applicationStyleElementDefaultLookup == null)
+                {
+                    throw new NotSupportedException("Lookup should not be null!");
+                }
 
-                return lookup.Get<TDefault, TOverride, TInterface>();
+                return _applicationStyleElementDefaultLookup.Get<TDefault, TOverride, TInterface>();
             }
         }
 
         [ButtonGroup(GROUP_BUTTONS)]
         public abstract void SyncWithDefault();
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 Defaults.RegisterOverride(this as TOverride);
-                
+
                 this.MarkAsModified();
             }
         }

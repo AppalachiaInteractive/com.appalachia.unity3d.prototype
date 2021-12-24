@@ -1,7 +1,5 @@
 using System;
-using Appalachia.Core.Behaviours;
-using Appalachia.Prototype.KOC.Application;
-using Appalachia.Prototype.KOC.Application.Behaviours;
+using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Gameplay
@@ -30,7 +28,7 @@ namespace Appalachia.Prototype.KOC.Gameplay
             phase = 0.5f, frequency = 0.01f, amplitude = new Vector2(0.01f, 0.01f)
         };
 
-        private double _time;
+        [NonSerialized] private double _time;
 
         #region Event Functions
 
@@ -47,9 +45,9 @@ namespace Appalachia.Prototype.KOC.Gameplay
             transform.localRotation = rotation;
         }
 
-        protected override void OnEnable()
+        protected override async AppaTask WhenEnabled()
         {
-            base.OnEnable();
+            await base.WhenEnabled();
             
             _time = 0;
         }

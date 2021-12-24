@@ -1,5 +1,4 @@
 using Unity.Profiling;
-using UnityEditor.Events;
 using UnityEngine.Events;
 using UnityEngine.Timeline;
 
@@ -7,6 +6,7 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
 {
     public static class SignalReceiverExtensions
     {
+#if UNITY_EDITOR
         /// <summary>
         ///     Connects a method to a signal in an easy way.
         /// </summary>
@@ -28,13 +28,11 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
                 }
 
                 signalEvent = new UnityEvent();
-                UnityEventTools.AddVoidPersistentListener(signalEvent, action);
+                UnityEditor.Events.UnityEventTools.AddVoidPersistentListener(signalEvent, action);
                 receiver.AddReaction(asset, signalEvent);
             }
         }
 
-        private static readonly ProfilerMarker _PRF_DoesReactionAlreadyExist = new ProfilerMarker(_PRF_PFX + nameof(DoesReactionAlreadyExist));
-        
         public static bool DoesReactionAlreadyExist(
             this SignalReceiver receiver,
             SignalAsset asset,
@@ -55,7 +53,7 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
                     }
 
                     var testEvent = new UnityEvent();
-                    UnityEventTools.AddVoidPersistentListener(testEvent, action);
+                    UnityEditor.Events.UnityEventTools.AddVoidPersistentListener(testEvent, action);
 
                     var testEventCount = testEvent.GetPersistentEventCount();
                     var eventCountAtIndex = eventAtIndex.GetPersistentEventCount();
@@ -96,9 +94,14 @@ namespace Appalachia.Prototype.KOC.Application.Extensions
 
         private const string _PRF_PFX = nameof(SignalReceiverExtensions) + ".";
 
+        private static readonly ProfilerMarker _PRF_DoesReactionAlreadyExist =
+            new ProfilerMarker(_PRF_PFX + nameof(DoesReactionAlreadyExist));
+
         private static readonly ProfilerMarker _PRF_ConnectMethodToSignal =
             new ProfilerMarker(_PRF_PFX + nameof(ConnectMethodToSignal));
 
         #endregion
+
+#endif
     }
 }

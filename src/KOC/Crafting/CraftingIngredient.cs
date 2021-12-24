@@ -1,13 +1,13 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Scriptables;
+using Appalachia.Core.Objects.Root;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Crafting
 {
     [Serializable]
     [InlineEditor]
-    public class CraftingIngredient
+    public class CraftingIngredient : AppalachiaSimpleBase
     {
         #region Fields and Autoproperties
 

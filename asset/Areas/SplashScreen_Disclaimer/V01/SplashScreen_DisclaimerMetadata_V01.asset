@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edef59c0e26342448673cacfcebb137a, type: 3}
+  m_Name: SplashScreen_DisclaimerMetadata_V01
+  m_EditorClassIdentifier: 
+  _initializationData:
+    _tags:
+    - Doozy Graph
+    - Doozy Canvas
+    - Doozy View
+    - View
+    - Canvas Group
+    - Canvas Scaling
+    - Canvas
+    - Graphic Raycaster
+    - _templateAlpha
+    - _defaultReferences
+    - 2345
+    - Cursor
+    - Input
+    - Menu
+    - Templates
+    - Default References
+    - Scene Behaviour
+    - Audio
+    _resetToken: 2021-11-20a
+  _cachedName: 
+  _niceName: 
+  cursor:
+    hasCustomCursor: 0
+    hasSimpleCursor: 0
+    hideCursor: 1
+    lockCursor: 0
+    complexCursor: 0
+    initialState: 0
+    simpleCursor: 0
+  input:
+    onDisableMapState:
+      DeathMenu:
+        _overrideEnabled: 0
+        _value: 0
+      Debug:
+        _overrideEnabled: 0
+        _value: 0
+      GenericMenu:
+        _overrideEnabled: 0
+        _value: 0
+      InGameMenu:
+        _overrideEnabled: 0
+        _value: 0
+      LoadingScreen:
+        _overrideEnabled: 0
+        _value: 0
+      MainMenu:
+        _overrideEnabled: 0
+        _value: 0
+      PauseMenu:
+        _overrideEnabled: 0
+        _value: 0
+      Player:
+        _overrideEnabled: 0
+        _value: 0
+      SplashScreen:
+        _overrideEnabled: 0
+        _value: 0
+      StartScreen:
+        _overrideEnabled: 0
+        _value: 0
+    onEnableMapState:
+      DeathMenu:
+        _overrideEnabled: 0
+        _value: 0
+      Debug:
+        _overrideEnabled: 0
+        _value: 0
+      GenericMenu:
+        _overrideEnabled: 0
+        _value: 0
+      InGameMenu:
+        _overrideEnabled: 0
+        _value: 0
+      LoadingScreen:
+        _overrideEnabled: 0
+        _value: 0
+      MainMenu:
+        _overrideEnabled: 0
+        _value: 0
+      PauseMenu:
+        _overrideEnabled: 0
+        _value: 0
+      Player:
+        _overrideEnabled: 0
+        _value: 0
+      SplashScreen:
+        _overrideEnabled: 1
+        _value: 1
+      StartScreen:
+        _overrideEnabled: 0
+        _value: 0
+  canvas:
+    additionalShaderChannels: 25
+    pixelPerfect: 0
+    sortingOrder: 0
+    renderMode: 0
+  canvasGroup:
+    blocksRaycasts: 1
+    ignoreParentGroups: 0
+    interactable: 1
+  canvasScaling:
+    match: 1
+    referencePixelsPerUnit: 100
+    uiScaleMode: 1
+    screenMatchMode: 0
+    referenceResolution: {x: 1920, y: 1080}
+  view:
+    fullscreen: 1
+    resetScaleToOne: 1
+  graphicRaycaster:
+    blockingObjects: 0
+    ignoreReversedGraphics: 0
+    blockingMask:
+      serializedVersion: 2
+      m_Bits: 0
+  doozyCanvas:
+    canvasName: SplashScreen_Disclaimer
+  doozyGraph:
+    graph: {fileID: 11400000, guid: 06fe357cf981a7443ad213df6b3c1585, type: 2}
+    testGraph: {fileID: 11400000, guid: dc8682f34a76b594f9e4f9d6d8bad6cb, type: 2}
+    graphControllerName: Graph Controller - SplashScreen_Disclaimer
+  doozyView:
+    viewCategory: SplashScreen
+    viewName: SplashScreen_Disclaimer
+  menu:
+    doesDrawMenu: 0
+  templates:
+    templateEnabled: 0
+    templateAlpha: 1
+    templates: []
+    selectedTemplate: {fileID: 0}
+  defaultReferences:
+    defaultReferences: {fileID: 11400000, guid: 0cef21e8417475241b8f52a8a9a1a6b8, type: 2}
+  sceneBehaviour:
+    setEntrySceneActive: 0
+  audio:
+    mixerGroup: {fileID: -6195440136677055612, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
+  order: 9999
+  timelineSkipMode: 0
+  skipFrameDelay: 0
+  unloadSceneImmediately: 1
+  timelineAsset: {fileID: 11400000, guid: fc318ab62db691e4e8f470b23b2f04f2, type: 2}
+  timelineStartSignalAsset: {fileID: 11400000, guid: c1f0102dd8d0ff2479c0ea7f96db7ed5, type: 2}
+  timelineEndSignalAsset: {fileID: 11400000, guid: 19ac5268a1821de45a6b9a347b1e8bf1, type: 2}
+  retroactive: 0
+  emitOnce: 0
+  timelinePlayMode: 10
+  frameDelay: 30
+  wrapMode: 0

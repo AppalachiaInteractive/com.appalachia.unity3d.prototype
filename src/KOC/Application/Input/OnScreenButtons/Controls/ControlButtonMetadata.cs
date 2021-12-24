@@ -4,11 +4,11 @@ using Appalachia.CI.Integration.Assets;
 using Appalachia.CI.Integration.Extensions;
 using Appalachia.CI.Integration.FileSystem;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices;
-using Appalachia.Prototype.KOC.Application.Scriptables;
 using Appalachia.Utility.Extensions;
-using Appalachia.Utility.Logging;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -17,7 +17,7 @@ using UnityEngine.InputSystem;
 namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls
 {
     [Serializable, SmartLabelChildren, SmartLabel]
-    public class ControlButtonMetadata : AppalachiaApplicationObject
+    public sealed class ControlButtonMetadata : AppalachiaObject<ControlButtonMetadata>
     {
         #region Fields and Autoproperties
 
@@ -111,12 +111,14 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls
                         (images.reversedOutline == null) ||
                         (images.illustrative == null))
                     {
-                        AppaLog.Warn($"Could not find all images for {data.ToString()}");
+                        Context.Log.Warn(
+                            ZString.Format("Could not find all images for {0}", data.ToString())
+                        );
                     }
                 }
                 catch (Exception ex)
                 {
-                    AppaLog.Exception($"Error finding images for {data}", ex);
+                    Context.Log.Error(ZString.Format("Error finding images for {0}", data), ex);
                 }
             }
         }
@@ -178,7 +180,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls
 
             if (imageNameOverride.overrideEnabled && imageNameOverride.value.IsNotNullOrWhiteSpace())
             {
-                results.Add($"{prefix}{imageNameOverride.value}");
+                results.Add(ZString.Format("{0}{1}", prefix, imageNameOverride.value));
             }
 
             foreach (var field in fields)
@@ -188,7 +190,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls
                     continue;
                 }
 
-                var attempt = $"{prefix}{field.Trim().ToLowerInvariant()}";
+                var attempt = ZString.Format("{0}{1}", prefix, field.Trim().ToLowerInvariant());
 
                 results.Add(attempt);
 
@@ -281,7 +283,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Controls
             {
                 return "ST_";
             }
-            
+
             throw new NotImplementedException(device.deviceName);
         }
 

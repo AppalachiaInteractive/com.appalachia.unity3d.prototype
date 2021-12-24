@@ -5,12 +5,19 @@ using System.Linq;
 using Appalachia.CI.Integration.Assets;
 using Appalachia.CI.Integration.Core;
 using Appalachia.CI.Integration.FileSystem;
+using Appalachia.Core.Collections.Extensions;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Collections;
-using Appalachia.Prototype.KOC.Application.Scriptables;
+using Appalachia.Prototype.KOC.Application.Scenes.Collections;
 using Appalachia.Prototype.KOC.Application.State;
+using Appalachia.Utility.Async;
+using Appalachia.Utility.Constants;
+using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Logging;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -18,8 +25,19 @@ using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
-    public class AreaSceneInformation : AppalachiaApplicationObject
+    public class AreaSceneInformation : AppalachiaObject<AreaSceneInformation>
     {
+        #region Constants and Static Readonly
+
+        private const ApplicationArea NONE_AREA = ApplicationArea.None;
+        private const string ASI_PREFIX = nameof(AreaSceneInformation) + "_";
+
+        private const string NONE_AREA_NAME = "None";
+
+        private const string SEARCH_FORMAT_STRING = "{0}_v";
+
+        #endregion
+
         #region Fields and Autoproperties
 
         [FormerlySerializedAs("area")]
@@ -27,11 +45,11 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         private ApplicationArea _area;
 
         [PropertyOrder(150)]
-        [NonSerialized, ShowInInspector]
-        public AppaList_BootloadedScene scenes;
+        [NonSerialized, ShowInInspector, ReadOnly]
+        public BootloadedSceneList scenes;
 
         [PropertyOrder(140)]
-        [NonSerialized, ShowInInspector]
+        [NonSerialized, ShowInInspector, ReadOnly]
         public BootloadedScene entryScene;
 
         [FormerlySerializedAs("entryScene")]
@@ -41,7 +59,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         [FormerlySerializedAs("_scenes")]
         [PropertyOrder(90)]
         [SerializeField]
-        private AppaList_SceneReference _sceneReferences;
+        private SceneReferenceList _sceneReferences;
 
         #endregion
 
@@ -54,16 +72,16 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
             using (_PRF_Awake.Auto())
             {
                 base.Awake();
-                AppaLog.Context.Bootload.Info(nameof(Awake));
+                AppaLog.Context.Bootload.Info(nameof(Awake), this);
 
                 if (scenes == null)
                 {
-                    scenes = new AppaList_BootloadedScene();
+                    scenes = new BootloadedSceneList();
                 }
 
                 if (_sceneReferences == null)
                 {
-                    _sceneReferences = new AppaList_SceneReference();
+                    _sceneReferences = new SceneReferenceList();
 #if UNITY_EDITOR
                     this.MarkAsModified();
 #endif
@@ -82,7 +100,10 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                     return;
                 }
 
-                AppaLog.Context.Bootload.Trace($"{nameof(CheckAreaLoadState)}: {state.Area}");
+                AppaLog.Context.Bootload.Trace(
+                    ZString.Format("{0}: {1}", nameof(CheckAreaLoadState), state.Area),
+                    this
+                );
 
                 EvaluateAreaState(state, HandleBootloadTransition);
             }
@@ -90,7 +111,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         public IEnumerable<SceneReference> GetScenesToLoad()
         {
-            AppaLog.Context.Bootload.Info(nameof(GetScenesToLoad));
+            AppaLog.Context.Bootload.Info(nameof(GetScenesToLoad), this);
 
             foreach (var scene in _sceneReferences)
             {
@@ -98,30 +119,42 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 #if UNITY_EDITOR
-                if (name == "None")
+                if (AppalachiaApplication.IsPlayingOrWillPlay)
                 {
                     return;
                 }
 
-                if (_area == ApplicationArea.None)
+                var areaName = name.Replace(ASI_PREFIX, string.Empty);
+
+                if ((areaName == NONE_AREA_NAME) || areaName.IsNullOrWhiteSpace())
+                {
+                    return;
+                }
+
+                if ((_area == ApplicationArea.None) && (areaName != NONE_AREA_NAME))
                 {
                     try
                     {
-                        _area = Enum.Parse<ApplicationArea>(name, false);
+                        _area = Enum.Parse<ApplicationArea>(areaName, false);
                         this.MarkAsModified();
                     }
                     catch (Exception e)
                     {
-                        AppaLog.Exception(
-                            $"The name [{name}] of {nameof(AreaSceneInformation)} is not in {nameof(ApplicationArea)} Enum.",
-                            e,
-                            this
+                        Context.Log.Error(
+                            ZString.Format(
+                                "The name [{0}] of {1} is not in {2} Enum.",
+                                areaName,
+                                nameof(AreaSceneInformation),
+                                nameof(ApplicationArea)
+                            ),
+                            this,
+                            e
                         );
                     }
                 }
@@ -129,74 +162,90 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 if (entrySceneReference == null)
                 {
                     entrySceneReference =
-                        AppalachiaObjectFactory.LoadExistingOrCreateNewAsset<SceneReference>(name);
+                        AppalachiaObjectFactory.LoadExistingOrCreateNewAsset<SceneReference>(
+                            ZString.Format("{0}_{1}", nameof(SceneReference), areaName)
+                        );
+
                     this.MarkAsModified();
                     if (entrySceneReference == null)
                     {
-                        AppaLog.Error(
-                            $"The name [{name}] of {nameof(AreaSceneInformation)} does not have a matching {nameof(SceneReference)}.",
+                        Context.Log.Error(
+                            ZString.Format(
+                                "The name [{0}] of {1} does not have a matching {2}.",
+                                areaName,
+                                nameof(AreaSceneInformation),
+                                nameof(SceneReference)
+                            ),
                             this
                         );
                     }
                 }
 
-                if ((entrySceneReference != null) && (entrySceneReference.sceneAsset == null))
+                if (entrySceneReference != null)
                 {
-                    entrySceneReference.sceneAsset =
-                        AssetDatabaseManager.FindFirstAssetMatch<UnityEditor.SceneAsset>(name);
-
-                    if (entrySceneReference.sceneAsset == null)
+                    if (entrySceneReference.elements == null)
                     {
-                        AppaLog.Error(
-                            $"The name [{name}] of {nameof(AreaSceneInformation)} does not have a matching {nameof(UnityEditor.SceneAsset)}.",
-                            this
-                        );
+                        entrySceneReference.elements = new SceneReferenceElementLookup();
+                        entrySceneReference.MarkAsModified();
+                    }
+
+                    entrySceneReference.elements.SetObjectOwnership(entrySceneReference);
+
+                    var searchString = ZString.Format(SEARCH_FORMAT_STRING, areaName);
+                    var sceneAssets = AssetDatabaseManager.FindAssets<UnityEditor.SceneAsset>(searchString)
+                                                          .Where(sa => !sa.name.Contains("AutoSave"))
+                                                          .Where(
+                                                               sa => sa.name.Length ==
+                                                                     (searchString.Length + 2)
+                                                           )
+                                                          .ToList();
+
+                    if (entrySceneReference.elements.Count != sceneAssets.Count)
+                    {
+                        entrySceneReference.elements.Clear();
+
+                        var values = sceneAssets.Select(sa => sa.ToSceneReference());
+                        entrySceneReference.elements.AddOrUpdateRange(values, v => v.version);
+                    }
+
+                    foreach (var sceneReferenceElement in entrySceneReference.elements.Values)
+                    {
+                        if (sceneReferenceElement.sceneAsset == null)
+                        {
+                            if (sceneReferenceElement.sceneAsset == null)
+                            {
+                                Context.Log.Error(
+                                    ZString.Format(
+                                        "The name [{0}] of {1} does not have a matching {2}.",
+                                        areaName,
+                                        nameof(AreaSceneInformation),
+                                        nameof(UnityEditor.SceneAsset)
+                                    ),
+                                    this
+                                );
+                            }
+                        }
+
+                        if ((sceneReferenceElement.sceneAsset != null) &&
+                            (sceneReferenceElement.reference?.Asset == null))
+                        {
+                            sceneReferenceElement.SetSelection(sceneReferenceElement.sceneAsset);
+                        }
                     }
                 }
 
-                if ((entrySceneReference != null) &&
-                    (entrySceneReference.sceneAsset != null) &&
-                    (entrySceneReference.reference?.Asset == null))
-                {
-                    entrySceneReference.SetSelection(entrySceneReference.sceneAsset);
-                }
 #endif
             }
         }
-
-        /*
-         
-        private static readonly ProfilerMarker _PRF_BootloadAllScenes =
-            new ProfilerMarker(_PRF_PFX + nameof(BootloadAllScenes));
-            
-         private static IEnumerator BootloadAllScenes(SceneBootloadData bootloadData)
-        {
-            AppaLog.Context.Bootload.Info(nameof(BootloadAllScenes));
-
-            if (bootloadData.entrySceneReference == null)
-            {
-                throw new NotSupportedException();
-            }
-
-            var sceneReferences = bootloadData.GetScenesToLoad();
-
-            foreach (var sceneReference in sceneReferences)
-            {
-                var assetReference = sceneReference.reference;
-
-                var newOperation = assetReference.LoadSceneAsync(LoadSceneMode.Additive, false);
-
-                bootloadProgress.Add(newOperation);
-
-                yield return null;
-            }
-        }*/
 
         private void EvaluateAreaState(ApplicationAreaState state, BootloadTransitionHandler handler)
         {
             using (_PRF_CheckAreaLoadStateInternal.Auto())
             {
-                AppaLog.Context.Bootload.Trace($"{nameof(EvaluateAreaState)}: {state.Area}");
+                AppaLog.Context.Bootload.Trace(
+                    ZString.Format("{0}: {1}", nameof(EvaluateAreaState), state.Area),
+                    this
+                );
 
                 if (!state.HasStateChangedTriggered)
                 {
@@ -215,7 +264,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
                 if (entryScene == null)
                 {
-                    entryScene = new BootloadedScene(entrySceneReference);
+                    entryScene = new BootloadedScene(entrySceneReference, _area);
                 }
 
                 result.stateTransition = state.MarkStateTransitionCompleted;
@@ -225,14 +274,14 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                     case ApplicationAreaStates.Load:
                         result.action = entryScene.Load;
 
-                        entryScene.OnLoadComplete += _ => handler(completedResult);
-                        entryScene.OnLoadFailed += _ => handler(failedResult);
+                        entryScene.OnLoadComplete += (s, a) => handler(completedResult);
+                        entryScene.OnLoadFailed += (s, a) => handler(failedResult);
 
                         break;
                     case ApplicationAreaStates.Activate:
                         result.action = entryScene.Activate;
 
-                        entryScene.OnActivateComplete += _ => handler(completedResult);
+                        entryScene.OnActivateComplete += (s, a) => handler(completedResult);
 
                         //entryScene.OnActivateFailed += _ => handler(failedResult);
 
@@ -240,8 +289,8 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                     case ApplicationAreaStates.Unload:
                         result.action = entryScene.Unload;
 
-                        entryScene.OnUnloadComplete += _ => handler(completedResult);
-                        entryScene.OnUnloadFailed += _ => handler(failedResult);
+                        entryScene.OnUnloadComplete += (s, a) => handler(completedResult);
+                        entryScene.OnUnloadFailed += (s, a) => handler(failedResult);
 
                         break;
                     default:
@@ -256,8 +305,16 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         {
             using (_PRF_HandleBootloadTransition.Auto())
             {
+                var state = args.state;
+
                 AppaLog.Context.Bootload.Info(
-                    $"Area [{args.state.Area}] is transitioning from [{args.state.State}:{args.state.Substate}]."
+                    ZString.Format(
+                        "Area [{0}] is transitioning from [{1}:{2}].",
+                        state.Area.ToString().FormatNameForLogging(),
+                        state.State,
+                        state.Substate
+                    ),
+                    this
                 );
 
                 try
@@ -275,10 +332,17 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 }
                 catch (Exception ex)
                 {
-                    AppaLog.Exception(
-                        $"Error executing state change from [{args.state.State}:{args.state.Substate}].",
+                    Context.Log.Error(
+                        ZString.Format(
+                            "Error executing state change on area [{0}] from [{1}:{2}].",
+                            _area.ToString().FormatNameForLogging(),
+                            args.state.State,
+                            args.state.Substate
+                        ),
                         ex
                     );
+
+                    throw;
                 }
             }
         }
@@ -317,8 +381,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         private static readonly ProfilerMarker _PRF_CheckAreaLoadState =
             new ProfilerMarker(_PRF_PFX + nameof(CheckAreaLoadState));
 
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+        
 
         private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
@@ -336,23 +399,22 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         {
             using (_PRF_CreateScene.Auto())
             {
-                AppaLog.Context.Bootload.Info(nameof(CreateScene));
+                AppaLog.Context.Bootload.Info(nameof(CreateScene), this);
 
                 var otherScene = GetScenesToLoad().FirstOrDefault();
 
                 if (otherScene == null)
                 {
-                    var candidateScenes =
-                        AreaSceneInformationCollection.instance.all.SelectMany(s => s._sceneReferences);
-
-                    otherScene = candidateScenes.FirstOrDefault(s => s != null);
+                    otherScene = MainAreaSceneInformationCollection.instance.Lookup.Items
+                                                                   .SelectMany((k, v) => v._sceneReferences)
+                                                                   .FirstOrDefault(s => s != null);
                 }
 
                 var otherPath = otherScene.AssetPath;
                 var otherDirectory = AppaPath.GetDirectoryName(otherPath);
 
-                var sceneName = $"{name}_{_sceneReferences.Count}";
-                var outputPath = AppaPath.Combine(otherDirectory, $"{sceneName}.unity");
+                var sceneName = ZString.Format("{0}_{1}", name, _sceneReferences.Count);
+                var outputPath = AppaPath.Combine(otherDirectory, ZString.Format("{0}.unity", sceneName));
 
                 var scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(
                     UnityEditor.SceneManagement.NewSceneSetup.EmptyScene,
@@ -365,30 +427,21 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene, true);
 
                 var asset = AssetDatabaseManager.LoadAssetAtPath<UnityEditor.SceneAsset>(outputPath);
-                var reference = CreateNew<SceneReference>(sceneName);
 
-                reference.SetSelection(asset);
+                var reference = CreateNew<SceneReference>(
+                    ZString.Format("{0}_{1}", nameof(SceneReference), sceneName)
+                );
 
-                /*if (_specifyFirst && (_first == null))
-            {
-                _first = reference;
-            }
-            else if (_specifyLast && (_last == null))
-            {
-                _last = reference;
-            }
-            else
-            {*/
+                reference.SetSelection(AreaVersion.V01, asset);
+
                 if (_sceneReferences == null)
                 {
-                    _sceneReferences = new AppaList_SceneReference();
+                    _sceneReferences = new SceneReferenceList();
                 }
 
                 _sceneReferences.Add(reference);
 
                 this.MarkAsModified();
-
-                //}
             }
         }
 
