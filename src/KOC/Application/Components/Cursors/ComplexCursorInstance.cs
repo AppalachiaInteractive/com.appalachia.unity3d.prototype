@@ -402,7 +402,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
         [Serializable]
         public struct CursorInstanceComponents
         {
-            // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
             static CursorInstanceComponents()
             {
                 CursorManager.InstanceAvailable += i => _cursorManager = i;

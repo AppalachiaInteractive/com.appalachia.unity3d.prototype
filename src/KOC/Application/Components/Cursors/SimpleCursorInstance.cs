@@ -1,4 +1,5 @@
 using System;
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata;
@@ -10,9 +11,9 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 {
+    [CallStaticConstructorInEditor]
     public class SimpleCursorInstance : AppalachiaApplicationBehaviour<SimpleCursorInstance>
     {
-        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
         static SimpleCursorInstance()
         {
             RegisterDependency<CursorManager>(i => _cursorManager = i);
