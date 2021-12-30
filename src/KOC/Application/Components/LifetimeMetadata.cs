@@ -22,18 +22,17 @@ namespace Appalachia.Prototype.KOC.Application.Components
     {
         static LifetimeMetadata()
         {
+            RegisterDependency<MainAreaSceneInformationCollection>(
+                i => mainAreaSceneInformationCollection = i
+            );
         }
 
-        [Serializable]
-        public struct ClearCameraSettings
-        {
-            public bool enabled;
-            public Color color; //000000
+        #region Static Fields and Autoproperties
 
-            public bool enabledEditor;
-            public Color colorEditor; //33322B
-        }
-        
+        public static MainAreaSceneInformationCollection mainAreaSceneInformationCollection;
+
+        #endregion
+
         #region Fields and Autoproperties
 
         [InlineProperty, HideLabel, BoxGroup("Clear Camera")]
@@ -44,8 +43,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
         public DeviceButtonLookup deviceButtons;
         public AudioMixer audioMixer;
         public ApplicationStyleElementDefaultLookup styleLookup;
-
-        public MainAreaSceneInformationCollection areaSceneInformationCollection;
 
         public List<ScriptableObject> criticalReferences;
 
@@ -66,12 +63,12 @@ namespace Appalachia.Prototype.KOC.Application.Components
                     {
                         if (uiStyle == null)
                         {
-                            uiStyle = ApplicationUIStyle.LoadOrCreateNew(nameof(ApplicationUIStyle));
+                            uiStyle = ApplicationUIStyle.LoadOrCreateNew<ApplicationUIStyle>(
+                                nameof(ApplicationUIStyle)
+                            );
                         }
                     }
                 );
-
-                uiStyle.InitializeExternal();
 
                 await initializer.Do(
                     this,
@@ -81,20 +78,14 @@ namespace Appalachia.Prototype.KOC.Application.Components
                     {
                         if (deviceButtons == null)
                         {
-                            deviceButtons = DeviceButtonLookup.LoadOrCreateNew(nameof(DeviceButtonLookup));
+                            deviceButtons =
+                                DeviceButtonLookup.LoadOrCreateNew<DeviceButtonLookup>(
+                                    nameof(DeviceButtonLookup)
+                                );
                         }
                     }
                 );
 #endif
-
-                deviceButtons.InitializeExternal();
-
-                await initializer.Do(
-                    this,
-                    nameof(MainAreaSceneInformationCollection),
-                    areaSceneInformationCollection == null,
-                    () => { areaSceneInformationCollection = MainAreaSceneInformationCollection.instance; }
-                );
 
                 if (!AppalachiaApplication.IsPlaying)
                 {
@@ -146,15 +137,30 @@ namespace Appalachia.Prototype.KOC.Application.Components
 #endif
         }
 
+        #region Nested type: ClearCameraSettings
+
+        [Serializable]
+        public struct ClearCameraSettings
+        {
+            #region Fields and Autoproperties
+
+            public bool enabled;
+
+            public bool enabledEditor;
+            public Color color;       //000000
+            public Color colorEditor; //33322B
+
+            #endregion
+        }
+
+        #endregion
+
         #region Profiling
 
         private const string _PRF_PFX = nameof(LifetimeMetadata) + ".";
 
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
-
-        
-
-        private static readonly ProfilerMarker _PRF_OnEnable = new(_PRF_PFX + nameof(OnEnable));
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         private static readonly ProfilerMarker _PRF_Scan = new(_PRF_PFX + nameof(Scan));
 

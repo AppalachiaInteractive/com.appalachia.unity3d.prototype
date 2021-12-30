@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Menus.Components;
 using Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements;
@@ -16,7 +19,7 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Application.Menus
 {
     [ExecuteAlways]
-    public class UIMenuManager : AppalachiaApplicationBehaviour
+    public class UIMenuManager : AppalachiaApplicationBehaviour<UIMenuManager>
     {
         #region Fields and Autoproperties
 
@@ -34,58 +37,28 @@ namespace Appalachia.Prototype.KOC.Application.Menus
 
         #endregion
 
-        #region Event Functions
-
-        protected override void Start()
-        {
-            using (_PRF_Start.Auto())
-            {
-                base.Start();
-
-                Initialize();
-
-                UpdateMenus();
-            }
-        }
-
-        protected virtual void Update()
-        {
-            using (_PRF_Update.Auto())
-            {
-                UpdateMenus();
-            }
-        }
-
-        protected override async AppaTask WhenEnabled()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                await base.WhenEnabled();
-
-                Initialize();
-
-                UpdateMenus();
-            }
-        }
-
-        #endregion
-
 #if UNITY_EDITOR
         public void CreateMetadata(string metadataName)
         {
             using (_PRF_CreateMetadata.Auto())
             {
-                LoadOrCreateNewIfNull(ref _buttonMetadataGroup,     metadataName + "_ButtonMetadata");
-                LoadOrCreateNewIfNull(ref _backgroundMetadataGroup, metadataName + "_BackgroundMetadata");
+                AppalachiaObject.LoadOrCreateNewIfNull(
+                    ref _buttonMetadataGroup,
+                    metadataName + "_ButtonMetadata"
+                );
+                AppalachiaObject.LoadOrCreateNewIfNull(
+                    ref _backgroundMetadataGroup,
+                    metadataName + "_BackgroundMetadata"
+                );
             }
         }
 #endif
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 InitializeElementMetadataGroup<UIMenuBackgroundMetadataGroup, UIMenuBackgroundMetadata,
                     UIMenuBackgroundComponentSet, UIMenuBackgroundWrapper>(
@@ -100,6 +73,8 @@ namespace Appalachia.Prototype.KOC.Application.Menus
                     ref _buttons,
                     CreateUIMenuButton
                 );
+
+                await UpdateMenus();
             }
         }
 
@@ -192,8 +167,8 @@ namespace Appalachia.Prototype.KOC.Application.Menus
             TG group,
             ref List<TW> wrappers,
             Func<TE, int, TW> elementWrapperConvertor)
-            where TG : UIElementMetadataGroupBase<TE, TC>
-            where TE : UIElementMetadataBase<TC>
+            where TG : UIElementMetadataGroupBase<TG, TE, TC>
+            where TE : UIElementMetadataBase<TE, TC>
             where TC : IComponentSet
             where TW : UIElementWrapper<TE, TC>
         {
@@ -236,7 +211,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus
             }
         }
 
-        private void UpdateMenus()
+        private async AppaTask UpdateMenus()
         {
             using (_PRF_UpdateMenus.Auto())
             {
@@ -249,7 +224,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus
                         var components = uiMenuBackground.components;
 
                         var backgroundName = GetBackgroundBaseName(metadata, index);
-                        metadata.Apply(gameObject, backgroundName, ref components);
+                        await metadata.Apply(gameObject, backgroundName, components);
                     }
                 }
 
@@ -262,7 +237,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus
                         var components = uiMenuButton.components;
 
                         var buttonName = GetButtonBaseName(metadata, index);
-                        metadata.Apply(gameObject, buttonName, ref components);
+                        await metadata.Apply(gameObject, buttonName, components);
                     }
                 }
             }
@@ -284,24 +259,19 @@ namespace Appalachia.Prototype.KOC.Application.Menus
         private static readonly ProfilerMarker _PRF_CreateUIMenuButton =
             new ProfilerMarker(_PRF_PFX + nameof(CreateUIMenuButton));
 
-#if UNITY_EDITOR
         private static readonly ProfilerMarker _PRF_CreateMetadata =
             new ProfilerMarker(_PRF_PFX + nameof(CreateMetadata));
-#endif
 
         private static readonly ProfilerMarker _PRF_UpdateMenus =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateMenus));
 
-        private static readonly ProfilerMarker
-            _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
-
         private static readonly ProfilerMarker _PRF_Initialize =
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
-        private static readonly ProfilerMarker _PRF_Start = new ProfilerMarker(_PRF_PFX + nameof(Start));
-
-        private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
-
         #endregion
+
+#if UNITY_EDITOR
+
+#endif
     }
 }

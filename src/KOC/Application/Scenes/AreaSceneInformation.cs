@@ -5,6 +5,7 @@ using System.Linq;
 using Appalachia.CI.Integration.Assets;
 using Appalachia.CI.Integration.Core;
 using Appalachia.CI.Integration.FileSystem;
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Collections.Extensions;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
@@ -25,6 +26,7 @@ using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
+    [CallStaticConstructorInEditor]
     public class AreaSceneInformation : AppalachiaObject<AreaSceneInformation>
     {
         #region Constants and Static Readonly
@@ -35,6 +37,18 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         private const string NONE_AREA_NAME = "None";
 
         private const string SEARCH_FORMAT_STRING = "{0}_v";
+
+        #endregion
+
+        static AreaSceneInformation()
+        {
+            MainAreaSceneInformationCollection.InstanceAvailable +=
+                i => _mainAreaSceneInformationCollection = i;
+        }
+
+        #region Static Fields and Autoproperties
+
+        private static MainAreaSceneInformationCollection _mainAreaSceneInformationCollection;
 
         #endregion
 
@@ -64,32 +78,6 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
         #endregion
 
         public ApplicationArea Area => _area;
-
-        #region Event Functions
-
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-                AppaLog.Context.Bootload.Info(nameof(Awake), this);
-
-                if (scenes == null)
-                {
-                    scenes = new BootloadedSceneList();
-                }
-
-                if (_sceneReferences == null)
-                {
-                    _sceneReferences = new SceneReferenceList();
-#if UNITY_EDITOR
-                    this.MarkAsModified();
-#endif
-                }
-            }
-        }
-
-        #endregion
 
         public void CheckAreaLoadState(ApplicationAreaState state)
         {
@@ -130,6 +118,19 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                     return;
                 }
 
+                if (scenes == null)
+                {
+                    scenes = new BootloadedSceneList();
+                }
+
+                if (_sceneReferences == null)
+                {
+                    _sceneReferences = new SceneReferenceList();
+#if UNITY_EDITOR
+                    MarkAsModified();
+#endif
+                }
+
                 var areaName = name.Replace(ASI_PREFIX, string.Empty);
 
                 if ((areaName == NONE_AREA_NAME) || areaName.IsNullOrWhiteSpace())
@@ -142,7 +143,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                     try
                     {
                         _area = Enum.Parse<ApplicationArea>(areaName, false);
-                        this.MarkAsModified();
+                        MarkAsModified();
                     }
                     catch (Exception e)
                     {
@@ -166,7 +167,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                             ZString.Format("{0}_{1}", nameof(SceneReference), areaName)
                         );
 
-                    this.MarkAsModified();
+                    MarkAsModified();
                     if (entrySceneReference == null)
                     {
                         Context.Log.Error(
@@ -372,6 +373,9 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         private const string _PRF_PFX = nameof(AreaSceneInformation) + ".";
 
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
         private static readonly ProfilerMarker _PRF_HandleBootloadTransition =
             new ProfilerMarker(_PRF_PFX + nameof(HandleBootloadTransition));
 
@@ -380,10 +384,6 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         private static readonly ProfilerMarker _PRF_CheckAreaLoadState =
             new ProfilerMarker(_PRF_PFX + nameof(CheckAreaLoadState));
-
-        
-
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
         #endregion
 
@@ -405,9 +405,9 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
                 if (otherScene == null)
                 {
-                    otherScene = MainAreaSceneInformationCollection.instance.Lookup.Items
-                                                                   .SelectMany((k, v) => v._sceneReferences)
-                                                                   .FirstOrDefault(s => s != null);
+                    otherScene = _mainAreaSceneInformationCollection.Lookup.Items
+                                                                    .SelectMany((k, v) => v._sceneReferences)
+                                                                    .FirstOrDefault(s => s != null);
                 }
 
                 var otherPath = otherScene.AssetPath;
@@ -441,7 +441,7 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
                 _sceneReferences.Add(reference);
 
-                this.MarkAsModified();
+                MarkAsModified();
             }
         }
 

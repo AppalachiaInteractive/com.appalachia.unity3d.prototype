@@ -1,6 +1,8 @@
 using System;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Extensions;
 using Appalachia.Prototype.KOC.Application.Input;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;
@@ -24,11 +26,11 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
 
         [NonSerialized] private bool _alreadySkipping;
 
+        // ReSharper disable once UnassignedField.Global
         protected bool hasSkipEnablingBeenSignaled;
 
         #endregion
 
-        
         public override ApplicationArea ParentArea => ApplicationArea.SplashScreen;
 
         #region Event Functions
@@ -80,11 +82,11 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 var directorName = GetChildObjectName("Director");
 
@@ -185,7 +187,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
 
                     case TimelineSkipMode.AfterDelay:
 
-                        if (WakeDuration > areaMetadata.skipFrameDelay)
+                        if (AwakeDuration > areaMetadata.skipFrameDelay)
                         {
                             SkipTimeline();
                         }

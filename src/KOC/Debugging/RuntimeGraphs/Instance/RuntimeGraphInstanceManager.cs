@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Settings;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.UI;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Util;
+using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,7 +12,7 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
 {
     public abstract class RuntimeGraphInstanceManager<TGraph, TManager, TMonitor, TText, TSettings> :
-        RuntimeGraphInstanceBase<TGraph, TManager, TMonitor, TText, TSettings>,
+        RuntimeGraphInstanceBase<TGraph, TManager, TMonitor, TText, TSettings, TManager>,
         IMovable,
         IModifiableState
         where TGraph : RuntimeGraphInstance<TGraph, TManager, TMonitor, TText, TSettings>
@@ -160,11 +162,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 if (rectTransform == null)
                 {

@@ -1,8 +1,10 @@
 using System;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.Cursors.Collections;
 using Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Enums;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
@@ -30,11 +32,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 
         public delegate void CursorVisibilityChangeHandler(bool visible);
 
-        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
         static CursorManager()
         {
-            MainSimpleCursorLookup.InstanceAvailable += i => _mainSimpleCursorLookup = i;
-            MainComplexCursorLookup.InstanceAvailable += i => _mainComplexCursorLookup = i;
+            RegisterDependency<MainSimpleCursorLookup>(i => _mainSimpleCursorLookup = i);
+
+            RegisterDependency<MainComplexCursorLookup>(i => _mainComplexCursorLookup = i);
         }
 
         #region Static Fields and Autoproperties
@@ -276,14 +278,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
-
-                _mainSimpleCursorLookup.InitializeExternal();
-                _mainComplexCursorLookup.InitializeExternal();
+                await base.Initialize(initializer);
 
 #if UNITY_EDITOR
                 if (_complexCursorInstances == null)

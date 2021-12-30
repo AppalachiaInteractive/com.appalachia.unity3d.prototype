@@ -1,6 +1,7 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Interpolation;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -66,29 +67,26 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
         #endregion
 
         public bool passiveMode => _passiveMode;
-        public bool updateAtStart => _updateAtStart;
         public bool startVisible => _startVisible;
+        public bool updateAtStart => _updateAtStart;
         public float fadeInDuration => _fadeInDuration;
         public float fadeOutDuration => _fadeOutDuration;
 
         public float maximumAlpha => fadeRange.y;
 
         public float minimumAlpha => fadeRange.x;
-        public InterpolationMode passiveFadeMode => _passiveFadeMode;
         public InterpolationMode fadeIn => _fadeIn;
         public InterpolationMode fadeOut => _fadeOut;
+        public InterpolationMode passiveFadeMode => _passiveFadeMode;
 
-        #region Event Functions
-
-        protected override void Awake()
+        protected override async AppaTask WhenEnabled()
         {
-            base.Awake();
+            await base.WhenEnabled();
+
             if (fadeRange == Vector2.zero)
             {
                 fadeRange = new Vector2(0.0f, 1.0f);
             }
         }
-
-        #endregion
     }
 }

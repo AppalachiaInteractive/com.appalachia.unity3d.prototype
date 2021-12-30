@@ -144,7 +144,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     dpad = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(dpad))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[0] = dpad;
                 }
 
@@ -153,7 +153,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     dpad_up = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(dpad_up))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[1] = dpad_up;
                 }
 
@@ -162,7 +162,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     dpad_down = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(dpad_down))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[2] = dpad_down;
                 }
 
@@ -171,7 +171,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     dpad_left = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(dpad_left))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[3] = dpad_left;
                 }
 
@@ -180,7 +180,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     dpad_right = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(dpad_right))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[4] = dpad_right;
                 }
 
@@ -189,7 +189,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     start = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(start))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[5] = start;
                 }
 
@@ -198,7 +198,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     select = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(select))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[6] = select;
                 }
 
@@ -207,7 +207,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     leftStickPress = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(leftStickPress))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[7] = leftStickPress;
                 }
 
@@ -216,7 +216,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     rightStickPress = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(rightStickPress))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[8] = rightStickPress;
                 }
 
@@ -225,7 +225,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     leftShoulder = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(leftShoulder))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[9] = leftShoulder;
                 }
 
@@ -234,7 +234,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     rightShoulder = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(rightShoulder))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[10] = rightShoulder;
                 }
 
@@ -243,7 +243,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     buttonSouth = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(buttonSouth))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[11] = buttonSouth;
                 }
 
@@ -252,7 +252,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     buttonEast = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(buttonEast))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[12] = buttonEast;
                 }
 
@@ -261,7 +261,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     buttonWest = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(buttonWest))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[13] = buttonWest;
                 }
 
@@ -270,7 +270,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     buttonNorth = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(buttonNorth))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[14] = buttonNorth;
                 }
 
@@ -279,7 +279,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     leftStick = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(leftStick))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[15] = leftStick;
                 }
 
@@ -288,7 +288,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     rightStick = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(rightStick))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[16] = rightStick;
                 }
 
@@ -297,7 +297,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     leftTrigger = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(leftTrigger))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[17] = leftTrigger;
                 }
 
@@ -306,7 +306,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     rightTrigger = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(rightTrigger))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[18] = rightTrigger;
                 }
             }
@@ -322,7 +322,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
         )]
         public static void CreateAsset()
         {
-            CreateNew();
+            CreateNew<GamepadMetadata>();
         }
 #endif
 
@@ -331,16 +331,17 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
         #region Profiling
 
         private const string _PRF_PFX = nameof(GamepadMetadata) + ".";
-#if UNITY_EDITOR
 
         private static readonly ProfilerMarker _PRF_SetAll =
             new ProfilerMarker(_PRF_PFX + nameof(PopulateAll));
-#endif
 
         private static readonly ProfilerMarker _PRF_CanResolve =
             new ProfilerMarker(_PRF_PFX + nameof(CanResolve));
 
         private static readonly ProfilerMarker _PRF_Resolve = new ProfilerMarker(_PRF_PFX + nameof(Resolve));
+#if UNITY_EDITOR
+
+#endif
 
         #endregion
     }

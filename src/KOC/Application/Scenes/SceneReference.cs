@@ -36,7 +36,20 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
             }
         }
 
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(SceneReference) + ".";
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        #endregion
+
 #if UNITY_EDITOR
+
+        private static readonly ProfilerMarker _PRF_IsDataValid =
+            new ProfilerMarker(_PRF_PFX + nameof(IsDataValid));
+
         protected override bool IsDataValid()
         {
             using (_PRF_IsDataValid.Auto())
@@ -44,35 +57,25 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
                 return (currentVersion != AreaVersion.None) || (elements == null) || (elements.Count == 0);
             }
         }
-#endif
-
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(SceneReference) + ".";
-
-        
-
-#if UNITY_EDITOR
-        private static readonly ProfilerMarker _PRF_IsDataValid =
-            new ProfilerMarker(_PRF_PFX + nameof(IsDataValid));
-#endif
-
-        #endregion
-
-#if UNITY_EDITOR
 
         public void SetSelection(AreaVersion version, UnityEditor.SceneAsset asset)
         {
-            elements ??= new SceneReferenceElementLookup();
+            using (_PRF_SetSelection.Auto())
+            {
+                elements ??= new SceneReferenceElementLookup();
 
-            var sceneReference = SceneReferenceElement.LoadOrCreateNew(asset.name);
+                var sceneReference = SceneReferenceElement.LoadOrCreateNew(asset.name);
 
-            sceneReference.version = version;
-            sceneReference.SetSelection(asset);
+                sceneReference.version = version;
+                sceneReference.SetSelection(asset);
 
-            elements.AddOrUpdate(version, sceneReference);
-            this.MarkAsModified();
+                elements.AddOrUpdate(version, sceneReference);
+                MarkAsModified();
+            }
         }
+
+        private static readonly ProfilerMarker _PRF_SetSelection =
+            new ProfilerMarker(_PRF_PFX + nameof(SetSelection));
 
         [UnityEditor.MenuItem(
             PKG.Menu.Assets.Base + nameof(SceneReference),

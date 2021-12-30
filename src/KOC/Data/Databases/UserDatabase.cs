@@ -1,7 +1,9 @@
 using System;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Data.Core;
 using Appalachia.Prototype.KOC.Data.Collections.User;
 using Appalachia.Prototype.KOC.Data.Documents.User;
+using Appalachia.Utility.Async;
 using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Data.Databases
@@ -31,10 +33,11 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             }
         }
 
-        protected override void OnInitialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            using (_PRF_OnInitialize.Auto())
+            using (_PRF_Initialize.Auto())
             {
+                await base.Initialize(initializer);
                 var qualitySettings = QualitySettingLevel;
                 var savedGames = SavedGames;
                 var userSettings = UserSettings;
@@ -49,8 +52,8 @@ namespace Appalachia.Prototype.KOC.Data.Databases
 
         private const string _PRF_PFX = nameof(UserDatabase) + ".";
 
-        private static readonly ProfilerMarker _PRF_OnInitialize =
-            new ProfilerMarker(_PRF_PFX + nameof(OnInitialize));
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         private static readonly ProfilerMarker _PRF_Dispose = new ProfilerMarker(_PRF_PFX + nameof(Dispose));
 

@@ -12,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 {
     [DoNotReorderFields]
     [Serializable, SmartLabelChildren, SmartLabel]
-    public sealed class MouseMetadata : DeviceMetadata<MouseMetadata>
+    public sealed class MouseMetadata : DeviceMetadata
     {
         #region Fields and Autoproperties
 
@@ -95,7 +95,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     scroll = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(scroll))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[0] = scroll;
                 }
 
@@ -104,7 +104,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     leftButton = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(leftButton))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[1] = leftButton;
                 }
 
@@ -113,7 +113,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     rightButton = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(rightButton))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[2] = rightButton;
                 }
 
@@ -122,7 +122,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     middleButton = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(middleButton))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[3] = middleButton;
                 }
 
@@ -131,7 +131,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     forwardButton = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(forwardButton))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[4] = forwardButton;
                 }
 
@@ -140,7 +140,7 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
                     backButton = ControlButtonMetadata.LoadOrCreateNew(
                         ZString.Format("{0}/{1}", deviceName, nameof(backButton))
                     );
-                    this.MarkAsModified();
+                    MarkAsModified();
                     _controls[5] = backButton;
                 }
             }
@@ -151,15 +151,17 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons.Devices
 
         private const string _PRF_PFX = nameof(MouseMetadata) + ".";
 
-#if UNITY_EDITOR
         private static readonly ProfilerMarker _PRF_SetAll =
             new ProfilerMarker(_PRF_PFX + nameof(PopulateAll));
-#endif
 
         private static readonly ProfilerMarker _PRF_CanResolve =
             new ProfilerMarker(_PRF_PFX + nameof(CanResolve));
 
         private static readonly ProfilerMarker _PRF_Resolve = new ProfilerMarker(_PRF_PFX + nameof(Resolve));
+
+#if UNITY_EDITOR
+
+#endif
 
         #endregion
     }

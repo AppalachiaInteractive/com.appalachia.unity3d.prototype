@@ -45,7 +45,7 @@ namespace Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons
                     this,
                     nameof(_font),
                     _font == null,
-                    () => { _font = LoadOrCreateNew("On Screen Buttons"); }
+                    () => { _font = LoadOrCreateNew<FontStyleOverride>("On Screen Buttons"); }
                 );
                 await initializer.Do(
                     this,
@@ -63,7 +63,7 @@ namespace Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons
                 await initializer.Do(this, nameof(_textColor),   () => _textColor = Color.white);
 
 #endif
-                
+
                 _font.SyncWithDefault();
             }
         }
@@ -82,7 +82,8 @@ namespace Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons
 
         private const string _PRF_PFX = nameof(OnScreenButtonStyle) + ".";
 
-        
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         private static readonly ProfilerMarker _PRF_RegisterOverride =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterOverride));

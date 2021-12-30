@@ -33,6 +33,7 @@ namespace Appalachia.Prototype.KOC.Application.Behaviours
 
         #endregion
 
+        protected static LifetimeComponentManager LifetimeComponentManager => _lifetimeComponentManager;
         protected static LifetimeComponents LifetimeComponents => _lifetimeComponentManager.Components;
 
         protected KOCInputActions InputActions

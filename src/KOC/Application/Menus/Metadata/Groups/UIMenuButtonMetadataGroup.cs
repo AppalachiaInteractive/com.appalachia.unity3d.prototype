@@ -4,8 +4,8 @@ using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups
 {
-    public class
-        UIMenuButtonMetadataGroup : UIElementMetadataGroupBase<UIMenuButtonMetadata, UIMenuButtonComponentSet>
+    public class UIMenuButtonMetadataGroup : UIElementMetadataGroupBase<UIMenuButtonMetadataGroup,
+        UIMenuButtonMetadata, UIMenuButtonComponentSet>
     {
         protected override void InitializeElement(UIMenuButtonMetadata element)
         {

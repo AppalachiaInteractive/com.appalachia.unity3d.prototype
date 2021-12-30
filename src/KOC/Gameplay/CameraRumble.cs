@@ -1,12 +1,13 @@
 using System;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public class CameraRumble : AppalachiaApplicationBehaviour
+    public sealed class CameraRumble : AppalachiaApplicationBehaviour<CameraRumble>
     {
-        
+        #region Fields and Autoproperties
 
         public RumbleInfo innerDisplacement = new()
         {
@@ -30,6 +31,8 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
         [NonSerialized] private double _time;
 
+        #endregion
+
         #region Event Functions
 
         private void LateUpdate()
@@ -45,32 +48,32 @@ namespace Appalachia.Prototype.KOC.Gameplay
             transform.localRotation = rotation;
         }
 
-        protected override async AppaTask WhenEnabled()
-        {
-            await base.WhenEnabled();
-            
-            _time = 0;
-        }
-
-        protected void OnValidate()
+        private void OnValidate()
         {
             _time = 0;
         }
 
         #endregion
 
+        protected override async AppaTask WhenEnabled()
+        {
+            await base.WhenEnabled();
+
+            _time = 0;
+        }
+
         private static Vector3 Rumble(double time, RumbleInfo outer, RumbleInfo inner)
         {
             const double twoPI = Mathf.PI * 2.0;
             double x, y;
 
-            x = Mathf.Sin((float) ((inner.phase + time) * twoPI * inner.frequency)) * inner.amplitude.x;
-            x = Mathf.Cos((float) ((x + (outer.phase + time)) * twoPI * outer.frequency)) * outer.amplitude.x;
+            x = Mathf.Sin((float)((inner.phase + time) * twoPI * inner.frequency)) * inner.amplitude.x;
+            x = Mathf.Cos((float)((x + (outer.phase + time)) * twoPI * outer.frequency)) * outer.amplitude.x;
 
-            y = Mathf.Cos((float) ((inner.phase + time) * twoPI * inner.frequency)) * inner.amplitude.y;
-            y = Mathf.Sin((float) ((y + (outer.phase + time)) * twoPI * outer.frequency)) * outer.amplitude.y;
+            y = Mathf.Cos((float)((inner.phase + time) * twoPI * inner.frequency)) * inner.amplitude.y;
+            y = Mathf.Sin((float)((y + (outer.phase + time)) * twoPI * outer.frequency)) * outer.amplitude.y;
 
-            return new Vector3((float) x, (float) y, 0f);
+            return new Vector3((float)x, (float)y, 0f);
         }
 
         #region Nested type: RumbleInfo
@@ -78,12 +81,13 @@ namespace Appalachia.Prototype.KOC.Gameplay
         [Serializable]
         public struct RumbleInfo
         {
-            
+            #region Fields and Autoproperties
 
             public float frequency;
             public float phase;
             public Vector2 amplitude;
 
+            #endregion
         }
 
         #endregion

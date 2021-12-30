@@ -199,6 +199,9 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 
         private const string _PRF_PFX = nameof(DeviceButtonLookup) + ".";
 
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
         private static readonly ProfilerMarker _PRF_GetBestControl =
             new ProfilerMarker(_PRF_PFX + nameof(GetBestControl));
 
@@ -209,11 +212,6 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
             new ProfilerMarker(_PRF_PFX + nameof(LogFailure));
 
         private static readonly ProfilerMarker _PRF_Resolve = new ProfilerMarker(_PRF_PFX + nameof(Resolve));
-
-        private static readonly ProfilerMarker
-            _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
-
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
         #endregion
 
@@ -315,14 +313,16 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
                 {
                     if (keyboard == null)
                     {
-                        keyboard = KeyboardMetadata.LoadOrCreateNew(nameof(KeyboardMetadata));
+                        keyboard = KeyboardMetadata.LoadOrCreateNew<KeyboardMetadata>(
+                            nameof(KeyboardMetadata)
+                        );
                     }
 
                     keyboard.deviceName = Keyboard.current.device.name;
 
                     if (mouse == null)
                     {
-                        mouse = MouseMetadata.LoadOrCreateNew(nameof(MouseMetadata));
+                        mouse = MouseMetadata.LoadOrCreateNew<MouseMetadata>(nameof(MouseMetadata));
                     }
 
                     mouse.deviceName = Mouse.current.device.name;

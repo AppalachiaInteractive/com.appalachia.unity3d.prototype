@@ -1,5 +1,8 @@
 using System;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Colors;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -7,13 +10,23 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 {
-    public class SimpleCursorInstance : AppalachiaApplicationBehaviour
+    public class SimpleCursorInstance : AppalachiaApplicationBehaviour<SimpleCursorInstance>
     {
-        #region Fields and Autoproperties
+        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
+        static SimpleCursorInstance()
+        {
+            RegisterDependency<CursorManager>(i => _cursorManager = i);
+        }
+
+        #region Static Fields and Autoproperties
 
         [FoldoutGroup("References")]
-        [SerializeField]
-        public CursorManager cursorManager;
+        [ShowInInspector]
+        private static CursorManager _cursorManager;
+
+        #endregion
+
+        #region Fields and Autoproperties
 
         public SimpleCursorMetadata metadata;
 
@@ -48,9 +61,9 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
                 }
                 else
                 {
-                    var targetPosition = cursorManager.currentPosition;
+                    var targetPosition = _cursorManager.currentPosition;
 
-                    var screenSize = cursorManager.screenSize;
+                    var screenSize = _cursorManager.screenSize;
 
                     var x = targetPosition.x;
                     var y = screenSize.y - targetPosition.y;
@@ -124,36 +137,23 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                if (cursorManager == null)
-                {
-                    cursorManager = CursorManager.instance;
-                }
+                await base.Initialize(initializer);
 
-                cursorManager.CursorTypeChanged -= OnCursorTypeChanged;
-                cursorManager.CursorTypeChanged += OnCursorTypeChanged;
-                cursorManager.CursorColorChanged -= OnCursorColorChanged;
-                cursorManager.CursorColorChanged += OnCursorColorChanged;
-                cursorManager.CursorLockedChanged -= OnCursorLockedChanged;
-                cursorManager.CursorLockedChanged += OnCursorLockedChanged;
-                cursorManager.CursorStateChanged -= OnCursorStateChanged;
-                cursorManager.CursorStateChanged += OnCursorStateChanged;
-                cursorManager.CursorVisibilityChanged -= OnCursorVisibilityChanged;
-                cursorManager.CursorVisibilityChanged += OnCursorVisibilityChanged;
+                _cursorManager.CursorTypeChanged -= OnCursorTypeChanged;
+                _cursorManager.CursorTypeChanged += OnCursorTypeChanged;
+                _cursorManager.CursorColorChanged -= OnCursorColorChanged;
+                _cursorManager.CursorColorChanged += OnCursorColorChanged;
+                _cursorManager.CursorLockedChanged -= OnCursorLockedChanged;
+                _cursorManager.CursorLockedChanged += OnCursorLockedChanged;
+                _cursorManager.CursorStateChanged -= OnCursorStateChanged;
+                _cursorManager.CursorStateChanged += OnCursorStateChanged;
+                _cursorManager.CursorVisibilityChanged -= OnCursorVisibilityChanged;
+                _cursorManager.CursorVisibilityChanged += OnCursorVisibilityChanged;
             }
-        }
-
-        private void OnCursorVisibilityChanged(bool visible)
-        {
-            stateData.visible = visible;
-        }
-
-        private void OnCursorStateChanged(CursorState state)
-        {
-            stateData.state = state;
         }
 
         private void OnCursorLockedChanged(bool locked)
@@ -161,17 +161,15 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
             stateData.locked = locked;
         }
 
-        /*private static Texture2D GetAdjustedCursorTexture(Texture2D texture, Color color)
+        private void OnCursorStateChanged(CursorState state)
         {
-            using (_PRF_GetAdjustedCursorTexture.Auto())
-            {
-                var result = Instantiate(texture);
+            stateData.state = state;
+        }
 
-                result.Multiply(color);
-
-                return result;
-            }
-        }*/
+        private void OnCursorVisibilityChanged(bool visible)
+        {
+            stateData.visible = visible;
+        }
 
         #region Profiling
 
@@ -186,5 +184,17 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         #endregion
+
+        /*private static Texture2D GetAdjustedCursorTexture(Texture2D texture, Color color)
+        {
+            using (_PRF_GetAdjustedCursorTexture.Auto())
+            {
+                var result = Instantiate(texture);
+
+                result.Multiply(color);
+
+                return result;
+            }
+        }*/
     }
 }

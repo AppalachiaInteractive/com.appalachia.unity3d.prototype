@@ -1,11 +1,12 @@
+using Appalachia.Core.Objects.Root;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public class SpawnPoint : GameAgent
+    public class SpawnPoint : AppalachiaBehaviour<SpawnPoint>
     {
-        
+        #region Fields and Autoproperties
 
         public bool randomizePosition;
 
@@ -14,13 +15,10 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
         public LayerMask snapLayers = (1 << 0) | (1 << 15);
 
+        #endregion
 
-        public new static SpawnPoint Find(string id)
-        {
-            return Find<SpawnPoint>(id);
-        }
-
-        public void Spawn(GameAgent agent, bool reset)
+        public void Spawn<T>(T agent, bool reset)
+            where T : GameAgent<T>
         {
             if (reset)
             {

@@ -1,5 +1,8 @@
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Styling.Fonts;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -10,7 +13,8 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Application.Components.Text
 {
-    public abstract class DynamicTextMesh : AppalachiaApplicationBehaviour
+    public abstract class DynamicTextMesh<T> : AppalachiaApplicationBehaviour<T>
+        where T : DynamicTextMesh<T>
     {
         #region Constants and Static Readonly
 
@@ -93,11 +97,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
         {
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 enabled = true;
 
@@ -111,17 +115,14 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
                     this,
                     nameof(font),
                     font == null,
-                    () => { font = FontStyleOverride.LoadOrCreateNew(nameof(DynamicTextMesh)); }
+                    () => { font = FontStyleOverride.LoadOrCreateNew(nameof(T)); }
                 );
 
                 await initializer.Do(
                     this,
                     nameof(labelFont),
                     labelFont == null,
-                    () =>
-                    {
-                        labelFont = FontStyleOverride.LoadOrCreateNew(nameof(DynamicTextMesh) + "_Label");
-                    }
+                    () => { labelFont = FontStyleOverride.LoadOrCreateNew(nameof(T) + "_Label"); }
                 );
 #endif
 
@@ -174,16 +175,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
             }
         }
 
-        private void LabelFontOnStyleChanged(IFontStyle style)
-        {
-            UpdateText();
-        }
-
-        private void FontOnStyleChanged(IFontStyle style)
-        {
-            UpdateText();
-        }
-
         [Button]
         protected void UpdateText()
         {
@@ -227,9 +218,19 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
             }
         }
 
+        private void FontOnStyleChanged(IFontStyle style)
+        {
+            UpdateText();
+        }
+
+        private void LabelFontOnStyleChanged(IFontStyle style)
+        {
+            UpdateText();
+        }
+
         #region Profiling
 
-        private const string _PRF_PFX = nameof(DynamicTextMesh) + ".";
+        private const string _PRF_PFX = nameof(DynamicTextMesh<T>) + ".";
 
         private static readonly ProfilerMarker _PRF_UpdateText =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateText));

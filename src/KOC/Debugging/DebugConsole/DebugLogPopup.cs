@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings;
+using Appalachia.Utility.Async;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -17,13 +20,16 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
                                         IDragHandler,
                                         IEndDragHandler
     {
-        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
         static DebugLogPopup()
         {
             DebugLogManagerSettings.InstanceAvailable += i => _debugLogManagerSettings = i;
         }
 
+        #region Static Fields and Autoproperties
+
         private static DebugLogManagerSettings _debugLogManagerSettings;
+
+        #endregion
 
         #region Fields and Autoproperties
 
@@ -53,46 +59,6 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
         [SerializeField] private Text newWarningCountText;
 
         [SerializeField] private Text newErrorCountText;
-
-        #endregion
-
-        #region Event Functions
-
-        protected override void Awake()
-        {
-            base.Awake();
-
-            popupTransform = (RectTransform)transform;
-            backgroundImage = GetComponent<Image>();
-            canvasGroup = GetComponent<CanvasGroup>();
-
-            halfSize = popupTransform.sizeDelta * 0.5f;
-
-            var pos = popupTransform.anchoredPosition;
-            if ((pos.x != 0f) || (pos.y != 0f))
-            {
-                normalizedPosition = pos.normalized; // Respect the initial popup position set in the prefab
-            }
-            else
-            {
-                normalizedPosition = new Vector2(0.5f, 0f); // Right edge by default
-            }
-        }
-
-        protected override void Reset()
-        {
-            base.Reset();
-
-            newInfoCount = 0;
-            newWarningCount = 0;
-            newErrorCount = 0;
-
-            newInfoCountText.text = "0";
-            newWarningCountText.text = "0";
-            newErrorCountText.text = "0";
-
-            backgroundImage.color = debugManager.settings.popup.alertColorNormal;
-        }
 
         #endregion
 
@@ -235,6 +201,49 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
             }
         }
 
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
+
+                popupTransform = (RectTransform)transform;
+                backgroundImage = GetComponent<Image>();
+                canvasGroup = GetComponent<CanvasGroup>();
+
+                halfSize = popupTransform.sizeDelta * 0.5f;
+
+                var pos = popupTransform.anchoredPosition;
+                if ((pos.x != 0f) || (pos.y != 0f))
+                {
+                    normalizedPosition =
+                        pos.normalized; // Respect the initial popup position set in the prefab
+                }
+                else
+                {
+                    normalizedPosition = new Vector2(0.5f, 0f); // Right edge by default
+                }
+            }
+        }
+
+        protected override async AppaTask WhenEnabled()
+        {
+            using (_PRF_WhenEnabled.Auto())
+            {
+                await base.WhenEnabled();
+
+                newInfoCount = 0;
+                newWarningCount = 0;
+                newErrorCount = 0;
+
+                newInfoCountText.text = "0";
+                newWarningCountText.text = "0";
+                newErrorCountText.text = "0";
+
+                backgroundImage.color = debugManager.settings.popup.alertColorNormal;
+            }
+        }
+
         // A simple smooth movement animation
         private IEnumerator MoveToPosAnimation(Vector2 targetPos)
         {
@@ -307,6 +316,18 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
                 debugManager.ShowLogWindow();
             }
         }
+
+        #endregion
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(DebugLogPopup) + ".";
+
+        private static readonly ProfilerMarker _PRF_WhenEnabled =
+            new ProfilerMarker(_PRF_PFX + nameof(WhenEnabled));
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         #endregion
     }

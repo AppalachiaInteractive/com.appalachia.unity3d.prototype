@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Enums;
 using Appalachia.Utility.Execution;
@@ -16,7 +17,7 @@ using UnityEngine.SceneManagement;
 namespace Appalachia.Prototype.KOC.Application.Components.Text
 {
     [SmartLabelChildren]
-    public class CalculateTextMesh : DynamicTextMesh
+    public class CalculateTextMesh : DynamicTextMesh<CalculateTextMesh>
     {
         public enum Calculation
         {
@@ -119,6 +120,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady)
+                {
+                    return;
+                }
+                
                 if (IsImmutableValue(calculation))
                 {
                     return;
@@ -142,20 +148,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
                     }
 
                     Execute();
-                }
-            }
-        }
-
-        protected override async AppaTask WhenDisabled()
-
-        {
-            using (_PRF_OnDisable.Auto())
-            {
-                await base.WhenDisabled();
-
-                if (_wrapper?.IsExecuting ?? false)
-                {
-                    _wrapper?.Cancel();
                 }
             }
         }
@@ -289,13 +281,27 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 UpdateText();
+            }
+        }
+
+        protected override async AppaTask WhenDisabled()
+
+        {
+            using (_PRF_OnDisable.Auto())
+            {
+                await base.WhenDisabled();
+
+                if (_wrapper?.IsExecuting ?? false)
+                {
+                    _wrapper?.Cancel();
+                }
             }
         }
 

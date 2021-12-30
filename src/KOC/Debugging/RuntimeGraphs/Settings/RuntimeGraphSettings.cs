@@ -3,6 +3,7 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
+using Unity.Profiling;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Settings
@@ -28,18 +29,14 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Settings
 
         #endregion
 
-        #region Event Functions
-
         [Button]
-        public void Reset()
+        public void ResetGraphs()
         {
             general.Reset();
             fps.Reset();
             ram.Reset();
             audio.Reset();
         }
-
-        #endregion
 
         protected override async AppaTask Initialize(Initializer initializer)
         {
@@ -60,6 +57,9 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Settings
         #region Profiling
 
         private const string _PRF_PFX = nameof(RuntimeGraphSettings) + ".";
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         #endregion
     }

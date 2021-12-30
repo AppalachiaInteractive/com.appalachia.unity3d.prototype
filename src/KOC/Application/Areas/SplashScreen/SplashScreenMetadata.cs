@@ -4,6 +4,7 @@ using Appalachia.Core.Collections.Extensions;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Scenes;
 using Appalachia.Utility.Async;
+using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen
 {
@@ -11,7 +12,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen
         where T : SplashScreenManager<T, TM>
         where TM : SplashScreenMetadata<T, TM>
     {
-        
         #region Fields and Autoproperties
 
         public List<AreaSceneInformation> splashScreens;
@@ -53,7 +53,8 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen
 
         private const string _PRF_PFX = nameof(SplashScreenMetadata<T, TM>) + ".";
 
-        
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         #endregion
     }

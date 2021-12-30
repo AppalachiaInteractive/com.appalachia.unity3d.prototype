@@ -251,11 +251,19 @@ namespace Appalachia.Prototype.KOC.Application.Areas
         [Serializable, HideReferenceObjectPicker, InlineProperty, HideLabel]
         public struct AreaDefaultReferencesConfiguration : IAreaConfiguration
         {
-            #region Fields and Autoproperties
+            static AreaDefaultReferencesConfiguration()
+            {
+                AreaMetadataDefaultReferences.InstanceAvailable += i => _areaMetadataDefaultReferences = i;
+            }
 
-            [SerializeField] public AreaMetadataDefaultReferences defaultReferences;
+            #region Static Fields and Autoproperties
+
+            private static AreaMetadataDefaultReferences _areaMetadataDefaultReferences;
 
             #endregion
+
+            public static AreaMetadataDefaultReferences AreaMetadataDefaultReferences =>
+                _areaMetadataDefaultReferences;
 
             #region IAreaConfiguration Members
 
@@ -263,7 +271,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
             public void Initialize(ApplicationArea area)
             {
-                defaultReferences = AreaMetadataDefaultReferences.instance;
             }
 
             #endregion

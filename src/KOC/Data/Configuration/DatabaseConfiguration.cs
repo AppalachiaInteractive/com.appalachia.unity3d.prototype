@@ -35,7 +35,6 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         #endregion
 
-
         public string GetDataStorageFileExtension(DatabaseConfigurationSettings settings)
         {
             using (_PRF_GetDataStorageFileExtension.Auto())
@@ -170,6 +169,45 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 #endif
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(DatabaseConfiguration) + ".";
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaultsInternal =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDefaultsInternal));
+
+        private static readonly ProfilerMarker _PRF_ConfigureDeveloper2Defaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloper2Defaults));
+
+        private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloperDefaults));
+
+        private static readonly ProfilerMarker _PRF_ConfigureEditorDefaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureEditorDefaults));
+
+        private static readonly ProfilerMarker _PRF_ConfigureRuntimeDefaults =
+            new ProfilerMarker(_PRF_PFX + nameof(ConfigureRuntimeDefaults));
+
+        private static readonly ProfilerMarker _PRF_GetDataLocation =
+            new ProfilerMarker(_PRF_PFX + nameof(GetEnvironment));
+
+        private static readonly ProfilerMarker _PRF_GetFileExtension =
+            new ProfilerMarker(_PRF_PFX + nameof(GetFileExtension));
+
+        private static readonly ProfilerMarker _PRF_GetDataStorageFileExtension =
+            new ProfilerMarker(_PRF_PFX + nameof(GetDataStorageFileExtension));
+
+        private static readonly ProfilerMarker _PRF_GetDataStorageFileNameWithoutExtension =
+            new ProfilerMarker(_PRF_PFX + nameof(GetDataStorageFileNameWithoutExtension));
+
+        private static readonly ProfilerMarker
+            _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
+
+        #endregion
 
 #if UNITY_EDITOR
         private static void ConfigureDefaultsInternal(
@@ -381,44 +419,8 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
         }
 #endif
 
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(DatabaseConfiguration) + ".";
-
 #if UNITY_EDITOR
-        private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaultsInternal =
-            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDefaultsInternal));
 
-        private static readonly ProfilerMarker _PRF_ConfigureDeveloper2Defaults =
-            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloper2Defaults));
-
-        private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaults =
-            new ProfilerMarker(_PRF_PFX + nameof(ConfigureDeveloperDefaults));
-
-        private static readonly ProfilerMarker _PRF_ConfigureEditorDefaults =
-            new ProfilerMarker(_PRF_PFX + nameof(ConfigureEditorDefaults));
-
-        private static readonly ProfilerMarker _PRF_ConfigureRuntimeDefaults =
-            new ProfilerMarker(_PRF_PFX + nameof(ConfigureRuntimeDefaults));
 #endif
-
-        private static readonly ProfilerMarker _PRF_GetDataLocation =
-            new ProfilerMarker(_PRF_PFX + nameof(GetEnvironment));
-
-        private static readonly ProfilerMarker _PRF_GetFileExtension =
-            new ProfilerMarker(_PRF_PFX + nameof(GetFileExtension));
-
-        private static readonly ProfilerMarker _PRF_GetDataStorageFileExtension =
-            new ProfilerMarker(_PRF_PFX + nameof(GetDataStorageFileExtension));
-
-        private static readonly ProfilerMarker _PRF_GetDataStorageFileNameWithoutExtension =
-            new ProfilerMarker(_PRF_PFX + nameof(GetDataStorageFileNameWithoutExtension));
-
-        
-
-        private static readonly ProfilerMarker
-            _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
-
-        #endregion
     }
 }

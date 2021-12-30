@@ -6,7 +6,7 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Wrappers
 {
     [Serializable]
     public abstract class UIElementWrapper<TE, TC>
-        where TE : UIElementMetadataBase<TC>
+        where TE : UIElementMetadataBase<TE, TC>
         where TC : IComponentSet
     {
         #region Fields and Autoproperties

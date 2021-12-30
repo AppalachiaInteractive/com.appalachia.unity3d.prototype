@@ -259,7 +259,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                 target.CanvasName = doozyCanvas.canvasName;
                 target.CustomCanvasName = false;
                 target.DontDestroyCanvasOnLoad = false;
-                this.MarkAsModified();
+                MarkAsModified();
             }
         }
 
@@ -275,7 +275,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                 target.ShowBehavior.PresetName = "InNormal";
                 target.HideBehavior.PresetName = "OutNormal";
                 target.LoopBehavior.PresetName = "Normal";
-                this.MarkAsModified();
+                MarkAsModified();
             }
         }
 
@@ -342,8 +342,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         public void Apply(UITemplateComponentSet target)
         {
-            Initialize2();
-
             Apply(target.rect);
             Apply(target.canvas);
             Apply(target.canvasGroup);
@@ -355,20 +353,16 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         public void Apply(UIViewComponentSet target)
         {
-            Initialize2();
-
             Apply(target.rect);
             Apply(target.canvas);
             Apply(target.canvasGroup);
             Apply(target.graphicRaycaster);
             Apply(target.uiView);
-            target.gameObject.MarkAsModified();
+            target.GameObject.MarkAsModified();
         }
 
         public void Apply(UICanvasAreaComponentSet target)
         {
-            Initialize2();
-
             Apply(target.rect);
             Apply(target.canvas);
             Apply(target.canvasGroup);
@@ -376,7 +370,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
             Apply(target.graphicRaycaster);
             Apply(target.uiCanvas);
             Apply(target.graphController);
-            target.gameObject.MarkAsModified();
+            target.GameObject.MarkAsModified();
         }
 
         #endregion
@@ -385,13 +379,13 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         private const string _PRF_PFX = nameof(AreaMetadata<T, TM>) + ".";
 
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
         private static readonly ProfilerMarker _PRF_GetManager =
             new ProfilerMarker(_PRF_PFX + nameof(GetManager));
 
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
         private static readonly ProfilerMarker _PRF_Apply = new ProfilerMarker(_PRF_PFX + nameof(Apply));
-
-        
 
         #endregion
 

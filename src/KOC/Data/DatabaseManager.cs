@@ -1,5 +1,7 @@
 using System;
 using Appalachia.CI.Constants;
+using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Data.Configuration;
 using Appalachia.Utility.Async;
@@ -10,8 +12,20 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Data
 {
     [ExecuteAlways]
+    [CallStaticConstructorInEditor]
     public class DatabaseManager : SingletonAppalachiaApplicationBehaviour<DatabaseManager>
     {
+        static DatabaseManager()
+        {
+            RegisterDependency<DatabaseConfiguration>(i => _databaseConfiguration = i);
+        }
+
+        #region Static Fields and Autoproperties
+
+        private static DatabaseConfiguration _databaseConfiguration;
+
+        #endregion
+
         #region Fields and Autoproperties
 
         [BoxGroup("Data Set")] public ActiveDataSet dataSet;
@@ -26,23 +40,6 @@ namespace Appalachia.Prototype.KOC.Data
 
         [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
         public DatabaseConfiguration configuration;
-
-        #endregion
-
-        
-
-        #region Event Functions
-
-        protected override async AppaTask WhenDisabled()
-
-        {
-            using (_PRF_OnDisable.Auto())
-            {
-                await base.WhenDisabled();
-
-                databases?.Dispose();
-            }
-        }
 
         #endregion
 
@@ -83,11 +80,11 @@ namespace Appalachia.Prototype.KOC.Data
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 await initializer.Do(
                     this,
@@ -99,9 +96,17 @@ namespace Appalachia.Prototype.KOC.Data
                         overrideActiveDataSetName = string.Empty;
                     }
                 );
+            }
+        }
 
-                configuration = DatabaseConfiguration.instance;
-                configuration.InitializeExternal();
+        protected override async AppaTask WhenDisabled()
+
+        {
+            using (_PRF_OnDisable.Auto())
+            {
+                await base.WhenDisabled();
+
+                databases?.Dispose();
             }
         }
 
@@ -146,8 +151,6 @@ namespace Appalachia.Prototype.KOC.Data
 
         private static readonly ProfilerMarker _PRF_CreateDatabases =
             new ProfilerMarker(_PRF_PFX + nameof(CreateDatabases));
-
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
         private static readonly ProfilerMarker
             _PRF_LoadGame = new ProfilerMarker(_PRF_PFX + nameof(LoadGame));

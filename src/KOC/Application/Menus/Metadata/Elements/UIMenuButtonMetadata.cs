@@ -1,15 +1,21 @@
 using System;
 using Appalachia.Prototype.KOC.Application.Menus.Components;
 using Appalachia.Prototype.KOC.Application.Styling.Buttons;
+using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements
 {
     [Serializable]
-    public class UIMenuButtonMetadata : UIElementMetadataBase<UIMenuButtonComponentSet>
+    public class UIMenuButtonMetadata : UIElementMetadataBase<UIMenuButtonMetadata, UIMenuButtonComponentSet>
     {
+        public UIMenuButtonMetadata(Object owner) : base(owner)
+        {
+        }
+
         #region Fields and Autoproperties
 
         public Sprite icon;
@@ -24,18 +30,23 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements
 
         #endregion
 
-        public override void Apply(GameObject parent, string baseName, ref UIMenuButtonComponentSet component)
+        public override async AppaTask Apply(
+            GameObject parent,
+            string baseName,
+            UIMenuButtonComponentSet component)
         {
             using (_PRF_Apply.Auto())
             {
-                if ((component.buttonImage.image == null) ||
+                await initializer.Do(
+                    this,
+                    nameof(component),
+                    (component.buttonImage.image == null) ||
                     (component.buttonImage.rect == null) ||
                     (component.buttonText.textMesh == null) ||
                     (component.rect == null) ||
-                    (component.gameObject == null))
-                {
-                    component.Configure(parent, baseName);
-                }
+                    (component.gameObject == null),
+                    () => { component.Configure(parent, baseName); }
+                );
 
                 if (component.buttonWrapper.composite.graphics == null)
                 {

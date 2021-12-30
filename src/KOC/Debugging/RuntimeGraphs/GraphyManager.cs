@@ -2,6 +2,7 @@
 using System.Linq;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Audio;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Fps;
@@ -21,7 +22,6 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
     [ExecutionOrder(ExecutionOrders.RuntimeGraph)]
     public class GraphyManager : SingletonAppalachiaBehaviour<GraphyManager>
     {
-        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
         static GraphyManager()
         {
             RuntimeGraphSettings.InstanceAvailable += i => _runtimeGraphSettings = i;
@@ -63,13 +63,6 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
         #endregion
 
         #region Event Functions
-
-        protected override async AppaTask WhenDestroyed()
-        {
-            await base.WhenDestroyed();
-            G_IntString.Dispose();
-            G_FloatString.Dispose();
-        }
 
         private void OnApplicationFocus(bool isFocused)
         {
@@ -200,11 +193,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 if (settings == null)
                 {
@@ -226,10 +219,6 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
                 _ramManager = GetComponentInChildren(typeof(G_RamManager),     true) as G_RamManager;
                 _audioManager = GetComponentInChildren(typeof(G_AudioManager), true) as G_AudioManager;
 
-                _fpsManager.InitializeExternal();
-                _ramManager.InitializeExternal();
-                _audioManager.InitializeExternal();
-
                 _fpsManager.SetPosition(settings.general.graphModulePosition);
                 _ramManager.SetPosition(settings.general.graphModulePosition);
                 _audioManager.SetPosition(settings.general.graphModulePosition);
@@ -243,6 +232,13 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
 
                 _initialized = true;
             }
+        }
+
+        protected override async AppaTask WhenDestroyed()
+        {
+            await base.WhenDestroyed();
+            G_IntString.Dispose();
+            G_FloatString.Dispose();
         }
 
         private void RefreshAllParameters()
@@ -283,10 +279,6 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
                     _fpsManager.RestorePreviousState();
                     _ramManager.RestorePreviousState();
                     _audioManager.RestorePreviousState();
-                }
-                else
-                {
-                    Initialize();
                 }
             }
         }

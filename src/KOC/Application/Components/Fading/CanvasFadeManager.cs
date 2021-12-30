@@ -1,3 +1,5 @@
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;
 using UnityEngine;
@@ -74,11 +76,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 gameObject.GetOrCreateComponent(ref canvasGroup);
                 gameObject.GetOrCreateComponent(ref canvas);
@@ -143,8 +145,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
 
         private static readonly ProfilerMarker _PRF_Initialize =
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
         private static readonly ProfilerMarker _PRF_ExecuteFade =
             new ProfilerMarker(_PRF_PFX + nameof(ExecuteFade));

@@ -3,9 +3,8 @@ using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.CI.Integration.Core;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Objects.Root;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Behaviours;
-using Appalachia.Prototype.KOC.Application.Components;
 using Appalachia.Prototype.KOC.Application.Components.Cursors;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Menus;
@@ -36,7 +35,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         public delegate void DeactivationHandler(ApplicationArea area, IAreaManager manager);
 
-        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
         static AreaManager()
         {
             RegisterDependency<TM>(i => _areaMetadata = i);
@@ -78,10 +76,10 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         #endregion
 
-        protected static TM areaMetadata => _areaMetadata;
-
         protected static MainAreaSceneInformationCollection mainAreaSceneInformationCollection =>
             _mainAreaSceneInformationCollection;
+
+        protected static TM areaMetadata => _areaMetadata;
 
         public abstract AreaVersion Version { get; }
 
@@ -112,22 +110,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
         public event DeactivationHandler WhenDeactivated;
 
         #region Event Functions
-
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-
-                var type = GetType();
-                var sceneName = type.Name.Replace("Manager", string.Empty);
-
-                if (gameObject.scene.name != sceneName)
-                {
-                    Context.Log.Warn(ZString.Format("Scene name should be {0}.", sceneName));
-                }
-            }
-        }
 
         protected virtual void Update()
         {
@@ -197,46 +179,31 @@ namespace Appalachia.Prototype.KOC.Application.Areas
             }
         }
 
-        protected override async AppaTask WhenDisabled()
-
-        {
-            using (_PRF_OnDisable.Auto())
-            {
-                await base.WhenDisabled();
-
-                if (_isActivated)
-                {
-                    Deactivate();
-                }
-            }
-        }
-
         #endregion
 
         protected abstract void OnActivation();
         protected abstract void OnDeactivation();
         protected abstract void ResetArea();
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
-                LifetimeComponentManager.instance.InitializeExternal();
+                var type = GetType();
+                var sceneName = type.Name.Replace("Manager", string.Empty);
+
+                if (gameObject.scene.name != sceneName)
+                {
+                    Context.Log.Warn(ZString.Format("Scene name should be {0}.", sceneName));
+                }
 
                 gameObject.transform.SetToOrigin();
 
                 AreaRegistry.RegisterManager(this);
 
                 name = typeof(T).Name;
-
-                await initializer.Do(
-                    this,
-                    nameof(_areaMetadata),
-                    _areaMetadata == null,
-                    () => { _areaMetadata = SingletonAppalachiaObject<TM>.instance; }
-                );
 
                 if (areaMetadata.Area != Area)
                 {
@@ -260,19 +227,16 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                     this,
                     nameof(MainAreaSceneInformationCollection),
                     _areaSceneInfo == null,
-                    () =>
-                    {
-                        _areaSceneInfo ??= MainAreaSceneInformationCollection.instance.Lookup.Items.Get(Area);
-                    }
+                    () => { _areaSceneInfo ??= _mainAreaSceneInformationCollection.Lookup.Items.Get(Area); }
                 );
 
                 canvas.Configure(gameObject, fullObjectName);
                 areaMetadata.Apply(canvas);
 
-                view.Configure(canvas.gameObject, fullObjectName);
+                view.Configure(canvas.GameObject, fullObjectName);
                 areaMetadata.Apply(view);
 
-                template.Configure(view.gameObject, fullObjectName);
+                template.Configure(view.GameObject, fullObjectName);
                 areaMetadata.Apply(template);
 
                 if (HasParent)
@@ -289,7 +253,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                 {
                     GameObject uiMenuManagerGameObject = null;
 
-                    view.gameObject.GetOrCreateChild(
+                    view.GameObject.GetOrCreateChild(
                         ref uiMenuManagerGameObject,
                         ZString.Format("Menu - {0}", fullObjectName),
                         true
@@ -313,7 +277,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                 {
                     applicationManager.PrimarySubSceneArea = Area;
 
-                    if (LifetimeComponentManager.instance == null)
+                    if (LifetimeComponentManager == null)
                     {
                         Context.Log.Warn(
                             ZString.Format(
@@ -324,6 +288,20 @@ namespace Appalachia.Prototype.KOC.Application.Areas
                     }
 
                     Activate();
+                }
+            }
+        }
+
+        protected override async AppaTask WhenDisabled()
+
+        {
+            using (_PRF_OnDisable.Auto())
+            {
+                await base.WhenDisabled();
+
+                if (_isActivated)
+                {
+                    Deactivate();
                 }
             }
         }
@@ -428,7 +406,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
                     areaMetadata.cursor.Apply(CursorManager.instance);
 
-                    areaMetadata.input.onEnableMapState.Apply(InputActions, this);
+                    areaMetadata.input.onEnableMapState.Apply(InputActions, this as T);
 
                     OnActivation();
 
@@ -459,7 +437,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
                     Context.Log.Info(nameof(Deactivate), this);
 
-                    areaMetadata.input.onDisableMapState.Apply(InputActions, null);
+                    areaMetadata.input.onDisableMapState.Apply(InputActions, this as T);
 
                     OnDeactivation();
 

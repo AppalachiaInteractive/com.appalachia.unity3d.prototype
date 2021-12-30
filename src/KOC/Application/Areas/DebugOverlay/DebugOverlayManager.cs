@@ -45,14 +45,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay
             }
         }
 
-        protected override void Initialize()
-        {
-            using (_PRF_Initialize.Auto())
-            {
-                base.Initialize();
-            }
-        }
-
         protected override void OnActivation()
         {
             using (_PRF_OnActivation.Auto())

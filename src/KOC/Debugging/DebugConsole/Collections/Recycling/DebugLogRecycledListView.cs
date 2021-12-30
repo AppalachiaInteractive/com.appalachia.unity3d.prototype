@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Async;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +15,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
     [ExecutionOrder(ExecutionOrders.DebugLogRecycledListView)]
     public sealed class DebugLogRecycledListView : AppalachiaBehaviour<DebugLogRecycledListView>
     {
+        #region Fields and Autoproperties
+
         // Log items used to visualize the debug entries at specified indices
         private readonly Dictionary<int, DebugLogItem> logItemsAtIndices = new(256);
 
@@ -36,6 +41,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
         // Unique debug entries
         private List<DebugLogEntry> collapsedLogEntries;
         private ScrollRect scrollView;
+
+        #endregion
 
         public float ItemHeight => logItemHeight;
         public float SelectedItemHeight => heightOfSelectedLogEntry;
@@ -182,209 +189,234 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
         // and handle log items accordingly
         public void UpdateItemsInTheList(bool updateAllVisibleItemContents)
         {
-            // If there is at least one log entry to show
-            if (indicesOfEntriesToShow.Count > 0)
+            using (_PRF_UpdateItemsInTheList.Auto())
             {
-                var contentPosTop = transformComponent.anchoredPosition.y - 1f;
-                var contentPosBottom = contentPosTop + viewportHeight + 2f;
-
-                if (positionOfSelectedLogEntry <= contentPosBottom)
+                // If there is at least one log entry to show
+                if (indicesOfEntriesToShow.Count > 0)
                 {
-                    if (positionOfSelectedLogEntry <= contentPosTop)
+                    var contentPosTop = transformComponent.anchoredPosition.y - 1f;
+                    var contentPosBottom = contentPosTop + viewportHeight + 2f;
+
+                    if (positionOfSelectedLogEntry <= contentPosBottom)
                     {
-                        contentPosTop -= deltaHeightOfSelectedLogEntry;
-                        contentPosBottom -= deltaHeightOfSelectedLogEntry;
-
-                        if (contentPosTop < (positionOfSelectedLogEntry - 1f))
+                        if (positionOfSelectedLogEntry <= contentPosTop)
                         {
-                            contentPosTop = positionOfSelectedLogEntry - 1f;
+                            contentPosTop -= deltaHeightOfSelectedLogEntry;
+                            contentPosBottom -= deltaHeightOfSelectedLogEntry;
+
+                            if (contentPosTop < (positionOfSelectedLogEntry - 1f))
+                            {
+                                contentPosTop = positionOfSelectedLogEntry - 1f;
+                            }
+
+                            if (contentPosBottom < (contentPosTop + 2f))
+                            {
+                                contentPosBottom = contentPosTop + 2f;
+                            }
                         }
-
-                        if (contentPosBottom < (contentPosTop + 2f))
+                        else
                         {
-                            contentPosBottom = contentPosTop + 2f;
+                            contentPosBottom -= deltaHeightOfSelectedLogEntry;
+                            if (contentPosBottom < (positionOfSelectedLogEntry + 1f))
+                            {
+                                contentPosBottom = positionOfSelectedLogEntry + 1f;
+                            }
                         }
                     }
-                    else
+
+                    var newTopIndex = (int)(contentPosTop * _1OverLogItemHeight);
+                    var newBottomIndex = (int)(contentPosBottom * _1OverLogItemHeight);
+
+                    if (newTopIndex < 0)
                     {
-                        contentPosBottom -= deltaHeightOfSelectedLogEntry;
-                        if (contentPosBottom < (positionOfSelectedLogEntry + 1f))
-                        {
-                            contentPosBottom = positionOfSelectedLogEntry + 1f;
-                        }
+                        newTopIndex = 0;
                     }
-                }
 
-                var newTopIndex = (int)(contentPosTop * _1OverLogItemHeight);
-                var newBottomIndex = (int)(contentPosBottom * _1OverLogItemHeight);
-
-                if (newTopIndex < 0)
-                {
-                    newTopIndex = 0;
-                }
-
-                if (newBottomIndex > (indicesOfEntriesToShow.Count - 1))
-                {
-                    newBottomIndex = indicesOfEntriesToShow.Count - 1;
-                }
-
-                if (currentTopIndex == -1)
-                {
-                    // There are no log items visible on screen,
-                    // just create the new log items
-                    updateAllVisibleItemContents = true;
-
-                    currentTopIndex = newTopIndex;
-                    currentBottomIndex = newBottomIndex;
-
-                    CreateLogItemsBetweenIndices(newTopIndex, newBottomIndex);
-                }
-                else
-                {
-                    // There are some log items visible on screen
-
-                    if ((newBottomIndex < currentTopIndex) || (newTopIndex > currentBottomIndex))
+                    if (newBottomIndex > (indicesOfEntriesToShow.Count - 1))
                     {
-                        // If user scrolled a lot such that, none of the log items are now within
-                        // the bounds of the scroll view, pool all the previous log items and create
-                        // new log items for the new list of visible debug entries
+                        newBottomIndex = indicesOfEntriesToShow.Count - 1;
+                    }
+
+                    if (currentTopIndex == -1)
+                    {
+                        // There are no log items visible on screen,
+                        // just create the new log items
                         updateAllVisibleItemContents = true;
 
-                        DestroyLogItemsBetweenIndices(currentTopIndex, currentBottomIndex);
+                        currentTopIndex = newTopIndex;
+                        currentBottomIndex = newBottomIndex;
+
                         CreateLogItemsBetweenIndices(newTopIndex, newBottomIndex);
                     }
                     else
                     {
-                        // User did not scroll a lot such that, there are still some log items within
-                        // the bounds of the scroll view. Don't destroy them but update their content,
-                        // if necessary
-                        if (newTopIndex > currentTopIndex)
+                        // There are some log items visible on screen
+
+                        if ((newBottomIndex < currentTopIndex) || (newTopIndex > currentBottomIndex))
                         {
-                            DestroyLogItemsBetweenIndices(currentTopIndex, newTopIndex - 1);
+                            // If user scrolled a lot such that, none of the log items are now within
+                            // the bounds of the scroll view, pool all the previous log items and create
+                            // new log items for the new list of visible debug entries
+                            updateAllVisibleItemContents = true;
+
+                            DestroyLogItemsBetweenIndices(currentTopIndex, currentBottomIndex);
+                            CreateLogItemsBetweenIndices(newTopIndex, newBottomIndex);
                         }
-
-                        if (newBottomIndex < currentBottomIndex)
+                        else
                         {
-                            DestroyLogItemsBetweenIndices(newBottomIndex + 1, currentBottomIndex);
-                        }
-
-                        if (newTopIndex < currentTopIndex)
-                        {
-                            CreateLogItemsBetweenIndices(newTopIndex, currentTopIndex - 1);
-
-                            // If it is not necessary to update all the log items,
-                            // then just update the newly created log items. Otherwise,
-                            // wait for the major update
-                            if (!updateAllVisibleItemContents)
+                            // User did not scroll a lot such that, there are still some log items within
+                            // the bounds of the scroll view. Don't destroy them but update their content,
+                            // if necessary
+                            if (newTopIndex > currentTopIndex)
                             {
-                                UpdateLogItemContentsBetweenIndices(newTopIndex, currentTopIndex - 1);
+                                DestroyLogItemsBetweenIndices(currentTopIndex, newTopIndex - 1);
+                            }
+
+                            if (newBottomIndex < currentBottomIndex)
+                            {
+                                DestroyLogItemsBetweenIndices(newBottomIndex + 1, currentBottomIndex);
+                            }
+
+                            if (newTopIndex < currentTopIndex)
+                            {
+                                CreateLogItemsBetweenIndices(newTopIndex, currentTopIndex - 1);
+
+                                // If it is not necessary to update all the log items,
+                                // then just update the newly created log items. Otherwise,
+                                // wait for the major update
+                                if (!updateAllVisibleItemContents)
+                                {
+                                    UpdateLogItemContentsBetweenIndices(newTopIndex, currentTopIndex - 1);
+                                }
+                            }
+
+                            if (newBottomIndex > currentBottomIndex)
+                            {
+                                CreateLogItemsBetweenIndices(currentBottomIndex + 1, newBottomIndex);
+
+                                // If it is not necessary to update all the log items,
+                                // then just update the newly created log items. Otherwise,
+                                // wait for the major update
+                                if (!updateAllVisibleItemContents)
+                                {
+                                    UpdateLogItemContentsBetweenIndices(
+                                        currentBottomIndex + 1,
+                                        newBottomIndex
+                                    );
+                                }
                             }
                         }
 
-                        if (newBottomIndex > currentBottomIndex)
-                        {
-                            CreateLogItemsBetweenIndices(currentBottomIndex + 1, newBottomIndex);
-
-                            // If it is not necessary to update all the log items,
-                            // then just update the newly created log items. Otherwise,
-                            // wait for the major update
-                            if (!updateAllVisibleItemContents)
-                            {
-                                UpdateLogItemContentsBetweenIndices(currentBottomIndex + 1, newBottomIndex);
-                            }
-                        }
+                        currentTopIndex = newTopIndex;
+                        currentBottomIndex = newBottomIndex;
                     }
 
-                    currentTopIndex = newTopIndex;
-                    currentBottomIndex = newBottomIndex;
+                    if (updateAllVisibleItemContents)
+                    {
+                        // Update all the log items
+                        UpdateLogItemContentsBetweenIndices(currentTopIndex, currentBottomIndex);
+                    }
                 }
-
-                if (updateAllVisibleItemContents)
+                else
                 {
-                    // Update all the log items
-                    UpdateLogItemContentsBetweenIndices(currentTopIndex, currentBottomIndex);
+                    HardResetItems();
                 }
-            }
-            else
-            {
-                HardResetItems();
             }
         }
 
-        protected override void Awake()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            base.Awake();
-            scrollView = viewportTransform.GetComponentInParent<ScrollRect>();
-            scrollView.onValueChanged.AddListener(pos => UpdateItemsInTheList(false));
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
 
-            viewportHeight = viewportTransform.rect.height;
+                scrollView = viewportTransform.GetComponentInParent<ScrollRect>();
+                scrollView.onValueChanged.AddListener(pos => UpdateItemsInTheList(false));
+
+                viewportHeight = viewportTransform.rect.height;
+            }
         }
 
         private void CalculateContentHeight()
         {
-            var newHeight = Mathf.Max(
-                1f,
-                (indicesOfEntriesToShow.Count * logItemHeight) + deltaHeightOfSelectedLogEntry
-            );
-            transformComponent.sizeDelta = new Vector2(0f, newHeight);
+            using (_PRF_CalculateContentHeight.Auto())
+            {
+                var newHeight = Mathf.Max(
+                    1f,
+                    (indicesOfEntriesToShow.Count * logItemHeight) + deltaHeightOfSelectedLogEntry
+                );
+                transformComponent.sizeDelta = new Vector2(0f, newHeight);
+            }
         }
 
         // Color a log item using its index
         private void ColorLogItem(DebugLogItem logItem, int index)
         {
-            if (index == indexOfSelectedLogEntry)
+            using (_PRF_ColorLogItem.Auto())
             {
-                logItem.Image.color = logItemSelectedColor;
-            }
-            else if ((index % 2) == 0)
-            {
-                logItem.Image.color = logItemNormalColor1;
-            }
-            else
-            {
-                logItem.Image.color = logItemNormalColor2;
+                if (index == indexOfSelectedLogEntry)
+                {
+                    logItem.Image.color = logItemSelectedColor;
+                }
+                else if ((index % 2) == 0)
+                {
+                    logItem.Image.color = logItemNormalColor1;
+                }
+                else
+                {
+                    logItem.Image.color = logItemNormalColor2;
+                }
             }
         }
 
         // Create (or unpool) a log item
         private void CreateLogItemAtIndex(int index)
         {
-            var logItem = debugManager.PopLogItem();
-
-            // Reposition the log item
-            var anchoredPosition = new Vector2(1f, -index * logItemHeight);
-            if (index > indexOfSelectedLogEntry)
+            using (_PRF_CreateLogItemAtIndex.Auto())
             {
-                anchoredPosition.y -= deltaHeightOfSelectedLogEntry;
+                var logItem = debugManager.PopLogItem();
+
+                // Reposition the log item
+                var anchoredPosition = new Vector2(1f, -index * logItemHeight);
+                if (index > indexOfSelectedLogEntry)
+                {
+                    anchoredPosition.y -= deltaHeightOfSelectedLogEntry;
+                }
+
+                logItem.Transform.anchoredPosition = anchoredPosition;
+
+                // Color the log item
+                ColorLogItem(logItem, index);
+
+                // To access this log item easily in the future, add it to the dictionary
+                logItemsAtIndices[index] = logItem;
             }
-
-            logItem.Transform.anchoredPosition = anchoredPosition;
-
-            // Color the log item
-            ColorLogItem(logItem, index);
-
-            // To access this log item easily in the future, add it to the dictionary
-            logItemsAtIndices[index] = logItem;
         }
 
         private void CreateLogItemsBetweenIndices(int topIndex, int bottomIndex)
         {
-            for (var i = topIndex; i <= bottomIndex; i++)
+            using (_PRF_CreateLogItemsBetweenIndices.Auto())
             {
-                CreateLogItemAtIndex(i);
+                for (var i = topIndex; i <= bottomIndex; i++)
+                {
+                    CreateLogItemAtIndex(i);
+                }
             }
         }
 
         private void DestroyLogItemsBetweenIndices(int topIndex, int bottomIndex)
         {
-            if (logItemsAtIndices.Count == 0)
+            using (_PRF_DestroyLogItemsBetweenIndices.Auto())
             {
-                return;
-            }
+                if (logItemsAtIndices.Count == 0)
+                {
+                    return;
+                }
 
-            for (var i = topIndex; i <= bottomIndex; i++)
-            {
-                debugManager.PoolLogItem(logItemsAtIndices[i]);
+                for (var i = topIndex; i <= bottomIndex; i++)
+                {
+                    debugManager.PoolLogItem(logItemsAtIndices[i]);
+                }
             }
         }
 
@@ -465,6 +497,34 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
                 }
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(DebugLogRecycledListView) + ".";
+
+        private static readonly ProfilerMarker _PRF_UpdateItemsInTheList =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateItemsInTheList));
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        private static readonly ProfilerMarker _PRF_CalculateContentHeight =
+            new ProfilerMarker(_PRF_PFX + nameof(CalculateContentHeight));
+
+        private static readonly ProfilerMarker _PRF_ColorLogItem =
+            new ProfilerMarker(_PRF_PFX + nameof(ColorLogItem));
+
+        private static readonly ProfilerMarker _PRF_CreateLogItemAtIndex =
+            new ProfilerMarker(_PRF_PFX + nameof(CreateLogItemAtIndex));
+
+        private static readonly ProfilerMarker _PRF_CreateLogItemsBetweenIndices =
+            new ProfilerMarker(_PRF_PFX + nameof(CreateLogItemsBetweenIndices));
+
+        private static readonly ProfilerMarker _PRF_DestroyLogItemsBetweenIndices =
+            new ProfilerMarker(_PRF_PFX + nameof(DestroyLogItemsBetweenIndices));
+
+        #endregion
+
 #pragma warning disable 0649
 
         // Cached components

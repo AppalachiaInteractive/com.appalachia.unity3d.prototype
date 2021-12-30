@@ -1,5 +1,7 @@
 using System.Collections;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Interpolation;
@@ -12,7 +14,8 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Application.Components.Fading
 {
     [ExecuteAlways, SmartLabelChildren]
-    public abstract class FadeManager<T> : AppalachiaApplicationBehaviour
+    public abstract class FadeManager<T> : AppalachiaApplicationBehaviour<T>
+        where T : FadeManager<T>
     {
         public delegate void FadeHandler(bool fadeIn);
 
@@ -36,25 +39,15 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
 
         private bool passiveMode => fadeSettings.passiveMode;
         public event FadeHandler FadeCompleted;
-
-        public event FadeInHandler FadeInCompleted;
-        public event FadeOutHandler FadeOutCompleted;
         public event FadeHandler FadeStarted;
 
+        public event FadeInHandler FadeInCompleted;
+
         public event FadeInHandler FadeInStarted;
+        public event FadeOutHandler FadeOutCompleted;
         public event FadeOutHandler FadeOutStarted;
 
         #region Event Functions
-
-        protected override void Awake()
-        {
-            using (_PRF_Awake.Auto())
-            {
-                base.Awake();
-
-                Initialize();
-            }
-        }
 
         protected virtual void Update()
         {
@@ -82,23 +75,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
             }
         }
 
-        protected override async AppaTask OnEnable()
-        {
-            using (_PRF_OnEnable.Auto())
-            {
-                await base.WhenEnabled();
-
-                Initialize();
-
-                if (fadeSettings.updateAtStart)
-                {
-                    ExecuteFade(
-                        fadeSettings.startVisible ? fadeSettings.maximumAlpha : fadeSettings.minimumAlpha
-                    );
-                }
-            }
-        }
-
         #endregion
 
         [ButtonGroup("Fades")]
@@ -116,8 +92,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
                 {
                     return;
                 }
-
-                Initialize();
 
                 StartCoroutine(FadeScreenInCoroutine());
             }
@@ -138,8 +112,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
                 {
                     return;
                 }
-
-                Initialize();
 
                 StartCoroutine(FadeScreenOutCoroutine());
             }
@@ -182,11 +154,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
 
         protected abstract void ExecuteFade(float time);
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
 #if UNITY_EDITOR
                 var go = gameObject;
@@ -221,6 +193,21 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
             }
         }
 
+        protected override async AppaTask WhenEnabled()
+        {
+            using (_PRF_OnEnable.Auto())
+            {
+                await base.WhenEnabled();
+
+                if (fadeSettings.updateAtStart)
+                {
+                    ExecuteFade(
+                        fadeSettings.startVisible ? fadeSettings.maximumAlpha : fadeSettings.minimumAlpha
+                    );
+                }
+            }
+        }
+
         private IEnumerator ExecuteInternal(
             IInterpolationMode interpolator,
             float startValue,
@@ -252,7 +239,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
 
         private IEnumerator FadeScreenInCoroutine()
         {
-            Initialize();
             _isFading = true;
 
             var interpolator = InterpolatorFactory.GetInterpolator(fadeSettings.fadeIn);
@@ -280,7 +266,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
 
         private IEnumerator FadeScreenOutCoroutine()
         {
-            Initialize();
             _isFading = true;
 
             var interpolator = InterpolatorFactory.GetInterpolator(fadeSettings.fadeOut);
@@ -313,7 +298,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
         private static readonly ProfilerMarker _PRF_FadeOut = new ProfilerMarker(_PRF_PFX + nameof(FadeOut));
         private static readonly ProfilerMarker _PRF_Show = new ProfilerMarker(_PRF_PFX + nameof(Show));
         private static readonly ProfilerMarker _PRF_Hide = new ProfilerMarker(_PRF_PFX + nameof(Hide));
-        private static readonly ProfilerMarker _PRF_Awake = new ProfilerMarker(_PRF_PFX + nameof(Awake));
 
         private static readonly ProfilerMarker _PRF_Update = new ProfilerMarker(_PRF_PFX + nameof(Update));
 

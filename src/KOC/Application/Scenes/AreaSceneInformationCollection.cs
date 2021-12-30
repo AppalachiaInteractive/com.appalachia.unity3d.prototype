@@ -5,6 +5,7 @@ using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Collections;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
+using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Scenes
 {
@@ -35,7 +36,8 @@ namespace Appalachia.Prototype.KOC.Application.Scenes
 
         private const string _PRF_PFX = nameof(AreaSceneInformationCollection) + ".";
 
-        
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         #endregion
     }

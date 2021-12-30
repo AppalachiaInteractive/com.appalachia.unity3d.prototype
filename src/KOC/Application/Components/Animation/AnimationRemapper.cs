@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.Animation.Collections;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
@@ -13,7 +14,7 @@ namespace Appalachia.Prototype.KOC.Application.Components.Animation
 {
     [AddComponentMenu(PKG.Prefix + nameof(AnimationRemapper))]
     [RequireComponent(typeof(Animator))]
-    public class AnimationRemapper : AppalachiaApplicationBehaviour
+    public class AnimationRemapper : AppalachiaApplicationBehaviour<AnimationRemapper>
     {
         #region Fields and Autoproperties
 

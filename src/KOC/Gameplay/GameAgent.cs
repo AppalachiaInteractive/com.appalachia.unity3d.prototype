@@ -1,66 +1,30 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Strings;
+using Unity.Profiling;
+
+// ReSharper disable UnusedParameter.Global
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public abstract class GameAgent : AppalachiaBehaviour<GameAgent>
+    public abstract class GameAgent<T> : AppalachiaBehaviour<T>
+        where T : GameAgent<T>
     {
         #region Constants and Static Readonly
 
-        private static readonly Dictionary<string, GameAgent> lookup = new();
-        private static readonly HashSet<GameAgent> agents = new();
+        private static readonly Dictionary<string, T> lookup = new();
+        private static readonly HashSet<T> agents = new();
 
         #endregion
 
-        
+        #region Fields and Autoproperties
 
         public string agentIdentifier;
-
-
-        #region Event Functions
-
-        protected override void Awake()
-        {
-            base.Awake();
-            
-            agents.Add(this);
-
-            if (!string.IsNullOrEmpty(agentIdentifier))
-            {
-                try
-                {
-                    lookup.Add(agentIdentifier, this);
-                }
-                catch (ArgumentException e)
-                {
-                    if (!lookup[agentIdentifier])
-                    {
-                        lookup[agentIdentifier] = this;
-                    }
-                    else
-                    {
-                        Context.Log.Error(e);
-                    }
-                }
-            }
-        }
-
-        protected override async AppaTask WhenDestroyed()
-        {
-            await base.WhenDestroyed();
-            
-            agents.Remove(this);
-
-            if (!string.IsNullOrEmpty(agentIdentifier))
-            {
-                lookup.Remove(agentIdentifier);
-            }
-        }
 
         #endregion
 
@@ -76,15 +40,15 @@ namespace Appalachia.Prototype.KOC.Gameplay
         {
         }
 
-        public static GameAgent Find(string id)
+        public static T Find(string id)
         {
-            GameAgent agent = null;
+            T agent = null;
             if (!string.IsNullOrEmpty(id))
             {
 #if UNITY_EDITOR
                 if (!AppalachiaApplication.IsPlayingOrWillPlay)
                 {
-                    foreach (var i in FindObjectsOfType<GameAgent>())
+                    foreach (var i in FindObjectsOfType<T>())
                     {
                         if (i.agentIdentifier == id)
                         {
@@ -99,18 +63,12 @@ namespace Appalachia.Prototype.KOC.Gameplay
             return agent;
         }
 
-        public static T Find<T>(string id)
-            where T : GameAgent
-        {
-            return (T) Find(id);
-        }
-
-        public static IEnumerable<GameAgent> GetAgents()
+        public static IEnumerable<T> GetAgents()
         {
             return agents;
         }
 
-        public static HashSet<GameAgent>.Enumerator GetEnumerator()
+        public static HashSet<T>.Enumerator GetEnumerator()
         {
             return agents.GetEnumerator();
         }
@@ -125,5 +83,55 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
             return base.ToString();
         }
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
+
+                agents.Add(this as T);
+
+                if (!string.IsNullOrEmpty(agentIdentifier))
+                {
+                    try
+                    {
+                        lookup.Add(agentIdentifier, this as T);
+                    }
+                    catch (ArgumentException e)
+                    {
+                        if (!lookup[agentIdentifier])
+                        {
+                            lookup[agentIdentifier] = this as T;
+                        }
+                        else
+                        {
+                            Context.Log.Error(e);
+                        }
+                    }
+                }
+            }
+        }
+
+        protected override async AppaTask WhenDestroyed()
+        {
+            await base.WhenDestroyed();
+
+            agents.Remove(this as T);
+
+            if (!string.IsNullOrEmpty(agentIdentifier))
+            {
+                lookup.Remove(agentIdentifier);
+            }
+        }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(GameAgent<T>) + ".";
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        #endregion
     }
 } // Gameplay

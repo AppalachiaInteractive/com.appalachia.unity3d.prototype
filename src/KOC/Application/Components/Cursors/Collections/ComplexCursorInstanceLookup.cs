@@ -21,7 +21,7 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors.Collections
                 return "MISSING";
             }
 
-            return value.name;
+            return value.Name;
         }
 
         protected override string GetDisplayTitle(ComplexCursors key, ComplexCursorInstance value)

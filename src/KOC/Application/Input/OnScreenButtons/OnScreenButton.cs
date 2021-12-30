@@ -3,6 +3,7 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Extensions;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Strings;
 using TMPro;
@@ -23,15 +24,11 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 
         #endregion
 
-        #region Event Functions
-
-        #endregion
-
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 var baseName = metadata.actionReference.ToFormattedName();
 

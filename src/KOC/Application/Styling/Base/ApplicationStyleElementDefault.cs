@@ -9,7 +9,8 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Base
 {
     [Serializable]
     public abstract class
-        ApplicationStyleElementDefault<TDefault, TOverride, TInterface> : ApplicationStyleElement<TInterface>
+        ApplicationStyleElementDefault<TDefault, TOverride, TInterface> : ApplicationStyleElement<TDefault,
+            TInterface>
         where TDefault : ApplicationStyleElementDefault<TDefault, TOverride, TInterface>, TInterface
         where TOverride : ApplicationStyleElementOverride<TDefault, TOverride, TInterface>, TInterface
         where TInterface : IApplicationStyle
@@ -61,7 +62,8 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Base
         private const string _PRF_PFX =
             nameof(ApplicationStyleElementDefault<TDefault, TOverride, TInterface>) + ".";
 
-        
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         private static readonly ProfilerMarker _PRF_RegisterOverride =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterOverride));

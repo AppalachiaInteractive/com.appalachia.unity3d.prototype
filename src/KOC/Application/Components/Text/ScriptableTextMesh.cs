@@ -3,7 +3,7 @@ using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Components.Text
 {
-    public class ScriptableTextMesh : DynamicTextMesh
+    public class ScriptableTextMesh : DynamicTextMesh<ScriptableTextMesh>
     {
         #region Fields and Autoproperties
 
@@ -68,9 +68,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
 
         private static readonly ProfilerMarker _PRF_CreateNew =
             new ProfilerMarker(_PRF_PFX + nameof(CreateNew));
-
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         private static readonly ProfilerMarker _PRF_OnTextChanged =
             new ProfilerMarker(_PRF_PFX + nameof(OnTextChanged));

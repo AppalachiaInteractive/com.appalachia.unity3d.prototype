@@ -10,7 +10,7 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Application.Components.UI
 {
     [Serializable, SmartLabelChildren]
-    public struct UITemplateComponentSet : IComponentSet
+    public class UITemplateComponentSet : IComponentSet
     {
         #region Fields and Autoproperties
 

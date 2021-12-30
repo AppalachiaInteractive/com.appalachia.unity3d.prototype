@@ -107,7 +107,8 @@ namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 
         private const string _PRF_PFX = nameof(OnScreenButtonMetadata) + ".";
 
-        
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
 
         private static readonly ProfilerMarker _PRF_ApplyText =
             new ProfilerMarker(_PRF_PFX + nameof(ApplyText));

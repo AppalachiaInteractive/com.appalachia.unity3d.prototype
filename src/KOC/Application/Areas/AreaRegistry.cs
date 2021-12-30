@@ -15,14 +15,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         #endregion
 
-        public static ApplicationManager GetApplicationManager()
-        {
-            using (_PRF_GetApplicationManager.Auto())
-            {
-                return ApplicationManager.instance;
-            }
-        }
-
         public static IAreaManager GetManager(ApplicationArea area)
         {
             using (_PRF_GetManager.Auto())
@@ -66,7 +58,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
             return parentManager;
         }
-        
+
         public static void RegisterManager<T, TM>(AreaManager<T, TM> manager)
             where T : AreaManager<T, TM>
             where TM : AreaMetadata<T, TM>
@@ -132,9 +124,6 @@ namespace Appalachia.Prototype.KOC.Application.Areas
 
         private static readonly ProfilerMarker _PRF_GetManager =
             new ProfilerMarker(_PRF_PFX + nameof(GetManager));
-
-        private static readonly ProfilerMarker _PRF_GetApplicationManager =
-            new ProfilerMarker(_PRF_PFX + nameof(GetApplicationManager));
 
         #endregion
     }

@@ -44,7 +44,8 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata
                         continue;
                     }
 
-                    var newMetadata = SimpleCursorMetadata.LoadOrCreateNew(simpleCursor.ToString());
+                    var newMetadata =
+                        SimpleCursorMetadata.LoadOrCreateNew<SimpleCursorMetadata>(simpleCursor.ToString());
 
                     if (newMetadata.texture == null)
                     {

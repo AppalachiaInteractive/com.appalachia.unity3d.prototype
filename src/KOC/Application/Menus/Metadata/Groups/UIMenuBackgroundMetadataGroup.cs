@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Groups
 {
-    public class UIMenuBackgroundMetadataGroup : UIElementMetadataGroupBase<UIMenuBackgroundMetadata,
-        UIMenuBackgroundComponentSet>
+    public class UIMenuBackgroundMetadataGroup : UIElementMetadataGroupBase<UIMenuBackgroundMetadataGroup,
+        UIMenuBackgroundMetadata, UIMenuBackgroundComponentSet>
     {
         protected override void InitializeElement(UIMenuBackgroundMetadata element)
         {

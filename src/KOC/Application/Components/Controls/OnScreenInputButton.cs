@@ -1,10 +1,12 @@
-using System;
-using Appalachia.CI.Constants;
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Extensions;
 using Appalachia.Prototype.KOC.Application.Input.OnScreenButtons;
 using Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
@@ -18,8 +20,20 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Application.Components.Controls
 {
     [ExecuteAlways, SmartLabelChildren]
-    public class OnScreenInputButton : AppalachiaApplicationBehaviour
+    [CallStaticConstructorInEditor]
+    public class OnScreenInputButton : AppalachiaApplicationBehaviour<OnScreenInputButton>
     {
+        static OnScreenInputButton()
+        {
+            RegisterDependency<DeviceButtonLookup>(i => _deviceButtonLookup = i);
+        }
+
+        #region Static Fields and Autoproperties
+
+        private static DeviceButtonLookup _deviceButtonLookup;
+
+        #endregion
+
         #region Fields and Autoproperties
 
         [OnValueChanged(nameof(InitializeSynchronous))]
@@ -33,28 +47,13 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
 
         #endregion
 
-        [NonSerialized] private static AppaContext _context;
-
-        private static AppaContext StaticContext
-        {
-            get
-            {
-                if (_context == null)
-                {
-                    _context = new AppaContext(typeof(OnScreenInputButton));
-                }
-
-                return _context;
-            }
-        }        
-
         [Button]
         public static void Populate()
         {
 #if UNITY_EDITOR
             using (_PRF_Populate.Auto())
             {
-                var actions = LifetimeComponentManager.instance.GetActions();
+                var actions = LifetimeComponentManager.GetActions();
 
                 foreach (var action in actions)
                 {
@@ -82,8 +81,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
                     }
                     else if (metadata.style == null)
                     {
-                        metadata.InitializeExternal();
-
                         metadata.MarkAsModified();
 
                         if (metadata.style == null)
@@ -103,14 +100,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Controls
 #endif
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                if (metadata == null)
-                {
-                    return;
-                }
+                await base.Initialize(initializer);
 
                 var action = metadata.actionReference.action;
 

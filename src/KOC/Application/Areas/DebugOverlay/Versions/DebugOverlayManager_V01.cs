@@ -1,6 +1,8 @@
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Components.Fading;
 using Appalachia.Prototype.KOC.Debugging.DebugConsole;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -98,11 +100,11 @@ namespace Appalachia.Prototype.KOC.Application.Areas.DebugOverlay.Versions
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 await initializer.Do(
                     this,

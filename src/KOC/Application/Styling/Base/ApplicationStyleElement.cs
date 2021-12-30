@@ -2,7 +2,8 @@ using Appalachia.Core.Objects.Root;
 
 namespace Appalachia.Prototype.KOC.Application.Styling.Base
 {
-    public abstract class ApplicationStyleElement<TInterface> : AppalachiaObject<>
+    public abstract class ApplicationStyleElement<T, TInterface> : AppalachiaObject<T>
+        where T : ApplicationStyleElement<T, TInterface>
         where TInterface : IApplicationStyle
     {
         public delegate void OnStyleChanged(TInterface style);

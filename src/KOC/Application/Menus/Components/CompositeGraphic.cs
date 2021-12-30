@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Appalachia.Utility.Async;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,9 +23,9 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
 
         #region Event Functions
 
-        protected override async AppaTask WhenEnabled()
+        protected override void OnEnable()
         {
-            await base.WhenEnabled();
+            base.OnEnable();
 
             if ((graphics == null) || (graphics.Length == 0))
             {
@@ -62,5 +62,14 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Components
                 graphic.CrossFadeColor(targetColor, duration, ignoreTimeScale, useAlpha, useRGB);
             }
         }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(CompositeGraphic) + ".";
+
+        private static readonly ProfilerMarker _PRF_OnEnable =
+            new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
+
+        #endregion
     }
 }

@@ -109,6 +109,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
 
         static DebugLogConsole()
         {
+            DebugLogManager.InstanceAvailable += i => _debugLogManager = i;
+
             AddCommand("help", "Prints all commands", LogAllCommands);
             AddCommand<string>("help", "Prints all matching commands", LogAllCommandsWithName);
             AddCommand("sysinfo", "Prints system information", LogSystemInfo);
@@ -221,6 +223,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
         }
 
         #region Static Fields and Autoproperties
+
+        private static DebugLogManager _debugLogManager;
 
         #endregion
 
@@ -604,10 +608,10 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
                     Context.Log.Warn(stringBuilder.ToString());
 
                     // The log that lists method signature(s) for this command should automatically be expanded for better UX
-                    if (DebugLogManager.instance)
+                    if (_debugLogManager)
                     {
-                        DebugLogManager.instance.ExpandLatestPendingLog();
-                        DebugLogManager.instance.StripStackTraceFromLatestPendingLog();
+                        _debugLogManager.ExpandLatestPendingLog();
+                        _debugLogManager.StripStackTraceFromLatestPendingLog();
                     }
                 }
 
@@ -877,10 +881,10 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
             Context.Log.Info(stringBuilder.ToString());
 
             // After typing help, the log that lists all the commands should automatically be expanded for better UX
-            if (DebugLogManager.instance)
+            if (_debugLogManager)
             {
-                DebugLogManager.instance.ExpandLatestPendingLog();
-                DebugLogManager.instance.StripStackTraceFromLatestPendingLog();
+                _debugLogManager.ExpandLatestPendingLog();
+                _debugLogManager.StripStackTraceFromLatestPendingLog();
             }
         }
 
@@ -919,10 +923,10 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
 
                 Context.Log.Info(stringBuilder.ToString());
 
-                if (DebugLogManager.instance)
+                if (_debugLogManager)
                 {
-                    DebugLogManager.instance.ExpandLatestPendingLog();
-                    DebugLogManager.instance.StripStackTraceFromLatestPendingLog();
+                    _debugLogManager.ExpandLatestPendingLog();
+                    _debugLogManager.StripStackTraceFromLatestPendingLog();
                 }
             }
         }
@@ -994,10 +998,10 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
             Context.Log.Info(stringBuilder.ToString());
 
             // After typing sysinfo, the log that lists system information should automatically be expanded for better UX
-            if (DebugLogManager.instance)
+            if (_debugLogManager)
             {
-                DebugLogManager.instance.ExpandLatestPendingLog();
-                DebugLogManager.instance.StripStackTraceFromLatestPendingLog();
+                _debugLogManager.ExpandLatestPendingLog();
+                _debugLogManager.StripStackTraceFromLatestPendingLog();
             }
         }
 
@@ -1688,10 +1692,6 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
 
             // Fetch the parameters of the class
             var parameters = method.GetParameters();
-            if (parameters == null)
-            {
-                parameters = new ParameterInfo[0];
-            }
 
             // Store the parameter types in an array
             var parameterTypes = new Type[parameters.Length];

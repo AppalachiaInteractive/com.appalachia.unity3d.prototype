@@ -3,6 +3,7 @@ using System.Collections;
 using System.Text;
 using Appalachia.CI.Integration.FileSystem;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings;
 using Appalachia.Utility.Async;
@@ -34,7 +35,6 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
     [ExecutionOrder(ExecutionOrders.DebugLogManager)]
     public class DebugLogManager : SingletonAppalachiaBehaviour<DebugLogManager>
     {
-        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
         static DebugLogManager()
         {
             DebugLogManagerSettings.InstanceAvailable += i => _debugLogManagerSettings = i;
@@ -112,9 +112,15 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
             }
         }
 
+        private static readonly ProfilerMarker _PRF_WhenEnabled =
+            new ProfilerMarker(_PRF_PFX + nameof(WhenEnabled));
+
+        private static readonly ProfilerMarker _PRF_WhenDisabled =
+            new ProfilerMarker(_PRF_PFX + nameof(WhenDisabled));
+
         protected override async AppaTask WhenEnabled()
         {
-            using (_PRF_OnEnable.Auto())
+            using (_PRF_WhenEnabled.Auto())
             {
                 await base.WhenEnabled();
 
@@ -146,7 +152,7 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
         protected override async AppaTask WhenDisabled()
 
         {
-            using (_PRF_OnDisable.Auto())
+            using (_PRF_WhenDisabled.Auto())
             {
                 await base.WhenDisabled();
 
@@ -162,11 +168,14 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
             }
         }
 
-        protected override void Start()
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            using (_PRF_Start.Auto())
+            using (_PRF_Initialize.Auto())
             {
-                base.Start();
+                await base.Initialize(initializer);
 
                 if ((settings.popup.enablePopup && settings.popup.startInPopupMode) ||
                     (!settings.popup.enablePopup && settings.general.startMinimized))
@@ -1429,9 +1438,6 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
         private const string _PRF_PFX = nameof(DebugLogManager) + ".";
         private static readonly ProfilerMarker _PRF_InitializeState = new(_PRF_PFX + nameof(InitializeState));
         private static readonly ProfilerMarker _PRF_Toggle = new(_PRF_PFX + nameof(Toggle));
-        private static readonly ProfilerMarker _PRF_OnEnable = new(_PRF_PFX + nameof(OnEnable));
-        private static readonly ProfilerMarker _PRF_OnDisable = new(_PRF_PFX + nameof(OnDisable));
-        private static readonly ProfilerMarker _PRF_Start = new(_PRF_PFX + nameof(Start));
 
         private static readonly ProfilerMarker _PRF_OnRectTransformDimensionsChange =
             new(_PRF_PFX + nameof(OnRectTransformDimensionsChange));

@@ -105,10 +105,11 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Buttons
 
         private const string _PRF_PFX = nameof(ButtonStyle) + ".";
 
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
         private static readonly ProfilerMarker _PRF_RegisterOverride =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterOverride));
-
-        
 
         #endregion
     }

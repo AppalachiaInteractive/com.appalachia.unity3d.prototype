@@ -1,17 +1,16 @@
-using System;
-using System.Collections;
-using System.Linq;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Behaviours;
+using Appalachia.Utility.Async;
+using Unity.Profiling;
 using UnityEngine;
-using UnityEngine.Profiling;
-using Object = UnityEngine.Object;
 
 namespace Appalachia.Prototype.KOC.Gameplay
 {
-    public class GameController : AppalachiaApplicationBehaviour
+    public sealed class GameController : AppalachiaApplicationBehaviour<GameController>
     {
         public delegate void AudioTransformsUpdater(Transform root, Transform eye);
 
-        
+        #region Fields and Autoproperties
 
         public AudioTransformsUpdater audioTransformsUpdater;
         public PlayerCamera playerCameraPrefab;
@@ -25,25 +24,9 @@ namespace Appalachia.Prototype.KOC.Gameplay
         public PlayerCamera playerCamera { get; set; }
 
         public PlayerController playerController { get; set; }
+
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public SpawnPoint lastPlayerSpawnPoint { get; private set; }
-
-   
-
-        #region Event Functions
-
-        protected override void Start()
-        {
-            base.Start();
-            
-            defaultCamera = Camera.main;
-
-            var cameraTransform = defaultCamera.transform;
-            cameraTransform.localPosition = Vector3.zero;
-            cameraTransform.localRotation = Quaternion.identity;
-            cameraTransform.localScale = Vector3.one;
-
-            //BOTDPlayerInput.SelectInputMapping();
-        }
 
         #endregion
 
@@ -56,19 +39,45 @@ namespace Appalachia.Prototype.KOC.Gameplay
         {
             if (playerController)
             {
-                Object.Destroy(playerController.gameObject);
+                Destroy(playerController.gameObject);
             }
 
             if (playerCamera)
             {
-                Object.Destroy(playerCamera.gameObject);
+                Destroy(playerCamera.gameObject);
             }
 
             playerController = null;
             playerCamera = null;
         }
 
-        public SpawnPoint[] GetAllSpawnPoints()
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
+
+                defaultCamera = Camera.main;
+
+                var cameraTransform = defaultCamera.transform;
+                cameraTransform.localPosition = Vector3.zero;
+                cameraTransform.localRotation = Quaternion.identity;
+                cameraTransform.localScale = Vector3.one;
+
+                //BOTDPlayerInput.SelectInputMapping(); 
+            }
+        }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(GameController) + ".";
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        #endregion
+
+        /*public SpawnPoint[] GetAllSpawnPoints()
         {
             return (from a in GameAgent.GetAgents() where a is SpawnPoint select a as SpawnPoint).ToArray();
         }
@@ -166,6 +175,6 @@ namespace Appalachia.Prototype.KOC.Gameplay
             }
 
             Profiler.EndSample();
-        }
+        }*/
     }
 } // Gameplay

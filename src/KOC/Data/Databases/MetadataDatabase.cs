@@ -21,20 +21,9 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             }
         }
 
-        protected override void OnInitialize()
-        {
-            using (_PRF_OnInitialize.Auto())
-            {
-            }
-        }
-
         #region Profiling
 
         private const string _PRF_PFX = nameof(MetadataDatabase) + ".";
-
-        private static readonly ProfilerMarker _PRF_OnInitialize =
-            new ProfilerMarker(_PRF_PFX + nameof(OnInitialize));
-
         private static readonly ProfilerMarker _PRF_Dispose = new ProfilerMarker(_PRF_PFX + nameof(Dispose));
 
         #endregion

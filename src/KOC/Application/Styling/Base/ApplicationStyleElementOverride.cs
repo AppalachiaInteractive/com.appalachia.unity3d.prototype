@@ -10,7 +10,8 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Base
     [CallStaticConstructorInEditor]
     [Serializable]
     public abstract class
-        ApplicationStyleElementOverride<TDefault, TOverride, TInterface> : ApplicationStyleElement<TInterface>
+        ApplicationStyleElementOverride<TDefault, TOverride, TInterface> : ApplicationStyleElement<TOverride,
+            TInterface>
         where TDefault : ApplicationStyleElementDefault<TDefault, TOverride, TInterface>, TInterface
         where TOverride : ApplicationStyleElementOverride<TDefault, TOverride, TInterface>, TInterface
         where TInterface : IApplicationStyle
@@ -51,7 +52,7 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Base
 
                 Defaults.RegisterOverride(this as TOverride);
 
-                this.MarkAsModified();
+                MarkAsModified();
             }
         }
 

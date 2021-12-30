@@ -1,6 +1,7 @@
 using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Dependencies;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components;
@@ -9,13 +10,11 @@ using Appalachia.Prototype.KOC.Application.State;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Execution;
-using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application
 {
@@ -28,17 +27,17 @@ namespace Appalachia.Prototype.KOC.Application
             RegisterDependency<MainAreaSceneInformationCollection>(
                 i => _mainAreaSceneInformationCollection = i
             );
-        }
 
-        protected override void AwakeActual()
-        {
-            AppalachiaRepositoryDependencyManager.ResolveRepositoryDependencies().Forget();
+            RegisterDependency<LifetimeComponentManager>(i => _lifetimeComponentManager = i);
         }
 
         #region Static Fields and Autoproperties
 
+        [NonSerialized] private static LifetimeComponentManager _lifetimeComponentManager;
+
         [Title("Area Scene Information")]
         [ShowInInspector, InlineEditor, HideLabel]
+        [NonSerialized]
         private static MainAreaSceneInformationCollection _mainAreaSceneInformationCollection;
 
         #endregion
@@ -47,11 +46,10 @@ namespace Appalachia.Prototype.KOC.Application
 
         [NonSerialized] public ApplicationArea PrimarySubSceneArea;
 
-        [FormerlySerializedAs("areaStates"), SerializeField]
-        [Title("Application State"), InlineProperty, HideLabel]
+        [Title("Application State")]
+        [ShowInInspector, InlineEditor, HideLabel]
+        [NonSerialized]
         private ApplicationAreaStateCollection _areaStates;
-
-        [SerializeField] private LifetimeComponentManager _lifetimeComponentManager;
 
         [NonSerialized] private bool _isApplicationFocused;
 
@@ -236,13 +234,16 @@ namespace Appalachia.Prototype.KOC.Application
             }
         }
 
-        protected override void Initialize()
+        protected override void AwakeActual()
+        {
+            AppalachiaRepositoryDependencyManager.ResolveRepositoryDependencies().Forget();
+        }
+
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                Context.Log.Info(nameof(Initialize), this);
-
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 try
                 {
@@ -263,8 +264,11 @@ namespace Appalachia.Prototype.KOC.Application
 
                 if (_lifetimeComponentManager == null)
                 {
-                    _lifetimeComponentManager = LifetimeComponentManager.instance;
-                    _lifetimeComponentManager.gameObject.SetAsSiblingTo(transform);
+                    Context.Log.Error(
+                        $"{nameof(LifetimeComponentManager)} should be initialized before {nameof(ApplicationManager)}!"
+                    );
+
+                    return;
                 }
 
                 if (!_lifetimeComponentManager.gameObject.activeSelf)
@@ -275,10 +279,6 @@ namespace Appalachia.Prototype.KOC.Application
                 if (_lifetimeComponentManager.enabled)
                 {
                     _lifetimeComponentManager.enabled = true;
-                }
-                else
-                {
-                    _lifetimeComponentManager.InitializeExternal();
                 }
 
                 if (_areaStates == null)

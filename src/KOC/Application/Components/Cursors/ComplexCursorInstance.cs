@@ -2,10 +2,13 @@ using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
+using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.Animation;
 using Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata;
 using Appalachia.Prototype.KOC.Application.Components.Fading;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
@@ -26,7 +29,7 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 #if UNITY_EDITOR
     [RequireComponent(typeof(AnimationRemapper))]
 #endif
-    public class ComplexCursorInstance : AppalachiaApplicationBehaviour
+    public class ComplexCursorInstance : AppalachiaApplicationBehaviour<ComplexCursorInstance>
     {
         #region Fields and Autoproperties
 
@@ -104,11 +107,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
             }
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 if (size == Vector2.zero)
                 {
@@ -399,6 +402,18 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
         [Serializable]
         public struct CursorInstanceComponents
         {
+            // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
+            static CursorInstanceComponents()
+            {
+                CursorManager.InstanceAvailable += i => _cursorManager = i;
+            }
+
+            #region Static Fields and Autoproperties
+
+            private static CursorManager _cursorManager;
+
+            #endregion
+
             #region Fields and Autoproperties
 
 #if UNITY_EDITOR
@@ -415,8 +430,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 
             [SerializeField] public CanvasRenderer canvasRenderer;
 
-            [SerializeField] public CursorManager cursorManager;
-
             [SerializeField]
 #if UNITY_EDITOR
             [SmartInlineButton(nameof(CreateMetadata), DisableIf = nameof(HideCreateMetadata))]
@@ -431,15 +444,12 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 
             #endregion
 
+            public CursorManager cursorManager => _cursorManager;
+
             private bool HideCreateMetadata => metadata != null;
 
             public void Initialize(GameObject gameObject, Vector2 size)
             {
-                if (cursorManager == null)
-                {
-                    cursorManager = CursorManager.instance;
-                }
-
                 gameObject.GetOrCreateComponent(ref canvasRenderer);
                 gameObject.GetOrCreateComponent(ref canvasGroup);
                 gameObject.GetOrCreateComponent(ref canvasFadeManager);
@@ -474,7 +484,9 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
             {
                 using (_PRF_CreateMetadata.Auto())
                 {
-                    metadata = AppalachiaObject.LoadOrCreateNew(animationRemapper.gameObject.name);
+                    metadata = AppalachiaObject.LoadOrCreateNew<CursorMetadata>(
+                        animationRemapper.gameObject.name
+                    );
                 }
             }
 #endif

@@ -1,14 +1,22 @@
 using System;
 using Appalachia.Prototype.KOC.Application.Components.UI;
 using Appalachia.Prototype.KOC.Application.Menus.Components;
+using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements
 {
     [Serializable]
-    public class UIMenuBackgroundMetadata : UIElementMetadataBase<UIMenuBackgroundComponentSet>
+    public class
+        UIMenuBackgroundMetadata : UIElementMetadataBase<UIMenuBackgroundMetadata,
+            UIMenuBackgroundComponentSet>
     {
+        public UIMenuBackgroundMetadata(Object owner) : base(owner)
+        {
+        }
+
         #region Fields and Autoproperties
 
         public Sprite sprite;
@@ -21,36 +29,25 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements
 
         #endregion
 
-        public override void Apply(
+        public override async AppaTask Apply(
             GameObject parent,
             string baseName,
-            ref UIMenuBackgroundComponentSet component)
+            UIMenuBackgroundComponentSet component)
         {
             using (_PRF_Apply.Auto())
             {
-                using (var scope = initializer.Scope(
-                           this,
-                           nameof(component),
-                           (component.image == null) ||
-                           (component.rect == null) ||
-                           (component.gameObject == null)
-                       ))
-                {
-                    if (scope.ShouldInitialize)
-                    {
-                        component.Configure(parent, baseName);
-                        scope.MarkInitialized();
-                    }
-                }
+                await initializer.Do(
+                    this,
+                    nameof(component),
+                    (component.image == null) || (component.rect == null) || (component.gameObject == null),
+                    () => { component.Configure(parent, baseName); }
+                );
 
-                using (var scope = initializer.Scope(this, nameof(RectResetOptions)))
-                {
-                    if (scope.ShouldInitialize)
-                    {
-                        component.rect.Reset(RectResetOptions.Transforms);
-                        scope.MarkInitialized();
-                    }
-                }
+                await initializer.Do(
+                    this,
+                    nameof(RectResetOptions),
+                    () => { component.rect.Reset(RectResetOptions.Transforms); }
+                );
 
                 if (component.rect.anchorMin != anchorMin)
                 {
@@ -71,14 +68,16 @@ namespace Appalachia.Prototype.KOC.Application.Menus.Metadata.Elements
                 {
                     component.image.color = color;
                 }
-
-                await initializer.Do(this, nameof(component.image), () => { });
             }
         }
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(UIMenuBackgroundMetadata) + ".";
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
         private static readonly ProfilerMarker _PRF_Apply = new ProfilerMarker(_PRF_PFX + nameof(Apply));
 
         #endregion

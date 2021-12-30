@@ -1,4 +1,6 @@
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Settings;
+using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -6,7 +8,7 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
 {
     public abstract class
         RuntimeGraphInstanceText<TGraph, TManager, TMonitor, TText, TSettings> : RuntimeGraphInstanceBase<
-            TGraph, TManager, TMonitor, TText, TSettings>
+            TGraph, TManager, TMonitor, TText, TSettings, TText>
         where TGraph : RuntimeGraphInstance<TGraph, TManager, TMonitor, TText, TSettings>
         where TManager : RuntimeGraphInstanceManager<TGraph, TManager, TMonitor, TText, TSettings>
         where TMonitor : RuntimeGraphInstanceMonitor<TGraph, TManager, TMonitor, TText, TSettings>
@@ -30,6 +32,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady)
+                {
+                    return;
+                }
+
                 deltaTime += Time.unscaledDeltaTime;
                 frameCount++;
 
@@ -51,11 +58,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
         {
         }
 
-        protected override void Initialize()
+        protected override async AppaTask Initialize(Initializer initializer)
         {
             using (_PRF_Initialize.Auto())
             {
-                base.Initialize();
+                await base.Initialize(initializer);
 
                 if (monitor == null)
                 {

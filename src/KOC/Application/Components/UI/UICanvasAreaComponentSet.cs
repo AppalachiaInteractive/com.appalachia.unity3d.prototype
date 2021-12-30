@@ -12,8 +12,12 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Application.Components.UI
 {
     [Serializable, SmartLabelChildren]
-    public struct UICanvasAreaComponentSet : IComponentSet
+    public class UICanvasAreaComponentSet : ComponentSet
     {
+        public UICanvasAreaComponentSet(GameObject go) : base(go)
+        {
+        }
+
         #region Fields and Autoproperties
 
         public Canvas canvas;
@@ -21,7 +25,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
         public CanvasGroup canvasGroup;
         public CanvasScaler canvasScaler;
 
-        public GameObject gameObject;
         public GraphController graphController;
         public GraphicRaycaster graphicRaycaster;
         public RectTransform rect;
@@ -29,11 +32,7 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
 
         #endregion
 
-        #region IComponentSet Members
-
-        public GameObject GameObject => gameObject;
-
-        public void Configure(GameObject parent, string name)
+        public override void Configure(GameObject parent, string name)
         {
             using (_PRF_Configure.Auto())
             {
@@ -54,8 +53,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
                 graphController.DontDestroyControllerOnLoad = false;
             }
         }
-
-        #endregion
 
         #region Profiling
 

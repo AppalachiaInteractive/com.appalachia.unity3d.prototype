@@ -38,7 +38,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
     [CallStaticConstructorInEditor]
     public sealed class LifetimeComponents : AppalachiaBase<LifetimeComponents>
     {
-        // [CallStaticConstructorInEditor] should be added to the class (initsingletonattribute)
         static LifetimeComponents()
         {
             RegisterDependency<LifetimeMetadata>(i => _lifetimeMetadata = i);
@@ -390,8 +389,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
                 _fullScreenBlackImage.color = Color.black;
 
-                _screenFader.InitializeExternal();
-
                 _canvasRectTransform.FullScreen(true);
                 _screenFader.rectTransform.FullScreen(true);
                 _fullScreenBlackImage.rectTransform.FullScreen(true);
@@ -402,7 +399,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
                 );
 
                 _cursorManager.gameObject.GetOrCreateComponent(ref _cursorCanvas);
-                _cursorManager.InitializeExternal();
                 _cursorManager.rectTransform.FullScreen(true);
             }
         }

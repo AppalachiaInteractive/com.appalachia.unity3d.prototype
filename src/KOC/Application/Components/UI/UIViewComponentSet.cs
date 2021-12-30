@@ -11,26 +11,25 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Application.Components.UI
 {
     [Serializable, SmartLabelChildren]
-    public struct UIViewComponentSet : IComponentSet
+    public class UIViewComponentSet : ComponentSet
     {
+        public UIViewComponentSet(GameObject go) : base(go)
+        {
+        }
+
         #region Fields and Autoproperties
 
         public Canvas canvas;
         public CanvasFadeManager canvasFadeManager;
         public CanvasGroup canvasGroup;
 
-        public GameObject gameObject;
         public GraphicRaycaster graphicRaycaster;
         public RectTransform rect;
         public UIView uiView;
 
         #endregion
 
-        #region IComponentSet Members
-
-        public GameObject GameObject => gameObject;
-
-        public void Configure(GameObject parent, string baseName)
+        public override void Configure(GameObject parent, string baseName)
         {
             using (_PRF_ConfigureView.Auto())
             {
@@ -38,16 +37,14 @@ namespace Appalachia.Prototype.KOC.Application.Components.UI
 
                 parent.GetOrCreateChild(ref gameObject, targetName, true);
 
-                gameObject.GetOrCreateComponent(ref rect);
-                gameObject.GetOrCreateComponent(ref canvasFadeManager);
-                gameObject.GetOrCreateComponent(ref canvasGroup);
-                gameObject.GetOrCreateComponent(ref canvas);
-                gameObject.GetOrCreateComponent(ref graphicRaycaster);
-                gameObject.GetOrCreateComponent(ref uiView);
+                GameObject.GetOrCreateComponent(ref rect);
+                GameObject.GetOrCreateComponent(ref canvasFadeManager);
+                GameObject.GetOrCreateComponent(ref canvasGroup);
+                GameObject.GetOrCreateComponent(ref canvas);
+                GameObject.GetOrCreateComponent(ref graphicRaycaster);
+                GameObject.GetOrCreateComponent(ref uiView);
             }
         }
-
-        #endregion
 
         #region Profiling
 

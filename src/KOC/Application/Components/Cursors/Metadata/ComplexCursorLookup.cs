@@ -14,11 +14,26 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata
     public class ComplexCursorLookup : AppalachiaObjectLookupCollection<ComplexCursors, ComplexCursorMetadata,
         ComplexCursorsList, ComplexCursorMetadataList, ComplexCursorMetadataLookup, ComplexCursorLookup>
     {
-        public override bool HasDefault => true;
+        #region Fields and Autoproperties
 
 #if UNITY_EDITOR
         public UnityEditor.Animations.AnimatorController templateController;
 #endif
+
+        #endregion
+
+        public override bool HasDefault => true;
+
+        protected override ComplexCursors GetUniqueKeyFromValue(ComplexCursorMetadata value)
+        {
+            return value.complexCursorValue;
+        }
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(ComplexCursorLookup) + ".";
+
+        #endregion
 
 #if UNITY_EDITOR
         private static readonly ProfilerMarker _PRF_CreateAll =
@@ -36,7 +51,10 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata
                         continue;
                     }
 
-                    var newMetadata = ComplexCursorMetadata.LoadOrCreateNew(complexCursor.ToString());
+                    var newMetadata =
+                        ComplexCursorMetadata.LoadOrCreateNew<ComplexCursorMetadata>(
+                            complexCursor.ToString()
+                        );
 
                     if (newMetadata.prefab == null)
                     {
@@ -56,16 +74,5 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata
             }
         }
 #endif
-
-        protected override ComplexCursors GetUniqueKeyFromValue(ComplexCursorMetadata value)
-        {
-            return value.complexCursorValue;
-        }
-
-        #region Profiling
-
-        private const string _PRF_PFX = nameof(ComplexCursorLookup) + ".";
-
-        #endregion
     }
 }

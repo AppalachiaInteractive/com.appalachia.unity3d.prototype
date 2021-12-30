@@ -1,11 +1,16 @@
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Async;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 
 namespace Appalachia.Prototype.KOC.Application.Playables.TMPTextSwitcher
 {
-    public class TMPTextSwitcherMixerBehaviour : AppalachiaPlayable
+    public class TMPTextSwitcherMixerBehaviour : AppalachiaPlayable<TMPTextSwitcherMixerBehaviour>
     {
+        #region Fields and Autoproperties
+
         private Color m_DefaultColor;
         private float m_DefaultFontSize;
         private string m_DefaultText;
@@ -13,7 +18,34 @@ namespace Appalachia.Prototype.KOC.Application.Playables.TMPTextSwitcher
         private TextMeshProUGUI m_TrackBinding;
         private bool m_FirstFrameHappened;
 
-        public override void ProcessFrame(Playable playable, FrameData info, object playerData)
+        #endregion
+
+        public override void OnPlayableDestroy(Playable playable)
+        {
+            if (m_TrackBinding != null)
+            {
+                m_TrackBinding.color = m_DefaultColor;
+                m_TrackBinding.fontSize = m_DefaultFontSize;
+                m_TrackBinding.text = m_DefaultText;
+            }
+
+            m_FirstFrameHappened = false;
+        }
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await AppaTask.CompletedTask;
+        }
+
+        protected override void OnPause(Playable playable, FrameData info)
+        {
+        }
+
+        protected override void OnPlay(Playable playable, FrameData info)
+        {
+        }
+
+        protected override void Update(Playable playable, FrameData info, object playerData)
         {
             m_TrackBinding = playerData as TextMeshProUGUI;
 
@@ -69,16 +101,16 @@ namespace Appalachia.Prototype.KOC.Application.Playables.TMPTextSwitcher
             }
         }
 
-        public override void OnPlayableDestroy(Playable playable)
+        protected override void WhenDestroyed(Playable playable)
         {
-            if (m_TrackBinding != null)
-            {
-                m_TrackBinding.color = m_DefaultColor;
-                m_TrackBinding.fontSize = m_DefaultFontSize;
-                m_TrackBinding.text = m_DefaultText;
-            }
+        }
 
-            m_FirstFrameHappened = false;
+        protected override void WhenStarted(Playable playable)
+        {
+        }
+
+        protected override void WhenStopped(Playable playable)
+        {
         }
     }
 }

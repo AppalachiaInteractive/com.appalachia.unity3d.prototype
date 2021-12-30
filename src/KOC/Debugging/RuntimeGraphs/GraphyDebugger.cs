@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Audio;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Fps;
 using Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Ram;
+using Appalachia.Utility.Async;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -59,23 +62,7 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
 
         #endregion
 
-        /* ----- TODO: ----------------------------
-         * Add summaries to the variables.
-         * Add summaries to the functions.
-         * Ask why we're not using System.Serializable instead for the helper class.
-         * Simplify the initializers of the DebugPackets, but check wether we should as some wont work with certain lists.
-         * --------------------------------------*/
-
         #region Event Functions
-
-        protected override void Start()
-        {
-            base.Start();
-
-            m_fpsMonitor = GetComponentInChildren<G_FpsMonitor>();
-            m_ramMonitor = GetComponentInChildren<G_RamMonitor>();
-            m_audioMonitor = GetComponentInChildren<G_AudioMonitor>();
-        }
 
         private void Update()
         {
@@ -83,6 +70,18 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
         }
 
         #endregion
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            using (_PRF_Initialize.Auto())
+            {
+                await base.Initialize(initializer);
+
+                m_fpsMonitor = GetComponentInChildren<G_FpsMonitor>();
+                m_ramMonitor = GetComponentInChildren<G_RamMonitor>();
+                m_audioMonitor = GetComponentInChildren<G_AudioMonitor>();
+            }
+        }
 
         /// <summary>
         ///     Checks all the Debug Packets to see if they have to be executed.
@@ -357,24 +356,50 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
 
             public void Update()
             {
-                if (!canBeChecked)
+                using (_PRF_Update.Auto())
                 {
-                    timePassed += Time.deltaTime;
-
-                    if ((executed && (timePassed >= ExecuteSleepTime)) ||
-                        (!executed && (timePassed >= InitSleepTime)))
+                    if (!canBeChecked)
                     {
-                        canBeChecked = true;
+                        timePassed += Time.deltaTime;
 
-                        timePassed = 0;
+                        if ((executed && (timePassed >= ExecuteSleepTime)) ||
+                            (!executed && (timePassed >= InitSleepTime)))
+                        {
+                            canBeChecked = true;
+
+                            timePassed = 0;
+                        }
                     }
                 }
             }
+
+            #region Profiling
+
+            private static readonly ProfilerMarker _PRF_Update =
+                new ProfilerMarker(_PRF_PFX + nameof(Update));
+
+            #endregion
         }
 
         #endregion
 
         #endregion
+
+        #region Profiling
+
+        private const string _PRF_PFX = nameof(GraphyDebugger) + ".";
+
+        private static readonly ProfilerMarker _PRF_Initialize =
+            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+
+        #endregion
+
+        /* ----- TODO: ----------------------------
+         * Add summaries to the variables.
+         * Add summaries to the functions.
+         * Ask why we're not using System.Serializable instead for the helper class.
+         * Simplify the initializers of the DebugPackets, but check wether we should as some wont work with certain lists.
+         * --------------------------------------*/
 
         #region Public Methods
 

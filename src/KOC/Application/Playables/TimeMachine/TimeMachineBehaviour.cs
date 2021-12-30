@@ -1,10 +1,14 @@
 using System;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Async;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace Appalachia.Prototype.KOC.Application.Playables.TimeMachine
 {
     [Serializable]
-    public class TimeMachineBehaviour : AppalachiaPlayable
+    public class TimeMachineBehaviour : AppalachiaPlayable<TimeMachineBehaviour>
     {
         public enum Condition
         {
@@ -66,6 +70,35 @@ namespace Appalachia.Prototype.KOC.Application.Playables.TimeMachine
         public void SignalCondition()
         {
             _receivedSignal = true;
+        }
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await AppaTask.CompletedTask;
+        }
+
+        protected override void OnPause(Playable playable, FrameData info)
+        {
+        }
+
+        protected override void OnPlay(Playable playable, FrameData info)
+        {
+        }
+
+        protected override void Update(Playable playable, FrameData info, object playerData)
+        {
+        }
+
+        protected override void WhenDestroyed(Playable playable)
+        {
+        }
+
+        protected override void WhenStarted(Playable playable)
+        {
+        }
+
+        protected override void WhenStopped(Playable playable)
+        {
         }
     }
 }

@@ -12,7 +12,7 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Application.Menus.Components
 {
     [Serializable, DoNotReorderFields]
-    public struct UIMenuButtonComponentSet : IComponentSet
+    public class UIMenuButtonComponentSet : IComponentSet
     {
         #region Fields and Autoproperties
 
