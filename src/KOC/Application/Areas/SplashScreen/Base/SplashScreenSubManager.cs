@@ -39,6 +39,11 @@ namespace Appalachia.Prototype.KOC.Application.Areas.SplashScreen.Base
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+                
                 base.Update();
 
                 if (AppalachiaApplication.IsPlaying)

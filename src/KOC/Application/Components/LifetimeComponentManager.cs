@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Behaviours;
 using Appalachia.Prototype.KOC.Application.Components.Controls;
 using Appalachia.Prototype.KOC.Application.Input;
@@ -23,8 +24,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
         [SerializeField]
         [HideLabel, InlineProperty, Title("Lifetime Components")]
         private LifetimeComponents _components;
-
-        [NonSerialized] private bool _initialized;
 
         private Queue<Action> _nextFrameActions;
 
@@ -67,7 +66,7 @@ namespace Appalachia.Prototype.KOC.Application.Components
         {
             using (_PRF_Update.Auto())
             {
-                if (DependenciesAreReady)
+                if (!DependenciesAreReady || !FullyInitialized)
                 {
                     return;
                 }
@@ -84,19 +83,9 @@ namespace Appalachia.Prototype.KOC.Application.Components
                     return;
                 }
 
-                _nextFrameActions ??= new Queue<Action>();
+                ExecuteDelayedActions();
 
-                while (_nextFrameActions.Count > 0)
-                {
-                    try
-                    {
-                        _nextFrameActions.Dequeue()();
-                    }
-                    catch (Exception ex)
-                    {
-                        Context.Log.Error("Failed to process queued action.", this, ex);
-                    }
-                }
+                ExecuteInitializationActions();
             }
         }
 
@@ -104,9 +93,12 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
         public void DoNextFrame(Action action)
         {
-            _nextFrameActions ??= new Queue<Action>();
+            using (_PRF_DoNextFrame.Auto())
+            {
+                _nextFrameActions ??= new Queue<Action>();
 
-            _nextFrameActions.Enqueue(action);
+                _nextFrameActions.Enqueue(action);
+            }
         }
 
         internal KOCInputActions GetActions()
@@ -125,14 +117,19 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
                 Context.Log.Info(nameof(Initialize), this);
 
+                enabled = true;
+
                 var obj = gameObject;
 
                 obj.name = nameof(LifetimeComponentManager);
+                obj.SetActive(true);
 
                 DontDestroyOnLoadSafe();
 
                 var components = Components;
 
+                ExecuteInitializationActions();
+                
                 try
                 {
                     await components.Initialize(this);
@@ -155,8 +152,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
                 {
                     Components.RunAsMainScene(obj);
                 }
-
-                _initialized = true;
             }
         }
 
@@ -168,9 +163,59 @@ namespace Appalachia.Prototype.KOC.Application.Components
             }
         }
 
+        private void ExecuteDelayedActions()
+        {
+            using (_PRF_ExecuteDelayedActions.Auto())
+            {
+                _nextFrameActions ??= new Queue<Action>();
+
+                while (_nextFrameActions.Count > 0)
+                {
+                    try
+                    {
+                        _nextFrameActions.Dequeue()();
+                    }
+                    catch (Exception ex)
+                    {
+                        Context.Log.Error("Failed to process queued action.", this, ex);
+                    }
+                }
+            }
+        }
+
+        private void ExecuteInitializationActions()
+        {
+            using (_PRF_ExecuteInitializationActions.Auto())
+            {
+                try
+                {
+                    while (AppalachiaBase.InitializationFunctions.Count > 0)
+                    {
+                        var initializationFunction = AppalachiaBase.InitializationFunctions.Dequeue();
+                        var initializationTask = initializationFunction();
+
+                        initializationTask.Forget();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(ExecuteInitializationActions)}.", this, ex);
+                }
+            }
+        }
+
         #region Profiling
 
         private const string _PRF_PFX = nameof(LifetimeComponentManager) + ".";
+
+        private static readonly ProfilerMarker _PRF_ExecuteDelayedActions =
+            new ProfilerMarker(_PRF_PFX + nameof(ExecuteDelayedActions));
+
+        private static readonly ProfilerMarker _PRF_ExecuteInitializationActions =
+            new ProfilerMarker(_PRF_PFX + nameof(ExecuteInitializationActions));
+
+        private static readonly ProfilerMarker _PRF_DoNextFrame =
+            new ProfilerMarker(_PRF_PFX + nameof(DoNextFrame));
 
         private static readonly ProfilerMarker _PRF_WhenDestroyed =
             new ProfilerMarker(_PRF_PFX + nameof(WhenDestroyed));

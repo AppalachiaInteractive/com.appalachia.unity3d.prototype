@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a27e3be23f1ceb4787279b1483e8281, type: 3}
   m_Name: AreaSceneInformation_DebugOverlay
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
-  _area: 0
+  _initializer:
+    _tags: []
+    _resetToken: 
+  _area: 90000
   entrySceneReference: {fileID: 11400000, guid: accdccbdfd4d5bf4b987cd59b8f634bb, type: 2}
   _sceneReferences:
     _capacityIncreaseMultiplier: 2

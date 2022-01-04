@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e11acfd66947068f39ff89090b5585, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: 
-  _niceName: 
   _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - profileName
+    _resetToken: 
   id: 2
-  profileName: 
+  profileName: Rock
   icon: {fileID: 0}
   materials: []

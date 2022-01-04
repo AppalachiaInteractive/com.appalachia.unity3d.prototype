@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91c2114dc9e4f89a73c17061ceed439, type: 3}
   m_Name: Paddle
   m_EditorClassIdentifier: 
-  _niceName: 
   _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - profileName
+    _resetToken: 
   id: 1
   profileName: Paddle
   icon: {fileID: 0}
+  craftedItems: []
   recipes:
   - elements:
     - options:
@@ -25,10 +30,10 @@ MonoBehaviour:
           unit: 2
           inRealTime: 0
         ingredients:
-        - ingredientType: 0
+        - item: {fileID: 0}
+          ingredientType: 0
           material: {fileID: 11400000, guid: b8b058c74cdc4234d92d62d096b6e295, type: 2}
           materialAmount: 1
-          item: {fileID: 0}
           itemCount: 1
         knowledges:
         - {fileID: 11400000, guid: fc0a3128fb21be543a5c684975437b2b, type: 2}
@@ -55,4 +60,3 @@ MonoBehaviour:
         knowledges: []
         skills: []
         tools: []
-  craftedItems: []

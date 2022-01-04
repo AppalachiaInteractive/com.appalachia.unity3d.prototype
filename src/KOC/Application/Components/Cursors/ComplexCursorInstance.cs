@@ -72,6 +72,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+                
                 if (!_activated)
                 {
                     return;

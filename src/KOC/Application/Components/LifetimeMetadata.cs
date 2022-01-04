@@ -9,7 +9,6 @@ using Appalachia.Prototype.KOC.Application.Scenes;
 using Appalachia.Prototype.KOC.Application.Styling;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
-using Appalachia.Utility.Logging;
 using Appalachia.Utility.Reflection.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -38,7 +37,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
         [InlineProperty, HideLabel, BoxGroup("Clear Camera")]
         public ClearCameraSettings clearCamera;
 
-        public AppaLogFormats logFormats;
         public ApplicationUIStyle uiStyle;
         public DeviceButtonLookup deviceButtons;
         public AudioMixer audioMixer;

@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea745b24371d47bfa4a4556192bd8f7e, type: 3}
   m_Name: MainMenu_Settings_ButtonMetadata_V01
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - 0
     _resetToken: 
-  _cachedName: 
-  _niceName: 
   elements: []

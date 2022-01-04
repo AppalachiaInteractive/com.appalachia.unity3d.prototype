@@ -2,6 +2,7 @@ using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
@@ -18,8 +19,9 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Base
     {
         static ApplicationStyleElementOverride()
         {
-            ApplicationStyleElementDefaultLookup.InstanceAvailable +=
-                i => _applicationStyleElementDefaultLookup = i;
+            RegisterDependency<ApplicationStyleElementDefaultLookup>(
+                i => _applicationStyleElementDefaultLookup = i
+            );
         }
 
         #region Static Fields and Autoproperties
@@ -32,9 +34,14 @@ namespace Appalachia.Prototype.KOC.Application.Styling.Base
         {
             get
             {
-                if (_applicationStyleElementDefaultLookup == null)
+                if (!DependenciesAreReady || !FullyInitialized)
                 {
-                    throw new NotSupportedException("Lookup should not be null!");
+                    throw new NotSupportedException(
+                        ZString.Format(
+                            "Can not lookup defaults for style before dependencies are ready.  Add a dependency on {0}!",
+                            nameof(ApplicationStyleElementDefaultLookup)
+                        )
+                    );
                 }
 
                 return _applicationStyleElementDefaultLookup.Get<TDefault, TOverride, TInterface>();

@@ -10,22 +10,63 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Editor
     [CallStaticConstructorInEditor]
     internal static class GraphyEditorStyle
     {
-        #region Constants and Static Readonly
+        #region Static Fields and Autoproperties
 
-        private static readonly GUISkin m_skin;
-        private static readonly GUIStyle m_foldoutStyle;
-        private static readonly GUIStyle m_headerStyle1;
-        private static readonly GUIStyle m_headerStyle2;
-        private static readonly Texture2D _debuggerLogoTexture;
+        private static GUISkin m_skin;
+        private static GUIStyle m_foldoutStyle;
+        private static GUIStyle m_headerStyle1;
+        private static GUIStyle m_headerStyle2;
 
-        private static readonly Texture2D _managerLogoTexture;
+        private static string path;
+        private static Texture2D _debuggerLogoTexture;
+
+        private static Texture2D _managerLogoTexture;
 
         #endregion
+
+        public static GUISkin Skin => m_skin;
+        public static GUIStyle FoldoutStyle => m_foldoutStyle;
+        public static GUIStyle HeaderStyle1 => m_headerStyle1;
+        public static GUIStyle HeaderStyle2 => m_headerStyle2;
+        public static Texture2D DebuggerLogoTexture => _debuggerLogoTexture;
+
+        public static Texture2D ManagerLogoTexture => _managerLogoTexture;
+
+        private static void SetGuiStyleFontColor(GUIStyle guiStyle, Color color)
+        {
+            guiStyle.normal.textColor = color;
+            guiStyle.hover.textColor = color;
+            guiStyle.active.textColor = color;
+            guiStyle.focused.textColor = color;
+            guiStyle.onNormal.textColor = color;
+            guiStyle.onHover.textColor = color;
+            guiStyle.onActive.textColor = color;
+            guiStyle.onFocused.textColor = color;
+        }
 
         #region Static Constructor
 
         static GraphyEditorStyle()
         {
+            EditorApplication.update -= InitializeGraphyEditorStyle;
+            EditorApplication.update += InitializeGraphyEditorStyle;
+        }
+
+        private static void InitializeGraphyEditorStyle()
+        {
+            GUIStyle foldoutStyle;
+            try
+            {
+                foldoutStyle = EditorStyles.foldout;
+                EditorApplication.update -= InitializeGraphyEditorStyle;
+            }
+            catch
+            {
+                return;
+            }
+
+            var boldLabelStyle = EditorStyles.boldLabel;
+
             var managerLogoGuid = AssetDatabaseManager.FindAssets(
                 ZString.Format("Manager_Logo_{0}", EditorGUIUtility.isProSkin ? "White" : "Dark")
             )[0];
@@ -57,47 +98,19 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Editor
             }
             else
             {
-                m_headerStyle1 = new(EditorStyles.boldLabel);
-                m_headerStyle2 = new(EditorStyles.boldLabel);
+                m_headerStyle1 = new(boldLabelStyle);
+                m_headerStyle2 = new(boldLabelStyle);
             }
 
-            m_foldoutStyle = new GUIStyle(EditorStyles.foldout)
-            {
-                font = m_headerStyle2.font,
-                fontStyle = m_headerStyle2.fontStyle,
-                contentOffset = Vector2.down * 3f
-            };
+            m_foldoutStyle = new GUIStyle(foldoutStyle);
+            m_foldoutStyle.font = m_headerStyle2.font;
+            m_foldoutStyle.fontStyle = m_headerStyle2.fontStyle;
+            m_foldoutStyle.contentOffset = Vector2.down * 3f;
 
             SetGuiStyleFontColor(m_foldoutStyle, EditorGUIUtility.isProSkin ? Color.white : Color.black);
         }
 
         #endregion
-
-        #region Static Fields and Autoproperties
-
-        private static string path;
-
-        #endregion
-
-        public static GUISkin Skin => m_skin;
-        public static GUIStyle FoldoutStyle => m_foldoutStyle;
-        public static GUIStyle HeaderStyle1 => m_headerStyle1;
-        public static GUIStyle HeaderStyle2 => m_headerStyle2;
-        public static Texture2D DebuggerLogoTexture => _debuggerLogoTexture;
-
-        public static Texture2D ManagerLogoTexture => _managerLogoTexture;
-
-        private static void SetGuiStyleFontColor(GUIStyle guiStyle, Color color)
-        {
-            guiStyle.normal.textColor = color;
-            guiStyle.hover.textColor = color;
-            guiStyle.active.textColor = color;
-            guiStyle.focused.textColor = color;
-            guiStyle.onNormal.textColor = color;
-            guiStyle.onHover.textColor = color;
-            guiStyle.onActive.textColor = color;
-            guiStyle.onFocused.textColor = color;
-        }
     }
 }
 

@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c284ac123cbe449add365fb35d557f, type: 3}
   m_Name: Great Moccasins
   m_EditorClassIdentifier: 
-  preview: {fileID: 2800000, guid: 9e38c580990fb3541bafd6020d762a7a, type: 3}
-  itemName: Great Moccasins
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   category: 10
-  subcategory: 1000
   specialCategory: 100
+  subcategory: 1000
+  itemName: Great Moccasins
+  preview: {fileID: 2800000, guid: 9e38c580990fb3541bafd6020d762a7a, type: 3}

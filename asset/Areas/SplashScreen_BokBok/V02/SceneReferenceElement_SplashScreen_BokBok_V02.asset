@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f688fbc10804a9f9d823ddfc95a025b, type: 3}
   m_Name: SceneReferenceElement_SplashScreen_BokBok_V02
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   reference:
     m_AssetGUID: c401293b9697f2f40ae0e4f8cbd33c20
     m_SubObjectName: 

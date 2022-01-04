@@ -37,6 +37,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - DebugOverlay_V01
+  - m_GUID: 388cdb11d1348884190b2c5d1edd1150
+    m_Address: RuntimeGraphSettings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DebugOverlay_V01
+  - m_GUID: 17ff35d35e16bb243b4fb12caa676768
+    m_Address: DebugLogManagerSettings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DebugOverlay_V01
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

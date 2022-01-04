@@ -12,26 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21807a6ec655df146b851b5c8f0b822d, type: 3}
   m_Name: DatabaseEnvironmentConfiguration_chris_developer
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
-  gameState:
-    isEncrypted: 0
-    technology: 0
-    key: 
-    name: 
-  metadata:
-    isEncrypted: 0
-    technology: 0
-    key: 
-    name: 
-  user:
-    isEncrypted: 0
-    technology: 0
-    key: 
-    name: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   gameStateSaveLocation:
     location: 0
     includeCompanyName: 0

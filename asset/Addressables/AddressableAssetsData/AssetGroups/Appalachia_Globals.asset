@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Appalachia_Globals
+  m_EditorClassIdentifier: 
+  m_GroupName: Appalachia_Globals
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0a494ef4c60bf50488f5eb97de8dfc2e
+  m_SerializeEntries:
+  - m_GUID: 866b751402f49a348bab38cd2c902f0b
+    m_Address: GSR
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Globals
+  - m_GUID: ff8bf54670d80a0449e52b98a2d48455
+    m_Address: GlobalDebug
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Globals
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2e41a15f2c8a42d4498e74ccabef937f, type: 2}
+    - {fileID: 11400000, guid: 8a727c4ad0ffd624b8fad4f8e65fe07f, type: 2}

@@ -46,8 +46,8 @@ namespace Appalachia.Prototype.KOC.Data
 
                 var instance = new DatabaseCollection
                 {
-                    user = UserDatabase.CreateDatabase(_config, userAccess),
-                    metadata = MetadataDatabase.CreateDatabase(_config, metadataAccess),
+                    user = UserDatabase.InitializeDatabase(_config, userAccess),
+                    metadata = MetadataDatabase.InitializeDatabase(_config, metadataAccess),
                     dataSetName = dataSetName
                 };
 
@@ -64,7 +64,7 @@ namespace Appalachia.Prototype.KOC.Data
                 var postfix = gameId.ToString();
                 var userAccess = GetDatabaseAccess(DatabaseType.GameState, dataSetName, postfix);
 
-                currentGame = GameStateDatabase.CreateDatabase(_config, userAccess, gameId);
+                currentGame = GameStateDatabase.InitializeDatabase(_config, userAccess, gameId);
             }
         }
 

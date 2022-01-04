@@ -58,6 +58,11 @@ namespace Appalachia.Prototype.KOC.Application.Behaviours
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+                
                 ValidateSceneLocation();
             }
         }

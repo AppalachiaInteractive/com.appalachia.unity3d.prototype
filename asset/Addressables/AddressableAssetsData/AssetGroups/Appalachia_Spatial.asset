@@ -21,7 +21,72 @@ MonoBehaviour:
     m_Address: MeshBurialManagementQueue
     m_ReadOnly: 0
     m_SerializedLabels:
-    - KeepersOfCreation_V01
+    - Appalachia_Spatial
+  - m_GUID: 521cdc08d7948b84aa5363bec779b1c0
+    m_Address: MeshBurialAdjustmentCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 48b081c06cbee894c95635ee6962684b
+    m_Address: MeshBurialGizmoSettings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: b50c43d115e2a1c498b5b3b8bd4ad0d0
+    m_Address: MeshBurialOptimizationParameters
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 1bb18fdb2e3ecc5468e1ec7cddd1c6f4
+    m_Address: MeshBurialSharedStateDictionary
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 65594f4fc396a8945b3b607dfba7173a
+    m_Address: MainTerrainMetadataDictionary
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 79977bdccc8bc9146b3bf03dfaadb910
+    m_Address: TerrainMetadataDictionary_MainInternal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 813c73eee75e5074795e2a2ee7978500
+    m_Address: VoxelDataGizmoSettingsCollection_MainInternal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 50805f22f5cf84b488d073e5e14e7e05
+    m_Address: VoxelDataGizmoSettingsLookup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 0d6becec8a01de34caaa896f5990bb44
+    m_Address: TerrainThreadsafeDataDictionary
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 6aedf668759fd1e42bbbd9c2935c8606
+    m_Address: MainVoxelDataGizmoSettingsCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 5db9c65efca6bcc4fa4659aa17586218
+    m_Address: MainBuoyancyDataCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: e9ad28b2fcf8ecc4c8be9a82d99eb681
+    m_Address: MeshObjectManagerMeshCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
+  - m_GUID: 0cbd0c9f7b4731441a64aba2da7968f5
+    m_Address: MainBuoyancyVoxelsDataStoreLookup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Spatial
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

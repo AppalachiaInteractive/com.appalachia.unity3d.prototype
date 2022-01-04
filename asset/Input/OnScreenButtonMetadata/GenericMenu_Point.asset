@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770989c3c7074d049cd6ce8014c4ac00, type: 3}
   m_Name: GenericMenu_Point
   m_EditorClassIdentifier: 
-  _initializationData:
+  _cachedName: GenericMenu_Point
+  _niceName: Generic Menu_Point
+  _initializer:
     _tags:
     - OnScreenButtonStyleOverride
     _resetToken: 
-  _cachedName: GenericMenu_Point
-  _niceName: Generic Menu_Point
   actionReference: {fileID: -4023520444055145121, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
   style: {fileID: 11400000, guid: f86b771ef17adb040b90af3f3ec90aa8, type: 2}

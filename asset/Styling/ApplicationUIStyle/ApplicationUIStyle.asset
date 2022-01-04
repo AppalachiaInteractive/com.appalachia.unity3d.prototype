@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fa6aca1ee7ad040a1e3491de6e99a5, type: 3}
   m_Name: ApplicationUIStyle
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - onScreenButtonFont
     - defaultFont
     - onScreenButtonStyle
     - OnScreenButtonStyle
     _resetToken: 
-  _cachedName: 
-  _niceName: 
   defaultFont: {fileID: 11400000, guid: 97ef77b76eba1f1458c9960a11f79713, type: 2}
   onScreenButtonStyle: {fileID: 11400000, guid: a926f9bbad767d8408a110926a1247e6, type: 2}

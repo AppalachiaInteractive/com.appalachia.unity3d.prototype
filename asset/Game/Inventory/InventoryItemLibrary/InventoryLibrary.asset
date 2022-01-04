@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8604837172c1f640a81777e50b20506, type: 3}
   m_Name: InventoryLibrary
   m_EditorClassIdentifier: Appalachia.UI.Controls:Controls.Samples:InventoryItemLibrary
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   uiPrefab: {fileID: 7649218993197837357, guid: 8044e0ae0a646da4fa13b4516f350392, type: 3}
   items:
   - {fileID: 11400000, guid: cc931328e2307464cac2c7b4373b44f4, type: 2}

@@ -24,6 +24,11 @@ namespace Appalachia.Prototype.KOC.Character.Audio.Execution
 
         private void Update()
         {
+            if (!DependenciesAreReady || !FullyInitialized)
+            {
+                return;
+            }
+            
             if (breathing == null)
             {
                 breathing = new CharacterBreathingAudioProcessor();

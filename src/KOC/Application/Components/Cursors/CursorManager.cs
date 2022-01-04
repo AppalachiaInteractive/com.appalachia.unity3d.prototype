@@ -41,8 +41,14 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
 
         #region Static Fields and Autoproperties
 
+        [FoldoutGroup("Lookups")]
+        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        [ShowInInspector]
         private static MainComplexCursorLookup _mainComplexCursorLookup;
 
+        [FoldoutGroup("Lookups")]
+        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
+        [ShowInInspector]
         private static MainSimpleCursorLookup _mainSimpleCursorLookup;
 
         #endregion
@@ -69,16 +75,6 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
         [FoldoutGroup("Lookups")]
         [NonSerialized, ShowInInspector, ReadOnly]
         private ComplexCursorInstance _currentComplexCursorInstance;
-
-        [FoldoutGroup("Lookups")]
-        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-        [SerializeField]
-        private MainSimpleCursorLookup _simpleCursors;
-
-        [FoldoutGroup("Lookups")]
-        [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-        [SerializeField]
-        private MainComplexCursorLookup _complexCursors;
 
         [FoldoutGroup("State Data")]
         [ReadOnly]
@@ -128,6 +124,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+
                 var screenWidth = Screen.width;
                 var screenHeight = Screen.height;
 
@@ -254,7 +255,7 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
         {
             using (_PRF_SetCursorType.Auto())
             {
-                var targetMetadata = _complexCursors.Lookup[cursor];
+                var targetMetadata = _mainComplexCursorLookup.Lookup[cursor];
 
                 SetCursorTypeInternal(targetMetadata);
             }
@@ -264,7 +265,7 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
         {
             using (_PRF_SetCursorType.Auto())
             {
-                var targetMetadata = _simpleCursors.Lookup[cursor];
+                var targetMetadata = _mainSimpleCursorLookup.Lookup[cursor];
 
                 SetCursorTypeInternal(targetMetadata);
             }
@@ -319,12 +320,13 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors
                 {
                     if (!_complexCursorInstances.ContainsKey(complexCursorType))
                     {
-                        if (!_complexCursors.Lookup.Items.ContainsKey(complexCursorType))
+                        if (!_mainComplexCursorLookup.Lookup.Items.ContainsKey(complexCursorType))
                         {
                             continue;
                         }
 
-                        var complexCursorMetadata = _complexCursors.Lookup.Items.Get(complexCursorType);
+                        var complexCursorMetadata =
+                            _mainComplexCursorLookup.Lookup.Items.Get(complexCursorType);
 
                         if (complexCursorMetadata == null)
                         {

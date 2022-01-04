@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f85a88fd7864549b391a9fe94047a5, type: 3}
   m_Name: rightShift
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   device: {fileID: 11400000, guid: 62a48ad575a18b445990a32ac3fb8b01, type: 2}
   data:
     name: rightShift

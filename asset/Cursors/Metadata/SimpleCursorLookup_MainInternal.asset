@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef739cb3a295458795e6a480bd928475, type: 3}
   m_Name: SimpleCursorLookup_MainInternal
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _defaultValue: {fileID: 0}
   _items:
     initializerCount: 64

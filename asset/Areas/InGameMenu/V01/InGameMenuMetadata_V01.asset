@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79dfafc9fb6743849fcca314fc526678, type: 3}
   m_Name: InGameMenuMetadata_V01
   m_EditorClassIdentifier: 
-  _initializationData:
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - Cursor
     - Input
@@ -28,8 +30,6 @@ MonoBehaviour:
     - Scene Behaviour
     - Audio
     _resetToken: 2021-11-20a
-  _cachedName: 
-  _niceName: 
   cursor:
     hasCustomCursor: 0
     hasSimpleCursor: 0
@@ -141,8 +141,6 @@ MonoBehaviour:
     templateAlpha: 1
     templates: []
     selectedTemplate: {fileID: 0}
-  defaultReferences:
-    defaultReferences: {fileID: 11400000, guid: 0cef21e8417475241b8f52a8a9a1a6b8, type: 2}
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:

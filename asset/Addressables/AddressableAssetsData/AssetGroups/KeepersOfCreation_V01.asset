@@ -213,7 +213,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - KeepersOfCreation_V01
   - m_GUID: e861ccb9419e6614eb2a27f7f8fc41a0
-    m_Address: SingletonAppalachiaObjectRepository
+    m_Address: AppalachiaRepository
     m_ReadOnly: 0
     m_SerializedLabels:
     - KeepersOfCreation_V01

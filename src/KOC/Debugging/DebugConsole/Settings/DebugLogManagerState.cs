@@ -16,6 +16,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings
     {
         #region Fields and Autoproperties
 
+        [NonSerialized] private bool _initialized;
+
         public bool isCollapseOn;
         public bool isInSearchMode;
         public bool isLogWindowVisible;
@@ -60,35 +62,41 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings
 
         #endregion
 
+        public bool initialized
+        {
+            get => _initialized;
+            private set => _initialized = value;
+        }
+
         public void InitializeState(DebugLogManagerSettings settings)
         {
             using (_PRF_InitializeState.Auto())
             {
-                collapsedLogEntries ??= new List<DebugLogEntry>(128);
-                collapsedLogEntriesMap ??= new Dictionary<DebugLogEntry, int>(128);
-                commandCaretIndexIncrements ??= new List<int>(8);
-                commandHistory ??= new CircularBuffer<string>(settings.command.commandHistorySize);
+                collapsedLogEntries = new List<DebugLogEntry>(128);
+                collapsedLogEntriesMap = new Dictionary<DebugLogEntry, int>(128);
+                commandCaretIndexIncrements = new List<int>(8);
+                commandHistory = new CircularBuffer<string>(settings.command.commandHistorySize);
                 commandHistoryIndex = -1;
                 commandInputFieldPrevCaretArgumentIndex = -1;
                 commandInputFieldPrevCaretPos = -1;
                 commandInputFieldPrevParamCount = -1;
-                commandSuggestionInstances ??= new List<Text>(8);
+                commandSuggestionInstances = new List<Text>(8);
                 commandSuggestionsStringBuilder = new Utf16ValueStringBuilder(false);
                 commandSuggestionsStringBuilder = new Utf16ValueStringBuilder(false);
                 indexOfLogEntryToSelectAndFocus = -1;
-                indicesOfListEntriesToShow ??= new DebugLogIndexList();
+                indicesOfListEntriesToShow = new DebugLogIndexList();
                 isLogWindowVisible = true;
-                logEntriesLock ??= new object();
+                logEntriesLock = new object();
                 logFilter = DebugLogFilter.All;
                 logSpriteRepresentations = new Dictionary<LogType, Sprite>();
-                matchingCommandSuggestions ??= new List<ConsoleMethodInfo>(8);
-                nullPointerEventData ??= new PointerEventData(null);
-                pooledLogEntries ??= new List<DebugLogEntry>(16);
-                pooledLogItems ??= new List<DebugLogItem>(16);
-                queuedLogEntries ??= new DynamicCircularBuffer<QueuedDebugLogEntry>(16);
+                matchingCommandSuggestions = new List<ConsoleMethodInfo>(8);
+                nullPointerEventData = new PointerEventData(null);
+                pooledLogEntries = new List<DebugLogEntry>(16);
+                pooledLogItems = new List<DebugLogItem>(16);
+                queuedLogEntries = new DynamicCircularBuffer<QueuedDebugLogEntry>(16);
                 screenDimensionsChanged = true;
                 snapToBottom = true;
-                uncollapsedLogEntriesIndices ??= new DebugLogIndexList();
+                uncollapsedLogEntriesIndices = new DebugLogIndexList();
 
                 // Associate sprites with log types
                 logSpriteRepresentations = new Dictionary<LogType, Sprite>
@@ -99,6 +107,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings
                     { LogType.Exception, settings.visuals.errorLog },
                     { LogType.Assert, settings.visuals.errorLog }
                 };
+
+                initialized = true;
             }
         }
 

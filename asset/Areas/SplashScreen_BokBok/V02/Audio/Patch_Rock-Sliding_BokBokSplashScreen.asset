@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d9a7c050aebc345911b77c9ff20638, type: 3}
   m_Name: Patch_Rock-Sliding_BokBokSplashScreen
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   program:
     clips:
     - clip: {fileID: 8300000, guid: 20faa545f12d47e4384f623ae102dc56, type: 3}

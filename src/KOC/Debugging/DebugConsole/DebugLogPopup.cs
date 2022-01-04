@@ -22,7 +22,7 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
     {
         static DebugLogPopup()
         {
-            DebugLogManagerSettings.InstanceAvailable += i => _debugLogManagerSettings = i;
+            RegisterDependency<DebugLogManagerSettings>(i => _debugLogManagerSettings = i);
         }
 
         #region Static Fields and Autoproperties

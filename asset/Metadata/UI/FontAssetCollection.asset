@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2f970c66914200aa8b50501d01378a, type: 3}
   m_Name: FontAssetCollection
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _defaultValue: {fileID: 0}
   _items:
     initializerCount: 64

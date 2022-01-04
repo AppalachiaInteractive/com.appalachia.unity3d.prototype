@@ -262,6 +262,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
         {
             using (_PRF_SetPosition.Auto())
             {
+                if (rectTransform == null)
+                {
+                    rectTransform = GetComponent<RectTransform>();
+                }
+                
                 var xSideOffset = Mathf.Abs(rectTransform.anchoredPosition.x);
                 var ySideOffset = Mathf.Abs(rectTransform.anchoredPosition.y);
 

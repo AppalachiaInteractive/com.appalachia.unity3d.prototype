@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8c40c8f32d4184b745421e0dd2e486, type: 3}
   m_Name: Text_Build Version
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   label: Build Version
   text: alpha.2021.10.21.001

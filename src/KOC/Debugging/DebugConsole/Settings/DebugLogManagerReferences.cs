@@ -12,6 +12,7 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings
     {
         #region Fields and Autoproperties
 
+        [NonSerialized] public bool initialized;
         [SerializeField] public Button clearButton;
         [SerializeField] public Button hideButton;
         [SerializeField] public CanvasGroup logWindowCanvasGroup;
@@ -63,8 +64,7 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings
 
                 recycledListView.Initialize(
                     manager,
-                    state.collapsedLogEntries,
-                    state.indicesOfListEntriesToShow,
+                    state,
                     settings.visuals.logItemPrefab.Transform.sizeDelta.y
                 );
 
@@ -117,6 +117,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings
 
                 // On new Input System, scroll sensitivity is much higher than legacy Input system
                 logItemsScrollRect.scrollSensitivity *= 0.25f;
+
+                initialized = true;
             }
         }
 

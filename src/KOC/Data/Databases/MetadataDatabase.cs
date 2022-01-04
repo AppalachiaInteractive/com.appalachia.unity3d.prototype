@@ -21,6 +21,10 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             }
         }
 
+        protected override void RegisterCollections()
+        {
+        }
+
         #region Profiling
 
         private const string _PRF_PFX = nameof(MetadataDatabase) + ".";

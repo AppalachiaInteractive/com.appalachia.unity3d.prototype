@@ -21,6 +21,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Ram
 
         private void Update()
         {
+            if (!DependenciesAreReady || !FullyInitialized)
+            {
+                return;
+            }
+            
             AllocatedRam = Profiler.GetTotalAllocatedMemoryLong() / 1048576f;
             ReservedRam = Profiler.GetTotalReservedMemoryLong() / 1048576f;
             MonoRam = Profiler.GetMonoUsedSizeLong() / 1048576f;

@@ -35,7 +35,8 @@ MonoBehaviour:
   - m_GUID: 74863be7bd2ea1841b0190cf68958691
     m_Address: SceneReference_StartScreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - StartScreen_V01
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8bbd0e0bb05354db14b7d9ff154409, type: 3}
   m_Name: AreaMetadataDefaultReferences
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   menuHeader: {fileID: 2800000, guid: 41349e1395b5b0544a02b3cc36d011a7, type: 3}
   menuFooter: {fileID: 2800000, guid: b187cb22a9800544da167007a4bcdb85, type: 3}
   menuBackground: {fileID: 0}

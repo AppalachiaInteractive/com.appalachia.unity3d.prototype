@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff671ba63294c15b9c624e07ab1be63, type: 3}
   m_Name: wood_beech
   m_EditorClassIdentifier: 
-  _niceName: 
   _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - profileName
+    _resetToken: 
   id: 50
-  profileName: 
+  profileName: wood_beech
   icon: {fileID: 0}

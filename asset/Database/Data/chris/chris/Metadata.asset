@@ -12,19 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52473b8b5c924a14587219a146cd5b15, type: 3}
   m_Name: Metadata
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags:
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    - AppaCollectionBase
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 

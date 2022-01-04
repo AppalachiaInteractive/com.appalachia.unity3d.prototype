@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6d40cbaefc45c3a49f22120b40ac90, type: 3}
   m_Name: ApplicationStyleElementDefaultLookup
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: ApplicationStyleElementDefaultLookup
   _niceName: Application Style Element Default Lookup
+  _initializer:
+    _tags: []
+    _resetToken: 
   fontStyle: {fileID: 11400000, guid: 97ef77b76eba1f1458c9960a11f79713, type: 2}
   onScreenButtonStyle: {fileID: 11400000, guid: a926f9bbad767d8408a110926a1247e6, type: 2}

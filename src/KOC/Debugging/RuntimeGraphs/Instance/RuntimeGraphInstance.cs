@@ -35,7 +35,12 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
         {
             using (_PRF_Update.Auto())
             {
-                if (!DependenciesAreReady)
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+
+                if (!_initialized)
                 {
                     return;
                 }
@@ -69,15 +74,8 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
             {
                 await base.Initialize(initializer);
 
-                if (monitor == null)
-                {
-                    monitor = GetComponent<TMonitor>();
-                }
-
-                if (manager == null)
-                {
-                    manager = GetComponent<TManager>();
-                }
+                monitor = await initializer.Get<TMonitor>(this);
+                manager = await initializer.Get<TManager>(this);
 
                 AfterInitialize();
 

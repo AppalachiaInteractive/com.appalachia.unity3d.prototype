@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106289fdb8ca47d3821af654d90c45e8, type: 3}
   m_Name: UserSettingsCollection
   m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _documents: []

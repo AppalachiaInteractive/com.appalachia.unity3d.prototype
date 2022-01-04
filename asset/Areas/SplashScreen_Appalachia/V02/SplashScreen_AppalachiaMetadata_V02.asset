@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3894ccd19eb342b5bb200155d2b3f4f0, type: 3}
   m_Name: SplashScreen_AppalachiaMetadata_V02
   m_EditorClassIdentifier: 
-  _initializationData:
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - Doozy Graph
     - Doozy Canvas
@@ -33,8 +35,6 @@ MonoBehaviour:
     - Scene Behaviour
     - Audio
     _resetToken: 2021-11-20a
-  _cachedName: 
-  _niceName: 
   cursor:
     hasCustomCursor: 0
     hasSimpleCursor: 0
@@ -146,113 +146,10 @@ MonoBehaviour:
     templateAlpha: 1
     templates: []
     selectedTemplate: {fileID: 0}
-  defaultReferences:
-    defaultReferences: {fileID: 11400000, guid: 0cef21e8417475241b8f52a8a9a1a6b8, type: 2}
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:
     mixerGroup: {fileID: 0}
-  _hideCursor: 0
-  _lockCursor: 0
-  _hasCustomCursor: 0
-  _hasSimpleCursor: 0
-  simpleCursor: 0
-  complexCursor: 0
-  _onEnableMapState:
-    DeathMenu:
-      _overrideEnabled: 0
-      _value: 0
-    Debug:
-      _overrideEnabled: 0
-      _value: 0
-    GenericMenu:
-      _overrideEnabled: 0
-      _value: 0
-    InGameMenu:
-      _overrideEnabled: 0
-      _value: 0
-    LoadingScreen:
-      _overrideEnabled: 0
-      _value: 0
-    MainMenu:
-      _overrideEnabled: 0
-      _value: 0
-    PauseMenu:
-      _overrideEnabled: 0
-      _value: 0
-    Player:
-      _overrideEnabled: 0
-      _value: 0
-    SplashScreen:
-      _overrideEnabled: 0
-      _value: 0
-    StartScreen:
-      _overrideEnabled: 0
-      _value: 0
-  _onDisableMapState:
-    DeathMenu:
-      _overrideEnabled: 0
-      _value: 0
-    Debug:
-      _overrideEnabled: 0
-      _value: 0
-    GenericMenu:
-      _overrideEnabled: 0
-      _value: 0
-    InGameMenu:
-      _overrideEnabled: 0
-      _value: 0
-    LoadingScreen:
-      _overrideEnabled: 0
-      _value: 0
-    MainMenu:
-      _overrideEnabled: 0
-      _value: 0
-    PauseMenu:
-      _overrideEnabled: 0
-      _value: 0
-    Player:
-      _overrideEnabled: 0
-      _value: 0
-    SplashScreen:
-      _overrideEnabled: 0
-      _value: 0
-    StartScreen:
-      _overrideEnabled: 0
-      _value: 0
-  _blocksRaycasts: 1
-  _interactable: 1
-  _ignoreParentGroups: 0
-  _uiScaleMode: 1
-  _screenMatchMode: 0
-  _match: 1
-  _referenceResolution: {x: 1920, y: 1080}
-  _referencePixelsPerUnit: 100
-  _renderMode: 0
-  _additionalShaderChannels: 25
-  _pixelPerfect: 0
-  _sortingOrder: 0
-  _fullscreen: 1
-  _resetScaleToOne: 1
-  _blockingObjects: 0
-  _ignoreReversedGraphics: 0
-  _blockingMask:
-    serializedVersion: 2
-    m_Bits: 0
-  _graph: {fileID: 11400000, guid: 826867eeeb73abf408e38e3dcaca40ab, type: 2}
-  _canvasName: SplashScreen_Appalachia
-  _graphControllerName: Graph Controller - SplashScreen_Appalachia
-  _viewCategory: SplashScreen
-  _viewName: SplashScreen_Appalachia
-  _doesDrawMenu: 0
-  _templateEnabled: 0
-  _templateAlpha: 1
-  _selectedTemplate: {fileID: 0}
-  _templates: []
-  _defaultReferences: {fileID: 11400000, guid: 0cef21e8417475241b8f52a8a9a1a6b8, type: 2}
-  _setEntrySceneActive: 0
-  _mixerGroup: {fileID: 0}
-  testGraph: {fileID: 11400000, guid: 850468724114e1c448ff5319bd2c8312, type: 2}
   order: 0
   timelineSkipMode: 0
   skipFrameDelay: 0

@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 084397b0528cb444bbe3c2e89db7bd69
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: f2e712ea1bbfaa045af435cb8a7c507b
+    m_Address: TreeRuntimeMetadataCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Simulation_Trees
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

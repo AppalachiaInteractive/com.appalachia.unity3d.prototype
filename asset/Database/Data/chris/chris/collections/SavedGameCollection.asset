@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1126b93d607649139ab7aadfe7461199, type: 3}
   m_Name: SavedGameCollection
   m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _documents: []

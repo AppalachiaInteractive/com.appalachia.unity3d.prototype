@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e0085e051a49b68b59ba9580da78d9, type: 3}
   m_Name: QualitySettingsCollection
   m_EditorClassIdentifier: Appalachia.Prototype.KOC:Appalachia.Prototype.KOC.Data.Collections.User:QualitySettingsCollection
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _documents: []

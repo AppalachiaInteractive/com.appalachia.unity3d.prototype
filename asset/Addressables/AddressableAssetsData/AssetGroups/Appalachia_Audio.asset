@@ -16,7 +16,47 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 310369bb932fb474da0590c209836fd3
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 9f2ccadb7541b1446966fd5a268dea4c
+    m_Address: AmbienceSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
+  - m_GUID: cb4ed668de4fbf24683fc65d9cd12152
+    m_Address: FootstepSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
+  - m_GUID: 3302edbbd984e1841ad0b1b562a2e8e4
+    m_Address: HumanBreathingSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
+  - m_GUID: fa3b3168e95f5d941bbcfb8f11ce6ce2
+    m_Address: HumanFoliageSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
+  - m_GUID: 33dd7c21e639b73479da8058aca61b83
+    m_Address: RainOnWaterSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
+  - m_GUID: c487ff27e266dc640b28abefc280f5ee
+    m_Address: RainSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
+  - m_GUID: 476805a8c9969b54e95de5821f6bf725
+    m_Address: SnowSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
+  - m_GUID: 03f4c9cab92607e498f5d4fc290c0202
+    m_Address: OcclusionSettings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

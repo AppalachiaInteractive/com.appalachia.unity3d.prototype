@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2ce54640bf43c6adeea9f26af0ff66, type: 3}
   m_Name: PauseMenu_Newaction
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _spriteColor:
     _overrideEnabled: 0
     _value: {r: 1, g: 1, b: 1, a: 1}

@@ -53,6 +53,11 @@ namespace Appalachia.Prototype.KOC.Application.Components.Fading
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+                
                 if (!fadeSettings.passiveMode)
                 {
                     return;

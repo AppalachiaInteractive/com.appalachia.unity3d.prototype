@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f688fbc10804a9f9d823ddfc95a025b, type: 3}
   m_Name: SceneReferenceElement_DebugOverlay_V01
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   reference:
     m_AssetGUID: 4a4a3d088c732b24b9de4b03c492f46c
     m_SubObjectName: 

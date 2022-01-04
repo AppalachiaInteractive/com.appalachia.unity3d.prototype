@@ -32,7 +32,7 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Instance
         {
             using (_PRF_Update.Auto())
             {
-                if (!DependenciesAreReady)
+                if (!DependenciesAreReady || !FullyInitialized)
                 {
                     return;
                 }

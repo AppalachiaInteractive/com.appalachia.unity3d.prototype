@@ -20,17 +20,43 @@ MonoBehaviour:
   - m_GUID: 7de8af9775b0209449481865f115430d
     m_Address: RuntimeRenderingOptions
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Appalachia_Rendering
   - m_GUID: 9f868f3f1c65d0142b8045a4fbb3eb94
     m_Address: PrefabModelTypeOptionsLookup
     m_ReadOnly: 0
     m_SerializedLabels:
-    - KeepersOfCreation_V01
+    - Appalachia_Rendering
   - m_GUID: e78302f9e8272c445a36e65f4e2c4a3c
     m_Address: PrefabContentTypeOptionsLookup
     m_ReadOnly: 0
     m_SerializedLabels:
-    - KeepersOfCreation_V01
+    - Appalachia_Rendering
+  - m_GUID: 9793c08a58fb1054690649f9ff1ebabc
+    m_Address: GPUInstancerPrototypeMetadataCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Rendering
+  - m_GUID: e3a8aa155b80ad244b524d9c90f92e3c
+    m_Address: PrefabLocationSource
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Rendering
+  - m_GUID: e274390334c8bce40bdef0c21291679e
+    m_Address: PrefabRenderingSetCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Rendering
+  - m_GUID: 34d03d93a3f733b4fa09e2123070c195
+    m_Address: RandomPrefabMasterCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Rendering
+  - m_GUID: 833ea2b3a278ec64cb701c157adc4995
+    m_Address: PrefabReplacementCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Rendering
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

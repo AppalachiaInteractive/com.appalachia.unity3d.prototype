@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8136d4b6fe47a1943709482c3b7a06, type: 3}
   m_Name: KeyboardMetadata
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   deviceName: Keyboard
   supportedDeviceSubstrings: []
   controller:

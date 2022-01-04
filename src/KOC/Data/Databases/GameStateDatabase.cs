@@ -17,12 +17,12 @@ namespace Appalachia.Prototype.KOC.Data.Databases
 
         public override DatabaseType Type => DatabaseType.GameState;
 
-        public static GameStateDatabase CreateDatabase(
+        public static GameStateDatabase InitializeDatabase(
             DatabaseConfiguration configuration,
             DatabaseAccess access,
             long gameId)
         {
-            var instance = CreateDatabase(configuration, access);
+            var instance = InitializeDatabase(configuration, access);
             instance.GameId = gameId;
             return instance;
         }
@@ -37,6 +37,10 @@ namespace Appalachia.Prototype.KOC.Data.Databases
                 {
                 }
             }
+        }
+
+        protected override void RegisterCollections()
+        {
         }
 
         #region Profiling

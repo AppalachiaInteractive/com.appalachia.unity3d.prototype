@@ -36,6 +36,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Fps
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+                
                 UpdateCurrentFPS(Time.unscaledDeltaTime);
 
                 CalculateFPSTimings();

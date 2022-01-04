@@ -47,6 +47,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82a3da51ec834354ca0a239f80bffedf, type: 2}
   - {fileID: 11400000, guid: 12d9235499d4828409194aa3c34fb871, type: 2}
   - {fileID: 11400000, guid: 058d58a759f362341a86bea1fe5164e5, type: 2}
+  - {fileID: 11400000, guid: bcf5177a555f222468f379d206e1dffd, type: 2}
   - {fileID: 11400000, guid: 606689d972edcf446af9664fe2af79dc, type: 2}
   - {fileID: 11400000, guid: 98f0ee50bc2b1c44085eda4e06921ba3, type: 2}
   - {fileID: 11400000, guid: 012c041a7a2fbb647bf11a2f0bbf907f, type: 2}
@@ -64,11 +65,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: adba6f28eb40a3042ab2fb871d7a179c, type: 2}
   - {fileID: 11400000, guid: 421f82814a19b074fb952408f881577e, type: 2}
   - {fileID: 11400000, guid: 4e00ed9318e701b4d92d17cfa601bc75, type: 2}
+  - {fileID: 11400000, guid: ecba9c17326a59d4790ec586042b60ff, type: 2}
+  - {fileID: 11400000, guid: 668278fe798cb0e4d976f2991d516c56, type: 2}
   - {fileID: 11400000, guid: 7de81c35cbf8e63499dd8acd57d7dfdc, type: 2}
   - {fileID: 11400000, guid: 1201fc2274a2b704ca7197aedf28d653, type: 2}
   - {fileID: 11400000, guid: 4da36ba9d91511d4880904b030358266, type: 2}
   - {fileID: 11400000, guid: 4ceef90bd7a782546953e970f37bbd18, type: 2}
   - {fileID: 11400000, guid: 3474c6c19b6cc6849b33230add10d79c, type: 2}
+  - {fileID: 11400000, guid: d0c594db2a0ea1d49a93481a21a2a989, type: 2}
+  - {fileID: 11400000, guid: 3929a43ec6685a7459d381f180191133, type: 2}
+  - {fileID: 11400000, guid: 2b559fc39e86f9b42a4e9b81f02255df, type: 2}
+  - {fileID: 11400000, guid: 095ec4b278732af4a8d64d07cba09884, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -111,6 +118,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - KeepersOfCreation_V01
+    - KeepersOfCreation_V01_Prefabs
     - DebugOverlay_V01
     - Game_V01
     - HUD_V01
@@ -128,6 +136,18 @@ MonoBehaviour:
     - SplashScreen_Disclaimer_V01
     - StartEnvironment_V01
     - StartScreen_V01
+    - Appalachia_Audio
+    - Appalachia_Globals
+    - Appalachia_Jobs
+    - Appalachia_Rendering
+    - Appalachia_Simulation
+    - Appalachia_Simulation_Trees
+    - Appalachia_Spatial
+    - Database
+    - Fonts
+    - Cursors
+    - Devices
+    - General_Metadata
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 32cdd6833a9084a43b709b2885f1b249, type: 2}

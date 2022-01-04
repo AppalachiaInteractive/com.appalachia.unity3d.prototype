@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92045975fbdf4849997db505f499a3ae, type: 3}
   m_Name: MainAreaSceneInformationCollection
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _lookup: {fileID: 11400000, guid: c032f570179fe43498a15e7e8af5cc95, type: 2}

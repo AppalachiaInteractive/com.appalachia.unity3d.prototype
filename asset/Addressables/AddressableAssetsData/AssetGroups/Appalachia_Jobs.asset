@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Appalachia_Jobs
+  m_EditorClassIdentifier: 
+  m_GroupName: Appalachia_Jobs
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c2e7981197aeeb449a8dd8539aa5edcf
+  m_SerializeEntries:
+  - m_GUID: c92b314335bd7ec49ac290d041464e4f
+    m_Address: SoldifiedMeshObjectWrapperLookupCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Jobs
+  - m_GUID: 7530ed750a3a97942952d7966645a998
+    m_Address: MeshObjectWrapperLookupCollection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Jobs
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: eb92bd05615603d4e80e59c01d756c31, type: 2}
+    - {fileID: 11400000, guid: 91c57c1b89c11fb41b90eaad2a101e78, type: 2}

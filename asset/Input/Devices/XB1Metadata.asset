@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a03b90e981c4169b66a1830b6cf25b6, type: 3}
   m_Name: XB1Metadata
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   deviceName: XB1
   supportedDeviceSubstrings:
   - XInput

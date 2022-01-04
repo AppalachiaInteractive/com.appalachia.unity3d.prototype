@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d8652c65804ceba2c04b7a88b786b1, type: 3}
   m_Name: SplashScreen_Appalachia_V01_Canvas - SplashScreen_Appalachia_V01 - SplashScreen_Appalachia_FadeSettings
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _passiveMode: 1
   _passiveFadeMode: 2
+  _updateAtStart: 0
   _startVisible: 1
   fadeRange: {x: 0, y: 1}
   _fadeInDuration: 1

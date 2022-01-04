@@ -9,5 +9,15 @@ namespace Appalachia.Prototype.KOC.Application.Components.Cursors.Metadata
         ComplexCursorMetadata, ComplexCursorsList, ComplexCursorMetadataList, ComplexCursorMetadataLookup,
         ComplexCursorLookup, MainComplexCursorLookup>
     {
+#if UNITY_EDITOR
+        [UnityEditor.MenuItem(
+            PKG.Menu.Assets.Base + nameof(MainComplexCursorLookup),
+            priority = PKG.Menu.Assets.Priority
+        )]
+        public static void CreateAsset()
+        {
+            CreateNew<MainComplexCursorLookup>();
+        }
+#endif
     }
 }

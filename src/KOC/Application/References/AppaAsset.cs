@@ -1,5 +1,4 @@
 using System;
-using Appalachia.CI.Integration.Addressables;
 using Appalachia.CI.Integration.Assets;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Utility.Execution;

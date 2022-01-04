@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6611d9a5635745d6a99200893ad47fff, type: 3}
   m_Name: MouseMetadata
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   deviceName: Mouse
   supportedDeviceSubstrings: []
   controller:

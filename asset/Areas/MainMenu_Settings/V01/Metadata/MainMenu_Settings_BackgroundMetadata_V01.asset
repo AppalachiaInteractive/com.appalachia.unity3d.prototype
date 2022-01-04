@@ -12,25 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7c13050a074d3c980a4520d1f89e85, type: 3}
   m_Name: MainMenu_Settings_BackgroundMetadata_V01
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - 0
     - 1
     - 2
     _resetToken: 
-  _cachedName: 
-  _niceName: 
   elements:
-  - sprite: {fileID: 0}
+  - _owner: {fileID: 0}
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _initialer:
+      _tags: []
+      _resetToken: 
+    sprite: {fileID: 0}
     color: {r: 0.05, g: 0.05, b: 0.05, a: 0.69803923}
     anchorMin: {x: 0, y: 0}
     anchorMax: {x: 1, y: 1}
-  - sprite: {fileID: 21300000, guid: 41349e1395b5b0544a02b3cc36d011a7, type: 3}
+  - _owner: {fileID: 0}
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _initialer:
+      _tags: []
+      _resetToken: 
+    sprite: {fileID: 21300000, guid: 41349e1395b5b0544a02b3cc36d011a7, type: 3}
     color: {r: 0.05, g: 0.05, b: 0.05, a: 1}
     anchorMin: {x: 0, y: 0.85}
     anchorMax: {x: 1, y: 1}
-  - sprite: {fileID: 21300000, guid: b187cb22a9800544da167007a4bcdb85, type: 3}
+  - _owner: {fileID: 0}
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _initialer:
+      _tags: []
+      _resetToken: 
+    sprite: {fileID: 21300000, guid: b187cb22a9800544da167007a4bcdb85, type: 3}
     color: {r: 0.05, g: 0.05, b: 0.05, a: 1}
     anchorMin: {x: 0, y: 0}
     anchorMax: {x: 1, y: 0.15}

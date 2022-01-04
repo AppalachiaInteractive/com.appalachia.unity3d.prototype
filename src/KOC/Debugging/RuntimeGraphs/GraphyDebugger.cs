@@ -66,6 +66,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
 
         private void Update()
         {
+            if (!DependenciesAreReady || !FullyInitialized)
+            {
+                return;
+            }
+
             CheckDebugPackets();
         }
 

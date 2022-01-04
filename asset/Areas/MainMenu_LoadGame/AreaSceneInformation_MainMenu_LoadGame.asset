@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a27e3be23f1ceb4787279b1483e8281, type: 3}
   m_Name: AreaSceneInformation_MainMenu_LoadGame
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _area: 3200
   entrySceneReference: {fileID: 11400000, guid: e39916f12ffd4eb499b078f8bd18b3e5, type: 2}
   _sceneReferences:

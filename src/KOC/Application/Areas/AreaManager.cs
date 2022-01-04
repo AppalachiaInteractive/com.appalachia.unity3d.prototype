@@ -115,7 +115,7 @@ namespace Appalachia.Prototype.KOC.Application.Areas
         {
             using (_PRF_Update.Auto())
             {
-                if (!DependenciesAreReady)
+                if (!DependenciesAreReady || !FullyInitialized)
                 {
                     return;
                 }

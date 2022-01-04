@@ -1,7 +1,9 @@
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Extensions;
+using Appalachia.Prototype.KOC.Application.Styling;
 using Appalachia.Prototype.KOC.Application.Styling.OnScreenButtons;
 using Appalachia.Utility.Async;
 using TMPro;
@@ -12,8 +14,22 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Application.Input.OnScreenButtons
 {
     [SmartLabelChildren, SmartLabel]
+    [CallStaticConstructorInEditor]
     public sealed class OnScreenButtonMetadata : AppalachiaObject<OnScreenButtonMetadata>
     {
+        static OnScreenButtonMetadata()
+        {
+            RegisterDependency<ApplicationStyleElementDefaultLookup>(
+                i => _applicationStyleElementDefaultLookup = i
+            );
+        }
+
+        #region Static Fields and Autoproperties
+
+        private static ApplicationStyleElementDefaultLookup _applicationStyleElementDefaultLookup;
+
+        #endregion
+
         #region Fields and Autoproperties
 
         public InputActionReference actionReference;

@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4dcaa0d31324d4c8a1133870a2d3d5a, type: 3}
   m_Name: CraftingKnowledge_20201019-082828435
   m_EditorClassIdentifier: 
-  _niceName: 
   _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - profileName
+    _resetToken: 
   id: 1
-  profileName: 
+  profileName: CraftingKnowledge_20201019-082828435
   icon: {fileID: 0}

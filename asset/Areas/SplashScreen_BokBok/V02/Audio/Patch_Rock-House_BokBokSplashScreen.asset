@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d9a7c050aebc345911b77c9ff20638, type: 3}
   m_Name: Patch_Rock-House_BokBokSplashScreen
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: Patch_Rock-House_BokBokSplashScreen
   _niceName: Patch_Rock-House_Bok Bok Splash Screen
+  _initializer:
+    _tags: []
+    _resetToken: 
   program:
     clips:
     - clip: {fileID: 8300000, guid: 26a289021e87d5143aaaf584fe76209a, type: 3}

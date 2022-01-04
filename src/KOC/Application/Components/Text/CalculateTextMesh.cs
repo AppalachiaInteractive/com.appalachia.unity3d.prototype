@@ -120,7 +120,7 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
         {
             using (_PRF_Update.Auto())
             {
-                if (!DependenciesAreReady)
+                if (!DependenciesAreReady || !FullyInitialized)
                 {
                     return;
                 }
@@ -354,6 +354,12 @@ namespace Appalachia.Prototype.KOC.Application.Components.Text
 
             while (_shouldUpdate)
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    yield return null;
+                    continue;
+                }
+                
                 if (calculation == Calculation.None)
                 {
                     _shouldUpdate = false;

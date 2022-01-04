@@ -53,6 +53,11 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Audio
         {
             using (_PRF_Update.Auto())
             {
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+                
                 if (graphyManager.AudioListener != null)
                 {
                     // Use this data to calculate the dB value

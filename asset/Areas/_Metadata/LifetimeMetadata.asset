@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6130a6ab744bcfa8beab257537ba5d, type: 3}
   m_Name: LifetimeMetadata
   m_EditorClassIdentifier: 
-  _initializationData:
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - inputActionAsset
     - SingletonAppalachiaObjectLookup
@@ -21,18 +23,15 @@ MonoBehaviour:
     - AreaSceneInformationCollection
     - MainAreaSceneInformationCollection
     _resetToken: 2021-12-14T20:34:03.6457917-05:00
-  _cachedName: 
-  _niceName: 
   clearCamera:
     enabled: 1
-    color: {r: 0.2, g: 0.19607843, b: 0.16862746, a: 1}
     enabledEditor: 1
+    color: {r: 0.2, g: 0.19607843, b: 0.16862746, a: 1}
     colorEditor: {r: 0.2, g: 0.19607843, b: 0.16862746, a: 1}
-  logFormats: {fileID: 11400000, guid: c13520b2bff94f44e9f9561d4a74f552, type: 2}
   uiStyle: {fileID: 11400000, guid: 7a0d499cf2ad0dd41be5333552e8f7f4, type: 2}
   deviceButtons: {fileID: 11400000, guid: 4a128e515e4776f409543bb3d500bcd3, type: 2}
   audioMixer: {fileID: 24100000, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
   styleLookup: {fileID: 11400000, guid: d27861f1f4465bd44914c3a403208396, type: 2}
-  areaSceneInformationCollection: {fileID: 11400000, guid: 1780e6bb93a2c1f4ab95db46a7cc2fab, type: 2}
   criticalReferences:
+  - {fileID: 11400000, guid: 833ea2b3a278ec64cb701c157adc4995, type: 2}
   - {fileID: 11400000, guid: e861ccb9419e6614eb2a27f7f8fc41a0, type: 2}

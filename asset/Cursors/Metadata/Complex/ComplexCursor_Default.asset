@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a823896ed608d14a988f9be23ef7899, type: 3}
   m_Name: ComplexCursor_Default
   m_EditorClassIdentifier: 
-  _initializationData:
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - scale
     - cursorColor
     _resetToken: 
-  _cachedName: 
-  _niceName: 
   modifyColor: 0
   cursorColorChangeDuration: 0.1
   scale: 1

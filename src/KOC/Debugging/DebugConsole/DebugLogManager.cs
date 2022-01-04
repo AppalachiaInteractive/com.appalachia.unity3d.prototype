@@ -37,7 +37,7 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
     {
         static DebugLogManager()
         {
-            DebugLogManagerSettings.InstanceAvailable += i => _debugLogManagerSettings = i;
+            RegisterDependency<DebugLogManagerSettings>(i => _debugLogManagerSettings = i);
         }
 
         private static DebugLogManagerSettings _debugLogManagerSettings;
@@ -66,7 +66,7 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
 		private DebugLogLogcatListener logcatListener;
 #endif
 
-        private void InitializeState(bool full = true)
+        private void InitializeState()
         {
             using (_PRF_InitializeState.Auto())
             {
@@ -78,9 +78,9 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
                 if (state == null)
                 {
                     state = new DebugLogManagerState();
-                    state.InitializeState(settings);
                 }
-                else if (full)
+
+                if (!state.initialized)
                 {
                     state.InitializeState(settings);
                 }
@@ -88,9 +88,9 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
                 if (references == null)
                 {
                     references = new DebugLogManagerReferences();
-                    references.InitalizeReferences(transform, this, settings, state);
                 }
-                else if (full)
+
+                if (!references.initialized)
                 {
                     references.InitalizeReferences(transform, this, settings, state);
                 }
@@ -214,7 +214,7 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
         {
             using (_PRF_OnRectTransformDimensionsChange.Auto())
             {
-                InitializeState(false);
+                InitializeState();
 
                 state.screenDimensionsChanged = true;
             }
@@ -224,7 +224,12 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole
         {
             using (_PRF_LateUpdate.Auto())
             {
-                InitializeState(false);
+                if (!DependenciesAreReady || !FullyInitialized)
+                {
+                    return;
+                }
+
+                InitializeState();
 
                 var queuedLogCount = state.queuedLogEntries.Count;
                 if (queuedLogCount > 0)

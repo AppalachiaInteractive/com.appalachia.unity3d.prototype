@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de81cce24342bc44abad0d5108bae657, type: 3}
   m_Name: SimpleCursor_Spiral4_01
   m_EditorClassIdentifier: 
-  _initializationData:
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - scale
     - cursorColor
     _resetToken: 
-  _cachedName: 
-  _niceName: 
   modifyColor: 0
   cursorColorChangeDuration: 0.1
   scale: 1

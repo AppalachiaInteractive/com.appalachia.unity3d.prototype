@@ -1,6 +1,5 @@
 using System;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Objects.Dependencies;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Areas;
 using Appalachia.Prototype.KOC.Application.Behaviours;
@@ -67,12 +66,12 @@ namespace Appalachia.Prototype.KOC.Application
         {
             using (_PRF_Update.Auto())
             {
-                base.Update();
-
-                if (!DependenciesAreReady)
+                if (!DependenciesAreReady || !FullyInitialized)
                 {
                     return;
                 }
+
+                base.Update();
 
                 if (!AppalachiaApplication.IsPlaying)
                 {
@@ -232,11 +231,6 @@ namespace Appalachia.Prototype.KOC.Application
 
                 areaState.QueueLoad();
             }
-        }
-
-        protected override void AwakeActual()
-        {
-            AppalachiaRepositoryDependencyManager.ResolveRepositoryDependencies().Forget();
         }
 
         protected override async AppaTask Initialize(Initializer initializer)

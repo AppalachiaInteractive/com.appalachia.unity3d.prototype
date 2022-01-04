@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8665834fe2b64f22bf67a6a79c3cc420, type: 3}
   m_Name: DeviceButtonLookup
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   keyboard: {fileID: 11400000, guid: 62a48ad575a18b445990a32ac3fb8b01, type: 2}
   mouse: {fileID: 11400000, guid: cec8b06ec57b49343a91fb14104fe758, type: 2}
   gamepads:

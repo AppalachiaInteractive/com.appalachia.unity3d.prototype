@@ -15,12 +15,16 @@ namespace Appalachia.Prototype.KOC.Data.Databases
 
         #endregion
 
-        internal static TDB CreateDatabase(DatabaseConfiguration configuration, DatabaseAccess access)
+        internal static TDB InitializeDatabase(DatabaseConfiguration configuration, DatabaseAccess access)
         {
-            var instance = CreateDatabase(access);
+            var instance = InitializeDatabase(access);
             instance.Configuration = configuration;
 
+            instance.RegisterCollections();
+            
             return instance;
         }
+
+        protected abstract void RegisterCollections();
     }
 }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e806fbb8c94c2e84d3261516d9ee55, type: 3}
   m_Name: MainComplexCursorLookup
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
-  _lookup: {fileID: 11400000, guid: fce0e560d707d1b4489bc722d9fcf45b, type: 2}
+  _initializer:
+    _tags: []
+    _resetToken: 
+  _lookup: {fileID: 11400000, guid: e7597267e03cf3b42ba4390505965dca, type: 2}

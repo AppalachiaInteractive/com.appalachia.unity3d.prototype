@@ -24,7 +24,7 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs
     {
         static GraphyManager()
         {
-            RuntimeGraphSettings.InstanceAvailable += i => _runtimeGraphSettings = i;
+            RegisterDependency<RuntimeGraphSettings>(i => _runtimeGraphSettings = i);
         }
 
         #region Static Fields and Autoproperties

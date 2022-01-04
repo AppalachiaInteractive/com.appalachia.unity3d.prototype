@@ -11,6 +11,7 @@ using Appalachia.Prototype.KOC.Application.Extensions;
 using Appalachia.Prototype.KOC.Application.Input;
 using Appalachia.Prototype.KOC.Data;
 using Appalachia.Rendering.Prefabs.Rendering;
+using Appalachia.Simulation.Wind;
 using Appalachia.Spatial.Terrains;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
@@ -29,18 +30,17 @@ using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 #if UNITY_EDITOR
-using Appalachia.Spatial.MeshBurial.Processing;
 #endif
 
 namespace Appalachia.Prototype.KOC.Application.Components
 {
     [Serializable, DoNotReorderFields]
     [CallStaticConstructorInEditor]
-    public sealed class LifetimeComponents : AppalachiaBase<LifetimeComponents>
+    public sealed partial class LifetimeComponents : AppalachiaBase<LifetimeComponents>
     {
         static LifetimeComponents()
         {
-            RegisterDependency<LifetimeMetadata>(i => _lifetimeMetadata = i);
+            RegisterDependency<LifetimeMetadata>(i => { _lifetimeMetadata = i; });
         }
 
         public LifetimeComponents(LifetimeComponentManager owner) : base(owner)
@@ -49,6 +49,9 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
         #region Static Fields and Autoproperties
 
+        [FoldoutGroup("Metadata")]
+        [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+        [ShowInInspector]
         private static LifetimeMetadata _lifetimeMetadata;
 
         #endregion
@@ -81,14 +84,13 @@ namespace Appalachia.Prototype.KOC.Application.Components
         [SerializeField]
         private Image _fullScreenBlackImage;
 
-        [FoldoutGroup("Metadata")]
-        [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
-        [SerializeField]
-        private LifetimeMetadata _metadata;
-
-        [FoldoutGroup("Terrains")]
+        [FoldoutGroup("World")]
         [SerializeField]
         private TerrainMetadataManager _terrainMetadataManager;
+
+        [FoldoutGroup("World")]
+        [SerializeField]
+        private GlobalWindManager _globalWindManager;
 
         [FoldoutGroup("Graphics")]
         [SerializeField]
@@ -138,10 +140,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
         [SerializeField]
         private FrameStart _frameStart;
 
-        [FoldoutGroup("Editor Only")]
-        [SerializeField]
-        private EditorOnly _editorOnly;
-
         private GameObject _gameObject;
 
         [SerializeField] private AppalachiaRepository _repository;
@@ -160,9 +158,10 @@ namespace Appalachia.Prototype.KOC.Application.Components
         public EventSystem EventSystem => _eventSystem;
         public FrameEnd FrameEnd => _frameEnd;
         public FrameStart FrameStart => _frameStart;
+        public GlobalWindManager GlobalWindManager => _globalWindManager;
         public GPUInstancerPrefabManager GpuInstancerPrefabManager => _gpuInstancerPrefabManager;
         public InputSystemUIInputModule InputSystemUIInputModule => _inputSystemUIInputModule;
-        public LifetimeMetadata Metadata => _metadata;
+        public LifetimeMetadata LifetimeMetadata => _lifetimeMetadata;
 
         public MeshObjectManager MeshObjectManager => _meshObjectManager;
         public PlayerInput PlayerInput => _playerInput;
@@ -182,19 +181,75 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
                 _gameObject = gameObject;
 
-                Initialize3DGraphics(gameObject);
+                try
+                {
+                    Initialize3DGraphics(gameObject);
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(Initialize3DGraphics)}.", this, ex);
+                    throw;
+                }
 
-                InitializeSystems(gameObject);
+                try
+                {
+                    InitializeSystems(gameObject);
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(InitializeSystems)}.", this, ex);
+                    throw;
+                }
 
-                InitializeUI(gameObject);
+                try
+                {
+                    InitializeUI(gameObject);
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(InitializeUI)}.", this, ex);
+                    throw;
+                }
 
-                InitializeEventsAndInput(gameObject, manager);
+                try
+                {
+                    InitializeEventsAndInput(gameObject, manager);
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(InitializeEventsAndInput)}.", this, ex);
+                    throw;
+                }
 
-                InitializeMeshes(gameObject);
+                try
+                {
+                    InitializeMeshes(gameObject);
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(InitializeMeshes)}.", this, ex);
+                    throw;
+                }
 
-                InitializeTerrains(gameObject);
+                try
+                {
+                    InitializeWorld(gameObject);
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(InitializeWorld)}.", this, ex);
+                    throw;
+                }
 
-                InitializeEditorOnly(gameObject);
+                try
+                {
+                    InitializeEditorOnly(gameObject);
+                }
+                catch (Exception ex)
+                {
+                    Context.Log.Error($"Exception in {nameof(InitializeEditorOnly)}.", this, ex);
+                    throw;
+                }
 
                 await AppaTask.CompletedTask;
             }
@@ -251,14 +306,6 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
                 _prefabRenderingManager.enabled = false;
                 _gpuInstancerPrefabManager.enabled = false;
-            }
-        }
-
-        private void InitializeEditorOnly(GameObject gameObject)
-        {
-            using (_PRF_InitializeTerrains.Auto())
-            {
-                _editorOnly.Initialize(gameObject);
             }
         }
 
@@ -338,28 +385,17 @@ namespace Appalachia.Prototype.KOC.Application.Components
 
                 if (AppalachiaApplication.IsPlaying)
                 {
-                    _clearCamera.enabled = _metadata.clearCamera.enabled;
-                    _clearCamera.backgroundColor = _metadata.clearCamera.color; //33322B
+                    _clearCamera.enabled = _lifetimeMetadata.clearCamera.enabled;
+                    _clearCamera.backgroundColor = _lifetimeMetadata.clearCamera.color; //33322B
                 }
                 else
                 {
-                    _clearCamera.enabled = _metadata.clearCamera.enabledEditor;
-                    _clearCamera.backgroundColor = _metadata.clearCamera.colorEditor; //33322B
+                    _clearCamera.enabled = _lifetimeMetadata.clearCamera.enabledEditor;
+                    _clearCamera.backgroundColor = _lifetimeMetadata.clearCamera.colorEditor; //33322B
                 }
 
                 _clearCamera.clearFlags = CameraClearFlags.SolidColor;
                 _clearCamera.cullingMask = 0;
-            }
-        }
-
-        private void InitializeTerrains(GameObject gameObject)
-        {
-            using (_PRF_InitializeTerrains.Auto())
-            {
-                gameObject.GetOrCreateLifetimeComponentInChild(
-                    ref _terrainMetadataManager,
-                    nameof(TerrainMetadataManager)
-                );
             }
         }
 
@@ -403,59 +439,27 @@ namespace Appalachia.Prototype.KOC.Application.Components
             }
         }
 
-        #region Nested type: EditorOnly
-
-        [Serializable]
-        [HideLabel, InlineProperty]
-        [Title("Editor Only")]
-        public struct EditorOnly
+        private void InitializeWorld(GameObject gameObject)
         {
-            public void Initialize(GameObject gameObject)
+            using (_PRF_InitializeTerrains.Auto())
             {
-#if UNITY_EDITOR
-                using (_PRF_Initialize.Auto())
-                {
-                    gameObject.GetOrCreateLifetimeComponentInChild(
-                        ref _meshBurialExecutionManager,
-                        nameof(MeshBurialExecutionManager)
-                    );
-                }
-#endif
+                gameObject.GetOrCreateLifetimeComponentInChild(
+                    ref _terrainMetadataManager,
+                    nameof(TerrainMetadataManager)
+                );
+                gameObject.GetOrCreateLifetimeComponentInChild(
+                    ref _globalWindManager,
+                    nameof(GlobalWindManager)
+                );
             }
-
-            #region Profiling
-
-            private const string _PRF_PFX = nameof(EditorOnly) + ".";
-
-            private static readonly ProfilerMarker _PRF_Initialize =
-                new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-            #endregion
-
-#if UNITY_EDITOR
-
-            #region Fields and Autoproperties
-
-            [SerializeField] private MeshBurialExecutionManager _meshBurialExecutionManager;
-
-            #endregion
-
-            public MeshBurialExecutionManager MeshBurialExecutionManager => _meshBurialExecutionManager;
-
-#endif
         }
-
-        #endregion
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(LifetimeComponents) + ".";
 
-        private static readonly ProfilerMarker _PRF_InitializeEditorOnly =
-            new ProfilerMarker(_PRF_PFX + nameof(InitializeEditorOnly));
-
         private static readonly ProfilerMarker _PRF_InitializeTerrains =
-            new ProfilerMarker(_PRF_PFX + nameof(InitializeTerrains));
+            new ProfilerMarker(_PRF_PFX + nameof(InitializeWorld));
 
         private static readonly ProfilerMarker _PRF_Initialize =
             new ProfilerMarker(_PRF_PFX + nameof(Initialize));

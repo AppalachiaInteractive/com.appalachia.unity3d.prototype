@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770989c3c7074d049cd6ce8014c4ac00, type: 3}
   m_Name: Debug_ToggleGraphyMode
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - OnScreenButtonStyleOverride
     _resetToken: 
-  _cachedName: 
-  _niceName: 
   actionReference: {fileID: 897213483841755979, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
   style: {fileID: 11400000, guid: 4dff175d179801c429e0a7323dd7d0d8, type: 2}

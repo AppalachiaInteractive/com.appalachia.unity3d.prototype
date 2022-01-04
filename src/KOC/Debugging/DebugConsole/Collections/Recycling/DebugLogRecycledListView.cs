@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
+using Appalachia.Prototype.KOC.Debugging.DebugConsole.Settings;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Extensions;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,12 +20,9 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
         #region Fields and Autoproperties
 
         // Log items used to visualize the debug entries at specified indices
-        private readonly Dictionary<int, DebugLogItem> logItemsAtIndices = new(256);
+        private Dictionary<int, DebugLogItem> logItemsAtIndices = new(256);
 
         private bool isCollapseOn;
-
-        // Indices of debug entries to show in collapsedLogEntries
-        private DebugLogIndexList indicesOfEntriesToShow;
 
         private DebugLogManager manager;
         private float deltaHeightOfSelectedLogEntry;
@@ -37,15 +36,20 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
         private int currentTopIndex = -1, currentBottomIndex = -1;
 
         private int indexOfSelectedLogEntry = int.MaxValue;
-
-        // Unique debug entries
-        private List<DebugLogEntry> collapsedLogEntries;
         private ScrollRect scrollView;
+
+        private DebugLogManagerState state;
 
         #endregion
 
         public float ItemHeight => logItemHeight;
         public float SelectedItemHeight => heightOfSelectedLogEntry;
+
+        // Indices of debug entries to show in collapsedLogEntries
+        private DebugLogIndexList indicesOfEntriesToShow => state.indicesOfListEntriesToShow;
+
+        // Unique debug entries
+        private List<DebugLogEntry> collapsedLogEntries => state.collapsedLogEntries;
 
         // Deselect the currently selected log item
         public void DeselectSelectedLogItem()
@@ -66,15 +70,10 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
             }
         }
 
-        public void Initialize(
-            DebugLogManager manager,
-            List<DebugLogEntry> collapsedLogEntries,
-            DebugLogIndexList indicesOfEntriesToShow,
-            float logItemHeight)
+        public void Initialize(DebugLogManager manager, DebugLogManagerState state, float logItemHeight)
         {
             this.manager = manager;
-            this.collapsedLogEntries = collapsedLogEntries;
-            this.indicesOfEntriesToShow = indicesOfEntriesToShow;
+            this.state = state;
             this.logItemHeight = logItemHeight;
             _1OverLogItemHeight = 1f / logItemHeight;
         }
@@ -330,7 +329,18 @@ namespace Appalachia.Prototype.KOC.Debugging.DebugConsole.Collections.Recycling
             {
                 await base.Initialize(initializer);
 
-                scrollView = viewportTransform.GetComponentInParent<ScrollRect>();
+                await initializer.Do(
+                    this,
+                    nameof(logItemsAtIndices),
+                    logItemsAtIndices == null,
+                    () => logItemsAtIndices = new(256)
+                );
+
+                scrollView = await initializer.Get<ScrollRect>(
+                    viewportTransform,
+                    GetComponentStrategy.ParentObject
+                );
+
                 scrollView.onValueChanged.AddListener(pos => UpdateItemsInTheList(false));
 
                 viewportHeight = viewportTransform.rect.height;

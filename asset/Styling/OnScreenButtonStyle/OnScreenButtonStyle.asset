@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12717d586d44629b7fa19eac97b6276, type: 3}
   m_Name: OnScreenButtonStyle
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _cachedName: 
+  _niceName: 
+  _initializer:
     _tags:
     - _font
     - OnScreenButtonSpriteStyle
@@ -21,8 +22,6 @@ MonoBehaviour:
     - _spriteColor
     - _textColor
     _resetToken: 
-  _cachedName: 
-  _niceName: 
   _overrides:
   - {fileID: 11400000, guid: df1a0a2b2c3d34e458915076ced7887d, type: 2}
   - {fileID: 11400000, guid: b3da2a090be226147b71e45963b87b50, type: 2}

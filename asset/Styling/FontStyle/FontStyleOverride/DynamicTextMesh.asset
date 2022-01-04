@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e656398e31b3fd49b5c5536ba4d19a1, type: 3}
   m_Name: DynamicTextMesh
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _font:
     _overrideEnabled: 0
     _value: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}

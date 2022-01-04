@@ -26,6 +26,11 @@ namespace Appalachia.Prototype.KOC.Gameplay
 
         protected void Update()
         {
+            if (!DependenciesAreReady || !FullyInitialized)
+            {
+                return;
+            }
+            
             var t = transform;
 
             //BOTDPlayerInput.Update(out var input);

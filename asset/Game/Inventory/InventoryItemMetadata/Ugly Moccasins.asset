@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c284ac123cbe449add365fb35d557f, type: 3}
   m_Name: Ugly Moccasins
   m_EditorClassIdentifier: 
-  preview: {fileID: 2800000, guid: e9562bba91e5aa346b8de400c1623533, type: 3}
-  itemName: Simple Moccasins
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   category: 10
-  subcategory: 1000
   specialCategory: 0
+  subcategory: 1000
+  itemName: Simple Moccasins
+  preview: {fileID: 2800000, guid: e9562bba91e5aa346b8de400c1623533, type: 3}

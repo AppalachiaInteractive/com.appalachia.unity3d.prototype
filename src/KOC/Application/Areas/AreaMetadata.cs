@@ -18,7 +18,6 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Application.Areas
 {
-    [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     [SmartLabelChildren]
     [InspectorIcon(Brand.AreaMetadata.Icon)]
     public abstract class AreaMetadata<T, TM> : SingletonAppalachiaObject<TM>, IAreaMetadata

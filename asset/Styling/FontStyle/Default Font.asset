@@ -12,15 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e895ac2f97453eb6a8136b7d8d14bc, type: 3}
   m_Name: Default Font
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
+  _overrides: []
   _font: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
+  _autoSize: 0
   _fontSize: 16
+  _fontRange: {x: 0, y: 0}
   _fontWeight: 400
   _alignment: 4098
   _horizontalAlignment: 2
   _verticalAlignment: 512
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _enableWordWrapping: 0
+  _overflowMode: 0

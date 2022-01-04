@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f688fbc10804a9f9d823ddfc95a025b, type: 3}
   m_Name: SceneReferenceElement_MainMenu_Settings_V01
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   reference:
     m_AssetGUID: aff5eafb13e78804b86336a67d60007c
     m_SubObjectName: 

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d8652c65804ceba2c04b7a88b786b1, type: 3}
   m_Name: HUD_V01_Template - HUD_V01 - HUD_FadeSettings
   m_EditorClassIdentifier: 
-  _initializationData:
-    _tags: []
-    _resetToken: 
   _cachedName: 
   _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
   _passiveMode: 0
   _passiveFadeMode: 2
   _updateAtStart: 0
