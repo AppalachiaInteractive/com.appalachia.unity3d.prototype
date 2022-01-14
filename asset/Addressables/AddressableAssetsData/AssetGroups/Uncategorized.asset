@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 1691b5d88233dec41ba73fd4e1fd1c44
   m_SerializeEntries:
-  - m_GUID: 558c5e722e60dce4d9dacafa6c1538d0
-    m_Address: Assets/Appalachia.Prototype/asset/Metadata/Audio/Contextual/WindSounds.asset
+  - m_GUID: 37a5c4d08188dde47beb86ae88a3cdca
+    m_Address: DeveloperInterfaceCommandSuggestionsWidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

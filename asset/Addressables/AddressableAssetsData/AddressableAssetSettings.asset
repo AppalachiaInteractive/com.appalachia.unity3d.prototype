@@ -119,7 +119,7 @@ MonoBehaviour:
     - default
     - KeepersOfCreation_V01
     - KeepersOfCreation_V01_Prefabs
-    - DebugOverlay_V01
+    - DeveloperInterface_V01
     - Game_V01
     - HUD_V01
     - InGameMenu_V01

@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - KeepersOfCreation_V01
   - m_GUID: fd173961fe107f949849fcaac49210c5
-    m_Address: AreaSceneInformation_DebugOverlay
+    m_Address: AreaSceneInformation_DeveloperInterface
     m_ReadOnly: 0
     m_SerializedLabels:
     - KeepersOfCreation_V01
@@ -193,7 +193,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - KeepersOfCreation_V01
   - m_GUID: accdccbdfd4d5bf4b987cd59b8f634bb
-    m_Address: SceneReference_DebugOverlay
+    m_Address: SceneReference_DeveloperInterface
     m_ReadOnly: 0
     m_SerializedLabels:
     - KeepersOfCreation_V01

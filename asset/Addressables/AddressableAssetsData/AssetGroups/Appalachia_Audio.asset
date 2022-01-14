@@ -57,6 +57,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Appalachia_Audio
+  - m_GUID: 558c5e722e60dce4d9dacafa6c1538d0
+    m_Address: WindSounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Audio
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

@@ -48,7 +48,7 @@ MonoBehaviour:
       DeathMenu:
         _overrideEnabled: 0
         _value: 0
-      Debug:
+      DeveloperInterface:
         _overrideEnabled: 0
         _value: 0
       GenericMenu:
@@ -79,7 +79,7 @@ MonoBehaviour:
       DeathMenu:
         _overrideEnabled: 0
         _value: 0
-      Debug:
+      DeveloperInterface:
         _overrideEnabled: 0
         _value: 0
       GenericMenu:
@@ -131,20 +131,21 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 0
   doozyCanvas:
+    doNotUseDoozyCanvas: 0
     canvasName: SplashScreen_Appalachia
   doozyGraph:
     graph: {fileID: 11400000, guid: 826867eeeb73abf408e38e3dcaca40ab, type: 2}
     testGraph: {fileID: 11400000, guid: 850468724114e1c448ff5319bd2c8312, type: 2}
     graphControllerName: Graph Controller - SplashScreen_Appalachia
   doozyView:
+    doNotUseDoozyView: 0
     viewCategory: SplashScreen
     viewName: SplashScreen_Appalachia
-  menu:
-    doesDrawMenu: 0
   templates:
     templateEnabled: 0
     templateAlpha: 1
     templates: []
+    parent: 0
     selectedTemplate: {fileID: 0}
   sceneBehaviour:
     setEntrySceneActive: 0

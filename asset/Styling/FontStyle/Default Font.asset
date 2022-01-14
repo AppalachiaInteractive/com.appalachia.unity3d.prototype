@@ -17,11 +17,28 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
-  _overrides: []
+  _overrides:
+  - {fileID: 11400000, guid: afee15da68d82f64bb278296bd0d9861, type: 2}
+  - {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
+  - {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
+  - {fileID: 11400000, guid: 6013fdbf12477c84b9527732702c1a73, type: 2}
+  - {fileID: 11400000, guid: 57217aac45189744f97631000502e60d, type: 2}
+  - {fileID: 11400000, guid: a5596cefd3c5a9b47b6a4925a2551220, type: 2}
+  - {fileID: 11400000, guid: 1d187f4ff3de0454bbb88554916e30dd, type: 2}
+  - {fileID: 11400000, guid: 2aed955cde26adc47a2d328902267f7c, type: 2}
+  - {fileID: 11400000, guid: 42aa6775361cdb34fb0d58bdb073b7af, type: 2}
+  - {fileID: 11400000, guid: f6273592146e8a9488fdfae45d3e4833, type: 2}
+  - {fileID: 11400000, guid: 3dfc8ffb70e5c4e4f90129922edea0c4, type: 2}
+  - {fileID: 11400000, guid: 0e0127402de70404096d8cd688f4d75a, type: 2}
+  - {fileID: 11400000, guid: 2db1b4dd0ecda964dbf93fc89ae1377a, type: 2}
+  - {fileID: 11400000, guid: b9f228d88ae58da4ea5ba82ab6b6f56e, type: 2}
+  - {fileID: 11400000, guid: 10854c4632f1f12438622d54e3ac2fa7, type: 2}
+  - {fileID: 11400000, guid: c3f401c7c5f41d54c9fd654ce2f3a9d0, type: 2}
+  - {fileID: 11400000, guid: d4f9d7349831470468c1d10be62812ec, type: 2}
   _font: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
   _autoSize: 0
   _fontSize: 16
-  _fontRange: {x: 0, y: 0}
+  _fontRange: {x: 8, y: 72}
   _fontWeight: 400
   _alignment: 4098
   _horizontalAlignment: 2

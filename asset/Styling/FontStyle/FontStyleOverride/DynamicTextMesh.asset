@@ -21,14 +21,14 @@ MonoBehaviour:
     _overrideEnabled: 0
     _value: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
   _fontSize:
-    _overrideEnabled: 0
+    _overrideEnabled: 1
     _value: 16
   _autoSize:
     _overrideEnabled: 0
     _value: 0
   _fontRange:
     _overrideEnabled: 0
-    _value: {x: 0, y: 0}
+    _value: {x: 8, y: 72}
   _fontWeight:
     _overrideEnabled: 1
     _value: 300

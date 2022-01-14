@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 261ada5904a934b45a3ae0b9af96bafb
+labels:
+- SCRIPTABLE
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

@@ -48,7 +48,7 @@ MonoBehaviour:
       DeathMenu:
         _overrideEnabled: 0
         _value: 0
-      Debug:
+      DeveloperInterface:
         _overrideEnabled: 0
         _value: 0
       GenericMenu:
@@ -79,7 +79,7 @@ MonoBehaviour:
       DeathMenu:
         _overrideEnabled: 0
         _value: 0
-      Debug:
+      DeveloperInterface:
         _overrideEnabled: 0
         _value: 0
       GenericMenu:
@@ -131,20 +131,21 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 0
   doozyCanvas:
+    doNotUseDoozyCanvas: 0
     canvasName: SplashScreen_Disclaimer
   doozyGraph:
     graph: {fileID: 11400000, guid: 06fe357cf981a7443ad213df6b3c1585, type: 2}
     testGraph: {fileID: 11400000, guid: dc8682f34a76b594f9e4f9d6d8bad6cb, type: 2}
     graphControllerName: Graph Controller - SplashScreen_Disclaimer
   doozyView:
+    doNotUseDoozyView: 0
     viewCategory: SplashScreen
     viewName: SplashScreen_Disclaimer
-  menu:
-    doesDrawMenu: 0
   templates:
     templateEnabled: 0
     templateAlpha: 1
     templates: []
+    parent: 0
     selectedTemplate: {fileID: 0}
   sceneBehaviour:
     setEntrySceneActive: 0

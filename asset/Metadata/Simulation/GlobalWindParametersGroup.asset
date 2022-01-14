@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7605f7c6ec854c4c999055f1c99630cb, type: 3}
+  m_Name: GlobalWindParametersGroup
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - debugParameters
+    - parameters
+    _resetToken: 
+  debug: 0
+  gustAudioGroup: {fileID: -1861420323297737388, guid: 02fbf39ef3501fe45915e94dbebcf2eb, type: 2}
+  parameters: {fileID: 11400000, guid: d2d789db19261344a81a898e7aa43aa7, type: 2}
+  debugParameters: {fileID: 11400000, guid: b3f66d79b072efb418c8f9335d11fd6d, type: 2}

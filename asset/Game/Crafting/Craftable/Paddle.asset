@@ -26,9 +26,9 @@ MonoBehaviour:
   - elements:
     - options:
       - craftingTime:
+          inRealTime: 0
           value: 1
           unit: 2
-          inRealTime: 0
         ingredients:
         - item: {fileID: 0}
           ingredientType: 0
@@ -43,9 +43,9 @@ MonoBehaviour:
   - elements:
     - options:
       - craftingTime:
+          inRealTime: 0
           value: 1
           unit: 2
-          inRealTime: 0
         ingredients: []
         knowledges: []
         skills: []
@@ -53,9 +53,9 @@ MonoBehaviour:
   - elements:
     - options:
       - craftingTime:
+          inRealTime: 0
           value: 1
           unit: 2
-          inRealTime: 0
         ingredients: []
         knowledges: []
         skills: []

@@ -10,10 +10,11 @@ namespace Appalachia.Prototype.KOC.Data.Documents.User
             ScreenshotPath = screenshotPath;
         }
 
-        
+        #region Fields and Autoproperties
 
         public string ScreenshotPath { get; set; }
 
+        #endregion
 
         protected override void SetDefaults()
         {

@@ -5,6 +5,5 @@ namespace Appalachia.Prototype.KOC.Data.Collections.User
 {
     public class UserSettingsCollection : AppaCollection<UserSettings, UserSettingsCollection>
     {
-        
     }
 }

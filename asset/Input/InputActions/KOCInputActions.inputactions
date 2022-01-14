@@ -40,7 +40,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "Gamepad",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -202,11 +202,11 @@
             ]
         },
         {
-            "name": "Debug",
+            "name": "Developer Interface",
             "id": "033e1767-5bd2-4be6-b360-4ea0a68ea9cd",
             "actions": [
                 {
-                    "name": "Toggle Debug Log",
+                    "name": "Toggle Developer Interface",
                     "type": "Button",
                     "id": "7e24db0c-6283-4461-bc0f-56639659a438",
                     "expectedControlType": "Button",
@@ -215,7 +215,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Toggle Graphy",
+                    "name": "Open Command Palette",
+                    "type": "Button",
+                    "id": "0cddf666-77fb-49a9-8587-92b13f4b81a0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle Menu Bar",
                     "type": "Button",
                     "id": "7920063e-4a89-451a-b64c-25e44a0526fc",
                     "expectedControlType": "Button",
@@ -224,9 +233,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Toggle Graphy Mode",
+                    "name": "Toggle Status Bar",
                     "type": "Button",
                     "id": "0be3e2a2-5c9e-412a-89b1-a4fc48edad45",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle Activity Bar",
+                    "type": "Button",
+                    "id": "d12b9954-6b48-4761-a152-effe82f86194",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle Side Bar",
+                    "type": "Button",
+                    "id": "921e25e9-d8ad-426a-a260-64a45f947d47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle Panel",
+                    "type": "Button",
+                    "id": "c84a34ca-215e-4a75-a37c-351d07632fe2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -240,50 +276,140 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Toggle Debug Overlays",
-                    "type": "Button",
-                    "id": "2245b45f-55ca-4672-919b-728fa33fcac2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "99dc8417-d312-4429-9420-fcfa413a2f13",
-                    "path": "<Keyboard>/f9",
+                    "name": "Two Modifiers",
+                    "id": "2e503210-dab8-45b9-a08b-4bb4ca657a26",
+                    "path": "TwoModifiers",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Toggle Debug Log",
-                    "isComposite": false,
+                    "groups": "",
+                    "action": "Toggle Developer Interface",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "808c0870-e236-4a23-8679-432011f719f7",
-                    "path": "<Keyboard>/f10",
+                    "name": "modifier1",
+                    "id": "d15b8b35-d9c6-4af2-ba7b-2bfd1f879986",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Toggle Graphy",
+                    "action": "Toggle Developer Interface",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "0ce995f1-35c4-4e0b-89ae-7aedc3148aa2",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Developer Interface",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "72788a81-e8eb-48df-b82f-ec71f8993d39",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Developer Interface",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "f4d4061b-39ba-4277-bcb2-cac1d6828a98",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle Menu Bar",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "48498484-c9a8-4ab4-b5f6-d39e993383df",
-                    "path": "<Keyboard>/f11",
+                    "name": "modifier1",
+                    "id": "a3c514aa-1417-4852-8bbc-2a121447ed20",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Toggle Graphy Mode",
+                    "action": "Toggle Menu Bar",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "1d274b3d-3ba1-40ad-9465-47d21398bed1",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Menu Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "17a89b9d-7b2e-4b16-bd95-48dfd4238928",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Menu Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "207d2751-321a-420a-90b5-fab7a9261828",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle Status Bar",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "a0e23ff7-b927-4a10-ae4e-c7c46e2a9d60",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Status Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "ea17cb7a-52fd-4a70-ac1c-7dfbb260989a",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Status Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "e4b95e1b-8d50-4746-8b2a-a77e4abd0c7f",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Status Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -297,15 +423,180 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "8c5517a6-628d-476e-b73e-a1df56c597be",
-                    "path": "<Keyboard>/f8",
+                    "name": "Two Modifiers",
+                    "id": "0f28ca70-66c2-44af-adfc-47101793dc4b",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle Activity Bar",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "20d19975-c68c-4830-acb4-ce6822c9b1c9",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Toggle Debug Overlays",
+                    "action": "Toggle Activity Bar",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "9d09a07d-49f8-402d-ac67-55eb0123b477",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Activity Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "b5299d33-60dc-4118-a31a-a5404a68d855",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Activity Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "bb4bb504-b991-4b84-b9a3-e61d9bfaecef",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle Side Bar",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "e27ede11-438b-48c2-8695-0f070a76f920",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Side Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "5fcdae00-963e-4984-886d-a0eabe4489d4",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Side Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "d6d5e8c8-ff8a-4db0-afd9-d4aea923651b",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Side Bar",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "53e48697-d562-42d7-94d0-8752917fe737",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle Panel",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "d4bc05a3-5bc9-46c0-aeaa-e168d7c3390c",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Panel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "2f34f764-7446-4a43-aaed-e7b4e19ddbde",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Panel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "bc60adc1-6d7c-4e19-b238-7c4e078b690e",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Panel",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "82387da6-98b3-4e92-923c-8decba3a6402",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Command Palette",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "6c731368-46bd-4933-a88c-850f19903e08",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Open Command Palette",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "a998b0ec-c799-4555-bde8-8afc69433733",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Open Command Palette",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4887e4df-d86b-45aa-9e9d-5336b7864724",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Open Command Palette",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

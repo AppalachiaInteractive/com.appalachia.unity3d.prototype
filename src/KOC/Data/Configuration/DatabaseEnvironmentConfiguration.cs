@@ -70,7 +70,6 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         #region Profiling
 
-        private const string _PRF_PFX = nameof(DatabaseEnvironmentConfiguration) + ".";
 
         private static readonly ProfilerMarker _PRF_GetSettings =
             new ProfilerMarker(_PRF_PFX + nameof(GetSettings));

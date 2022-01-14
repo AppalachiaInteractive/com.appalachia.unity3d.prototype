@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: DeveloperInterface_V01
+  m_EditorClassIdentifier: 
+  m_GroupName: DeveloperInterface_V01
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 32ab11303d2d9774ba4c78f956adc05a
+  m_SerializeEntries:
+  - m_GUID: 996698958a9e67640896e9352c961c89
+    m_Address: Text_Build Version
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 5ba9d7d7ca29e8e41954ee975ad3a953
+    m_Address: SceneReferenceElement_DeveloperInterface_V01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 388cdb11d1348884190b2c5d1edd1150
+    m_Address: RuntimeGraphSettings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 17ff35d35e16bb243b4fb12caa676768
+    m_Address: DebugLogSettings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 736fd41d4cae09f4ca22d468fc5f42e7
+    m_Address: DebugLogItem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 0abab5bb77339e4428787a870eb31bd3
+    m_Address: RuntimeGraphManager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: e0d44b26b7a8dea4d9f8f4a254899152
+    m_Address: DebugOverlayInfo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 67117722a812a2e46ab8cb8eafbf5f5e
+    m_Address: DebugLogManager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 2f6256e354bf0414f8812f991c029790
+    m_Address: DeveloperInterface_V01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: f4c1bce7e2f611e4695b5dbd708b8d81
+    m_Address: DeveloperInterfaceMetadata_V01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 90697a160d2b55447bb496d78a7b2d93
+    m_Address: DeveloperInterfaceStatusBarWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 23b3108d2cafbc9429e3a6b1a9a33945
+    m_Address: DeveloperInterfaceSideBarWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 4963e6dab8cda5648b9874598cc60801
+    m_Address: DeveloperInterfacePanelWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: abed7f7cfc997a6408cc6430706495cf
+    m_Address: DeveloperInterfaceMenuBarWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 8ca899bfd7686464cb08a16d3e806184
+    m_Address: DeveloperInterfaceCommandPaletteWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 1c7afe2a5e837974a9224a2232035bce
+    m_Address: DeveloperInterfaceActivityBarWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DeveloperInterface_V01
+  - m_GUID: 24a599a9ae248d144adc4e3ee687baa7
+    m_Address: DeveloperInterfaceGameAreaWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4a044ad0e88d9a547988ef985883b6b9
+    m_Address: DebugConditionsFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7c5da04a60718524892454f4f2fff023
+    m_Address: DeveloperInterfaceScreenshotServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4044d5dcd9a85e64387973336bea5a60, type: 2}
+    - {fileID: 11400000, guid: 27f3570cea144424c9eed903611f47ad, type: 2}

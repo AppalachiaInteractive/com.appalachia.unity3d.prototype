@@ -17,6 +17,22 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 {
     public class DatabaseConfiguration : SingletonAppalachiaObject<DatabaseConfiguration>
     {
+        #region Constants and Static Readonly
+
+        private const char ENCRYPTED = 'e';
+        private const char POSTFIXJ = 'j';
+        private const char POSTFIXL = 'l';
+
+        // ReSharper disable once UnusedMember.Local
+        private const char POSTFIXQ = 'q';
+        private const char POSTFIXU = 'u';
+        private const char SEPARATOR = '.';
+        private const char UNENCRYPTED = 'u';
+
+        private const string PREFIX = "appa";
+
+        #endregion
+
         #region Fields and Autoproperties
 
         public ActiveDatabaseConfiguration activeConfiguration;
@@ -91,30 +107,19 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
                     return ".asset";
                 }
 
-                const string prefix = "appa";
-                const char separator = '.';
-
-                // ReSharper disable once UnusedVariable
-                const char postfixq = 'q';
-                const char encrypted = 'e';
-                const char unencrypted = 'u';
-                const char postfixj = 'j';
-                const char postfixu = 'u';
-                const char postfixl = 'l';
-
                 var techChar = settings.technology switch
                 {
-                    DatabaseTechnology.Json        => postfixj,
-                    DatabaseTechnology.LiteDB      => postfixl,
-                    DatabaseTechnology.UltraLiteDb => postfixu,
+                    DatabaseTechnology.Json        => POSTFIXJ,
+                    DatabaseTechnology.LiteDB      => POSTFIXL,
+                    DatabaseTechnology.UltraLiteDb => POSTFIXU,
                     _                              => throw new ArgumentOutOfRangeException()
                 };
 
                 var result = ZString.Format(
                     "{0}{1}{2}{3}",
-                    separator,
-                    prefix,
-                    settings.isEncrypted ? encrypted : unencrypted,
+                    SEPARATOR,
+                    PREFIX,
+                    settings.isEncrypted ? ENCRYPTED : UNENCRYPTED,
                     techChar
                 );
 
@@ -124,58 +129,91 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         protected override async AppaTask Initialize(Initializer initializer)
         {
-            using (_PRF_Initialize.Auto())
-            {
-                await base.Initialize(initializer);
+            await base.Initialize(initializer);
 
 #if UNITY_EDITOR
-                initializer.Reset(this, "2021-11-19-01");
 
-                await initializer.Do(this, nameof(runtime), runtime == null, ConfigureRuntimeDefaults);
+            initializer.Do(
+                this,
+                nameof(runtime),
+                runtime == null,
+                () =>
+                {
+                    using (_PRF_Initialize.Auto())
+                    {
+                        ConfigureRuntimeDefaults();
+                    }
+                }
+            );
 
-                await initializer.Do(this, nameof(editor), editor == null, ConfigureEditorDefaults);
+            initializer.Do(
+                this,
+                nameof(editor),
+                editor == null,
+                () =>
+                {
+                    using (_PRF_Initialize.Auto())
+                    {
+                        ConfigureEditorDefaults();
+                    }
+                }
+            );
 
+            using (_PRF_Initialize.Auto())
+            {
                 if (developer != null)
                 {
-                    developer.SetObjectOwnership(this);
+                    developer.SetSerializationOwner(this);
                 }
+            }
 
-                await initializer.Do(
-                    this,
-                    nameof(developer),
-                    (developer == null) || !developer.HasContext(),
-                    () =>
+            initializer.Do(
+                this,
+                nameof(developer),
+                (developer == null) || !developer.HasContext(),
+                () =>
+                {
+                    using (_PRF_Initialize.Auto())
                     {
                         activeConfiguration = ActiveDatabaseConfiguration.Developer;
 
                         ConfigureDeveloperDefaults();
                     }
-                );
+                }
+            );
 
+            using (_PRF_Initialize.Auto())
+            {
                 if (developer2 != null)
                 {
-                    developer2.SetObjectOwnership(this);
+                    developer2.SetSerializationOwner(this);
                 }
-
-                await initializer.Do(
-                    this,
-                    nameof(developer2),
-                    (developer2 == null) || !developer2.HasContext(),
-                    ConfigureDeveloper2Defaults
-                );
-
-                developer.SetObjectOwnership(this);
-                developer2.SetObjectOwnership(this);
-#endif
             }
+
+            initializer.Do(
+                this,
+                nameof(developer2),
+                (developer2 == null) || !developer2.HasContext(),
+                () =>
+                {
+                    using (_PRF_Initialize.Auto())
+                    {
+                        ConfigureDeveloper2Defaults();
+                    }
+                }
+            );
+
+            using (_PRF_Initialize.Auto())
+            {
+                developer.SetSerializationOwner(this);
+                developer2.SetSerializationOwner(this);
+            }
+#endif
         }
 
         #region Profiling
 
-        private const string _PRF_PFX = nameof(DatabaseConfiguration) + ".";
-
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
+        
 
         private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaultsInternal =
             new ProfilerMarker(_PRF_PFX + nameof(ConfigureDefaultsInternal));
@@ -195,14 +233,14 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
         private static readonly ProfilerMarker _PRF_GetDataLocation =
             new ProfilerMarker(_PRF_PFX + nameof(GetEnvironment));
 
-        private static readonly ProfilerMarker _PRF_GetFileExtension =
-            new ProfilerMarker(_PRF_PFX + nameof(GetFileExtension));
-
         private static readonly ProfilerMarker _PRF_GetDataStorageFileExtension =
             new ProfilerMarker(_PRF_PFX + nameof(GetDataStorageFileExtension));
 
         private static readonly ProfilerMarker _PRF_GetDataStorageFileNameWithoutExtension =
             new ProfilerMarker(_PRF_PFX + nameof(GetDataStorageFileNameWithoutExtension));
+
+        private static readonly ProfilerMarker _PRF_GetFileExtension =
+            new ProfilerMarker(_PRF_PFX + nameof(GetFileExtension));
 
         private static readonly ProfilerMarker
             _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));

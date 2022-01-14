@@ -21,7 +21,7 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             instance.Configuration = configuration;
 
             instance.RegisterCollections();
-            
+
             return instance;
         }
 

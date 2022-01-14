@@ -1,5 +1,9 @@
 fileFormatVersion: 2
 guid: d34f24dac6a0743409c3681ed73c7a98
+labels:
+- LOOKUP
+- SCRIPTABLE
+- SINGLETON
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

@@ -10,6 +10,16 @@ namespace Appalachia.Prototype.KOC.Data.Collections
     public class UserSpecificDatabaseEnvironmentConfiguration : UserSpecific<DatabaseEnvironmentConfiguration,
         AppaList_DatabaseEnvironmentConfiguration>
     {
+        protected override Color GetDisplayColor(string key, DatabaseEnvironmentConfiguration value)
+        {
+            return Colors.WhiteSmokeGray96;
+        }
+
+        protected override string GetDisplaySubtitle(string key, DatabaseEnvironmentConfiguration value)
+        {
+            return key;
+        }
+
         protected override string GetDisplayTitle(string key, DatabaseEnvironmentConfiguration value)
         {
             if (value != null)
@@ -18,16 +28,6 @@ namespace Appalachia.Prototype.KOC.Data.Collections
             }
 
             return "NULL";
-        }
-
-        protected override string GetDisplaySubtitle(string key, DatabaseEnvironmentConfiguration value)
-        {
-            return key;
-        }
-
-        protected override Color GetDisplayColor(string key, DatabaseEnvironmentConfiguration value)
-        {
-            return Colors.WhiteSmokeGray96;
         }
     }
 }

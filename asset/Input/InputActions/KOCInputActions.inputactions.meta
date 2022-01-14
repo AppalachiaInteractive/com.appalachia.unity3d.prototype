@@ -9,6 +9,6 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 8404be70184654265930450def6a9037, type: 3}
   generateWrapperCode: 1
-  wrapperCodePath: Assets/Appalachia.Prototype/src/KOC/Application/Input/KOCInputActions.cs
+  wrapperCodePath: Assets/Appalachia.Prototype/src/KOC/Input/KOCInputActions.Generated.cs
   wrapperClassName: 
-  wrapperCodeNamespace: Appalachia.Prototype.KOC.Application.Input
+  wrapperCodeNamespace: Appalachia.Prototype.KOC.Input

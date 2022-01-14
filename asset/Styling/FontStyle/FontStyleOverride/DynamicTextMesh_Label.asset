@@ -28,7 +28,7 @@ MonoBehaviour:
     _value: 0
   _fontRange:
     _overrideEnabled: 0
-    _value: {x: 0, y: 0}
+    _value: {x: 8, y: 72}
   _fontWeight:
     _overrideEnabled: 1
     _value: 100

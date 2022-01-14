@@ -43,7 +43,7 @@ MonoBehaviour:
       DeathMenu:
         _overrideEnabled: 0
         _value: 0
-      Debug:
+      DeveloperInterface:
         _overrideEnabled: 0
         _value: 0
       GenericMenu:
@@ -74,7 +74,7 @@ MonoBehaviour:
       DeathMenu:
         _overrideEnabled: 0
         _value: 0
-      Debug:
+      DeveloperInterface:
         _overrideEnabled: 0
         _value: 0
       GenericMenu:
@@ -126,20 +126,21 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 0
   doozyCanvas:
+    doNotUseDoozyCanvas: 0
     canvasName: MainMenu_NewGame
   doozyGraph:
     graph: {fileID: 11400000, guid: b0c76df5b222f7148b548ea9759123ef, type: 2}
     testGraph: {fileID: 11400000, guid: ba090ea96834d80439f5fc2ef23444da, type: 2}
     graphControllerName: Graph Controller - MainMenu_NewGame
   doozyView:
+    doNotUseDoozyView: 0
     viewCategory: MainMenu
     viewName: MainMenu_NewGame
-  menu:
-    doesDrawMenu: 0
   templates:
     templateEnabled: 0
     templateAlpha: 1
     templates: []
+    parent: 0
     selectedTemplate: {fileID: 0}
   sceneBehaviour:
     setEntrySceneActive: 0

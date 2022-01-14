@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399a68a0184740c4b92925c096b22dfc, type: 3}
   m_Name: AreaSceneInformationCollection_MainInternal
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: AreaSceneInformationCollection_MainInternal
+  _niceName: Area Scene Information Collection_Main Internal
   _initializer:
     _tags: []
     _resetToken: 

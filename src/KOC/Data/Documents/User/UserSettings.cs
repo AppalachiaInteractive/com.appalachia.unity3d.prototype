@@ -1,4 +1,3 @@
-
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
 using Appalachia.Data.Core.Attributes;
@@ -10,10 +9,14 @@ namespace Appalachia.Prototype.KOC.Data.Documents.User
 {
     public class UserSettings : AppaDocument<UserSettings, UserSettingsCollection>
     {
+        #region Fields and Autoproperties
+
         public QualitySettingsPresetType QualityPreset { get; set; }
 
         [DataRef(nameof(QualitySettingLevel))]
         public QualitySettingLevel QualitySettings { get; set; }
+
+        #endregion
 
         protected override void SetDefaults()
         {

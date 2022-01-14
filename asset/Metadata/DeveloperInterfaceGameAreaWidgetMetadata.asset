@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c846acab6fed4d4aa0336c749e05f392, type: 3}
+  m_Name: DeveloperInterfaceGameAreaWidgetMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - FontStyleOverride
+    - backgroundColor
+    - maintain16by9Ratio
+    - maintainAspectRatio
+    _resetToken: 
+  backgroundColor: {r: 0.305, g: 0.2152103, b: 0.09691591, a: 1}
+  sortOrder: 0
+  fontStyle: {fileID: 11400000, guid: c3f401c7c5f41d54c9fd654ce2f3a9d0, type: 2}
+  transitionsWithFade: 0
+  maintainAspectRatio: 1

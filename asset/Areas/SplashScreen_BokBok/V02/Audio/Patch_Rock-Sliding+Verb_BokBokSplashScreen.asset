@@ -47,8 +47,8 @@ MonoBehaviour:
     increment: 0
     randomize: 0
   sequence:
-    duration: {x: 0, y: 15}
     repeat:
       forever: 0
       count: 0
     timing: []
+    duration: {x: 0, y: 15}

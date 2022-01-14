@@ -45,7 +45,6 @@ namespace Appalachia.Prototype.KOC.Data.Databases
 
         #region Profiling
 
-        private const string _PRF_PFX = nameof(GameStateDatabase) + ".";
 
         private static readonly ProfilerMarker _PRF_Dispose = new ProfilerMarker(_PRF_PFX + nameof(Dispose));
 

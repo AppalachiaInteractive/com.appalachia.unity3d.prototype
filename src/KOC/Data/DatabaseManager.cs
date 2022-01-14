@@ -2,7 +2,7 @@ using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Application.Behaviours;
+using Appalachia.Prototype.KOC.Behaviours;
 using Appalachia.Prototype.KOC.Data.Configuration;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
@@ -17,6 +17,8 @@ namespace Appalachia.Prototype.KOC.Data
     {
         static DatabaseManager()
         {
+            
+
             RegisterDependency<DatabaseConfiguration>(i => _databaseConfiguration = i);
         }
 
@@ -82,27 +84,26 @@ namespace Appalachia.Prototype.KOC.Data
 
         protected override async AppaTask Initialize(Initializer initializer)
         {
-            using (_PRF_Initialize.Auto())
-            {
-                await base.Initialize(initializer);
+            await base.Initialize(initializer);
 
-                await initializer.Do(
-                    this,
-                    nameof(dataSet),
-                    () =>
+            initializer.Do(
+                this,
+                nameof(dataSet),
+                () =>
+                {
+                    using (_PRF_Initialize.Auto())
                     {
                         dataSet = ActiveDataSet.Developer;
                         overrideActiveDataSet = false;
                         overrideActiveDataSetName = string.Empty;
                     }
-                );
-            }
+                }
+            );
         }
 
         protected override async AppaTask WhenDisabled()
-
         {
-            using (_PRF_OnDisable.Auto())
+            using (_PRF_WhenDisabled.Auto())
             {
                 await base.WhenDisabled();
 
@@ -144,11 +145,6 @@ namespace Appalachia.Prototype.KOC.Data
 
         #region Profiling
 
-        private const string _PRF_PFX = nameof(DatabaseManager) + ".";
-
-        private static readonly ProfilerMarker _PRF_Initialize =
-            new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
         private static readonly ProfilerMarker _PRF_CreateDatabases =
             new ProfilerMarker(_PRF_PFX + nameof(CreateDatabases));
 
@@ -156,12 +152,6 @@ namespace Appalachia.Prototype.KOC.Data
             _PRF_LoadGame = new ProfilerMarker(_PRF_PFX + nameof(LoadGame));
 
         private static readonly ProfilerMarker _PRF_NewGame = new ProfilerMarker(_PRF_PFX + nameof(NewGame));
-
-        private static readonly ProfilerMarker _PRF_OnDisable =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDisable));
-
-        private static readonly ProfilerMarker
-            _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
 
         private static readonly ProfilerMarker
             _PRF_SaveGame = new ProfilerMarker(_PRF_PFX + nameof(SaveGame));

@@ -62,6 +62,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Appalachia_Simulation
+  - m_GUID: 185af5835ad0e854eb26bf5b8aa3a56c
+    m_Address: GlobalWindParametersGroup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Appalachia_Simulation
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

@@ -1,0 +1,27 @@
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Areas.Common.Widgets;
+using Appalachia.Utility.Async;
+using Sirenix.OdinInspector;
+
+namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar
+{
+    public sealed class DeveloperInterfaceStatusBarWidgetMetadata : AreaWidgetMetadata<
+        DeveloperInterfaceStatusBarWidget, DeveloperInterfaceStatusBarWidgetMetadata,
+        DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
+    {
+        #region Fields and Autoproperties
+
+        [OnValueChanged(nameof(InvokeSettingsChanged))]
+        [PropertyRange(0.015f, 0.045f)]
+        public float height;
+
+        #endregion
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            initializer.Do(this, nameof(height), () => height = 0.03f);
+        }
+    }
+}

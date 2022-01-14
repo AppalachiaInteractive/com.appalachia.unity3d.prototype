@@ -1,8 +1,10 @@
 fileFormatVersion: 2
 guid: 6883e6e28b8e94649bb6e7d81b8e2a37
+labels:
+- SCRIPTABLE
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
