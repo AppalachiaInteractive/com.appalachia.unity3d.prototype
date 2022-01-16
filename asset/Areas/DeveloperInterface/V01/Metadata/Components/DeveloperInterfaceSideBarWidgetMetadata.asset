@@ -20,7 +20,7 @@ MonoBehaviour:
     - backgroundColor
     - width
     _resetToken: 2022-01-10T09:51:21.4396357-05:00
-  backgroundColor: {r: 0.7156938, g: 0.6795426, b: 0.597202, a: 1}
+  backgroundColor: {r: 0.14509805, g: 0.14509805, b: 0.14901961, a: 1}
   sortOrder: 0
   fontStyle: {fileID: 11400000, guid: b9f228d88ae58da4ea5ba82ab6b6f56e, type: 2}
   transitionsWithFade: 0

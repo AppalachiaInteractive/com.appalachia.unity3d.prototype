@@ -1,17 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Appalachia.Prototype.KOC.Components.Cursors;
-using Appalachia.Prototype.KOC.Components.Graphs;
 using Appalachia.Prototype.KOC.Input;
-using Appalachia.Utility.Strings;
-using Doozy.Engine.Nody.Models;
+using Appalachia.UI.Controls.Cursors;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-#if UNITY_EDITOR
-#endif
 
 namespace Appalachia.Prototype.KOC.Areas
 {
@@ -332,161 +327,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #endregion
 
-        #region Nested type: AreaDoozyCanvasConfiguration
-
-        [Serializable, HideReferenceObjectPicker, InlineProperty, HideLabel]
-        public struct AreaDoozyCanvasConfiguration : IAreaConfiguration
-        {
-            #region Fields and Autoproperties
-
-            [SerializeField] public bool doNotUseDoozyCanvas;
-
-            [SerializeField] public string canvasName;
-
-            #endregion
-
-            #region IAreaConfiguration Members
-
-            public bool ShouldForceReinitialize => false;
-
-            public void Initialize(ApplicationArea area)
-            {
-                using (_PRF_Initialize.Auto())
-                {
-                    canvasName = area.ToString();
-                }
-            }
-
-            #endregion
-
-            #region Profiling
-
-            private const string _PRF_PFX = nameof(AreaDoozyCanvasConfiguration) + ".";
-
-            private static readonly ProfilerMarker _PRF_Initialize =
-                new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-            #endregion
-        }
-
-        #endregion
-
-        #region Nested type: AreaDoozyGraphConfiguration
-
-        [Serializable, HideReferenceObjectPicker, InlineProperty, HideLabel]
-        public struct AreaDoozyGraphConfiguration : IAreaConfiguration
-        {
-            #region Fields and Autoproperties
-
-            [SerializeField] public Graph graph;
-
-            [ShowIf(nameof(_showTestGraph))]
-            [SerializeField]
-            public Graph testGraph;
-
-            [SerializeField] public string graphControllerName;
-
-            #endregion
-
-            public bool MissingGraph => graph == null;
-            public bool MissingTestGraph => (graph != null) && graph.IsSubGraph && (testGraph == null);
-
-            private bool _showTestGraph => (graph != null) && graph.IsSubGraph;
-
-            #region IAreaConfiguration Members
-
-            public bool ShouldForceReinitialize => MissingGraph || MissingTestGraph;
-
-            public void Initialize(ApplicationArea area)
-            {
-                using (_PRF_Initialize.Auto())
-                {
-                    var graphName = area.ToString();
-#if UNITY_EDITOR
-
-                    if (MissingGraph)
-                    {
-                        graph = NodyGraphGenerator.GenerateNodyGraph(graphName, false);
-                    }
-
-                    if (MissingTestGraph)
-                    {
-                        testGraph = NodyGraphGenerator.GenerateNodyGraph(graphName + "_TestWrapper", false);
-
-                        graph.IsSubGraph = true;
-                        graph.CheckAndCreateAnyMissingSystemNodes();
-                    }
-#endif
-                    graphControllerName = ZString.Format("Graph Controller - {0}", graphName);
-                }
-            }
-
-            #endregion
-
-            #region Profiling
-
-            private const string _PRF_PFX = nameof(AreaDoozyGraphConfiguration) + ".";
-
-            private static readonly ProfilerMarker _PRF_Initialize =
-                new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-            #endregion
-        }
-
-        #endregion
-
-        #region Nested type: AreaDoozyViewConfiguration
-
-        [Serializable, HideReferenceObjectPicker, InlineProperty, HideLabel]
-        public struct AreaDoozyViewConfiguration : IAreaConfiguration
-        {
-            #region Fields and Autoproperties
-
-            [SerializeField] public bool doNotUseDoozyView;
-
-            [SerializeField] public string viewCategory;
-
-            [SerializeField] public string viewName;
-
-            #endregion
-
-            #region IAreaConfiguration Members
-
-            public bool ShouldForceReinitialize => false;
-
-            public void Initialize(ApplicationArea area)
-            {
-                using (_PRF_Initialize.Auto())
-                {
-                    var manager = AreaRegistry.GetManager(area);
-
-                    if (manager != null)
-                    {
-                        viewCategory = (manager.HasParent ? manager.ParentArea : area).ToString();
-                    }
-                    else
-                    {
-                        viewCategory = area.ToString();
-                    }
-
-                    viewName = area.ToString();
-                }
-            }
-
-            #endregion
-
-            #region Profiling
-
-            private const string _PRF_PFX = nameof(AreaDoozyViewConfiguration) + ".";
-
-            private static readonly ProfilerMarker _PRF_Initialize =
-                new ProfilerMarker(_PRF_PFX + nameof(Initialize));
-
-            #endregion
-        }
-
-        #endregion
-
+        
         #region Nested type: AreaGraphicRaycasterConfiguration
 
         [Serializable, HideReferenceObjectPicker, InlineProperty, HideLabel]

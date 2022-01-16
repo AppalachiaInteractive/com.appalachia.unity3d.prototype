@@ -8,9 +8,9 @@ using Appalachia.Prototype.KOC.Areas.Common.Features;
 using Appalachia.Prototype.KOC.Areas.Common.Services;
 using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Prototype.KOC.Behaviours;
-using Appalachia.Prototype.KOC.Components.Cursors;
-using Appalachia.Prototype.KOC.Components.UI;
 using Appalachia.Prototype.KOC.Scenes;
+using Appalachia.UI.Controls.Cursors;
+using Appalachia.UI.Controls.Sets;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Extensions;
@@ -32,12 +32,12 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         public delegate void ActivationHandler(ApplicationArea area, IAreaManager manager);
 
-        public delegate void AreaInterfaceHiddenHandler(ApplicationArea area, IAreaManager manager);
-
-        public delegate void AreaInterfaceShownHandler(ApplicationArea area, IAreaManager manager);
-
         public delegate void DeactivationHandler(ApplicationArea area, IAreaManager manager);
 
+        public delegate void AreaInterfaceHiddenHandler(ApplicationArea area, IAreaManager manager);
+        
+        public delegate void AreaInterfaceShownHandler(ApplicationArea area, IAreaManager manager);
+        
         public event ActivationHandler Activated;
 
         public event DeactivationHandler AreaInterfaceHidden;
@@ -92,14 +92,13 @@ namespace Appalachia.Prototype.KOC.Areas
         protected TemplateComponentSet template;
 
         [SerializeField, FoldoutGroup(APPASTR.Components)]
-        protected UICanvasComponentSet canvas;
-
-        [FormerlySerializedAs("view")]
-        [SerializeField, FoldoutGroup(APPASTR.Components)]
-        protected UIViewComponentSet unscaledView;
+        protected RootCanvasComponentSet canvas;
 
         [SerializeField, FoldoutGroup(APPASTR.Components)]
-        protected UIViewComponentSet scaledView;
+        protected CanvasComponentSet unscaledView;
+
+        [SerializeField, FoldoutGroup(APPASTR.Components)]
+        protected CanvasComponentSet scaledView;
 
         private IAreaManager _parent;
 
@@ -139,9 +138,9 @@ namespace Appalachia.Prototype.KOC.Areas
             }
         }
 
-        public UICanvasComponentSet Canvas => canvas;
-        public UIViewComponentSet ScaledView => scaledView;
-        public UIViewComponentSet UnscaledView => unscaledView;
+        public CanvasComponentSet Canvas => canvas;
+        public CanvasComponentSet ScaledView => scaledView;
+        public CanvasComponentSet UnscaledView => unscaledView;
 
         protected AreaSceneInformation areaSceneInfo => _areaSceneInfo;
 
@@ -328,12 +327,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     );
                 }
 
-                var baseObjectName = name.Replace("Manager", string.Empty);
-                var fullObjectName = ZString.Format(
-                    "{0} - {1}",
-                    baseObjectName,
-                    areaMetadata.doozyView.viewName
-                );
+                var fullObjectName = name.Replace("Manager", string.Empty);
 
                 using (_PRF_Initialize.Suspend())
                 {
@@ -351,16 +345,16 @@ namespace Appalachia.Prototype.KOC.Areas
                     );
                 }
 
-                canvas.Configure(gameObject, fullObjectName);
+                canvas.CreateComponents(gameObject, fullObjectName);
                 areaMetadata.Apply(canvas);
 
-                unscaledView.Configure(canvas.GameObject, fullObjectName);
+                unscaledView.CreateComponents(canvas.GameObject, fullObjectName);
                 areaMetadata.Apply(unscaledView);
 
-                template.Configure(unscaledView.GameObject, fullObjectName);
+                template.CreateComponents(unscaledView.GameObject, fullObjectName);
                 areaMetadata.Apply(template, gameObject, canvas.GameObject, unscaledView.GameObject);
 
-                if (HasParent)
+                /*if (HasParent)
                 {
                     var parent = AreaRegistry.GetManager(ParentArea);
 
@@ -368,7 +362,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     {
                         canvas.graphController.enabled = false;
                     }
-                }
+                }*/
 
                 /*if (areaMetadata.menu.doesDrawMenu)
                 {

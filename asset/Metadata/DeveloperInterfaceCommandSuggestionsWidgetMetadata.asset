@@ -21,9 +21,10 @@ MonoBehaviour:
     - maxSuggestions
     - commandSuggestionHeight
     _resetToken: 
-  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  backgroundColor: {r: 0.14509805, g: 0.14509805, b: 0.14901961, a: 1}
   sortOrder: 0
   fontStyle: {fileID: 11400000, guid: d4f9d7349831470468c1d10be62812ec, type: 2}
   transitionsWithFade: 0
   commandSuggestionHeight: 0.02
   maxSuggestions: 8
+  highlightedSuggestionColor: {r: 0, g: 0, b: 0, a: 0}

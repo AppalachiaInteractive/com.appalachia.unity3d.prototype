@@ -4,14 +4,11 @@ using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Components.Graphs;
-using Appalachia.Prototype.KOC.Components.UI;
+using Appalachia.UI.Controls.Extensions;
+using Appalachia.UI.Controls.Sets;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
-using Doozy.Engine.Extensions;
-using Doozy.Engine.Nody;
-using Doozy.Engine.UI;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -58,14 +55,6 @@ namespace Appalachia.Prototype.KOC.Areas
         [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Graphic_Raycaster, Expanded = false)]
         public AreaMetadataConfigurations.AreaGraphicRaycasterConfiguration graphicRaycaster;
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_Canvas, Expanded = false)]
-        public AreaMetadataConfigurations.AreaDoozyCanvasConfiguration doozyCanvas;
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_Graph, Expanded = false)]
-        public AreaMetadataConfigurations.AreaDoozyGraphConfiguration doozyGraph;
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Doozy_View, Expanded = false)]
-        public AreaMetadataConfigurations.AreaDoozyViewConfiguration doozyView;
 
         [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates, Expanded = false)]
         public AreaMetadataConfigurations.AreaTemplatesConfiguration templates;
@@ -165,45 +154,7 @@ namespace Appalachia.Prototype.KOC.Areas
                 }
             );
 
-            initializer.Do(
-                this,
-                APPASTR.Doozy_Canvas,
-                doozyCanvas.ShouldForceReinitialize,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        doozyCanvas.Initialize(Area);
-                    }
-                }
-            );
-
-            initializer.Do(
-                this,
-                APPASTR.Doozy_Graph,
-                doozyGraph.ShouldForceReinitialize,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        doozyGraph.Initialize(Area);
-                    }
-                }
-            );
-
-            initializer.Do(
-                this,
-                APPASTR.Doozy_View,
-                doozyView.ShouldForceReinitialize,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        doozyView.Initialize(Area);
-                    }
-                }
-            );
-
+            
             initializer.Do(
                 this,
                 APPASTR.Templates,
@@ -316,73 +267,6 @@ namespace Appalachia.Prototype.KOC.Areas
             }
         }
 
-        protected void Apply(UICanvas target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                if (doozyCanvas.doNotUseDoozyCanvas)
-                {
-                    target.enabled = false;
-                }
-
-                target.CanvasName = doozyCanvas.canvasName;
-                target.CustomCanvasName = false;
-                target.DontDestroyCanvasOnLoad = false;
-                MarkAsModified();
-            }
-        }
-
-        protected void Apply(UIView target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                if (doozyView.doNotUseDoozyView)
-                {
-                    target.enabled = false;
-                }
-
-                target.ViewCategory = doozyView.viewCategory;
-                target.ViewName = doozyView.viewName;
-                target.ShowBehavior.PresetCategory = "Fade";
-                target.HideBehavior.PresetCategory = "Fade";
-                target.LoopBehavior.PresetCategory = "Fade";
-                target.ShowBehavior.PresetName = "InNormal";
-                target.HideBehavior.PresetName = "OutNormal";
-                target.LoopBehavior.PresetName = "Normal";
-
-                MarkAsModified();
-            }
-        }
-
-        protected void Apply(GraphController target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                var manager = GetManager();
-
-                if (manager.HasParent)
-                {
-                    doozyGraph.graph.IsSubGraph = true;
-#if UNITY_EDITOR
-                    target.GenerateTestGraph(this);
-#endif
-                    target.DontDestroyControllerOnLoad = false;
-                }
-                else
-                {
-                    doozyGraph.graph.IsSubGraph = false;
-                    target.SetGraph(doozyGraph.graph);
-                }
-
-#if UNITY_EDITOR
-                doozyGraph.graph.CheckAndCreateAnyMissingSystemNodes();
-#endif
-
-                target.ControllerName = doozyGraph.graphControllerName;
-                target.MarkAsModified();
-            }
-        }
-
         private IAreaManager GetManager()
         {
             using (_PRF_GetManager.Auto())
@@ -400,10 +284,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         public AreaMetadataConfigurations.AreaGraphicRaycasterConfiguration GraphicRaycaster =>
             graphicRaycaster;
-
-        public AreaMetadataConfigurations.AreaDoozyCanvasConfiguration DoozyCanvas => doozyCanvas;
-        public AreaMetadataConfigurations.AreaDoozyGraphConfiguration DoozyGraph => doozyGraph;
-        public AreaMetadataConfigurations.AreaDoozyViewConfiguration DoozyView => doozyView;
+        
         public AreaMetadataConfigurations.AreaTemplatesConfiguration Templates => templates;
 
         public AreaMetadataConfigurations.AreaDefaultReferencesConfiguration DefaultReferences =>
@@ -431,7 +312,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     throw new ArgumentOutOfRangeException();
             }
 
-            Apply(target.rect);
+            Apply(target.Rect);
             Apply(target.canvas);
             Apply(target.canvasGroup);
 
@@ -440,28 +321,28 @@ namespace Appalachia.Prototype.KOC.Areas
             target.GameObject.MarkAsModified();
         }
 
-        public void Apply(UIViewComponentSet target)
+        public void Apply(CanvasComponentSet target)
         {
-            Apply(target.rect);
+            Apply(target.Rect);
             Apply(target.canvas);
             Apply(target.canvasGroup);
             Apply(target.graphicRaycaster);
+#if APPA_DOOZYUI_ENABLED
             Apply(target.uiView);
+#endif
             target.GameObject.MarkAsModified();
         }
 
-        public void Apply(UICanvasComponentSet target)
+        public void Apply(RootCanvasComponentSet target)
         {
-            Apply(target.rect);
+            Apply(target.Rect);
             Apply(target.canvas);
             Apply(target.canvasGroup);
             Apply(target.canvasScaler);
             Apply(target.graphicRaycaster);
-            Apply(target.uiCanvas);
-            Apply(target.graphController);
+
             target.GameObject.MarkAsModified();
         }
-
         #endregion
 
         #region Profiling

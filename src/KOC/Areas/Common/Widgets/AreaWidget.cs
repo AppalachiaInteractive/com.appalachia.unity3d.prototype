@@ -1,16 +1,14 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Components.Styling;
-using Appalachia.Prototype.KOC.Components.UI;
-using Appalachia.Prototype.KOC.Extensions;
-using Appalachia.UI.Controls.Common.Extensions;
+using Appalachia.UI.Controls.Extensions;
+using Appalachia.UI.Core.Styling;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
-using Doozy.Engine.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
+using RectTransformExtensions = Appalachia.Prototype.KOC.Extensions.RectTransformExtensions;
 
 namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
 {
@@ -24,15 +22,12 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
-        public delegate void SizeChangedHandler(RectTransform rectTransform);
-
-        public delegate void VisibilityChangedHandler(RectTransform rectTransform, TWidget widget);
-
-        public delegate void VisualChangeHandler();
 
         public event SizeChangedHandler SizeChanged;
         public event VisibilityChangedHandler VisibilityChanged;
         public event VisualChangeHandler VisuallyChanged;
+        public event VisibilityChangedHandler WidgetHidden;
+        public event VisibilityChangedHandler WidgetShown;
 
         static AreaWidget()
         {
@@ -49,14 +44,14 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
                 instance.gameObject.SetParentTo(widgetContainerObject);
             };
 
-            RegisterDependency<ApplicationStyleElementDefaultLookup>(
-                i => _applicationStyleElementDefaultLookup = i
+            RegisterDependency<StyleElementDefaultLookup>(
+                i => _styleElementDefaultLookup = i
             );
         }
 
         #region Static Fields and Autoproperties
 
-        private static ApplicationStyleElementDefaultLookup _applicationStyleElementDefaultLookup;
+        private static StyleElementDefaultLookup _styleElementDefaultLookup;
 
         #endregion
 
@@ -70,18 +65,13 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
 
         #endregion
 
-        protected static ApplicationStyleElementDefaultLookup ApplicationStyleElementDefaultLookup =>
-            _applicationStyleElementDefaultLookup;
+        protected static StyleElementDefaultLookup StyleElementDefaultLookup => _styleElementDefaultLookup;
 
         protected virtual bool AdjustsAnchor => true;
 
         protected virtual bool AdjustsOffset => false;
         protected virtual bool AdjustsPivot => false;
         protected virtual bool AdjustsScale => false;
-
-        public bool IsVisible => _isVisible;
-        public float EffectiveAnchorHeight => IsVisible ? rectTransform.GetAnchorHeight() : 0f;
-        public float EffectiveAnchorWidth => IsVisible ? rectTransform.GetAnchorWidth() : 0f;
 
         #region Event Functions
 
@@ -94,6 +84,109 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
         }
 
         #endregion
+
+        protected abstract void OnApplyMetadataInternal();
+
+        protected abstract void UpdateSizeInternal();
+
+        protected virtual void UpdateComponentVisibility()
+        {
+        }
+
+        protected override void ApplyMetadataInternal()
+        {
+            using (_PRF_ApplyMetadataInternal.Auto())
+            {
+                OnApplyMetadataInternal();
+
+                UpdateSize();
+            }
+        }
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                rectTransform = initializer.GetOrCreate(
+                    gameObject,
+                    rectTransform,
+                    nameof(RectTransform),
+                    rectTransform == null
+                );
+
+                components ??= new BackgroundCanvasComponentSet();
+                components.Configure(gameObject, name);
+            }
+        }
+
+        protected void OnSizeChanged()
+        {
+            using (_PRF_OnSizeChanged.Auto())
+            {
+                SizeChanged?.Invoke(rectTransform);
+                VisuallyChanged?.Invoke();
+            }
+        }
+
+        protected void OnVisibilityChanged()
+        {
+            using (_PRF_OnVisibilityChanged.Auto())
+            {
+                VisibilityChanged?.Invoke(rectTransform, this as TWidget);
+                VisuallyChanged?.Invoke();
+            }
+        }
+
+        protected void OnWidgetHidden()
+        {
+            using (_PRF_OnWidgetHidden.Auto())
+            {
+                WidgetHidden?.Invoke(rectTransform, this as TWidget);
+            }
+        }
+
+        protected void OnWidgetShown()
+        {
+            using (_PRF_OnWidgetShown.Auto())
+            {
+                WidgetShown?.Invoke(rectTransform, this as TWidget);
+            }
+        }
+
+        private void ConfirmVisibilityAccuracy()
+        {
+            using (_PRF_ConfirmVisibilityAccuracy.Auto())
+            {
+                if (IsVisible)
+                {
+                    if (!components.fadeManager.IsFading)
+                    {
+                        if (components.canvasGroup.alpha < (1.0f - float.Epsilon))
+                        {
+                            components.canvasGroup.alpha = 1.0f;
+                        }
+                    }
+                }
+                else
+                {
+                    if (!components.fadeManager.IsFading)
+                    {
+                        if (components.canvasGroup.alpha > float.Epsilon)
+                        {
+                            components.canvasGroup.alpha = 0.0f;
+                        }
+                    }
+                }
+            }
+        }
+
+        #region IAreaWidget Members
+
+        public bool IsVisible => _isVisible;
+        public float EffectiveAnchorHeight => IsVisible ? rectTransform.GetAnchorHeight() : 0f;
+        public float EffectiveAnchorWidth => IsVisible ? rectTransform.GetAnchorWidth() : 0f;
 
         [ButtonGroup("Visibility")]
         public void Hide()
@@ -112,10 +205,15 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
 
                 _isVisible = setVisibilityTo;
 
+                var wasShown = false;
+                var wasHidden = false;
+
                 if (visibilityChanged)
                 {
                     if (_isVisible)
                     {
+                        wasShown = true;
+
                         if (metadata.transitionsWithFade)
                         {
                             components.fadeManager.EnsureFadeIn();
@@ -127,6 +225,8 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
                     }
                     else
                     {
+                        wasHidden = true;
+
                         if (metadata.transitionsWithFade)
                         {
                             components.fadeManager.EnsureFadeOut();
@@ -142,6 +242,16 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
                     if (doRaiseEvents)
                     {
                         OnVisibilityChanged();
+                    }
+
+                    if (wasShown)
+                    {
+                        OnWidgetShown();
+                    }
+
+                    if (wasHidden)
+                    {
+                        OnWidgetHidden();
                     }
                 }
             }
@@ -202,93 +312,7 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
             }
         }
 
-        protected abstract void OnApplyMetadataInternal();
-
-        protected abstract void UpdateSizeInternal();
-
-        protected virtual void UpdateComponentVisibility()
-        {
-        }
-
-        protected override void ApplyMetadataInternal()
-        {
-            using (_PRF_ApplyMetadataInternal.Auto())
-            {
-                components.background.color = metadata.backgroundColor;
-                components.background.rectTransform.FullScreen(true);
-
-                var overrideSortOrder = metadata.sortOrder != 0;
-                components.canvas.overrideSorting = overrideSortOrder;
-                components.canvas.sortingOrder = metadata.sortOrder;
-
-                OnApplyMetadataInternal();
-
-                UpdateSize();
-            }
-        }
-
-        protected override async AppaTask Initialize(Initializer initializer)
-        {
-            await base.Initialize(initializer);
-
-            using (_PRF_Initialize.Auto())
-            {
-                rectTransform = initializer.GetOrCreate(
-                    gameObject,
-                    rectTransform,
-                    nameof(RectTransform),
-                    rectTransform == null
-                );
-
-                components ??= new BackgroundCanvasComponentSet();
-                components.Configure(gameObject, name);
-            }
-        }
-
-        protected void OnSizeChanged()
-        {
-            using (_PRF_OnSizeChanged.Auto())
-            {
-                SizeChanged?.Invoke(rectTransform);
-                VisuallyChanged?.Invoke();
-            }
-        }
-
-        protected void OnVisibilityChanged()
-        {
-            using (_PRF_OnVisibilityChanged.Auto())
-            {
-                VisibilityChanged?.Invoke(rectTransform, this as TWidget);
-                VisuallyChanged?.Invoke();
-            }
-        }
-
-        private void ConfirmVisibilityAccuracy()
-        {
-            using (_PRF_ConfirmVisibilityAccuracy.Auto())
-            {
-                if (IsVisible)
-                {
-                    if (!components.fadeManager.IsFading)
-                    {
-                        if (components.canvasGroup.alpha < (1.0f - float.Epsilon))
-                        {
-                            components.canvasGroup.alpha = 1.0f;
-                        }
-                    }
-                }
-                else
-                {
-                    if (!components.fadeManager.IsFading)
-                    {
-                        if (components.canvasGroup.alpha > float.Epsilon)
-                        {
-                            components.canvasGroup.alpha = 0.0f;
-                        }
-                    }
-                }
-            }
-        }
+        #endregion
 
         #region Profiling
 
@@ -305,6 +329,12 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Widgets
 
         private static readonly ProfilerMarker _PRF_OnVisibilityChanged =
             new ProfilerMarker(_PRF_PFX + nameof(OnVisibilityChanged));
+
+        private static readonly ProfilerMarker _PRF_OnWidgetHidden =
+            new ProfilerMarker(_PRF_PFX + nameof(OnWidgetHidden));
+
+        private static readonly ProfilerMarker _PRF_OnWidgetShown =
+            new ProfilerMarker(_PRF_PFX + nameof(OnWidgetShown));
 
         private static readonly ProfilerMarker _PRF_SetVisibility =
             new ProfilerMarker(_PRF_PFX + nameof(SetVisibility));

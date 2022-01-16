@@ -2,9 +2,9 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Components.Styling;
 using Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons;
 using Appalachia.Prototype.KOC.Extensions;
+using Appalachia.UI.Core.Styling;
 using Appalachia.Utility.Async;
 using TMPro;
 using Unity.Profiling;
@@ -19,16 +19,14 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
     {
         static OnScreenButtonMetadata()
         {
-            
-
-            RegisterDependency<ApplicationStyleElementDefaultLookup>(
-                i => _applicationStyleElementDefaultLookup = i
+            RegisterDependency<StyleElementDefaultLookup>(
+                i => _styleElementDefaultLookup = i
             );
         }
 
         #region Static Fields and Autoproperties
 
-        private static ApplicationStyleElementDefaultLookup _applicationStyleElementDefaultLookup;
+        private static StyleElementDefaultLookup _styleElementDefaultLookup;
 
         #endregion
 

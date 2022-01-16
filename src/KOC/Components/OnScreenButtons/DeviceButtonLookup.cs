@@ -17,7 +17,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 
         public KeyboardMetadata keyboard;
         public MouseMetadata mouse;
-        public AppaList_GamepadMetadata gamepads;
+        public GamepadMetadataList gamepads;
 
 #if UNITY_EDITOR
         public string assetRootPath;
@@ -319,7 +319,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 
                     if (gamepads == null)
                     {
-                        gamepads = new AppaList_GamepadMetadata();
+                        gamepads = new GamepadMetadataList();
                     }
 
                     foreach (var gamepad in gamepads)

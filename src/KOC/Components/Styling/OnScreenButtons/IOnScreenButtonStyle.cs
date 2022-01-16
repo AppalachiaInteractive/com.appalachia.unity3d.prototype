@@ -1,7 +1,7 @@
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls;
-using Appalachia.Prototype.KOC.Components.Styling.Base;
-using Appalachia.Prototype.KOC.Components.Styling.Fonts;
+using Appalachia.UI.Core.Styling.Elements;
+using Appalachia.UI.Core.Styling.Fonts;
 using TMPro;
 using Unity.Profiling;
 using UnityEngine;
@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 {
-    public interface IOnScreenButtonStyle : IApplicationStyle
+    public interface IOnScreenButtonStyle : IStyleElement
     {
         public Color SpriteColor { get; }
         public Color TextColor { get; }

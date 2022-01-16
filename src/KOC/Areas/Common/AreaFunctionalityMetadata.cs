@@ -1,11 +1,12 @@
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.UI.Core.Objects;
 using Appalachia.Utility.Async;
+using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Areas.Common
 {
     public abstract class AreaFunctionalityMetadata<TFunctionality, TFunctionalityMetadata, TAreaManager,
-                                                    TAreaMetadata> : UIResponsiveSingletonAppalachiaObject<
+                                                    TAreaMetadata> : ResponsiveSingletonAppalachiaObject<
         TFunctionalityMetadata>
         where TFunctionality : AreaFunctionality<TFunctionality, TFunctionalityMetadata, TAreaManager,
             TAreaMetadata>
@@ -14,6 +15,13 @@ namespace Appalachia.Prototype.KOC.Areas.Common
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
+        public virtual void Apply(TFunctionality functionality)
+        {
+            using (_PRF_Apply.Auto())
+            {
+            }
+        }
+
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -25,5 +33,11 @@ namespace Appalachia.Prototype.KOC.Areas.Common
 #endif
             }
         }
+
+        #region Profiling
+
+        protected static readonly ProfilerMarker _PRF_Apply = new ProfilerMarker(_PRF_PFX + nameof(Apply));
+
+        #endregion
     }
 }

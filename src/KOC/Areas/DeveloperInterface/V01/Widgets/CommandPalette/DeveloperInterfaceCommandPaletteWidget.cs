@@ -45,7 +45,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandP
 
                 _inputField.onValueChanged.AddListener(OnCommandPaletteInputModified);
                 _inputField.onSubmit.AddListener(OnCommandPaletteInputSubmitted);
-
                 _inputField.text = ">";
             }
         }

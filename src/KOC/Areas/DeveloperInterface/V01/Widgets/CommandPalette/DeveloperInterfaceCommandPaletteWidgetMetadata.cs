@@ -1,3 +1,4 @@
+using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Utility.Async;
@@ -11,19 +12,30 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandP
     {
         #region Fields and Autoproperties
 
+        [BoxGroup(APPASTR.GroupNames.Dimensions)]
         [OnValueChanged(nameof(InvokeSettingsChanged))]
         [PropertyRange(0.3f, 0.5f)]
         public float width;
 
+        [BoxGroup(APPASTR.GroupNames.Dimensions)]
         [OnValueChanged(nameof(InvokeSettingsChanged))]
-        [PropertyRange(0.005f, 0.03f)]
+        [PropertyRange(0.02, 0.05f)]
         public float height;
 
+        [BoxGroup(APPASTR.GroupNames.Dimensions)]
         [OnValueChanged(nameof(InvokeSettingsChanged))]
         [PropertyRange(0.4f, 0.6f)]
         public float horizontalCenter;
 
         #endregion
+
+        public override void Apply(DeveloperInterfaceCommandPaletteWidget functionality)
+        {
+            using (_PRF_Apply.Auto())
+            {
+                base.Apply(functionality);
+            }
+        }
 
         protected override async AppaTask Initialize(Initializer initializer)
         {

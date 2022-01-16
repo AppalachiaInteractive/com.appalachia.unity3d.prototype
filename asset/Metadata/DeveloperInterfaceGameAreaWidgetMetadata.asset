@@ -20,9 +20,13 @@ MonoBehaviour:
     - backgroundColor
     - maintain16by9Ratio
     - maintainAspectRatio
+    - logoSize
     _resetToken: 
-  backgroundColor: {r: 0.305, g: 0.2152103, b: 0.09691591, a: 1}
+  backgroundColor: {r: 0.10980393, g: 0.10980393, b: 0.10980393, a: 1}
   sortOrder: 0
   fontStyle: {fileID: 11400000, guid: c3f401c7c5f41d54c9fd654ce2f3a9d0, type: 2}
   transitionsWithFade: 0
   maintainAspectRatio: 1
+  logoColor: {r: 0, g: 0, b: 0, a: 0}
+  logoSize: 0.5
+  logo: {fileID: 0}

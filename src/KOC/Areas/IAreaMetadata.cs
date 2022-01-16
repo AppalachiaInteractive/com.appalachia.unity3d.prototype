@@ -1,4 +1,4 @@
-using Appalachia.Prototype.KOC.Components.UI;
+using Appalachia.UI.Controls.Sets;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas
@@ -11,9 +11,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         public AreaMetadataConfigurations.AreaCursorConfiguration Cursor { get; }
         public AreaMetadataConfigurations.AreaDefaultReferencesConfiguration DefaultReferences { get; }
-        public AreaMetadataConfigurations.AreaDoozyCanvasConfiguration DoozyCanvas { get; }
-        public AreaMetadataConfigurations.AreaDoozyGraphConfiguration DoozyGraph { get; }
-        public AreaMetadataConfigurations.AreaDoozyViewConfiguration DoozyView { get; }
+
         public AreaMetadataConfigurations.AreaGraphicRaycasterConfiguration GraphicRaycaster { get; }
         public AreaMetadataConfigurations.AreaInputConfiguration Input { get; }
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour { get; }
@@ -21,7 +19,6 @@ namespace Appalachia.Prototype.KOC.Areas
         public AreaMetadataConfigurations.AreaViewConfiguration View { get; }
 
         void Apply(TemplateComponentSet target, GameObject manager, GameObject canvas, GameObject view);
-        void Apply(UIViewComponentSet target);
-        void Apply(UICanvasComponentSet target);
+
     }
 }

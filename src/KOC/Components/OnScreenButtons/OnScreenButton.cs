@@ -2,6 +2,7 @@ using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Behaviours;
 using Appalachia.Prototype.KOC.Extensions;
+using Appalachia.UI.Controls.Extensions;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Strings;

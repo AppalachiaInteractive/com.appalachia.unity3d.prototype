@@ -8,5 +8,12 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Services
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
+        public override void Apply(TService functionality)
+        {
+            using (_PRF_Apply.Auto())
+            {
+                base.Apply(functionality);
+            }
+        }
     }
 }

@@ -23,10 +23,10 @@ MonoBehaviour:
     - horizontalCenter
     - commandSuggestionHeight
     _resetToken: 2022-01-10T09:50:37.5839168-05:00
-  backgroundColor: {r: 0.4528302, g: 0.44585264, b: 0.3481666, a: 1}
+  backgroundColor: {r: 0.14509805, g: 0.14509805, b: 0.14901961, a: 1}
   sortOrder: 2510
   fontStyle: {fileID: 11400000, guid: 0e0127402de70404096d8cd688f4d75a, type: 2}
   transitionsWithFade: 0
   width: 0.4
-  height: 0.4
+  height: 0.04
   horizontalCenter: 0.5

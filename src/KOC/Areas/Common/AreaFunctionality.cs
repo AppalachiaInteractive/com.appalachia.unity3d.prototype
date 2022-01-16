@@ -58,7 +58,6 @@ namespace Appalachia.Prototype.KOC.Areas.Common
             using (_PRF_WhenDisabled.Auto())
             {
                 metadata.SettingsChanged -= ApplyMetadata;
-                ApplyMetadata();
                 UnsubscribeFromAllFunctionalities();
             }
         }
@@ -69,9 +68,7 @@ namespace Appalachia.Prototype.KOC.Areas.Common
 
             using (_PRF_WhenEnabled.Auto())
             {
-                metadata.SettingsChanged += ApplyMetadata;
                 ApplyMetadata();
-                UpdateFunctionalitySubscriptions();
             }
         }
 
@@ -80,6 +77,9 @@ namespace Appalachia.Prototype.KOC.Areas.Common
         {
             using (_PRF_ApplyMetadata.Auto())
             {
+                metadata.SettingsChanged -= ApplyMetadata;
+                metadata.SettingsChanged += ApplyMetadata;
+                metadata.Apply(this as TFunctionality);
                 ApplyMetadataInternal();
                 UpdateFunctionalitySubscriptions();
             }

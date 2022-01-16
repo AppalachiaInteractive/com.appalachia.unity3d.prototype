@@ -2,9 +2,10 @@ using System;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
-using Appalachia.Prototype.KOC.Components.Styling.Base;
-using Appalachia.Prototype.KOC.Components.Styling.Fonts;
 using Appalachia.Prototype.KOC.Components.Styling.Overrides;
+using Appalachia.UI.Core.Styling.Elements;
+using Appalachia.UI.Core.Styling.Fonts;
+using Appalachia.UI.Core.Styling.Overrides;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 {
     [Serializable]
     [SmartLabelChildren, SmartLabel]
-    public class OnScreenButtonStyleOverride : ApplicationStyleElementOverride<OnScreenButtonStyle,
+    public class OnScreenButtonStyleOverride : StyleElementOverride<OnScreenButtonStyle,
                                                    OnScreenButtonStyleOverride, IOnScreenButtonStyle>,
                                                IOnScreenButtonStyle
     {

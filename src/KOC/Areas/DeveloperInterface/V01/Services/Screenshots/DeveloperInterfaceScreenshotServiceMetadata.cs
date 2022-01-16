@@ -6,5 +6,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Services.Screens
         DeveloperInterfaceScreenshotService, DeveloperInterfaceScreenshotServiceMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
+        public override void Apply(DeveloperInterfaceScreenshotService functionality)
+        {
+            using (_PRF_Apply.Auto())
+            {
+                base.Apply(functionality);
+            }
+        }
     }
 }

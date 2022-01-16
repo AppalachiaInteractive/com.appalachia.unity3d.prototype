@@ -23,5 +23,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
             defaultPackets.Add(newSettings);
         }
 #endif
+        public override void Apply(DebugConditionsFeature functionality)
+        {
+            using (_PRF_Apply.Auto())
+            {
+            }
+        }
     }
 }

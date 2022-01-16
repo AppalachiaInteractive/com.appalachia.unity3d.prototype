@@ -2,12 +2,6 @@
   "name": "Appalachia.Prototype.KOC",
   "rootNamespace": "",
   "references": [
-    "GUID:e1d7d41c8bab3604794e1b502ac398bc",
-    "GUID:3de88c88fbbb8f944b9210d496af9762",
-    "GUID:18e5109d897e1b244ab2dfeaf5482c7b",
-    "GUID:ae57ff70a68dded4a8006df9224dfcc7",
-    "GUID:114502ff6121cf844bb1809be2620851",
-    "GUID:a15d55b77c0da1b42af8372f5619c965",
     "GUID:27374ac3d2df75c448adb0e319b58fee",
     "GUID:bad46887042aaea45bc93dff957df1d3",
     "GUID:01789cac4a2597b458bedef85a39c3f2",

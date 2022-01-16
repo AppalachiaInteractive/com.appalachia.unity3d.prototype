@@ -1,3 +1,4 @@
+using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Utility.Async;
@@ -11,11 +12,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar
     {
         #region Fields and Autoproperties
 
+        [BoxGroup(APPASTR.GroupNames.Dimensions)]
         [OnValueChanged(nameof(InvokeSettingsChanged))]
         [PropertyRange(0.015f, 0.045f)]
         public float height;
 
         #endregion
+
+        public override void Apply(DeveloperInterfaceMenuBarWidget functionality)
+        {
+            using (_PRF_Apply.Auto())
+            {
+                base.Apply(functionality);
+            }
+        }
 
         protected override async AppaTask Initialize(Initializer initializer)
         {

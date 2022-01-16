@@ -1,10 +1,13 @@
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.Common.Widgets;
+using Appalachia.Prototype.KOC.Areas.Common.Widgets.Models;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.ActivityBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Panel;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.SideBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar;
+using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
@@ -37,6 +40,21 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
 
         #endregion
 
+        private WidgetDimensions _activeArea;
+        private WidgetDimensions _entireArea;
+        public WidgetDimensions activeArea => _activeArea;
+        public WidgetDimensions entireArea => _entireArea;
+
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                _activeArea = new WidgetDimensions();
+                _entireArea = new WidgetDimensions();
+            }
+        }
         protected override void OnApplyMetadataInternal()
         {
         }

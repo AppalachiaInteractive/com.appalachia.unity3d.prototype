@@ -1,12 +1,13 @@
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Components.Styling.Fonts;
+using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons;
+using Appalachia.UI.Core.Styling.Fonts;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Components.Styling
 {
-    public class ApplicationUIStyle : ApplicationStyle
+    public class ApplicationUIStyle : AppalachiaObject<ApplicationUIStyle>
     {
         #region Fields and Autoproperties
 

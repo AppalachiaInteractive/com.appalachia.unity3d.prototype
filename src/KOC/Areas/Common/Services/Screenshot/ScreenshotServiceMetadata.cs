@@ -88,5 +88,13 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Services.Screenshot
                 );
             }
         }
+
+        public override void Apply(TService functionality)
+        {
+            using (_PRF_Apply.Auto())
+            {
+                base.Apply(functionality);
+            }
+        }
     }
 }

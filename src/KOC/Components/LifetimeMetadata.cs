@@ -7,6 +7,7 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.Styling;
 using Appalachia.Prototype.KOC.Scenes;
+using Appalachia.UI.Core.Styling;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Reflection.Extensions;
@@ -42,7 +43,7 @@ namespace Appalachia.Prototype.KOC.Components
         public ApplicationUIStyle uiStyle;
         public DeviceButtonLookup deviceButtons;
         public AudioMixer audioMixer;
-        public ApplicationStyleElementDefaultLookup styleLookup;
+        public StyleElementDefaultLookup styleLookup;
 
         public List<ScriptableObject> criticalReferences;
 
