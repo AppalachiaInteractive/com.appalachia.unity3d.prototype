@@ -37,6 +37,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - StartScreen_V01
+  - m_GUID: abfbf8e93f6a5b04dbf81d2a3dd2ae78
+    m_Address: Disclaimer_Text
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SplashScreen_Disclaimer_V01
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

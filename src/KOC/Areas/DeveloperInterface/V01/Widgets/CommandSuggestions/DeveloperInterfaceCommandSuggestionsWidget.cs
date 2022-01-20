@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Delegates;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandPalette;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandSuggestions.Model;
 using Appalachia.Utility.Async;
@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandSuggestions
 {
     [CallStaticConstructorInEditor]
-    public sealed class DeveloperInterfaceCommandSuggestionsWidget : AreaWidget<
+    public sealed class DeveloperInterfaceCommandSuggestionsWidget : DeveloperInterfaceWidget<
         DeveloperInterfaceCommandSuggestionsWidget, DeveloperInterfaceCommandSuggestionsWidgetMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
@@ -84,15 +84,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandS
                 anchorMax.y = commandPallete.rectTransform.anchorMin.y;
                 anchorMin.y = anchorMax.y - (suggestionCount * metadata.commandSuggestionHeight);
 
-                rectTransform.anchorMin = anchorMin;
-                rectTransform.anchorMax = anchorMax;
+                UpdateAnchorMin(anchorMin);
+                UpdateAnchorMax(anchorMax);
             }
         }
 
-        private void OnCommandPaletteInputModified(string input)
+        private void OnCommandPaletteInputModified(ValueArgs<string> args)
         {
             using (_PRF_OnCommandPaletteInputModified.Auto())
             {
+                var input = args.value;
                 _suggestions.Clear();
 
                 for (var i = 0; i < input.Length; i++)
@@ -104,10 +105,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandS
             }
         }
 
-        private void OnCommandPaletteInputSubmitted(string input)
+        private void OnCommandPaletteInputSubmitted(ValueArgs<string> args)
         {
             using (_PRF_OnCommandPaletteInputSubmitted.Auto())
             {
+                var input = args.value;
             }
         }
 

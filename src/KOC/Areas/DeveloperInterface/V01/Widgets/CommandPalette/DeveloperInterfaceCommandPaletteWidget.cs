@@ -1,7 +1,7 @@
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Delegates;
+using Appalachia.Core.Objects.Delegates.Extensions;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandPalette.Model;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
@@ -11,12 +11,12 @@ using TMPro;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandPalette
 {
     [CallStaticConstructorInEditor]
-    public sealed class DeveloperInterfaceCommandPaletteWidget : AreaWidget<
+    public sealed class DeveloperInterfaceCommandPaletteWidget : DeveloperInterfaceWidget<
         DeveloperInterfaceCommandPaletteWidget, DeveloperInterfaceCommandPaletteWidgetMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
-        public event CommandPaletteInputHandler CommandPaletteInputModified;
-        public event CommandPaletteInputHandler CommandPaletteInputSubmitted;
+        public event ValueArgs<string>.Handler CommandPaletteInputModified;
+        public event ValueArgs<string>.Handler CommandPaletteInputSubmitted;
 
         static DeveloperInterfaceCommandPaletteWidget()
         {
@@ -86,19 +86,19 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandP
                 anchorMax.y = 1.0f - menuBar.EffectiveAnchorHeight;
                 anchorMin.y = anchorMax.y - metadata.height;
 
-                rectTransform.anchorMin = anchorMin;
-                rectTransform.anchorMax = anchorMax;
+                UpdateAnchorMin(anchorMin);
+                UpdateAnchorMax(anchorMax);
             }
         }
 
         private void OnCommandPaletteInputModified(string input)
         {
-            CommandPaletteInputModified?.Invoke(input);
+            CommandPaletteInputModified.RaiseEvent(input);
         }
 
         private void OnCommandPaletteInputSubmitted(string input)
         {
-            CommandPaletteInputSubmitted?.Invoke(input);
+            CommandPaletteInputSubmitted.RaiseEvent(input);
         }
     }
 }

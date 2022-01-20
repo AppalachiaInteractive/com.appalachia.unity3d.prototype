@@ -95,9 +95,9 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
             {
                 var directorName = GetChildObjectName("Director");
 
-                gameObject.GetOrCreateComponentInChild(ref _playableDirector, directorName);
+                gameObject.GetOrAddComponentInChild(ref _playableDirector, directorName);
 
-                _playableDirector.gameObject.GetOrCreateComponent(ref _signalReceiver);
+                _playableDirector.gameObject.GetOrAddComponent(ref _signalReceiver);
 
                 _playableDirector.enabled = false;
 
@@ -159,9 +159,9 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
         {
             using (_PRF_SkipTimeline.Auto())
             {
-                canvas.fadeManager.ForceActive();
+                rootCanvas.CanvasFadeManager.ForceActive();
 
-                canvas.fadeManager.FadeOutCompleted += () =>
+                rootCanvas.CanvasFadeManager.FadeOutCompleted += () =>
                 {
                     _playableDirector.Stop();
                     _playableDirector.enabled = false;
@@ -169,7 +169,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
                     enabled = false;
                 };
 
-                canvas.fadeManager.FadeOut();
+                rootCanvas.CanvasFadeManager.FadeOut();
                 _alreadySkipping = true;
             }
         }
@@ -222,12 +222,6 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_Activate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
         private static readonly ProfilerMarker _PRF_OnContinue =
             new ProfilerMarker(_PRF_PFX + nameof(OnContinue));
 
@@ -236,9 +230,6 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
 
         private static readonly ProfilerMarker _PRF_OnTimelineStart =
             new ProfilerMarker(_PRF_PFX + nameof(OnTimelineStart));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         private static readonly ProfilerMarker _PRF_SkipTimeline =
             new ProfilerMarker(_PRF_PFX + nameof(SkipTimeline));

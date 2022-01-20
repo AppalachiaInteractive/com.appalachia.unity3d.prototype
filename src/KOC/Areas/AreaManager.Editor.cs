@@ -1,11 +1,15 @@
 #if UNITY_EDITOR
-using System;
+using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.CI.Integration.Core;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.UI.Controls.Sets.DesignTemplate;
 using Appalachia.Utility.Extensions;
+using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Areas
 {
@@ -15,6 +19,19 @@ namespace Appalachia.Prototype.KOC.Areas
     [CallStaticConstructorInEditor]
     public abstract partial class AreaManager<TManager, TMetadata>
     {
+        #region Fields and Autoproperties
+
+        [SerializeField]
+        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Unscaled_Templates)]
+        protected DesignTemplateComponentSet unscaledTemplates;
+
+        [FormerlySerializedAs("scaledTemplates")]
+        [SerializeField]
+        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Scaled_Templates)]
+        protected DesignTemplateComponentSet templates;
+
+        #endregion
+
         protected override string GetBackgroundColor()
         {
             return Brand.AreaManager.Banner;
@@ -58,58 +75,18 @@ namespace Appalachia.Prototype.KOC.Areas
             }
         }
 
-        private void InitializeAreaTemplate()
+        private void InitializeEditor(Initializer initializer, string fullObjectName)
         {
-            using (_PRF_InitializeAreaTemplate.Auto())
+            using (_PRF_InitializeEditor.Auto())
             {
-                var isTemplateImageEnabled = template.image.enabled;
-                var shouldAssignTemplateSprite =
-                    areaMetadata.templates.selectedTemplate != template.image.sprite;
-                var shouldDisableTemplate = !areaMetadata.templates.templateEnabled && template.image.enabled;
-                var isCurrentFading = template.fadeManager.IsFading;
+                areaMetadata.templates.PrepareAndConfigure(ref templates, view.GameObject, fullObjectName);
+            }
+        }
 
-                if (areaMetadata.templates.templateEnabled)
-                {
-                    var fadeRange = template.fadeManager.fadeSettings.fadeRange;
-                    fadeRange.y = areaMetadata.templates.templateAlpha;
-
-                    if (isCurrentFading)
-                    {
-                        fadeRange.x = Math.Min(fadeRange.x, fadeRange.y);
-                    }
-                    else
-                    {
-                        fadeRange.x = fadeRange.y;
-                    }
-
-                    template.fadeManager.fadeSettings.fadeRange = fadeRange;
-
-                    if (shouldAssignTemplateSprite)
-                    {
-                        template.image.sprite = areaMetadata.templates.selectedTemplate;
-                    }
-
-                    if (!isTemplateImageEnabled && !isCurrentFading)
-                    {
-                        fadeRange.x = 0f;
-                        template.fadeManager.fadeSettings.fadeRange = fadeRange;
-                        template.image.enabled = true;
-                        template.fadeManager.FadeInCompleted += OnTemplateFadeInComplete;
-                        template.fadeManager.FadeIn();
-                    }
-                }
-                else if (shouldDisableTemplate)
-                {
-                    var fadeRange = template.fadeManager.fadeSettings.fadeRange;
-
-                    if (!isCurrentFading)
-                    {
-                        fadeRange.x = 0f;
-                        template.fadeManager.fadeSettings.fadeRange = fadeRange;
-                        template.fadeManager.FadeOutCompleted += DisableTemplate;
-                        template.fadeManager.FadeOut();
-                    }
-                }
+        private void UpdateEditor()
+        {
+            using (_PRF_UpdateEditor.Auto())
+            {
             }
         }
 
@@ -118,8 +95,11 @@ namespace Appalachia.Prototype.KOC.Areas
         private static readonly ProfilerMarker _PRF_CreateAreaAsset =
             new ProfilerMarker(_PRF_PFX + nameof(CreateAreaAsset));
 
-        private static readonly ProfilerMarker _PRF_InitializeAreaTemplate =
-            new ProfilerMarker(_PRF_PFX + nameof(InitializeAreaTemplate));
+        protected static readonly ProfilerMarker _PRF_InitializeEditor =
+            new ProfilerMarker(_PRF_PFX + nameof(InitializeEditor));
+
+        private static readonly ProfilerMarker _PRF_UpdateEditor =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateEditor));
 
         #endregion
     }

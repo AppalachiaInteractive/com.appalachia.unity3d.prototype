@@ -72,21 +72,12 @@ namespace Appalachia.Prototype.KOC.Areas.MainMenu
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_Activate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
         private static readonly ProfilerMarker
             _PRF_LoadGame = new ProfilerMarker(_PRF_PFX + nameof(LoadGame));
 
         private static readonly ProfilerMarker _PRF_NewGame = new ProfilerMarker(_PRF_PFX + nameof(NewGame));
 
         private static readonly ProfilerMarker _PRF_Quit = new ProfilerMarker(_PRF_PFX + nameof(Quit));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         private static readonly ProfilerMarker
             _PRF_Settings = new ProfilerMarker(_PRF_PFX + nameof(Settings));

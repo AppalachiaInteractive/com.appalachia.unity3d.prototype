@@ -1,6 +1,6 @@
 namespace Appalachia.Prototype.KOC.Areas
 {
-    public interface IAreaManager
+    public partial interface IAreaManager
     {
         ApplicationArea Area { get; }
         ApplicationArea ParentArea { get; }

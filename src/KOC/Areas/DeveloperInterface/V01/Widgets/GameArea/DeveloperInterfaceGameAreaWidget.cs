@@ -1,21 +1,22 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
+using Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling;
 using Appalachia.Prototype.KOC.Areas.Common.Widgets.Models;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.ActivityBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Panel;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.SideBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar;
+using Appalachia.UI.Controls.Components.Layout.Models;
 using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
 {
     [CallStaticConstructorInEditor]
-    public sealed class DeveloperInterfaceGameAreaWidget : AreaWidget<DeveloperInterfaceGameAreaWidget,
-        DeveloperInterfaceGameAreaWidgetMetadata, DeveloperInterfaceManager_V01,
-        DeveloperInterfaceMetadata_V01>
+    public sealed class DeveloperInterfaceGameAreaWidget : DeveloperInterfaceWidget<
+        DeveloperInterfaceGameAreaWidget, DeveloperInterfaceGameAreaWidgetMetadata,
+        DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
         static DeveloperInterfaceGameAreaWidget()
         {
@@ -28,9 +29,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
             RegisterDependency<DeveloperInterfaceStatusBarWidget>(
                 i => _developerInterfaceStatusBarWidget = i
             );
+
+            RegisterDependency<CanvasScalingService>(i => _canvasScalingService = i);
         }
 
         #region Static Fields and Autoproperties
+
+        private static CanvasScalingService _canvasScalingService;
 
         private static DeveloperInterfaceActivityBarWidget _developerInterfaceActivityBarWidget;
         private static DeveloperInterfaceMenuBarWidget _developerInterfaceMenuBarWidget;
@@ -40,8 +45,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
 
         #endregion
 
+        #region Fields and Autoproperties
+
         private WidgetDimensions _activeArea;
         private WidgetDimensions _entireArea;
+
+        #endregion
+
         public WidgetDimensions activeArea => _activeArea;
         public WidgetDimensions entireArea => _entireArea;
 
@@ -55,6 +65,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
                 _entireArea = new WidgetDimensions();
             }
         }
+
         protected override void OnApplyMetadataInternal()
         {
         }
@@ -121,8 +132,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
                     anchorMax.y = anchoredCenterY + halfDimension;
                 }
 
-                rectTransform.anchorMin = anchorMin;
-                rectTransform.anchorMax = anchorMax;
+                UpdateAnchorMin(anchorMin);
+                UpdateAnchorMax(anchorMax);
+
+                var resultingRect = new Rect
+                {
+                    xMin = anchorMin.x,
+                    xMax = anchorMax.x,
+                    yMin = anchorMin.y,
+                    yMax = anchorMax.y
+                };
+
+                var dimensionData = new CanvasDimensionData(resultingRect);
+
+                _canvasScalingService.UpdateCanvasScaling(dimensionData);
             }
         }
     }

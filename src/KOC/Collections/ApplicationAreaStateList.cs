@@ -1,6 +1,6 @@
 using System;
 using Appalachia.Core.Collections;
-using Appalachia.Prototype.KOC.Application;
+using Appalachia.Prototype.KOC.Application.State;
 
 namespace Appalachia.Prototype.KOC.Collections
 {

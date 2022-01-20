@@ -1,4 +1,5 @@
 using System;
+using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.CI.Integration.Core;
 using Appalachia.Core.Attributes;
@@ -10,15 +11,13 @@ using Appalachia.Prototype.KOC.Data;
 using Appalachia.Rendering.Prefabs.Rendering;
 using Appalachia.Simulation.Wind;
 using Appalachia.Spatial.Terrains;
-using Appalachia.UI.Controls.Components.Fading;
 using Appalachia.UI.Controls.Cursors;
+using Appalachia.UI.Controls.Sets.Background;
+using Appalachia.UI.Controls.Sets.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
-using Doozy.Engine.Extensions;
-using Doozy.Engine.UI;
-using Doozy.Engine.UI.Base;
 using GPUInstancer;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -27,8 +26,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Components
 {
@@ -53,6 +50,10 @@ namespace Appalachia.Prototype.KOC.Components
             RegisterDependency<LifetimeMetadata>(i => { _lifetimeMetadata = i; });
         }
 
+        public LifetimeComponents()
+        {
+        }
+
         public LifetimeComponents(LifetimeComponentManager owner) : base(owner)
         {
         }
@@ -70,29 +71,11 @@ namespace Appalachia.Prototype.KOC.Components
 
         [FoldoutGroup("UI")]
         [SerializeField]
-        private Canvas _canvas;
-
-        [FormerlySerializedAs("_masterCanvas")]
-        [FoldoutGroup("UI")]
-        [SerializeField]
-        private RectTransform _canvasRectTransform;
-
-        [FormerlySerializedAs("_masterCanvas")]
-        [FoldoutGroup("UI")]
-        [SerializeField]
-        private UICanvas _doozyMasterCanvas;
+        private RootCanvasComponentSet _rootCanvas;
 
         [FoldoutGroup("UI")]
         [SerializeField]
-        private Canvas _cursorCanvas;
-
-        [FoldoutGroup("UI")]
-        [SerializeField]
-        private CanvasFadeManager _screenFader;
-
-        [FoldoutGroup("UI")]
-        [SerializeField]
-        private Image _fullScreenBlackImage;
+        private BackgroundComponentSet _rootBackground;
 
         [FoldoutGroup("World")]
         [SerializeField]
@@ -165,8 +148,6 @@ namespace Appalachia.Prototype.KOC.Components
         #endregion
 
         public AudioListener AudioListener => _audioListener;
-        public Canvas Canvas => _canvas;
-        public CanvasFadeManager ScreenFader => _screenFader;
         public CleanupManager CleanupManager => _cleanupManager;
         public CursorManager CursorManager => _cursorManager;
         public DatabaseManager DatabasManager => _databasManager;
@@ -182,9 +163,9 @@ namespace Appalachia.Prototype.KOC.Components
         public PlayerInput PlayerInput => _playerInput;
         public PostProcessVolume PostProcessVolume => _postProcessVolume;
         public PrefabRenderingManager PrefabRenderingManager => _prefabRenderingManager;
+        public RootCanvasComponentSet RootCanvas => _rootCanvas;
 
         public TerrainMetadataManager TerrainMetadataManager => _terrainMetadataManager;
-        public UICanvas DoozyMasterCanvas => _doozyMasterCanvas;
 
         public async AppaTask Initialize(LifetimeComponentManager manager)
         {
@@ -198,11 +179,18 @@ namespace Appalachia.Prototype.KOC.Components
 
             using (_PRF_Initialize.Auto())
             {
+                GameObject graphicsObject = null;
+                GameObject systemsObject = null;
+                GameObject uiObject = null;
+                GameObject eventsObject = null;
+                GameObject meshesObject = null;
+                GameObject worldObject = null;
+                GameObject editorObject = null;
+
                 try
                 {
-                    GameObject parentObject = null;
-                    gameObject.GetOrCreateChild(ref parentObject, PARENT_NAME_GRAPHICS, false);
-                    InitializeGraphics(parentObject);
+                    gameObject.GetOrAddChild(ref graphicsObject, PARENT_NAME_GRAPHICS, false);
+                    InitializeGraphics(graphicsObject);
                 }
                 catch (Exception ex)
                 {
@@ -216,9 +204,8 @@ namespace Appalachia.Prototype.KOC.Components
 
                 try
                 {
-                    GameObject parentObject = null;
-                    gameObject.GetOrCreateChild(ref parentObject, PARENT_NAME_SYSTEMS, false);
-                    InitializeSystems(parentObject);
+                    gameObject.GetOrAddChild(ref systemsObject, PARENT_NAME_SYSTEMS, false);
+                    InitializeSystems(systemsObject);
                 }
                 catch (Exception ex)
                 {
@@ -228,9 +215,8 @@ namespace Appalachia.Prototype.KOC.Components
 
                 try
                 {
-                    GameObject parentObject = null;
-                    gameObject.GetOrCreateChild(ref parentObject, PARENT_NAME_UI, false);
-                    InitializeUI(parentObject);
+                    gameObject.GetOrAddChild(ref uiObject, PARENT_NAME_UI, false);
+                    InitializeUI(uiObject);
                 }
                 catch (Exception ex)
                 {
@@ -240,9 +226,8 @@ namespace Appalachia.Prototype.KOC.Components
 
                 try
                 {
-                    GameObject parentObject = null;
-                    gameObject.GetOrCreateChild(ref parentObject, PARENT_NAME_EVENTSANDINPUT, false);
-                    InitializeEventsAndInput(parentObject, manager);
+                    gameObject.GetOrAddChild(ref eventsObject, PARENT_NAME_EVENTSANDINPUT, false);
+                    InitializeEventsAndInput(eventsObject, manager);
                 }
                 catch (Exception ex)
                 {
@@ -256,9 +241,8 @@ namespace Appalachia.Prototype.KOC.Components
 
                 try
                 {
-                    GameObject parentObject = null;
-                    gameObject.GetOrCreateChild(ref parentObject, PARENT_NAME_MESHES, false);
-                    InitializeMeshes(parentObject);
+                    gameObject.GetOrAddChild(ref meshesObject, PARENT_NAME_MESHES, false);
+                    InitializeMeshes(meshesObject);
                 }
                 catch (Exception ex)
                 {
@@ -268,9 +252,8 @@ namespace Appalachia.Prototype.KOC.Components
 
                 try
                 {
-                    GameObject parentObject = null;
-                    gameObject.GetOrCreateChild(ref parentObject, PARENT_NAME_WORLD, true);
-                    InitializeWorld(parentObject);
+                    gameObject.GetOrAddChild(ref worldObject, PARENT_NAME_WORLD, true);
+                    InitializeWorld(worldObject);
                 }
                 catch (Exception ex)
                 {
@@ -278,11 +261,11 @@ namespace Appalachia.Prototype.KOC.Components
                     throw;
                 }
 
+#if UNITY_EDITOR
                 try
                 {
-                    GameObject parentObject = null;
-                    gameObject.GetOrCreateChild(ref parentObject, PARENT_NAME_EDITORONLY, false);
-                    InitializeEditorOnly(parentObject);
+                    gameObject.GetOrAddChild(ref editorObject, PARENT_NAME_EDITORONLY, false);
+                    InitializeEditorOnly(editorObject);
                 }
                 catch (Exception ex)
                 {
@@ -293,6 +276,18 @@ namespace Appalachia.Prototype.KOC.Components
                     );
                     throw;
                 }
+#endif
+
+                systemsObject.transform.SetSiblingIndex(0);
+                worldObject.transform.SetSiblingIndex(1);
+                meshesObject.transform.SetSiblingIndex(2);
+                eventsObject.transform.SetSiblingIndex(3);
+                graphicsObject.transform.SetSiblingIndex(4);
+                uiObject.transform.SetSiblingIndex(5);
+
+#if UNITY_EDITOR
+                editorObject.transform.SetAsLastSibling();
+#endif
             }
 
             await AppaTask.CompletedTask;
@@ -329,10 +324,10 @@ namespace Appalachia.Prototype.KOC.Components
         {
             using (_PRF_InitializeEventsAndInput.Auto())
             {
-                gameObject.GetOrCreateLifetimeComponentInChild(ref _eventSystem, nameof(EventSystem));
+                gameObject.GetOrAddLifetimeComponentInChild(ref _eventSystem, nameof(EventSystem));
 
-                _eventSystem.gameObject.GetOrCreateComponent(ref _inputSystemUIInputModule);
-                _eventSystem.gameObject.GetOrCreateComponent(ref _playerInput);
+                _eventSystem.gameObject.GetOrAddComponent(ref _inputSystemUIInputModule);
+                _eventSystem.gameObject.GetOrAddComponent(ref _playerInput);
 
                 _eventSystem.enabled = false;
                 _eventSystem.enabled = true;
@@ -361,7 +356,7 @@ namespace Appalachia.Prototype.KOC.Components
         {
             using (_PRF_Initialize3DGraphics.Auto())
             {
-                gameObject.GetOrCreateComponentInChild(ref _postProcessVolume, nameof(PostProcessVolume));
+                gameObject.GetOrAddComponentInChild(ref _postProcessVolume, nameof(PostProcessVolume));
 
                 if (_postProcessVolume.profile == null)
                 {
@@ -376,11 +371,11 @@ namespace Appalachia.Prototype.KOC.Components
                 _postProcessVolume.isGlobal = true;
                 _postProcessVolume.weight = 1.0f;
 
-                gameObject.GetOrCreateLifetimeComponentInChild(
+                gameObject.GetOrAddLifetimeComponentInChild(
                     ref _prefabRenderingManager,
                     nameof(PrefabRenderingManager)
                 );
-                gameObject.GetOrCreateLifetimeComponentInChild(
+                gameObject.GetOrAddLifetimeComponentInChild(
                     ref _gpuInstancerPrefabManager,
                     nameof(GpuInstancerPrefabManager)
                 );
@@ -394,7 +389,7 @@ namespace Appalachia.Prototype.KOC.Components
         {
             using (_PRF_InitializeMeshes.Auto())
             {
-                gameObject.GetOrCreateLifetimeComponentInChild(
+                gameObject.GetOrAddLifetimeComponentInChild(
                     ref _meshObjectManager,
                     nameof(MeshObjectManager)
                 );
@@ -405,12 +400,12 @@ namespace Appalachia.Prototype.KOC.Components
         {
             using (_PRF_InitializeSystems.Auto())
             {
-                gameObject.GetOrCreateComponentInChild(ref _clearCamera, nameof(_clearCamera));
-                gameObject.GetOrCreateLifetimeComponentInChild(ref _frameStart, nameof(FrameStart));
-                gameObject.GetOrCreateLifetimeComponentInChild(ref _frameEnd,   nameof(FrameEnd));
+                gameObject.GetOrAddComponentInChild(ref _clearCamera, nameof(_clearCamera));
+                gameObject.GetOrAddLifetimeComponentInChild(ref _frameStart, nameof(FrameStart));
+                gameObject.GetOrAddLifetimeComponentInChild(ref _frameEnd,   nameof(FrameEnd));
 
-                gameObject.GetOrCreateLifetimeComponentInChild(ref _audioListener,  nameof(AudioListener));
-                gameObject.GetOrCreateLifetimeComponentInChild(ref _databasManager, nameof(DatabaseManager));
+                gameObject.GetOrAddLifetimeComponentInChild(ref _audioListener,  nameof(AudioListener));
+                gameObject.GetOrAddLifetimeComponentInChild(ref _databasManager, nameof(DatabaseManager));
 
                 if (AppalachiaApplication.IsPlaying)
                 {
@@ -425,6 +420,8 @@ namespace Appalachia.Prototype.KOC.Components
 
                 _clearCamera.clearFlags = CameraClearFlags.SolidColor;
                 _clearCamera.cullingMask = 0;
+
+                gameObject.GetOrAddLifetimeComponentInChild(ref _cleanupManager, nameof(CleanupManager));
             }
         }
 
@@ -432,41 +429,22 @@ namespace Appalachia.Prototype.KOC.Components
         {
             using (_PRF_InitializeUI.Auto())
             {
-                gameObject.GetOrCreateComponentInChild(ref _doozyMasterCanvas, NamesDatabase.MASTER_CANVAS);
-
-                _doozyMasterCanvas.DontDestroyCanvasOnLoad = false;
-
-                _doozyMasterCanvas.gameObject.GetOrCreateComponent(ref _canvas);
-
-                _canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-
-                _canvasRectTransform = _canvas.gameObject.GetComponent<RectTransform>();
-
-                _doozyMasterCanvas.gameObject.GetOrCreateComponentInChild(
-                    ref _screenFader,
-                    "Master Canvas Screen Fader"
+                _lifetimeMetadata.rootCanvas.PrepareAndConfigure(
+                    ref _rootCanvas,
+                    gameObject,
+                    APPASTR.ObjectNames.Master_Canvas
                 );
 
-                _screenFader.gameObject.GetOrCreateComponentInChild(
-                    ref _fullScreenBlackImage,
-                    "FULL_SCREEN_BLACK"
+                _lifetimeMetadata.rootBackground.PrepareAndConfigure(
+                    ref _rootBackground,
+                    _rootCanvas.GameObject,
+                    APPASTR.Background
                 );
 
-                _fullScreenBlackImage.color = Color.black;
-
-                _canvasRectTransform.FullScreen(true);
-                _screenFader.rectTransform.FullScreen(true);
-                _fullScreenBlackImage.rectTransform.FullScreen(true);
-
-                _doozyMasterCanvas.gameObject.GetOrCreateLifetimeComponentInChild(
+                _rootCanvas.GameObject.GetOrAddLifetimeComponentInChild(
                     ref _cursorManager,
                     nameof(CursorManager)
                 );
-
-                _cursorManager.gameObject.GetOrCreateComponent(ref _cursorCanvas);
-                _cursorManager.rectTransform.FullScreen(true);
-
-                gameObject.GetOrCreateLifetimeComponentInChild(ref _cleanupManager, nameof(CleanupManager));
             }
         }
 
@@ -474,11 +452,11 @@ namespace Appalachia.Prototype.KOC.Components
         {
             using (_PRF_InitializeTerrains.Auto())
             {
-                gameObject.GetOrCreateLifetimeComponentInChild(
+                gameObject.GetOrAddLifetimeComponentInChild(
                     ref _terrainMetadataManager,
                     nameof(TerrainMetadataManager)
                 );
-                gameObject.GetOrCreateLifetimeComponentInChild(
+                gameObject.GetOrAddLifetimeComponentInChild(
                     ref _globalWindManager,
                     nameof(GlobalWindManager)
                 );

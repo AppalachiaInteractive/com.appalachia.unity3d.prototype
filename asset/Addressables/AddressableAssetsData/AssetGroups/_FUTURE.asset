@@ -21,32 +21,8 @@ MonoBehaviour:
     m_Address: SceneAsset_SplashScreen_V02
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 682c3f047de73f045830244666846c7a
-    m_Address: SceneAsset_SplashScreen_Appalachia_V02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 475185afa8bb6774784e1de6f2fbd1ea
-    m_Address: SplashScreen_BokBokMetadata_V02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 5e8a3e5994f91c84c9a618fdbec2d949
-    m_Address: SplashScreen_AppalachiaMetadata_V02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: ada6988114c588548ba75b1b7ad2e376
     m_Address: SceneReferenceElement_SplashScreen_V02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 370cfeb3cd7ac204eb60d750ae23e2b1
-    m_Address: SceneReferenceElement_SplashScreen_BokBok_V02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 0af7f4877afc0b0438d81d5bd0a8a74d
-    m_Address: SceneReferenceElement_SplashScreen_Appalachia_V02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: c401293b9697f2f40ae0e4f8cbd33c20
-    m_Address: SceneAsset_SplashScreen_BokBok_V02
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

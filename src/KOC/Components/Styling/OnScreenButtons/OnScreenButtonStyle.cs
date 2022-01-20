@@ -17,19 +17,19 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
     {
         #region Fields and Autoproperties
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged))]
         private Color _spriteColor;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged))]
         private Color _textColor;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged))]
         private FontStyleOverride _font;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged))]
         private OnScreenButtonSpriteStyle _spriteStyle;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged))]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged))]
         private OnScreenButtonTextStyle _textStyle;
 
         #endregion

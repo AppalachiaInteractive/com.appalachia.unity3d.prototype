@@ -1,5 +1,6 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
+using Appalachia.Prototype.KOC.Application.Features;
 using Appalachia.Utility.Extensions;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Features
 {
     [CallStaticConstructorInEditor]
     public abstract class AreaFeature<TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata> :
-        AreaFunctionality<TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>,
+        ApplicationFeature<TFeature, TFeatureMetadata>,
         IAreaFeature
         where TFeature : AreaFeature<TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>
         where TFeatureMetadata : AreaFeatureMetadata<TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>
@@ -18,25 +19,25 @@ namespace Appalachia.Prototype.KOC.Areas.Common.Features
         {
             AreaManager<TAreaManager, TAreaMetadata>.InstanceAvailable += i =>
             {
-                GameObject featuresContainerObject = null;
-                i.gameObject.GetOrCreateChild(
-                    ref featuresContainerObject,
+                areaManager = i;
+
+                GameObject containerObject = null;
+                areaManager.gameObject.GetOrAddChild(
+                    ref containerObject,
                     APPASTR.ObjectNames.Features,
                     false
                 );
 
-                instance.gameObject.SetParentTo(featuresContainerObject);
+                instance.gameObject.SetParentTo(containerObject);
             };
         }
 
-        protected abstract void OnApplyMetadataInternal();
+        #region Static Fields and Autoproperties
 
-        protected override void ApplyMetadataInternal()
-        {
-            using (_PRF_ApplyMetadataInternal.Auto())
-            {
-                OnApplyMetadataInternal();
-            }
-        }
+        protected static TAreaManager areaManager;
+
+        #endregion
+
+        protected override bool NestUnderApplicationManager => false;
     }
 }

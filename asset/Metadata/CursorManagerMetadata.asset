@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d32408083c3415998f886d6c65bc2ba, type: 3}
+  m_Name: CursorManagerMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - RectTransformData
+    - CanvasComponentSetStyle
+    _resetToken: 
+  rectTransform:
+    _owner: {fileID: 11400000}
+    _initializer:
+      _tags:
+      - anchorMin
+      - anchorMax
+      - anchoredPosition
+      - localScale
+      - offsetMin
+      - offsetMax
+      - pivot
+      _resetToken: 
+    anchorMin:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    anchorMax:
+      _overrideEnabled: 1
+      _value: {x: 1, y: 1}
+    anchoredPosition:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    localScale:
+      _overrideEnabled: 1
+      _value: {x: 1, y: 1, z: 1}
+    offsetMin:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    offsetMax:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    pivot:
+      _overrideEnabled: 1
+      _value: {x: 0.5, y: 0.5}
+  canvas: {fileID: 11400000, guid: 99e5638291d827f488bf0410d3eefb6a, type: 2}

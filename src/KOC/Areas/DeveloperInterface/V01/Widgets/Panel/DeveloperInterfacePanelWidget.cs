@@ -1,5 +1,4 @@
 using Appalachia.Core.Attributes;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.ActivityBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.SideBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar;
@@ -7,8 +6,9 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Panel
 {
     [CallStaticConstructorInEditor]
-    public sealed class DeveloperInterfacePanelWidget : AreaWidget<DeveloperInterfacePanelWidget,
-        DeveloperInterfacePanelWidgetMetadata, DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
+    public sealed class DeveloperInterfacePanelWidget : DeveloperInterfaceWidget<DeveloperInterfacePanelWidget
+        , DeveloperInterfacePanelWidgetMetadata, DeveloperInterfaceManager_V01,
+        DeveloperInterfaceMetadata_V01>
     {
         static DeveloperInterfacePanelWidget()
         {
@@ -72,8 +72,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Panel
                 anchorMin.y = statusBar.EffectiveAnchorHeight;
                 anchorMax.y = anchorMin.y + metadata.height;
 
-                rectTransform.anchorMin = anchorMin;
-                rectTransform.anchorMax = anchorMax;
+                UpdateAnchorMin(anchorMin);
+                UpdateAnchorMax(anchorMax);
             }
         }
     }

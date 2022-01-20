@@ -1,8 +1,6 @@
-using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLog;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs;
+using Appalachia.Prototype.KOC.Application.Services.Screenshot.Model;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Services.Screenshots;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.ActivityBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandPalette;
@@ -12,13 +10,10 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Panel;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.SideBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar;
-using Appalachia.UI.Controls.Components.Fading;
 using Appalachia.Utility.Async;
-using Sirenix.OdinInspector;
+using Appalachia.Utility.Constants;
 using Unity.Profiling;
-using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 {
@@ -28,22 +23,41 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
     {
         static DeveloperInterfaceManager_V01()
         {
-            RegisterService<DeveloperInterfaceScreenshotService>(
+            FunctionalitySet.RegisterService<DeveloperInterfaceScreenshotService>(
+                _dependencyTracker,
                 i => _developerInterfaceScreenshotService = i
             );
 
-            RegisterWidget<DeveloperInterfacePanelWidget>(i => _developerInterfacePanelWidget = i);
-            RegisterWidget<DeveloperInterfaceActivityBarWidget>(
+            FunctionalitySet.RegisterWidget<DeveloperInterfacePanelWidget>(
+                _dependencyTracker,
+                i => _developerInterfacePanelWidget = i
+            );
+            FunctionalitySet.RegisterWidget<DeveloperInterfaceActivityBarWidget>(
+                _dependencyTracker,
                 i => _developerInterfaceActivityBarWidget = i
             );
-            RegisterWidget<DeveloperInterfaceCommandPaletteWidget>(
+            FunctionalitySet.RegisterWidget<DeveloperInterfaceCommandPaletteWidget>(
+                _dependencyTracker,
                 i => _developerInterfaceCommandPaletteWidget = i
             );
-            RegisterWidget<DeveloperInterfaceMenuBarWidget>(i => _developerInterfaceMenuBarWidget = i);
-            RegisterWidget<DeveloperInterfaceSideBarWidget>(i => _developerInterfaceSideBarWidget = i);
-            RegisterWidget<DeveloperInterfaceStatusBarWidget>(i => _developerInterfaceStatusBarWidget = i);
-            RegisterWidget<DeveloperInterfaceGameAreaWidget>(i => _developerInterfaceGameAreaWidget = i);
-            RegisterWidget<DeveloperInterfaceCommandSuggestionsWidget>(
+            FunctionalitySet.RegisterWidget<DeveloperInterfaceMenuBarWidget>(
+                _dependencyTracker,
+                i => _developerInterfaceMenuBarWidget = i
+            );
+            FunctionalitySet.RegisterWidget<DeveloperInterfaceSideBarWidget>(
+                _dependencyTracker,
+                i => _developerInterfaceSideBarWidget = i
+            );
+            FunctionalitySet.RegisterWidget<DeveloperInterfaceStatusBarWidget>(
+                _dependencyTracker,
+                i => _developerInterfaceStatusBarWidget = i
+            );
+            FunctionalitySet.RegisterWidget<DeveloperInterfaceGameAreaWidget>(
+                _dependencyTracker,
+                i => _developerInterfaceGameAreaWidget = i
+            );
+            FunctionalitySet.RegisterWidget<DeveloperInterfaceCommandSuggestionsWidget>(
+                _dependencyTracker,
                 i => _developerInterfaceCommandSuggestionsWidget = i
             );
         }
@@ -68,34 +82,28 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 
         private bool _isVisible;
 
-        [BoxGroup("Runtime Graph"), ReadOnly]
-        public RuntimeGraphManager runtimeGraphManager;
-
-        [BoxGroup("Runtime Graph"), ReadOnly]
-        public CanvasFadeManager runtimeGraphManagerCanvasFadeManager;
-
-        [BoxGroup("Runtime Graph"), ReadOnly]
-        public CanvasGroup runtimeGraphManagerCanvasGroup;
-
-        [FormerlySerializedAs("developerConsoleManager")]
-        [BoxGroup("Developer Console"), ReadOnly]
-        public DebugLogManager debugLogManager;
-
-        [BoxGroup("Developer Console"), ReadOnly]
-        public CanvasFadeManager developerConsoleCanvasFadeManager;
-
-        [BoxGroup("Developer Console"), ReadOnly]
-        public CanvasGroup developerConsoleCanvasGroup;
-
-        [BoxGroup("Game View"), ReadOnly]
-        [SerializeField, FoldoutGroup(APPASTR.Components)]
-        private UIViewComponentSet gameView;
-
         #endregion
 
         public override AreaVersion Version => AreaVersion.V01;
 
         public bool IsVisible => _isVisible;
+
+        public override void OnOpenCommandPalette(InputAction.CallbackContext context)
+        {
+            using (_PRF_OnOpenCommandPalette.Auto())
+            {
+                _developerInterfaceCommandPaletteWidget.Show();
+                _developerInterfaceCommandSuggestionsWidget.Show();
+            }
+        }
+
+        public override void OnScreenshot(InputAction.CallbackContext context)
+        {
+            using (_PRF_OnScreenshot.Auto())
+            {
+                _developerInterfaceScreenshotService.RequestScreenshot(OnScreenshotCompleted);
+            }
+        }
 
         public override void OnToggleActivityBar(InputAction.CallbackContext context)
         {
@@ -149,15 +157,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             using (_PRF_OnToggleStatusBar.Auto())
             {
                 _developerInterfaceStatusBarWidget.ToggleVisibility();
-            }
-        }
-
-        public override void OnOpenCommandPalette(InputAction.CallbackContext context)
-        {
-            using (_PRF_OnOpenCommandPalette.Auto())
-            {
-                _developerInterfaceCommandPaletteWidget.Show();
-                _developerInterfaceCommandSuggestionsWidget.Show();
             }
         }
 
@@ -248,33 +247,41 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             await AppaTask.CompletedTask;
         }
 
+        private void OnScreenshotCompleted(ScreenshotCompletedArgs args)
+        {
+            using (_PRF_OnScreenshotCompleted.Auto())
+            {
+                Context.Log.Info(
+                    $"Screen shot completed.  Saved at {args.screenshotFilePath.FormatForLogging()}."
+                );
+            }
+        }
+
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_OnOpenCommandPalette =
-            new ProfilerMarker(_PRF_PFX + nameof(OnOpenCommandPalette));
-
-        private static readonly ProfilerMarker _PRF_OnToggleActivityBar =
-            new ProfilerMarker(_PRF_PFX + nameof(OnToggleActivityBar));
-
-        private static readonly ProfilerMarker _PRF_OnToggleDeveloperInterface =
-            new ProfilerMarker(_PRF_PFX + nameof(OnToggleDeveloperInterface));
-
-        private static readonly ProfilerMarker _PRF_OnToggleMenuBar =
-            new ProfilerMarker(_PRF_PFX + nameof(OnToggleMenuBar));
-
-        private static readonly ProfilerMarker _PRF_OnTogglePanel =
-            new ProfilerMarker(_PRF_PFX + nameof(OnTogglePanel));
-
-        private static readonly ProfilerMarker _PRF_OnToggleSideBar =
-            new ProfilerMarker(_PRF_PFX + nameof(OnToggleSideBar));
-
-        private static readonly ProfilerMarker _PRF_OnToggleStatusBar =
-            new ProfilerMarker(_PRF_PFX + nameof(OnToggleStatusBar));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
+        private static readonly ProfilerMarker _PRF_OnScreenshotCompleted =
+            new ProfilerMarker(_PRF_PFX + nameof(OnScreenshotCompleted));
 
         #endregion
+
+        /*[BoxGroup("Runtime Graph"), ReadOnly]
+        public RuntimeGraphManager runtimeGraphManager;
+
+        [BoxGroup("Runtime Graph"), ReadOnly]
+        public CanvasFadeManager runtimeGraphManagerCanvasFadeManager;
+
+        [BoxGroup("Runtime Graph"), ReadOnly]
+        public CanvasGroup runtimeGraphManagerCanvasGroup;
+
+        [FormerlySerializedAs("developerConsoleManager")]
+        [BoxGroup("Developer Console"), ReadOnly]
+        public DebugLogManager debugLogManager;
+
+        [BoxGroup("Developer Console"), ReadOnly]
+        public CanvasFadeManager developerConsoleCanvasFadeManager;
+
+        [BoxGroup("Developer Console"), ReadOnly]
+        public CanvasGroup developerConsoleCanvasGroup;*/
 
         /*
          public override void OnToggleDebugLog(InputAction.CallbackContext context)

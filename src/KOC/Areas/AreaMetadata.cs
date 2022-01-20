@@ -1,66 +1,33 @@
-using System;
 using Appalachia.CI.Constants;
-using Appalachia.CI.Integration.Attributes;
-using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
-using Appalachia.UI.Controls.Extensions;
-using Appalachia.UI.Controls.Sets;
+using Appalachia.UI.Controls.Sets.Canvas;
+using Appalachia.UI.Controls.Sets.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
-using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Areas
 {
-    [SmartLabelChildren]
-    [InspectorIcon(Brand.AreaMetadata.Icon)]
-    [AssetLabel(Brand.AreaManager.Label)]
-    public abstract class AreaMetadata<TManager, TMetadata> : SingletonAppalachiaObject<TMetadata>,
-                                                              IAreaMetadata
+    public abstract partial class AreaMetadata<TManager, TMetadata> : SingletonAppalachiaObject<TMetadata>,
+                                                                      IAreaMetadata
         where TManager : AreaManager<TManager, TMetadata>
         where TMetadata : AreaMetadata<TManager, TMetadata>
     {
-        #region Constants and Static Readonly
-
-        private const string FOLDOUT_GROUP = FOLDOUT_GROUP_ + "/";
-
-        private const string FOLDOUT_GROUP_ = APPASTR.Common;
-
-        #endregion
-
         #region Fields and Autoproperties
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Cursor, Expanded = false)]
-        public AreaMetadataConfigurations.AreaCursorConfiguration cursor;
 
         [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Input, Expanded = false)]
         public AreaMetadataConfigurations.AreaInputConfiguration input;
 
         [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas, Expanded = false)]
-        public AreaMetadataConfigurations.AreaCanvasConfiguration canvas;
+        public RootCanvasComponentSetStyle rootCanvas;
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Group, Expanded = false)]
-        public AreaMetadataConfigurations.AreaCanvasGroupConfiguration canvasGroup;
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas_Scaling, Expanded = false)]
-        public AreaMetadataConfigurations.AreaCanvasScalingConfiguration canvasScaling;
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.View, Expanded = false)]
-        public AreaMetadataConfigurations.AreaViewConfiguration view;
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Graphic_Raycaster, Expanded = false)]
-        public AreaMetadataConfigurations.AreaGraphicRaycasterConfiguration graphicRaycaster;
-
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates, Expanded = false)]
-        public AreaMetadataConfigurations.AreaTemplatesConfiguration templates;
-
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Default_References, Expanded = false)]
-        public AreaMetadataConfigurations.AreaDefaultReferencesConfiguration defaultReferences;
+        [FormerlySerializedAs("scaledView")]
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Scaled_View, Expanded = false)]
+        public CanvasComponentSetStyle view;
 
         [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Scene_Behaviour, Expanded = false)]
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration sceneBehaviour;
@@ -91,19 +58,6 @@ namespace Appalachia.Prototype.KOC.Areas
 
             initializer.Do(
                 this,
-                APPASTR.Cursor,
-                cursor.ShouldForceReinitialize,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        cursor.Initialize(Area);
-                    }
-                }
-            );
-
-            initializer.Do(
-                this,
                 APPASTR.Input,
                 input.ShouldForceReinitialize,
                 () =>
@@ -117,66 +71,32 @@ namespace Appalachia.Prototype.KOC.Areas
 
             initializer.Do(
                 this,
-                APPASTR.Canvas,
-                canvas.ShouldForceReinitialize,
+                APPASTR.Root_Canvas,
+                rootCanvas == null,
                 () =>
                 {
                     using (_PRF_Initialize.Auto())
                     {
-                        canvas.Initialize(Area);
+                        rootCanvas = RootCanvasComponentSetStyle.LoadOrCreateNew<RootCanvasComponentSetStyle>(
+                            nameof(RootCanvasComponentSetStyle),
+                            ownerType: typeof(ApplicationManager)
+                        );
                     }
                 }
             );
 
             initializer.Do(
                 this,
-                APPASTR.View,
-                view.ShouldForceReinitialize,
+                APPASTR.Scaled_View,
+                view == null,
                 () =>
                 {
                     using (_PRF_Initialize.Auto())
                     {
-                        view.Initialize(Area);
-                    }
-                }
-            );
-
-            initializer.Do(
-                this,
-                APPASTR.Graphic_Raycaster,
-                graphicRaycaster.ShouldForceReinitialize,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        graphicRaycaster.Initialize(Area);
-                    }
-                }
-            );
-
-            
-            initializer.Do(
-                this,
-                APPASTR.Templates,
-                templates.ShouldForceReinitialize,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        templates.Initialize(Area);
-                    }
-                }
-            );
-
-            initializer.Do(
-                this,
-                APPASTR.Default_References,
-                defaultReferences.ShouldForceReinitialize,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        defaultReferences.Initialize(Area);
+                        view = CanvasComponentSetStyle.LoadOrCreateNew<CanvasComponentSetStyle>(
+                            $"Scaled{nameof(CanvasComponentSetStyle)}",
+                            ownerType: typeof(ApplicationManager)
+                        );
                     }
                 }
             );
@@ -206,65 +126,10 @@ namespace Appalachia.Prototype.KOC.Areas
                     }
                 }
             );
-        }
 
-        protected void Apply(RectTransform target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                if (view.fullscreen)
-                {
-                    target.FullScreen(view.resetScaleToOne);
-                    target.MarkAsModified();
-                }
-            }
-        }
-
-        protected void Apply(Canvas target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                target.renderMode = canvas.renderMode;
-                target.pixelPerfect = canvas.pixelPerfect;
-                target.sortingOrder = canvas.sortingOrder;
-                target.additionalShaderChannels = canvas.additionalShaderChannels;
-                target.MarkAsModified();
-            }
-        }
-
-        protected void Apply(CanvasScaler target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                target.uiScaleMode = canvasScaling.uiScaleMode;
-                target.referenceResolution = canvasScaling.referenceResolution;
-                target.screenMatchMode = canvasScaling.screenMatchMode;
-                target.matchWidthOrHeight = canvasScaling.match;
-                target.referencePixelsPerUnit = canvasScaling.referencePixelsPerUnit;
-                target.MarkAsModified();
-            }
-        }
-
-        protected void Apply(CanvasGroup target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                target.interactable = canvasGroup.interactable;
-                target.blocksRaycasts = canvasGroup.blocksRaycasts;
-                target.ignoreParentGroups = canvasGroup.ignoreParentGroups;
-                target.MarkAsModified();
-            }
-        }
-
-        protected void Apply(GraphicRaycaster target)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                target.blockingMask = graphicRaycaster.blockingMask;
-                target.blockingObjects = graphicRaycaster.blockingObjects;
-                target.ignoreReversedGraphics = graphicRaycaster.ignoreReversedGraphics;
-                target.MarkAsModified();
-            }
+#if UNITY_EDITOR
+            InitializeEditor(initializer);
+#endif
         }
 
         private IAreaManager GetManager()
@@ -277,104 +142,24 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #region IAreaMetadata Members
 
-        public AreaMetadataConfigurations.AreaCursorConfiguration Cursor => cursor;
+        public CanvasComponentSetStyle ScaledView => view;
+
         public AreaMetadataConfigurations.AreaInputConfiguration Input => input;
-        public AreaMetadataConfigurations.AreaCanvasConfiguration Canvas => canvas;
-        public AreaMetadataConfigurations.AreaViewConfiguration View => view;
 
-        public AreaMetadataConfigurations.AreaGraphicRaycasterConfiguration GraphicRaycaster =>
-            graphicRaycaster;
-        
-        public AreaMetadataConfigurations.AreaTemplatesConfiguration Templates => templates;
-
-        public AreaMetadataConfigurations.AreaDefaultReferencesConfiguration DefaultReferences =>
-            defaultReferences;
+        public RootCanvasComponentSetStyle RootCanvas => rootCanvas;
 
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour => sceneBehaviour;
         public AreaMetadataConfigurations.AreaAudioConfiguration Audio => audio;
 
         public abstract ApplicationArea Area { get; }
 
-        public void Apply(TemplateComponentSet target, GameObject manager, GameObject canvas, GameObject view)
-        {
-            switch (templates.parent)
-            {
-                case AreaMetadataConfigurations.AreaTemplatesConfiguration.Parent.AreaManager:
-                    target.GameObject.transform.SetParent(manager.transform);
-                    break;
-                case AreaMetadataConfigurations.AreaTemplatesConfiguration.Parent.Canvas:
-                    target.GameObject.transform.SetParent(canvas.transform);
-                    break;
-                case AreaMetadataConfigurations.AreaTemplatesConfiguration.Parent.View:
-                    target.GameObject.transform.SetParent(view.transform);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            Apply(target.Rect);
-            Apply(target.canvas);
-            Apply(target.canvasGroup);
-
-            target.image.enabled = templates.templateEnabled;
-            target.image.sprite = templates.selectedTemplate;
-            target.GameObject.MarkAsModified();
-        }
-
-        public void Apply(CanvasComponentSet target)
-        {
-            Apply(target.Rect);
-            Apply(target.canvas);
-            Apply(target.canvasGroup);
-            Apply(target.graphicRaycaster);
-#if APPA_DOOZYUI_ENABLED
-            Apply(target.uiView);
-#endif
-            target.GameObject.MarkAsModified();
-        }
-
-        public void Apply(RootCanvasComponentSet target)
-        {
-            Apply(target.Rect);
-            Apply(target.canvas);
-            Apply(target.canvasGroup);
-            Apply(target.canvasScaler);
-            Apply(target.graphicRaycaster);
-
-            target.GameObject.MarkAsModified();
-        }
         #endregion
 
         #region Profiling
-
-        private static readonly ProfilerMarker _PRF_Apply = new ProfilerMarker(_PRF_PFX + nameof(Apply));
 
         private static readonly ProfilerMarker _PRF_GetManager =
             new ProfilerMarker(_PRF_PFX + nameof(GetManager));
 
         #endregion
-
-#if UNITY_EDITOR
-
-        protected override string GetTitle()
-        {
-            return Brand.AreaMetadata.Text;
-        }
-
-        protected override string GetFallbackTitle()
-        {
-            return Brand.AreaMetadata.Fallback;
-        }
-
-        protected override string GetTitleColor()
-        {
-            return Brand.AreaMetadata.Color;
-        }
-
-        protected override string GetBackgroundColor()
-        {
-            return Brand.AreaMetadata.Banner;
-        }
-#endif
     }
 }

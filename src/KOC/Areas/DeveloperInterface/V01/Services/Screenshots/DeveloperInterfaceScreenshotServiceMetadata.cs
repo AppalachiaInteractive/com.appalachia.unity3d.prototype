@@ -1,16 +1,14 @@
-using Appalachia.Prototype.KOC.Areas.Common.Services.Screenshot;
+using Appalachia.Prototype.KOC.Application.Services.Screenshot;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Services.Screenshots
 {
     public sealed class DeveloperInterfaceScreenshotServiceMetadata : ScreenshotServiceMetadata<
-        DeveloperInterfaceScreenshotService, DeveloperInterfaceScreenshotServiceMetadata,
-        DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
+        DeveloperInterfaceScreenshotService, DeveloperInterfaceScreenshotServiceMetadata>
     {
         public override void Apply(DeveloperInterfaceScreenshotService functionality)
         {
             using (_PRF_Apply.Auto())
             {
-                base.Apply(functionality);
             }
         }
     }

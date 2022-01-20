@@ -35,15 +35,12 @@ MonoBehaviour:
     - Default References
     - Scene Behaviour
     - Audio
+    - Root Canvas
+    - Scaled View
+    - Unscaled View
+    - Scaled Templates
+    - Unscaled Templates
     _resetToken: 2021-11-20a
-  cursor:
-    hasCustomCursor: 0
-    hasSimpleCursor: 0
-    hideCursor: 1
-    lockCursor: 0
-    complexCursor: 0
-    initialState: 0
-    simpleCursor: 0
   input:
     onDisableMapState:
       DeathMenu:
@@ -107,51 +104,13 @@ MonoBehaviour:
       StartScreen:
         _overrideEnabled: 0
         _value: 0
-  canvas:
-    additionalShaderChannels: 25
-    pixelPerfect: 0
-    sortingOrder: 0
-    renderMode: 0
-  canvasGroup:
-    blocksRaycasts: 1
-    ignoreParentGroups: 0
-    interactable: 1
-  canvasScaling:
-    match: 1
-    referencePixelsPerUnit: 100
-    uiScaleMode: 1
-    screenMatchMode: 0
-    referenceResolution: {x: 1920, y: 1080}
-  view:
-    fullscreen: 1
-    resetScaleToOne: 1
-  graphicRaycaster:
-    blockingObjects: 0
-    ignoreReversedGraphics: 0
-    blockingMask:
-      serializedVersion: 2
-      m_Bits: 0
-  doozyCanvas:
-    doNotUseDoozyCanvas: 0
-    canvasName: SplashScreen
-  doozyGraph:
-    graph: {fileID: 11400000, guid: e80b1a9fa701e5b46b5075172d77e3dd, type: 2}
-    testGraph: {fileID: 0}
-    graphControllerName: Graph Controller - SplashScreen
-  doozyView:
-    doNotUseDoozyView: 0
-    viewCategory: SplashScreen
-    viewName: SplashScreen
-  templates:
-    templateEnabled: 0
-    templateAlpha: 1
-    templates: []
-    parent: 0
-    selectedTemplate: {fileID: 0}
+  rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+  view: {fileID: 11400000, guid: 3731b5a97e248bd4eba97f4b79f017d9, type: 2}
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:
     mixerGroup: {fileID: -228110193480769040, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
+  templates: {fileID: 11400000, guid: 2b03b6180222ac244b9b2c021ffcb6e0, type: 2}
   splashScreens:
   - {fileID: 11400000, guid: a6d97d40c2cd1d14598c54cf611988fa, type: 2}
   - {fileID: 11400000, guid: 8f6d46da78171e345bfde0761e3b0868, type: 2}

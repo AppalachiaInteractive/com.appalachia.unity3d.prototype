@@ -1,13 +1,12 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandSuggestions
 {
-    public sealed class DeveloperInterfaceCommandSuggestionsWidgetMetadata : AreaWidgetMetadata<
+    public sealed class DeveloperInterfaceCommandSuggestionsWidgetMetadata : DeveloperInterfaceWidgetMetadata<
         DeveloperInterfaceCommandSuggestionsWidget, DeveloperInterfaceCommandSuggestionsWidgetMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {

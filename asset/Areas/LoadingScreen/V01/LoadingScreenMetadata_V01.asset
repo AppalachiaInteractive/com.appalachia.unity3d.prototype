@@ -29,15 +29,12 @@ MonoBehaviour:
     - Default References
     - Scene Behaviour
     - Audio
+    - Root Canvas
+    - Scaled View
+    - Unscaled View
+    - Scaled Templates
+    - Unscaled Templates
     _resetToken: 2021-11-20a
-  cursor:
-    hasCustomCursor: 0
-    hasSimpleCursor: 0
-    hideCursor: 0
-    lockCursor: 0
-    complexCursor: 0
-    initialState: 0
-    simpleCursor: 0
   input:
     onDisableMapState:
       DeathMenu:
@@ -101,48 +98,10 @@ MonoBehaviour:
       StartScreen:
         _overrideEnabled: 0
         _value: 0
-  canvas:
-    additionalShaderChannels: 25
-    pixelPerfect: 0
-    sortingOrder: 0
-    renderMode: 0
-  canvasGroup:
-    blocksRaycasts: 0
-    ignoreParentGroups: 0
-    interactable: 0
-  canvasScaling:
-    match: 0
-    referencePixelsPerUnit: 1
-    uiScaleMode: 0
-    screenMatchMode: 0
-    referenceResolution: {x: 0, y: 0}
-  view:
-    fullscreen: 1
-    resetScaleToOne: 1
-  graphicRaycaster:
-    blockingObjects: 0
-    ignoreReversedGraphics: 0
-    blockingMask:
-      serializedVersion: 2
-      m_Bits: 0
-  doozyCanvas:
-    doNotUseDoozyCanvas: 0
-    canvasName: LoadingScreen
-  doozyGraph:
-    graph: {fileID: 11400000, guid: af6912fddc191d3408cc67c959f0fb4d, type: 2}
-    testGraph: {fileID: 0}
-    graphControllerName: Graph Controller - LoadingScreen
-  doozyView:
-    doNotUseDoozyView: 0
-    viewCategory: LoadingScreen
-    viewName: LoadingScreen
-  templates:
-    templateEnabled: 0
-    templateAlpha: 1
-    templates: []
-    parent: 0
-    selectedTemplate: {fileID: 0}
+  rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+  view: {fileID: 11400000, guid: 3731b5a97e248bd4eba97f4b79f017d9, type: 2}
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:
     mixerGroup: {fileID: 0}
+  templates: {fileID: 11400000, guid: 1df6921dd311afe46a256b56714f89c3, type: 2}

@@ -1,12 +1,13 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
+using Appalachia.Core.Objects.Root;
+using Appalachia.UI.Controls.Sets.Button;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.ActivityBar
 {
-    public sealed class DeveloperInterfaceActivityBarWidgetMetadata : AreaWidgetMetadata<
+    public sealed class DeveloperInterfaceActivityBarWidgetMetadata : DeveloperInterfaceWidgetMetadata<
         DeveloperInterfaceActivityBarWidget, DeveloperInterfaceActivityBarWidgetMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
@@ -19,7 +20,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Activity
 
         [BoxGroup(APPASTR.GroupNames.Style)]
         [OnValueChanged(nameof(InvokeSettingsChanged))]
-        public ButtonStyleOverride iconStyle;
+        public ButtonComponentSetStyle buttonStyle;
 
         #endregion
 
@@ -28,6 +29,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Activity
             using (_PRF_Apply.Auto())
             {
                 base.Apply(functionality);
+
+                for (var index = 0; index < functionality.Buttons.Count; index++)
+                {
+                    var button = functionality.Buttons[index];
+                    var entry = functionality.Entries[index];
+
+                    buttonStyle.ConfigureComponents(button);
+
+                    button.ButtonIcon.sprite = entry.sprite;
+                    button.TooltipData.Text = entry.tooltip;
+                }
             }
         }
 
@@ -39,7 +51,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Activity
             {
                 initializer.Do(this, nameof(width), () => width = 0.03f);
 
-                iconStyle.SettingsChanged += _ => InvokeSettingsChanged();
+                initializer.Do(
+                    this,
+                    nameof(ButtonComponentSetStyle),
+                    buttonStyle == null,
+                    () =>
+                    {
+                        buttonStyle = AppalachiaObject.LoadOrCreateNew<ButtonComponentSetStyle>(
+                            nameof(DeveloperInterfaceActivityBarWidget) + "ButtonComponentSetStyle",
+                            ownerType: typeof(ApplicationManager)
+                        );
+                    }
+                );
+
+                buttonStyle.SettingsChanged += _ => InvokeSettingsChanged();
             }
         }
     }

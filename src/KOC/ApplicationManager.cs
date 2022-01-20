@@ -1,7 +1,10 @@
 using System;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Delegates;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Application;
+using Appalachia.Prototype.KOC.Application.FunctionalitySets;
+using Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling;
+using Appalachia.Prototype.KOC.Application.State;
 using Appalachia.Prototype.KOC.Areas;
 using Appalachia.Prototype.KOC.Behaviours;
 using Appalachia.Prototype.KOC.Components;
@@ -23,16 +26,27 @@ namespace Appalachia.Prototype.KOC
     {
         static ApplicationManager()
         {
-            
-
             RegisterDependency<MainAreaSceneInformationCollection>(
                 i => _mainAreaSceneInformationCollection = i
             );
 
             RegisterDependency<LifetimeComponentManager>(i => _lifetimeComponentManager = i);
+
+            _functionalitySet = new ApplicationFunctionalitySet();
+
+            FunctionalitySet.RegisterService<CanvasScalingService>(
+                _dependencyTracker,
+                i => _canvasScalingService = i
+            );
         }
 
         #region Static Fields and Autoproperties
+
+        [NonSerialized]
+        [ShowInInspector]
+        private static ApplicationFunctionalitySet _functionalitySet;
+
+        private static CanvasScalingService _canvasScalingService;
 
         [NonSerialized] private static LifetimeComponentManager _lifetimeComponentManager;
 
@@ -57,6 +71,9 @@ namespace Appalachia.Prototype.KOC
         [NonSerialized] private bool _hasStarted;
 
         #endregion
+
+        public static ApplicationFunctionalitySet FunctionalitySet => _functionalitySet;
+        public CanvasScalingService CanvasScalingService => _canvasScalingService;
 
         public bool HasSubSceneManagerBeenIdentified => PrimarySubSceneArea != ApplicationArea.None;
 
@@ -303,6 +320,8 @@ namespace Appalachia.Prototype.KOC
                     _hasStarted = true;
                 }
 
+                _canvasScalingService.Broadcast += OnCanvasScalingServiceBroadcast;
+                
                 gameObject.transform.SetSiblingIndex(0);
                 _lifetimeComponentManager.transform.SetSiblingIndex(1);
 
@@ -355,6 +374,16 @@ namespace Appalachia.Prototype.KOC
             }
         }
 
+        private void OnCanvasScalingServiceBroadcast(ValueArgs<CanvasScalingArgs> args)
+        {
+            using (_PRF_OnCanvasScalingServiceBroadcast.Auto())
+            {
+                _lifetimeComponentManager.Components.RootCanvas.AppaCanvasScaler.Apply(
+                    args.value.dimensionData
+                );
+            }
+        }
+
         #region Profiling
 
         private static readonly ProfilerMarker _PRF_DeactivateManager =
@@ -362,6 +391,9 @@ namespace Appalachia.Prototype.KOC
 
         private static readonly ProfilerMarker _PRF_GetAreaInfo =
             new ProfilerMarker(_PRF_PFX + nameof(GetAreaInfo));
+
+        private static readonly ProfilerMarker _PRF_OnCanvasScalingServiceBroadcast =
+            new ProfilerMarker(_PRF_PFX + nameof(OnCanvasScalingServiceBroadcast));
 
         private static readonly ProfilerMarker _PRF_SceneLoad_SetActive =
             new ProfilerMarker(_PRF_PFX + nameof(SceneLoad_SetActive));

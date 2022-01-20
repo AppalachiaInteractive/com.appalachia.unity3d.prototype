@@ -1,5 +1,3 @@
-using Unity.Profiling;
-
 namespace Appalachia.Prototype.KOC.Areas.HUD
 {
     public abstract class HUDManager<TManager, TMetadata> : AreaManager<TManager, TMetadata>, IHUDManager
@@ -34,19 +32,6 @@ namespace Appalachia.Prototype.KOC.Areas.HUD
 
         public override ApplicationArea Area => ApplicationArea.HUD;
         public override ApplicationArea ParentArea => ApplicationArea.None;
-
-        #endregion
-
-        #region Profiling
-
-        private static readonly ProfilerMarker _PRF_Activate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         #endregion
     }

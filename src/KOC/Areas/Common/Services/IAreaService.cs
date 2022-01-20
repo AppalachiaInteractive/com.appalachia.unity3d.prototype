@@ -1,6 +1,8 @@
+using Appalachia.Prototype.KOC.Application.Services;
+
 namespace Appalachia.Prototype.KOC.Areas.Common.Services
 {
-    public interface IAreaService : IAreaFunctionality
+    public interface IAreaService : IApplicationService
     {
     }
 }

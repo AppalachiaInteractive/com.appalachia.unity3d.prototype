@@ -49,11 +49,5 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
                 audio.Reset();
             }
         }
-
-        #region Profiling
-
-        
-
-        #endregion
     }
 }

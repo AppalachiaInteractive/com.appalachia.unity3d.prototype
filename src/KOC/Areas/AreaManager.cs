@@ -1,16 +1,14 @@
 using System;
-using System.Collections.Generic;
 using Appalachia.CI.Constants;
+using Appalachia.Core.Objects.Delegates;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Core.Objects.Root;
-using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Prototype.KOC.Areas.Common.Features;
-using Appalachia.Prototype.KOC.Areas.Common.Services;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
+using Appalachia.Prototype.KOC.Application.FunctionalitySets;
+using Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling;
 using Appalachia.Prototype.KOC.Behaviours;
 using Appalachia.Prototype.KOC.Scenes;
 using Appalachia.UI.Controls.Cursors;
-using Appalachia.UI.Controls.Sets;
+using Appalachia.UI.Controls.Sets.Canvas;
+using Appalachia.UI.Controls.Sets.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Extensions;
@@ -30,21 +28,15 @@ namespace Appalachia.Prototype.KOC.Areas
         where TManager : AreaManager<TManager, TMetadata>
         where TMetadata : AreaMetadata<TManager, TMetadata>
     {
-        public delegate void ActivationHandler(ApplicationArea area, IAreaManager manager);
+        public delegate void AreaEventHandler(ApplicationArea area, IAreaManager manager);
 
-        public delegate void DeactivationHandler(ApplicationArea area, IAreaManager manager);
+        public event AreaEventHandler Activated;
 
-        public delegate void AreaInterfaceHiddenHandler(ApplicationArea area, IAreaManager manager);
-        
-        public delegate void AreaInterfaceShownHandler(ApplicationArea area, IAreaManager manager);
-        
-        public event ActivationHandler Activated;
+        public event AreaEventHandler AreaInterfaceHidden;
 
-        public event DeactivationHandler AreaInterfaceHidden;
+        public event AreaEventHandler AreaInterfaceShown;
 
-        public event ActivationHandler AreaInterfaceShown;
-
-        public event DeactivationHandler Deactivated;
+        public event AreaEventHandler Deactivated;
 
         static AreaManager()
         {
@@ -55,29 +47,27 @@ namespace Appalachia.Prototype.KOC.Areas
             RegisterDependency<ApplicationManager>(i => _applicationManager = i);
             RegisterDependency<CursorManager>(i => _cursorManager = i);
 
-            _widgets = new List<IAreaWidget>();
-            _features = new List<IAreaFeature>();
-            _services = new List<IAreaService>();
+            _functionalitySet = new AreaFunctionalitySet();
         }
 
         #region Static Fields and Autoproperties
 
         private static ApplicationManager _applicationManager;
 
+        [NonSerialized]
+        [ShowInInspector]
+        private static AreaFunctionalitySet _functionalitySet;
+
         private static CursorManager _cursorManager;
 
-        [InlineProperty, HideLabel, ShowInInspector, Title("Features")]
-        private static List<IAreaFeature> _features;
-
-        [InlineProperty, HideLabel, ShowInInspector, Title("Services")]
-        private static List<IAreaService> _services;
-
-        [InlineProperty, HideLabel, ShowInInspector, Title("Widgets")]
-        private static List<IAreaWidget> _widgets;
-
         private static MainAreaSceneInformationCollection _mainAreaSceneInformationCollection;
+        private static string _areaObjectName;
 
-        [NonSerialized, ShowInInspector, InlineEditor]
+        private static string _defaultName;
+
+        [NonSerialized]
+        [ShowInInspector]
+        [InlineEditor]
         private static TMetadata _areaMetadata;
 
         #endregion
@@ -86,19 +76,18 @@ namespace Appalachia.Prototype.KOC.Areas
 
         [FormerlySerializedAs("_bootloadData")]
         [SerializeField]
+        [FoldoutGroup(APPASTR.General)]
         protected AreaSceneInformation _areaSceneInfo;
 
-        [SerializeField, FoldoutGroup(APPASTR.Components)]
-        protected TemplateComponentSet template;
+        [SerializeField]
+        [FoldoutGroup(APPASTR.Components)]
+        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Root_Canvas)]
+        protected RootCanvasComponentSet rootCanvas;
 
-        [SerializeField, FoldoutGroup(APPASTR.Components)]
-        protected RootCanvasComponentSet canvas;
-
-        [SerializeField, FoldoutGroup(APPASTR.Components)]
-        protected CanvasComponentSet unscaledView;
-
-        [SerializeField, FoldoutGroup(APPASTR.Components)]
-        protected CanvasComponentSet scaledView;
+        [FormerlySerializedAs("scaledView")]
+        [SerializeField]
+        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Scaled_View)]
+        protected CanvasComponentSet view;
 
         private IAreaManager _parent;
 
@@ -106,10 +95,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #endregion
 
-        public static IReadOnlyList<IAreaFeature> Features => _features;
-        public static IReadOnlyList<IAreaService> Services => _services;
-
-        public static IReadOnlyList<IAreaWidget> Widgets => _widgets;
+        protected static AreaFunctionalitySet FunctionalitySet => _functionalitySet;
 
         protected static MainAreaSceneInformationCollection mainAreaSceneInformationCollection =>
             _mainAreaSceneInformationCollection;
@@ -117,6 +103,7 @@ namespace Appalachia.Prototype.KOC.Areas
         protected static TMetadata areaMetadata => _areaMetadata;
 
         public abstract AreaVersion Version { get; }
+        public CanvasComponentSet View => view;
 
         public IAreaManager Parent
         {
@@ -138,11 +125,35 @@ namespace Appalachia.Prototype.KOC.Areas
             }
         }
 
-        public CanvasComponentSet Canvas => canvas;
-        public CanvasComponentSet ScaledView => scaledView;
-        public CanvasComponentSet UnscaledView => unscaledView;
+        public RootCanvasComponentSet RootCanvas => rootCanvas;
 
         protected AreaSceneInformation areaSceneInfo => _areaSceneInfo;
+
+        protected string areaObjectName
+        {
+            get
+            {
+                if (_areaObjectName == null)
+                {
+                    _areaObjectName = defaultName.Replace("Manager", string.Empty);
+                }
+
+                return _areaObjectName;
+            }
+        }
+
+        protected string defaultName
+        {
+            get
+            {
+                if (_defaultName == null)
+                {
+                    _defaultName = typeof(TManager).Name;
+                }
+
+                return _defaultName;
+            }
+        }
 
         #region Event Functions
 
@@ -159,9 +170,9 @@ namespace Appalachia.Prototype.KOC.Areas
                 {
                     return;
                 }
-#if UNITY_EDITOR
 
-                InitializeAreaTemplate();
+#if UNITY_EDITOR
+                UpdateEditor();
 #endif
             }
         }
@@ -172,7 +183,7 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_HideAreaInterface.Auto())
             {
-                canvas.fadeManager.EnsureFadeOut();
+                rootCanvas.CanvasFadeManager.EnsureFadeOut();
 
                 OnHideAreaInterface();
 
@@ -184,7 +195,7 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_ShowAreaInterface.Auto())
             {
-                canvas.fadeManager.EnsureFadeIn();
+                rootCanvas.CanvasFadeManager.EnsureFadeIn();
 
                 OnShowAreaInterface();
 
@@ -196,9 +207,9 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_ToggleAreaInterface.Auto())
             {
-                if (canvas.canvasGroup.IsHidden())
+                if (rootCanvas.CanvasGroup.IsHidden())
                 {
-                    if (canvas.fadeManager.IsFadingIn)
+                    if (rootCanvas.CanvasFadeManager.IsFadingIn)
                     {
                         return;
                     }
@@ -207,7 +218,7 @@ namespace Appalachia.Prototype.KOC.Areas
                 }
                 else
                 {
-                    if (canvas.fadeManager.IsFadingOut)
+                    if (rootCanvas.CanvasFadeManager.IsFadingOut)
                     {
                         return;
                     }
@@ -239,63 +250,6 @@ namespace Appalachia.Prototype.KOC.Areas
             }
         }
 
-        protected static void RegisterFeature<TDependency>(
-            SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler handler)
-            where TDependency : SingletonAppalachiaBehaviour<TDependency>,
-            IRepositoryDependencyTracker<TDependency>, IAreaFeature
-        {
-            using (_PRF_RegisterFeature.Auto())
-            {
-                var wrapper = new SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler(
-                    i =>
-                    {
-                        _features.Add(i);
-                        handler(i);
-                    }
-                );
-
-                _dependencyTracker.RegisterDependency(wrapper);
-            }
-        }
-
-        protected static void RegisterService<TDependency>(
-            SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler handler)
-            where TDependency : SingletonAppalachiaBehaviour<TDependency>,
-            IRepositoryDependencyTracker<TDependency>, IAreaService
-        {
-            using (_PRF_RegisterService.Auto())
-            {
-                var wrapper = new SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler(
-                    i =>
-                    {
-                        _services.Add(i);
-                        handler(i);
-                    }
-                );
-
-                _dependencyTracker.RegisterDependency(wrapper);
-            }
-        }
-
-        protected static void RegisterWidget<TDependency>(
-            SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler handler)
-            where TDependency : SingletonAppalachiaBehaviour<TDependency>,
-            IRepositoryDependencyTracker<TDependency>, IAreaWidget
-        {
-            using (_PRF_RegisterWidget.Auto())
-            {
-                var wrapper = new SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler(
-                    i =>
-                    {
-                        _widgets.Add(i);
-                        handler(i);
-                    }
-                );
-
-                _dependencyTracker.RegisterDependency(wrapper);
-            }
-        }
-
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -314,7 +268,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
                 AreaRegistry.RegisterManager(this);
 
-                name = typeof(TManager).Name;
+                name = defaultName;
 
                 if (areaMetadata.Area != Area)
                 {
@@ -327,59 +281,16 @@ namespace Appalachia.Prototype.KOC.Areas
                     );
                 }
 
-                var fullObjectName = name.Replace("Manager", string.Empty);
+                initializer.Do(
+                    this,
+                    nameof(MainAreaSceneInformationCollection),
+                    _areaSceneInfo == null,
+                    () => { _areaSceneInfo ??= _mainAreaSceneInformationCollection.Lookup.Items.Get(Area); }
+                );
 
-                using (_PRF_Initialize.Suspend())
-                {
-                    initializer.Do(
-                        this,
-                        nameof(MainAreaSceneInformationCollection),
-                        _areaSceneInfo == null,
-                        () =>
-                        {
-                            using (_PRF_Initialize.Auto())
-                            {
-                                _areaSceneInfo ??= _mainAreaSceneInformationCollection.Lookup.Items.Get(Area);
-                            }
-                        }
-                    );
-                }
+                areaMetadata.rootCanvas.PrepareAndConfigure(ref rootCanvas, gameObject, areaObjectName);
 
-                canvas.CreateComponents(gameObject, fullObjectName);
-                areaMetadata.Apply(canvas);
-
-                unscaledView.CreateComponents(canvas.GameObject, fullObjectName);
-                areaMetadata.Apply(unscaledView);
-
-                template.CreateComponents(unscaledView.GameObject, fullObjectName);
-                areaMetadata.Apply(template, gameObject, canvas.GameObject, unscaledView.GameObject);
-
-                /*if (HasParent)
-                {
-                    var parent = AreaRegistry.GetManager(ParentArea);
-
-                    if (parent != null)
-                    {
-                        canvas.graphController.enabled = false;
-                    }
-                }*/
-
-                /*if (areaMetadata.menu.doesDrawMenu)
-                {
-                    GameObject uiMenuManagerGameObject = null;
-
-                    view.GameObject.GetOrCreateChild(
-                        ref uiMenuManagerGameObject,
-                        ZString.Format("Menu - {0}", fullObjectName),
-                        true
-                    );
-
-                    uiMenuManagerGameObject.GetOrCreateComponent(ref uiMenuManager);
-
-#if UNITY_EDITOR
-                    uiMenuManager.CreateMetadata(Area.ToString());
-#endif
-                }*/
+                areaMetadata.view.PrepareAndConfigure(ref view, rootCanvas.GameObject, areaObjectName);
 
                 var applicationManagerObject = _applicationManager.gameObject;
                 var applicationManagerInvalid = (applicationManagerObject == null) ||
@@ -402,11 +313,17 @@ namespace Appalachia.Prototype.KOC.Areas
                     }
 
                     Activate();
+
+#if UNITY_EDITOR
+                    InitializeEditor(initializer, areaObjectName);
+#endif
                 }
 
                 await SetFeaturesToInitialState();
                 await SetServicesToInitialState();
                 await SetWidgetsToInitialState();
+
+                _applicationManager.CanvasScalingService.Broadcast += OnCanvasScalingServiceBroadcast;
             }
         }
 
@@ -458,18 +375,12 @@ namespace Appalachia.Prototype.KOC.Areas
             );
         }
 
-        private void DisableTemplate()
+        private void OnCanvasScalingServiceBroadcast(ValueArgs<CanvasScalingArgs> args)
         {
-            template.image.enabled = false;
-            template.fadeManager.FadeOutCompleted -= DisableTemplate;
-        }
-
-        private void OnTemplateFadeInComplete()
-        {
-            var fadeRange = template.fadeManager.fadeSettings.fadeRange;
-            fadeRange.x = areaMetadata.templates.templateAlpha;
-            template.fadeManager.fadeSettings.fadeRange = fadeRange;
-            template.fadeManager.FadeInCompleted -= OnTemplateFadeInComplete;
+            using (_PRF_OnCanvasScalingServiceBroadcast.Auto())
+            {
+                rootCanvas.AppaCanvasScaler.Apply(args.value.dimensionData);
+            }
         }
 
         #region IAreaManager Members
@@ -494,7 +405,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
                     Context.Log.Info(nameof(Activate), this);
 
-                    areaMetadata.cursor.Apply(_cursorManager);
+                    //areaMetadata.cursor.Apply(_cursorManager);
 
                     areaMetadata.input.onEnableMapState.Apply(InputActions, this as TManager);
 
@@ -555,14 +466,32 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_HideAreaInterface =
+        protected static readonly ProfilerMarker _PRF_Activate =
+            new ProfilerMarker(_PRF_PFX + nameof(Activate));
+
+        protected static readonly ProfilerMarker _PRF_Deactivate =
+            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
+
+        protected static readonly ProfilerMarker _PRF_HideAreaInterface =
             new ProfilerMarker(_PRF_PFX + nameof(HideAreaInterface));
+
+        protected static readonly ProfilerMarker _PRF_OnActivation =
+            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
+
+        private static readonly ProfilerMarker _PRF_OnCanvasScalingServiceBroadcast =
+            new ProfilerMarker(_PRF_PFX + nameof(OnCanvasScalingServiceBroadcast));
+
+        protected static readonly ProfilerMarker _PRF_OnDeactivation =
+            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
 
         protected static readonly ProfilerMarker _PRF_OnHideAreaInterface =
             new ProfilerMarker(_PRF_PFX + nameof(OnHideAreaInterface));
 
         protected static readonly ProfilerMarker _PRF_OnShowAreaInterface =
             new ProfilerMarker(_PRF_PFX + nameof(OnShowAreaInterface));
+
+        protected static readonly ProfilerMarker _PRF_ResetArea =
+            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         protected static readonly ProfilerMarker _PRF_SetFeaturesToInitialState =
             new ProfilerMarker(_PRF_PFX + nameof(SetFeaturesToInitialState));
@@ -573,35 +502,11 @@ namespace Appalachia.Prototype.KOC.Areas
         protected static readonly ProfilerMarker _PRF_SetWidgetsToInitialState =
             new ProfilerMarker(_PRF_PFX + nameof(SetWidgetsToInitialState));
 
-        private static readonly ProfilerMarker _PRF_ShowAreaInterface =
+        protected static readonly ProfilerMarker _PRF_ShowAreaInterface =
             new ProfilerMarker(_PRF_PFX + nameof(ShowAreaInterface));
 
-        private static readonly ProfilerMarker _PRF_ToggleAreaInterface =
+        protected static readonly ProfilerMarker _PRF_ToggleAreaInterface =
             new ProfilerMarker(_PRF_PFX + nameof(ToggleAreaInterface));
-
-        private static readonly ProfilerMarker _PRF_RegisterService =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterService));
-
-        private static readonly ProfilerMarker _PRF_RegisterWidget =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterWidget));
-
-        private static readonly ProfilerMarker _PRF_RegisterFeature =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterFeature));
-
-        private static readonly ProfilerMarker
-            _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
-
-        private static readonly ProfilerMarker _PRF_OnActivation =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
-
-        private static readonly ProfilerMarker _PRF_OnDeactivation =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         #endregion
     }

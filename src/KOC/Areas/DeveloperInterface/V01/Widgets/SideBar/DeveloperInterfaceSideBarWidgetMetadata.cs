@@ -1,12 +1,11 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.SideBar
 {
-    public sealed class DeveloperInterfaceSideBarWidgetMetadata : AreaWidgetMetadata<
+    public sealed class DeveloperInterfaceSideBarWidgetMetadata : DeveloperInterfaceWidgetMetadata<
         DeveloperInterfaceSideBarWidget, DeveloperInterfaceSideBarWidgetMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {

@@ -1,10 +1,8 @@
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
-
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar
 {
-    public sealed class DeveloperInterfaceStatusBarWidget : AreaWidget<DeveloperInterfaceStatusBarWidget,
-        DeveloperInterfaceStatusBarWidgetMetadata, DeveloperInterfaceManager_V01,
-        DeveloperInterfaceMetadata_V01>
+    public sealed class DeveloperInterfaceStatusBarWidget : DeveloperInterfaceWidget<
+        DeveloperInterfaceStatusBarWidget, DeveloperInterfaceStatusBarWidgetMetadata,
+        DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
         protected override void OnApplyMetadataInternal()
         {
@@ -40,8 +38,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBa
                 anchorMin.y = 0.00f;
                 anchorMax.y = metadata.height;
 
-                rectTransform.anchorMin = anchorMin;
-                rectTransform.anchorMax = anchorMax;
+                UpdateAnchorMin(anchorMin);
+                UpdateAnchorMax(anchorMax);
             }
         }
     }

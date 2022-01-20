@@ -1,12 +1,11 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandPalette
 {
-    public sealed class DeveloperInterfaceCommandPaletteWidgetMetadata : AreaWidgetMetadata<
+    public sealed class DeveloperInterfaceCommandPaletteWidgetMetadata : DeveloperInterfaceWidgetMetadata<
         DeveloperInterfaceCommandPaletteWidget, DeveloperInterfaceCommandPaletteWidgetMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {

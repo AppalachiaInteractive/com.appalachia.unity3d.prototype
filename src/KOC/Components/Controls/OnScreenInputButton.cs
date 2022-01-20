@@ -116,11 +116,11 @@ namespace Appalachia.Prototype.KOC.Components.Controls
 
                 gameObject.name = baseName;
 
-                gameObject.GetOrCreateComponentInChild(ref text, targetName, false);
+                gameObject.GetOrAddComponentInChild(ref text, targetName, false);
                 text.name = ZString.Format("Text - {0}", baseName);
                 text.rectTransform.Reset(RectResetOptions.All);
 
-                gameObject.GetOrCreateComponentInChild(ref image, targetName, false);
+                gameObject.GetOrAddComponentInChild(ref image, targetName, false);
                 image.name = ZString.Format("Image - {0}", baseName);
                 image.rectTransform.Reset(RectResetOptions.All);
 

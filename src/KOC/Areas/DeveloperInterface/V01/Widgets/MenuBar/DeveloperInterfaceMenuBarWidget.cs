@@ -1,10 +1,8 @@
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
-
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar
 {
-    public sealed class DeveloperInterfaceMenuBarWidget : AreaWidget<DeveloperInterfaceMenuBarWidget,
-        DeveloperInterfaceMenuBarWidgetMetadata, DeveloperInterfaceManager_V01,
-        DeveloperInterfaceMetadata_V01>
+    public sealed class DeveloperInterfaceMenuBarWidget : DeveloperInterfaceWidget<
+        DeveloperInterfaceMenuBarWidget, DeveloperInterfaceMenuBarWidgetMetadata,
+        DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
         protected override void OnApplyMetadataInternal()
         {
@@ -31,8 +29,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar
                 anchorMin.y = 1.0f - metadata.height;
                 anchorMax.y = 1.0f;
 
-                rectTransform.anchorMin = anchorMin;
-                rectTransform.anchorMax = anchorMax;
+                UpdateAnchorMin(anchorMin);
+                UpdateAnchorMax(anchorMax);
             }
         }
     }

@@ -1,12 +1,11 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.Common.Widgets;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar
 {
-    public sealed class DeveloperInterfaceStatusBarWidgetMetadata : AreaWidgetMetadata<
+    public sealed class DeveloperInterfaceStatusBarWidgetMetadata : DeveloperInterfaceWidgetMetadata<
         DeveloperInterfaceStatusBarWidget, DeveloperInterfaceStatusBarWidgetMetadata,
         DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {

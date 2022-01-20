@@ -1,5 +1,3 @@
-using Unity.Profiling;
-
 namespace Appalachia.Prototype.KOC.Areas.Game
 {
     public abstract class GameManager<TManager, TMetadata> : AreaManager<TManager, TMetadata>, IGameManager
@@ -34,19 +32,6 @@ namespace Appalachia.Prototype.KOC.Areas.Game
 
         public override ApplicationArea Area => ApplicationArea.Game;
         public override ApplicationArea ParentArea => ApplicationArea.None;
-
-        #endregion
-
-        #region Profiling
-
-        private static readonly ProfilerMarker _PRF_Activate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         #endregion
     }

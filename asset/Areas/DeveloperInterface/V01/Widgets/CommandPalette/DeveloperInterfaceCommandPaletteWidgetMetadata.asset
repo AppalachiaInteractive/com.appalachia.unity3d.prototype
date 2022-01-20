@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5d5f02ded04199af339a4e3adcf1de, type: 3}
+  m_Name: DeveloperInterfaceCommandPaletteWidgetMetadata
+  m_EditorClassIdentifier: Appalachia.Prototype.KOC:Appalachia.Prototype.KOC.Developer:DeveloperInterfaceCommandPaletteComponentMetadata
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - FontStyleOverride
+    - backgroundColor
+    - width
+    - height
+    - horizontalCenter
+    - commandSuggestionHeight
+    - CanvasComponentSetStyle
+    - BackgroundComponentSetStyle
+    - RectTransformData
+    - OverridableRectTransformData
+    - animationDuration
+    _resetToken: 2022-01-10T09:50:37.5839168-05:00
+  rectTransformData:
+    _owner: {fileID: 11400000}
+    _initializer:
+      _tags:
+      - anchorMin
+      - anchorMax
+      - anchoredPosition
+      - localScale
+      - offsetMin
+      - offsetMax
+      - pivot
+      _resetToken: 
+    anchorMin:
+      _overrideEnabled: 0
+      _value: {x: 0, y: 0}
+    anchorMax:
+      _overrideEnabled: 0
+      _value: {x: 1, y: 1}
+    anchoredPosition:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    localScale:
+      _overrideEnabled: 1
+      _value: {x: 1, y: 1, z: 1}
+    offsetMin:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    offsetMax:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    pivot:
+      _overrideEnabled: 1
+      _value: {x: 0.5, y: 0.5}
+  canvasStyle: {fileID: 11400000, guid: 01b6a5c9e91285442a93fdf2ed176cd6, type: 2}
+  backgroundStyle: {fileID: 11400000, guid: bdf2fb9611cd49f4caff411a16a1a40e, type: 2}
+  fontStyle: {fileID: 11400000, guid: 0e0127402de70404096d8cd688f4d75a, type: 2}
+  transitionsWithFade: 0
+  animationDuration: 0.2
+  inUnscaledView: 1
+  width: 0.4
+  height: 0.04
+  horizontalCenter: 0.5

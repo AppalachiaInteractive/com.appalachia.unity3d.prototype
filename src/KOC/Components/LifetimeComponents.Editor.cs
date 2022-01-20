@@ -78,11 +78,11 @@ namespace Appalachia.Prototype.KOC.Components
             {
                 using (_PRF_Initialize.Auto())
                 {
-                    gameObject.GetOrCreateLifetimeComponentInChild(
+                    gameObject.GetOrAddLifetimeComponentInChild(
                         ref _meshBurialExecutionManager,
                         nameof(MeshBurialExecutionManager)
                     );
-                    gameObject.GetOrCreateLifetimeComponentInChild(ref _bazooka, nameof(Bazooka));
+                    gameObject.GetOrAddLifetimeComponentInChild(ref _bazooka, nameof(Bazooka));
                 }
             }
 

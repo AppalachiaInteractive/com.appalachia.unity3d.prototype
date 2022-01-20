@@ -9,7 +9,7 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Collections.Extensions;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Application;
+using Appalachia.Prototype.KOC.Application.State;
 using Appalachia.Prototype.KOC.Areas;
 using Appalachia.Prototype.KOC.Collections;
 using Appalachia.Prototype.KOC.Scenes.Collections;

@@ -1,32 +1,39 @@
-using System;
-using Appalachia.CI.Integration.FileSystem;
+using Appalachia.CI.Constants;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Input;
-using Appalachia.Utility.Strings;
+using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.Utility.Async;
+using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 {
-    public abstract class DeveloperInterfaceManager<TManager, TMetadata> : AreaManager<TManager, TMetadata>,
+    public abstract partial class DeveloperInterfaceManager<TManager, TMetadata> :
+        AreaManager<TManager, TMetadata>,
         IDeveloperInterfaceManager,
         KOCInputActions.IDeveloperInterfaceActions
         where TManager : DeveloperInterfaceManager<TManager, TMetadata>
         where TMetadata : DeveloperInterfaceMetadata<TManager, TMetadata>
     {
-        public abstract void OnOpenCommandPalette(InputAction.CallbackContext context);
+        #region Fields and Autoproperties
 
-        public void OnToggleDebugOverlays(InputAction.CallbackContext context)
+        [SerializeField]
+        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Unscaled_Canvas)]
+        protected RootCanvasComponentSet unscaledCanvas;
+
+        #endregion
+
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            using (_PRF_OnToggleDebugOverlays.Auto())
-            {
-                if (!context.performed)
-                {
-                    return;
-                }
+            await base.Initialize(initializer);
 
-                ToggleAreaInterface();
+            using (_PRF_Initialize.Auto())
+            {
+                areaMetadata.UnscaledCanvas.PrepareAndConfigure(ref unscaledCanvas, gameObject, "Unscaled");
+
+                InitializeEditor(initializer, areaObjectName);
             }
         }
 
@@ -48,47 +55,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         #region IDeveloperInterfaceActions Members
 
+        public abstract void OnOpenCommandPalette(InputAction.CallbackContext context);
         public abstract void OnToggleDeveloperInterface(InputAction.CallbackContext context);
         public abstract void OnToggleMenuBar(InputAction.CallbackContext context);
         public abstract void OnToggleStatusBar(InputAction.CallbackContext context);
         public abstract void OnToggleActivityBar(InputAction.CallbackContext context);
         public abstract void OnToggleSideBar(InputAction.CallbackContext context);
         public abstract void OnTogglePanel(InputAction.CallbackContext context);
-
-        public void OnScreenshot(InputAction.CallbackContext context)
-        {
-            using (_PRF_OnScreenshot.Auto())
-            {
-                if (!context.performed)
-                {
-                    return;
-                }
-
-                Context.Log.Info(nameof(OnScreenshot), this);
-
-                var now = DateTime.Now;
-                var filename = ZString.Format(
-                    "{0}-{1}{2:D2}{3:D2}{4:D2}{5:D2}{6:D2}.png",
-                    SceneManager.GetSceneAt(0).name,
-                    now.Year,
-                    now.Month,
-                    now.Day,
-                    now.Hour,
-                    now.Minute,
-                    now.Second
-                );
-                var filePath = AppaPath.Combine("Screenshots", filename);
-
-                AppaDirectory.CreateDirectoryStructureForFilePath(filePath);
-
-                Context.Log.Info(ZString.Format("Captured Screenshot to : {0}", filePath));
-                ScreenCapture.CaptureScreenshot(filePath);
-            }
-        }
+        public abstract void OnScreenshot(InputAction.CallbackContext context);
 
         #endregion
 
         #region IDeveloperInterfaceManager Members
+
+        public RootCanvasComponentSet UnscaledCanvas => unscaledCanvas;
 
         public override ApplicationArea Area => ApplicationArea.DeveloperInterface;
         public override ApplicationArea ParentArea => ApplicationArea.None;
@@ -97,17 +77,29 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_OnActivation =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
+        protected static readonly ProfilerMarker _PRF_OnOpenCommandPalette =
+            new ProfilerMarker(_PRF_PFX + nameof(OnOpenCommandPalette));
 
-        private static readonly ProfilerMarker _PRF_OnDeactivation =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
-        private static readonly ProfilerMarker _PRF_OnScreenshot =
+        protected static readonly ProfilerMarker _PRF_OnScreenshot =
             new ProfilerMarker(_PRF_PFX + nameof(OnScreenshot));
 
-        private static readonly ProfilerMarker _PRF_OnToggleDebugOverlays =
-            new ProfilerMarker(_PRF_PFX + nameof(OnToggleDebugOverlays));
+        protected static readonly ProfilerMarker _PRF_OnToggleActivityBar =
+            new ProfilerMarker(_PRF_PFX + nameof(OnToggleActivityBar));
+
+        protected static readonly ProfilerMarker _PRF_OnToggleDeveloperInterface =
+            new ProfilerMarker(_PRF_PFX + nameof(OnToggleDeveloperInterface));
+
+        protected static readonly ProfilerMarker _PRF_OnToggleMenuBar =
+            new ProfilerMarker(_PRF_PFX + nameof(OnToggleMenuBar));
+
+        protected static readonly ProfilerMarker _PRF_OnTogglePanel =
+            new ProfilerMarker(_PRF_PFX + nameof(OnTogglePanel));
+
+        protected static readonly ProfilerMarker _PRF_OnToggleSideBar =
+            new ProfilerMarker(_PRF_PFX + nameof(OnToggleSideBar));
+
+        protected static readonly ProfilerMarker _PRF_OnToggleStatusBar =
+            new ProfilerMarker(_PRF_PFX + nameof(OnToggleStatusBar));
 
         #endregion
     }

@@ -66,9 +66,6 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
 
                 ApplicationManager.instance.LoadScene(ApplicationArea.StartScreen);
                 ApplicationManager.instance.LoadScene(ApplicationArea.MainMenu);
-                ApplicationManager.instance.LoadScene(ApplicationArea.MainMenu_Settings);
-                ApplicationManager.instance.LoadScene(ApplicationArea.MainMenu_LoadGame);
-                ApplicationManager.instance.LoadScene(ApplicationArea.MainMenu_NewGame);
                 ApplicationManager.instance.LoadScene(ApplicationArea.LoadingScreen);
             }
         }
@@ -126,17 +123,8 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_Activate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
         private static readonly ProfilerMarker _PRF_OnSplashScreenFinished =
             new ProfilerMarker(_PRF_PFX + nameof(OnSplashScreenFinished));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         #endregion
     }

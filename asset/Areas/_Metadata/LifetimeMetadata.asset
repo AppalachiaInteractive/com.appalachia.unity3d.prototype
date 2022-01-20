@@ -22,16 +22,18 @@ MonoBehaviour:
     - DeviceButtonLookup
     - AreaSceneInformationCollection
     - MainAreaSceneInformationCollection
+    - RootCanvasComponentSetStyle
+    - BackgroundComponentSetStyle
+    - CanvasComponentSetStyle
     _resetToken: 2021-12-14T20:34:03.6457917-05:00
   clearCamera:
     enabled: 1
     enabledEditor: 1
-    color: {r: 0.2, g: 0.19607843, b: 0.16862746, a: 1}
-    colorEditor: {r: 0.2, g: 0.19607843, b: 0.16862746, a: 1}
+    color: {r: 0.10980393, g: 0.10980393, b: 0.10980393, a: 1}
+    colorEditor: {r: 0.10980393, g: 0.10980393, b: 0.10980393, a: 1}
+  rootCanvas: {fileID: 11400000, guid: e40443b0f0cfc0f4e8f96f6a703dabba, type: 2}
+  rootBackground: {fileID: 11400000, guid: 6636ad29feda7c249ae0c1d92baa72cb, type: 2}
   uiStyle: {fileID: 11400000, guid: 7a0d499cf2ad0dd41be5333552e8f7f4, type: 2}
   deviceButtons: {fileID: 11400000, guid: 4a128e515e4776f409543bb3d500bcd3, type: 2}
   audioMixer: {fileID: 24100000, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
-  styleLookup: {fileID: 11400000, guid: d27861f1f4465bd44914c3a403208396, type: 2}
-  criticalReferences:
-  - {fileID: 11400000, guid: 833ea2b3a278ec64cb701c157adc4995, type: 2}
-  - {fileID: 11400000, guid: e861ccb9419e6614eb2a27f7f8fc41a0, type: 2}
+  styleLookup: {fileID: 11400000, guid: 252178a6681d3cd438ccf571bae0e488, type: 2}

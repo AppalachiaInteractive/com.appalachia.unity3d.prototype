@@ -48,17 +48,8 @@ namespace Appalachia.Prototype.KOC.Areas.StartScreen
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_Activate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnActivation));
-
         private static readonly ProfilerMarker
             _PRF_Continue = new ProfilerMarker(_PRF_PFX + nameof(Continue));
-
-        private static readonly ProfilerMarker _PRF_Deactivate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDeactivation));
-
-        private static readonly ProfilerMarker _PRF_ResetArea =
-            new ProfilerMarker(_PRF_PFX + nameof(ResetArea));
 
         #endregion
     }

@@ -34,8 +34,8 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 
                 gameObject.name = buttonName;
 
-                gameObject.GetOrCreateComponentInChild(ref text,  ZString.Format("Text - {0}",  baseName));
-                gameObject.GetOrCreateComponentInChild(ref image, ZString.Format("Image - {0}", baseName));
+                gameObject.GetOrAddComponentInChild(ref text,  ZString.Format("Text - {0}",  baseName));
+                gameObject.GetOrAddComponentInChild(ref image, ZString.Format("Image - {0}", baseName));
             }
 
             initializer.Do(

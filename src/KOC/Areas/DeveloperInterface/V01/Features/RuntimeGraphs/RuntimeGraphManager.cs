@@ -24,8 +24,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
     {
         static RuntimeGraphManager()
         {
-            
-
             RegisterDependency<RuntimeGraphSettings>(i => _runtimeGraphSettings = i);
             RegisterDependency<RuntimeGraphFpsManager>(i => _fpsManager = i);
             RegisterDependency<RuntimeGraphRamManager>(i => _ramManager = i);
@@ -303,8 +301,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         }
 
         #region Profiling
-
-        
 
         private static readonly ProfilerMarker _PRF_OnApplicationFocus =
             new ProfilerMarker(_PRF_PFX + nameof(OnApplicationFocus));

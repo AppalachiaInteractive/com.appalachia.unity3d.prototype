@@ -34,23 +34,20 @@ MonoBehaviour:
     - Default References
     - Scene Behaviour
     - Audio
+    - Root Canvas
+    - Scaled View
+    - Unscaled View
+    - Scaled Templates
+    - Unscaled Templates
     _resetToken: 2021-11-20a
-  cursor:
-    hasCustomCursor: 0
-    hasSimpleCursor: 0
-    hideCursor: 0
-    lockCursor: 0
-    complexCursor: 0
-    initialState: 0
-    simpleCursor: 0
   input:
     onDisableMapState:
       DeathMenu:
         _overrideEnabled: 0
         _value: 0
       DeveloperInterface:
-        _overrideEnabled: 0
-        _value: 0
+        _overrideEnabled: 1
+        _value: 1
       GenericMenu:
         _overrideEnabled: 0
         _value: 0
@@ -106,50 +103,13 @@ MonoBehaviour:
       StartScreen:
         _overrideEnabled: 0
         _value: 0
-  canvas:
-    additionalShaderChannels: 25
-    pixelPerfect: 0
-    sortingOrder: 2500
-    renderMode: 0
-  canvasGroup:
-    blocksRaycasts: 1
-    ignoreParentGroups: 0
-    interactable: 1
-  canvasScaling:
-    match: 1
-    referencePixelsPerUnit: 100
-    uiScaleMode: 1
-    screenMatchMode: 0
-    referenceResolution: {x: 1920, y: 1080}
-  view:
-    fullscreen: 1
-    resetScaleToOne: 0
-  graphicRaycaster:
-    blockingObjects: 0
-    ignoreReversedGraphics: 0
-    blockingMask:
-      serializedVersion: 2
-      m_Bits: 0
-  doozyCanvas:
-    doNotUseDoozyCanvas: 0
-    canvasName: DeveloperInterface
-  doozyGraph:
-    graph: {fileID: 11400000, guid: 086787a816c4f9543a15b5501961d1a0, type: 2}
-    testGraph: {fileID: 0}
-    graphControllerName: Graph Controller - DeveloperInterface
-  doozyView:
-    doNotUseDoozyView: 1
-    viewCategory: DeveloperInterface
-    viewName: DeveloperInterface
-  templates:
-    templateEnabled: 0
-    templateAlpha: 1
-    templates:
-    - {fileID: 21300000, guid: 2ff63e70a6ec6b743b7c5122741b3590, type: 3}
-    parent: 10
-    selectedTemplate: {fileID: 21300000, guid: 2ff63e70a6ec6b743b7c5122741b3590, type: 3}
+  rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+  view: {fileID: 11400000, guid: 3731b5a97e248bd4eba97f4b79f017d9, type: 2}
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:
     mixerGroup: {fileID: 0}
+  templates: {fileID: 11400000, guid: 86261c6bc2f39974e8e49a575ad05e97, type: 2}
+  unscaledCanvas: {fileID: 11400000, guid: 20436b3d7c9d78a498e3a9ed386072b6, type: 2}
+  unscaledTemplates: {fileID: 11400000, guid: c1ac0fd97ec09634ea10ed570d87eebd, type: 2}
   startHidden: 0

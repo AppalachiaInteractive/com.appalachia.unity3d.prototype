@@ -16,8 +16,6 @@ namespace Appalachia.Prototype.KOC.Behaviours
     {
         static SingletonAppalachiaApplicationBehaviour()
         {
-            
-
             RegisterDependency<LifetimeComponentManager>(i => _lifetimeComponentManager = i);
         }
 
@@ -49,11 +47,5 @@ namespace Appalachia.Prototype.KOC.Behaviours
                 return _inputActions;
             }
         }
-
-        #region Profiling
-
-        
-
-        #endregion
     }
 }

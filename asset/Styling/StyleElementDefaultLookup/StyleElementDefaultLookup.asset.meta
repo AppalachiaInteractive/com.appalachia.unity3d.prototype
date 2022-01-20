@@ -1,2 +1,11 @@
 fileFormatVersion: 2
 guid: 252178a6681d3cd438ccf571bae0e488
+labels:
+- SCRIPTABLE
+- SINGLETON
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

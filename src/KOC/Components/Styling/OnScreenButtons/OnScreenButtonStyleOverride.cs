@@ -20,19 +20,19 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
     {
         #region Fields and Autoproperties
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
         private OverridableColor _spriteColor;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
         private OverridableColor _textColor;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
         private OverridableFontStyleOverride _font;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
         private OverridableOnScreenButtonSpriteStyle _spriteStyle;
 
-        [SerializeField, OnValueChanged(nameof(InvokeStyleChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
         private OverridableOnScreenButtonTextStyle _textStyle;
 
         #endregion
@@ -72,11 +72,11 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         {
             using (_PRF_RegisterOverrideSubscriptions.Auto())
             {
-                _spriteColor.OverridableChanged += _ => InvokeStyleChanged();
-                _textColor.OverridableChanged += _ => InvokeStyleChanged();
-                _font.OverridableChanged += _ => InvokeStyleChanged();
-                _spriteStyle.OverridableChanged += _ => InvokeStyleChanged();
-                _textStyle.OverridableChanged += _ => InvokeStyleChanged();
+                _spriteColor.OverridableChanged += _ => InvokeSettingsChanged();
+                _textColor.OverridableChanged += _ => InvokeSettingsChanged();
+                _font.OverridableChanged += _ => InvokeSettingsChanged();
+                _spriteStyle.OverridableChanged += _ => InvokeSettingsChanged();
+                _textStyle.OverridableChanged += _ => InvokeSettingsChanged();
             }
         }
 
