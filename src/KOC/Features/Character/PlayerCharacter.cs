@@ -2,6 +2,7 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Features.Character.Settings;
 using Appalachia.Prototype.KOC.Features.Character.States;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Timing;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Features.Character
@@ -60,7 +61,7 @@ namespace Appalachia.Prototype.KOC.Features.Character
         public void Simulate(CharacterController characterController /*, BOTDPlayerInput input*/)
         {
             var t = transform;
-            var deltaTime = Time.deltaTime;
+            var deltaTime = CoreClock.Instance.DeltaTime;
 
             state.movement.jumping = !characterController.isGrounded;
 

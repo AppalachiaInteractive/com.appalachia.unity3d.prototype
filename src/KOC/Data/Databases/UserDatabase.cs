@@ -47,11 +47,10 @@ namespace Appalachia.Prototype.KOC.Data.Databases
 
         #region Profiling
 
+        private static readonly ProfilerMarker _PRF_Dispose = new ProfilerMarker(_PRF_PFX + nameof(Dispose));
 
         private static readonly ProfilerMarker _PRF_RegisterCollections =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterCollections));
-
-        private static readonly ProfilerMarker _PRF_Dispose = new ProfilerMarker(_PRF_PFX + nameof(Dispose));
 
         #endregion
     }

@@ -6,7 +6,6 @@ using Sirenix.OdinInspector;
 namespace Appalachia.Prototype.KOC.Features.Crafting
 {
     [Serializable]
-    [InlineEditor]
     public class CraftingIngredient : AppalachiaSimpleBase
     {
         #region Fields and Autoproperties

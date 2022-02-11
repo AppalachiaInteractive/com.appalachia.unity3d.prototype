@@ -20,7 +20,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
         #region Fields and Autoproperties
 
         // Cached components
-        [SerializeField] private RectTransform transformComponent;
 
         [SerializeField] private Image imageComponent;
 
@@ -53,7 +52,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
         public DebugLogEntry Entry => logEntry;
         public Image Image => imageComponent;
         public int Index => entryIndex;
-        public RectTransform Transform => transformComponent;
 
         // Return a string containing complete information about the debug entry
         [DebuggerStepThrough]
@@ -140,7 +138,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
                 this.logEntry = logEntry;
                 this.entryIndex = entryIndex;
 
-                var size = transformComponent.sizeDelta;
+                var size = RectTransform.sizeDelta;
                 if (isExpanded)
                 {
                     logText.horizontalOverflow = HorizontalWrapMode.Wrap;
@@ -172,7 +170,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
                     }
                 }
 
-                transformComponent.sizeDelta = size;
+                RectTransform.sizeDelta = size;
 
                 logText.text = isExpanded ? logEntry.ToString() : logEntry.logString;
                 logTypeImage.sprite = logEntry.logTypeSpriteRepresentation;

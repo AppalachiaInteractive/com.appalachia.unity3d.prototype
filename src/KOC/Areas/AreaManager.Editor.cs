@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+#if UNITY_EDITOR
 using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.CI.Integration.Core;
@@ -79,7 +80,12 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                areaMetadata.templates.PrepareAndConfigure(ref templates, view.GameObject, fullObjectName);
+                DesignTemplateComponentSet.UpdateComponentSet(
+                    ref templates,
+                    ref areaMetadata.templates,
+                    view.GameObject,
+                    fullObjectName
+                );
             }
         }
 
@@ -104,5 +110,7 @@ namespace Appalachia.Prototype.KOC.Areas
         #endregion
     }
 }
+
+#endif
 
 #endif

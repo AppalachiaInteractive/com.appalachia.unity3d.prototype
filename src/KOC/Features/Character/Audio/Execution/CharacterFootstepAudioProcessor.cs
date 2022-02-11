@@ -5,6 +5,7 @@ using Appalachia.Audio.Contextual.Context.Contexts;
 using Appalachia.Audio.Core;
 using Appalachia.Audio.Scriptables;
 using Appalachia.Prototype.KOC.Features.Character.Audio.Sounds;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 #endregion
@@ -17,12 +18,12 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
     {
         #region Fields and Autoproperties
 
-        [Tooltip("Amount of attenuation when walking on flat ground opposed to rocky terrain")]
-        [Range(0, 1)]
+        [PropertyTooltip("Amount of attenuation when walking on flat ground opposed to rocky terrain")]
+        [PropertyRange(0, 1)]
         public float footstepElevationAttenuation = 0.5f;
 
-        [Tooltip("Amount of attenuation when walking opposed to running")]
-        [Range(0, 1)]
+        [PropertyTooltip("Amount of attenuation when walking opposed to running")]
+        [PropertyRange(0, 1)]
         public float footstepSpeedAttenuation = 0.5f;
 
         #endregion

@@ -111,7 +111,7 @@ namespace Appalachia.Prototype.KOC.Components.Controls
                 var targetName = action.ToFormattedName();
                 var baseName = ZString.Format("{0} - {1}", nameof(OnScreenInputButton), targetName);
 
-                var uiStyle = LifetimeComponents.LifetimeMetadata.uiStyle;
+                var uiStyle = LifetimeComponentManager.lifetimeMetadata.uiStyle;
                 var fontStyle = uiStyle.onScreenButtonStyle.Font;
 
                 gameObject.name = baseName;

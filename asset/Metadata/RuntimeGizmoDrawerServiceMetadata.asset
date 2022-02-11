@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6da3009a7e74966953cdf87687fa149, type: 3}
+  m_Name: RuntimeGizmoDrawerServiceMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - RawImageCanvasComponentSetStyle
+    _resetToken: 
+  cameraData:
+    _initializer:
+      _tags:
+      - allowDynamicResolution
+      - allowHDR
+      - allowMSAA
+      - backgroundColor
+      - clearFlags
+      - cullingMask
+      - depth
+      - depthTextureMode
+      - farClipPlane
+      - fieldOfView
+      - focalLength
+      - forceIntoRenderTexture
+      - gateFit
+      - lensShift
+      - nearClipPlane
+      - opaqueSortMode
+      - orthographic
+      - orthographicSize
+      - rect
+      - renderingPath
+      - sensorSize
+      - showAdvanced
+      - transparencySortMode
+      - useOcclusionCulling
+      - usePhysicalProperties
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    clearFlags:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    backgroundColor:
+      _overriding: 0
+      _initial: {r: 0, g: 0, b: 0, a: 0}
+      _value: {r: 0, g: 0, b: 0, a: 0}
+    cullingMask:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    orthographic:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    orthographicSize:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    fieldOfView:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    usePhysicalProperties:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    focalLength:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    sensorSize:
+      _overriding: 0
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 0}
+    lensShift:
+      _overriding: 0
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 0}
+    gateFit:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    nearClipPlane:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    farClipPlane:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    rect:
+      _overriding: 0
+      _initial:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      _value:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+    depth:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    renderingPath:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    useOcclusionCulling:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    allowHDR:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    allowMSAA:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    allowDynamicResolution:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    showAdvanced:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    forceIntoRenderTexture:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    depthTextureMode:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    opaqueSortMode:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    transparencySortMode:
+      _overriding: 0
+      _initial: 0
+      _value: 0

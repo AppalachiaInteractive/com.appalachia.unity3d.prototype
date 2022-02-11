@@ -1,6 +1,6 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.UI.Controls.Sets.UnscaledCanvas;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,8 +15,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
     {
         #region Fields and Autoproperties
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Unscaled_Canvas, Expanded = false)]
-        protected RootCanvasComponentSetStyle unscaledCanvas;
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Unscaled_Canvas, Expanded = false)]
+        public UnscaledCanvasComponentSetData unscaledCanvas;
 
         #endregion
 
@@ -26,28 +26,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
             using (_PRF_Initialize.Auto())
             {
-                initializer.Do(
-                    this,
-                    APPASTR.Unscaled_View,
-                    unscaledCanvas == null,
-                    () =>
-                    {
-                        using (_PRF_Initialize.Auto())
-                        {
-                            unscaledCanvas =
-                                RootCanvasComponentSetStyle.LoadOrCreateNew<RootCanvasComponentSetStyle>(
-                                    $"Unscaled{nameof(RootCanvasComponentSetStyle)}",
-                                    ownerType: typeof(ApplicationManager)
-                                );
-                        }
-                    }
-                );
+#if UNITY_EDITOR
+                InitializeEditor(initializer);
+#endif
             }
         }
 
+        public UnscaledCanvasComponentSetData UnscaledCanvas => unscaledCanvas;
+        
         #region IDeveloperInterfaceMetadata Members
-
-        public RootCanvasComponentSetStyle UnscaledCanvas => unscaledCanvas;
 
         public override ApplicationArea Area => ApplicationArea.DeveloperInterface;
 

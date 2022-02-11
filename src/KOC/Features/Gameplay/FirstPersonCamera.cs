@@ -2,6 +2,7 @@ using Appalachia.Core.Simulation.Solvers;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Interpolation.Interpolators;
 using Appalachia.Utility.Interpolation.Modes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Features.Gameplay
@@ -12,15 +13,15 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
         #region Fields and Autoproperties
 
         [Space(9)]
-        [Range(0, 10)]
+        [PropertyRange(0, 10)]
         public float eyeHeight = 1.8f;
 
-        [Range(0, 10)] public float interpolationSpeed = 6f;
+        [PropertyRange(0, 10)] public float interpolationSpeed = 6f;
 
-        [Range(0, 10)] public float springDampening = 1.15f;
+        [PropertyRange(0, 10)] public float springDampening = 1.15f;
 
         [Space(9)]
-        [Range(0, 10)]
+        [PropertyRange(0, 10)]
         public float springMass = 2f;
 
         public Vector3 springCoefficients = new(0.3f, 0.45f, 0.3f);

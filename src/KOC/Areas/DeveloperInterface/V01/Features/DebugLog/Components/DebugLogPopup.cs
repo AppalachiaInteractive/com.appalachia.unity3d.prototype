@@ -4,6 +4,7 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLog.Settings;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Timing;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -268,7 +269,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
 
             while (modifier < 1f)
             {
-                modifier += 4f * Time.unscaledDeltaTime;
+                modifier += 4f * CoreClock.Instance.UnscaledDeltaTime;
                 popupTransform.anchoredPosition = Vector2.Lerp(initialPos, targetPos, modifier);
 
                 yield return null;

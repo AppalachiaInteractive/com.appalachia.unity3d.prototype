@@ -193,8 +193,6 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
         private static readonly ProfilerMarker _PRF_GetBestControl =
             new ProfilerMarker(_PRF_PFX + nameof(GetBestControl));
 
-        
-
         private static readonly ProfilerMarker _PRF_LogFailure =
             new ProfilerMarker(_PRF_PFX + nameof(LogFailure));
 

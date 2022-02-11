@@ -1,6 +1,7 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
+using Appalachia.Core.Objects.Sets;
 using Appalachia.UI.Controls.Sets.Canvas;
 using Appalachia.UI.Controls.Sets.RootCanvas;
 using Appalachia.Utility.Async;
@@ -19,27 +20,46 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Fields and Autoproperties
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Input, Expanded = false)]
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Input, Expanded = false)]
         public AreaMetadataConfigurations.AreaInputConfiguration input;
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Canvas, Expanded = false)]
-        public RootCanvasComponentSetStyle rootCanvas;
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP, Expanded = false)]
+        public RootCanvasComponentSetData rootCanvas;
 
         [FormerlySerializedAs("scaledView")]
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Scaled_View, Expanded = false)]
-        public CanvasComponentSetStyle view;
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP, Expanded = false)]
+        public CanvasComponentSetData view;
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Scene_Behaviour, Expanded = false)]
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration sceneBehaviour;
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Audio, Expanded = false)]
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Audio, Expanded = false)]
         public AreaMetadataConfigurations.AreaAudioConfiguration audio;
 
         #endregion
 
-        [FoldoutGroup(FOLDOUT_GROUP_), PropertyOrder(-100)]
+        [FoldoutGroup(FOLDOUT_GROUP), PropertyOrder(-100)]
         [ShowInInspector, ReadOnly]
         public abstract AreaVersion Version { get; }
+
+        public void UpdateComponentSet<TSet, TSetMetadata>(
+            ref TSetMetadata data,
+            ref TSet target,
+            GameObject parent,
+            string setName)
+            where TSet : ComponentSet<TSet, TSetMetadata>, new()
+            where TSetMetadata : ComponentSetData<TSet, TSetMetadata>
+        {
+            using (_PRF_UpdateComponentSet.Auto())
+            {
+                ComponentSetData<TSet, TSetMetadata>.UpdateComponentSet(
+                    ref data,
+                    ref target,
+                    parent,
+                    setName
+                );
+            }
+        }
 
         protected override async AppaTask Initialize(Initializer initializer)
         {
@@ -68,39 +88,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     }
                 }
             );
-
-            initializer.Do(
-                this,
-                APPASTR.Root_Canvas,
-                rootCanvas == null,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        rootCanvas = RootCanvasComponentSetStyle.LoadOrCreateNew<RootCanvasComponentSetStyle>(
-                            nameof(RootCanvasComponentSetStyle),
-                            ownerType: typeof(ApplicationManager)
-                        );
-                    }
-                }
-            );
-
-            initializer.Do(
-                this,
-                APPASTR.Scaled_View,
-                view == null,
-                () =>
-                {
-                    using (_PRF_Initialize.Auto())
-                    {
-                        view = CanvasComponentSetStyle.LoadOrCreateNew<CanvasComponentSetStyle>(
-                            $"Scaled{nameof(CanvasComponentSetStyle)}",
-                            ownerType: typeof(ApplicationManager)
-                        );
-                    }
-                }
-            );
-
+            
             initializer.Do(
                 this,
                 APPASTR.Scene_Behaviour,
@@ -142,11 +130,11 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #region IAreaMetadata Members
 
-        public CanvasComponentSetStyle ScaledView => view;
+        public CanvasComponentSetData View => view;
 
         public AreaMetadataConfigurations.AreaInputConfiguration Input => input;
 
-        public RootCanvasComponentSetStyle RootCanvas => rootCanvas;
+        public RootCanvasComponentSetData RootCanvas => rootCanvas;
 
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour => sceneBehaviour;
         public AreaMetadataConfigurations.AreaAudioConfiguration Audio => audio;
@@ -159,6 +147,9 @@ namespace Appalachia.Prototype.KOC.Areas
 
         private static readonly ProfilerMarker _PRF_GetManager =
             new ProfilerMarker(_PRF_PFX + nameof(GetManager));
+
+        private static readonly ProfilerMarker _PRF_UpdateComponentSet =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateComponentSet));
 
         #endregion
     }

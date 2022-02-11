@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3025b00061f423f8c131c60655b4997, type: 3}
+  m_Name: GizmoDrawerWidgetMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - RectTransformData
+    - CanvasComponentSetStyle
+    - BackgroundComponentSetStyle
+    - FontStyleOverride
+    - animationDuration
+    - RawImageCanvasComponentSetStyle
+    - RawImageComponentSetStyle
+    _resetToken: 
+  rectTransformData:
+    _owner: {fileID: 11400000}
+    _initializer:
+      _tags:
+      - anchorMin
+      - anchorMax
+      - anchoredPosition
+      - localScale
+      - offsetMin
+      - offsetMax
+      - pivot
+      _resetToken: 
+    anchorMin:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    anchorMax:
+      _overrideEnabled: 1
+      _value: {x: 1, y: 1}
+    anchoredPosition:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    localScale:
+      _overrideEnabled: 1
+      _value: {x: 1, y: 1, z: 1}
+    offsetMin:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    offsetMax:
+      _overrideEnabled: 1
+      _value: {x: 0, y: 0}
+    pivot:
+      _overrideEnabled: 1
+      _value: {x: 0.5, y: 0.5}
+  canvasStyle: {fileID: 11400000, guid: 4492de896d8da9a47a5d3dc2753cd107, type: 2}
+  backgroundStyle: {fileID: 11400000, guid: d74f2c8484fa0b54fad3fd78be98c6cb, type: 2}
+  fontStyle: {fileID: 11400000, guid: 744580a595af0d8458a40e02bcc271b1, type: 2}
+  transitionsWithFade: 0
+  animationDuration: 0.2
+  rawImageSet: {fileID: 11400000, guid: 9ccf492b01752b14e8d87bac734a3042, type: 2}

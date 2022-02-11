@@ -20,19 +20,19 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
     {
         #region Fields and Autoproperties
 
-        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(OnChanged)), SmartLabelChildren, SmartLabel]
         private OverridableColor _spriteColor;
 
-        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(OnChanged)), SmartLabelChildren, SmartLabel]
         private OverridableColor _textColor;
 
-        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(OnChanged)), SmartLabelChildren, SmartLabel]
         private OverridableFontStyleOverride _font;
 
-        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(OnChanged)), SmartLabelChildren, SmartLabel]
         private OverridableOnScreenButtonSpriteStyle _spriteStyle;
 
-        [SerializeField, OnValueChanged(nameof(InvokeSettingsChanged)), SmartLabelChildren, SmartLabel]
+        [SerializeField, OnValueChanged(nameof(OnChanged)), SmartLabelChildren, SmartLabel]
         private OverridableOnScreenButtonTextStyle _textStyle;
 
         #endregion
@@ -41,29 +41,29 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         {
             using (_PRF_SyncWithDefault.Auto())
             {
-                if (!_spriteColor.overrideEnabled)
+                if (!_spriteColor.Overriding)
                 {
-                    _spriteColor.value = Defaults.SpriteColor;
+                    _spriteColor.Value = Defaults.SpriteColor;
                 }
 
-                if (!_textColor.overrideEnabled)
+                if (!_textColor.Overriding)
                 {
-                    _textColor.value = Defaults.TextColor;
+                    _textColor.Value = Defaults.TextColor;
                 }
 
-                if (!_font.overrideEnabled)
+                if (!_font.Overriding)
                 {
-                    _font.value = Defaults.Font;
+                    _font.Value = Defaults.Font;
                 }
 
-                if (!_spriteStyle.overrideEnabled)
+                if (!_spriteStyle.Overriding)
                 {
-                    _spriteStyle.value = Defaults.SpriteStyle;
+                    _spriteStyle.Value = Defaults.SpriteStyle;
                 }
 
-                if (!_textStyle.overrideEnabled)
+                if (!_textStyle.Overriding)
                 {
-                    _textStyle.value = Defaults.TextStyle;
+                    _textStyle.Value = Defaults.TextStyle;
                 }
             }
         }
@@ -72,11 +72,11 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         {
             using (_PRF_RegisterOverrideSubscriptions.Auto())
             {
-                _spriteColor.OverridableChanged += _ => InvokeSettingsChanged();
-                _textColor.OverridableChanged += _ => InvokeSettingsChanged();
-                _font.OverridableChanged += _ => InvokeSettingsChanged();
-                _spriteStyle.OverridableChanged += _ => InvokeSettingsChanged();
-                _textStyle.OverridableChanged += _ => InvokeSettingsChanged();
+                _spriteColor.Changed.Event += OnChanged;
+                _textColor.Changed.Event += OnChanged;
+                _font.Changed.Event += OnChanged;
+                _spriteStyle.Changed.Event += OnChanged;
+                _textStyle.Changed.Event += OnChanged;
             }
         }
 

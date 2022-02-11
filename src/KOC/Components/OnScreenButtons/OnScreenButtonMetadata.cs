@@ -19,9 +19,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
     {
         static OnScreenButtonMetadata()
         {
-            RegisterDependency<StyleElementDefaultLookup>(
-                i => _styleElementDefaultLookup = i
-            );
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
         }
 
         #region Static Fields and Autoproperties
@@ -123,14 +121,11 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 
         #region Profiling
 
-
-        
+        private static readonly ProfilerMarker _PRF_ApplyImage =
+            new ProfilerMarker(_PRF_PFX + nameof(ApplyImage));
 
         private static readonly ProfilerMarker _PRF_ApplyText =
             new ProfilerMarker(_PRF_PFX + nameof(ApplyText));
-
-        private static readonly ProfilerMarker _PRF_ApplyImage =
-            new ProfilerMarker(_PRF_PFX + nameof(ApplyImage));
 
         #endregion
     }

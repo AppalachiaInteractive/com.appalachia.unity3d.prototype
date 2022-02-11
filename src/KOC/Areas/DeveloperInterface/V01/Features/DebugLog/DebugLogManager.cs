@@ -79,7 +79,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
         {
             using (_PRF_LateUpdate.Auto())
             {
-                if (ShouldSkipUpdate || !FullyInitialized || !references.popupManager.FullyInitialized)
+                if (ShouldSkipUpdate || !references.popupManager.FullyInitialized)
                 {
                     return;
                 }

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.UI.Controls.Sets.DesignTemplate;
@@ -10,8 +11,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
     {
         #region Fields and Autoproperties
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates, Expanded = false)]
-        public DesignTemplateComponentSetStyle unscaledTemplates;
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
+        public DesignTemplateComponentSetData unscaledTemplates;
 
         #endregion
 
@@ -20,28 +21,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
             using (_PRF_InitializeEditor.Auto())
             {
                 base.InitializeEditor(initializer);
-
-                initializer.Do(
-                    this,
-                    APPASTR.Unscaled_Templates,
-                    unscaledTemplates == null,
-                    () =>
-                    {
-                        using (_PRF_Initialize.Auto())
-                        {
-                            unscaledTemplates = LoadOrCreateNew<DesignTemplateComponentSetStyle>(
-                                $"{Area}Unscaled{nameof(DesignTemplateComponentSetStyle)}"
-                            );
-                        }
-                    }
-                );
             }
         }
 
         #region IDeveloperInterfaceMetadata Members
 
-        public DesignTemplateComponentSetStyle UnscaledTemplates => unscaledTemplates;
+        public DesignTemplateComponentSetData UnscaledTemplates => unscaledTemplates;
 
         #endregion
     }
 }
+
+#endif

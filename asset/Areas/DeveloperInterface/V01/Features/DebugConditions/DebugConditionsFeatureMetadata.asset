@@ -17,4 +17,6 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  startsEnabled: 0
+  startsVisible: 0
   defaultPackets: []

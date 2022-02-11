@@ -1,6 +1,7 @@
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Features.Character;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Timing;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -26,24 +27,27 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
 
         protected void Update()
         {
-            if (ShouldSkipUpdate)
+            using (_PRF_Update.Auto())
             {
-                return;
-            }
+                if (ShouldSkipUpdate)
+                {
+                    return;
+                }
 
-            var t = transform;
+                var t = transform;
 
-            //BOTDPlayerInput.Update(out var input);
+                //BOTDPlayerInput.Update(out var input);
 
-            //if (input.move.y < 0f)
-            //{
-            //    input.look.y = -input.look.y;
-            //}
+                //if (input.move.y < 0f)
+                //{
+                //    input.look.y = -input.look.y;
+                //}
 
-            /*if (playerCharacter)
+                /*if (playerCharacter)
             {
                 playerCharacter.Simulate(characterController, input);
             }*/
+            }
         }
 
         protected void LateUpdate()
@@ -63,7 +67,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
                 var t = transform;
                 var position = t.localPosition;
                 var rotation = t.localEulerAngles;
-                var deltaTime = Time.deltaTime;
+                var deltaTime = CoreClock.Instance.DeltaTime;
 
                 playerCamera.Simulate(position, rotation, deltaTime);
             }

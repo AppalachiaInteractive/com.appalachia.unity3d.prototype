@@ -13,8 +13,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
     {
         static RuntimeGraphInstanceMonitor()
         {
-            RuntimeGraphInstanceManager<TGraph, TManager, TMonitor, TText, TSettings>.InstanceAvailable +=
-                i => manager = i;
+            When.Behaviour<TManager>().IsAvailableThen(i => manager = i);
         }
 
         #region Static Fields and Autoproperties

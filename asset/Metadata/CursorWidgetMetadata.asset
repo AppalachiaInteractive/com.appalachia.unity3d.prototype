@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7e5525a0e7404eb4e7d6aaefbe8101, type: 3}
+  m_Name: CursorWidgetMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - FontStyleOverride
+    - animationDuration
+    _resetToken: 
+  rectTransform:
+    _overriding: 0
+    _initial:
+      _initializer:
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - _pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 0}
+      disableUpdatesForRootCanvas: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        _overriding: 1
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      _pivot: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+    _value:
+      _initializer:
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - _pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 0}
+      disableUpdatesForRootCanvas: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        _overriding: 1
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      _pivot: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+  canvas:
+    _overriding: 0
+    _initial: {fileID: 0}
+    _value: {fileID: 0}
+  background:
+    _overriding: 0
+    _initial: {fileID: 0}
+    _value: {fileID: 0}
+  roundedBackground:
+    _overriding: 0
+    _initial: {fileID: 0}
+    _value: {fileID: 0}
+  fontStyle: {fileID: 11400000, guid: 9cbaf22259afff24fb92806b4a2926dc, type: 2}
+  transitionsWithFade: 0
+  animationDuration: 0.2
+  simpleCursorSet: {fileID: 0}
+  complexCursorSet: {fileID: 0}

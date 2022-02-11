@@ -1,6 +1,7 @@
 ﻿using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Instance;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Timing;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -96,7 +97,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
                         else
                         {
                             SpectrumHighestValues[i] = Mathf.Clamp(
-                                SpectrumHighestValues[i] - (SpectrumHighestValues[i] * Time.deltaTime * 2),
+                                SpectrumHighestValues[i] -
+                                (SpectrumHighestValues[i] * CoreClock.Instance.DeltaTime * 2),
                                 0,
                                 1
                             );

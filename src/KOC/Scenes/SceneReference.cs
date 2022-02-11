@@ -33,13 +33,6 @@ namespace Appalachia.Prototype.KOC.Scenes
             elements.SetSerializationOwner(this);
         }
 
-        #region Profiling
-
-
-        
-
-        #endregion
-
 #if UNITY_EDITOR
 
         private static readonly ProfilerMarker _PRF_IsDataValid =

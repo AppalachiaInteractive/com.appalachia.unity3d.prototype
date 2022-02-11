@@ -1,4 +1,5 @@
 ﻿using Appalachia.Core.Objects.Root;
+using Appalachia.Utility.Timing;
 using UnityEngine;
 using UnityEngine.Scripting;
 
@@ -6,18 +7,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 {
     public class TimeCommands : AppalachiaSimpleBase
     {
-        [DeveloperConsole("time.scale", "Returns the current Time.timeScale value")]
+        [DeveloperConsole("time.scale", "Returns the current CoreClock.Instance.TimeScale value")]
         [Preserve]
         public static float GetTimeScale()
         {
-            return Time.timeScale;
+            return CoreClock.Instance.TimeScale;
         }
 
-        [DeveloperConsole("time.scale", "Sets the Time.timeScale value")]
+        [DeveloperConsole("time.scale", "Sets the CoreClock.Instance.TimeScale value")]
         [Preserve]
         public static void SetTimeScale(float value)
         {
-            Time.timeScale = Mathf.Max(value, 0f);
+            CoreClock.Instance.TimeScale = Mathf.Max(value, 0f);
         }
     }
 }

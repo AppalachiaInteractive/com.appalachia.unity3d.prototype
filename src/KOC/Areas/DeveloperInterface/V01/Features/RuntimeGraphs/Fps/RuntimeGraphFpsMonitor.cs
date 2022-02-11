@@ -1,5 +1,6 @@
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Instance;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings;
+using Appalachia.Utility.Timing;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -41,7 +42,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
                     return;
                 }
 
-                UpdateCurrentFPS(Time.unscaledDeltaTime);
+                UpdateCurrentFPS(CoreClock.Instance.UnscaledDeltaTime);
 
                 CalculateFPSTimings();
             }

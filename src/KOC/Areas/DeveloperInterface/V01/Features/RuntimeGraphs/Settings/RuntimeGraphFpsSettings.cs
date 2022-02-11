@@ -1,5 +1,6 @@
 using System;
 using Appalachia.CI.Integration.Attributes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings
@@ -14,8 +15,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         public Color cautionFpsColor;
         public int cautionFpsThreshold;
         public Color criticalFpsColor;
-        [Range(10, 300)] public int graphResolution;
-        [Range(1,  200)] public int textUpdateRate;
+        [PropertyRange(10, 300)] public int graphResolution;
+        [PropertyRange(1,  200)] public int textUpdateRate;
 
         #endregion
 

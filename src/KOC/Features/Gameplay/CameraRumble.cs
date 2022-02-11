@@ -1,6 +1,7 @@
 using System;
 using Appalachia.Prototype.KOC.Behaviours;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Timing;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Features.Gameplay
@@ -37,7 +38,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
 
         private void LateUpdate()
         {
-            _time += Time.deltaTime;
+            _time += CoreClock.Instance.DeltaTime;
 
             var position = Rumble(_time, outerDisplacement, innerDisplacement);
             var rotation = Quaternion.LookRotation(

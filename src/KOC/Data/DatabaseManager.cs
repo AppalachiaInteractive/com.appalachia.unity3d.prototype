@@ -17,8 +17,6 @@ namespace Appalachia.Prototype.KOC.Data
     {
         static DatabaseManager()
         {
-            
-
             RegisterDependency<DatabaseConfiguration>(i => _databaseConfiguration = i);
         }
 

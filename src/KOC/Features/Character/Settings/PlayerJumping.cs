@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics;
 using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Features.Character.Settings
 {
@@ -11,15 +10,15 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
         #region Fields and Autoproperties
 
         [PropertyRange(0f, 20f)]
-        [Tooltip("[0, 20]")]
+        [PropertyTooltip("[0, 20]")]
         public float dampSpeed;
 
         [PropertyRange(0f, 10f)]
-        [Tooltip("[0, 10]")]
+        [PropertyTooltip("[0, 10]")]
         public float force;
 
         [PropertyRange(0f, 10f)]
-        [Tooltip("[0, 10]")]
+        [PropertyTooltip("[0, 10]")]
         public float gravityFactor;
 
         #endregion

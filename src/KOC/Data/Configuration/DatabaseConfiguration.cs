@@ -213,8 +213,6 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         #region Profiling
 
-        
-
         private static readonly ProfilerMarker _PRF_ConfigureDeveloperDefaultsInternal =
             new ProfilerMarker(_PRF_PFX + nameof(ConfigureDefaultsInternal));
 

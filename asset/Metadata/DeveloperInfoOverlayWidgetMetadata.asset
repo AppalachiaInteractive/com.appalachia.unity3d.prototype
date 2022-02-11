@@ -1,0 +1,419 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbabdc18fe7d42bf84b53419d7be02cc, type: 3}
+  m_Name: DeveloperInfoOverlayWidgetMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - RectTransformData
+    - CanvasComponentSetStyle
+    - BackgroundComponentSetStyle
+    - FontStyleOverride
+    - animationDuration
+    - settings
+    - types
+    - headerImage
+    - layoutData
+    - textSettings
+    - roundedBackgroundStyle
+    - canvas
+    - background
+    - roundedBackground
+    - rectTransform
+    - verticalLayoutGroupData
+    - headerLayout
+    _resetToken: 
+  rectTransform:
+    _overriding: 1
+    _initial:
+      _initializer:
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - _pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 0}
+      disableUpdatesForRootCanvas: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        _overriding: 1
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      _pivot: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+    _value:
+      _initializer:
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - _pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 0}
+      disableUpdatesForRootCanvas: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: -0
+      _bottom: 0
+      _height: -0
+      anchorMin:
+        _overriding: 1
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0.4}
+      anchorMax:
+        _overriding: 1
+        _initial: {x: 1, y: 1}
+        _value: {x: 0.24, y: 1}
+      _pivot: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+  canvas:
+    _overriding: 1
+    _initial: {fileID: 11400000, guid: 512e47effaeb80f4a81e8f8d82078232, type: 2}
+    _value: {fileID: 11400000, guid: 512e47effaeb80f4a81e8f8d82078232, type: 2}
+  background:
+    _overriding: 0
+    _initial: {fileID: 11400000, guid: 29f5d4aef775f2d468b6998b14fabdc1, type: 2}
+    _value: {fileID: 11400000, guid: 29f5d4aef775f2d468b6998b14fabdc1, type: 2}
+  roundedBackground:
+    _overriding: 1
+    _initial: {fileID: 11400000, guid: 5ec2bd47785b5b742ae983a909eb971b, type: 2}
+    _value: {fileID: 11400000, guid: 5ec2bd47785b5b742ae983a909eb971b, type: 2}
+  fontStyle: {fileID: 11400000, guid: a287b78bb38ee1041a65ea7fa650d892, type: 2}
+  transitionsWithFade: 0
+  animationDuration: 0.2
+  inUnscaledView: 0
+  headerImage:
+    _initializer:
+      _tags:
+      - material
+      - color
+      - raycastTarget
+      - maskable
+      - sprite
+      - imageType
+      - preserveAspect
+      - fillCenter
+      - fillMethod
+      - fillAmount
+      - fillClockwise
+      - fillOrigin
+      - alphaHitTestMinimumThreshold
+      - useSpriteMesh
+      - pixelsPerUnitMultiplier
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    material:
+      _overriding: 0
+      _initial: {fileID: 0}
+      _value: {fileID: 0}
+    color:
+      _overriding: 1
+      _initial: {r: 0, g: 0, b: 0, a: 0}
+      _value: {r: 1, g: 1, b: 1, a: 1}
+    raycastTarget:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    maskable:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    sprite:
+      _overriding: 1
+      _initial: {fileID: 0}
+      _value: {fileID: 21300000, guid: 8cd1599c255aee441a1ab9728851c673, type: 3}
+    imageType:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    preserveAspect:
+      _overriding: 1
+      _initial: 0
+      _value: 1
+    fillCenter:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    fillMethod:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    fillAmount:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    fillClockwise:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    fillOrigin:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    alphaHitTestMinimumThreshold:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    useSpriteMesh:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    pixelsPerUnitMultiplier:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+  headerLayout:
+    _initializer:
+      _tags:
+      - ignoreLayout
+      - minWidth
+      - minHeight
+      - preferredWidth
+      - preferredHeight
+      - flexibleWidth
+      - flexibleHeight
+      - layoutPriority
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    ignoreLayout:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    minWidth:
+      _overriding: 0
+      _initial: -1
+      _value: -1
+    minHeight:
+      _overriding: 1
+      _initial: -1
+      _value: 100
+    preferredWidth:
+      _overriding: 0
+      _initial: -1
+      _value: -1
+    preferredHeight:
+      _overriding: 0
+      _initial: -1
+      _value: -1
+    flexibleWidth:
+      _overriding: 0
+      _initial: -1
+      _value: -1
+    flexibleHeight:
+      _overriding: 0
+      _initial: -1
+      _value: -1
+    layoutPriority:
+      _overriding: 0
+      _initial: 1
+      _value: 1
+  types: 6e000000ca000000c9000000cf000000ce000000c8000000910100009001000058020000f4010000be020000bd020000bc02000020030000
+  textSettings:
+    _initializer:
+      _tags:
+      - createLabel
+      - createLayoutElement
+      - updateName
+      - labelPadding
+      - labelWidth
+      - minHeight
+      - font
+      - labelFont
+      - initialCalculation
+      - updateTiming
+      - IgnoreLayout
+      - MinWidth
+      - MinHeight
+      - PreferredWidth
+      - PreferredHeight
+      - FlexibleWidth
+      - FlexibleHeight
+      - LayoutPriority
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    updateName: 1
+    createLayoutElement: 1
+    font: {fileID: 11400000, guid: 72ae4525196855b488e31eb6179b536a, type: 2}
+    createLabel: 1
+    labelFont: {fileID: 11400000, guid: 88386760b658177409a57f730f12e510, type: 2}
+    labelWidth: 0.33
+    labelPadding: 0.05
+    initialCalculation: 801
+    updateTiming:
+      minimumFrames: 1
+      maximumFrames: 300
+      minimumMilliseconds: 16
+      maximumMilliseconds: 10000
+      updateType: 0
+      frames: 60
+      milliseconds: 5000
+    layoutElementData:
+      _initializer:
+        _tags:
+        - ignoreLayout
+        - minWidth
+        - minHeight
+        - preferredWidth
+        - preferredHeight
+        - flexibleWidth
+        - flexibleHeight
+        - layoutPriority
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      ignoreLayout:
+        _overriding: 1
+        _initial: 0
+        _value: 0
+      minWidth:
+        _overriding: 0
+        _initial: 0
+        _value: -1
+      minHeight:
+        _overriding: 1
+        _initial: 0
+        _value: 30
+      preferredWidth:
+        _overriding: 0
+        _initial: 0
+        _value: 0
+      preferredHeight:
+        _overriding: 0
+        _initial: 0
+        _value: 0
+      flexibleWidth:
+        _overriding: 0
+        _initial: 0
+        _value: 0
+      flexibleHeight:
+        _overriding: 0
+        _initial: 0
+        _value: 0
+      layoutPriority:
+        _overriding: 0
+        _initial: 0
+        _value: 0
+  verticalLayoutGroupData:
+    _initializer:
+      _tags:
+      - padding
+      - childAlignment
+      - childControlHeight
+      - childControlWidth
+      - childForceExpandHeight
+      - childForceExpandWidth
+      - childScaleHeight
+      - childScaleWidth
+      - reverseArrangement
+      - spacing
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    padding:
+      _overriding: 1
+      _initial:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      _value:
+        m_Left: 20
+        m_Right: 20
+        m_Top: 20
+        m_Bottom: 20
+    spacing:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    childAlignment:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    reverseArrangement:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    childControlWidth:
+      _overriding: 1
+      _initial: 0
+      _value: 1
+    childControlHeight:
+      _overriding: 1
+      _initial: 0
+      _value: 1
+    childScaleWidth:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    childScaleHeight:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    childForceExpandWidth:
+      _overriding: 1
+      _initial: 0
+      _value: 1
+    childForceExpandHeight:
+      _overriding: 0
+      _initial: 0
+      _value: 0

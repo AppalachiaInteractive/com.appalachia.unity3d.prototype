@@ -24,7 +24,6 @@ namespace Appalachia.Prototype.KOC.Scenes
         public event BootloadSceneEventHandler OnActivateStarted;
         public event BootloadSceneEventHandler OnLoadComplete;
         public event BootloadSceneEventHandler OnLoadFailed;
-
         public event BootloadSceneEventHandler OnLoadStarted;
         public event BootloadSceneEventHandler OnRemoveComplete;
         public event BootloadSceneEventHandler OnRemoveFailed;

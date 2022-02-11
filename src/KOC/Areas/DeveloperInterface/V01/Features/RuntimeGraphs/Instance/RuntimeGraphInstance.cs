@@ -1,6 +1,4 @@
-﻿using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings;
-using Appalachia.Utility.Async;
+﻿using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Instance
@@ -17,8 +15,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         static RuntimeGraphInstance()
         {
             RegisterDependency<TMonitor>(i => monitor = i);
-            RuntimeGraphInstanceManager<TGraph, TManager, TMonitor, TText, TSettings>.InstanceAvailable +=
-                i => manager = i;
+
+            When.Behaviour(instance)
+                .AndBehaviour<RuntimeGraphManager>()
+                .AndBehaviour<TManager>()
+                .AreAvailableThen(
+                     (thisInstance, graphManager, instanceManager) =>
+                     {
+                         manager = instanceManager;
+
+                         thisInstance.CreatePoints();
+                     }
+                 );
         }
 
         #region Static Fields and Autoproperties
@@ -61,17 +69,5 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         ///     Updates the graph/s.
         /// </summary>
         protected abstract void UpdateGraph();
-
-        protected override void AfterInitialization()
-        {
-            base.AfterInitialization();
-
-            RuntimeGraphManager.InstanceAvailable += _ => { CreatePoints(); };
-        }
-
-        protected override async AppaTask Initialize(Initializer initializer)
-        {
-            await base.Initialize(initializer);
-        }
     }
 }

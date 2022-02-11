@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 1691b5d88233dec41ba73fd4e1fd1c44
   m_SerializeEntries:
   - m_GUID: 37a5c4d08188dde47beb86ae88a3cdca
-    m_Address: DeveloperInterfaceCommandSuggestionsWidgetMetadata
+    m_Address: CommandSuggestionsWidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 252178a6681d3cd438ccf571bae0e488
@@ -26,7 +26,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: fc885850e6480664ab48225b2cecce58
-    m_Address: DebugOverlayInfoFeatureMetadata
+    m_Address: DeveloperInfoFeatureMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: e8f1f16992f31164987a90492ec99dc3
@@ -34,7 +34,103 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: b73d8889b9f9cfa4499ae705cccd4788
-    m_Address: CanvasScalingServiceMetadata
+    m_Address: ViewScalingServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4785e27e5788bda468868f973770d42f
+    m_Address: RectVisualizerFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4161605ec9480a7449a5ebc245373126
+    m_Address: RuntimeGizmoDrawerServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bb68e04829d76fc4d8adf018ddd4ecb5
+    m_Address: GizmoDrawerWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29240d01388e27a49acc59fb524e4292
+    m_Address: ViewScalingFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e2b4aa19b9b9e4a44967e9690014f53e
+    m_Address: RuntimeGizmoDrawerFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: adcad978b021cea418c15341c351ebf3
+    m_Address: RuntimeGizmoDrawerWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 915d373a73518fd479b0207e1f9acb61
+    m_Address: StatusBarFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0ec6a5b0dcf353b4fb659f0ffe1fc414
+    m_Address: SideBarFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c7625f75b8bd9be48ae4b59df0f08638
+    m_Address: ScreenshotFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 74043c3db07ff2f4c8fae365d43cb02a
+    m_Address: ScreenshotWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fcead93aa01cf9a4bbf87a36b4e5d2e4
+    m_Address: RectVisualizerServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7fdc40adaea51974d848b8b4762c6e07
+    m_Address: PanelFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b2876999fa6e34e449a0c92c06383ce1
+    m_Address: MenuBarFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 385ba49763e474e4ab50b517fbd79efa
+    m_Address: GameAreaFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 31114cbeb9dde0c43b52e9652199eef3
+    m_Address: CommandPaletteFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d4eaaffcc7d66c74e82925600801d360
+    m_Address: ActivityBarFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7195ddbea67776f40b08d4f8a5a3a447
+    m_Address: RectVisualizerWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ffde549871d3ab54cb1ee3714e28599e
+    m_Address: DateTimePickerMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f6da464bc5b70044b8381f214a1dd74f
+    m_Address: DeveloperInfoProviderFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 698e0e1f4e6fdb14090a3915791d5e6b
+    m_Address: DeveloperInfoProviderServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 86c1ff64729131a4ba9f1ca1206cb98f
+    m_Address: DeveloperInfoOverlayWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8c74ba36653d3a64db308cf73f1a9315
+    m_Address: CursorServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4a39283f7cb0cea409a27a6eb2047ca6
+    m_Address: CursorFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b02447a89cdf5684fa489b3a70733f26
+    m_Address: CursorWidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

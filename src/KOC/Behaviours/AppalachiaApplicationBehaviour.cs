@@ -1,5 +1,5 @@
 using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Components;
+using Appalachia.Prototype.KOC.Lifetime;
 using Appalachia.UI.Core.Styling;
 
 namespace Appalachia.Prototype.KOC.Behaviours
@@ -10,22 +10,19 @@ namespace Appalachia.Prototype.KOC.Behaviours
         static AppalachiaApplicationBehaviour()
         {
             RegisterDependency<LifetimeComponentManager>(i => _lifetimeComponentManager = i);
-            RegisterDependency<StyleElementDefaultLookup>(
-                i => _styleElementDefaultLookup = i
-            );
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
         }
 
         #region Static Fields and Autoproperties
 
-        private static StyleElementDefaultLookup _styleElementDefaultLookup;
-
         private static LifetimeComponentManager _lifetimeComponentManager;
+
+        private static StyleElementDefaultLookup _styleElementDefaultLookup;
 
         #endregion
 
-        protected static StyleElementDefaultLookup StyleElementDefaultLookup => _styleElementDefaultLookup;
-
         protected static LifetimeComponentManager LifetimeComponentManager => _lifetimeComponentManager;
-        protected static LifetimeComponents LifetimeComponents => _lifetimeComponentManager.Components;
+
+        protected static StyleElementDefaultLookup StyleElementDefaultLookup => _styleElementDefaultLookup;
     }
 }

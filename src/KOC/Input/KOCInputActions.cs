@@ -229,9 +229,9 @@ namespace Appalachia.Prototype.KOC.Input
                 Action disable,
                 string name)
             {
-                if (mapState.overrideEnabled)
+                if (mapState.Overriding)
                 {
-                    if (mapState.value)
+                    if (mapState.Value)
                     {
                         if (!isEnabled)
                         {

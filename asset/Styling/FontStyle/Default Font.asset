@@ -36,6 +36,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3f401c7c5f41d54c9fd654ce2f3a9d0, type: 2}
   - {fileID: 11400000, guid: d4f9d7349831470468c1d10be62812ec, type: 2}
   - {fileID: 11400000, guid: a0732a892b7118f43880fd81f2db3531, type: 2}
+  - {fileID: 11400000, guid: 744580a595af0d8458a40e02bcc271b1, type: 2}
+  - {fileID: 11400000, guid: 4e6444ba699bd5843b1219a21844bba1, type: 2}
+  - {fileID: 11400000, guid: 494b96ea2df77f24fb69ce4cae6686e3, type: 2}
+  - {fileID: 11400000, guid: f40bbf84d0b35ca449b39cf32ec20750, type: 2}
+  - {fileID: 11400000, guid: 72ae4525196855b488e31eb6179b536a, type: 2}
+  - {fileID: 11400000, guid: 88386760b658177409a57f730f12e510, type: 2}
+  - {fileID: 11400000, guid: 6a32150c20e8e3e4e996da62340b210f, type: 2}
+  - {fileID: 11400000, guid: e3030a7d77d375a4ea3a645c82f9d3a2, type: 2}
+  - {fileID: 11400000, guid: 4840e6d56bc362949a54081d13ed40a5, type: 2}
+  - {fileID: 11400000, guid: af43b0c82d1fc7449a3d91ed8433e310, type: 2}
+  - {fileID: 11400000, guid: a287b78bb38ee1041a65ea7fa650d892, type: 2}
+  - {fileID: 11400000, guid: 9cbaf22259afff24fb92806b4a2926dc, type: 2}
   _font: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
   _autoSize: 0
   _fontSize: 16

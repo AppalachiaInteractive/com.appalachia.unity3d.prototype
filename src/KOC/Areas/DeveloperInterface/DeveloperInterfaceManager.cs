@@ -1,9 +1,7 @@
-using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Input;
-using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.UI.Controls.Sets.UnscaledCanvas;
 using Appalachia.Utility.Async;
-using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,9 +17,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
     {
         #region Fields and Autoproperties
 
-        [SerializeField]
-        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Unscaled_Canvas)]
-        protected RootCanvasComponentSet unscaledCanvas;
+        [SerializeField] protected UnscaledCanvasComponentSet unscaledCanvas;
 
         #endregion
 
@@ -31,9 +27,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
             using (_PRF_Initialize.Auto())
             {
-                areaMetadata.UnscaledCanvas.PrepareAndConfigure(ref unscaledCanvas, gameObject, "Unscaled");
+                UnscaledCanvasComponentSet.UpdateComponentSet(
+                    ref areaMetadata.unscaledCanvas,
+                    ref unscaledCanvas,
+                    gameObject,
+                    "Root Canvas Unscaled"
+                );
 
+#if UNITY_EDITOR
                 InitializeEditor(initializer, areaObjectName);
+#endif
             }
         }
 
@@ -68,7 +71,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         #region IDeveloperInterfaceManager Members
 
-        public RootCanvasComponentSet UnscaledCanvas => unscaledCanvas;
+        public UnscaledCanvasComponentSet UnscaledCanvas => unscaledCanvas;
 
         public override ApplicationArea Area => ApplicationArea.DeveloperInterface;
         public override ApplicationArea ParentArea => ApplicationArea.None;

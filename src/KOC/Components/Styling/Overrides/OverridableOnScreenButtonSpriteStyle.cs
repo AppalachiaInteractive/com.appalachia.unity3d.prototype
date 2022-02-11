@@ -1,5 +1,5 @@
 using System;
-using Appalachia.Core.Overrides;
+using Appalachia.Core.Objects.Models;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 
 namespace Appalachia.Prototype.KOC.Components.Styling.Overrides
@@ -9,8 +9,10 @@ namespace Appalachia.Prototype.KOC.Components.Styling.Overrides
         OverridableOnScreenButtonSpriteStyle : Overridable<OnScreenButtonSpriteStyle,
             OverridableOnScreenButtonSpriteStyle>
     {
-        public OverridableOnScreenButtonSpriteStyle(bool overrideEnabled, OnScreenButtonSpriteStyle value) :
-            base(overrideEnabled, value)
+        public OverridableOnScreenButtonSpriteStyle(bool overriding, OnScreenButtonSpriteStyle value) : base(
+            overriding,
+            value
+        )
         {
         }
 

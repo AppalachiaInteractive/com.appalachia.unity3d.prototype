@@ -22,13 +22,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         public Color audioGraphColor;
 
-        [Range(10, 300)] public int graphResolution;
-        [Range(1,  200)] public int textUpdateRate;
+        [PropertyRange(10, 300)] public int graphResolution;
+        [PropertyRange(1,  200)] public int textUpdateRate;
 
         public FFTWindow FFTWindow;
 
         [ValueDropdown(nameof(spectrumSizes))]
-        [Tooltip("Must be a power of 2 and between 64-8192")]
+        [PropertyTooltip("Must be a power of 2 and between 64-8192")]
         public int spectrumSize;
 
         #endregion

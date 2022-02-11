@@ -18,11 +18,23 @@ MonoBehaviour:
     _tags: []
     _resetToken: 
   treeLayer:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 0}
     layer: 0
   interactionLayer:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 0}
     layer: 0
   trunkCutColliderRadiusAdditive: 0.25
   logLayer:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 0}
     layer: 0
   woodMaterial: {fileID: 0}
   fruitMaterial: {fileID: 0}

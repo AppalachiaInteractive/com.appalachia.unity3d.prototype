@@ -18,13 +18,41 @@ MonoBehaviour:
     _tags:
     - scale
     - cursorColor
+    - size
+    - hotspot
+    - cursorColorChangeDuration
+    - maximumVelocityMagnitude
+    - drivenByAnimator
+    - smoothTime
+    - maxVelocity
+    - hoveringColor
+    - pressedColor
+    - disabledColor
+    - sprites
     _resetToken: 
-  modifyColor: 0
+  size: 120
+  hotspot: {x: 0.5, y: 0.5}
+  drivenByAnimator: 0
   cursorColorChangeDuration: 0.1
-  scale: 1
-  cursorColor: {r: 1, g: 1, b: 1, a: 1}
-  complexCursorValue: 0
-  prefab: {fileID: 4415010565590891293, guid: 6330fd764e8b23f4d81fcdc76019702b, type: 3}
+  cursorColor:
+    _overriding: 0
+    _initial: {r: 0, g: 0, b: 0, a: 0}
+    _value: {r: 0, g: 0, b: 0, a: 0}
+  hoveringColor:
+    _overriding: 0
+    _initial: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    _value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+  pressedColor:
+    _overriding: 0
+    _initial: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+    _value: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  disabledColor:
+    _overriding: 0
+    _initial: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
+    _value: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
   maximumVelocityMagnitude: 5000
   smoothTime: 0.13
   maxVelocity: 5000
+  value: 0
+  animatorController: {fileID: 0}
+  sprites: []

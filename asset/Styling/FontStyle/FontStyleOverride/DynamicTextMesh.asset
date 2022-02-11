@@ -18,35 +18,46 @@ MonoBehaviour:
     _tags: []
     _resetToken: 
   _font:
-    _overrideEnabled: 0
+    _overriding: 0
+    _initial: {fileID: 0}
     _value: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
   _fontSize:
-    _overrideEnabled: 1
+    _overriding: 1
+    _initial: 0
     _value: 16
   _autoSize:
-    _overrideEnabled: 0
+    _overriding: 0
+    _initial: 0
     _value: 0
   _fontRange:
-    _overrideEnabled: 0
+    _overriding: 0
+    _initial: {x: 0, y: 0}
     _value: {x: 8, y: 72}
   _fontWeight:
-    _overrideEnabled: 1
+    _overriding: 1
+    _initial: 400
     _value: 300
   _alignment:
-    _overrideEnabled: 0
+    _overriding: 0
+    _initial: 514
     _value: 4098
   _horizontalAlignment:
-    _overrideEnabled: 1
+    _overriding: 1
+    _initial: 2
     _value: 1
   _verticalAlignment:
-    _overrideEnabled: 0
+    _overriding: 0
+    _initial: 512
     _value: 512
   _color:
-    _overrideEnabled: 0
-    _value: {r: 0, g: 0, b: 0, a: 0}
+    _overriding: 0
+    _initial: {r: 0, g: 0, b: 0, a: 0}
+    _value: {r: 1, g: 1, b: 1, a: 1}
   _enableWordWrapping:
-    _overrideEnabled: 1
+    _overriding: 1
+    _initial: 0
     _value: 1
   _overflowMode:
-    _overrideEnabled: 0
+    _overriding: 0
+    _initial: 0
     _value: 0

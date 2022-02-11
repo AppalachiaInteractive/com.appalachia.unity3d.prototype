@@ -11,15 +11,15 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
         #region Fields and Autoproperties
 
         [PropertyRange(0, 10f)]
-        [Tooltip("[0, 10]")]
+        [PropertyTooltip("[0, 10]")]
         public float runStepDistance;
 
         [PropertyRange(0, 10f)]
-        [Tooltip("[0, 10]")]
+        [PropertyTooltip("[0, 10]")]
         public float stopSpeedThreshold;
 
         [PropertyRange(0, 10f)]
-        [Tooltip("[0, 10]")]
+        [PropertyTooltip("[0, 10]")]
         public float walkStepDistance;
 
         public LayerMask floorLayers;

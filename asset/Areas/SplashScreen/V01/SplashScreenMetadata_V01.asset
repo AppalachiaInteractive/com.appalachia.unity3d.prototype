@@ -44,65 +44,85 @@ MonoBehaviour:
   input:
     onDisableMapState:
       DeathMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       DeveloperInterface:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       GenericMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       InGameMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       LoadingScreen:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       MainMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       PauseMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       Player:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       SplashScreen:
-        _overrideEnabled: 1
+        _overriding: 1
+        _initial: 0
         _value: 0
       StartScreen:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
     onEnableMapState:
       DeathMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       DeveloperInterface:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       GenericMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       InGameMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       LoadingScreen:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       MainMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       PauseMenu:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       Player:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
       SplashScreen:
-        _overrideEnabled: 1
+        _overriding: 1
+        _initial: 0
         _value: 1
       StartScreen:
-        _overrideEnabled: 0
+        _overriding: 0
+        _initial: 0
         _value: 0
   rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
   view: {fileID: 11400000, guid: 3731b5a97e248bd4eba97f4b79f017d9, type: 2}
@@ -112,6 +132,6 @@ MonoBehaviour:
     mixerGroup: {fileID: -228110193480769040, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
   templates: {fileID: 11400000, guid: 2b03b6180222ac244b9b2c021ffcb6e0, type: 2}
   splashScreens:
-  - {fileID: 11400000, guid: a6d97d40c2cd1d14598c54cf611988fa, type: 2}
-  - {fileID: 11400000, guid: 8f6d46da78171e345bfde0761e3b0868, type: 2}
-  - {fileID: 11400000, guid: b1b89b90e53ed204296756ff5315a872, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

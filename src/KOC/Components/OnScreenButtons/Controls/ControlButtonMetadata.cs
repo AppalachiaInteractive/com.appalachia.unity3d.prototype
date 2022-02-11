@@ -44,11 +44,6 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls
             return images.GetSprite(spriteStyle);
         }
 
-        #region Profiling
-
-
-        #endregion
-
 #if UNITY_EDITOR
         [Button]
         private void FindSprites()
@@ -176,9 +171,9 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls
                 MarkAsModified();
             }
 
-            if (imageNameOverride.overrideEnabled && imageNameOverride.value.IsNotNullOrWhiteSpace())
+            if (imageNameOverride.Overriding && imageNameOverride.Value.IsNotNullOrWhiteSpace())
             {
-                results.Add(ZString.Format("{0}{1}", prefix, imageNameOverride.value));
+                results.Add(ZString.Format("{0}{1}", prefix, imageNameOverride.Value));
             }
 
             foreach (var field in fields)

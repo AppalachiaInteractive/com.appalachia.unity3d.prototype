@@ -65,7 +65,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
                 var prefab = settings.visuals.logItemPrefab;
                 var prefabComponent = prefab.GetComponent<DebugLogItem>();
 
-                recycledListView.Initialize(prefabComponent.Transform.sizeDelta.y);
+                recycledListView.Initialize(prefabComponent.RectTransform.sizeDelta.y);
 
                 recycledListView.UpdateItemsInTheList(true);
 

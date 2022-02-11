@@ -1,13 +1,10 @@
 using System;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Objects.Delegates;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling;
 using Appalachia.Prototype.KOC.Application.State;
 using Appalachia.Prototype.KOC.Areas;
 using Appalachia.Prototype.KOC.Behaviours;
-using Appalachia.Prototype.KOC.Components;
+using Appalachia.Prototype.KOC.Lifetime;
 using Appalachia.Prototype.KOC.Scenes;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
@@ -26,33 +23,25 @@ namespace Appalachia.Prototype.KOC
     {
         static ApplicationManager()
         {
+            Core.Objects.Root.AppalachiaRepository.PrimaryOwnerType = typeof(ApplicationManager);
+            
             RegisterDependency<MainAreaSceneInformationCollection>(
                 i => _mainAreaSceneInformationCollection = i
             );
 
             RegisterDependency<LifetimeComponentManager>(i => _lifetimeComponentManager = i);
-
-            _functionalitySet = new ApplicationFunctionalitySet();
-
-            FunctionalitySet.RegisterService<CanvasScalingService>(
-                _dependencyTracker,
-                i => _canvasScalingService = i
-            );
         }
 
         #region Static Fields and Autoproperties
 
-        [NonSerialized]
-        [ShowInInspector]
-        private static ApplicationFunctionalitySet _functionalitySet;
-
-        private static CanvasScalingService _canvasScalingService;
-
         [NonSerialized] private static LifetimeComponentManager _lifetimeComponentManager;
 
         [Title("Area Scene Information")]
-        [ShowInInspector, InlineEditor, HideLabel]
+        [ShowInInspector]
         [NonSerialized]
+        [InlineEditor(Expanded = true, ObjectFieldMode = InlineEditorObjectFieldModes.Boxed)]
+        [HideLabel]
+        [LabelWidth(0)]
         private static MainAreaSceneInformationCollection _mainAreaSceneInformationCollection;
 
         #endregion
@@ -72,9 +61,6 @@ namespace Appalachia.Prototype.KOC
 
         #endregion
 
-        public static ApplicationFunctionalitySet FunctionalitySet => _functionalitySet;
-        public CanvasScalingService CanvasScalingService => _canvasScalingService;
-
         public bool HasSubSceneManagerBeenIdentified => PrimarySubSceneArea != ApplicationArea.None;
 
         public bool IsApplicationFocused => _isApplicationFocused;
@@ -85,6 +71,8 @@ namespace Appalachia.Prototype.KOC
         {
             using (_PRF_Update.Auto())
             {
+                APPASERIALIZE.FrameIncrement();
+
                 base.Update();
 
                 if (ShouldSkipUpdate)
@@ -97,7 +85,7 @@ namespace Appalachia.Prototype.KOC
                     return;
                 }
 
-                Context.Log.Trace(nameof(Update), this);
+                /*Context.Log.Trace(nameof(Update), this);*/
 
                 foreach (var areaStateEntry in _areaStates.Areas)
                 {
@@ -320,8 +308,6 @@ namespace Appalachia.Prototype.KOC
                     _hasStarted = true;
                 }
 
-                _canvasScalingService.Broadcast += OnCanvasScalingServiceBroadcast;
-                
                 gameObject.transform.SetSiblingIndex(0);
                 _lifetimeComponentManager.transform.SetSiblingIndex(1);
 
@@ -374,16 +360,6 @@ namespace Appalachia.Prototype.KOC
             }
         }
 
-        private void OnCanvasScalingServiceBroadcast(ValueArgs<CanvasScalingArgs> args)
-        {
-            using (_PRF_OnCanvasScalingServiceBroadcast.Auto())
-            {
-                _lifetimeComponentManager.Components.RootCanvas.AppaCanvasScaler.Apply(
-                    args.value.dimensionData
-                );
-            }
-        }
-
         #region Profiling
 
         private static readonly ProfilerMarker _PRF_DeactivateManager =
@@ -391,9 +367,6 @@ namespace Appalachia.Prototype.KOC
 
         private static readonly ProfilerMarker _PRF_GetAreaInfo =
             new ProfilerMarker(_PRF_PFX + nameof(GetAreaInfo));
-
-        private static readonly ProfilerMarker _PRF_OnCanvasScalingServiceBroadcast =
-            new ProfilerMarker(_PRF_PFX + nameof(OnCanvasScalingServiceBroadcast));
 
         private static readonly ProfilerMarker _PRF_SceneLoad_SetActive =
             new ProfilerMarker(_PRF_PFX + nameof(SceneLoad_SetActive));

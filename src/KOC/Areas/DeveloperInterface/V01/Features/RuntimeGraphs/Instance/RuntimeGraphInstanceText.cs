@@ -1,5 +1,5 @@
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings;
-using UnityEngine;
+using Appalachia.Utility.Timing;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Instance
 {
@@ -15,8 +15,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         static RuntimeGraphInstanceText()
         {
             RegisterDependency<TMonitor>(i => monitor = i);
-            RuntimeGraphInstanceManager<TGraph, TManager, TMonitor, TText, TSettings>.InstanceAvailable +=
-                i => manager = i;
+
+            When.Behaviour<TManager>().IsAvailableThen(i => manager = i);
         }
 
         #region Static Fields and Autoproperties
@@ -46,7 +46,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
                     return;
                 }
 
-                deltaTime += Time.unscaledDeltaTime;
+                deltaTime += CoreClock.Instance.UnscaledDeltaTime;
                 frameCount++;
 
                 if (deltaTime > (1f / settings.TextUpdateRate))

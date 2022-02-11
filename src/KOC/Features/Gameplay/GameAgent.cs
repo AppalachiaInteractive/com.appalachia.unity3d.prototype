@@ -120,11 +120,5 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
                 lookup.Remove(agentIdentifier);
             }
         }
-
-        #region Profiling
-
-        
-
-        #endregion
     }
 } // Gameplay

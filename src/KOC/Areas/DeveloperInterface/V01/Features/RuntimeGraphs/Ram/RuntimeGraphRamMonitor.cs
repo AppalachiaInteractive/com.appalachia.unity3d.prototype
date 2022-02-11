@@ -21,14 +21,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         private void Update()
         {
-            if (ShouldSkipUpdate)
+            using (_PRF_Update.Auto())
             {
-                return;
-            }
+                if (ShouldSkipUpdate)
+                {
+                    return;
+                }
 
-            AllocatedRam = Profiler.GetTotalAllocatedMemoryLong() / 1048576f;
-            ReservedRam = Profiler.GetTotalReservedMemoryLong() / 1048576f;
-            MonoRam = Profiler.GetMonoUsedSizeLong() / 1048576f;
+                AllocatedRam = Profiler.GetTotalAllocatedMemoryLong() / 1048576f;
+                ReservedRam = Profiler.GetTotalReservedMemoryLong() / 1048576f;
+                MonoRam = Profiler.GetMonoUsedSizeLong() / 1048576f;
+            }
         }
 
         #endregion

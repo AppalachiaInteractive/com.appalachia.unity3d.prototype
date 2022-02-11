@@ -1,0 +1,2455 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730c43e078de48d1ad6225a4d7358850, type: 3}
+  m_Name: DeveloperInterfaceMenuBarWidget
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
+  _rectTransformData:
+    _initializer:
+      _tags:
+      - anchorMin
+      - anchorMax
+      - anchoredPosition
+      - offsetMin
+      - offsetMax
+      - pivot
+      - localScale
+      - localRotation
+      - sizeDelta
+      - _left
+      - _posX
+      - _top
+      - _posY
+      - _posZ
+      - _right
+      - _width
+      - _bottom
+      - _height
+      - _pivot
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    disableUpdatesForRootCanvas: 0
+    _left: 0
+    _posX: 0
+    _top: 0
+    _posY: 0
+    _posZ: 0
+    _right: 0
+    _width: 0
+    _bottom: 0
+    _height: 0
+    anchorMin:
+      _overriding: 0
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 0}
+    anchorMax:
+      _overriding: 0
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 0}
+    _pivot: {x: 0.5, y: 0.5}
+    localScale:
+      _overriding: 0
+      _initial: {x: 0, y: 0, z: 0}
+      _value: {x: 0, y: 0, z: 0}
+    localRotation:
+      _overriding: 0
+      _initial: {x: 0, y: 0, z: 0, w: 1}
+      _value: {x: 0, y: 0, z: 0, w: 1}
+  _componentSubsetDataList:
+    _capacityIncreaseMultiplier: 2
+    _values:
+    - _initializer:
+        _tags:
+        - material
+        - color
+        - raycastTarget
+        - maskable
+        - sprite
+        - imageType
+        - preserveAspect
+        - fillCenter
+        - fillMethod
+        - fillAmount
+        - fillClockwise
+        - fillOrigin
+        - alphaHitTestMinimumThreshold
+        - useSpriteMesh
+        - pixelsPerUnitMultiplier
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        material:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        disableUpdatesForRootCanvas: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        _pivot: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        cullTransparentMesh:
+          _overriding: 1
+          _initial: 1
+          _value: 1
+    noTracking: 0
+    _count: 1
+  _layoutElement:
+    _initializer:
+      _tags:
+      - ignoreLayout
+      - minWidth
+      - minHeight
+      - preferredWidth
+      - preferredHeight
+      - flexibleWidth
+      - flexibleHeight
+      - layoutPriority
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    ignoreLayout:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    minWidth:
+      _overriding: 1
+      _initial: -1
+      _value: -1
+    minHeight:
+      _overriding: 1
+      _initial: -1
+      _value: -1
+    preferredWidth:
+      _overriding: 1
+      _initial: -1
+      _value: -1
+    preferredHeight:
+      _overriding: 1
+      _initial: -1
+      _value: -1
+    flexibleWidth:
+      _overriding: 1
+      _initial: -1
+      _value: -1
+    flexibleHeight:
+      _overriding: 1
+      _initial: -1
+      _value: -1
+    layoutPriority:
+      _overriding: 1
+      _initial: 1
+      _value: 1

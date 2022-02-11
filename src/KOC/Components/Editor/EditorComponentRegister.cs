@@ -1,3 +1,4 @@
+/*
 #if UNITY_EDITOR
 
 using Appalachia.CI.Integration.Assets;
@@ -23,3 +24,6 @@ namespace Appalachia.Prototype.KOC.Components
 }
 
 #endif
+*/
+
+

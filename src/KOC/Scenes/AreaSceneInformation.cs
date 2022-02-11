@@ -44,8 +44,8 @@ namespace Appalachia.Prototype.KOC.Scenes
 
         static AreaSceneInformation()
         {
-            MainAreaSceneInformationCollection.InstanceAvailable +=
-                i => _mainAreaSceneInformationCollection = i;
+            When.Object<MainAreaSceneInformationCollection>()
+                .IsAvailableThen(i => _mainAreaSceneInformationCollection = i);
         }
 
         #region Static Fields and Autoproperties
@@ -90,10 +90,10 @@ namespace Appalachia.Prototype.KOC.Scenes
                     return;
                 }
 
-                AppaLog.Context.Bootload.Trace(
+                /*AppaLog.Context.Bootload.Trace(
                     ZString.Format("{0}: {1}", nameof(CheckAreaLoadState), state.Area),
                     this
-                );
+                );*/
 
                 EvaluateAreaState(state, HandleBootloadTransition);
             }
@@ -241,10 +241,10 @@ namespace Appalachia.Prototype.KOC.Scenes
         {
             using (_PRF_CheckAreaLoadStateInternal.Auto())
             {
-                AppaLog.Context.Bootload.Trace(
+                /*AppaLog.Context.Bootload.Trace(
                     ZString.Format("{0}: {1}", nameof(EvaluateAreaState), state.Area),
                     this
-                );
+                );*/
 
                 if (!state.HasStateChangedTriggered)
                 {

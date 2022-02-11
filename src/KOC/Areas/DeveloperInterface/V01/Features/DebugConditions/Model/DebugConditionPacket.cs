@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Appalachia.Utility.Timing;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
-using UnityEngine;
 using UnityEngine.Events;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugConditions.Model
@@ -66,9 +66,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
                     return;
                 }
 
-                _timePassed += Time.deltaTime;
+                _timePassed += CoreClock.Instance.DeltaTime;
 
-                if (Time.realtimeSinceStartup >= settings.DisablefterSeconds)
+                if (CoreClock.Instance.RealtimeSinceStartup >= settings.DisablefterSeconds)
                 {
                     _eligibleForEvaluation = false;
                     return;

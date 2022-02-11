@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb094abe59c415ba610ae7aafc8feff, type: 3}
+  m_Name: GizmoDrawerWidgetRawImageCanvasComponentSetStyle
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags: []
+    _resetToken: 
+  _rectTransformData:
+    _initializer:
+      _tags:
+      - anchorMin
+      - anchorMax
+      - anchoredPosition
+      - localScale
+      - offsetMin
+      - offsetMax
+      - pivot
+      - localRotation
+      - sizeDelta
+      - _left
+      - _posX
+      - _top
+      - _posY
+      - _posZ
+      - _right
+      - _width
+      - _bottom
+      - _height
+      - _pivot
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    disableUpdatesForRootCanvas: 0
+    _left: 0
+    _posX: 0
+    _top: 0
+    _posY: 0
+    _posZ: 0
+    _right: 0
+    _width: 0
+    _bottom: 0
+    _height: 0
+    anchorMin:
+      _overriding: 1
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 0}
+    anchorMax:
+      _overriding: 1
+      _initial: {x: 0, y: 0}
+      _value: {x: 1, y: 1}
+    _pivot: {x: 0.5, y: 0.5}
+    localScale:
+      _overriding: 1
+      _initial: {x: 0, y: 0, z: 0}
+      _value: {x: 1, y: 1, z: 1}
+    localRotation:
+      _overriding: 1
+      _initial: {x: 0, y: 0, z: 0, w: 1}
+      _value: {x: 0, y: 0, z: 0, w: 1}
+  _canvasData:
+    _initializer:
+      _tags:
+      - renderMode
+      - overridePixelPerfect
+      - pixelPerfect
+      - overrideSorting
+      - sortingOrder
+      - additionalShaderChannels
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    renderMode:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    overridePixelPerfect:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    pixelPerfect:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    overrideSorting:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    sortingOrder:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    additionalShaderChannels:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+  _canvasFadeManagerData:
+    _overriding: 0
+    _initial:
+      _initializer:
+        _tags:
+        - passiveMode
+        - passiveFadeMode
+        - updateAtStart
+        - startVisible
+        - fadeRange
+        - fadeInDuration
+        - fadeIn
+        - fadeOutDuration
+        - fadeOut
+        _resetToken: 
+      _owner: {fileID: 0}
+      passiveMode: 0
+      passiveFadeMode: 2
+      updateAtStart: 1
+      startVisible: 1
+      fadeRange: {x: 0, y: 1}
+      fadeInDuration: 1
+      fadeIn: 2
+      fadeOutDuration: 1
+      fadeOut: 2
+    _value:
+      _initializer:
+        _tags:
+        - passiveMode
+        - passiveFadeMode
+        - updateAtStart
+        - startVisible
+        - fadeRange
+        - fadeInDuration
+        - fadeIn
+        - fadeOutDuration
+        - fadeOut
+        _resetToken: 
+      _owner: {fileID: 0}
+      passiveMode: 0
+      passiveFadeMode: 2
+      updateAtStart: 1
+      startVisible: 1
+      fadeRange: {x: 0, y: 1}
+      fadeInDuration: 1
+      fadeIn: 2
+      fadeOutDuration: 1
+      fadeOut: 2
+  _canvasGroupData:
+    _overriding: 0
+    _initial:
+      _initializer:
+        _tags:
+        - alpha
+        - interactable
+        - blocksRaycasts
+        - ignoreParentGroups
+        _resetToken: 
+      _owner: {fileID: 0}
+      alpha:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      interactable:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      blocksRaycasts:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      ignoreParentGroups:
+        _overriding: 1
+        _initial: 0
+        _value: 0
+    _value:
+      _initializer:
+        _tags:
+        - alpha
+        - interactable
+        - blocksRaycasts
+        - ignoreParentGroups
+        _resetToken: 
+      _owner: {fileID: 0}
+      alpha:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      interactable:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      blocksRaycasts:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      ignoreParentGroups:
+        _overriding: 1
+        _initial: 0
+        _value: 0
+  _graphicRaycasterData:
+    _overriding: 0
+    _initial:
+      _initializer:
+        _tags:
+        - ignoreReversedGraphics
+        - blockingObjects
+        - blockingMask
+        _resetToken: 
+      _owner: {fileID: 0}
+      ignoreReversedGraphics:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      blockingObjects:
+        _overriding: 1
+        _initial: 0
+        _value: 0
+      blockingMask:
+        _overriding: 1
+        _initial:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        _value:
+          serializedVersion: 2
+          m_Bits: 4294967295
+    _value:
+      _initializer:
+        _tags:
+        - ignoreReversedGraphics
+        - blockingObjects
+        - blockingMask
+        _resetToken: 
+      _owner: {fileID: 0}
+      ignoreReversedGraphics:
+        _overriding: 1
+        _initial: 1
+        _value: 1
+      blockingObjects:
+        _overriding: 1
+        _initial: 0
+        _value: 0
+      blockingMask:
+        _overriding: 1
+        _initial:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        _value:
+          serializedVersion: 2
+          m_Bits: 4294967295
+  _rawImageData:
+    _initializer:
+      _tags:
+      - material
+      - color
+      - raycastTarget
+      - maskable
+      - texture
+      - uvRect
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    material:
+      _overriding: 0
+      _initial: {fileID: 0}
+      _value: {fileID: 0}
+    color:
+      _overriding: 0
+      _initial: {r: 0, g: 0, b: 0, a: 0}
+      _value: {r: 0, g: 0, b: 0, a: 0}
+    raycastTarget:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    maskable:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    texture:
+      _overriding: 0
+      _initial: {fileID: 0}
+      _value: {fileID: 0}
+    uvRect:
+      _overriding: 0
+      _initial:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      _value:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0

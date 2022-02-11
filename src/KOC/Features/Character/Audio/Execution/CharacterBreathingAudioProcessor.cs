@@ -7,6 +7,7 @@ using Appalachia.Audio.Core;
 using Appalachia.Audio.Scriptables;
 using Appalachia.Prototype.KOC.Features.Character.Audio.Sounds;
 using Appalachia.Prototype.KOC.Features.Character.States;
+using Appalachia.Utility.Timing;
 using UnityEngine;
 
 #endregion
@@ -71,7 +72,7 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
 
             if (positioning.hasAnyFootPlanted && !movement.swimming)
             {
-                var deltaTime = Time.deltaTime;
+                var deltaTime = CoreClock.Instance.DeltaTime;
 
                 if (playerJumping)
                 {

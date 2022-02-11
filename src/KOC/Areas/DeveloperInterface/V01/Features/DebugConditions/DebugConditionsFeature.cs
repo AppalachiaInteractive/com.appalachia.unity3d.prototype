@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Appalachia.Core.Attributes;
-using Appalachia.Prototype.KOC.Areas.Common.Features;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugConditions.Model;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Audio;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Fps;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Ram;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Services.Screenshots;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.Services;
+using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Enums;
 using Appalachia.Utility.Strings;
+using Appalachia.Utility.Timing;
 using Unity.Profiling;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -19,26 +20,25 @@ using Debug = UnityEngine.Debug;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugConditions
 {
     [CallStaticConstructorInEditor]
-    public sealed class DebugConditionsFeature : AreaFeature<DebugConditionsFeature,
-        DebugConditionsFeatureMetadata, DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
+    public sealed class DebugConditionsFeature : DeveloperInterfaceManager_V01.Feature<DebugConditionsFeature,
+        DebugConditionsFeatureMetadata>
     {
         static DebugConditionsFeature()
         {
-            RegisterDependency<RuntimeGraphFpsMonitor>(i => _runtimeGraphFpsMonitor = i);
+            /*RegisterDependency<RuntimeGraphFpsMonitor>(i => _runtimeGraphFpsMonitor = i);
             RegisterDependency<RuntimeGraphRamMonitor>(i => _runtimeGraphRamMonitor = i);
             RegisterDependency<RuntimeGraphAudioMonitor>(i => _runtimeGraphAudioMonitor = i);
-            RegisterDependency<DeveloperInterfaceScreenshotService>(
-                i => _developerInterfaceScreenshotService = i
-            );
+            RegisterDependency<ScreenshotService>(i => _screenshotService = i);*/
+
+            When.Feature(instance).AndFeatureMetadata(metadata).AreAvailableThen((f, m) => f.SyncPackets(m));
         }
 
         #region Static Fields and Autoproperties
 
-        private static DeveloperInterfaceScreenshotService _developerInterfaceScreenshotService;
-
         private static RuntimeGraphAudioMonitor _runtimeGraphAudioMonitor;
         private static RuntimeGraphFpsMonitor _runtimeGraphFpsMonitor;
         private static RuntimeGraphRamMonitor _runtimeGraphRamMonitor;
+        private static ScreenshotService _screenshotService;
 
         #endregion
 
@@ -172,43 +172,35 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
             }
         }
 
-        protected override void OnApplyMetadataInternal()
+        protected override async AppaTask BeforeDisable()
         {
-            using (_PRF_OnApplyMetadataInternal.Auto())
+            await AppaTask.CompletedTask;
+        }
+
+        protected override async AppaTask BeforeEnable()
+        {
+            await AppaTask.CompletedTask;
+        }
+
+        protected override async AppaTask BeforeFirstEnable()
+        {
+            await AppaTask.CompletedTask;
+        }
+
+        protected override async AppaTask OnHide()
+        {
+            using (_PRF_OnHide.Auto())
             {
-                for (var defaultPacketSettingIndex = 0;
-                     defaultPacketSettingIndex < metadata.defaultPackets.Count;
-                     defaultPacketSettingIndex++)
-                {
-                    var defaultPacketSettings = metadata.defaultPackets[defaultPacketSettingIndex];
-                    var found = false;
-                    for (var packetIndex = 0; packetIndex < debugPackets.Count; packetIndex++)
-                    {
-                        var existingPacket = debugPackets[packetIndex];
-                        if (existingPacket.settings == defaultPacketSettings)
-                        {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (found)
-                    {
-                        continue;
-                    }
-
-                    var newPacket = new DebugConditionPacket(defaultPacketSettings);
-                    debugPackets.Add(newPacket);
-                }
+                await AppaTask.CompletedTask;
             }
         }
 
-        protected override void SubscribeToAllFunctionalties()
+        protected override async AppaTask OnShow()
         {
-        }
-
-        protected override void UnsubscribeFromAllFunctionalities()
-        {
+            using (_PRF_OnShow.Auto())
+            {
+                await AppaTask.CompletedTask;
+            }
         }
 
         private bool AreDebugConditionsMet(DebugConditionPacket packet)
@@ -363,7 +355,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
 
                 if (packet.settings.action.Has(ExecutionAction.Screenshot))
                 {
-                    _developerInterfaceScreenshotService.RequestScreenshot(_ => { });
+                    _screenshotService.RequestScreenshot(_ => { });
                 }
 
                 if (packet.settings.action.Has(ExecutionAction.DebuggerBreak))
@@ -381,7 +373,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
 
                 if (packet.settings.action.Has(ExecutionAction.ModifyTimeScale))
                 {
-                    Time.timeScale = packet.settings.timeScale;
+                    CoreClock.Instance.TimeScale = packet.settings.timeScale;
                 }
 
                 if (packet.settings.action.Has(ExecutionAction.LogMessage))
@@ -409,7 +401,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
 
                 if (packet.settings.action.Has(ExecutionAction.OpenDeveloperInterface))
                 {
-                    areaManager.ShowAreaInterface();
+                    Manager.ShowAreaInterface().Forget();
                 }
 
                 packet.unityEvents?.Invoke();
@@ -485,6 +477,37 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
             }
         }
 
+        private void SyncPackets(DebugConditionsFeatureMetadata data)
+        {
+            using (_PRF_SyncPackets.Auto())
+            {
+                for (var defaultPacketSettingIndex = 0;
+                     defaultPacketSettingIndex < data.defaultPackets.Count;
+                     defaultPacketSettingIndex++)
+                {
+                    var defaultPacketSettings = data.defaultPackets[defaultPacketSettingIndex];
+                    var found = false;
+                    for (var packetIndex = 0; packetIndex < debugPackets.Count; packetIndex++)
+                    {
+                        var existingPacket = debugPackets[packetIndex];
+                        if (existingPacket.settings == defaultPacketSettings)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (found)
+                    {
+                        continue;
+                    }
+
+                    var newPacket = new DebugConditionPacket(defaultPacketSettings);
+                    debugPackets.Add(newPacket);
+                }
+            }
+        }
+
         #region Profiling
 
         private static readonly ProfilerMarker _PRF_AddCallbackToAllDebugPacketWithId =
@@ -517,14 +540,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
         private static readonly ProfilerMarker _PRF_GetRequestedValueFromDebugVariable =
             new ProfilerMarker(_PRF_PFX + nameof(GetRequestedValueFromDebugVariable));
 
-        private static readonly ProfilerMarker _PRF_OnApplyMetadataInternal =
-            new ProfilerMarker(_PRF_PFX + nameof(OnApplyMetadataInternal));
-
         private static readonly ProfilerMarker _PRF_RemoveAllDebugPacketsWithId =
             new ProfilerMarker(_PRF_PFX + nameof(RemoveAllDebugPacketsWithId));
 
         private static readonly ProfilerMarker _PRF_RemoveFirstDebugPacketWithId =
             new ProfilerMarker(_PRF_PFX + nameof(RemoveFirstDebugPacketWithId));
+
+        private static readonly ProfilerMarker _PRF_SyncPackets =
+            new ProfilerMarker(_PRF_PFX + nameof(SyncPackets));
 
         #endregion
     }

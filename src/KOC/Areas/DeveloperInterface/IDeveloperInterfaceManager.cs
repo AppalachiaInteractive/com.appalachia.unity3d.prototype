@@ -1,9 +1,9 @@
-using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.UI.Controls.Sets.UnscaledCanvas;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 {
     public interface IDeveloperInterfaceManager : IAreaManager
     {
-        public RootCanvasComponentSet UnscaledCanvas { get; }
+        public UnscaledCanvasComponentSet UnscaledCanvas { get; }
     }
 }

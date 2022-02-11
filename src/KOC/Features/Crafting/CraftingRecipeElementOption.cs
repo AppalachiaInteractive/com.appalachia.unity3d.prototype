@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Core.Timing;
+using Appalachia.Utility.Timing;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Features.Crafting

@@ -26,11 +26,146 @@ MonoBehaviour:
     - BackgroundComponentSetStyle
     - CanvasComponentSetStyle
     _resetToken: 2021-12-14T20:34:03.6457917-05:00
-  clearCamera:
-    enabled: 1
-    enabledEditor: 1
-    color: {r: 0.10980393, g: 0.10980393, b: 0.10980393, a: 1}
-    colorEditor: {r: 0.10980393, g: 0.10980393, b: 0.10980393, a: 1}
+  clearCameraData:
+    _initializer:
+      _tags:
+      - allowDynamicResolution
+      - allowHDR
+      - allowMSAA
+      - backgroundColor
+      - clearFlags
+      - cullingMask
+      - depth
+      - depthTextureMode
+      - farClipPlane
+      - fieldOfView
+      - focalLength
+      - forceIntoRenderTexture
+      - gateFit
+      - lensShift
+      - nearClipPlane
+      - opaqueSortMode
+      - orthographic
+      - orthographicSize
+      - rect
+      - renderingPath
+      - sensorSize
+      - showAdvanced
+      - transparencySortMode
+      - useOcclusionCulling
+      - usePhysicalProperties
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    clearFlags:
+      _overriding: 1
+      _initial: 1
+      _value: 2
+    backgroundColor:
+      _overriding: 1
+      _initial: {r: 0, g: 0, b: 0, a: 1}
+      _value: {r: 0, g: 0, b: 0, a: 1}
+    cullingMask:
+      _overriding: 1
+      _initial: -1
+      _value: 0
+    orthographic:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    orthographicSize:
+      _overriding: 1
+      _initial: 5
+      _value: 5
+    fieldOfView:
+      _overriding: 0
+      _initial: 60
+      _value: 60
+    usePhysicalProperties:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    focalLength:
+      _overriding: 1
+      _initial: 50
+      _value: 50
+    sensorSize:
+      _overriding: 1
+      _initial: {x: 36, y: 24}
+      _value: {x: 36, y: 24}
+    lensShift:
+      _overriding: 1
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 0}
+    gateFit:
+      _overriding: 1
+      _initial: 2
+      _value: 2
+    nearClipPlane:
+      _overriding: 0
+      _initial: 0.3
+      _value: 0.3
+    farClipPlane:
+      _overriding: 0
+      _initial: 1000
+      _value: 1000
+    rect:
+      _overriding: 1
+      _initial:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+      _value:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
+    depth:
+      _overriding: 0
+      _initial: 0
+      _value: 0
+    renderingPath:
+      _overriding: 0
+      _initial: -1
+      _value: -1
+    useOcclusionCulling:
+      _overriding: 1
+      _initial: 1
+      _value: 0
+    allowHDR:
+      _overriding: 1
+      _initial: 1
+      _value: 0
+    allowMSAA:
+      _overriding: 1
+      _initial: 1
+      _value: 0
+    allowDynamicResolution:
+      _overriding: 1
+      _initial: 1
+      _value: 0
+    showAdvanced:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    forceIntoRenderTexture:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    depthTextureMode:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    opaqueSortMode:
+      _overriding: 1
+      _initial: 0
+      _value: 0
+    transparencySortMode:
+      _overriding: 1
+      _initial: 0
+      _value: 0
   rootCanvas: {fileID: 11400000, guid: e40443b0f0cfc0f4e8f96f6a703dabba, type: 2}
   rootBackground: {fileID: 11400000, guid: 6636ad29feda7c249ae0c1d92baa72cb, type: 2}
   uiStyle: {fileID: 11400000, guid: 7a0d499cf2ad0dd41be5333552e8f7f4, type: 2}

@@ -1,8 +1,6 @@
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings;
-using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Instance
@@ -20,7 +18,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
     {
         static RuntimeGraphInstanceBase()
         {
-            RuntimeGraphManager.InstanceAvailable += i => { _runtimeGraphManager = i; };
+            When.Behaviour(instance)
+                .AndBehaviour<RuntimeGraphManager>()
+                .AreAvailableThen(
+                     (thisInstance, runtimeGraphManager) =>
+                     {
+                         _runtimeGraphManager = runtimeGraphManager;
+
+                         thisInstance.InitializeParameters();
+                     }
+                 );
         }
 
         #region Static Fields and Autoproperties
@@ -49,13 +56,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         public virtual void UpdateParameters()
         {
-        }
-
-        protected override async AppaTask Initialize(Initializer initializer)
-        {
-            await base.Initialize(initializer);
-
-            RuntimeGraphManager.InstanceAvailable += _ => InitializeParameters();
         }
     }
 }

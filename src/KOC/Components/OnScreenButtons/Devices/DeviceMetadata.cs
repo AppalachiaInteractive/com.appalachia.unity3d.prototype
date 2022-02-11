@@ -73,8 +73,6 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Devices
 
         private const string _PRF_PFX = nameof(DeviceMetadata) + ".";
 
-        
-
         private static readonly ProfilerMarker _PRF_CanResolve =
             new ProfilerMarker(_PRF_PFX + nameof(CanResolve));
 

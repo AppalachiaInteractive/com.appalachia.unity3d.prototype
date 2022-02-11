@@ -22,25 +22,28 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
 
         private void Update()
         {
-            if (ShouldSkipUpdate)
+            using (_PRF_Update.Auto())
             {
-                return;
-            }
+                if (ShouldSkipUpdate)
+                {
+                    return;
+                }
 
-            if (breathing == null)
-            {
-                breathing = new CharacterBreathingAudioProcessor();
-            }
+                if (breathing == null)
+                {
+                    breathing = new CharacterBreathingAudioProcessor();
+                }
 
-            if (footsteps == null)
-            {
-                footsteps = new CharacterFootstepAudioProcessor();
-            }
+                if (footsteps == null)
+                {
+                    footsteps = new CharacterFootstepAudioProcessor();
+                }
 
-            HandleExecution<CharacterBreathingAudioProcessor, HumanBreathingSounds, AudioContext3,
-                AudioContextParameters3>(this, breathing);
-            HandleExecution<CharacterFootstepAudioProcessor, FootstepSounds, AudioContext3,
-                AudioContextParameters3>(this, footsteps);
+                HandleExecution<CharacterBreathingAudioProcessor, HumanBreathingSounds, AudioContext3,
+                    AudioContextParameters3>(this, breathing);
+                HandleExecution<CharacterFootstepAudioProcessor, FootstepSounds, AudioContext3,
+                    AudioContextParameters3>(this, footsteps);
+            }
         }
 
         #endregion

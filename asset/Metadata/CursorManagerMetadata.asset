@@ -20,7 +20,6 @@ MonoBehaviour:
     - CanvasComponentSetStyle
     _resetToken: 
   rectTransform:
-    _owner: {fileID: 11400000}
     _initializer:
       _tags:
       - anchorMin
@@ -30,26 +29,45 @@ MonoBehaviour:
       - offsetMin
       - offsetMax
       - pivot
+      - localRotation
+      - sizeDelta
+      - _left
+      - _posX
+      - _top
+      - _posY
+      - _posZ
+      - _right
+      - _width
+      - _bottom
+      - _height
+      - _pivot
       _resetToken: 
+    _owner: {fileID: 0}
+    disableUpdatesForRootCanvas: 0
+    _left: 0
+    _posX: 0
+    _top: 0
+    _posY: 0
+    _posZ: 0
+    _right: 0
+    _width: 0
+    _bottom: 0
+    _height: 0
     anchorMin:
-      _overrideEnabled: 1
+      _overriding: 1
+      _initial: {x: 0, y: 0}
       _value: {x: 0, y: 0}
     anchorMax:
-      _overrideEnabled: 1
+      _overriding: 1
+      _initial: {x: 0, y: 0}
       _value: {x: 1, y: 1}
-    anchoredPosition:
-      _overrideEnabled: 1
-      _value: {x: 0, y: 0}
+    _pivot: {x: 0.5, y: 0.5}
     localScale:
-      _overrideEnabled: 1
+      _overriding: 1
+      _initial: {x: 0, y: 0, z: 0}
       _value: {x: 1, y: 1, z: 1}
-    offsetMin:
-      _overrideEnabled: 1
-      _value: {x: 0, y: 0}
-    offsetMax:
-      _overrideEnabled: 1
-      _value: {x: 0, y: 0}
-    pivot:
-      _overrideEnabled: 1
-      _value: {x: 0.5, y: 0.5}
+    localRotation:
+      _overriding: 1
+      _initial: {x: 0, y: 0, z: 0, w: 1}
+      _value: {x: 0, y: 0, z: 0, w: 1}
   canvas: {fileID: 11400000, guid: 99e5638291d827f488bf0410d3eefb6a, type: 2}

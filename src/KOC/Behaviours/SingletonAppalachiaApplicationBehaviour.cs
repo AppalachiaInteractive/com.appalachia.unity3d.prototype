@@ -1,8 +1,8 @@
 using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Components;
 using Appalachia.Prototype.KOC.Input;
+using Appalachia.Prototype.KOC.Lifetime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -33,7 +33,6 @@ namespace Appalachia.Prototype.KOC.Behaviours
         #endregion
 
         protected static LifetimeComponentManager LifetimeComponentManager => _lifetimeComponentManager;
-        protected static LifetimeComponents LifetimeComponents => _lifetimeComponentManager.Components;
 
         protected KOCInputActions InputActions
         {

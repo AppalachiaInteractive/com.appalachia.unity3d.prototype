@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics;
 using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Features.Character.Settings
 {
@@ -11,19 +10,19 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
         #region Fields and Autoproperties
 
         [PropertyRange(0.1f, 2f)]
-        [Tooltip("[0.1, 2]")]
+        [PropertyTooltip("[0.1, 2]")]
         public float lookSpeed;
 
         [PropertyRange(-360f, 360f)]
-        [Tooltip("[-360, 360]")]
+        [PropertyTooltip("[-360, 360]")]
         public float pitchLimitMax;
 
         [PropertyRange(-360f, 360f)]
-        [Tooltip("[-360, 360]")]
+        [PropertyTooltip("[-360, 360]")]
         public float pitchLimitMin;
 
         [PropertyRange(0.1f, 2f)]
-        [Tooltip("[0.1, 2]")]
+        [PropertyTooltip("[0.1, 2]")]
         public float runLookSpeed;
 
         #endregion

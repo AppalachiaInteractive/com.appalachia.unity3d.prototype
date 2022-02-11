@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2730879020297696973}
   - component: {fileID: 2730879020297696972}
   - component: {fileID: 2730879020297696963}
+  - component: {fileID: 6620958176218472887}
   m_Layer: 5
   m_Name: ScreenResolution
   m_TagString: Untagged
@@ -56,7 +57,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879020297696961}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -90,21 +91,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879021272011225}
   textMeshValue: {fileID: 2730879021105398653}
   layoutElement: {fileID: 2730879020297696972}
   _lastText: 3840x2160@60Hz
-  updateRate: 1
-  calculation: 401
+  _currentCalculation: 0
+--- !u!114 &6620958176218472887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879020297696961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879020307444134
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +376,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.25, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1159,6 +1164,7 @@ GameObject:
   - component: {fileID: 2730879020788704743}
   - component: {fileID: 2730879020788704742}
   - component: {fileID: 2730879020788704741}
+  - component: {fileID: 8256543396378531061}
   m_Layer: 5
   m_Name: GraphicsMemorySize
   m_TagString: Untagged
@@ -1203,7 +1209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879020788704283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -1228,7 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -1237,21 +1243,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 45
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879022084920670}
   textMeshValue: {fileID: 2730879020307444128}
   layoutElement: {fileID: 2730879020788704742}
   _lastText: '8010MB. Max texture: 16384px. Shader level: 50'
-  updateRate: 1
-  calculation: 702
+  _currentCalculation: 0
+--- !u!114 &8256543396378531061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879020788704283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879020800995004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1274,7 @@ GameObject:
   - component: {fileID: 2730879020800995000}
   - component: {fileID: 2730879020800995007}
   - component: {fileID: 2730879020800995006}
+  - component: {fileID: 747818008065538830}
   m_Layer: 5
   m_Name: ApplicationSystemLanguage
   m_TagString: Untagged
@@ -1308,7 +1319,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879020800995004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -1333,7 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -1342,21 +1353,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879022121298157}
   textMeshValue: {fileID: 2730879020655922852}
   layoutElement: {fileID: 2730879020800995007}
   _lastText: English
-  updateRate: 1
-  calculation: 206
+  _currentCalculation: 0
+--- !u!114 &747818008065538830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879020800995004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879020801168401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,6 +1519,7 @@ GameObject:
   - component: {fileID: 2730879020833153663}
   - component: {fileID: 2730879020833153656}
   - component: {fileID: 2730879020833153657}
+  - component: {fileID: 8608407763011164428}
   m_Layer: 5
   m_Name: Text_Build Version
   m_TagString: Untagged
@@ -1553,7 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c965a34bb643fbb26dcf8eb57cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - textMeshValue
     - font
@@ -1561,20 +1577,14 @@ MonoBehaviour:
     - INITKEY_LAYOUT
     - INITKEY_LABEL_LAYOUT
     - labelFont
+    - textMeshLabel
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879020514987572}
   textMeshValue: {fileID: 2730879020699829729}
   layoutElement: {fileID: 2730879020833153657}
   _lastText: 
-  text: {fileID: 11400000, guid: 996698958a9e67640896e9352c961c89, type: 2}
+  _text: {fileID: 0}
 --- !u!114 &2730879020833153657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,7 +1592,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879020833153660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -1595,6 +1605,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8608407763011164428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879020833153660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879021024673560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2169,7 @@ GameObject:
   - component: {fileID: 2730879021138852339}
   - component: {fileID: 2730879021138852338}
   - component: {fileID: 2730879021138852337}
+  - component: {fileID: 3729760868614946729}
   m_Layer: 5
   m_Name: SystemMemory
   m_TagString: Untagged
@@ -2191,7 +2214,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879021138852343}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -2216,7 +2239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -2225,21 +2248,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879021876647714}
   textMeshValue: {fileID: 2730879021748769567}
   layoutElement: {fileID: 2730879021138852338}
   _lastText: 65461 MB
-  updateRate: 1
-  calculation: 600
+  _currentCalculation: 0
+--- !u!114 &3729760868614946729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879021138852343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879021157460364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2414,7 @@ GameObject:
   - component: {fileID: 2730879021186988745}
   - component: {fileID: 2730879021186988744}
   - component: {fileID: 2730879021186988751}
+  - component: {fileID: 8720451290173270528}
   m_Layer: 5
   m_Name: ProcessorType
   m_TagString: Untagged
@@ -2431,7 +2459,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879021186988749}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -2456,7 +2484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -2465,21 +2493,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 45
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879021157460366}
   textMeshValue: {fileID: 2730879021389341195}
   layoutElement: {fileID: 2730879021186988744}
   _lastText: AMD Ryzen 9 3900X 12-Core Processor  [24 cores]
-  updateRate: 1
-  calculation: 500
+  _currentCalculation: 0
+--- !u!114 &8720451290173270528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879021186988749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879021219578491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,6 +2794,7 @@ GameObject:
   - component: {fileID: 2730879021375700510}
   - component: {fileID: 2730879021375700509}
   - component: {fileID: 2730879021375700508}
+  - component: {fileID: 1907557147022476249}
   m_Layer: 5
   m_Name: OperatingSystem
   m_TagString: Untagged
@@ -2806,7 +2839,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879021375700498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -2831,7 +2864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -2840,21 +2873,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 45
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879021770374600}
   textMeshValue: {fileID: 2730879020801168403}
   layoutElement: {fileID: 2730879021375700509}
   _lastText: Windows 10  (10.0.19044) 64bit [Desktop]
-  updateRate: 1
-  calculation: 800
+  _currentCalculation: 0
+--- !u!114 &1907557147022476249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879021375700498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879021389341193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,6 +3039,7 @@ GameObject:
   - component: {fileID: 2730879021410165551}
   - component: {fileID: 2730879021410165550}
   - component: {fileID: 2730879021410165549}
+  - component: {fileID: 2487312395790938863}
   m_Layer: 5
   m_Name: ActiveSceneNameAndCount
   m_TagString: Untagged
@@ -3046,7 +3084,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879021410165539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -3071,7 +3109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -3080,21 +3118,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879020559372362}
   textMeshValue: {fileID: 2730879021725721887}
   layoutElement: {fileID: 2730879021410165550}
   _lastText: DebugOverlay_V01 (1)
-  updateRate: 1
-  calculation: 110
+  _currentCalculation: 0
+--- !u!114 &2487312395790938863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879021410165539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879021429357794
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,6 +3236,7 @@ GameObject:
   - component: {fileID: 2730879021477247814}
   - component: {fileID: 2730879021477247813}
   - component: {fileID: 2730879021477247812}
+  - component: {fileID: 8444463316496366090}
   m_Layer: 5
   m_Name: GraphicsDeviceVersion
   m_TagString: Untagged
@@ -3238,7 +3281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879021477247866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -3263,7 +3306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -3272,21 +3315,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 45
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879021101091712}
   textMeshValue: {fileID: 2730879022048792389}
   layoutElement: {fileID: 2730879021477247813}
   _lastText: 'Graphics API: Direct3D 11.0 [level 11.1]'
-  updateRate: 1
-  calculation: 700
+  _currentCalculation: 0
+--- !u!114 &8444463316496366090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879021477247866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879021542871820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,6 +3578,7 @@ GameObject:
   - component: {fileID: 2730879021665509911}
   - component: {fileID: 2730879021665509910}
   - component: {fileID: 2730879021665509909}
+  - component: {fileID: 489430868690840571}
   m_Layer: 5
   m_Name: GraphicsDeviceName
   m_TagString: Untagged
@@ -3575,7 +3623,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879021665509899}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -3600,7 +3648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -3609,21 +3657,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 45
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879020721426947}
   textMeshValue: {fileID: 2730879021024673562}
   layoutElement: {fileID: 2730879021665509910}
   _lastText: NVIDIA GeForce RTX 2080
-  updateRate: 1
-  calculation: 701
+  _currentCalculation: 0
+--- !u!114 &489430868690840571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879021665509899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879021725721885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +4903,7 @@ GameObject:
   - component: {fileID: 2730879022159581227}
   - component: {fileID: 2730879022159581226}
   - component: {fileID: 2730879022159581225}
+  - component: {fileID: 5372993489365274059}
   m_Layer: 5
   m_Name: WindowSize
   m_TagString: Untagged
@@ -4895,7 +4948,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879022159581231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -4920,7 +4973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -4929,21 +4982,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879022119763416}
   textMeshValue: {fileID: 2730879021542871822}
   layoutElement: {fileID: 2730879022159581226}
   _lastText: 1781x1002 @ 60Hz [216dpi]
-  updateRate: 1
-  calculation: 400
+  _currentCalculation: 0
+--- !u!114 &5372993489365274059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879022159581231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879022205381975
 GameObject:
   m_ObjectHideFlags: 0
@@ -4956,6 +5013,7 @@ GameObject:
   - component: {fileID: 2730879022205381971}
   - component: {fileID: 2730879022205381970}
   - component: {fileID: 2730879022205381969}
+  - component: {fileID: 5554677076195126089}
   m_Layer: 5
   m_Name: ApplicationPlatform
   m_TagString: Untagged
@@ -5000,7 +5058,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879022205381975}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -5025,7 +5083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -5034,21 +5092,25 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879021082572402}
   textMeshValue: {fileID: 2730879021785166559}
   layoutElement: {fileID: 2730879022205381970}
   _lastText: WindowsEditor
-  updateRate: 1
-  calculation: 200
+  _currentCalculation: 0
+--- !u!114 &5554677076195126089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879022205381975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730879022282243919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,6 +5123,7 @@ GameObject:
   - component: {fileID: 2730879022282243914}
   - component: {fileID: 2730879022282243913}
   - component: {fileID: 2730879022282243915}
+  - component: {fileID: 5500823845231514955}
   m_Layer: 5
   m_Name: ApplicationUnityVersion
   m_TagString: Untagged
@@ -5105,7 +5168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730879022282243919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -5130,7 +5193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe21061e4f13408187f747221ac7f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
     _tags:
     - font
     - textMeshValue
@@ -5139,18 +5202,22 @@ MonoBehaviour:
     - INITKEY_LABEL_LAYOUT
     - INITKEY_LAYOUT
     - labelFont
+    - layoutElement
     _resetToken: 
-  updateName: 1
-  createLayoutElement: 1
-  minHeight: 30
-  font: {fileID: 11400000, guid: 0899edd47c12f1543bbfba786a2fa02b, type: 2}
-  createLabel: 1
-  labelFont: {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}
-  labelWidth: 0.25
-  labelPadding: 0.05
   textMeshLabel: {fileID: 2730879020549611808}
   textMeshValue: {fileID: 2730879021219578437}
   layoutElement: {fileID: 2730879022282243913}
   _lastText: 2021.2.4f1
-  updateRate: 1
-  calculation: 207
+  _currentCalculation: 0
+--- !u!114 &5500823845231514955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730879022282243919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

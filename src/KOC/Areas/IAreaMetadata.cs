@@ -9,7 +9,7 @@ namespace Appalachia.Prototype.KOC.Areas
         public AreaMetadataConfigurations.AreaAudioConfiguration Audio { get; }
         public AreaMetadataConfigurations.AreaInputConfiguration Input { get; }
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour { get; }
-        public CanvasComponentSetStyle ScaledView { get; }
-        public RootCanvasComponentSetStyle RootCanvas { get; }
+        public CanvasComponentSetData View { get; }
+        public RootCanvasComponentSetData RootCanvas { get; }
     }
 }

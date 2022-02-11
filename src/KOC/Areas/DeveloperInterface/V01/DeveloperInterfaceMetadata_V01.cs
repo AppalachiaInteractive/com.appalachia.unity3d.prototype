@@ -1,7 +1,7 @@
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 {
-    public class DeveloperInterfaceMetadata_V01 : DeveloperInterfaceMetadata<DeveloperInterfaceManager_V01,
-        DeveloperInterfaceMetadata_V01>
+    public sealed partial class DeveloperInterfaceMetadata_V01 : DeveloperInterfaceMetadata<
+        DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
     {
         #region Fields and Autoproperties
 

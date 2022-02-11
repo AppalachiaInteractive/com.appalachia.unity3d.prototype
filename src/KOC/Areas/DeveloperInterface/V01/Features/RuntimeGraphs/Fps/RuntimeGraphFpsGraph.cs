@@ -1,6 +1,7 @@
 ﻿using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Instance;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Shader;
+using Appalachia.Utility.Timing;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,38 +36,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         {
             using (_PRF_InitializeGraph.Auto())
             {
-                if (m_shaderGraph == null)
-                {
-                    return;
-                }
-
-                RuntimeGraphManager.InstanceAvailable += _ =>
-                {
-                    switch (allSettings.general.runtimeGraphMode)
-                    {
-                        case Mode.FULL:
-                            m_shaderGraph.arrayMaxSize = GraphShader.ARRAY_MAX_SIZE_FULL;
-
-                            if (m_shaderGraph.image.material == null)
-                            {
-                                m_shaderGraph.image.material = new Material(ShaderFull);
-                            }
-
-                            break;
-
-                        case Mode.LIGHT:
-                            m_shaderGraph.arrayMaxSize = GraphShader.ARRAY_MAX_SIZE_LIGHT;
-
-                            if (m_shaderGraph.image.material == null)
-                            {
-                                m_shaderGraph.image.material = new Material(ShaderLight);
-                            }
-
-                            break;
-                    }
-
-                    m_shaderGraph.InitializeShader();
-                };
             }
         }
 
@@ -87,6 +56,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         {
             using (_PRF_CreatePoints.Auto())
             {
+                InitializePointArrays();
+
                 var updatedPoints = false;
 
                 if ((m_shaderGraph.shaderArrayValues == null) ||
@@ -139,7 +110,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         {
             using (_PRF_UpdateGraph.Auto())
             {
-                var fps = (short)(1 / Time.unscaledDeltaTime);
+                var fps = (short)(1 / CoreClock.Instance.UnscaledDeltaTime);
 
                 var currentMaxFps = 0;
 
@@ -196,6 +167,37 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        protected void InitializePointArrays()
+        {
+            using (_PRF_InitializePointArrays.Auto())
+            {
+                switch (allSettings.general.runtimeGraphMode)
+                {
+                    case Mode.FULL:
+                        m_shaderGraph.arrayMaxSize = GraphShader.ARRAY_MAX_SIZE_FULL;
+
+                        if (m_shaderGraph.image.material == null)
+                        {
+                            m_shaderGraph.image.material = new Material(ShaderFull);
+                        }
+
+                        break;
+
+                    case Mode.LIGHT:
+                        m_shaderGraph.arrayMaxSize = GraphShader.ARRAY_MAX_SIZE_LIGHT;
+
+                        if (m_shaderGraph.image.material == null)
+                        {
+                            m_shaderGraph.image.material = new Material(ShaderLight);
+                        }
+
+                        break;
+                }
+
+                m_shaderGraph.InitializeShader();
+            }
+        }
+
         #region Profiling
 
         private static readonly ProfilerMarker _PRF_AfterInitialization =
@@ -206,6 +208,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         private static readonly ProfilerMarker _PRF_InitializeGraph =
             new ProfilerMarker(_PRF_PFX + nameof(InitializeParameters));
+
+        private static readonly ProfilerMarker _PRF_InitializePointArrays =
+            new ProfilerMarker(_PRF_PFX + nameof(InitializePointArrays));
 
         private static readonly ProfilerMarker _PRF_UpdateGraph =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateGraph));

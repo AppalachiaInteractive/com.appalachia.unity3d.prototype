@@ -1,5 +1,5 @@
 using System;
-using UnityEngine;
+using Sirenix.OdinInspector;
 using Random = UnityEngine.Random;
 
 namespace Appalachia.Prototype.KOC.Features.Character.Settings
@@ -9,24 +9,24 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
     {
         #region Fields and Autoproperties
 
-        [Range(0, 10)] public float breathingPeriod;
-        [Range(0, 10)] public float breathingPeriodIntensityFactor;
-        [Range(0, 1)] public float breathingPeriodVariance;
+        [PropertyRange(0, 10)] public float breathingPeriod;
+        [PropertyRange(0, 10)] public float breathingPeriodIntensityFactor;
+        [PropertyRange(0, 1)] public float breathingPeriodVariance;
 
-        [Range(0, 5)] public float exhalePeriod;
-        [Range(0, 1)] public float exhalePeriodVariance;
+        [PropertyRange(0, 5)] public float exhalePeriod;
+        [PropertyRange(0, 1)] public float exhalePeriodVariance;
 
-        [Range(0, 5)] public float inhalePeriod;
-        [Range(0, 1)] public float inhalePeriodPacingFactor;
-        [Range(0, 1)] public float inhalePeriodVariance;
-        [Range(0, 5)] public float initialDelay;
-        [Range(0, 1)] public float initialDelayVariance;
+        [PropertyRange(0, 5)] public float inhalePeriod;
+        [PropertyRange(0, 1)] public float inhalePeriodPacingFactor;
+        [PropertyRange(0, 1)] public float inhalePeriodVariance;
+        [PropertyRange(0, 5)] public float initialDelay;
+        [PropertyRange(0, 1)] public float initialDelayVariance;
 
-        [Range(0, 1)] public float intensityDampening;
-        [Range(0, 1)] public float intensityTransference;
+        [PropertyRange(0, 1)] public float intensityDampening;
+        [PropertyRange(0, 1)] public float intensityTransference;
 
-        [Range(0, 1)] public float volumeOverPace;
-        [Range(0, 1)] public float volumeOverPaceVariance;
+        [PropertyRange(0, 1)] public float volumeOverPace;
+        [PropertyRange(0, 1)] public float volumeOverPaceVariance;
 
         #endregion
 

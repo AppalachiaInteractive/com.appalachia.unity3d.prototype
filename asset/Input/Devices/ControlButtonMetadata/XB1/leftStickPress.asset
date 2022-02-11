@@ -28,6 +28,7 @@ MonoBehaviour:
     outline: {fileID: 21300000, guid: 7ed074f352fe00042ba818aee2c8fe0e, type: 3}
     reversedOutline: {fileID: 21300000, guid: 39c42180095a40846a386e1a9d4134e1, type: 3}
   imageNameOverride:
-    _overrideEnabled: 1
+    _overriding: 1
+    _initial: 
     _value: leftstick
   _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

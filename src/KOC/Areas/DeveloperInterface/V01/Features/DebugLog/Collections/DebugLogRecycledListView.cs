@@ -423,7 +423,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
                     anchoredPosition.y -= deltaHeightOfSelectedLogEntry;
                 }
 
-                logItem.Transform.anchoredPosition = anchoredPosition;
+                logItem.RectTransform.anchoredPosition = anchoredPosition;
 
                 // Color the log item
                 ColorLogItem(logItem, index);

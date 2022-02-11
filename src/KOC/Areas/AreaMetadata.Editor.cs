@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes.Editing;
@@ -17,17 +18,17 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Constants and Static Readonly
 
-        protected const string FOLDOUT_GROUP = FOLDOUT_GROUP_ + "/";
+        protected const string FOLDOUT_GROUP_INNER = FOLDOUT_GROUP + "/";
 
-        private const string FOLDOUT_GROUP_ = APPASTR.Common;
+        protected const string FOLDOUT_GROUP = APPASTR.Common;
 
         #endregion
 
         #region Fields and Autoproperties
 
         [FormerlySerializedAs("scaledTemplates")]
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP + APPASTR.Templates, Expanded = false)]
-        public DesignTemplateComponentSetStyle templates;
+        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
+        public DesignTemplateComponentSetData templates;
 
         #endregion
 
@@ -35,20 +36,6 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                initializer.Do(
-                    this,
-                    APPASTR.Scaled_Templates,
-                    templates == null,
-                    () =>
-                    {
-                        using (_PRF_Initialize.Auto())
-                        {
-                            templates = LoadOrCreateNew<DesignTemplateComponentSetStyle>(
-                                $"{Area}Scaled{nameof(DesignTemplateComponentSetStyle)}"
-                            );
-                        }
-                    }
-                );
             }
         }
 
@@ -74,7 +61,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #region IAreaMetadata Members
 
-        public DesignTemplateComponentSetStyle Templates => templates;
+        public DesignTemplateComponentSetData Templates => templates;
 
         #endregion
 
@@ -86,3 +73,5 @@ namespace Appalachia.Prototype.KOC.Areas
         #endregion
     }
 }
+
+#endif

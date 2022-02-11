@@ -13,6 +13,7 @@ using System.Text;
 using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Assets;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Availability;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLog;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperConsole.Commands;
 using Appalachia.Utility.Execution;
@@ -113,7 +114,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         {
             using (_PRF_DebugLogConsole.Auto())
             {
-                DebugLogManager.InstanceAvailable += i => _debugLogManager = i;
+                RegisterInstanceCallbacks.WithoutSorting()
+                                         .When.Behaviour<DebugLogManager>()
+                                         .IsAvailableThen(i => _debugLogManager = i);
 
                 AddCommand("help", "Prints all commands", LogAllCommands);
                 AddCommand<string>("help", "Prints all matching commands", LogAllCommandsWithName);

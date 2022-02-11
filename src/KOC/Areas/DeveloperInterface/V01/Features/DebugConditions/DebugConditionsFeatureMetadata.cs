@@ -1,21 +1,21 @@
 using System.Collections.Generic;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Areas.Common.Features;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugConditions.Model;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugConditions
 {
-    public sealed class DebugConditionsFeatureMetadata : AreaFeatureMetadata<DebugConditionsFeature,
-        DebugConditionsFeatureMetadata, DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
+    public sealed class DebugConditionsFeatureMetadata : DeveloperInterfaceMetadata_V01.FeatureMetadata<
+        DebugConditionsFeature, DebugConditionsFeatureMetadata>
     {
         #region Fields and Autoproperties
 
+        [OnValueChanged(nameof(OnChanged))]
         public List<DebugConditionPacketSettings> defaultPackets;
 
         #endregion
 
-        public override void Apply(DebugConditionsFeature functionality)
+        protected override void UpdateFunctionality(DebugConditionsFeature functionality)
         {
             using (_PRF_Apply.Auto())
             {
@@ -30,5 +30,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
             defaultPackets.Add(newSettings);
         }
 #endif
+
+        protected override void SubscribeResponsiveComponents(DebugConditionsFeature target)
+        {
+            using (_PRF_SubscribeResponsiveComponents.Auto())
+            {
+            }
+        }
     }
 }

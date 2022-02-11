@@ -252,15 +252,15 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Editor
                 ExecuteOnce.boolValue
             );
 
-            InitSleepTime.floatValue = EditorGUILayout.FloatField(
+            InitSleepCoreClock.Instance.FloatValue = EditorGUILayout.FloatField(
                 new GUIContent(
                     "Init sleep time",
                     "Time to wait before checking if conditions are met (use this to avoid low fps drops triggering the conditions when loading the game)"
                 ),
-                InitSleepTime.floatValue
+                InitSleepCoreClock.Instance.FloatValue
             );
 
-            ExecuteSleepTime.floatValue = EditorGUILayout.FloatField(
+            ExecuteSleepCoreClock.Instance.FloatValue = EditorGUILayout.FloatField(
                 new GUIContent(
                     "Sleep time after execute",
                     "Time to wait before checking if conditions are met again (once they have already been met and if ExecuteOnce is false)"

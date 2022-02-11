@@ -70,12 +70,11 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         #region Profiling
 
+        private static readonly ProfilerMarker _PRF_GetLocation =
+            new ProfilerMarker(_PRF_PFX + nameof(GetLocation));
 
         private static readonly ProfilerMarker _PRF_GetSettings =
             new ProfilerMarker(_PRF_PFX + nameof(GetSettings));
-
-        private static readonly ProfilerMarker _PRF_GetLocation =
-            new ProfilerMarker(_PRF_PFX + nameof(GetLocation));
 
         #endregion
     }
