@@ -993,7 +993,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DeveloperConsole
             }
         }
 
-        protected override async AppaTask Initialize(Initializer initializer)
+        /// <inheritdoc />
+protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
 
@@ -1010,11 +1011,13 @@ namespace Appalachia.Prototype.KOC.Debugging.DeveloperConsole
             PopupEnabled = settings.popup.enablePopup;
         }
 
-        protected override async AppaTask WhenDisabled()
+        /// <inheritdoc />
+protected override async AppaTask WhenDisabled()
         {
+            await base.WhenDisabled();
+                
             using (_PRF_WhenDisabled.Auto())
             {
-                await base.WhenDisabled();
 
                 // Stop receiving debug entries
                 UnityEngine.Application.logMessageReceivedThreaded -= ReceivedLog;
@@ -1028,11 +1031,13 @@ namespace Appalachia.Prototype.KOC.Debugging.DeveloperConsole
             }
         }
 
-        protected override async AppaTask WhenEnabled()
+        /// <inheritdoc />
+protected override async AppaTask WhenEnabled()
         {
+            await base.WhenEnabled();
+                
             using (_PRF_WhenEnabled.Auto())
             {
-                await base.WhenEnabled();
 
                 InitializeState();
 

@@ -16,10 +16,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         #endregion
 
+        /// <inheritdoc />
         protected override bool ShouldUpdate => monitor.SpectrumDataAvailable;
 
+        /// <inheritdoc />
         protected override RuntimeGraphAudioSettings settings => allSettings.audio;
 
+        /// <inheritdoc />
         protected override void AfterInitialization()
         {
             using (_PRF_AfterInitialization.Auto())
@@ -30,6 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override void UpdateText()
         {
             using (_PRF_UpdateText.Auto())

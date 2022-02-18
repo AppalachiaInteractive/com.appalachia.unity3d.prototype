@@ -34,8 +34,18 @@ MonoBehaviour:
     - verticalLayoutGroupData
     - headerLayout
     _resetToken: 
+  _objectId:
+    _increment: 3571684
+    _machine: 14129404
+    _timestamp: 1644957441
+    _pid: -14768
   rectTransform:
     _overriding: 1
+    _objectId:
+      _increment: 7594983
+      _machine: 14129404
+      _timestamp: 1644971928
+      _pid: -14768
     _initial:
       _initializer:
         _tags:
@@ -53,8 +63,14 @@ MonoBehaviour:
         - anchorMax
         - localRotation
         - localScale
+        - pivot
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       disableUpdatesForRootCanvas: 0
       _left: 0
       _posX: 0
@@ -67,19 +83,47 @@ MonoBehaviour:
       _height: 0
       anchorMin:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0}
         _value: {x: 0, y: 0}
       anchorMax:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1}
         _value: {x: 1, y: 1}
-      _pivot: {x: 0.5, y: 0.5}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
       localScale:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1, z: 1}
         _value: {x: 1, y: 1, z: 1}
       localRotation:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
     _value:
@@ -99,45 +143,94 @@ MonoBehaviour:
         - anchorMax
         - localRotation
         - localScale
+        - pivot
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 3571668
+        _machine: 14129404
+        _timestamp: 1644957441
+        _pid: -14768
       disableUpdatesForRootCanvas: 0
-      _left: 0
-      _posX: 0
-      _top: 0
-      _posY: 0
+      _left: 30
+      _posX: 15
+      _top: 30
+      _posY: -15
       _posZ: 0
       _right: 0
-      _width: -0
+      _width: -30
       _bottom: 0
-      _height: -0
+      _height: -30
       anchorMin:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0}
-        _value: {x: 0, y: 0.4}
+        _value: {x: 0, y: 0.35}
       anchorMax:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1}
-        _value: {x: 0.24, y: 1}
-      _pivot: {x: 0.5, y: 0.5}
+        _value: {x: 0.275, y: 1}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
       localScale:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1, z: 1}
         _value: {x: 1, y: 1, z: 1}
       localRotation:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
   canvas:
     _overriding: 1
+    _objectId:
+      _increment: 7594984
+      _machine: 14129404
+      _timestamp: 1644971928
+      _pid: -14768
     _initial: {fileID: 11400000, guid: 512e47effaeb80f4a81e8f8d82078232, type: 2}
     _value: {fileID: 11400000, guid: 512e47effaeb80f4a81e8f8d82078232, type: 2}
   background:
     _overriding: 0
+    _objectId:
+      _increment: 7594985
+      _machine: 14129404
+      _timestamp: 1644971928
+      _pid: -14768
     _initial: {fileID: 11400000, guid: 29f5d4aef775f2d468b6998b14fabdc1, type: 2}
     _value: {fileID: 11400000, guid: 29f5d4aef775f2d468b6998b14fabdc1, type: 2}
   roundedBackground:
     _overriding: 1
+    _objectId:
+      _increment: 7594986
+      _machine: 14129404
+      _timestamp: 1644971928
+      _pid: -14768
     _initial: {fileID: 11400000, guid: 5ec2bd47785b5b742ae983a909eb971b, type: 2}
     _value: {fileID: 11400000, guid: 5ec2bd47785b5b742ae983a909eb971b, type: 2}
   fontStyle: {fileID: 11400000, guid: a287b78bb38ee1041a65ea7fa650d892, type: 2}
@@ -164,64 +257,144 @@ MonoBehaviour:
       - pixelsPerUnitMultiplier
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 3571682
+      _machine: 14129404
+      _timestamp: 1644957441
+      _pid: -14768
     material:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {fileID: 0}
       _value: {fileID: 0}
     color:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {r: 0, g: 0, b: 0, a: 0}
       _value: {r: 1, g: 1, b: 1, a: 1}
     raycastTarget:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     maskable:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     sprite:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {fileID: 0}
       _value: {fileID: 21300000, guid: 8cd1599c255aee441a1ab9728851c673, type: 3}
     imageType:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     preserveAspect:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 1
     fillCenter:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     fillMethod:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     fillAmount:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     fillClockwise:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     fillOrigin:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     alphaHitTestMinimumThreshold:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     useSpriteMesh:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     pixelsPerUnitMultiplier:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
   headerLayout:
@@ -237,40 +410,85 @@ MonoBehaviour:
       - layoutPriority
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 3571683
+      _machine: 14129404
+      _timestamp: 1644957441
+      _pid: -14768
     ignoreLayout:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     minWidth:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     minHeight:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: 100
     preferredWidth:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     preferredHeight:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     flexibleWidth:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     flexibleHeight:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     layoutPriority:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1
       _value: 1
   types: 6e000000ca000000c9000000cf000000ce000000c8000000910100009001000058020000f4010000be020000bd020000bc02000020030000
-  textSettings:
+  developerInfoTextMesh:
     _initializer:
       _tags:
       - createLabel
@@ -292,7 +510,12 @@ MonoBehaviour:
       - FlexibleHeight
       - LayoutPriority
       _resetToken: 
-    _owner: {fileID: 11400000}
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 3571686
+      _machine: 14129404
+      _timestamp: 1644957441
+      _pid: -14768
     updateName: 1
     createLayoutElement: 1
     font: {fileID: 11400000, guid: 72ae4525196855b488e31eb6179b536a, type: 2}
@@ -321,37 +544,82 @@ MonoBehaviour:
         - flexibleHeight
         - layoutPriority
         _resetToken: 
-      _owner: {fileID: 11400000}
+      _owner: {fileID: 0}
+      _objectId:
+        _increment: 3571687
+        _machine: 14129404
+        _timestamp: 1644957441
+        _pid: -14768
       ignoreLayout:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       minWidth:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: -1
       minHeight:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 30
       preferredWidth:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       preferredHeight:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       flexibleWidth:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       flexibleHeight:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       layoutPriority:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
   verticalLayoutGroupData:
@@ -369,8 +637,18 @@ MonoBehaviour:
       - spacing
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 3571681
+      _machine: 14129404
+      _timestamp: 1644957441
+      _pid: -14768
     padding:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial:
         m_Left: 0
         m_Right: 0
@@ -382,38 +660,83 @@ MonoBehaviour:
         m_Top: 20
         m_Bottom: 20
     spacing:
-      _overriding: 0
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
-      _value: 0
+      _value: 2
     childAlignment:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     reverseArrangement:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     childControlWidth:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 1
     childControlHeight:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 1
     childScaleWidth:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     childScaleHeight:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     childForceExpandWidth:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 1
     childForceExpandHeight:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0

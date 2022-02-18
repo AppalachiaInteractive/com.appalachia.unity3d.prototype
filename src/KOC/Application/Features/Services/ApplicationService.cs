@@ -10,8 +10,8 @@ using Appalachia.Utility.Async;
 namespace Appalachia.Prototype.KOC.Application.Features.Services
 {
     [CallStaticConstructorInEditor]
-    public abstract class ApplicationService<TService, TServiceMetadata, TFeature, TFeatureMetadata,
-                                             TFunctionalitySet, TIService, TIWidget, TManager> :
+    public abstract partial class ApplicationService<TService, TServiceMetadata, TFeature, TFeatureMetadata,
+                                                     TFunctionalitySet, TIService, TIWidget, TManager> :
         ApplicationFunctionality<TService, TServiceMetadata, TManager>,
         IApplicationService
         where TService : ApplicationService<TService, TServiceMetadata, TFeature, TFeatureMetadata,
@@ -25,7 +25,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
+        IApplicationFunctionalityManager
     {
         #region Constants and Static Readonly
 
@@ -35,6 +36,10 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
 
         static ApplicationService()
         {
+            /*
+             * intentional use of base class ApplicationService<> to ensure that this callback
+             * runs before other TService callbacks.
+             */
             RegisterInstanceCallbacks
                .For<ApplicationService<TService, TServiceMetadata, TFeature, TFeatureMetadata,
                     TFunctionalitySet, TIService, TIWidget, TManager>>()
@@ -61,6 +66,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
 
         public static TFeature Feature => _feature;
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();

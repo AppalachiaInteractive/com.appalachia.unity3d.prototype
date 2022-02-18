@@ -12,11 +12,13 @@ namespace Appalachia.Prototype.KOC.Collections
     public class AreaSceneInformationLookup : AppaLookup<ApplicationArea, AreaSceneInformation,
         ApplicationAreaList, AreaSceneInformationList>
     {
+        /// <inheritdoc />
         protected override Color GetDisplayColor(ApplicationArea key, AreaSceneInformation value)
         {
             return Colors.WhiteSmokeGray96;
         }
 
+        /// <inheritdoc />
         protected override string GetDisplaySubtitle(ApplicationArea key, AreaSceneInformation value)
         {
             return ZString.Format(
@@ -25,6 +27,7 @@ namespace Appalachia.Prototype.KOC.Collections
             );
         }
 
+        /// <inheritdoc />
         protected override string GetDisplayTitle(ApplicationArea key, AreaSceneInformation value)
         {
             return key.ToString();

@@ -50,6 +50,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
             playerCamera = null;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

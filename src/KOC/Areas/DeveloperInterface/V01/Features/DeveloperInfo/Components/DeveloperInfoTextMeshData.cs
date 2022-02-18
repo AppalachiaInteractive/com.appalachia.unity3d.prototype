@@ -24,42 +24,44 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
         #endregion
 
-        protected override void ExecuteComponentDataApplication(DeveloperInfoTextMesh target)
+        /// <inheritdoc />
+        protected override void ApplyToComponentSet(DeveloperInfoTextMesh target)
         {
-            using (_PRF_ExecuteComponentDataApplication.Auto())
+            using (_PRF_ApplyToComponentSet.Auto())
             {
-                base.ExecuteComponentDataApplication(target);
+                base.ApplyToComponentSet(target);
 
-                var textMesh = target.textMeshValue;
+                target.layoutElement.enabled = true;
 
-                LayoutElementData.UpdateComponent(
+                LayoutElementData.RefreshAndUpdateComponent(
                     ref layoutElementData,
-                    target.layoutElement,
                     Owner,
+                    target.layoutElement,
                     (data, comp) =>
                     {
-                        if ((textMesh.firstOverflowCharacterIndex > -1) && data.minHeight.Overriding)
+                        data.minHeight.Disabled = target.LineCount > 1;
+
+                        if (data.minHeight.Disabled)
                         {
-                            data.minHeight.Disabled = true;
+                            var extraLineHeight = data.minHeight * .7f;
+                            var extraLines = target.LineCount - 1;
+
+                            var lineAdditive = extraLineHeight * extraLines;
+                            comp.minHeight = data.minHeight + lineAdditive;
                         }
                     },
-                    (data, comp) =>
-                    {
-                        if ((textMesh.firstOverflowCharacterIndex > -1) && data.minHeight.Disabled)
-                        {
-                            data.minHeight.Disabled = false;
-                            comp.minHeight = data.minHeight * 1.5f;
-                        }
-                    }
+                    (data, comp) => { data.minHeight.Disabled = false; }
                 );
             }
         }
 
+        /// <inheritdoc />
         protected override DeveloperInfoType GetInitialEnum()
         {
             return DeveloperInfoType.MachineName;
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveChildren()
         {
             using (_PRF_SubscribeResponsiveChildren.Auto())

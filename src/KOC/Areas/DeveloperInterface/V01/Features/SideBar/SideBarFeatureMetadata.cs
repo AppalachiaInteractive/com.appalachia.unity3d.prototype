@@ -3,16 +3,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
     public class SideBarFeatureMetadata : DeveloperInterfaceMetadata_V01.FeatureMetadata<SideBarFeature,
         SideBarFeatureMetadata>
     {
-        protected override void UpdateFunctionality(SideBarFeature functionality)
+        /// <inheritdoc />
+        protected override void SubscribeResponsiveComponents(SideBarFeature target)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
         }
 
-        protected override void SubscribeResponsiveComponents(SideBarFeature target)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(SideBarFeature functionality)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

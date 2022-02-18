@@ -28,20 +28,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
         #endregion
 
-        protected override void UpdateFunctionality(CommandSuggestionsWidget widget)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                base.UpdateFunctionality(widget);
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
 
             initializer.Do(this, nameof(maxSuggestions),          () => maxSuggestions = 8);
             initializer.Do(this, nameof(commandSuggestionHeight), () => commandSuggestionHeight = 0.02f);
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(CommandSuggestionsWidget widget)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                base.UpdateFunctionalityInternal(widget);
+            }
         }
     }
 }

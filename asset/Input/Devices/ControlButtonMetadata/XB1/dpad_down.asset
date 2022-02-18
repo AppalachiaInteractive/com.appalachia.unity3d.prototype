@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   device: {fileID: 11400000, guid: b393e3dec60e21441b1df98bf149f99a, type: 2}
   data:
     name: 
@@ -29,6 +34,11 @@ MonoBehaviour:
     reversedOutline: {fileID: 21300000, guid: 3ec41a72be8c01646a53ab6959a26614, type: 3}
   imageNameOverride:
     _overriding: 1
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: 
     _value: dpad_down
   _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

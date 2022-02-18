@@ -19,6 +19,11 @@ MonoBehaviour:
     - debugParameters
     - parameters
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   debug: 0
   gustAudioGroup: {fileID: -1861420323297737388, guid: 02fbf39ef3501fe45915e94dbebcf2eb, type: 2}
   parameters: {fileID: 11400000, guid: d2d789db19261344a81a898e7aa43aa7, type: 2}

@@ -38,12 +38,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
                    pitchLimitMax.Equals(other.pitchLimitMax);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is PlayerLooking other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

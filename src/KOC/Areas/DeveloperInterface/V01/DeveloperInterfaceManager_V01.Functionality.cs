@@ -1,11 +1,8 @@
-using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Areas.Functionality.Features;
 using Appalachia.Prototype.KOC.Areas.Functionality.Services;
 using Appalachia.Prototype.KOC.Areas.Functionality.Widgets;
-using Appalachia.UI.Controls.Extensions;
 using Appalachia.Utility.Extensions;
-using Unity.Profiling;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
@@ -20,6 +17,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             where TFeatureMetadata :
             DeveloperInterfaceMetadata_V01.FeatureMetadata<TFeature, TFeatureMetadata>
         {
+            public override void SortWidgets()
+            {
+                using (_PRF_SortWidgets.Auto())
+                {
+                    base.SortWidgets();
+                    Manager.unscaledWidgetObject.transform.SortChildren();
+                }
+            }
         }
 
         #endregion
@@ -53,44 +58,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             where TFeatureMetadata :
             DeveloperInterfaceMetadata_V01.FeatureMetadata<TFeature, TFeatureMetadata>
         {
-            static Widget()
+            protected override GameObject GetWidgetParentObject()
             {
-                When.Behaviour<DeveloperInterfaceManager_V01>()
-                    .IsAvailableThen(
-                         i => { i.InitializationComplete += _ => { instance.MoveWidgetToCorrectView(i); }; }
-                     );
-            }
-
-            private void MoveWidgetToCorrectView(DeveloperInterfaceManager_V01 manager)
-            {
-                using (_PRF_MoveWidgetToCorrectView.Auto())
+                using (_PRF_GetWidgetParentObject.Auto())
                 {
-                    var containerView = metadata.inUnscaledView
-                        ? manager.UnscaledCanvas.GameObject
-                        : manager.View.GameObject;
-
-                    if (transform.IsChildOf(containerView.transform))
-                    {
-                        return;
-                    }
-
-                    GameObject widgetContainerObject = null;
-
-                    containerView.GetOrAddChild(ref widgetContainerObject, APPASTR.ObjectNames.Widgets, true);
-
-                    var widgetRectTransform = widgetContainerObject.GetComponent<RectTransform>();
-                    widgetRectTransform.Reset(RectResetOptions.All);
-
-                    gameObject.SetParentTo(widgetContainerObject);
+                    return Manager.GetWidgetParentObject(metadata.inUnscaledView);
                 }
             }
-
-            #region Profiling
-
-            private static readonly ProfilerMarker _PRF_MoveWidgetToCorrectView =
-                new ProfilerMarker(_PRF_PFX + nameof(MoveWidgetToCorrectView));
-
-            #endregion
         }
 
         #endregion

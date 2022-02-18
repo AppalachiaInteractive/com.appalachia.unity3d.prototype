@@ -222,6 +222,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -243,12 +244,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
+            await base.WhenEnabled();
+
             using (_PRF_WhenEnabled.Auto())
             {
-                await base.WhenEnabled();
-
                 newInfoCount = 0;
                 newWarningCount = 0;
                 newErrorCount = 0;

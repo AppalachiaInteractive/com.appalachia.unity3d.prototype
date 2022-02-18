@@ -24,6 +24,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
         #endregion
 
+        public int LineCount => textMeshValue.textInfo.lineCount;
+
+        /// <inheritdoc />
         protected override string GetLabel()
         {
             using (_PRF_GetLabel.Auto())
@@ -32,6 +35,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
             }
         }
 
+        /// <inheritdoc />
         protected override string GetUpdatedText()
         {
             using (_PRF_GetUpdatedText.Auto())
@@ -40,6 +44,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
             }
         }
 
+        /// <inheritdoc />
         protected override void HandleUpdateException(Exception ex)
         {
             using (_PRF_HandleUpdateException.Auto())
@@ -48,6 +53,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
             }
         }
 
+        /// <inheritdoc />
         protected override bool IsImmutableValue(DeveloperInfoType x)
         {
             using (_PRF_IsImmutableValue.Auto())

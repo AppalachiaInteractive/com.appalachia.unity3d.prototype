@@ -58,6 +58,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Servi
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();

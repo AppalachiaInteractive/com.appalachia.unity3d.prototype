@@ -26,12 +26,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.States
                    movement.Equals(other.movement);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is PlayerState other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

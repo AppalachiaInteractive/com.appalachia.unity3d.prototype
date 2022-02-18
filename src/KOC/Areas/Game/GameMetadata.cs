@@ -6,6 +6,7 @@ namespace Appalachia.Prototype.KOC.Areas.Game
     {
         #region IGameMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.Game;
 
         #endregion

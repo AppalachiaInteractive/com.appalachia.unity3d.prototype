@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _rectTransformData:
     _initializer:
       _tags:
@@ -41,6 +46,11 @@ MonoBehaviour:
       - _pivot
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     disableUpdatesForRootCanvas: 0
     _left: 0
     _posX: 0
@@ -53,19 +63,47 @@ MonoBehaviour:
     _height: 0
     anchorMin:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0}
       _value: {x: 0, y: 0}
     anchorMax:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0}
       _value: {x: 1, y: 1}
-    _pivot: {x: 0.5, y: 0.5}
+    pivot:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0.5, y: 0.5}
+      _value: {x: 0.5, y: 0.5}
     localScale:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0, z: 0}
       _value: {x: 1, y: 1, z: 1}
     localRotation:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
   _imageData:
@@ -79,28 +117,63 @@ MonoBehaviour:
       - uvRect
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     material:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {fileID: 0}
       _value: {fileID: 0}
     color:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {r: 0, g: 0, b: 0, a: 0}
       _value: {r: 0, g: 0, b: 0, a: 0}
     raycastTarget:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     maskable:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     texture:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {fileID: 0}
       _value: {fileID: 0}
     uvRect:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial:
         serializedVersion: 2
         x: 0

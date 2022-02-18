@@ -1,3 +1,4 @@
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Drivers.Contracts;
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model;
@@ -7,6 +8,7 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Drivers.State
 {
+    [NonSerializable]
     public abstract class CursorStateDriver<T> : AppalachiaBase<T>, ICursorStateDriver
         where T : CursorStateDriver<T>, new()
     {

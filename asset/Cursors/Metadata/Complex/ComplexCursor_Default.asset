@@ -30,24 +30,49 @@ MonoBehaviour:
     - disabledColor
     - sprites
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   size: 120
   hotspot: {x: 0.5, y: 0.5}
   drivenByAnimator: 0
   cursorColorChangeDuration: 0.1
   cursorColor:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: {r: 0, g: 0, b: 0, a: 0}
     _value: {r: 0, g: 0, b: 0, a: 0}
   hoveringColor:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: {r: 0.9, g: 0.9, b: 0.9, a: 1}
     _value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   pressedColor:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: {r: 0.7, g: 0.7, b: 0.7, a: 1}
     _value: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   disabledColor:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
     _value: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
   maximumVelocityMagnitude: 5000

@@ -130,16 +130,16 @@ namespace Appalachia.Prototype.KOC.Lifetime
             {
                 gameObject.GetOrAddChild(ref _uiObject, PARENT_NAME_UI, false);
 
-                RootCanvasComponentSet.UpdateComponentSet(
-                    ref _rootCanvas,
+                RootCanvasComponentSetData.RefreshAndUpdateComponentSet(
                     ref _lifetimeMetadata.rootCanvas,
+                    ref _rootCanvas,
                     _uiObject,
                     APPASTR.ObjectNames.Master_Canvas
                 );
 
-                BackgroundComponentSet.UpdateComponentSet(
-                    ref _rootBackground,
+                BackgroundComponentSetData.RefreshAndUpdateComponentSet(
                     ref _lifetimeMetadata.rootBackground,
+                    ref _rootBackground,
                     _rootCanvas.ScaledCanvas.gameObject,
                     APPASTR.ObjectNames.Master_Canvas
                 );

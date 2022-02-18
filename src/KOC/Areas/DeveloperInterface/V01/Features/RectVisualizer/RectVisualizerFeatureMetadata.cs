@@ -13,6 +13,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         public float z;
 
+        [PropertyRange(0f, 1f)]
+        [BoxGroup("Modifiers")]
+        public float globalAlpha;
+
         [BoxGroup("Modifiers")] public OverridableColor inactive;
         [BoxGroup("Canvas")] public OverridableColor canvas;
         [BoxGroup("Canvas")] public OverridableColor screenSpace;
@@ -46,18 +50,21 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         [BoxGroup("Layout")] public OverridableColor layoutGroup;
         [BoxGroup("Layout")] public OverridableColor scrollRect;
 
+        [BoxGroup("Appalachia")] public OverridableColor appaCanvasScaler;
+        [BoxGroup("Appalachia")] public OverridableColor feature;
+        [BoxGroup("Appalachia")] public OverridableColor widget;
+
         #endregion
 
-        protected override void UpdateFunctionality(RectVisualizerFeature functionality)
-        {
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
 
             using (_PRF_Initialize.Auto())
             {
+                initializer.Do(this, nameof(globalAlpha), () => { globalAlpha = 1.0f; });
+
                 initializer.Do(
                     this,
                     nameof(inactive),
@@ -221,9 +228,31 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     scrollRect == default,
                     () => { scrollRect = new OverridableColor(true, Colors.Orange1.ScaleS(.5f).ScaleV(.3f)); }
                 );
+
+                initializer.Do(
+                    this,
+                    nameof(appaCanvasScaler),
+                    appaCanvasScaler == default,
+                    () => { appaCanvasScaler = new OverridableColor(true, Colors.Orange1); }
+                );
+
+                initializer.Do(
+                    this,
+                    nameof(feature),
+                    feature == default,
+                    () => { feature = new OverridableColor(true, Colors.Orange1); }
+                );
+
+                initializer.Do(
+                    this,
+                    nameof(widget),
+                    widget == default,
+                    () => { widget = new OverridableColor(true, Colors.Orange1); }
+                );
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(RectVisualizerFeature target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -251,7 +280,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                 layoutElement.Changed.Event += OnChanged;
                 layoutGroup.Changed.Event += OnChanged;
                 scrollRect.Changed.Event += OnChanged;
+
+                appaCanvasScaler.Changed.Event += OnChanged;
+                feature.Changed.Event += OnChanged;
+                widget.Changed.Event += OnChanged;
             }
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(RectVisualizerFeature functionality)
+        {
         }
     }
 }

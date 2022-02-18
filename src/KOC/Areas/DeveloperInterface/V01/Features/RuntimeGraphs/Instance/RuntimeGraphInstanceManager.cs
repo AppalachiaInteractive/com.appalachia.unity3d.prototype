@@ -53,6 +53,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         protected abstract int FullBackgroundImageIndex { get; }
         protected abstract int TextBackgroundImageIndex { get; }
 
+        /// <inheritdoc />
         public override void InitializeParameters()
         {
             using (_PRF_InitializeParameters.Auto())
@@ -70,6 +71,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         public override void UpdateParameters()
         {
             using (_PRF_UpdateParameters.Auto())
@@ -173,6 +175,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

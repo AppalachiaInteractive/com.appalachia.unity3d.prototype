@@ -33,21 +33,25 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #endregion
 
+        /// <inheritdoc />
         protected override string GetBackgroundColor()
         {
             return Brand.AreaManager.Banner;
         }
 
+        /// <inheritdoc />
         protected override string GetFallbackTitle()
         {
             return Brand.AreaManager.Fallback;
         }
 
+        /// <inheritdoc />
         protected override string GetTitle()
         {
             return Brand.AreaManager.Text;
         }
 
+        /// <inheritdoc />
         protected override string GetTitleColor()
         {
             return Brand.AreaManager.Color;
@@ -80,10 +84,10 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                DesignTemplateComponentSet.UpdateComponentSet(
-                    ref templates,
+                areaMetadata.UpdateComponentSet(
                     ref areaMetadata.templates,
-                    view.GameObject,
+                    ref templates,
+                    RootCanvas.ScaledCanvas.gameObject,
                     fullObjectName
                 );
             }

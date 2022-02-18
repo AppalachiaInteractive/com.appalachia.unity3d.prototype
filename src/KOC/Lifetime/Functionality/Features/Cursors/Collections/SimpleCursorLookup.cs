@@ -15,8 +15,10 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Colle
     public class SimpleCursorLookup : AppalachiaObjectLookupCollection<SimpleCursors, SimpleCursorMetadata,
         SimpleCursorsList, SimpleCursorMetadata.List, SimpleCursorMetadataLookup, SimpleCursorLookup>
     {
+        /// <inheritdoc />
         public override bool HasDefault => true;
 
+        /// <inheritdoc />
         protected override SimpleCursors GetUniqueKeyFromValue(SimpleCursorMetadata value)
         {
             return value.value;

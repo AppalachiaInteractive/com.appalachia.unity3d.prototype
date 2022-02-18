@@ -17,6 +17,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
 
         #region Event Functions
 
+        /// <inheritdoc />
         protected override void Update()
         {
             using (_PRF_Update.Auto())
@@ -32,6 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
 
         #endregion
 
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
@@ -70,6 +72,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
@@ -78,6 +81,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())
@@ -96,7 +100,10 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
 
         #region ISplashScreenManager Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.SplashScreen;
+
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.None;
 
         public void NotifyTimelineCompleted(IAreaManager notifier)

@@ -15,10 +15,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 {
     [ExecutionOrder(ExecutionOrders.GizmoDrawerService)]
     [RequireComponent(typeof(Camera))]
-    public class RectVisualizerService : DeveloperInterfaceManager_V01.Service<RectVisualizerService,
-                                             RectVisualizerServiceMetadata, RectVisualizerFeature,
-                                             RectVisualizerFeatureMetadata>,
-                                         GizmoDrawer.IService
+    public partial class RectVisualizerService : DeveloperInterfaceManager_V01.Service<RectVisualizerService,
+                                                     RectVisualizerServiceMetadata, RectVisualizerFeature,
+                                                     RectVisualizerFeatureMetadata>,
+                                                 GizmoDrawer.IService
     {
         #region Fields and Autoproperties
 
@@ -45,7 +45,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
-        [ButtonGroup(GROUP_NAME)]
         public void DiscoverTargets()
         {
             using (_PRF_DiscoverTargets.Auto())
@@ -64,68 +63,50 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
-        [ButtonGroup(GROUP_NAME)]
         public async AppaTask UpdateTargets()
         {
-            using (_PRF_UpdateTargets.Auto())
+            if (_rectTransforms == null)
             {
-                if (_rectTransforms == null)
+                DiscoverTargets();
+            }
+
+            var iterations = 0;
+            var rebuildArray = false;
+
+            for (var rectTransformIndex = 0;
+                 rectTransformIndex < _rectTransforms.Length;
+                 rectTransformIndex++)
+            {
+                UpdateTarget(rectTransformIndex, ref rebuildArray, out var doReturn, out var doContinue);
+
+                if (doReturn)
                 {
-                    DiscoverTargets();
+                    return;
                 }
 
-                var iterations = 0;
-                var rebuildArray = false;
-
-                for (var rectTransformIndex = 0;
-                     rectTransformIndex < _rectTransforms.Length;
-                     rectTransformIndex++)
+                if (doContinue)
                 {
-                    if (!enabled || ShouldSkipUpdate)
-                    {
-                        return;
-                    }
-
-                    var rt = _rectTransforms[rectTransformIndex];
-
-                    if (rt == null)
-                    {
-                        rebuildArray = true;
-                        continue;
-                    }
-
-                    RectTransformVisualizationData data;
-
-                    if (RectDatas.Count > rectTransformIndex)
-                    {
-                        data = RectDatas[rectTransformIndex];
-                    }
-                    else
-                    {
-                        data = RectTransformVisualizationData.Get();
-                        RectDatas.Add(data);
-                    }
-
-                    data.Create(rt, Feature.Metadata);
-
-                    if (iterations > metadata.updateSteps)
-                    {
-                        iterations = 0;
-                        await AppaTask.Yield();
-                    }
-                    else
-                    {
-                        iterations += 1;
-                    }
+                    continue;
                 }
 
-                if (rebuildArray)
+                if (iterations > metadata.updateSteps)
                 {
-                    _rectTransforms = _rectTransforms.Where(rt => rt != null).ToArray();
+                    iterations = 0;
+                    await AppaTask.Yield();
                 }
+                else
+                {
+                    iterations += 1;
+                }
+            }
+
+            if (rebuildArray)
+            {
+                RebuildArray();
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -146,6 +127,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             await _service.Initialize();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();
@@ -156,12 +138,62 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
+        private void RebuildArray()
+        {
+            using (_PRF_RebuildArray.Auto())
+            {
+                _rectTransforms = _rectTransforms.Where(rt => rt != null).ToArray();
+            }
+        }
+
         private async AppaTask Run()
         {
             while (enabled)
             {
                 await UpdateTargets();
                 await metadata.updates.Delay();
+            }
+        }
+
+        private void UpdateTarget(
+            int rectTransformIndex,
+            ref bool rebuildArray,
+            out bool doReturn,
+            out bool doContinue)
+        {
+            using (_PRF_UpdateTarget.Auto())
+            {
+                doReturn = false;
+                doContinue = false;
+
+                if (!enabled || ShouldSkipUpdate)
+                {
+                    doReturn = true;
+                    return;
+                }
+
+                var rt = _rectTransforms[rectTransformIndex];
+
+                if (rt == null)
+                {
+                    rebuildArray = true;
+                    doContinue = true;
+                    return;
+                }
+
+                RectTransformVisualizationData data;
+
+                if (RectDatas.Count > rectTransformIndex)
+                {
+                    data = RectDatas[rectTransformIndex];
+                }
+                else
+                {
+                    data = RectTransformVisualizationData.Get();
+                    RectDatas.Add(data);
+                }
+
+                data.Create(rt, Feature.Metadata);
             }
         }
 
@@ -209,7 +241,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         protected static readonly ProfilerMarker _PRF_OnPreCull =
             new ProfilerMarker(_PRF_PFX + nameof(OnPreCull));
 
+        private static readonly ProfilerMarker _PRF_RebuildArray =
+            new ProfilerMarker(_PRF_PFX + nameof(RebuildArray));
+
         private static readonly ProfilerMarker _PRF_Run = new ProfilerMarker(_PRF_PFX + nameof(Run));
+
+        private static readonly ProfilerMarker _PRF_UpdateTarget =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateTarget));
 
         private static readonly ProfilerMarker _PRF_UpdateTargets =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateTargets));

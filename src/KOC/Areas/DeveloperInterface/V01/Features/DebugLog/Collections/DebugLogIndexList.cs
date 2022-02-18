@@ -3,6 +3,7 @@ using Appalachia.Core.Objects.Root;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLog.Collections
 {
+    [Serializable]
     public class DebugLogIndexList : AppalachiaSimpleBase
     {
         public DebugLogIndexList()

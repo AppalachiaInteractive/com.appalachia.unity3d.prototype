@@ -17,6 +17,21 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   index:
     initializerCount: 0
     _object: {fileID: 11400000}
+    keys:
+      _capacityIncreaseMultiplier: 2
+      _values: []
+      noTracking: 0
+      _count: 0
+    values:
+      _capacityIncreaseMultiplier: 2
+      _values: []
+      noTracking: 0
+      _count: 0

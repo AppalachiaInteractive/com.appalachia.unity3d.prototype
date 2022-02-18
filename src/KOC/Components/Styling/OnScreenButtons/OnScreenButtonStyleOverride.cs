@@ -37,6 +37,7 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 
         #endregion
 
+        /// <inheritdoc />
         public override void SyncWithDefault()
         {
             using (_PRF_SyncWithDefault.Auto())
@@ -68,6 +69,7 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
             }
         }
 
+        /// <inheritdoc />
         protected override void RegisterOverrideSubscriptions()
         {
             using (_PRF_RegisterOverrideSubscriptions.Auto())

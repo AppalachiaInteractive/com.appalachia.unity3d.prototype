@@ -72,31 +72,38 @@ namespace Appalachia.Prototype.KOC.Playables.TimeMachine
             _receivedSignal = true;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override void OnPause(Playable playable, FrameData info)
         {
         }
 
+        /// <inheritdoc />
         protected override void OnPlay(Playable playable, FrameData info)
         {
         }
 
+        /// <inheritdoc />
         protected override void Update(Playable playable, FrameData info, object playerData)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenDestroyed(Playable playable)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenStarted(Playable playable)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenStopped(Playable playable)
         {
         }

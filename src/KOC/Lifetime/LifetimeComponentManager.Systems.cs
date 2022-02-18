@@ -71,10 +71,10 @@ namespace Appalachia.Prototype.KOC.Lifetime
                 _systemsObject.GetOrAddLifetimeComponentInChild(ref _audioListener,  nameof(AudioListener));
                 _systemsObject.GetOrAddLifetimeComponentInChild(ref _databasManager, nameof(DatabaseManager));
 
-                CameraData.UpdateComponent(
+                CameraData.RefreshAndUpdateComponent(
                     ref _lifetimeMetadata.clearCameraData,
-                    _clearCamera,
-                    lifetimeMetadata
+                    lifetimeMetadata,
+                    _clearCamera
                 );
 
                 _systemsObject.GetOrAddLifetimeComponentInChild(ref _cleanupManager, nameof(CleanupManager));

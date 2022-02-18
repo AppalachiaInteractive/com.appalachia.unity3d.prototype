@@ -1,8 +1,6 @@
-using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.UI.Controls.Sets.UnscaledCanvas;
 using Appalachia.Utility.Async;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
@@ -15,11 +13,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
     {
         #region Fields and Autoproperties
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Unscaled_Canvas, Expanded = false)]
-        public UnscaledCanvasComponentSetData unscaledCanvas;
+        [SerializeField] public UnscaledCanvasComponentSetData unscaledCanvas;
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -32,10 +30,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
             }
         }
 
-        public UnscaledCanvasComponentSetData UnscaledCanvas => unscaledCanvas;
-        
         #region IDeveloperInterfaceMetadata Members
 
+        public UnscaledCanvasComponentSetData UnscaledCanvas => unscaledCanvas;
+
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.DeveloperInterface;
 
         #endregion

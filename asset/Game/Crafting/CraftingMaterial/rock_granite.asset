@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff671ba63294c15b9c624e07ab1be63, type: 3}
   m_Name: rock_granite
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: rock_granite
+  _niceName: Rock_granite
   _initializer:
     _tags:
     - profileName
     _resetToken: 
+  _objectId:
+    _increment: 12632112
+    _machine: 14129404
+    _timestamp: 1645121942
+    _pid: -14768
   id: 1
   profileName: rock_granite
   icon: {fileID: 0}

@@ -40,91 +40,195 @@ MonoBehaviour:
     - Scaled Templates
     - Unscaled Templates
     _resetToken: 2021-11-20a
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   input:
     onDisableMapState:
       DeathMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       DeveloperInterface:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       GenericMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       InGameMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       LoadingScreen:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       MainMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       PauseMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       Player:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       SplashScreen:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       StartScreen:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
     onEnableMapState:
       DeathMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       DeveloperInterface:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       GenericMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       InGameMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       LoadingScreen:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       MainMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       PauseMenu:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       Player:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       SplashScreen:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       StartScreen:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
   rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
-  view: {fileID: 11400000, guid: 3731b5a97e248bd4eba97f4b79f017d9, type: 2}
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:

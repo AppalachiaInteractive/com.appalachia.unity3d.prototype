@@ -100,6 +100,7 @@ namespace Appalachia.Prototype.KOC.Components.Controls
 #endif
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

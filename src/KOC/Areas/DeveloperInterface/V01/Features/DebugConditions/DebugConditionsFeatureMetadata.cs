@@ -15,13 +15,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
 
         #endregion
 
-        protected override void UpdateFunctionality(DebugConditionsFeature functionality)
-        {
-            using (_PRF_Apply.Auto())
-            {
-            }
-        }
-
 #if UNITY_EDITOR
         [Button]
         public void CreateNew()
@@ -31,9 +24,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
         }
 #endif
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(DebugConditionsFeature target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
+            {
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(DebugConditionsFeature functionality)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

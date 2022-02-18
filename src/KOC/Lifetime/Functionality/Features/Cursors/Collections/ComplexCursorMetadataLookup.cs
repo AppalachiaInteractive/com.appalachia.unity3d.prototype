@@ -11,16 +11,19 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Colle
     public class ComplexCursorMetadataLookup : AppaLookup<ComplexCursors, ComplexCursorMetadata,
         ComplexCursorsList, ComplexCursorMetadata.List>
     {
+        /// <inheritdoc />
         protected override Color GetDisplayColor(ComplexCursors key, ComplexCursorMetadata value)
         {
             return Colors.WhiteSmokeGray96;
         }
 
+        /// <inheritdoc />
         protected override string GetDisplaySubtitle(ComplexCursors key, ComplexCursorMetadata value)
         {
             return value.name;
         }
 
+        /// <inheritdoc />
         protected override string GetDisplayTitle(ComplexCursors key, ComplexCursorMetadata value)
         {
             return key.ToString();

@@ -33,12 +33,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.States
                    (jumpStart == other.jumpStart);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is HumanMovementState other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

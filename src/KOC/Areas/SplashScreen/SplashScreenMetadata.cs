@@ -18,6 +18,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -45,6 +46,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
 
         #region ISplashScreenMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.SplashScreen;
 
         #endregion

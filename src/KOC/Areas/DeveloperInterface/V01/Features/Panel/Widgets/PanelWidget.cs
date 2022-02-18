@@ -27,6 +27,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();
@@ -36,6 +37,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
             await AppaTask.WaitUntil(() => _statusBarWidget != null);
         }
 
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())
@@ -61,6 +63,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
             }
         }
 
+        /// <inheritdoc />
         protected override void UnsubscribeFromAllFunctionalities()
         {
             using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
@@ -73,6 +76,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();

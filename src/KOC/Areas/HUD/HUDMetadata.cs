@@ -6,6 +6,7 @@ namespace Appalachia.Prototype.KOC.Areas.HUD
     {
         #region IHUDMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.HUD;
 
         #endregion

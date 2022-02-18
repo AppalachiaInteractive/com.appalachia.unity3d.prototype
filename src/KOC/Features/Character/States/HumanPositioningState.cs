@@ -35,12 +35,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.States
                    lastVegetationPosition.Equals(other.lastVegetationPosition);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is HumanPositioningState other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

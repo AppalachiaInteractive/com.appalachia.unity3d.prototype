@@ -3,6 +3,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
     public sealed class MenuBarWidget : DeveloperInterfaceManager_V01.Widget<MenuBarWidget,
         MenuBarWidgetMetadata, MenuBarFeature, MenuBarFeatureMetadata>
     {
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())

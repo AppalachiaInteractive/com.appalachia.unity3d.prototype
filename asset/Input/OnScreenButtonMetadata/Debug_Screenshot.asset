@@ -18,5 +18,10 @@ MonoBehaviour:
     _tags:
     - OnScreenButtonStyleOverride
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   actionReference: {fileID: -79616292676720681, guid: c2018b4a82e83c14aac6fc3e5eea2ed0, type: 3}
   style: {fileID: 11400000, guid: b3da2a090be226147b71e45963b87b50, type: 2}

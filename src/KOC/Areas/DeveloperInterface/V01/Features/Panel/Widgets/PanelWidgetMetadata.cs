@@ -17,14 +17,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
 
         #endregion
 
-        protected override void UpdateFunctionality(PanelWidget widget)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                base.UpdateFunctionality(widget);
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -32,6 +25,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
             using (_PRF_Initialize.Auto())
             {
                 initializer.Do(this, nameof(height), () => height = 0.3f);
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(PanelWidget widget)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                base.UpdateFunctionalityInternal(widget);
             }
         }
     }

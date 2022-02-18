@@ -35,6 +35,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls
 
         #endregion
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return ZString.Format(

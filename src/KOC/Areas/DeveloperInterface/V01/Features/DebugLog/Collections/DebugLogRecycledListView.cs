@@ -345,6 +345,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

@@ -9,6 +9,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 
         #endregion
 
+        /// <inheritdoc />
         public override AreaVersion Version => AreaVersion.V01;
     }
 }

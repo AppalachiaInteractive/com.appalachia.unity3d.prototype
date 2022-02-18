@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   device: {fileID: 11400000, guid: b393e3dec60e21441b1df98bf149f99a, type: 2}
   data:
     name: leftShoulder
@@ -29,6 +34,11 @@ MonoBehaviour:
     reversedOutline: {fileID: 21300000, guid: a22e22710de5f6549a2db73d3ef55fa6, type: 3}
   imageNameOverride:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: 
     _value: 
   _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

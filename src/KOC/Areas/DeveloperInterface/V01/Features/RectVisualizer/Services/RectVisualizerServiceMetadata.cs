@@ -27,15 +27,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #endregion
 
-        protected override void UpdateFunctionality(RectVisualizerService functionality)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                var camera = functionality.DrawCamera;
-                CameraData.UpdateComponent(ref cameraData, camera, this);
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -53,11 +45,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(RectVisualizerService target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
                 cameraData.Changed.Event += OnChanged;
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(RectVisualizerService functionality)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                var camera = functionality.DrawCamera;
+                CameraData.RefreshAndUpdateComponent(ref cameraData, this, camera);
             }
         }
 

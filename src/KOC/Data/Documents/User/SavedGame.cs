@@ -16,6 +16,7 @@ namespace Appalachia.Prototype.KOC.Data.Documents.User
 
         #endregion
 
+        /// <inheritdoc />
         protected override void SetDefaults()
         {
         }

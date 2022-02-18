@@ -19,6 +19,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Metad
 
         #endregion
 
+        /// <inheritdoc />
         public override bool IsSimple => true;
 
         public bool HasTexture => texture != null;

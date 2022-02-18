@@ -24,6 +24,7 @@ namespace Appalachia.Prototype.KOC.Scenes
 
         public AssetReference reference => elements[currentVersion].reference;
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -38,6 +39,7 @@ namespace Appalachia.Prototype.KOC.Scenes
         private static readonly ProfilerMarker _PRF_IsDataValid =
             new ProfilerMarker(_PRF_PFX + nameof(IsDataValid));
 
+        /// <inheritdoc />
         protected override bool IsDataValid()
         {
             using (_PRF_IsDataValid.Auto())

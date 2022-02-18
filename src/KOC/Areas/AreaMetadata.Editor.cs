@@ -18,16 +18,16 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Constants and Static Readonly
 
-        protected const string FOLDOUT_GROUP_INNER = FOLDOUT_GROUP + "/";
+        protected const string COMMON_FOLDOUT_GROUP = APPASTR.Common;
 
-        protected const string FOLDOUT_GROUP = APPASTR.Common;
+        protected const string COMMON_FOLDOUT_GROUP_INNER = COMMON_FOLDOUT_GROUP + "/";
 
         #endregion
 
         #region Fields and Autoproperties
 
         [FormerlySerializedAs("scaledTemplates")]
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
+        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
         public DesignTemplateComponentSetData templates;
 
         #endregion
@@ -39,21 +39,25 @@ namespace Appalachia.Prototype.KOC.Areas
             }
         }
 
+        /// <inheritdoc />
         protected override string GetBackgroundColor()
         {
             return Brand.AreaMetadata.Banner;
         }
 
+        /// <inheritdoc />
         protected override string GetFallbackTitle()
         {
             return Brand.AreaMetadata.Fallback;
         }
 
+        /// <inheritdoc />
         protected override string GetTitle()
         {
             return Brand.AreaMetadata.Text;
         }
 
+        /// <inheritdoc />
         protected override string GetTitleColor()
         {
             return Brand.AreaMetadata.Color;

@@ -19,7 +19,8 @@ public class AICommandClip : PlayableAsset, ITimelineClipAsset
 		get { return ClipCaps.None; }
     }
 
-    public override Playable CreatePlayable (PlayableGraph graph, GameObject owner)
+    /// <inheritdoc />
+public override Playable CreatePlayable (PlayableGraph graph, GameObject owner)
     {
         var playable = ScriptPlayable<AICommandBehaviour>.Create(graph, template);
 		AICommandBehaviour clone = playable.GetBehaviour();

@@ -21,6 +21,7 @@ namespace Appalachia.Prototype.KOC.Scenes.Collections
             }
         }
 
+        /// <inheritdoc />
         protected override bool ShouldDisplayTitle => true;
 
         [Button]
@@ -29,16 +30,19 @@ namespace Appalachia.Prototype.KOC.Scenes.Collections
             Add(AreaVersion.None, null);
         }
 
+        /// <inheritdoc />
         protected override Color GetDisplayColor(AreaVersion key, SceneReferenceElement value)
         {
             return Colors.WhiteSmokeGray96;
         }
 
+        /// <inheritdoc />
         protected override string GetDisplaySubtitle(AreaVersion key, SceneReferenceElement value)
         {
             return null;
         }
 
+        /// <inheritdoc />
         protected override string GetDisplayTitle(AreaVersion key, SceneReferenceElement value)
         {
             return value.name;

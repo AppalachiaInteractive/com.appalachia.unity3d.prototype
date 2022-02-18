@@ -10,7 +10,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                DesignTemplateComponentSet.UpdateComponentSet(
+                DesignTemplateComponentSetData.RefreshAndUpdateComponentSet(
                     ref areaMetadata.unscaledTemplates,
                     ref unscaledTemplates,
                     unscaledCanvas.GameObject,

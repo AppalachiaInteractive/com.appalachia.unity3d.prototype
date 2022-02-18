@@ -128,6 +128,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                 {
                     var type = allTypes[i];
 
+                    if (!type.HasAttribute<DeveloperConsoleMethodProviderAttribute>())
+                    {
+                        continue;
+                    }
+
                     var typeMethods = type.GetMethods_CACHE(
                         BindingFlags.Static |
                         BindingFlags.Public |
@@ -137,12 +142,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
                     foreach (var typeMethod in typeMethods)
                     {
-                        if (!typeMethod.HasAttribute<DeveloperConsoleAttribute>())
+                        if (!typeMethod.HasAttribute<DeveloperConsoleMethodAttribute>())
                         {
                             continue;
                         }
 
-                        var consoleMethod = typeMethod.GetAttribute_CACHE<DeveloperConsoleAttribute>();
+                        var consoleMethod = typeMethod.GetAttribute_CACHE<DeveloperConsoleMethodAttribute>();
 
                         AddCommand(
                             consoleMethod.Command,

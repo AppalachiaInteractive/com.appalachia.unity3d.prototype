@@ -7,6 +7,7 @@ namespace Appalachia.Prototype.KOC.Areas.InGameMenu
     {
         #region IInGameMenuMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.InGameMenu;
 
         #endregion

@@ -5,6 +5,7 @@ namespace Appalachia.Prototype.KOC.Areas.PauseMenu
         where TManager : PauseMenuManager<TManager, TMetadata>
         where TMetadata : PauseMenuMetadata<TManager, TMetadata>
     {
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
@@ -13,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Areas.PauseMenu
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
@@ -21,6 +23,7 @@ namespace Appalachia.Prototype.KOC.Areas.PauseMenu
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())
@@ -31,7 +34,10 @@ namespace Appalachia.Prototype.KOC.Areas.PauseMenu
 
         #region IPauseMenuManager Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.PauseMenu;
+
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.None;
 
         #endregion

@@ -44,6 +44,49 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Insta
 
         protected LifetimeComponentManager LifetimeComponentManager => _lifetimeComponentManager;
 
+        protected abstract void BeforeRendering();
+
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                initializer.Do(this, nameof(stateData), stateData == null, () => stateData = new());
+            }
+        }
+
+        private bool ShouldExecute()
+        {
+            using (_PRF_ShouldExecute.Auto())
+            {
+                if (components == null)
+                {
+                    return false;
+                }
+
+                if (stateData == null)
+                {
+                    return false;
+                }
+
+                if (!stateData.ShouldExecute())
+                {
+                    return false;
+                }
+
+                if (stateData.Metadata == null)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        #region ICursorInstance Members
+
         public void UpdateForRendering()
         {
             using (_PRF_UpdateForRendering.Auto())
@@ -87,48 +130,6 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Insta
                 BeforeRendering();
             }
         }
-
-        protected abstract void BeforeRendering();
-
-        protected override async AppaTask Initialize(Initializer initializer)
-        {
-            await base.Initialize(initializer);
-
-            using (_PRF_Initialize.Auto())
-            {
-                initializer.Do(this, nameof(stateData), stateData == null, () => stateData = new());
-            }
-        }
-
-        private bool ShouldExecute()
-        {
-            using (_PRF_ShouldExecute.Auto())
-            {
-                if (components == null)
-                {
-                    return false;
-                }
-
-                if (stateData == null)
-                {
-                    return false;
-                }
-
-                if (!stateData.ShouldExecute())
-                {
-                    return false;
-                }
-
-                if (stateData.Metadata == null)
-                {
-                    return false;
-                }
-
-                return true;
-            }
-        }
-
-        #region ICursorInstance Members
 
         public IReadLimitedWriteCursorInstanceStateData StateData => stateData;
 

@@ -10,6 +10,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Insta
     public sealed class SimpleCursorInstance : CursorInstance<SimpleCursorInstance, SimpleCursorInstanceState,
         SimpleCursorMetadata, SimpleCursorComponentSet, SimpleCursorComponentSetData>
     {
+        /// <inheritdoc />
         protected override void BeforeRendering()
         {
             using (_PRF_BeforeRendering.Auto())

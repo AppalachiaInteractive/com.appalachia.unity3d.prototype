@@ -5,16 +5,18 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling
     public sealed class
         ViewScalingFeatureMetadata : LifetimeFeatureMetadata<ViewScalingFeature, ViewScalingFeatureMetadata>
     {
-        protected override void UpdateFunctionality(ViewScalingFeature widget)
+        /// <inheritdoc />
+        protected override void SubscribeResponsiveComponents(ViewScalingFeature target)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
         }
 
-        protected override void SubscribeResponsiveComponents(ViewScalingFeature target)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(ViewScalingFeature widget)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

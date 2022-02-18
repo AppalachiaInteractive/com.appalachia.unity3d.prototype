@@ -29,12 +29,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.States
                    Equals(mouth,     other.mouth);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is PlayerParts other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

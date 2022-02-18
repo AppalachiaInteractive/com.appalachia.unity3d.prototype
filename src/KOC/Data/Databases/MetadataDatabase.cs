@@ -7,8 +7,10 @@ namespace Appalachia.Prototype.KOC.Data.Databases
     [Serializable]
     public class MetadataDatabase : KOCDatabase<MetadataDatabase>
     {
+        /// <inheritdoc />
         public override DatabaseType Type => DatabaseType.Metadata;
 
+        /// <inheritdoc />
         protected override void Dispose(bool disposing)
         {
             using (_PRF_Dispose.Auto())
@@ -21,6 +23,7 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             }
         }
 
+        /// <inheritdoc />
         protected override void RegisterCollections()
         {
         }

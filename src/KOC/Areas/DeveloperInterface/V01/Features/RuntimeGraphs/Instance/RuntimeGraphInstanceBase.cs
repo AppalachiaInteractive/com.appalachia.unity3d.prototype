@@ -44,6 +44,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         protected abstract TSettings settings { get; }
 
+        /// <inheritdoc />
         public override bool FullyInitialized => base.FullyInitialized && (_runtimeGraphManager != null);
 
         protected RuntimeGraphManager RuntimeGraphManager => _runtimeGraphManager;

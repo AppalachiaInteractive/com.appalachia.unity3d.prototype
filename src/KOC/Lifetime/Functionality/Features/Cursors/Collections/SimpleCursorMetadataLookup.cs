@@ -11,11 +11,13 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Colle
     public class SimpleCursorMetadataLookup : AppaLookup<SimpleCursors, SimpleCursorMetadata,
         SimpleCursorsList, SimpleCursorMetadata.List>
     {
+        /// <inheritdoc />
         protected override Color GetDisplayColor(SimpleCursors key, SimpleCursorMetadata value)
         {
             return Colors.WhiteSmokeGray96;
         }
 
+        /// <inheritdoc />
         protected override string GetDisplaySubtitle(SimpleCursors key, SimpleCursorMetadata value)
         {
             if (value.texture != null)
@@ -26,6 +28,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Colle
             return value.name;
         }
 
+        /// <inheritdoc />
         protected override string GetDisplayTitle(SimpleCursors key, SimpleCursorMetadata value)
         {
             return key.ToString();

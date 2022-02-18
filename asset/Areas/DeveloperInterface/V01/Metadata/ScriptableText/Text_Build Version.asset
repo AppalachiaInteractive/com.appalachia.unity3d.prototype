@@ -17,5 +17,10 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   label: Build Version
   text: alpha.2021.10.21.001

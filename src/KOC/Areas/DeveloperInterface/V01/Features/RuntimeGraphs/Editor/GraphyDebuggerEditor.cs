@@ -39,7 +39,8 @@ namespace Appalachia.Prototype.KOC.Debugging.RuntimeGraphs.Editor
 
         #endregion
 
-        public override void OnInspectorGUI()
+        /// <inheritdoc />
+public override void OnInspectorGUI()
         {
             if ((m_target == null) && (target == null))
             {

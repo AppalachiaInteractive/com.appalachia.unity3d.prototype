@@ -3,16 +3,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
     public class ScreenshotFeatureMetadata : DeveloperInterfaceMetadata_V01.FeatureMetadata<ScreenshotFeature,
         ScreenshotFeatureMetadata>
     {
-        protected override void UpdateFunctionality(ScreenshotFeature functionality)
+        /// <inheritdoc />
+        protected override void SubscribeResponsiveComponents(ScreenshotFeature target)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
         }
 
-        protected override void SubscribeResponsiveComponents(ScreenshotFeature target)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(ScreenshotFeature functionality)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

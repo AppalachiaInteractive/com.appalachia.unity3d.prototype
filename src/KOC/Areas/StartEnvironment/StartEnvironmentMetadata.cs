@@ -7,6 +7,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartEnvironment
     {
         #region IStartEnvironmentMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.StartEnvironment;
 
         #endregion

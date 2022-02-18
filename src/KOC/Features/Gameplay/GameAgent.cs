@@ -72,6 +72,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
             return agents.GetEnumerator();
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override string ToString()
         {
@@ -83,6 +84,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
             return base.ToString();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -109,6 +111,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenDestroyed()
         {
             await base.WhenDestroyed();

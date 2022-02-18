@@ -41,12 +41,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.States
                    (audioStale == other.audioStale);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is FootPlacementState other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

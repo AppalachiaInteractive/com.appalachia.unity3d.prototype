@@ -5,6 +5,7 @@ using UnityEngine.Scripting;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperConsole.Commands
 {
+    [DeveloperConsoleMethodProvider]
     public class SceneCommands
     {
         #region Static Fields and Autoproperties
@@ -26,42 +27,42 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
             }
         }
 
-        [DeveloperConsole("scene.load", "Loads a scene")]
+        [DeveloperConsoleMethod("scene.load", "Loads a scene")]
         [Preserve]
         public static void LoadScene(string sceneName)
         {
             LoadSceneInternal(sceneName, false, LoadSceneMode.Single);
         }
 
-        [DeveloperConsole("scene.load", "Loads a scene")]
+        [DeveloperConsoleMethod("scene.load", "Loads a scene")]
         [Preserve]
         public static void LoadScene(string sceneName, LoadSceneMode mode)
         {
             LoadSceneInternal(sceneName, false, mode);
         }
 
-        [DeveloperConsole("scene.loadasync", "Loads a scene asynchronously")]
+        [DeveloperConsoleMethod("scene.loadasync", "Loads a scene asynchronously")]
         [Preserve]
         public static void LoadSceneAsync(string sceneName)
         {
             LoadSceneInternal(sceneName, true, LoadSceneMode.Single);
         }
 
-        [DeveloperConsole("scene.loadasync", "Loads a scene asynchronously")]
+        [DeveloperConsoleMethod("scene.loadasync", "Loads a scene asynchronously")]
         [Preserve]
         public static void LoadSceneAsync(string sceneName, LoadSceneMode mode)
         {
             LoadSceneInternal(sceneName, true, mode);
         }
 
-        [DeveloperConsole("scene.restart", "Restarts the active scene")]
+        [DeveloperConsoleMethod("scene.restart", "Restarts the active scene")]
         [Preserve]
         public static void RestartScene()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
 
-        [DeveloperConsole("scene.unload", "Unloads a scene")]
+        [DeveloperConsoleMethod("scene.unload", "Unloads a scene")]
         [Preserve]
         public static void UnloadScene(string sceneName)
         {

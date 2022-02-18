@@ -17,8 +17,10 @@ namespace Appalachia.Prototype.KOC.Data.Databases
 
         #endregion
 
+        /// <inheritdoc />
         public override DatabaseType Type => DatabaseType.User;
 
+        /// <inheritdoc />
         protected override void Dispose(bool disposing)
         {
             using (_PRF_Dispose.Auto())
@@ -31,6 +33,7 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             }
         }
 
+        /// <inheritdoc />
         protected override void RegisterCollections()
         {
             using (_PRF_RegisterCollections.Auto())

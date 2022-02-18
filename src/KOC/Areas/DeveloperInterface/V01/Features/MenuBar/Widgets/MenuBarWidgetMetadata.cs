@@ -17,19 +17,21 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
 
         #endregion
 
-        protected override void UpdateFunctionality(MenuBarWidget widget)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                base.UpdateFunctionality(widget);
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
 
             initializer.Do(this, nameof(height), () => height = 0.03f);
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(MenuBarWidget widget)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                base.UpdateFunctionalityInternal(widget);
+            }
         }
     }
 }

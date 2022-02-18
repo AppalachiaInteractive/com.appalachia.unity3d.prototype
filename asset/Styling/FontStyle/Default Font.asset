@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _overrides:
   - {fileID: 11400000, guid: afee15da68d82f64bb278296bd0d9861, type: 2}
   - {fileID: 11400000, guid: ad8026f7920eed74bbc98b4dd2f0a1be, type: 2}

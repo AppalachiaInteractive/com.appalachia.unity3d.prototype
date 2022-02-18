@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Availability;
@@ -17,9 +19,8 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Application.Features
 {
     [CallStaticConstructorInEditor]
-    [ExecuteAlways]
-    public abstract class ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
-                                             TIWidget, TManager> :
+    public abstract partial class ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
+                                                     TIWidget, TManager> :
         ApplicationFunctionality<TFeature, TFeatureMetadata, TManager>,
         IApplicationFeature<TFeature, TFeatureMetadata>
         where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget
@@ -29,7 +30,8 @@ namespace Appalachia.Prototype.KOC.Application.Features
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
+        IApplicationFunctionalityManager
     {
         #region Constants and Static Readonly
 
@@ -39,6 +41,10 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         static ApplicationFeature()
         {
+            /*
+             * intentional use of base class ApplicationFeature<> to ensure that this callback
+             * runs before other TFeature callbacks.
+             */
             RegisterInstanceCallbacks
                .For<ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
                     TManager>>()
@@ -47,7 +53,7 @@ namespace Appalachia.Prototype.KOC.Application.Features
                .AreAvailableThen(
                     (thisInstance, _) =>
                     {
-                        var parentObject = thisInstance.GetTargetParentObject();
+                        var parentObject = thisInstance.GetFeatureParentObject();
 
                         thisInstance.transform.SetParent(parentObject.transform);
                     }
@@ -63,8 +69,6 @@ namespace Appalachia.Prototype.KOC.Application.Features
         #region Fields and Autoproperties
 
         private GameObject _serviceParentObject;
-
-        private GameObject _widgetParentObject;
 
         private bool _isVisible;
         private bool _isEnabled;
@@ -87,40 +91,43 @@ namespace Appalachia.Prototype.KOC.Application.Features
         }
 
         public bool IsVisible => _isVisible;
+        public GameObject ServiceParentObject => GetServiceParentObject();
+
+        public GameObject WidgetParentObject => GetWidgetParentObject();
+
+        public int ServiceCount => _functionalitySet?.Services?.Count ?? 0;
+        public int WidgetCount => _functionalitySet?.Widgets?.Count ?? 0;
+
+        public IReadOnlyList<TIService> Services => FunctionalitySet.Services;
+        public IReadOnlyList<TIWidget> Widgets => FunctionalitySet.Widgets;
 
         public async AppaTask DisableFeature()
         {
-            using (_PRF_DisableFeature.Auto())
-            {
-                await AppaTask.WaitUntil(() => FullyInitialized);
+            await AppaTask.WaitUntil(() => FullyInitialized);
 
-                _isEnabled = false;
-                await BeforeDisable();
-            }
+            _isEnabled = false;
+            await BeforeDisable();
         }
 
         public async AppaTask EnableFeature()
         {
-            using (_PRF_EnableFeature.Auto())
+            await AppaTask.WaitUntil(() => FullyInitialized);
+
+            if (!_hasBeenEnabledPreviously)
             {
-                await AppaTask.WaitUntil(() => FullyInitialized);
-
-                if (!_hasBeenEnabledPreviously)
-                {
-                    _hasBeenEnabledPreviously = true;
-                    await BeforeFirstEnable();
-                }
-
-                _isEnabled = true;
-
-                await BeforeEnable();
+                _hasBeenEnabledPreviously = true;
+                await BeforeFirstEnable();
             }
+
+            _isEnabled = true;
+
+            await BeforeEnable();
         }
 
-        [ButtonGroup("Widgets")]
-        [GUIColor(nameof(disableColor))]
+        [ButtonGroup(APPASTR.Hide)]
+        [GUIColor(nameof(DisableColor))]
         [PropertyOrder(-1)]
-        [LabelText("Hide")]
+        [LabelText(APPASTR.Hide)]
         public async AppaTask HideFeature()
         {
             //using (_PRF_Hide.Auto())
@@ -171,6 +178,22 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
+        protected internal virtual GameObject GetWidgetParentObject()
+        {
+            using (_PRF_GetWidgetParentObject.Auto())
+            {
+                return Manager.GetWidgetParentObject();
+            }
+        }
+
+        protected internal GameObject GetFeatureParentObject()
+        {
+            using (_PRF_GetFeatureParentObject.Auto())
+            {
+                return Manager.GetFeatureParentObject();
+            }
+        }
+
         protected internal GameObject GetServiceParentObject()
         {
             using (_PRF_GetServiceParentObject.Auto())
@@ -184,34 +207,11 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
-        protected internal GameObject GetWidgetParentObject()
-        {
-            using (_PRF_GetWidgetParentObject.Auto())
-            {
-                if (_widgetParentObject == null)
-                {
-                    var rootCanvasObject = GetRootCanvasGameObject();
-
-                    rootCanvasObject.GetOrAddChild(
-                        ref _widgetParentObject,
-                        APPASTR.ObjectNames.Widgets,
-                        true
-                    );
-                }
-
-                return _widgetParentObject;
-            }
-        }
-
         protected abstract AppaTask BeforeDisable();
 
         protected abstract AppaTask BeforeEnable();
 
         protected abstract AppaTask BeforeFirstEnable();
-
-        protected abstract GameObject GetRootCanvasGameObject();
-
-        protected abstract GameObject GetTargetParentObject();
 
         protected abstract AppaTask OnHide();
 
@@ -225,6 +225,7 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
+        /// <inheritdoc />
         protected override void UnsubscribeFromAllFunctionalities()
         {
             using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
@@ -243,6 +244,7 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();
@@ -265,34 +267,33 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
-        [ButtonGroup("Toggle")]
-        [GUIColor(nameof(disableColor))]
-        [PropertyOrder(-3)]
-        [LabelText("Disable Feature")]
-        private void DisableFeatureButton()
-        {
-            DisableFeature().Forget();
-        }
-
-        [ButtonGroup("Toggle")]
-        [GUIColor(nameof(enableColor))]
-        [PropertyOrder(-4)]
-        [LabelText("Enable Feature")]
-        private void EnableFeatureButton()
-        {
-            EnableFeature().Forget();
-        }
-
-        [ButtonGroup("Widgets")]
-        [GUIColor(nameof(enableColor))]
-        [PropertyOrder(-2)]
-        [LabelText("Show")]
-        private void ShowFeatureButton()
-        {
-            ShowFeature().Forget();
-        }
-
         #region IApplicationFeature<TFeature,TFeatureMetadata> Members
+
+        IEnumerable<IApplicationService> IApplicationFeature.Services =>
+            FunctionalitySet.Services.Cast<IApplicationService>();
+
+        IEnumerable<IApplicationWidget> IApplicationFeature.Widgets =>
+            FunctionalitySet.Widgets.Cast<IApplicationWidget>();
+
+        public override void ApplyMetadata()
+        {
+            using (_PRF_ApplyMetadata.Auto())
+            {
+                base.ApplyMetadata();
+
+                for (var serviceIndex = 0; serviceIndex < Services.Count; serviceIndex++)
+                {
+                    var service = Services[serviceIndex];
+                    service.ApplyMetadata();
+                }
+
+                for (var widgetIndex = 0; widgetIndex < Widgets.Count; widgetIndex++)
+                {
+                    var widget = Widgets[widgetIndex];
+                    widget.ApplyMetadata();
+                }
+            }
+        }
 
         public async AppaTask SetToInitialState()
         {
@@ -309,6 +310,22 @@ namespace Appalachia.Prototype.KOC.Application.Features
                 }
 
                 await AppaTask.CompletedTask;
+            }
+        }
+
+        public virtual void SortServices()
+        {
+            using (_PRF_SortServices.Auto())
+            {
+                ServiceParentObject.transform.SortChildren();
+            }
+        }
+
+        public virtual void SortWidgets()
+        {
+            using (_PRF_SortWidgets.Auto())
+            {
+                WidgetParentObject.transform.SortChildren();
             }
         }
 
@@ -331,11 +348,11 @@ namespace Appalachia.Prototype.KOC.Application.Features
         private static readonly ProfilerMarker _PRF_EnableFeature =
             new ProfilerMarker(_PRF_PFX + nameof(EnableFeature));
 
-        protected static readonly ProfilerMarker _PRF_GetParentObject =
-            new ProfilerMarker(_PRF_PFX + nameof(GetTargetParentObject));
+        private static readonly ProfilerMarker _PRF_GetFeatureParentObject =
+            new ProfilerMarker(_PRF_PFX + nameof(GetFeatureParentObject));
 
-        protected static readonly ProfilerMarker _PRF_GetRootCanvasGameObject =
-            new ProfilerMarker(_PRF_PFX + nameof(GetRootCanvasGameObject));
+        protected static readonly ProfilerMarker _PRF_GetParentObject =
+            new ProfilerMarker(_PRF_PFX + nameof(GetFeatureParentObject));
 
         protected static readonly ProfilerMarker _PRF_GetServiceParentObject =
             new ProfilerMarker(_PRF_PFX + nameof(GetServiceParentObject));
@@ -358,6 +375,12 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         protected static readonly ProfilerMarker _PRF_Show =
             new ProfilerMarker(_PRF_PFX + nameof(ShowFeature));
+
+        private static readonly ProfilerMarker _PRF_SortServices =
+            new ProfilerMarker(_PRF_PFX + nameof(SortServices));
+
+        protected static readonly ProfilerMarker _PRF_SortWidgets =
+            new ProfilerMarker(_PRF_PFX + nameof(SortWidgets));
 
         private static readonly ProfilerMarker _PRF_ToggleFeature =
             new ProfilerMarker(_PRF_PFX + nameof(ToggleFeature));

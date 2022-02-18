@@ -33,12 +33,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
                    gravityFactor.Equals(other.gravityFactor);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is PlayerJumping other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

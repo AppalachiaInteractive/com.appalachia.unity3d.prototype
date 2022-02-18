@@ -54,6 +54,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
         public int Index => entryIndex;
 
         // Return a string containing complete information about the debug entry
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override string ToString()
         {

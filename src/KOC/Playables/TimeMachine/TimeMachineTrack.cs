@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -6,8 +7,10 @@ namespace Appalachia.Prototype.KOC.Playables.TimeMachine
 {
     [TrackColor(0.7366781f, 0.3261246f, 0.8529412f)]
     [TrackClipType(typeof(TimeMachineClip))]
+    [Serializable]
     public class TimeMachineTrack : TrackAsset
     {
+        /// <inheritdoc />
         public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
         {
             var scriptPlayable = ScriptPlayable<TimeMachineMixerBehaviour>.Create(graph, inputCount);

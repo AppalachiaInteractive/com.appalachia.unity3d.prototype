@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff671ba63294c15b9c624e07ab1be63, type: 3}
   m_Name: rock_gneiss
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: rock_gneiss
+  _niceName: Rock_gneiss
   _initializer:
     _tags:
     - profileName
     _resetToken: 
+  _objectId:
+    _increment: 12632125
+    _machine: 14129404
+    _timestamp: 1645121946
+    _pid: -14768
   id: 31
   profileName: rock_gneiss
   icon: {fileID: 0}

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -8,13 +9,16 @@ namespace Appalachia.Prototype.KOC.Playables.TMPTextSwitcher
     [TrackColor(0.1394896f, 0.4411765f, 0.3413077f)]
     [TrackClipType(typeof(TMPTextSwitcherClip))]
     [TrackBindingType(typeof(TextMeshProUGUI))]
+    [Serializable]
     public class TMPTextSwitcherTrack : TrackAsset
     {
+        /// <inheritdoc />
         public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
         {
             return ScriptPlayable<TMPTextSwitcherMixerBehaviour>.Create(graph, inputCount);
         }
 
+        /// <inheritdoc />
         public override void GatherProperties(PlayableDirector director, IPropertyCollector driver)
         {
 #if UNITY_EDITOR

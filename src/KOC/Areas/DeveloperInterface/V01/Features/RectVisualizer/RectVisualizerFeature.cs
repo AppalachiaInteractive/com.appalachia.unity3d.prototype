@@ -59,48 +59,38 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeDisable()
         {
-            using (_PRF_BeforeDisable.Auto())
-            {
-                await HideFeature();
-            }
+            await HideFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeEnable()
         {
-            using (_PRF_BeforeEnable.Auto())
-            {
-                await ShowFeature();
-            }
+            await ShowFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeFirstEnable()
         {
-            using (_PRF_BeforeFirstEnable.Auto())
-            {
-                metadata.Changed.Event += _rectVisualizerService.DiscoverTargets;
+            metadata.Changed.Event += _rectVisualizerService.DiscoverTargets;
 
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnHide()
         {
-            using (_PRF_OnHide.Auto())
-            {
-                _rectVisualizerWidget.Hide();
-                await AppaTask.CompletedTask;
-            }
+            _rectVisualizerWidget.Hide();
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnShow()
         {
-            using (_PRF_OnShow.Auto())
-            {
-                _rectVisualizerWidget.Show();
-                await AppaTask.CompletedTask;
-            }
+            _rectVisualizerWidget.Show();
+            await AppaTask.CompletedTask;
         }
 
         #region IActivityBarEntryProvider Members

@@ -18,6 +18,7 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
     public class CharacterBreathingAudioProcessor : CharacterAudioExecutionProcessor<HumanBreathingSounds,
         AudioContext3, AudioContextParameters3>
     {
+        /// <inheritdoc />
         public override void Direct(
             CharacterAudioExecutionManagerBehaviour owner,
             out Patch patch,
@@ -28,6 +29,7 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
             throw new NotImplementedException();
         }
 
+        /// <inheritdoc />
         public override void OnJump(
             PlayerCharacter player,
             CharacterAudioExecutionManagerBehaviour audioManager)
@@ -40,6 +42,7 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
             }
         }
 
+        /// <inheritdoc />
         public override void OnLand(
             PlayerCharacter player,
             CharacterAudioExecutionManagerBehaviour audioManager)
@@ -51,6 +54,7 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
             }
         }
 
+        /// <inheritdoc />
         public override bool Update(
             CharacterAudioExecutionManagerBehaviour owner,
             out Patch patch,
@@ -155,6 +159,7 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
             return false;
         }
 
+        /// <inheritdoc />
         protected override void OnInitialize(CharacterAudioExecutionManagerBehaviour owner)
         {
         }

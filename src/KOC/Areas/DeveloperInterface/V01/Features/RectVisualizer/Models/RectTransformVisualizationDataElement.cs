@@ -1,6 +1,6 @@
 using System;
-using Appalachia.Core.ArrayPooling;
 using Appalachia.Core.ObjectPooling;
+using Appalachia.Utility.Extensions;
 using Drawing;
 using Unity.Profiling;
 using UnityEngine;
@@ -16,50 +16,43 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         #region Fields and Autoproperties
 
         public Color color;
-        public Vector3[] corners;
+        public Rect rect;
+
+        private float z;
 
         #endregion
 
-        public Vector3 bottomLeft => corners[0];
-        public Vector3 bottomRight => corners[3];
-        public Vector3 topLeft => corners[1];
-        public Vector3 topRight => corners[2];
+        public Vector3 BottomLeft => rect.BottomLeft();
+        public Vector3 BottomRight => rect.BottomRight();
+        public Vector3 TopLeft => rect.TopLeft();
+        public Vector3 TopRight => rect.TopRight();
 
+        /// <inheritdoc />
         public override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
-                corners = ArrayPool<Vector3>.Shared.Rent(4);
                 color = Color.white;
             }
         }
 
+        /// <inheritdoc />
         public override void Reset()
         {
             using (_PRF_Reset.Auto())
             {
-                if (corners != null)
-                {
-                    ArrayPool<Vector3>.Shared.Return(corners);
-                }
-
-                corners = null;
+                rect = default;
+                z = default;
                 color = Color.clear;
             }
         }
 
-        public void CopyCorners(Vector3[] cornersArray, float z)
+        public void CopyRect(Rect rect, float z)
         {
-            using (_PRF_CopyCorners.Auto())
+            using (_PRF_CopyRect.Auto())
             {
-                corners[0] = cornersArray[0];
-                corners[1] = cornersArray[1];
-                corners[2] = cornersArray[2];
-                corners[3] = cornersArray[3];
-                corners[0].z = z;
-                corners[1].z = z;
-                corners[2].z = z;
-                corners[3].z = z;
+                this.rect = rect;
+                this.z = z;
             }
         }
 
@@ -72,27 +65,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     color,
                     () =>
                     {
-                        drawCommandBuilder.Line(bottomLeft,  topLeft);
-                        drawCommandBuilder.Line(topLeft,     topRight);
-                        drawCommandBuilder.Line(topRight,    bottomRight);
-                        drawCommandBuilder.Line(bottomRight, bottomLeft);
+                        drawCommandBuilder.Line(BottomLeft,  TopLeft);
+                        drawCommandBuilder.Line(TopLeft,     TopRight);
+                        drawCommandBuilder.Line(TopRight,    BottomRight);
+                        drawCommandBuilder.Line(BottomRight, BottomLeft);
                     }
                 );
             }
         }
 
-        public void Grow(int amount = 1)
+        public void Grow(float amount = 1f)
         {
             using (_PRF_Grow.Auto())
             {
-                corners[0].x -= amount;
-                corners[0].y -= amount;
-                corners[1].x -= amount;
-                corners[1].y += amount;
-                corners[2].x += amount;
-                corners[2].y += amount;
-                corners[3].x += amount;
-                corners[3].y -= amount;
+                rect = rect.Expand(amount);
             }
         }
 
@@ -100,14 +86,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         {
             using (_PRF_Shrink.Auto())
             {
-                corners[0].x += amount;
-                corners[0].y += amount;
-                corners[1].x += amount;
-                corners[1].y -= amount;
-                corners[2].x -= amount;
-                corners[2].y -= amount;
-                corners[3].x -= amount;
-                corners[3].y += amount;
+                rect = rect.Expand(-amount);
             }
         }
 
@@ -124,6 +103,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #region Profiling
 
+        private static readonly ProfilerMarker _PRF_CopyRect =
+            new ProfilerMarker(_PRF_PFX + nameof(CopyRect));
+
         private static readonly ProfilerMarker _PRF_DrawAsCube =
             new ProfilerMarker(_PRF_PFX + nameof(DrawAsCube));
 
@@ -131,7 +113,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             new ProfilerMarker(_PRF_PFX + nameof(DrawInternal));
 
         private static readonly ProfilerMarker _PRF_CopyCorners =
-            new ProfilerMarker(_PRF_PFX + nameof(CopyCorners));
+            new ProfilerMarker(_PRF_PFX + nameof(CopyRect));
 
         private static readonly ProfilerMarker _PRF_Grow = new ProfilerMarker(_PRF_PFX + nameof(Grow));
 

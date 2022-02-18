@@ -31,10 +31,12 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
 
         #endregion
 
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.SplashScreen;
 
         #region Event Functions
 
+        /// <inheritdoc />
         protected override void Update()
         {
             using (_PRF_Update.Auto())
@@ -87,6 +89,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -131,6 +134,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
             }
         }
 
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
@@ -139,6 +143,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
@@ -147,6 +152,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())

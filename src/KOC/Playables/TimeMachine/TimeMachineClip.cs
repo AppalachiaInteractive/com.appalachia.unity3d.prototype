@@ -54,6 +54,7 @@ namespace Appalachia.Prototype.KOC.Playables.TimeMachine
 
         private bool _showTimeToJumpTo => action == TimeMachineBehaviour.TimeMachineAction.JumpToTime;
 
+        /// <inheritdoc />
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
             var playable = ScriptPlayable<TimeMachineBehaviour>.Create(graph, template);

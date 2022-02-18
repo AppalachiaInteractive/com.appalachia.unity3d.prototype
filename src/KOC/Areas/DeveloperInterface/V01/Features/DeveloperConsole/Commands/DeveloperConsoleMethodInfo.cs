@@ -1,9 +1,11 @@
 using System;
 using System.Reflection;
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Root;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperConsole.Commands
 {
+    [NonSerializable]
     public class DeveloperConsoleMethodInfo : AppalachiaSimpleBase
     {
         public DeveloperConsoleMethodInfo(

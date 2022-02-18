@@ -49,6 +49,50 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             }
         }
 
+        /// <inheritdoc />
+        protected override async AppaTask BeforeDisable()
+        {
+            await HideFeature();
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask BeforeEnable()
+        {
+            await ShowFeature();
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask BeforeFirstEnable()
+        {
+            await AppaTask.CompletedTask;
+        }
+
+        /// <inheritdoc />
+        protected override void OnApplyMetadataInternal()
+        {
+            using (_PRF_OnApplyMetadataInternal.Auto())
+            {
+                base.OnApplyMetadataInternal();
+
+                ValidateEntries(ref _topEntries);
+                ValidateEntries(ref _bottomEntries);
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask OnHide()
+        {
+            _activityBarWidget.Hide();
+            await AppaTask.CompletedTask;
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask OnShow()
+        {
+            _activityBarWidget.Show();
+            await AppaTask.CompletedTask;
+        }
+
         private static void RegisterActivity(ActivityBarEntry activity)
         {
             using (_PRF_RegisterActivity.Auto())
@@ -80,59 +124,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 {
                     RegisterActivity(activity);
                 }
-            }
-        }
-
-        protected override async AppaTask BeforeDisable()
-        {
-            using (_PRF_BeforeDisable.Auto())
-            {
-                await HideFeature();
-            }
-        }
-
-        protected override async AppaTask BeforeEnable()
-        {
-            using (_PRF_BeforeEnable.Auto())
-            {
-                await ShowFeature();
-            }
-        }
-
-        protected override async AppaTask BeforeFirstEnable()
-        {
-            using (_PRF_BeforeFirstEnable.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
-        }
-
-        protected override void OnApplyMetadataInternal()
-        {
-            using (_PRF_OnApplyMetadataInternal.Auto())
-            {
-                base.OnApplyMetadataInternal();
-
-                ValidateEntries(ref _topEntries);
-                ValidateEntries(ref _bottomEntries);
-            }
-        }
-
-        protected override async AppaTask OnHide()
-        {
-            using (_PRF_OnHide.Auto())
-            {
-                _activityBarWidget.Hide();
-                await AppaTask.CompletedTask;
-            }
-        }
-
-        protected override async AppaTask OnShow()
-        {
-            using (_PRF_OnShow.Auto())
-            {
-                _activityBarWidget.Show();
-                await AppaTask.CompletedTask;
             }
         }
 

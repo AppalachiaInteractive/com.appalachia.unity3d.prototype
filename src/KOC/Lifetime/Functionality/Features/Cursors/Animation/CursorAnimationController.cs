@@ -31,6 +31,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Anima
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -47,6 +48,8 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Anima
             }
         }
 
+        #region Nested type: Layers
+
         public static class Layers
         {
             #region Constants and Static Readonly
@@ -57,18 +60,9 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Anima
             #endregion
         }
 
-        public static class Parameters
-        {
-            #region Constants and Static Readonly
+        #endregion
 
-            public const string Disabled = "Disabled";
-            public const string Hide = "Hide";
-            public const string Hovering = "Hovering";
-            public const string Pressed = "Pressed";
-            public const string Show = "Show";
-
-            #endregion
-        }
+        #region Nested type: Motions
 
         public static class Motions
         {
@@ -95,5 +89,24 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Anima
 
             #endregion
         }
+
+        #endregion
+
+        #region Nested type: Parameters
+
+        public static class Parameters
+        {
+            #region Constants and Static Readonly
+
+            public const string Disabled = "Disabled";
+            public const string Hide = "Hide";
+            public const string Hovering = "Hovering";
+            public const string Pressed = "Pressed";
+            public const string Show = "Show";
+
+            #endregion
+        }
+
+        #endregion
     }
 }

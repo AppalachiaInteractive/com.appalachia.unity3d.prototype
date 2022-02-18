@@ -30,13 +30,14 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Sets.
 
         #endregion
 
-        protected override void ApplyMetadataToComponentSet(TSet componentSet)
+        /// <inheritdoc />
+        public override void ApplyToComponentSet(TSet componentSet)
         {
-            using (_PRF_ApplyMetadataToComponentSet.Auto())
+            using (_PRF_ApplyToComponentSet.Auto())
             {
-                base.ApplyMetadataToComponentSet(componentSet);
+                base.ApplyToComponentSet(componentSet);
 
-                AnimatorData.UpdateComponent(ref _animatorData, componentSet.Animator, this);
+                AnimatorData.RefreshAndUpdateComponent(ref _animatorData, this, componentSet.Animator);
             }
         }
 

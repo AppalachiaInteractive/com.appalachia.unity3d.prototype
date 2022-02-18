@@ -45,6 +45,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.State
 
         #endregion
 
+        /// <inheritdoc />
         public override ComplexCursorMetadata Metadata
         {
             get
@@ -61,6 +62,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.State
             }
         }
 
+        /// <inheritdoc />
         protected override bool ShouldExecuteInternal()
         {
             using (_PRF_ShouldExecuteInternal.Auto())

@@ -27,12 +27,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
             return walkSpeed.Equals(other.walkSpeed) && runSpeed.Equals(other.runSpeed);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is PlayerLocomotion other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

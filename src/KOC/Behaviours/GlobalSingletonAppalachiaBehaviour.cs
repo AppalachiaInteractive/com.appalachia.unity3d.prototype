@@ -69,26 +69,31 @@ namespace Appalachia.Prototype.KOC.Behaviours
 
         #endregion
 
+        /// <inheritdoc />
         protected override string GetBackgroundColor()
         {
             return Brand.GlobalSingletonAppalachiaBehaviour.Banner;
         }
 
+        /// <inheritdoc />
         protected override string GetFallbackTitle()
         {
             return Brand.GlobalSingletonAppalachiaBehaviour.Fallback;
         }
 
+        /// <inheritdoc />
         protected override string GetTitle()
         {
             return Brand.GlobalSingletonAppalachiaBehaviour.Text;
         }
 
+        /// <inheritdoc />
         protected override string GetTitleColor()
         {
             return Brand.GlobalSingletonAppalachiaBehaviour.Color;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

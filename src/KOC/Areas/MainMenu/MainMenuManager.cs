@@ -39,6 +39,7 @@ namespace Appalachia.Prototype.KOC.Areas.MainMenu
             }
         }
 
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
@@ -47,6 +48,7 @@ namespace Appalachia.Prototype.KOC.Areas.MainMenu
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
@@ -55,6 +57,7 @@ namespace Appalachia.Prototype.KOC.Areas.MainMenu
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())
@@ -65,7 +68,10 @@ namespace Appalachia.Prototype.KOC.Areas.MainMenu
 
         #region IMainMenuManager Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.MainMenu;
+
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.None;
 
         #endregion

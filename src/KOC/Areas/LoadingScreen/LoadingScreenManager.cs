@@ -5,6 +5,7 @@ namespace Appalachia.Prototype.KOC.Areas.LoadingScreen
         where TManager : LoadingScreenManager<TManager, TMetadata>
         where TMetadata : LoadingScreenMetadata<TManager, TMetadata>
     {
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
@@ -13,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Areas.LoadingScreen
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
@@ -21,6 +23,7 @@ namespace Appalachia.Prototype.KOC.Areas.LoadingScreen
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())
@@ -31,7 +34,10 @@ namespace Appalachia.Prototype.KOC.Areas.LoadingScreen
 
         #region ILoadingScreenManager Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.LoadingScreen;
+
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.None;
 
         #endregion

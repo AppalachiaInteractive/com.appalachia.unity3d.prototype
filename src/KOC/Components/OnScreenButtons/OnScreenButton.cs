@@ -23,6 +23,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

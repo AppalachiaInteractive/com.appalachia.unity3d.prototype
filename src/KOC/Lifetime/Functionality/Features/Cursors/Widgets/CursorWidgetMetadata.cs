@@ -14,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Widge
 
         #endregion
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(CursorWidget target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -25,24 +26,25 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Widge
             }
         }
 
-        protected override void UpdateFunctionality(CursorWidget widget)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(CursorWidget widget)
         {
             using (_PRF_UpdateFunctionality.Auto())
             {
-                base.UpdateFunctionality(widget);
+                base.UpdateFunctionalityInternal(widget);
 
                 for (var setIndex = 0; setIndex < widget.ComplexCursorSets.Count; setIndex++)
                 {
                     var componentSet = widget.ComplexCursorSets[setIndex];
 
-                    UpdateComponentSet(ref componentSet, ref complexCursorSet, widget);
+                    RefreshAndUpdateComponentSet(ref componentSet, ref complexCursorSet, widget);
                 }
 
                 for (var setIndex = 0; setIndex < widget.SimpleCursorSets.Count; setIndex++)
                 {
                     var componentSet = widget.SimpleCursorSets[setIndex];
 
-                    UpdateComponentSet(ref componentSet, ref simpleCursorSet, widget);
+                    RefreshAndUpdateComponentSet(ref componentSet, ref simpleCursorSet, widget);
                 }
             }
         }

@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Events;
 using Appalachia.Core.Events.Extensions;
@@ -14,6 +15,7 @@ using Appalachia.UI.Controls.Sets.Canvas;
 using Appalachia.UI.Controls.Sets.RoundedBackground;
 using Appalachia.UI.Core.Styling;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -22,8 +24,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 {
     [CallStaticConstructorInEditor]
     [RequireComponent(typeof(RectTransform))]
-    public abstract class ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
-                                            TFunctionalitySet, TIService, TIWidget, TManager> :
+    public abstract partial class ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+                                                    TFunctionalitySet, TIService, TIWidget, TManager> :
         ApplicationFunctionality<TWidget, TWidgetMetadata, TManager>,
         IApplicationWidget
         where TWidget : ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
@@ -37,7 +39,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
+        IApplicationFunctionalityManager
+
     {
         #region Constants and Static Readonly
 
@@ -102,6 +106,11 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
             using (_PRF_OnRectTransformDimensionsChange.Auto())
             {
+                if (AppalachiaApplication.IsCompiling)
+                {
+                    return;
+                }
+
                 if (!ApplyingMetadata && FullyInitialized)
                 {
                     VisuallyChanged.RaiseEvent();
@@ -115,6 +124,18 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
         }
 
+        /// <summary>
+        ///     Returns the correct parent for the current widget to live under.
+        /// </summary>
+        /// <returns>The parent <see cref="GameObject" />.</returns>
+        protected virtual GameObject GetWidgetParentObject()
+        {
+            using (_PRF_GetWidgetParentObject.Auto())
+            {
+                return Feature.GetWidgetParentObject();
+            }
+        }
+
         protected virtual void OnUpdate()
         {
             using (_PRF_OnUpdate.Auto())
@@ -122,6 +143,16 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
+        /// <inheritdoc />
+        protected override async AppaTask DelayEnabling()
+        {
+            await base.DelayEnabling();
+
+            await AppaTask.WaitUntil(() => Manager != null);
+            await AppaTask.WaitUntil(() => Manager.FullyInitialized);
+        }
+
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -132,26 +163,23 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
-        protected override async AppaTask DelayEnabling()
-        {
-            await base.DelayEnabling();
-
-            await AppaTask.WaitUntil(() => Manager != null);
-            await AppaTask.WaitUntil(() => Manager.FullyInitialized);
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();
 
             using (_PRF_WhenEnabled.Auto())
             {
-                var parentObject = Feature.GetWidgetParentObject();
+                var parentObject = GetWidgetParentObject();
 
                 transform.SetParent(parentObject.transform);
 
-                metadata.Changed.Event += ExecuteSizeUpdate;
-                metadata.Updated.Event += ExecuteSizeUpdate;
+                Action DelegateCreator()
+                {
+                    return RefreshWidgetVisuals;
+                }
+
+                metadata.SubscribeForUpdates(this as TWidget, DelegateCreator);
             }
         }
 
@@ -171,14 +199,92 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
-        private void ExecuteSizeUpdate()
+        protected void ValidateVisibility(bool visibilityChanged = false)
         {
-            using (_PRF_ExecuteSizeUpdate.Auto())
+            using (_PRF_ValidateVisibility.Auto())
+            {
+                void InternalProcessVisibility()
+                {
+                    if (!metadata.canvas.IsElected)
+                    {
+                        return;
+                    }
+
+                    if (metadata.transitionsWithFade)
+                    {
+                        if (!visibilityChanged)
+                        {
+                            return;
+                        }
+
+                        if (!metadata.canvas.Value.CanvasFadeManager.IsElected)
+                        {
+                            return;
+                        }
+
+                        if (metadata.canvas.Value.CanvasFadeManager.Value.passiveMode)
+                        {
+                            return;
+                        }
+
+                        if (_isVisible)
+                        {
+                            canvas.CanvasFadeManager.EnsureFadeIn();
+                        }
+                        else
+                        {
+                            canvas.CanvasFadeManager.EnsureFadeOut();
+                        }
+                    }
+                    else
+                    {
+                        if (_isVisible)
+                        {
+                            canvas.Canvas.enabled = true;
+
+                            if (!metadata.canvas.Value.CanvasGroup.IsElected)
+                            {
+                                return;
+                            }
+
+                            canvas.CanvasGroup.alpha =
+                                metadata.canvas.Value.CanvasGroup.Value.alpha.Overriding
+                                    ? metadata.canvas.Value.CanvasGroup.Value.alpha
+                                    : 1.0f;
+                        }
+                        else
+                        {
+                            canvas.Canvas.enabled = false;
+
+                            if (!metadata.canvas.Value.CanvasGroup.IsElected)
+                            {
+                                return;
+                            }
+
+                            canvas.CanvasGroup.alpha = 0.0f;
+                        }
+                    }
+                }
+
+                InternalProcessVisibility();
+
+                if (visibilityChanged)
+                {
+                    VisuallyChanged.RaiseEvent();
+                }
+            }
+        }
+
+        private void RefreshWidgetVisuals()
+        {
+            using (_PRF_RefreshWidgetVisuals.Auto())
             {
                 if (!HasBeenEnabled)
                 {
                     return;
                 }
+
+                ValidateVisibility();
 
                 EnsureWidgetIsCorrectSize();
 
@@ -209,35 +315,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
                 _isVisible = setVisibilityTo;
 
-                if (visibilityChanged)
-                {
-                    if (_isVisible)
-                    {
-                        if (metadata.transitionsWithFade)
-                        {
-                            canvas.CanvasFadeManager.EnsureFadeIn();
-                        }
-                        else
-                        {
-                            canvas.CanvasGroup.alpha = 1.0f;
-                            canvas.Canvas.enabled = true;
-                        }
-                    }
-                    else
-                    {
-                        if (metadata.transitionsWithFade)
-                        {
-                            canvas.CanvasFadeManager.EnsureFadeOut();
-                        }
-                        else
-                        {
-                            canvas.CanvasGroup.alpha = 0.0f;
-                            canvas.Canvas.enabled = false;
-                        }
-                    }
-
-                    VisuallyChanged.RaiseEvent();
-                }
+                ValidateVisibility(visibilityChanged);
             }
         }
 
@@ -272,8 +350,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         protected static readonly ProfilerMarker _PRF_EnsureWidgetIsCorrectSize =
             new ProfilerMarker(_PRF_PFX + nameof(EnsureWidgetIsCorrectSize));
 
-        protected static readonly ProfilerMarker _PRF_ExecuteSizeUpdate =
-            new ProfilerMarker(_PRF_PFX + nameof(ExecuteSizeUpdate));
+        private static readonly ProfilerMarker _PRF_GetWidgetParentObject =
+            new ProfilerMarker(_PRF_PFX + nameof(GetWidgetParentObject));
 
         protected static readonly ProfilerMarker _PRF_Hide = new ProfilerMarker(_PRF_PFX + nameof(Hide));
 
@@ -282,6 +360,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         protected static readonly ProfilerMarker _PRF_OnUpdate =
             new ProfilerMarker(_PRF_PFX + nameof(OnUpdate));
+
+        protected static readonly ProfilerMarker _PRF_RefreshWidgetVisuals =
+            new ProfilerMarker(_PRF_PFX + nameof(RefreshWidgetVisuals));
 
         protected static readonly ProfilerMarker _PRF_SetVisibility =
             new ProfilerMarker(_PRF_PFX + nameof(SetVisibility));
@@ -296,6 +377,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         protected static readonly ProfilerMarker _PRF_UpdateAnchorMin =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateAnchorMin));
+
+        private static readonly ProfilerMarker _PRF_ValidateVisibility =
+            new ProfilerMarker(_PRF_PFX + nameof(ValidateVisibility));
 
         #endregion
     }

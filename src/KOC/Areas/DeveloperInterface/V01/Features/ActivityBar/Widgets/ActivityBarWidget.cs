@@ -97,17 +97,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             }
         }
 
-        protected override async AppaTask WhenEnabled()
-        {
-            await base.WhenEnabled();
-
-            using (_PRF_WhenEnabled.Auto())
-            {
-                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-            }
-        }
-
         public void UpdateButtons()
         {
             using (_PRF_UpdateButtons.Auto())
@@ -128,6 +117,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();
@@ -136,17 +126,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             await AppaTask.WaitUntil(() => _statusBarWidget != null);
         }
 
-        protected override void UnsubscribeFromAllFunctionalities()
-        {
-            using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
-            {
-                base.UnsubscribeFromAllFunctionalities();
-
-                _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-            }
-        }
-
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())
@@ -167,6 +147,30 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
                 UpdateAnchorMin(anchorMin);
                 UpdateAnchorMax(anchorMax);
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void UnsubscribeFromAllFunctionalities()
+        {
+            using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
+            {
+                base.UnsubscribeFromAllFunctionalities();
+
+                _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                _statusBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask WhenEnabled()
+        {
+            await base.WhenEnabled();
+
+            using (_PRF_WhenEnabled.Auto())
+            {
+                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
             }
         }
 
@@ -196,7 +200,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
                 ButtonComponentSet newButtonComponentSet = null;
 
-                metadata.UpdateComponentSet(
+                metadata.RefreshAndUpdateComponentSet(
                     ref metadata._buttonData,
                     ref newButtonComponentSet,
                     parent,

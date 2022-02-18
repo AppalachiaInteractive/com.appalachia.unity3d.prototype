@@ -1,4 +1,3 @@
-using Appalachia.UI.Controls.Sets.Canvas;
 using Appalachia.UI.Controls.Sets.RootCanvas;
 
 namespace Appalachia.Prototype.KOC.Areas
@@ -9,7 +8,6 @@ namespace Appalachia.Prototype.KOC.Areas
         public AreaMetadataConfigurations.AreaAudioConfiguration Audio { get; }
         public AreaMetadataConfigurations.AreaInputConfiguration Input { get; }
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour { get; }
-        public CanvasComponentSetData View { get; }
         public RootCanvasComponentSetData RootCanvas { get; }
     }
 }

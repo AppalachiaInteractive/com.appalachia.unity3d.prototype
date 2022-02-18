@@ -19,7 +19,8 @@ namespace Appalachia.Prototype.KOC.Application.Features
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
+        IApplicationFunctionalityManager
 
     {
         #region Fields and Autoproperties

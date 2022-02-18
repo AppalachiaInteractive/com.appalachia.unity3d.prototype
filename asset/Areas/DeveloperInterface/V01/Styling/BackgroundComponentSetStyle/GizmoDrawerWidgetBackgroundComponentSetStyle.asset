@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _rectTransformData:
     _initializer:
       _tags:
@@ -41,6 +46,11 @@ MonoBehaviour:
       - _pivot
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     disableUpdatesForRootCanvas: 0
     _left: 0
     _posX: 0
@@ -53,19 +63,47 @@ MonoBehaviour:
     _height: 0
     anchorMin:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0}
       _value: {x: 0, y: 0}
     anchorMax:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0}
       _value: {x: 1, y: 1}
-    _pivot: {x: 0.5, y: 0.5}
+    pivot:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0.5, y: 0.5}
+      _value: {x: 0.5, y: 0.5}
     localScale:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0, z: 0}
       _value: {x: 1, y: 1, z: 1}
     localRotation:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
   _componentSubsetDataList:
@@ -75,6 +113,11 @@ MonoBehaviour:
         _tags: []
         _resetToken: 
       _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -95,64 +138,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 11400000}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -179,6 +302,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 11400000}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -191,19 +319,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -212,14 +368,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 11400000}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -240,64 +411,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -324,6 +575,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -336,19 +592,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -357,14 +641,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -385,64 +684,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -469,6 +848,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -481,19 +865,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -502,14 +914,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -530,64 +957,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -614,6 +1121,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -626,19 +1138,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -647,14 +1187,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -675,64 +1230,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -759,6 +1394,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -771,19 +1411,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -792,14 +1460,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -820,64 +1503,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -904,6 +1667,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -916,19 +1684,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -937,14 +1733,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -965,64 +1776,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -1049,6 +1940,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -1061,19 +1957,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -1082,14 +2006,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -1110,64 +2049,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -1194,6 +2213,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -1206,19 +2230,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -1227,14 +2279,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -1255,64 +2322,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -1339,6 +2486,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -1351,19 +2503,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -1372,14 +2552,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -1400,64 +2595,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -1484,6 +2759,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -1496,19 +2776,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -1517,14 +2825,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -1545,64 +2868,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -1629,6 +3032,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -1641,19 +3049,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -1662,14 +3098,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -1690,64 +3141,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -1774,6 +3305,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -1786,19 +3322,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -1807,14 +3371,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -1835,64 +3414,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -1919,6 +3578,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -1931,19 +3595,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -1952,14 +3644,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -1980,64 +3687,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -2064,6 +3851,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -2076,19 +3868,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -2097,14 +3917,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -2125,64 +3960,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -2209,6 +4124,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -2221,19 +4141,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -2242,14 +4190,29 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     - _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       data1:
         _initializer:
           _tags:
@@ -2270,64 +4233,144 @@ MonoBehaviour:
           - pixelsPerUnitMultiplier
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         material:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         color:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {r: 0, g: 0, b: 0, a: 0}
           _value: {r: 0, g: 0, b: 0, a: 0}
         raycastTarget:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         maskable:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         sprite:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {fileID: 0}
           _value: {fileID: 0}
         imageType:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         preserveAspect:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillCenter:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillMethod:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillAmount:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillClockwise:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         fillOrigin:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         alphaHitTestMinimumThreshold:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         useSpriteMesh:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
         pixelsPerUnitMultiplier:
           _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 0
           _value: 0
       data2:
@@ -2354,6 +4397,11 @@ MonoBehaviour:
           - _pivot
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         disableUpdatesForRootCanvas: 0
         _left: 0
         _posX: 0
@@ -2366,19 +4414,47 @@ MonoBehaviour:
         _height: 0
         anchorMin:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 0, y: 0}
         anchorMax:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0}
           _value: {x: 1, y: 1}
-        _pivot: {x: 0.5, y: 0.5}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
         localScale:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0}
           _value: {x: 1, y: 1, z: 1}
         localRotation:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
@@ -2387,8 +4463,18 @@ MonoBehaviour:
           - cullTransparentMesh
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
           _initial: 1
           _value: 1
     noTracking: 0
@@ -2406,35 +4492,80 @@ MonoBehaviour:
       - layoutPriority
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     ignoreLayout:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     minWidth:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     minHeight:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     preferredWidth:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     preferredHeight:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     flexibleWidth:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     flexibleHeight:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     layoutPriority:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1
       _value: 1

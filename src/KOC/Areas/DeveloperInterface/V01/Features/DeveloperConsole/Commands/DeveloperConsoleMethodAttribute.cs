@@ -3,9 +3,12 @@
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperConsole.Commands
 {
     [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = true)]
-    public class DeveloperConsoleAttribute : Attribute
+    public class DeveloperConsoleMethodAttribute : Attribute
     {
-        public DeveloperConsoleAttribute(string command, string description, params string[] parameterNames)
+        public DeveloperConsoleMethodAttribute(
+            string command,
+            string description,
+            params string[] parameterNames)
         {
             m_command = command;
             m_description = description;

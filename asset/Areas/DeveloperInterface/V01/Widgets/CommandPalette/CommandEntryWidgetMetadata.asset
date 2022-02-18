@@ -33,8 +33,18 @@ MonoBehaviour:
     - roundedBackground
     - rectTransform
     _resetToken: 2022-01-10T09:50:37.5839168-05:00
+  _objectId:
+    _increment: 3571699
+    _machine: 14129404
+    _timestamp: 1644957442
+    _pid: -14768
   rectTransform:
     _overriding: 1
+    _objectId:
+      _increment: 7594912
+      _machine: 14129404
+      _timestamp: 1644971927
+      _pid: -14768
     _initial:
       _initializer:
         _tags:
@@ -52,8 +62,14 @@ MonoBehaviour:
         - anchorMax
         - localRotation
         - localScale
+        - pivot
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       disableUpdatesForRootCanvas: 0
       _left: 0
       _posX: 0
@@ -66,19 +82,47 @@ MonoBehaviour:
       _height: 0
       anchorMin:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0}
         _value: {x: 0, y: 0}
       anchorMax:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1}
         _value: {x: 1, y: 1}
-      _pivot: {x: 0.5, y: 0.5}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
       localScale:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1, z: 1}
         _value: {x: 1, y: 1, z: 1}
       localRotation:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
     _value:
@@ -98,8 +142,14 @@ MonoBehaviour:
         - anchorMax
         - localRotation
         - localScale
+        - pivot
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 3571688
+        _machine: 14129404
+        _timestamp: 1644957442
+        _pid: -14768
       disableUpdatesForRootCanvas: 0
       _left: 0
       _posX: 0
@@ -112,31 +162,74 @@ MonoBehaviour:
       _height: -0
       anchorMin:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0}
         _value: {x: 0, y: 0}
       anchorMax:
         _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1}
         _value: {x: 1, y: 1}
-      _pivot: {x: 0.5, y: 0.5}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
       localScale:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 1, y: 1, z: 1}
         _value: {x: 1, y: 1, z: 1}
       localRotation:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
   canvas:
     _overriding: 1
+    _objectId:
+      _increment: 7594913
+      _machine: 14129404
+      _timestamp: 1644971927
+      _pid: -14768
     _initial: {fileID: 11400000, guid: 91484fc77a80ecf46a7b659bd0dccb2f, type: 2}
     _value: {fileID: 11400000, guid: 91484fc77a80ecf46a7b659bd0dccb2f, type: 2}
   background:
     _overriding: 1
+    _objectId:
+      _increment: 7594914
+      _machine: 14129404
+      _timestamp: 1644971927
+      _pid: -14768
     _initial: {fileID: 11400000, guid: 61b011b37a2f71f4f858a13c37024024, type: 2}
     _value: {fileID: 11400000, guid: 61b011b37a2f71f4f858a13c37024024, type: 2}
   roundedBackground:
     _overriding: 0
+    _objectId:
+      _increment: 7594915
+      _machine: 14129404
+      _timestamp: 1644971927
+      _pid: -14768
     _initial: {fileID: 11400000, guid: 3b8a06b7dad613c42bbedb2d4b53866c, type: 2}
     _value: {fileID: 11400000, guid: 3b8a06b7dad613c42bbedb2d4b53866c, type: 2}
   fontStyle: {fileID: 11400000, guid: 0e0127402de70404096d8cd688f4d75a, type: 2}

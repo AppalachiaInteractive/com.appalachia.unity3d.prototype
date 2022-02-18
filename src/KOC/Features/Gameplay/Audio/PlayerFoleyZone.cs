@@ -1,6 +1,5 @@
 #region
 
-using System.Collections.Generic;
 using Appalachia.Audio.Behaviours;
 using Appalachia.Utility.Async;
 using UnityEngine;
@@ -13,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay.Audio
     {
         #region Constants and Static Readonly
 
-        public static readonly List<PlayerFoleyZone> overrides = new();
+        public static readonly System.Collections.Generic.List<PlayerFoleyZone> overrides = new();
 
         #endregion
 
@@ -25,6 +24,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay.Audio
 
         #endregion
 
+        /// <inheritdoc />
         protected override void OnProbe(Vector3 lpos, int thisFrame)
         {
             if (lastFrame != thisFrame)
@@ -57,6 +57,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay.Audio
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenDisabled()
         {
             await base.WhenDisabled();

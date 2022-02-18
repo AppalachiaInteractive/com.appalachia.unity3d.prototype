@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d9a7c050aebc345911b77c9ff20638, type: 3}
   m_Name: Patch_Ambience_BokBokSplashScreen
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: Patch_Ambience_BokBokSplashScreen
+  _niceName: Patch_Ambience_Bok Bok Splash Screen
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 12632134
+    _machine: 14129404
+    _timestamp: 1645121950
+    _pid: -14768
   program:
     clips:
     - clip: {fileID: 8300000, guid: dff069827f2639b4694cc6e9fc1891ab, type: 3}

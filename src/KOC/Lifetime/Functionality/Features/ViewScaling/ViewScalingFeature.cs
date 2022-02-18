@@ -57,44 +57,34 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeDisable()
         {
-            using (_PRF_BeforeDisable.Auto())
-            {
-                await HideFeature();
-            }
+            await HideFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeEnable()
         {
-            using (_PRF_BeforeEnable.Auto())
-            {
-                await ShowFeature();
-            }
+            await ShowFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeFirstEnable()
         {
-            using (_PRF_BeforeFirstEnable.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnHide()
         {
-            using (_PRF_OnHide.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnShow()
         {
-            using (_PRF_OnShow.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
         private void OnCameraViewportAdjusterEnabled(ComponentEvent<AppaCameraViewportAdjuster>.Args args)

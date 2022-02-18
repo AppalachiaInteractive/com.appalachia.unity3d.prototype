@@ -27,14 +27,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
         #endregion
 
-        protected override void UpdateFunctionality(CommandEntryWidget widget)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                base.UpdateFunctionality(widget);
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -42,6 +35,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             initializer.Do(this, nameof(width),            () => width = 0.4f);
             initializer.Do(this, nameof(height),           () => height = 0.02f);
             initializer.Do(this, nameof(horizontalCenter), () => horizontalCenter = 0.5f);
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(CommandEntryWidget widget)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                base.UpdateFunctionalityInternal(widget);
+            }
         }
     }
 }

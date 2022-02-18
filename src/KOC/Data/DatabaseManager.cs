@@ -80,6 +80,7 @@ namespace Appalachia.Prototype.KOC.Data
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -99,14 +100,12 @@ namespace Appalachia.Prototype.KOC.Data
             );
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenDisabled()
         {
-            using (_PRF_WhenDisabled.Auto())
-            {
-                await base.WhenDisabled();
+            await base.WhenDisabled();
 
-                databases?.Dispose();
-            }
+            databases?.Dispose();
         }
 
         private string GetDataSetName()

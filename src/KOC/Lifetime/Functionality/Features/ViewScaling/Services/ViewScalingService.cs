@@ -50,6 +50,11 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.S
         {
             using (_PRF_UpdateCanvasScaling.Auto())
             {
+                if (current == dimensionData)
+                {
+                    return;
+                }
+
                 current = dimensionData;
 
                 var args = new ViewScalingArgs(dimensionData);

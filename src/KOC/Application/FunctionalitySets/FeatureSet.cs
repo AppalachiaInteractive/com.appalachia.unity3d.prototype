@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Dependencies;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
@@ -13,11 +14,11 @@ using Unity.Profiling;
 namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
 {
     [InlineProperty, HideLabel]
-    [FoldoutGroup("Functionality")]
+    [NonSerializable]
     public abstract class FeatureSet<TFeature> : AppalachiaSimpleBase
         where TFeature : IApplicationFeature
     {
-        public FeatureSet()
+        protected FeatureSet()
         {
             using (_PRF_FeatureSet.Auto())
             {
@@ -30,7 +31,16 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
         [InlineProperty]
         [HideLabel]
         [ShowInInspector]
-        [Title("Features")]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            IsReadOnly = true,
+            DraggableItems = false,
+            ShowPaging = false,
+            NumberOfItemsPerPage = 100,
+            Expanded = true,
+            ShowItemCount = true
+        )]
         private List<TFeature> _features;
 
         #endregion

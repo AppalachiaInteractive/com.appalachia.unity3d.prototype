@@ -198,6 +198,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -230,6 +231,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             _audioManager.InitializeParameters();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenDestroyed()
         {
             await base.WhenDestroyed();

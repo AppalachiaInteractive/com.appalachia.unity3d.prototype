@@ -30,14 +30,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
 
         private static ActivityBarFeature _activityBarFeature;
 
-        private static MenuBarWidget _menuBarWidget;
-
-        #endregion
-
-        #region Fields and Autoproperties
-
         [NonSerialized] private static List<MenuBarEntry> _leftEntries;
         [NonSerialized] private static List<MenuBarEntry> _rightEntries;
+
+        private static MenuBarWidget _menuBarWidget;
 
         #endregion
 
@@ -57,6 +53,40 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
                 _rightEntries ??= new List<MenuBarEntry>();
                 return _rightEntries;
             }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask BeforeDisable()
+        {
+            await HideFeature();
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask BeforeEnable()
+        {
+            await ShowFeature();
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask BeforeFirstEnable()
+        {
+            await AppaTask.CompletedTask;
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask OnHide()
+        {
+            _menuBarWidget.Hide();
+
+            await AppaTask.CompletedTask;
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask OnShow()
+        {
+            _menuBarWidget.Show();
+
+            await AppaTask.CompletedTask;
         }
 
         private static void RegisterMenu(MenuBarEntry menu)
@@ -93,49 +123,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
             }
         }
 
-        protected override async AppaTask BeforeDisable()
+        #region IActivityBarEntryProvider Members
+
+        public ActivityBarEntry[] GetActivityBarEntries()
         {
-            using (_PRF_BeforeDisable.Auto())
+            using (_PRF_GetActivityBarEntries.Auto())
             {
-                await HideFeature();
+                return Array.Empty<ActivityBarEntry>();
             }
         }
 
-        protected override async AppaTask BeforeEnable()
-        {
-            using (_PRF_BeforeEnable.Auto())
-            {
-                await ShowFeature();
-            }
-        }
-
-        protected override async AppaTask BeforeFirstEnable()
-        {
-            using (_PRF_BeforeFirstEnable.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
-        }
-
-        protected override async AppaTask OnHide()
-        {
-            using (_PRF_OnHide.Auto())
-            {
-                _menuBarWidget.Hide();
-
-                await AppaTask.CompletedTask;
-            }
-        }
-
-        protected override async AppaTask OnShow()
-        {
-            using (_PRF_OnShow.Auto())
-            {
-                _menuBarWidget.Show();
-
-                await AppaTask.CompletedTask;
-            }
-        }
+        #endregion
 
         #region Profiling
 
@@ -145,17 +143,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
         private static readonly ProfilerMarker _PRF_RegisterMenuProvider =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterMenuProvider));
 
-        #endregion
-
         private static readonly ProfilerMarker _PRF_GetActivityBarEntries =
             new ProfilerMarker(_PRF_PFX + nameof(GetActivityBarEntries));
 
-        public ActivityBarEntry[] GetActivityBarEntries()
-        {
-            using (_PRF_GetActivityBarEntries.Auto())
-            {
-                return Array.Empty<ActivityBarEntry>();
-            }
-        }
+        #endregion
     }
 }

@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   uiPrefab: {fileID: 7649218993197837357, guid: 8044e0ae0a646da4fa13b4516f350392, type: 3}
   items:
   - {fileID: 11400000, guid: cc931328e2307464cac2c7b4373b44f4, type: 2}

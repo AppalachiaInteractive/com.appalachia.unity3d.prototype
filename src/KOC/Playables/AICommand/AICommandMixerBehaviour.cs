@@ -10,7 +10,8 @@ public class AICommandMixerBehaviour : AppalachiaPlayableBehaviour
 	private bool firstFrameHappened = false;
 	private Vector3[] defaultPositions, newPositions, finalPositions, previousInputFinalPositions;
 
-    public override void ProcessFrame(Playable playable, FrameData info, object playerData)
+    /// <inheritdoc />
+public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
 		trackBinding = playerData as Platoon;
 
@@ -113,7 +114,8 @@ public class AICommandMixerBehaviour : AppalachiaPlayableBehaviour
 		}
 	}
 
-	public override void OnPlayableDestroy(Playable playable)
+	/// <inheritdoc />
+public override void OnPlayableDestroy(Playable playable)
 	{
 		if(!Application.isPlaying)
 		{

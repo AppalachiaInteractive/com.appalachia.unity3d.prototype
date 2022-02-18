@@ -56,11 +56,15 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();
 
-            _time = 0;
+            using (_PRF_WhenEnabled.Auto())
+            {
+                _time = 0;
+            }
         }
 
         private static Vector3 Rumble(double time, RumbleInfo outer, RumbleInfo inner)

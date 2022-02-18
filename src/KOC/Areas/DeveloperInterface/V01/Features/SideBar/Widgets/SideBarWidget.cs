@@ -20,18 +20,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
                 .IsAvailableThen(statusBarWidget => { _statusBarWidget = statusBarWidget; });
         }
 
-        protected override async AppaTask WhenDisabled()
-        {
-            await base.WhenDisabled();
-
-            using (_PRF_WhenDisabled.Auto())
-            {
-                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _activityBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-            }
-        }
-
         #region Static Fields and Autoproperties
 
         private static ActivityBarWidget _activityBarWidget;
@@ -40,6 +28,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();
@@ -49,6 +38,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
             await AppaTask.WaitUntil(() => _statusBarWidget != null);
         }
 
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())
@@ -73,6 +63,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
             }
         }
 
+        /// <inheritdoc />
         protected override void UnsubscribeFromAllFunctionalities()
         {
             using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
@@ -93,6 +84,19 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
                 {
                     _statusBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
                 }
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask WhenDisabled()
+        {
+            await base.WhenDisabled();
+
+            using (_PRF_WhenDisabled.Auto())
+            {
+                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _activityBarWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
             }
         }
     }

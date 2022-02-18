@@ -12,6 +12,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
 
         #endregion
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(RuntimeGizmoDrawerWidget target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -22,13 +23,14 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
             }
         }
 
-        protected override void UpdateFunctionality(RuntimeGizmoDrawerWidget widget)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(RuntimeGizmoDrawerWidget widget)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                base.UpdateFunctionality(widget);
+                base.UpdateFunctionalityInternal(widget);
 
-                RawImageComponentSetData.UpdateComponentSet(
+                RawImageComponentSetData.RefreshAndUpdateComponentSet(
                     ref rawImageSet,
                     ref widget.rawImageSet,
                     widget.gameObject,

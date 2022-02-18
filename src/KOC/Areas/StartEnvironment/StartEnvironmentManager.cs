@@ -5,6 +5,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartEnvironment
         where TManager : StartEnvironmentManager<TManager, TMetadata>
         where TMetadata : StartEnvironmentMetadata<TManager, TMetadata>
     {
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
@@ -13,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartEnvironment
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
@@ -21,6 +23,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartEnvironment
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())
@@ -31,7 +34,10 @@ namespace Appalachia.Prototype.KOC.Areas.StartEnvironment
 
         #region IStartEnvironmentManager Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.StartEnvironment;
+
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.None;
 
         #endregion

@@ -53,6 +53,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
             set => _yaw.Target(value);
         }
 
+        /// <inheritdoc />
         public override void Simulate(Vector3 playerPosition, Vector3 playerAngles, float deltaTime)
         {
             var t = transform;
@@ -103,6 +104,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
             t.localRotation = Quaternion.Euler(pitch, yaw, roll);
         }
 
+        /// <inheritdoc />
         public override void Warp(Vector3 position, Vector3 angles)
         {
             _spring.position = position;

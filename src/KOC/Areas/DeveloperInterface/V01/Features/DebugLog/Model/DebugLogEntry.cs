@@ -29,6 +29,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
 
         #endregion
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {
@@ -45,6 +46,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
             return hashValue;
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override string ToString()
         {

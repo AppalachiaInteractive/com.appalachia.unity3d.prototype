@@ -18,11 +18,21 @@ MonoBehaviour:
     _tags:
     - CollectionAnimationMetadata
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _animation:
     _initializer:
       _tags: []
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     cancel:
       smoothScroll:
         onCountChanges: 1
@@ -40,16 +50,31 @@ MonoBehaviour:
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _gallery:
       _initializer:
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       rotation:
         _initializer:
           _tags: []
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         amount: 0
         exponent: 1
         viewportPivot: 0.5
@@ -61,6 +86,11 @@ MonoBehaviour:
           _tags: []
           _resetToken: 
         _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         amount: 1
         exponent: 1
         viewportPivot: 0.5
@@ -87,6 +117,11 @@ MonoBehaviour:
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _centered: 0
     _enabled: 0
     _additionalSpacingTowardsEdge: 0
@@ -97,6 +132,11 @@ MonoBehaviour:
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _forceLayoutRebuildOnBeginSmoothScroll: 1
     _forceLayoutRebuildOnDrag: 0
     _keepViewsPoolOnEmptyList: 0

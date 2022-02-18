@@ -1,9 +1,12 @@
 using System;
-using Appalachia.Core.ArrayPooling;
 using Appalachia.Core.Collections.NonSerialized;
 using Appalachia.Core.ObjectPooling;
 using Appalachia.Core.Overrides.Implementations;
+using Appalachia.Prototype.KOC.Application.Features;
+using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.UI.Controls.Components.Buttons;
+using Appalachia.UI.Controls.Components.Layout;
+using Appalachia.UI.Controls.Extensions;
 using Drawing;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -20,6 +23,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
     public class RectTransformVisualizationData : SelfPoolingObject<RectTransformVisualizationData>
 #pragma warning restore CS0612
     {
+        #region Constants and Static Readonly
+
+        private const float GROWTH_STEP = 4F;
+
+        #endregion
+
         #region Static Fields and Autoproperties
 
         private static ColorList _colorList;
@@ -29,30 +38,26 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         #region Fields and Autoproperties
 
         public NonSerializedList<RectTransformVisualizationDataElement> elements;
-        public Vector3[] corners;
+        public Rect rect;
 
         #endregion
 
+        /// <inheritdoc />
         public override void Initialize()
         {
             using (_PRF_Initialize.Auto())
             {
-                corners = ArrayPool<Vector3>.Shared.Rent(4);
                 elements ??= new NonSerializedList<RectTransformVisualizationDataElement>();
                 elements.ClearFast();
                 _colorList ??= new ColorList();
             }
         }
 
+        /// <inheritdoc />
         public override void Reset()
         {
             using (_PRF_Reset.Auto())
             {
-                if (corners != null)
-                {
-                    ArrayPool<Vector3>.Shared.Return(corners);
-                }
-
                 for (var i = 0; i < elements.Count; i++)
                 {
                     elements[i].Return();
@@ -66,7 +71,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         {
             using (_PRF_Create.Auto())
             {
-                rectTransform.GetWorldCorners(corners);
+                rect = rectTransform.ToScreenSpace();
 
                 _colorList.ClearFast();
 
@@ -80,14 +85,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     {
                         AddColor(metadata.canvas);
 
-                        if (c.renderMode == RenderMode.WorldSpace)
-                        {
-                            AddColor(metadata.worldSpace);
-                        }
-                        else
-                        {
-                            AddColor(metadata.screenSpace);
-                        }
+                        AddColor(
+                            c.renderMode == RenderMode.WorldSpace ? metadata.worldSpace : metadata.screenSpace
+                        );
                     }
                     else if (behaviour is Mask)
                     {
@@ -172,6 +172,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                             AddColor(metadata.scrollRect);
                         }
                     }
+                    else if (behaviour is AppaCanvasScaler)
+                    {
+                        AddColor(metadata.appaCanvasScaler);
+                    }
+                    else if (behaviour is IApplicationFeature)
+                    {
+                        AddColor(metadata.feature);
+                    }
+                    else if (behaviour is IApplicationWidget)
+                    {
+                        AddColor(metadata.widget);
+                    }
                 }
 
                 if (!rectTransform.gameObject.activeInHierarchy)
@@ -184,16 +196,24 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     }
                 }
 
+                for (var colorIndex = 0; colorIndex < _colorList.Count; colorIndex++)
+                {
+                    var color = _colorList[colorIndex];
+                    color.a *= metadata.globalAlpha;
+
+                    _colorList[colorIndex] = color;
+                }
+
                 elements.ClearFast();
 
                 for (var elementIndex = 0; elementIndex < _colorList.Count; elementIndex++)
                 {
                     var element = RectTransformVisualizationDataElement.Get();
 
-                    element.CopyCorners(corners, metadata.z);
+                    element.CopyRect(rect, metadata.z);
                     element.color = _colorList[elementIndex];
 
-                    element.Grow(elementIndex + 1);
+                    element.Grow(-(elementIndex * GROWTH_STEP));
 
                     elements.Add(element);
                 }

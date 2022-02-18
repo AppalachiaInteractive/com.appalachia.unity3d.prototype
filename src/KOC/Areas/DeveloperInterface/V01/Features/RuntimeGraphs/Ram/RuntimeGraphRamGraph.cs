@@ -31,12 +31,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         #endregion
 
+        /// <inheritdoc />
         public override GameObject graphParent => m_imageAllocated.gameObject;
 
+        /// <inheritdoc />
         protected override bool ShouldUpdate => true;
 
+        /// <inheritdoc />
         protected override RuntimeGraphRamSettings settings => allSettings.ram;
 
+        /// <inheritdoc />
         public override void InitializeParameters()
         {
             using (_PRF_SyncParameters.Auto())
@@ -103,6 +107,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override void AfterInitialization()
         {
             using (_PRF_AfterInitialization.Auto())
@@ -141,6 +146,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override void CreatePoints()
         {
             using (_PRF_CreatePoints.Auto())
@@ -200,6 +206,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override void UpdateGraph()
         {
             using (_PRF_UpdateGraph.Auto())

@@ -61,18 +61,19 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Sets.
             }
         }
 
-        protected override void ApplyMetadataToComponentSet(TSet componentSet)
+        /// <inheritdoc />
+        public override void ApplyToComponentSet(TSet componentSet)
         {
-            using (_PRF_ApplyMetadataToComponentSet.Auto())
+            using (_PRF_ApplyToComponentSet.Auto())
             {
                 if (_metadata != null)
                 {
                     _imageData.sprite.Overriding = false;
                 }
 
-                base.ApplyMetadataToComponentSet(componentSet);
+                base.ApplyToComponentSet(componentSet);
 
-                ImageData.UpdateComponent(ref _imageData, componentSet.Image, this);
+                ImageData.RefreshAndUpdateComponent(ref _imageData, this, componentSet.Image);
 
                 componentSet.Image.sprite = _metadata.texture;
             }

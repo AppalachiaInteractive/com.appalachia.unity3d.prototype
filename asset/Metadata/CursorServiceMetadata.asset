@@ -18,4 +18,9 @@ MonoBehaviour:
     _tags:
     - initialSoftwareCursorState
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   initialSoftwareCursorState: 6

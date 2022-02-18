@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Appalachia.CI.Constants;
+using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Dependencies;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
@@ -14,12 +16,12 @@ using Unity.Profiling;
 namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
 {
     [InlineProperty, HideLabel]
-    [FoldoutGroup("Functionality")]
+    [NonSerializable]
     public abstract class FeatureFunctionalitySet<TIService, TIWidget> : AppalachiaSimpleBase
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
     {
-        public FeatureFunctionalitySet()
+        protected FeatureFunctionalitySet()
         {
             using (_PRF_FeatureFunctionalitySet.Auto())
             {
@@ -32,19 +34,19 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
         [InlineProperty]
         [HideLabel]
         [ShowInInspector]
-        [Title("Services")]
+        [Title(APPASTR.ObjectNames.Services)]
         private List<TIService> _services;
 
         [InlineProperty]
         [HideLabel]
         [ShowInInspector]
-        [Title("Widgets")]
+        [Title(APPASTR.ObjectNames.Widgets)]
         private List<TIWidget> _widgets;
 
         [InlineProperty]
         [HideLabel]
         [ShowInInspector]
-        [Title("Widgets")]
+        [Title(APPASTR.ObjectNames.Features)]
         private List<IApplicationFeature> _features;
 
         #endregion

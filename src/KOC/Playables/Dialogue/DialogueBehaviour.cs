@@ -17,12 +17,14 @@ public class DialogueBehaviour : AppalachiaPlayableBehaviour
 	private bool pauseScheduled = false;
 	private PlayableDirector director;
 
-	public override void OnPlayableCreate(Playable playable)
+	/// <inheritdoc />
+public override void OnPlayableCreate(Playable playable)
 	{
 		director = (playable.GetGraph().GetResolver() as PlayableDirector);
 	}
 
-	public override void ProcessFrame(Playable playable, FrameData info, object playerData)
+	/// <inheritdoc />
+public override void ProcessFrame(Playable playable, FrameData info, object playerData)
 	{
 		if(!clipPlayed
 			&& info.weight > 0f)
@@ -41,7 +43,8 @@ public class DialogueBehaviour : AppalachiaPlayableBehaviour
 		}
 	}
 
-	public override void OnBehaviourPause(Playable playable, FrameData info)
+	/// <inheritdoc />
+public override void OnBehaviourPause(Playable playable, FrameData info)
 	{
 		if(pauseScheduled)
 		{

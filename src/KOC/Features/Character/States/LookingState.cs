@@ -21,12 +21,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.States
             return lookingAngles.Equals(other.lookingAngles);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is LookingState other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _prefabs:
     _capacityIncreaseMultiplier: 2
     _values:
@@ -28,6 +33,7 @@ MonoBehaviour:
       _assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: UnityEngine.GameObject
       _typeName: GameObject
+      _typeNamespace: 
       _prefabAddress: DebugLogItem
     - _assetReference:
         m_AssetGUID: 67117722a812a2e46ab8cb8eafbf5f5e
@@ -37,6 +43,7 @@ MonoBehaviour:
       _assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: UnityEngine.GameObject
       _typeName: GameObject
+      _typeNamespace: 
       _prefabAddress: DebugLogManager
     - _assetReference:
         m_AssetGUID: e0d44b26b7a8dea4d9f8f4a254899152
@@ -46,6 +53,7 @@ MonoBehaviour:
       _assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: UnityEngine.GameObject
       _typeName: GameObject
+      _typeNamespace: 
       _prefabAddress: DebugOverlayInfo
     - _assetReference:
         m_AssetGUID: 0abab5bb77339e4428787a870eb31bd3
@@ -55,6 +63,7 @@ MonoBehaviour:
       _assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: UnityEngine.GameObject
       _typeName: GameObject
+      _typeNamespace: 
       _prefabAddress: RuntimeGraphManager
     - _assetReference:
         m_AssetGUID: e7711ffd0bb5e274e9355939f3ca40db
@@ -64,6 +73,7 @@ MonoBehaviour:
       _assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: UnityEngine.GameObject
       _typeName: GameObject
+      _typeNamespace: 
       _prefabAddress: WIND_ARROW
     - _assetReference:
         m_AssetGUID: 
@@ -73,6 +83,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -82,6 +93,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -91,6 +103,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -100,6 +113,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -109,6 +123,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -118,6 +133,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -127,6 +143,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -136,6 +153,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -145,6 +163,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -154,6 +173,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     - _assetReference:
         m_AssetGUID: 
@@ -163,6 +183,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       _prefabAddress: 
     noTracking: 0
     _count: 5
@@ -178,6 +199,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.ActivityBarFeatureMetadata
       _typeName: ActivityBarFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar
       editorAsset: {fileID: 11400000, guid: d4eaaffcc7d66c74e82925600801d360, type: 2}
     - _assetReference:
         m_AssetGUID: 1c7afe2a5e837974a9224a2232035bce
@@ -188,6 +210,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets.ActivityBarWidgetMetadata
       _typeName: ActivityBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets
       editorAsset: {fileID: 11400000, guid: 1c7afe2a5e837974a9224a2232035bce, type: 2}
     - _assetReference:
         m_AssetGUID: 9f2ccadb7541b1446966fd5a268dea4c
@@ -198,6 +221,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Audio.Contextual.Sounds.Environment.AmbienceSounds
       _typeName: AmbienceSounds
+      _typeNamespace: Appalachia.Audio.Contextual.Sounds.Environment
       editorAsset: {fileID: 11400000, guid: 9f2ccadb7541b1446966fd5a268dea4c, type: 2}
     - _assetReference:
         m_AssetGUID: 7401fa2cd8866c040a833e925ec36cd1
@@ -208,6 +232,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Buoyancy.Data.BuoyancyDataDefaults
       _typeName: BuoyancyDataDefaults
+      _typeNamespace: Appalachia.Simulation.Buoyancy.Data
       editorAsset: {fileID: 11400000, guid: 7401fa2cd8866c040a833e925ec36cd1, type: 2}
     - _assetReference:
         m_AssetGUID: 1c0508e2b5cdbda48899eeaf16374f26
@@ -218,6 +243,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Buoyancy.BuoyancyVoxelDataGizmoSettings
       _typeName: BuoyancyVoxelDataGizmoSettings
+      _typeNamespace: Appalachia.Simulation.Buoyancy
       editorAsset: {fileID: 11400000, guid: 1c0508e2b5cdbda48899eeaf16374f26, type: 2}
     - _assetReference:
         m_AssetGUID: b73d8889b9f9cfa4499ae705cccd4788
@@ -228,6 +254,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Application.Services.CanvasScaling.CanvasScalingServiceMetadata
       _typeName: CanvasScalingServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.CanvasScaling
       editorAsset: {fileID: 11400000, guid: b73d8889b9f9cfa4499ae705cccd4788, type: 2}
     - _assetReference:
         m_AssetGUID: b73d8889b9f9cfa4499ae705cccd4788
@@ -238,6 +265,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling.CanvasScalingServiceMetadata
       _typeName: CanvasScalingServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling
       editorAsset: {fileID: 11400000, guid: b73d8889b9f9cfa4499ae705cccd4788, type: 2}
     - _assetReference:
         m_AssetGUID: 8ca899bfd7686464cb08a16d3e806184
@@ -248,6 +276,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette.Widgets.CommandEntryWidgetMetadata
       _typeName: CommandEntryWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette.Widgets
       editorAsset: {fileID: 11400000, guid: 8ca899bfd7686464cb08a16d3e806184, type: 2}
     - _assetReference:
         m_AssetGUID: 31114cbeb9dde0c43b52e9652199eef3
@@ -258,6 +287,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette.CommandPaletteFeatureMetadata
       _typeName: CommandPaletteFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette
       editorAsset: {fileID: 11400000, guid: 31114cbeb9dde0c43b52e9652199eef3, type: 2}
     - _assetReference:
         m_AssetGUID: 37a5c4d08188dde47beb86ae88a3cdca
@@ -268,6 +298,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette.Widgets.CommandSuggestionsWidgetMetadata
       _typeName: CommandSuggestionsWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette.Widgets
       editorAsset: {fileID: 11400000, guid: 37a5c4d08188dde47beb86ae88a3cdca, type: 2}
     - _assetReference:
         m_AssetGUID: e8f1f16992f31164987a90492ec99dc3
@@ -278,6 +309,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.CursorManagerMetadata
       _typeName: CursorManagerMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors
       editorAsset: {fileID: 11400000, guid: e8f1f16992f31164987a90492ec99dc3, type: 2}
     - _assetReference:
         m_AssetGUID: e8f1f16992f31164987a90492ec99dc3
@@ -287,6 +319,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.UI.Controls, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.UI.Controls.Cursors.CursorManagerMetadata
       _typeName: CursorManagerMetadata
+      _typeNamespace: Appalachia.UI.Controls.Cursors
       editorAsset: {fileID: 11400000, guid: e8f1f16992f31164987a90492ec99dc3, type: 2}
     - _assetReference:
         m_AssetGUID: b02447a89cdf5684fa489b3a70733f26
@@ -297,6 +330,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Widgets.CursorWidgetMetadata
       _typeName: CursorWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Widgets
       editorAsset: {fileID: 11400000, guid: b02447a89cdf5684fa489b3a70733f26, type: 2}
     - _assetReference:
         m_AssetGUID: 5abb958cbaee15d4bb3815b9c28cf5f7
@@ -307,6 +341,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Data.Configuration.DatabaseConfiguration
       _typeName: DatabaseConfiguration
+      _typeNamespace: Appalachia.Prototype.KOC.Data.Configuration
       editorAsset: {fileID: 11400000, guid: 5abb958cbaee15d4bb3815b9c28cf5f7, type: 2}
     - _assetReference:
         m_AssetGUID: ffde549871d3ab54cb1ee3714e28599e
@@ -317,6 +352,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.UI.Controls.Collections.Clock.DateTimePickerMetadata
       _typeName: DateTimePickerMetadata
+      _typeNamespace: Appalachia.UI.Controls.Collections.Clock
       editorAsset: {fileID: 11400000, guid: ffde549871d3ab54cb1ee3714e28599e, type: 2}
     - _assetReference:
         m_AssetGUID: 4a044ad0e88d9a547988ef985883b6b9
@@ -327,6 +363,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugConditions.DebugConditionsFeatureMetadata
       _typeName: DebugConditionsFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugConditions
       editorAsset: {fileID: 11400000, guid: 4a044ad0e88d9a547988ef985883b6b9, type: 2}
     - _assetReference:
         m_AssetGUID: 17ff35d35e16bb243b4fb12caa676768
@@ -337,6 +374,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLog.Settings.DebugLogSettings
       _typeName: DebugLogSettings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLog.Settings
       editorAsset: {fileID: 11400000, guid: 17ff35d35e16bb243b4fb12caa676768, type: 2}
     - _assetReference:
         m_AssetGUID: fc885850e6480664ab48225b2cecce58
@@ -347,6 +385,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugOverlayInfo.DebugOverlayInfoFeatureMetadata
       _typeName: DebugOverlayInfoFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugOverlayInfo
       editorAsset: {fileID: 11400000, guid: fc885850e6480664ab48225b2cecce58, type: 2}
     - _assetReference:
         m_AssetGUID: 5fa304d461b9a6a47b6e6d3109e694be
@@ -357,6 +396,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Core.Metadata.Density.DensityMetadataCollection
       _typeName: DensityMetadataCollection
+      _typeNamespace: Appalachia.Simulation.Core.Metadata.Density
       editorAsset: {fileID: 11400000, guid: 5fa304d461b9a6a47b6e6d3109e694be, type: 2}
     - _assetReference:
         m_AssetGUID: fc885850e6480664ab48225b2cecce58
@@ -367,6 +407,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.DeveloperInfoFeatureMetadata
       _typeName: DeveloperInfoFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo
       editorAsset: {fileID: 11400000, guid: fc885850e6480664ab48225b2cecce58, type: 2}
     - _assetReference:
         m_AssetGUID: 86c1ff64729131a4ba9f1ca1206cb98f
@@ -377,6 +418,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Widgets.DeveloperInfoOverlayWidgetMetadata
       _typeName: DeveloperInfoOverlayWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Widgets
       editorAsset: {fileID: 11400000, guid: 86c1ff64729131a4ba9f1ca1206cb98f, type: 2}
     - _assetReference:
         m_AssetGUID: 1c7afe2a5e837974a9224a2232035bce
@@ -387,6 +429,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.ActivityBar.DeveloperInterfaceActivityBarWidgetMetadata
       _typeName: DeveloperInterfaceActivityBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.ActivityBar
       editorAsset: {fileID: 11400000, guid: 1c7afe2a5e837974a9224a2232035bce, type: 2}
     - _assetReference:
         m_AssetGUID: 8ca899bfd7686464cb08a16d3e806184
@@ -397,6 +440,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandPalette.DeveloperInterfaceCommandPaletteWidgetMetadata
       _typeName: DeveloperInterfaceCommandPaletteWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandPalette
       editorAsset: {fileID: 11400000, guid: 8ca899bfd7686464cb08a16d3e806184, type: 2}
     - _assetReference:
         m_AssetGUID: 37a5c4d08188dde47beb86ae88a3cdca
@@ -407,6 +451,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandSuggestions.DeveloperInterfaceCommandSuggestionsWidgetMetadata
       _typeName: DeveloperInterfaceCommandSuggestionsWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.CommandSuggestions
       editorAsset: {fileID: 11400000, guid: 37a5c4d08188dde47beb86ae88a3cdca, type: 2}
     - _assetReference:
         m_AssetGUID: 24a599a9ae248d144adc4e3ee687baa7
@@ -417,6 +462,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea.DeveloperInterfaceGameAreaWidgetMetadata
       _typeName: DeveloperInterfaceGameAreaWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.GameArea
       editorAsset: {fileID: 11400000, guid: 24a599a9ae248d144adc4e3ee687baa7, type: 2}
     - _assetReference:
         m_AssetGUID: abed7f7cfc997a6408cc6430706495cf
@@ -427,6 +473,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar.DeveloperInterfaceMenuBarWidgetMetadata
       _typeName: DeveloperInterfaceMenuBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.MenuBar
       editorAsset: {fileID: 11400000, guid: abed7f7cfc997a6408cc6430706495cf, type: 2}
     - _assetReference:
         m_AssetGUID: f4c1bce7e2f611e4695b5dbd708b8d81
@@ -437,6 +484,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.DeveloperInterfaceMetadata_V01
       _typeName: DeveloperInterfaceMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
       editorAsset: {fileID: 11400000, guid: f4c1bce7e2f611e4695b5dbd708b8d81, type: 2}
     - _assetReference:
         m_AssetGUID: 4963e6dab8cda5648b9874598cc60801
@@ -447,6 +495,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Panel.DeveloperInterfacePanelWidgetMetadata
       _typeName: DeveloperInterfacePanelWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.Panel
       editorAsset: {fileID: 11400000, guid: 4963e6dab8cda5648b9874598cc60801, type: 2}
     - _assetReference:
         m_AssetGUID: 7c5da04a60718524892454f4f2fff023
@@ -457,6 +506,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Services.Screenshots.DeveloperInterfaceScreenshotServiceMetadata
       _typeName: DeveloperInterfaceScreenshotServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Services.Screenshots
       editorAsset: {fileID: 11400000, guid: 7c5da04a60718524892454f4f2fff023, type: 2}
     - _assetReference:
         m_AssetGUID: 23b3108d2cafbc9429e3a6b1a9a33945
@@ -467,6 +517,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.SideBar.DeveloperInterfaceSideBarWidgetMetadata
       _typeName: DeveloperInterfaceSideBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.SideBar
       editorAsset: {fileID: 11400000, guid: 23b3108d2cafbc9429e3a6b1a9a33945, type: 2}
     - _assetReference:
         m_AssetGUID: 90697a160d2b55447bb496d78a7b2d93
@@ -477,6 +528,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar.DeveloperInterfaceStatusBarWidgetMetadata
       _typeName: DeveloperInterfaceStatusBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar
       editorAsset: {fileID: 11400000, guid: 90697a160d2b55447bb496d78a7b2d93, type: 2}
     - _assetReference:
         m_AssetGUID: 4a128e515e4776f409543bb3d500bcd3
@@ -487,6 +539,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Components.OnScreenButtons.DeviceButtonLookup
       _typeName: DeviceButtonLookup
+      _typeNamespace: Appalachia.Prototype.KOC.Components.OnScreenButtons
       editorAsset: {fileID: 11400000, guid: 4a128e515e4776f409543bb3d500bcd3, type: 2}
     - _assetReference:
         m_AssetGUID: cb4ed668de4fbf24683fc65d9cd12152
@@ -497,6 +550,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Features.Character.Audio.Sounds.FootstepSounds
       _typeName: FootstepSounds
+      _typeNamespace: Appalachia.Prototype.KOC.Features.Character.Audio.Sounds
       editorAsset: {fileID: 11400000, guid: cb4ed668de4fbf24683fc65d9cd12152, type: 2}
     - _assetReference:
         m_AssetGUID: 9793c08a58fb1054690649f9ff1ebabc
@@ -507,6 +561,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Rendering.GPUI.GPUInstancerPrototypeMetadataCollection
       _typeName: GPUInstancerPrototypeMetadataCollection
+      _typeNamespace: Appalachia.Rendering.Prefabs.Rendering.GPUI
       editorAsset: {fileID: 11400000, guid: 9793c08a58fb1054690649f9ff1ebabc, type: 2}
     - _assetReference:
         m_AssetGUID: 866b751402f49a348bab38cd2c902f0b
@@ -516,6 +571,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.Globals, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.Globals.Shading.GSR
       _typeName: GSR
+      _typeNamespace: Appalachia.Globals.Shading
       editorAsset: {fileID: 11400000, guid: 866b751402f49a348bab38cd2c902f0b, type: 2}
     - _assetReference:
         m_AssetGUID: 385ba49763e474e4ab50b517fbd79efa
@@ -526,6 +582,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameArea.GameAreaFeatureMetadata
       _typeName: GameAreaFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameArea
       editorAsset: {fileID: 11400000, guid: 385ba49763e474e4ab50b517fbd79efa, type: 2}
     - _assetReference:
         m_AssetGUID: 24a599a9ae248d144adc4e3ee687baa7
@@ -536,6 +593,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameArea.Widgets.GameAreaWidgetMetadata
       _typeName: GameAreaWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameArea.Widgets
       editorAsset: {fileID: 11400000, guid: 24a599a9ae248d144adc4e3ee687baa7, type: 2}
     - _assetReference:
         m_AssetGUID: fb77976fea0548340a672ed46e25b68a
@@ -546,6 +604,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.Game.Versions.GameMetadata_V01
       _typeName: GameMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.Game.Versions
       editorAsset: {fileID: 11400000, guid: fb77976fea0548340a672ed46e25b68a, type: 2}
     - _assetReference:
         m_AssetGUID: 4161605ec9480a7449a5ebc245373126
@@ -556,6 +615,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Application.Services.GizmoDrawer.GizmoDrawerServiceMetadata
       _typeName: GizmoDrawerServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.GizmoDrawer
       editorAsset: {fileID: 11400000, guid: 4161605ec9480a7449a5ebc245373126, type: 2}
     - _assetReference:
         m_AssetGUID: bb68e04829d76fc4d8adf018ddd4ecb5
@@ -566,6 +626,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Application.Widgets.GizmoDrawer.GizmoDrawerWidgetMetadata
       _typeName: GizmoDrawerWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Widgets.GizmoDrawer
       editorAsset: {fileID: 11400000, guid: bb68e04829d76fc4d8adf018ddd4ecb5, type: 2}
     - _assetReference:
         m_AssetGUID: 185af5835ad0e854eb26bf5b8aa3a56c
@@ -576,6 +637,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Wind.GlobalWindParametersGroup
       _typeName: GlobalWindParametersGroup
+      _typeNamespace: Appalachia.Simulation.Wind
       editorAsset: {fileID: 11400000, guid: 185af5835ad0e854eb26bf5b8aa3a56c, type: 2}
     - _assetReference:
         m_AssetGUID: 661126f6675001b4e9cdb249493f9351
@@ -586,6 +648,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.HUD.Versions.HUDMetadata_V01
       _typeName: HUDMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.HUD.Versions
       editorAsset: {fileID: 11400000, guid: 661126f6675001b4e9cdb249493f9351, type: 2}
     - _assetReference:
         m_AssetGUID: 3302edbbd984e1841ad0b1b562a2e8e4
@@ -596,6 +659,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Features.Character.Audio.Sounds.HumanBreathingSounds
       _typeName: HumanBreathingSounds
+      _typeNamespace: Appalachia.Prototype.KOC.Features.Character.Audio.Sounds
       editorAsset: {fileID: 11400000, guid: 3302edbbd984e1841ad0b1b562a2e8e4, type: 2}
     - _assetReference:
         m_AssetGUID: fa3b3168e95f5d941bbcfb8f11ce6ce2
@@ -606,6 +670,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Features.Character.Audio.Sounds.HumanFoliageSounds
       _typeName: HumanFoliageSounds
+      _typeNamespace: Appalachia.Prototype.KOC.Features.Character.Audio.Sounds
       editorAsset: {fileID: 11400000, guid: fa3b3168e95f5d941bbcfb8f11ce6ce2, type: 2}
     - _assetReference:
         m_AssetGUID: 981f4090153d0b0498c10a4b08fd5f8a
@@ -616,6 +681,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.InGameMenu.Versions.InGameMenuMetadata_V01
       _typeName: InGameMenuMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.InGameMenu.Versions
       editorAsset: {fileID: 11400000, guid: 981f4090153d0b0498c10a4b08fd5f8a, type: 2}
     - _assetReference:
         m_AssetGUID: 856a38bbee01c00438e9c7937bde06b3
@@ -626,6 +692,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Editing.Labels.LabelSets
       _typeName: LabelSets
+      _typeNamespace: Appalachia.Editing.Labels
       editorAsset: {fileID: 11400000, guid: 856a38bbee01c00438e9c7937bde06b3, type: 2}
     - _assetReference:
         m_AssetGUID: b9273a7abb34d6a4f8808db02a66809f
@@ -636,6 +703,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Components.LifetimeMetadata
       _typeName: LifetimeMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Components
       editorAsset: {fileID: 11400000, guid: b9273a7abb34d6a4f8808db02a66809f, type: 2}
     - _assetReference:
         m_AssetGUID: b9273a7abb34d6a4f8808db02a66809f
@@ -646,6 +714,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.LifetimeMetadata
       _typeName: LifetimeMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime
       editorAsset: {fileID: 11400000, guid: b9273a7abb34d6a4f8808db02a66809f, type: 2}
     - _assetReference:
         m_AssetGUID: 2e2eda4309547c441bae5245397625f6
@@ -656,6 +725,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.LoadingScreen.Versions.LoadingScreenMetadata_V01
       _typeName: LoadingScreenMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.LoadingScreen.Versions
       editorAsset: {fileID: 11400000, guid: 2e2eda4309547c441bae5245397625f6, type: 2}
     - _assetReference:
         m_AssetGUID: 1780e6bb93a2c1f4ab95db46a7cc2fab
@@ -666,6 +736,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Scenes.MainAreaSceneInformationCollection
       _typeName: MainAreaSceneInformationCollection
+      _typeNamespace: Appalachia.Prototype.KOC.Scenes
       editorAsset: {fileID: 11400000, guid: 1780e6bb93a2c1f4ab95db46a7cc2fab, type: 2}
     - _assetReference:
         m_AssetGUID: 5db9c65efca6bcc4fa4659aa17586218
@@ -676,6 +747,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Buoyancy.Data.MainBuoyancyDataCollection
       _typeName: MainBuoyancyDataCollection
+      _typeNamespace: Appalachia.Simulation.Buoyancy.Data
       editorAsset: {fileID: 11400000, guid: 5db9c65efca6bcc4fa4659aa17586218, type: 2}
     - _assetReference:
         m_AssetGUID: 0cbd0c9f7b4731441a64aba2da7968f5
@@ -686,6 +758,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Buoyancy.Voxels.MainBuoyancyVoxelsDataStoreLookup
       _typeName: MainBuoyancyVoxelsDataStoreLookup
+      _typeNamespace: Appalachia.Simulation.Buoyancy.Voxels
       editorAsset: {fileID: 11400000, guid: 0cbd0c9f7b4731441a64aba2da7968f5, type: 2}
     - _assetReference:
         m_AssetGUID: d34f24dac6a0743409c3681ed73c7a98
@@ -695,6 +768,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.UI.Controls, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.UI.Controls.Cursors.Metadata.MainComplexCursorLookup
       _typeName: MainComplexCursorLookup
+      _typeNamespace: Appalachia.UI.Controls.Cursors.Metadata
       editorAsset: {fileID: 11400000, guid: d34f24dac6a0743409c3681ed73c7a98, type: 2}
     - _assetReference:
         m_AssetGUID: d34f24dac6a0743409c3681ed73c7a98
@@ -705,6 +779,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata.MainComplexCursorLookup
       _typeName: MainComplexCursorLookup
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata
       editorAsset: {fileID: 11400000, guid: d34f24dac6a0743409c3681ed73c7a98, type: 2}
     - _assetReference:
         m_AssetGUID: d34f24dac6a0743409c3681ed73c7a98
@@ -715,6 +790,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Collections.MainComplexCursorLookup
       _typeName: MainComplexCursorLookup
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Collections
       editorAsset: {fileID: 11400000, guid: d34f24dac6a0743409c3681ed73c7a98, type: 2}
     - _assetReference:
         m_AssetGUID: 479917a11e4fa9c4783aafdaa45c8f8e
@@ -724,6 +800,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.Core.Objects, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.Core.Objects.Scriptables.AssetTypes.MainFontCollection
       _typeName: MainFontCollection
+      _typeNamespace: Appalachia.Core.Objects.Scriptables.AssetTypes
       editorAsset: {fileID: 11400000, guid: 479917a11e4fa9c4783aafdaa45c8f8e, type: 2}
     - _assetReference:
         m_AssetGUID: ea1101f5756f0fe43931c4eda9ac6e4b
@@ -734,6 +811,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.MainMenu.Versions.MainMenuMetadata_V01
       _typeName: MainMenuMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.MainMenu.Versions
       editorAsset: {fileID: 11400000, guid: ea1101f5756f0fe43931c4eda9ac6e4b, type: 2}
     - _assetReference:
         m_AssetGUID: d3c8b90d3ffc7b04db8848a29b175ee8
@@ -744,6 +822,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Collections.MainSimpleCursorLookup
       _typeName: MainSimpleCursorLookup
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Collections
       editorAsset: {fileID: 11400000, guid: d3c8b90d3ffc7b04db8848a29b175ee8, type: 2}
     - _assetReference:
         m_AssetGUID: d3c8b90d3ffc7b04db8848a29b175ee8
@@ -754,6 +833,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata.MainSimpleCursorLookup
       _typeName: MainSimpleCursorLookup
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata
       editorAsset: {fileID: 11400000, guid: d3c8b90d3ffc7b04db8848a29b175ee8, type: 2}
     - _assetReference:
         m_AssetGUID: d3c8b90d3ffc7b04db8848a29b175ee8
@@ -763,6 +843,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.UI.Controls, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.UI.Controls.Cursors.Metadata.MainSimpleCursorLookup
       _typeName: MainSimpleCursorLookup
+      _typeNamespace: Appalachia.UI.Controls.Cursors.Metadata
       editorAsset: {fileID: 11400000, guid: d3c8b90d3ffc7b04db8848a29b175ee8, type: 2}
     - _assetReference:
         m_AssetGUID: 65594f4fc396a8945b3b607dfba7173a
@@ -773,6 +854,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.Terrains.MainTerrainMetadataDictionary
       _typeName: MainTerrainMetadataDictionary
+      _typeNamespace: Appalachia.Spatial.Terrains
       editorAsset: {fileID: 11400000, guid: 65594f4fc396a8945b3b607dfba7173a, type: 2}
     - _assetReference:
         m_AssetGUID: 6aedf668759fd1e42bbbd9c2935c8606
@@ -783,6 +865,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.Voxels.Gizmos.MainVoxelDataGizmoSettingsCollection
       _typeName: MainVoxelDataGizmoSettingsCollection
+      _typeNamespace: Appalachia.Spatial.Voxels.Gizmos
       editorAsset: {fileID: 11400000, guid: 6aedf668759fd1e42bbbd9c2935c8606, type: 2}
     - _assetReference:
         m_AssetGUID: b2876999fa6e34e449a0c92c06383ce1
@@ -793,6 +876,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.MenuBarFeatureMetadata
       _typeName: MenuBarFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
       editorAsset: {fileID: 11400000, guid: b2876999fa6e34e449a0c92c06383ce1, type: 2}
     - _assetReference:
         m_AssetGUID: abed7f7cfc997a6408cc6430706495cf
@@ -803,6 +887,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets.MenuBarWidgetMetadata
       _typeName: MenuBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets
       editorAsset: {fileID: 11400000, guid: abed7f7cfc997a6408cc6430706495cf, type: 2}
     - _assetReference:
         m_AssetGUID: 521cdc08d7948b84aa5363bec779b1c0
@@ -813,6 +898,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.MeshBurial.State.MeshBurialAdjustmentCollection
       _typeName: MeshBurialAdjustmentCollection
+      _typeNamespace: Appalachia.Spatial.MeshBurial.State
       editorAsset: {fileID: 11400000, guid: 521cdc08d7948b84aa5363bec779b1c0, type: 2}
     - _assetReference:
         m_AssetGUID: 48b081c06cbee894c95635ee6962684b
@@ -823,6 +909,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.MeshBurial.MeshBurialGizmoSettings
       _typeName: MeshBurialGizmoSettings
+      _typeNamespace: Appalachia.Spatial.MeshBurial
       editorAsset: {fileID: 11400000, guid: 48b081c06cbee894c95635ee6962684b, type: 2}
     - _assetReference:
         m_AssetGUID: ca79891746b07274a9d3fb4abc299c8f
@@ -833,6 +920,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.MeshBurial.Processing.MeshBurialManagementQueue
       _typeName: MeshBurialManagementQueue
+      _typeNamespace: Appalachia.Spatial.MeshBurial.Processing
       editorAsset: {fileID: 11400000, guid: ca79891746b07274a9d3fb4abc299c8f, type: 2}
     - _assetReference:
         m_AssetGUID: b50c43d115e2a1c498b5b3b8bd4ad0d0
@@ -843,6 +931,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.MeshBurial.MeshBurialOptimizationParameters
       _typeName: MeshBurialOptimizationParameters
+      _typeNamespace: Appalachia.Spatial.MeshBurial
       editorAsset: {fileID: 11400000, guid: b50c43d115e2a1c498b5b3b8bd4ad0d0, type: 2}
     - _assetReference:
         m_AssetGUID: 1bb18fdb2e3ecc5468e1ec7cddd1c6f4
@@ -853,6 +942,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.MeshBurial.State.MeshBurialSharedStateDictionary
       _typeName: MeshBurialSharedStateDictionary
+      _typeNamespace: Appalachia.Spatial.MeshBurial.State
       editorAsset: {fileID: 11400000, guid: 1bb18fdb2e3ecc5468e1ec7cddd1c6f4, type: 2}
     - _assetReference:
         m_AssetGUID: e9ad28b2fcf8ecc4c8be9a82d99eb681
@@ -863,6 +953,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Jobs.MeshData.MeshObjectManagerMeshCollection
       _typeName: MeshObjectManagerMeshCollection
+      _typeNamespace: Appalachia.Jobs.MeshData
       editorAsset: {fileID: 11400000, guid: e9ad28b2fcf8ecc4c8be9a82d99eb681, type: 2}
     - _assetReference:
         m_AssetGUID: 03f4c9cab92607e498f5d4fc290c0202
@@ -872,6 +963,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.Audio, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.Audio.Scriptables.OcclusionSettings
       _typeName: OcclusionSettings
+      _typeNamespace: Appalachia.Audio.Scriptables
       editorAsset: {fileID: 11400000, guid: 03f4c9cab92607e498f5d4fc290c0202, type: 2}
     - _assetReference:
         m_AssetGUID: 7fdc40adaea51974d848b8b4762c6e07
@@ -882,6 +974,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.PanelFeatureMetadata
       _typeName: PanelFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel
       editorAsset: {fileID: 11400000, guid: 7fdc40adaea51974d848b8b4762c6e07, type: 2}
     - _assetReference:
         m_AssetGUID: 4963e6dab8cda5648b9874598cc60801
@@ -892,6 +985,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.Widgets.PanelWidgetMetadata
       _typeName: PanelWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.Widgets
       editorAsset: {fileID: 11400000, guid: 4963e6dab8cda5648b9874598cc60801, type: 2}
     - _assetReference:
         m_AssetGUID: 6db1a9c3f03e7b447b4fb995c23b2395
@@ -902,6 +996,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.PauseMenu.Versions.PauseMenuMetadata_V01
       _typeName: PauseMenuMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.PauseMenu.Versions
       editorAsset: {fileID: 11400000, guid: 6db1a9c3f03e7b447b4fb995c23b2395, type: 2}
     - _assetReference:
         m_AssetGUID: c98eed138784796488aea63835b28c17
@@ -912,6 +1007,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Core.Metadata.Materials.PhysicsMaterialsCollection
       _typeName: PhysicsMaterialsCollection
+      _typeNamespace: Appalachia.Simulation.Core.Metadata.Materials
       editorAsset: {fileID: 11400000, guid: c98eed138784796488aea63835b28c17, type: 2}
     - _assetReference:
         m_AssetGUID: e78302f9e8272c445a36e65f4e2c4a3c
@@ -922,6 +1018,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Rendering.ContentType.PrefabContentTypeOptionsLookup
       _typeName: PrefabContentTypeOptionsLookup
+      _typeNamespace: Appalachia.Rendering.Prefabs.Rendering.ContentType
       editorAsset: {fileID: 11400000, guid: e78302f9e8272c445a36e65f4e2c4a3c, type: 2}
     - _assetReference:
         m_AssetGUID: e3a8aa155b80ad244b524d9c90f92e3c
@@ -932,6 +1029,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Rendering.External.PrefabLocationSource
       _typeName: PrefabLocationSource
+      _typeNamespace: Appalachia.Rendering.Prefabs.Rendering.External
       editorAsset: {fileID: 11400000, guid: e3a8aa155b80ad244b524d9c90f92e3c, type: 2}
     - _assetReference:
         m_AssetGUID: 9f868f3f1c65d0142b8045a4fbb3eb94
@@ -942,6 +1040,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Rendering.ModelType.PrefabModelTypeOptionsLookup
       _typeName: PrefabModelTypeOptionsLookup
+      _typeNamespace: Appalachia.Rendering.Prefabs.Rendering.ModelType
       editorAsset: {fileID: 11400000, guid: 9f868f3f1c65d0142b8045a4fbb3eb94, type: 2}
     - _assetReference:
         m_AssetGUID: e274390334c8bce40bdef0c21291679e
@@ -952,6 +1051,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Rendering.PrefabRenderingSetCollection
       _typeName: PrefabRenderingSetCollection
+      _typeNamespace: Appalachia.Rendering.Prefabs.Rendering
       editorAsset: {fileID: 11400000, guid: e274390334c8bce40bdef0c21291679e, type: 2}
     - _assetReference:
         m_AssetGUID: 833ea2b3a278ec64cb701c157adc4995
@@ -962,6 +1062,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Rendering.Replacement.PrefabReplacementCollection
       _typeName: PrefabReplacementCollection
+      _typeNamespace: Appalachia.Rendering.Prefabs.Rendering.Replacement
       editorAsset: {fileID: 11400000, guid: 833ea2b3a278ec64cb701c157adc4995, type: 2}
     - _assetReference:
         m_AssetGUID: 33dd7c21e639b73479da8058aca61b83
@@ -972,6 +1073,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Audio.Contextual.Sounds.Weather.RainOnWaterSounds
       _typeName: RainOnWaterSounds
+      _typeNamespace: Appalachia.Audio.Contextual.Sounds.Weather
       editorAsset: {fileID: 11400000, guid: 33dd7c21e639b73479da8058aca61b83, type: 2}
     - _assetReference:
         m_AssetGUID: c487ff27e266dc640b28abefc280f5ee
@@ -982,6 +1084,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Audio.Contextual.Sounds.Weather.RainSounds
       _typeName: RainSounds
+      _typeNamespace: Appalachia.Audio.Contextual.Sounds.Weather
       editorAsset: {fileID: 11400000, guid: c487ff27e266dc640b28abefc280f5ee, type: 2}
     - _assetReference:
         m_AssetGUID: 34d03d93a3f733b4fa09e2123070c195
@@ -992,6 +1095,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Spawning.Sets.RandomPrefabMasterCollection
       _typeName: RandomPrefabMasterCollection
+      _typeNamespace: Appalachia.Rendering.Prefabs.Spawning.Sets
       editorAsset: {fileID: 11400000, guid: 34d03d93a3f733b4fa09e2123070c195, type: 2}
     - _assetReference:
         m_AssetGUID: 4785e27e5788bda468868f973770d42f
@@ -1002,6 +1106,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.RectVisualizerFeatureMetadata
       _typeName: RectVisualizerFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer
       editorAsset: {fileID: 11400000, guid: 4785e27e5788bda468868f973770d42f, type: 2}
     - _assetReference:
         m_AssetGUID: fcead93aa01cf9a4bbf87a36b4e5d2e4
@@ -1012,6 +1117,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Services.RectVisualizerServiceMetadata
       _typeName: RectVisualizerServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Services
       editorAsset: {fileID: 11400000, guid: fcead93aa01cf9a4bbf87a36b4e5d2e4, type: 2}
     - _assetReference:
         m_AssetGUID: 7195ddbea67776f40b08d4f8a5a3a447
@@ -1022,6 +1128,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Widgets.RectVisualizerWidgetMetadata
       _typeName: RectVisualizerWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Widgets
       editorAsset: {fileID: 11400000, guid: 7195ddbea67776f40b08d4f8a5a3a447, type: 2}
     - _assetReference:
         m_AssetGUID: ff8bf54670d80a0449e52b98a2d48455
@@ -1032,6 +1139,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Editing.Debugging.RendererDebuggingSettings
       _typeName: RendererDebuggingSettings
+      _typeNamespace: Appalachia.Editing.Debugging
       editorAsset: {fileID: 11400000, guid: ff8bf54670d80a0449e52b98a2d48455, type: 2}
     - _assetReference:
         m_AssetGUID: e2b4aa19b9b9e4a44967e9690014f53e
@@ -1042,6 +1150,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.RuntimeGizmoDrawerFeatureMetadata
       _typeName: RuntimeGizmoDrawerFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
       editorAsset: {fileID: 11400000, guid: e2b4aa19b9b9e4a44967e9690014f53e, type: 2}
     - _assetReference:
         m_AssetGUID: 4161605ec9480a7449a5ebc245373126
@@ -1052,6 +1161,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.Services.RuntimeGizmoDrawerServiceMetadata
       _typeName: RuntimeGizmoDrawerServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.Services
       editorAsset: {fileID: 11400000, guid: 4161605ec9480a7449a5ebc245373126, type: 2}
     - _assetReference:
         m_AssetGUID: adcad978b021cea418c15341c351ebf3
@@ -1062,6 +1172,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.Widgets.RuntimeGizmoDrawerWidgetMetadata
       _typeName: RuntimeGizmoDrawerWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.Widgets
       editorAsset: {fileID: 11400000, guid: adcad978b021cea418c15341c351ebf3, type: 2}
     - _assetReference:
         m_AssetGUID: 388cdb11d1348884190b2c5d1edd1150
@@ -1072,6 +1183,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings.RuntimeGraphSettings
       _typeName: RuntimeGraphSettings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings
       editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
     - _assetReference:
         m_AssetGUID: 7de8af9775b0209449481865f115430d
@@ -1082,6 +1194,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Prefabs.Rendering.Options.RuntimeRenderingOptions
       _typeName: RuntimeRenderingOptions
+      _typeNamespace: Appalachia.Rendering.Prefabs.Rendering.Options
       editorAsset: {fileID: 11400000, guid: 7de8af9775b0209449481865f115430d, type: 2}
     - _assetReference:
         m_AssetGUID: c7625f75b8bd9be48ae4b59df0f08638
@@ -1092,6 +1205,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.ScreenshotFeatureMetadata
       _typeName: ScreenshotFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot
       editorAsset: {fileID: 11400000, guid: c7625f75b8bd9be48ae4b59df0f08638, type: 2}
     - _assetReference:
         m_AssetGUID: 7c5da04a60718524892454f4f2fff023
@@ -1102,6 +1216,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.Services.ScreenshotServiceMetadata
       _typeName: ScreenshotServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.Services
       editorAsset: {fileID: 11400000, guid: 7c5da04a60718524892454f4f2fff023, type: 2}
     - _assetReference:
         m_AssetGUID: 74043c3db07ff2f4c8fae365d43cb02a
@@ -1112,6 +1227,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.Widgets.ScreenshotWidgetMetadata
       _typeName: ScreenshotWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.Widgets
       editorAsset: {fileID: 11400000, guid: 74043c3db07ff2f4c8fae365d43cb02a, type: 2}
     - _assetReference:
         m_AssetGUID: 0ec6a5b0dcf353b4fb659f0ffe1fc414
@@ -1122,6 +1238,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.SideBarFeatureMetadata
       _typeName: SideBarFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
       editorAsset: {fileID: 11400000, guid: 0ec6a5b0dcf353b4fb659f0ffe1fc414, type: 2}
     - _assetReference:
         m_AssetGUID: 23b3108d2cafbc9429e3a6b1a9a33945
@@ -1132,6 +1249,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets.SideBarWidgetMetadata
       _typeName: SideBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets
       editorAsset: {fileID: 11400000, guid: 23b3108d2cafbc9429e3a6b1a9a33945, type: 2}
     - _assetReference:
         m_AssetGUID: 476805a8c9969b54e95de5821f6bf725
@@ -1142,6 +1260,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Audio.Contextual.Sounds.Weather.SnowSounds
       _typeName: SnowSounds
+      _typeNamespace: Appalachia.Audio.Contextual.Sounds.Weather
       editorAsset: {fileID: 11400000, guid: 476805a8c9969b54e95de5821f6bf725, type: 2}
     - _assetReference:
         m_AssetGUID: 34698306a456c21449a03794be704116
@@ -1152,6 +1271,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.SplashScreen.V01.SplashScreenMetadata_V01
       _typeName: SplashScreenMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.SplashScreen.V01
       editorAsset: {fileID: 11400000, guid: 34698306a456c21449a03794be704116, type: 2}
     - _assetReference:
         m_AssetGUID: 0a075680f0e1d8c4787b2f475804d2d2
@@ -1162,6 +1282,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.StartEnvironment.Versions.StartEnvironmentMetadata_V01
       _typeName: StartEnvironmentMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.StartEnvironment.Versions
       editorAsset: {fileID: 11400000, guid: 0a075680f0e1d8c4787b2f475804d2d2, type: 2}
     - _assetReference:
         m_AssetGUID: bf99ed716fded864b8f710dd94a1e7ab
@@ -1172,6 +1293,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.StartScreen.Versions.StartScreenMetadata_V01
       _typeName: StartScreenMetadata_V01
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.StartScreen.Versions
       editorAsset: {fileID: 11400000, guid: bf99ed716fded864b8f710dd94a1e7ab, type: 2}
     - _assetReference:
         m_AssetGUID: 915d373a73518fd479b0207e1f9acb61
@@ -1182,6 +1304,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.StatusBarFeatureMetadata
       _typeName: StatusBarFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar
       editorAsset: {fileID: 11400000, guid: 915d373a73518fd479b0207e1f9acb61, type: 2}
     - _assetReference:
         m_AssetGUID: 90697a160d2b55447bb496d78a7b2d93
@@ -1192,6 +1315,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets.StatusBarWidgetMetadata
       _typeName: StatusBarWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets
       editorAsset: {fileID: 11400000, guid: 90697a160d2b55447bb496d78a7b2d93, type: 2}
     - _assetReference:
         m_AssetGUID: 252178a6681d3cd438ccf571bae0e488
@@ -1201,6 +1325,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.UI.Core, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.UI.Core.Styling.StyleElementDefaultLookup
       _typeName: StyleElementDefaultLookup
+      _typeNamespace: Appalachia.UI.Core.Styling
       editorAsset: {fileID: 11400000, guid: 252178a6681d3cd438ccf571bae0e488, type: 2}
     - _assetReference:
         m_AssetGUID: b4acd901fef8a4f4b85d51c2f8f677fc
@@ -1211,6 +1336,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Core.Model.TreeGizmoStyle
       _typeName: TreeGizmoStyle
+      _typeNamespace: Appalachia.Simulation.Trees.Core.Model
       editorAsset: {fileID: 11400000, guid: b4acd901fef8a4f4b85d51c2f8f677fc, type: 2}
     - _assetReference:
         m_AssetGUID: f2e712ea1bbfaa045af435cb8a7c507b
@@ -1221,6 +1347,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Core.TreeRuntimeMetadataCollection
       _typeName: TreeRuntimeMetadataCollection
+      _typeNamespace: Appalachia.Simulation.Trees.Core
       editorAsset: {fileID: 11400000, guid: f2e712ea1bbfaa045af435cb8a7c507b, type: 2}
     - _assetReference:
         m_AssetGUID: 4785e27e5788bda468868f973770d42f
@@ -1231,6 +1358,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Application.Features.RectVisualizer.UIComponentVisualizerFeatureMetadata
       _typeName: UIComponentVisualizerFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Features.RectVisualizer
       editorAsset: {fileID: 11400000, guid: 4785e27e5788bda468868f973770d42f, type: 2}
     - _assetReference:
         m_AssetGUID: 29240d01388e27a49acc59fb524e4292
@@ -1241,6 +1369,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.ViewScalingFeatureMetadata
       _typeName: ViewScalingFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling
       editorAsset: {fileID: 11400000, guid: 29240d01388e27a49acc59fb524e4292, type: 2}
     - _assetReference:
         m_AssetGUID: b73d8889b9f9cfa4499ae705cccd4788
@@ -1251,6 +1380,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Application.Services.ViewScaling.ViewScalingServiceMetadata
       _typeName: ViewScalingServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.ViewScaling
       editorAsset: {fileID: 11400000, guid: b73d8889b9f9cfa4499ae705cccd4788, type: 2}
     - _assetReference:
         m_AssetGUID: b73d8889b9f9cfa4499ae705cccd4788
@@ -1261,6 +1391,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.Services.ViewScalingServiceMetadata
       _typeName: ViewScalingServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.Services
       editorAsset: {fileID: 11400000, guid: b73d8889b9f9cfa4499ae705cccd4788, type: 2}
     - _assetReference:
         m_AssetGUID: f0b696f40ff96b047abd98674f2baffe
@@ -1271,6 +1402,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Buoyancy.Data.WaterPhysicsCoefficients
       _typeName: WaterPhysicsCoefficients
+      _typeNamespace: Appalachia.Simulation.Buoyancy.Data
       editorAsset: {fileID: 11400000, guid: f0b696f40ff96b047abd98674f2baffe, type: 2}
     - _assetReference:
         m_AssetGUID: 558c5e722e60dce4d9dacafa6c1538d0
@@ -1281,6 +1413,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Audio.Contextual.Sounds.Weather.WindSounds
       _typeName: WindSounds
+      _typeNamespace: Appalachia.Audio.Contextual.Sounds.Weather
       editorAsset: {fileID: 11400000, guid: 558c5e722e60dce4d9dacafa6c1538d0, type: 2}
     - _assetReference:
         m_AssetGUID: 68b043d43433e3f4eae459df5794a88a
@@ -1291,6 +1424,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Core.Metadata.Wood.WoodSimulationDataCollection
       _typeName: WoodSimulationDataCollection
+      _typeNamespace: Appalachia.Simulation.Core.Metadata.Wood
       editorAsset: {fileID: 11400000, guid: 68b043d43433e3f4eae459df5794a88a, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1300,6 +1434,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1309,6 +1444,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1318,6 +1454,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1327,6 +1464,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1336,6 +1474,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1345,6 +1484,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1354,6 +1494,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1363,6 +1504,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1372,6 +1514,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1381,6 +1524,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1390,6 +1534,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1399,6 +1544,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1408,6 +1554,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 68b043d43433e3f4eae459df5794a88a
@@ -1418,6 +1565,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Core.Metadata.Wood.WoodSimulationDataCollection
       _typeName: WoodSimulationDataCollection
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 68b043d43433e3f4eae459df5794a88a
@@ -1428,6 +1576,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Core.Metadata.Wood.WoodSimulationDataCollection
       _typeName: WoodSimulationDataCollection
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     noTracking: 0
     _count: 113
@@ -1443,6 +1592,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Rendering.Shading.Features.AppalachiaShaderFeatures
       _typeName: AppalachiaShaderFeatures
+      _typeNamespace: Appalachia.Rendering.Shading.Features
       editorAsset: {fileID: 11400000, guid: d33c9c2401663af4796c5125500a3a82, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1452,6 +1602,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.Audio.Editor, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.Audio.AudioImportSettings
       _typeName: AudioImportSettings
+      _typeNamespace: Appalachia.Audio
       editorAsset: {fileID: 11400000, guid: 24aa1fec2f5900d49a191a0eacc76298, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1462,6 +1613,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Selections.Dropdown.BranchDataContainerSelection
       _typeName: BranchDataContainerSelection
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Selections.Dropdown
       editorAsset: {fileID: 11400000, guid: 9842e2a01cd1a9a408cb2aa98f4f0afd, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1472,6 +1624,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Selections.Dropdown.BranchSettingsDataContainerSelection
       _typeName: BranchSettingsDataContainerSelection
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Selections.Dropdown
       editorAsset: {fileID: 11400000, guid: c6ca42268f2d2de48b48426ee53084cd, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1482,6 +1635,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.CursorFeatureMetadata
       _typeName: CursorFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors
       editorAsset: {fileID: 11400000, guid: 4a39283f7cb0cea409a27a6eb2047ca6, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1492,6 +1646,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Services.CursorServiceMetadata
       _typeName: CursorServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Services
       editorAsset: {fileID: 11400000, guid: 8c74ba36653d3a64db308cf73f1a9315, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1502,6 +1657,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Spatial.ConvexDecomposition.Data.Review.DecomposedColliderDataReview
       _typeName: DecomposedColliderDataReview
+      _typeNamespace: Appalachia.Spatial.ConvexDecomposition.Data.Review
       editorAsset: {fileID: 11400000, guid: 362de0f8d4c6c52458a3dc85dc5ffc84, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1512,6 +1668,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Generation.Texturing.Materials.Output.DefaultMaterialResource
       _typeName: DefaultMaterialResource
+      _typeNamespace: Appalachia.Simulation.Trees.Generation.Texturing.Materials.Output
       editorAsset: {fileID: 11400000, guid: 638af770f3c93ba4c9485c44d16a268f, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1522,6 +1679,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Generation.Texturing.Materials.Output.DefaultShaderResource
       _typeName: DefaultShaderResource
+      _typeNamespace: Appalachia.Simulation.Trees.Generation.Texturing.Materials.Output
       editorAsset: {fileID: 11400000, guid: 62f806a60c481a34b9d4ca6e1cea1227, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1532,6 +1690,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfoProvider.DeveloperInfoProviderFeatureMetadata
       _typeName: DeveloperInfoProviderFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfoProvider
       editorAsset: {fileID: 11400000, guid: f6da464bc5b70044b8381f214a1dd74f, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1542,6 +1701,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Services.DeveloperInfoProviderServiceMetadata
       _typeName: DeveloperInfoProviderServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Services
       editorAsset: {fileID: 11400000, guid: 698e0e1f4e6fdb14090a3915791d5e6b, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1551,6 +1711,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.Core.Objects, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.Core.Objects.Availability.WhenInstances+DummyObject
       _typeName: DummyObject
+      _typeNamespace: Appalachia.Core.Objects.Availability
       editorAsset: {fileID: 11400000, guid: d2f9913f1bc83734b8f9e92802dcda23, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1560,6 +1721,7 @@ MonoBehaviour:
       _assemblyName: Appalachia.Core.Objects, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
       _typeFullName: Appalachia.Core.Objects.Availability.WhenInstances+DummyObject
       _typeName: DummyObject
+      _typeNamespace: Appalachia.Core.Objects.Availability
       editorAsset: {fileID: 11400000, guid: d2f9913f1bc83734b8f9e92802dcda23, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1570,6 +1732,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Generation.Texturing.Materials.Rects.LeafUVRectCollection
       _typeName: LeafUVRectCollection
+      _typeNamespace: Appalachia.Simulation.Trees.Generation.Texturing.Materials.Rects
       editorAsset: {fileID: 11400000, guid: 2a73905ff93ee604d895d098a41e96ab, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1580,6 +1743,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Selections.Dropdown.LogDataContainerSelection
       _typeName: LogDataContainerSelection
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Selections.Dropdown
       editorAsset: {fileID: 11400000, guid: c3f2f584e91077143a44e2286ddcafb8, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1590,6 +1754,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Snapshot.SnapshotShaders
       _typeName: SnapshotShaders
+      _typeNamespace: Appalachia.Simulation.Trees.Snapshot
       editorAsset: {fileID: 11400000, guid: d6e6e4bea91d5d84a9ab3bc56c5044dc, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1600,6 +1765,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Selections.Dropdown.TreeDataContainerSelection
       _typeName: TreeDataContainerSelection
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Selections.Dropdown
       editorAsset: {fileID: 11400000, guid: 1cb999359d6fbb243b85b1bd01ef2546, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1610,6 +1776,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Gizmos.TreeGizmoDelegate
       _typeName: TreeGizmoDelegate
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Gizmos
       editorAsset: {fileID: 11400000, guid: 9c8e066434e47514b875b7be541fd231, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1620,6 +1787,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Settings.TreeGlobalSettings
       _typeName: TreeGlobalSettings
+      _typeNamespace: Appalachia.Simulation.Trees.Settings
       editorAsset: {fileID: 11400000, guid: dbf2450d4a92a4f4e9bd5d578383ad2c, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1630,6 +1798,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Graph.TreeGraphSettings
       _typeName: TreeGraphSettings
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Graph
       editorAsset: {fileID: 11400000, guid: f87b9e780fe40e2489e2875b37a0f868, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1640,6 +1809,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Data.TreePresets
       _typeName: TreePresets
+      _typeNamespace: Appalachia.Simulation.Trees.Data
       editorAsset: {fileID: 11400000, guid: 671a383e2782fb544af5da5a13320318, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1650,6 +1820,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Selections.Dropdown.TreeSettingsDataContainerSelection
       _typeName: TreeSettingsDataContainerSelection
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Selections.Dropdown
       editorAsset: {fileID: 11400000, guid: a5c1dbf5f6f7bb24c80eed1bbf86e49a, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1660,6 +1831,7 @@ MonoBehaviour:
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.UI.Selections.State.TreeSpeciesEditorSelection
       _typeName: TreeSpeciesEditorSelection
+      _typeNamespace: Appalachia.Simulation.Trees.UI.Selections.State
       editorAsset: {fileID: 11400000, guid: 6c25fb0022c9e1e49aad8ff955fc3ba8, type: 2}
     - _assetReference:
         m_AssetGUID: 
@@ -1669,6 +1841,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1678,6 +1851,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1687,6 +1861,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1696,6 +1871,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1705,6 +1881,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1714,6 +1891,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1723,6 +1901,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1732,6 +1911,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
         m_AssetGUID: 
@@ -1741,6 +1921,7 @@ MonoBehaviour:
       _assemblyName: 
       _typeFullName: 
       _typeName: 
+      _typeNamespace: 
       editorAsset: {fileID: 0}
     noTracking: 0
     _count: 23

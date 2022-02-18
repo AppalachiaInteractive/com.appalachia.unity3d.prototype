@@ -10,8 +10,10 @@ namespace Appalachia.Prototype.KOC.Scenes
         AreaSceneInformation, ApplicationAreaList, AreaSceneInformationList, AreaSceneInformationLookup,
         AreaSceneInformationCollection>
     {
+        /// <inheritdoc />
         public override bool HasDefault => false;
 
+        /// <inheritdoc />
         protected override ApplicationArea GetUniqueKeyFromValue(AreaSceneInformation value)
         {
             return value.Area;

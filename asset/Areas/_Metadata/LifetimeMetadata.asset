@@ -26,6 +26,11 @@ MonoBehaviour:
     - BackgroundComponentSetStyle
     - CanvasComponentSetStyle
     _resetToken: 2021-12-14T20:34:03.6457917-05:00
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   clearCameraData:
     _initializer:
       _tags:
@@ -56,60 +61,135 @@ MonoBehaviour:
       - usePhysicalProperties
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 3571603
+      _machine: 14129404
+      _timestamp: 1644957438
+      _pid: -14768
     clearFlags:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1
       _value: 2
     backgroundColor:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {r: 0, g: 0, b: 0, a: 1}
       _value: {r: 0, g: 0, b: 0, a: 1}
     cullingMask:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: 0
     orthographic:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     orthographicSize:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 5
       _value: 5
     fieldOfView:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 60
       _value: 60
     usePhysicalProperties:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     focalLength:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 50
       _value: 50
     sensorSize:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 36, y: 24}
       _value: {x: 36, y: 24}
     lensShift:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0}
       _value: {x: 0, y: 0}
     gateFit:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 2
       _value: 2
     nearClipPlane:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0.3
       _value: 0.3
     farClipPlane:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1000
       _value: 1000
     rect:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial:
         serializedVersion: 2
         x: 0
@@ -124,46 +204,101 @@ MonoBehaviour:
         height: 1
     depth:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     renderingPath:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: -1
       _value: -1
     useOcclusionCulling:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1
       _value: 0
     allowHDR:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1
       _value: 0
     allowMSAA:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1
       _value: 0
     allowDynamicResolution:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 1
       _value: 0
     showAdvanced:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     forceIntoRenderTexture:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     depthTextureMode:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     opaqueSortMode:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     transparencySortMode:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
   rootCanvas: {fileID: 11400000, guid: e40443b0f0cfc0f4e8f96f6a703dabba, type: 2}

@@ -3,6 +3,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
     public sealed class StatusBarWidget : DeveloperInterfaceManager_V01.Widget<StatusBarWidget,
         StatusBarWidgetMetadata, StatusBarFeature, StatusBarFeatureMetadata>
     {
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())

@@ -75,6 +75,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
 
         #endregion
 
+        /// <inheritdoc />
         public override void OnSpawn(SpawnPoint spawnPoint, bool reset)
         {
             using (_PRF_OnSpawn.Auto())
@@ -102,6 +103,7 @@ namespace Appalachia.Prototype.KOC.Features.Gameplay
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

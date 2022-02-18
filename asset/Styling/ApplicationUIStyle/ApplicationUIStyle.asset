@@ -21,5 +21,10 @@ MonoBehaviour:
     - onScreenButtonStyle
     - OnScreenButtonStyle
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   defaultFont: {fileID: 11400000, guid: 97ef77b76eba1f1458c9960a11f79713, type: 2}
   onScreenButtonStyle: {fileID: 11400000, guid: a926f9bbad767d8408a110926a1247e6, type: 2}

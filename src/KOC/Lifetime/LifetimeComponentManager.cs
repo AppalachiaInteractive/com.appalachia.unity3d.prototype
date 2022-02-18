@@ -74,12 +74,15 @@ namespace Appalachia.Prototype.KOC.Lifetime
 
         public LifetimeMetadata lifetimeMetadata => _lifetimeMetadata;
 
+        /// <inheritdoc />
         protected override bool DestroyObjectOfSubsequentInstances => true;
 
+        /// <inheritdoc />
         protected override bool ReInitializeOnEnable => true;
 
         #region Event Functions
 
+        /// <inheritdoc />
         protected override void Update()
         {
             using (_PRF_Update.Auto())
@@ -143,6 +146,7 @@ namespace Appalachia.Prototype.KOC.Lifetime
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

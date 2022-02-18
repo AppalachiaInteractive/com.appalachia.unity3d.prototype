@@ -15,6 +15,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         #endregion
 
+        /// <inheritdoc />
         protected override RuntimeGraphRamSettings settings => allSettings.ram;
 
         #region Event Functions

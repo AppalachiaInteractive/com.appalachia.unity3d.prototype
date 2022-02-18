@@ -15,6 +15,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Insta
 
         #endregion
 
+        /// <inheritdoc />
         protected override void BeforeRendering()
         {
             using (_PRF_BeforeRendering.Auto())

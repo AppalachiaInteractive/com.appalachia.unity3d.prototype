@@ -54,6 +54,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
         public WidgetDimensions activeArea => _activeArea;
         public WidgetDimensions entireArea => _entireArea;
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();
@@ -65,6 +66,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
             await AppaTask.WaitUntil(() => _canvasScalingService != null);
         }
 
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())
@@ -122,6 +124,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -133,6 +136,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
             }
         }
 
+        /// <inheritdoc />
         protected override void UnsubscribeFromAllFunctionalities()
         {
             using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
@@ -147,6 +151,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();

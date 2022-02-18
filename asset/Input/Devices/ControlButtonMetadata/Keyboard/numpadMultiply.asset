@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   device: {fileID: 11400000, guid: 62a48ad575a18b445990a32ac3fb8b01, type: 2}
   data:
     name: numpadMultiply
@@ -29,6 +34,11 @@ MonoBehaviour:
     reversedOutline: {fileID: 21300000, guid: ec75a0ed35285bb418d6bf74d6866457, type: 3}
   imageNameOverride:
     _overriding: 1
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: 
     _value: PadMultiply
   _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

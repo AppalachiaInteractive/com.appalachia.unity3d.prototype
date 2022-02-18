@@ -31,6 +31,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();
@@ -38,18 +39,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             await AppaTask.WaitUntil(() => _rectVisualizerService != null);
         }
 
-        protected override async AppaTask WhenEnabled()
-        {
-            await base.WhenEnabled();
-
-            using (_PRF_WhenEnabled.Auto())
-            {
-                VisuallyChanged.Event += _rectVisualizerService.DiscoverTargets;
-
-                rawImageSet.RawImage.texture = _rectVisualizerService.GetRenderTexture();
-            }
-        }
-
+        /// <inheritdoc />
         protected override void OnUpdate()
         {
             using (_PRF_OnUpdate.Auto())
@@ -64,6 +54,19 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
                     rectData.Draw(_rectVisualizerService.Draw);
                 }
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask WhenEnabled()
+        {
+            await base.WhenEnabled();
+
+            using (_PRF_WhenEnabled.Auto())
+            {
+                VisuallyChanged.Event += _rectVisualizerService.DiscoverTargets;
+
+                rawImageSet.RawImage.texture = _rectVisualizerService.GetRenderTexture();
             }
         }
 

@@ -11,6 +11,7 @@ using UnityEngine.InputSystem.Controls;
 namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Drivers.Position
 {
     [CallStaticConstructorInEditor]
+    [NonSerializable]
     public abstract class CursorPositionDriver<T> : AppalachiaBase<T>, ICursorPositionDriver
         where T : CursorPositionDriver<T>, new()
     {

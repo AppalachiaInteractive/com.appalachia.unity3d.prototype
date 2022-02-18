@@ -29,17 +29,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         #endregion
 
-        protected override void UpdateFunctionality(ActivityBarWidget widget)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                base.UpdateFunctionality(widget);
-
-                ApplyToButtons(widget.TopEntries,    widget.TopButtons,    widget.TopButtonParent);
-                ApplyToButtons(widget.BottomEntries, widget.BottomButtons, widget.BottomButtonParent);
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -63,6 +53,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(ActivityBarWidget target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -70,6 +61,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 base.SubscribeResponsiveComponents(target);
 
                 _buttonData.Changed.Event += OnChanged;
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(ActivityBarWidget widget)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                base.UpdateFunctionalityInternal(widget);
+
+                ApplyToButtons(widget.TopEntries,    widget.TopButtons,    widget.TopButtonParent);
+                ApplyToButtons(widget.BottomEntries, widget.BottomButtons, widget.BottomButtonParent);
             }
         }
 
@@ -90,7 +93,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     var button = buttons[index];
                     var entry = entries[index];
 
-                    ButtonComponentSet.UpdateComponentSet(
+                    ButtonComponentSetData.RefreshAndUpdateComponentSet(
                         ref _buttonData,
                         ref button,
                         parent,

@@ -59,6 +59,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Widge
 
         public IReadOnlyList<ICursorInstance> CursorInstances => _cursorService.CursorInstances;
 
+        /// <inheritdoc />
         protected override void OnUpdate()
         {
             using (_PRF_OnUpdate.Auto())

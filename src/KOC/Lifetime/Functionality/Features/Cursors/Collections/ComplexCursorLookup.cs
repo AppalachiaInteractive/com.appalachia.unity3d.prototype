@@ -20,8 +20,10 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Colle
 
         #endregion
 
+        /// <inheritdoc />
         public override bool HasDefault => true;
 
+        /// <inheritdoc />
         protected override ComplexCursors GetUniqueKeyFromValue(ComplexCursorMetadata value)
         {
             return value.value;

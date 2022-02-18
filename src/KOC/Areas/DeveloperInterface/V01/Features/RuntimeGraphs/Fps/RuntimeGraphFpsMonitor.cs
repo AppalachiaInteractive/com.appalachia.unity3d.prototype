@@ -29,6 +29,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         #endregion
 
+        /// <inheritdoc />
         protected override RuntimeGraphFpsSettings settings => allSettings.fps;
 
         #region Event Functions
@@ -50,6 +51,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         #endregion
 
+        /// <inheritdoc />
         protected override void BeforeInitialization()
         {
             using (_PRF_BeforeInitialization.Auto())

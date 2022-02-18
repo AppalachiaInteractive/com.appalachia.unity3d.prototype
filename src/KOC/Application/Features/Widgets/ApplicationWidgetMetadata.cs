@@ -1,3 +1,4 @@
+using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
@@ -33,7 +34,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
+        IApplicationFunctionalityManager
     {
         #region Fields and Autoproperties
 
@@ -54,17 +56,18 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         [OnValueChanged(nameof(OnChanged))]
         public FontStyleOverride fontStyle;
 
-        [FoldoutGroup("Transitions")]
+        [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         public bool transitionsWithFade;
 
-        [FoldoutGroup("Transitions")]
+        [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0f, 1f)]
         public float animationDuration;
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -88,10 +91,13 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(TWidget target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
+                target.Changed.Event += OnChanged;
+                target.VisuallyChanged.Event += OnChanged;
                 rectTransform.Changed.Event += OnChanged;
                 canvas.Changed.Event += OnChanged;
                 background.Changed.Event += OnChanged;
@@ -100,210 +106,45 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
-        protected override void UpdateFunctionality(TWidget widget)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(TWidget widget)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                widget.VisuallyChanged.Event += () => UpdateFunctionality(this as TWidgetMetadata, widget);
+                RectTransformData.RefreshAndUpdateComponent(
+                    ref rectTransform,
+                    true,
+                    this,
+                    widget.RectTransform
+                );
 
-                UpdateComponent(ref rectTransform, widget.RectTransform);
+                CanvasComponentSetData.RefreshAndUpdateComponentSet(
+                    ref canvas,
+                    true,
+                    ref widget.canvas,
+                    widget.gameObject,
+                    typeof(TWidget).Name
+                );
 
-                UpdateComponentSet(ref canvas, ref widget.canvas, widget);
+                BackgroundComponentSetData.RefreshAndUpdateComponentSet(
+                    ref background,
+                    true,
+                    ref widget.background,
+                    widget.canvas.GameObject,
+                    typeof(TWidget).Name
+                );
 
-                UpdateComponentSet(ref background, ref widget.background, widget, widget.canvas.GameObject);
-
-                UpdateComponentSet(
+                RoundedBackgroundComponentSetData.RefreshAndUpdateComponentSet(
                     ref roundedBackground,
+                    false,
                     ref widget.roundedBackground,
-                    widget,
-                    widget.canvas.GameObject
+                    widget.canvas.GameObject,
+                    typeof(TWidget).Name
                 );
             }
         }
 
-        protected void UpdateComponent<TComponent, TComponentData>(
-            TComponent component,
-            ref TComponentData data,
-            Object owner = null)
-            where TComponent : Component
-            where TComponentData : ComponentData<TComponent, TComponentData>, new()
-        {
-            using (_PRF_UpdateComponent.Auto())
-            {
-                if (owner == null)
-                {
-                    owner = this;
-                }
-
-                ComponentData<TComponent, TComponentData>.UpdateComponent(ref data, component, owner);
-            }
-        }
-
-        protected void UpdateComponent<TComponent, TComponentData>(
-            ref TComponentData data,
-            TComponent component,
-            Object owner = null)
-            where TComponent : Component
-            where TComponentData : ComponentData<TComponent, TComponentData>, new()
-        {
-            using (_PRF_UpdateComponent.Auto())
-            {
-                if (owner == null)
-                {
-                    owner = this;
-                }
-
-                ComponentData<TComponent, TComponentData>.UpdateComponent(ref data, component, owner);
-            }
-        }
-
-        protected void UpdateComponent<TComponent, TComponentData>(
-            TComponent component,
-            ref ComponentData<TComponent, TComponentData>.Optional data,
-            bool isElected = true,
-            Object owner = null)
-            where TComponent : Component
-            where TComponentData : ComponentData<TComponent, TComponentData>, new()
-        {
-            using (_PRF_UpdateComponent.Auto())
-            {
-                if (owner == null)
-                {
-                    owner = this;
-                }
-
-                ComponentData<TComponent, TComponentData>.UpdateComponent(
-                    ref data,
-                    component,
-                    isElected,
-                    owner
-                );
-            }
-        }
-
-        protected void UpdateComponent<TComponent, TComponentData>(
-            ref ComponentData<TComponent, TComponentData>.Optional data,
-            TComponent component,
-            bool isElected = true,
-            Object owner = null)
-            where TComponent : Component
-            where TComponentData : ComponentData<TComponent, TComponentData>, new()
-        {
-            using (_PRF_UpdateComponent.Auto())
-            {
-                if (owner == null)
-                {
-                    owner = this;
-                }
-
-                ComponentData<TComponent, TComponentData>.UpdateComponent(
-                    ref data,
-                    component,
-                    isElected,
-                    owner
-                );
-            }
-        }
-
-        protected void UpdateComponent<TComponent, TComponentData>(
-            TComponent component,
-            ref ComponentData<TComponent, TComponentData>.Override data,
-            bool overriding = true,
-            Object owner = null)
-            where TComponent : Component
-            where TComponentData : ComponentData<TComponent, TComponentData>, new()
-        {
-            using (_PRF_UpdateComponent.Auto())
-            {
-                if (owner == null)
-                {
-                    owner = this;
-                }
-
-                ComponentData<TComponent, TComponentData>.UpdateComponent(
-                    ref data,
-                    component,
-                    overriding,
-                    owner
-                );
-            }
-        }
-
-        protected void UpdateComponent<TComponent, TComponentData>(
-            ref ComponentData<TComponent, TComponentData>.Override data,
-            TComponent component,
-            bool overriding = true,
-            Object owner = null)
-            where TComponent : Component
-            where TComponentData : ComponentData<TComponent, TComponentData>, new()
-        {
-            using (_PRF_UpdateComponent.Auto())
-            {
-                if (owner == null)
-                {
-                    owner = this;
-                }
-
-                ComponentData<TComponent, TComponentData>.UpdateComponent(
-                    ref data,
-                    component,
-                    overriding,
-                    owner
-                );
-            }
-        }
-
-        protected void UpdateComponentSet<TSet, TSetData>(
-            ref TSet set,
-            ref ComponentSetData<TSet, TSetData>.Override setData,
-            TWidget widget,
-            GameObject parent = null,
-            string setName = null)
-            where TSet : ComponentSet<TSet, TSetData>, new()
-            where TSetData : ComponentSetData<TSet, TSetData>
-        {
-            using (_PRF_UpdateComponentSet.Auto())
-            {
-                if (setName == null)
-                {
-                    setName = typeof(TWidget).Name;
-                }
-
-                if (parent == null)
-                {
-                    parent = widget.gameObject;
-                }
-
-                ComponentSet<TSet, TSetData>.UpdateComponentSet(ref set, ref setData, parent, setName);
-            }
-        }
-
-        protected void UpdateComponentSet<TSet, TSetData>(
-            ref TSet set,
-            ref ComponentSetData<TSet, TSetData>.Optional setData,
-            TWidget widget,
-            GameObject parent = null,
-            string setName = null)
-            where TSet : ComponentSet<TSet, TSetData>, new()
-            where TSetData : ComponentSetData<TSet, TSetData>
-        {
-            using (_PRF_UpdateComponentSet.Auto())
-            {
-                if (setName == null)
-                {
-                    setName = typeof(TWidget).Name;
-                }
-
-                if (parent == null)
-                {
-                    parent = widget.gameObject;
-                }
-
-                ComponentSet<TSet, TSetData>.UpdateComponentSet(ref set, ref setData, parent, setName);
-            }
-        }
-
-        protected void UpdateComponentSet<TSet, TSetData>(
+        protected void RefreshAndUpdateComponentSet<TSet, TSetData>(
             ref TSet set,
             ref TSetData setData,
             TWidget widget,
@@ -312,7 +153,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             where TSet : ComponentSet<TSet, TSetData>, new()
             where TSetData : ComponentSetData<TSet, TSetData>
         {
-            using (_PRF_UpdateComponentSet.Auto())
+            using (_PRF_RefreshAndUpdateComponentSet.Auto())
             {
                 setName ??= typeof(TWidget).Name;
 
@@ -321,83 +162,19 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     parent = widget.gameObject;
                 }
 
-                ComponentSet<TSet, TSetData>.UpdateComponentSet(ref set, ref setData, parent, setName);
-            }
-        }
-
-        protected void UpdateComponentSet<TSet, TSetData>(
-            ref ComponentSetData<TSet, TSetData>.Override setData,
-            ref TSet set,
-            TWidget widget,
-            GameObject parent = null,
-            string setName = null)
-            where TSet : ComponentSet<TSet, TSetData>, new()
-            where TSetData : ComponentSetData<TSet, TSetData>
-        {
-            using (_PRF_UpdateComponentSet.Auto())
-            {
-                setName ??= typeof(TWidget).Name;
-
-                if (parent == null)
-                {
-                    parent = widget.gameObject;
-                }
-
-                ComponentSet<TSet, TSetData>.UpdateComponentSet(ref set, ref setData, parent, setName);
-            }
-        }
-
-        protected void UpdateComponentSet<TSet, TSetData>(
-            ref ComponentSetData<TSet, TSetData>.Optional setData,
-            ref TSet set,
-            TWidget widget,
-            GameObject parent = null,
-            string setName = null)
-            where TSet : ComponentSet<TSet, TSetData>, new()
-            where TSetData : ComponentSetData<TSet, TSetData>
-        {
-            using (_PRF_UpdateComponentSet.Auto())
-            {
-                setName ??= typeof(TWidget).Name;
-
-                if (parent == null)
-                {
-                    parent = widget.gameObject;
-                }
-
-                ComponentSet<TSet, TSetData>.UpdateComponentSet(ref set, ref setData, parent, setName);
-            }
-        }
-
-        protected void UpdateComponentSet<TSet, TSetData>(
-            ref TSetData setData,
-            ref TSet set,
-            TWidget widget,
-            GameObject parent = null,
-            string setName = null)
-            where TSet : ComponentSet<TSet, TSetData>, new()
-            where TSetData : ComponentSetData<TSet, TSetData>
-        {
-            using (_PRF_UpdateComponentSet.Auto())
-            {
-                setName ??= typeof(TWidget).Name;
-
-                if (parent == null)
-                {
-                    parent = widget.gameObject;
-                }
-
-                ComponentSet<TSet, TSetData>.UpdateComponentSet(ref set, ref setData, parent, setName);
+                ComponentSetData<TSet, TSetData>.RefreshAndUpdateComponentSet(
+                    ref setData,
+                    ref set,
+                    parent,
+                    setName
+                );
             }
         }
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_UpdateComponent =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateComponent));
-
-        private static readonly ProfilerMarker _PRF_UpdateComponentSet =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateComponentSet));
+        private static readonly ProfilerMarker _PRF_RefreshAndUpdateComponentSet =
+            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdateComponentSet));
 
         #endregion
     }

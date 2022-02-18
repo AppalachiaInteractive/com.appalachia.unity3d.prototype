@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   reference:
     m_AssetGUID: 8b1efb0635ef6ea438eeaa193cb2442e
     m_SubObjectName: 

@@ -7,6 +7,7 @@ namespace Appalachia.Prototype.KOC.Areas.MainMenu
     {
         #region IMainMenuMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.MainMenu;
 
         #endregion

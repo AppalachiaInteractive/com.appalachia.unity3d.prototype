@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   program:
     clips:
     - clip: {fileID: 8300000, guid: 20faa545f12d47e4384f623ae102dc56, type: 3}

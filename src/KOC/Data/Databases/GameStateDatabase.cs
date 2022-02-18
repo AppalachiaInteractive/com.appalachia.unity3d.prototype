@@ -15,6 +15,7 @@ namespace Appalachia.Prototype.KOC.Data.Databases
 
         #endregion
 
+        /// <inheritdoc />
         public override DatabaseType Type => DatabaseType.GameState;
 
         public static GameStateDatabase InitializeDatabase(
@@ -27,6 +28,7 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             return instance;
         }
 
+        /// <inheritdoc />
         protected override void Dispose(bool disposing)
         {
             using (_PRF_Dispose.Auto())
@@ -39,6 +41,7 @@ namespace Appalachia.Prototype.KOC.Data.Databases
             }
         }
 
+        /// <inheritdoc />
         protected override void RegisterCollections()
         {
         }

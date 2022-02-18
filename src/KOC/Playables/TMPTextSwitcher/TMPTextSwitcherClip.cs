@@ -14,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Playables.TMPTextSwitcher
 
         #endregion
 
+        /// <inheritdoc />
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
             var playable = ScriptPlayable<TMPTextSwitcherBehaviour>.Create(graph, template);

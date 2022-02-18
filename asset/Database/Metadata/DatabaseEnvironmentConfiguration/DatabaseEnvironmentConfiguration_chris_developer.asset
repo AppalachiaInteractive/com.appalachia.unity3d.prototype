@@ -17,6 +17,53 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  gameState:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 9913637
+      _machine: 14129404
+      _timestamp: 1645056924
+      _pid: -14768
+    isEncrypted: 0
+    technology: 0
+    key: 
+    name: 
+  metadata:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 9913638
+      _machine: 14129404
+      _timestamp: 1645056924
+      _pid: -14768
+    isEncrypted: 0
+    technology: 0
+    key: 
+    name: 
+  user:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 9913639
+      _machine: 14129404
+      _timestamp: 1645056924
+      _pid: -14768
+    isEncrypted: 0
+    technology: 0
+    key: 
+    name: 
   gameStateSaveLocation:
     location: 0
     includeCompanyName: 0

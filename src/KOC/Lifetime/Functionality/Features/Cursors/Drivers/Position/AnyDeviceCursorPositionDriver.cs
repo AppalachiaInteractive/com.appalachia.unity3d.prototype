@@ -19,6 +19,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Drive
 
         #region ICursorPositionDriver Members
 
+        /// <inheritdoc />
         public override void DriveCursorPosition(
             IReadOnlyCursorInstanceStateData stateData,
             float elapsed,

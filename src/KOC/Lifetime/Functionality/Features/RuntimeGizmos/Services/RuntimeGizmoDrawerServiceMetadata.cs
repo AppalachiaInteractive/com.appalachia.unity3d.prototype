@@ -16,15 +16,17 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
 
         #endregion
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(RuntimeGizmoDrawerService target)
         {
             cameraData.Changed.Event += OnChanged;
         }
 
-        protected override void UpdateFunctionality(RuntimeGizmoDrawerService functionality)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(RuntimeGizmoDrawerService functionality)
         {
             var drawCamera = functionality.DrawCamera;
-            CameraData.UpdateComponent(ref cameraData, drawCamera, this);
+            CameraData.RefreshAndUpdateComponent(ref cameraData, this, drawCamera);
         }
 
         #region IServiceMetadata Members

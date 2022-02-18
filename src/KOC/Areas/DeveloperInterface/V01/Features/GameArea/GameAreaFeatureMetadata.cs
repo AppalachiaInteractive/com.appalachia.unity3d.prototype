@@ -3,16 +3,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
     public class GameAreaFeatureMetadata : DeveloperInterfaceMetadata_V01.FeatureMetadata<GameAreaFeature,
         GameAreaFeatureMetadata>
     {
-        protected override void UpdateFunctionality(GameAreaFeature functionality)
+        /// <inheritdoc />
+        protected override void SubscribeResponsiveComponents(GameAreaFeature target)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
         }
 
-        protected override void SubscribeResponsiveComponents(GameAreaFeature target)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(GameAreaFeature functionality)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

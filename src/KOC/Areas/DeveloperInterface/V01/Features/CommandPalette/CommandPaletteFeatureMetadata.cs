@@ -3,15 +3,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
     public class CommandPaletteFeatureMetadata : DeveloperInterfaceMetadata_V01.FeatureMetadata<
         CommandPaletteFeature, CommandPaletteFeatureMetadata>
     {
-        protected override void UpdateFunctionality(CommandPaletteFeature functionality)
-        {
-        }
-
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(CommandPaletteFeature target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(CommandPaletteFeature functionality)
+        {
         }
     }
 }

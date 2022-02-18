@@ -8,7 +8,8 @@ using UnityEngine.Timeline;
 [TrackBindingType(typeof(Platoon))]
 public class AICommandTrack : TrackAsset
 {
-    public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
+    /// <inheritdoc />
+public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
     {
 		foreach (var c in GetClips())
 		{

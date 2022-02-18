@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Utility.Async;
@@ -7,6 +8,7 @@ using UnityEngine.Playables;
 
 namespace Appalachia.Prototype.KOC.Playables.TMPTextSwitcher
 {
+    [Serializable]
     public class TMPTextSwitcherMixerBehaviour : AppalachiaPlayable<TMPTextSwitcherMixerBehaviour>
     {
         #region Fields and Autoproperties
@@ -20,6 +22,7 @@ namespace Appalachia.Prototype.KOC.Playables.TMPTextSwitcher
 
         #endregion
 
+        /// <inheritdoc />
         public override void OnPlayableDestroy(Playable playable)
         {
             if (m_TrackBinding != null)
@@ -32,19 +35,23 @@ namespace Appalachia.Prototype.KOC.Playables.TMPTextSwitcher
             m_FirstFrameHappened = false;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override void OnPause(Playable playable, FrameData info)
         {
         }
 
+        /// <inheritdoc />
         protected override void OnPlay(Playable playable, FrameData info)
         {
         }
 
+        /// <inheritdoc />
         protected override void Update(Playable playable, FrameData info, object playerData)
         {
             m_TrackBinding = playerData as TextMeshProUGUI;
@@ -101,14 +108,17 @@ namespace Appalachia.Prototype.KOC.Playables.TMPTextSwitcher
             }
         }
 
+        /// <inheritdoc />
         protected override void WhenDestroyed(Playable playable)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenStarted(Playable playable)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenStopped(Playable playable)
         {
         }

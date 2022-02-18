@@ -14,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #endregion
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(RectVisualizerWidget target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -22,11 +23,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
-        protected override void UpdateFunctionality(RectVisualizerWidget widget)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(RectVisualizerWidget widget)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                RawImageComponentSetData.UpdateComponentSet(
+                base.UpdateFunctionalityInternal(widget);
+
+                RawImageComponentSetData.RefreshAndUpdateComponentSet(
                     ref _rawImageSet,
                     ref widget.rawImageSet,
                     widget.canvas.GameObject,

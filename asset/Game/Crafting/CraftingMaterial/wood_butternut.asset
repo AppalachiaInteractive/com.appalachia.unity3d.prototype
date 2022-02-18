@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff671ba63294c15b9c624e07ab1be63, type: 3}
   m_Name: wood_butternut
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: wood_butternut
+  _niceName: Wood_butternut
   _initializer:
     _tags:
     - profileName
     _resetToken: 
+  _objectId:
+    _increment: 12632115
+    _machine: 14129404
+    _timestamp: 1645121943
+    _pid: -14768
   id: 57
   profileName: wood_butternut
   icon: {fileID: 0}

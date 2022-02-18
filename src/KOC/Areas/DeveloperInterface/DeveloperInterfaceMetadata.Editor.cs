@@ -11,11 +11,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
     {
         #region Fields and Autoproperties
 
-        [SerializeField, FoldoutGroup(FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
+        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
         public DesignTemplateComponentSetData unscaledTemplates;
 
         #endregion
 
+        /// <inheritdoc />
         protected override void InitializeEditor(Initializer initializer)
         {
             using (_PRF_InitializeEditor.Auto())

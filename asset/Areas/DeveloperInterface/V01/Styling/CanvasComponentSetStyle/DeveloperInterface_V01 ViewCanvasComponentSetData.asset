@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _rectTransformData:
     _initializer:
       _tags:
@@ -41,6 +46,11 @@ MonoBehaviour:
       - _pivot
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 3571597
+      _machine: 14129404
+      _timestamp: 1644957426
+      _pid: -14768
     disableUpdatesForRootCanvas: 0
     _left: 0
     _posX: 0
@@ -53,19 +63,47 @@ MonoBehaviour:
     _height: -0
     anchorMin:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0}
       _value: {x: 0, y: 0}
     anchorMax:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0}
       _value: {x: 1, y: 1}
-    _pivot: {x: 0.5, y: 0.5}
+    pivot:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0.5, y: 0.5}
+      _value: {x: 0.5, y: 0.5}
     localScale:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0, z: 0}
       _value: {x: 1, y: 1, z: 1}
     localRotation:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
   _canvasData:
@@ -79,32 +117,72 @@ MonoBehaviour:
       - additionalShaderChannels
       _resetToken: 
     _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 3571598
+      _machine: 14129404
+      _timestamp: 1644957426
+      _pid: -14768
     renderMode:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     overridePixelPerfect:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     pixelPerfect:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
     overrideSorting:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 1
     sortingOrder:
       _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 1000
     additionalShaderChannels:
       _overriding: 0
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       _initial: 0
       _value: 0
   _canvasFadeManagerData:
     _overriding: 1
+    _objectId:
+      _increment: 7594802
+      _machine: 14129404
+      _timestamp: 1644971926
+      _pid: -14768
     _initial:
       _initializer:
         _tags:
@@ -119,6 +197,11 @@ MonoBehaviour:
         - fadeOut
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       passiveMode: 0
       passiveFadeMode: 2
       updateAtStart: 1
@@ -142,6 +225,11 @@ MonoBehaviour:
         - fadeOut
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       passiveMode: 0
       passiveFadeMode: 2
       updateAtStart: 1
@@ -153,6 +241,11 @@ MonoBehaviour:
       fadeOut: 2
   _canvasGroupData:
     _overriding: 1
+    _objectId:
+      _increment: 7594803
+      _machine: 14129404
+      _timestamp: 1644971926
+      _pid: -14768
     _initial:
       _initializer:
         _tags:
@@ -162,20 +255,45 @@ MonoBehaviour:
         - ignoreParentGroups
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       alpha:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 1
       interactable:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 1
       blocksRaycasts:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 1
       ignoreParentGroups:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
     _value:
@@ -187,24 +305,54 @@ MonoBehaviour:
         - ignoreParentGroups
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 3571599
+        _machine: 14129404
+        _timestamp: 1644957426
+        _pid: -14768
       alpha:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 0.505
       interactable:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 1
       blocksRaycasts:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 1
       ignoreParentGroups:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
   _graphicRaycasterData:
     _overriding: 0
+    _objectId:
+      _increment: 7594804
+      _machine: 14129404
+      _timestamp: 1644971926
+      _pid: -14768
     _initial:
       _initializer:
         _tags:
@@ -213,16 +361,36 @@ MonoBehaviour:
         - blockingMask
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       ignoreReversedGraphics:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 1
       blockingObjects:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       blockingMask:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial:
           serializedVersion: 2
           m_Bits: 4294967295
@@ -237,16 +405,36 @@ MonoBehaviour:
         - blockingMask
         _resetToken: 
       _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
       ignoreReversedGraphics:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 1
         _value: 1
       blockingObjects:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial: 0
         _value: 0
       blockingMask:
         _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
         _initial:
           serializedVersion: 2
           m_Bits: 4294967295

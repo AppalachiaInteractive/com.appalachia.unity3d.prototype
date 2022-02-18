@@ -7,6 +7,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartScreen
     {
         #region IStartScreenMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.StartScreen;
 
         #endregion

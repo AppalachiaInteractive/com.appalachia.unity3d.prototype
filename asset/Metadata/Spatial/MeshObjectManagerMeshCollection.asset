@@ -19,5 +19,10 @@ MonoBehaviour:
     - Meshes
     - SoldifiedMeshes
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _meshes: {fileID: 11400000, guid: 7530ed750a3a97942952d7966645a998, type: 2}
   _soldifiedMeshes: {fileID: 11400000, guid: c92b314335bd7ec49ac290d041464e4f, type: 2}

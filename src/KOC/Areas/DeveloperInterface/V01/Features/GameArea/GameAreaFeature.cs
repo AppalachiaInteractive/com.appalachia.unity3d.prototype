@@ -23,46 +23,36 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeDisable()
         {
-            using (_PRF_BeforeDisable.Auto())
-            {
-                await HideFeature();
-            }
+            await HideFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeEnable()
         {
-            using (_PRF_BeforeEnable.Auto())
-            {
-                await ShowFeature();
-            }
+            await ShowFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeFirstEnable()
         {
-            using (_PRF_BeforeFirstEnable.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnHide()
         {
-            using (_PRF_OnHide.Auto())
-            {
-                _gameAreaWidget.Hide();
-                await AppaTask.CompletedTask;
-            }
+            _gameAreaWidget.Hide();
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnShow()
         {
-            using (_PRF_OnShow.Auto())
-            {
-                _gameAreaWidget.Show();
-                await AppaTask.CompletedTask;
-            }
+            _gameAreaWidget.Show();
+            await AppaTask.CompletedTask;
         }
 
         #region IStatusBarEntryProvider Members

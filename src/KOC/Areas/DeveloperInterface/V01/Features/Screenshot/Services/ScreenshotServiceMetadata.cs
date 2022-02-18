@@ -18,13 +18,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
 
         #endregion
 
-        protected override void UpdateFunctionality(ScreenshotService functionality)
-        {
-            using (_PRF_Apply.Auto())
-            {
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -42,9 +36,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(ScreenshotService target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
+            {
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(ScreenshotService functionality)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

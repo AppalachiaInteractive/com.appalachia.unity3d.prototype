@@ -127,6 +127,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

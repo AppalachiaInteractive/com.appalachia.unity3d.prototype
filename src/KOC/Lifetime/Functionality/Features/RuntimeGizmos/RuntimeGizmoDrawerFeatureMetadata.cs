@@ -5,16 +5,18 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
     public class RuntimeGizmoDrawerFeatureMetadata : LifetimeFeatureMetadata<RuntimeGizmoDrawerFeature,
         RuntimeGizmoDrawerFeatureMetadata>
     {
-        protected override void UpdateFunctionality(RuntimeGizmoDrawerFeature widget)
+        /// <inheritdoc />
+        protected override void SubscribeResponsiveComponents(RuntimeGizmoDrawerFeature target)
         {
-            using (_PRF_UpdateFunctionality.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
         }
 
-        protected override void SubscribeResponsiveComponents(RuntimeGizmoDrawerFeature target)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(RuntimeGizmoDrawerFeature widget)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_UpdateFunctionality.Auto())
             {
             }
         }

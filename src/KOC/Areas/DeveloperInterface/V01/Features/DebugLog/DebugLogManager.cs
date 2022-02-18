@@ -730,6 +730,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -752,12 +753,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenDisabled()
         {
+            await base.WhenDisabled();
+
             using (_PRF_WhenDisabled.Auto())
             {
-                await base.WhenDisabled();
-
                 // Stop receiving debug entries
                 UnityEngine.Application.logMessageReceivedThreaded -= ReceivedLog;
 
@@ -768,12 +770,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugLo
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
+            await base.WhenEnabled();
+
             using (_PRF_WhenEnabled.Auto())
             {
-                await base.WhenEnabled();
-
                 // Intercept debug entries
                 UnityEngine.Application.logMessageReceivedThreaded -= ReceivedLog;
                 UnityEngine.Application.logMessageReceivedThreaded += ReceivedLog;

@@ -24,7 +24,7 @@ namespace Appalachia.Prototype.KOC
         static ApplicationManager()
         {
             Core.Objects.Root.AppalachiaRepository.PrimaryOwnerType = typeof(ApplicationManager);
-            
+
             RegisterDependency<MainAreaSceneInformationCollection>(
                 i => _mainAreaSceneInformationCollection = i
             );
@@ -67,6 +67,7 @@ namespace Appalachia.Prototype.KOC
 
         #region Event Functions
 
+        /// <inheritdoc />
         protected override void Update()
         {
             using (_PRF_Update.Auto())
@@ -240,6 +241,7 @@ namespace Appalachia.Prototype.KOC
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

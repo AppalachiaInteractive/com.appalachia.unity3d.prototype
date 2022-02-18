@@ -46,6 +46,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
         /// </summary>
         public bool SpectrumDataAvailable => RuntimeGraphManager.AudioListener != null;
 
+        /// <inheritdoc />
         protected override RuntimeGraphAudioSettings settings => allSettings.audio;
 
         #region Event Functions
@@ -115,6 +116,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
 
         #endregion
 
+        /// <inheritdoc />
         public override void InitializeParameters()
         {
             using (_PRF_InitializeParameters.Auto())
@@ -140,6 +142,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override void AfterInitialization()
         {
             using (_PRF_AfterInitialization.Auto())
@@ -151,6 +154,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Runtime
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask WhenDestroyed()
         {
             await base.WhenDestroyed();

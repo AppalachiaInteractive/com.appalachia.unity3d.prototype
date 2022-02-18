@@ -21,6 +21,11 @@ MonoBehaviour:
     - developer
     - developer2
     _resetToken: 2021-11-19-01
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   activeConfiguration: 10
   developer:
     initializerCount: 64

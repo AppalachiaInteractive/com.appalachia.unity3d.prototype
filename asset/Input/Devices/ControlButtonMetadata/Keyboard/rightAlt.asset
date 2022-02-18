@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   device: {fileID: 11400000, guid: 62a48ad575a18b445990a32ac3fb8b01, type: 2}
   data:
     name: rightAlt
@@ -29,6 +34,11 @@ MonoBehaviour:
     reversedOutline: {fileID: 21300000, guid: ecdd399bf320b4a7f92977f184a22b62, type: 3}
   imageNameOverride:
     _overriding: 1
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: 
     _value: Alt
   _lastRootFolder: Assets/Appalachia.Prototype/asset/Input/Sprites

@@ -46,47 +46,37 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeDisable()
         {
-            using (_PRF_BeforeDisable.Auto())
-            {
-                await HideFeature();
-            }
+            await HideFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeEnable()
         {
-            using (_PRF_BeforeEnable.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeFirstEnable()
         {
-            using (_PRF_BeforeFirstEnable.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnHide()
         {
-            using (_PRF_OnHide.Auto())
-            {
-                _commandEntryWidget.Hide();
-                _commandSuggestionsWidget.Hide();
-                await AppaTask.CompletedTask;
-            }
+            _commandEntryWidget.Hide();
+            _commandSuggestionsWidget.Hide();
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnShow()
         {
-            using (_PRF_OnShow.Auto())
-            {
-                _commandEntryWidget.Show();
-                await AppaTask.CompletedTask;
-            }
+            _commandEntryWidget.Show();
+            await AppaTask.CompletedTask;
         }
 
         #region IStatusBarEntryProvider Members

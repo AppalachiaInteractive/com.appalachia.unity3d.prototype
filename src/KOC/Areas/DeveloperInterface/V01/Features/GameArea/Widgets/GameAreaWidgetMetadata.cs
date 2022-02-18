@@ -16,6 +16,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

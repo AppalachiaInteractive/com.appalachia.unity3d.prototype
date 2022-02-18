@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
@@ -8,6 +9,7 @@ using UnityEngine.Playables;
 
 namespace Appalachia.Prototype.KOC.Playables.TimeMachine
 {
+    [Serializable]
     public class TimeMachineMixerBehaviour : AppalachiaPlayable<TimeMachineMixerBehaviour>
     {
         #region Fields and Autoproperties
@@ -19,6 +21,7 @@ namespace Appalachia.Prototype.KOC.Playables.TimeMachine
 
         #endregion
 
+        /// <inheritdoc />
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
             //ScriptPlayable<TimeMachineBehaviour> inputPlayable = (ScriptPlayable<TimeMachineBehaviour>)playable.GetInput(i);
@@ -81,31 +84,38 @@ namespace Appalachia.Prototype.KOC.Playables.TimeMachine
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override void OnPause(Playable playable, FrameData info)
         {
         }
 
+        /// <inheritdoc />
         protected override void OnPlay(Playable playable, FrameData info)
         {
         }
 
+        /// <inheritdoc />
         protected override void Update(Playable playable, FrameData info, object playerData)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenDestroyed(Playable playable)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenStarted(Playable playable)
         {
         }
 
+        /// <inheritdoc />
         protected override void WhenStopped(Playable playable)
         {
         }

@@ -1,10 +1,10 @@
+using Appalachia.Core.Objects.Root.Contracts;
+
 namespace Appalachia.Prototype.KOC.Application.Functionality
 {
-    public interface IApplicationFunctionality
+    public interface IApplicationFunctionality : IBehaviour
     {
-        void UpdateFunctionality();
-
-        /*void SubscribeToOtherFunctionalities();*/
+        void ApplyMetadata();
         void UnsubscribeFromAllFunctionalities();
     }
 }

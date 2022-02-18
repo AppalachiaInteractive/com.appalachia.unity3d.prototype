@@ -7,12 +7,14 @@ namespace Appalachia.Prototype.KOC.Playables.TMPTextSwitcher.Editor
     [CustomPropertyDrawer(typeof(TMPTextSwitcherBehaviour))]
     public class TMPTextSwitcherDrawer : PropertyDrawer
     {
+        /// <inheritdoc />
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             var fieldCount = 3;
             return fieldCount * EditorGUIUtility.singleLineHeight;
         }
 
+        /// <inheritdoc />
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             var colorProp = property.FindPropertyRelative("color");

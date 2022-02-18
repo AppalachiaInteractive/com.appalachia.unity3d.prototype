@@ -19,15 +19,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             When.Widget(_menuBarWidget).IsAvailableThen(menuBarWidget => { _menuBarWidget = menuBarWidget; });
         }
 
-        protected override async AppaTask WhenEnabled()
-        {
-            await base.WhenEnabled();
-
-            using (_PRF_WhenEnabled.Auto())
-            {
-                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-            }
-        }
         #region Static Fields and Autoproperties
 
         private static MenuBarWidget _menuBarWidget;
@@ -44,6 +35,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();
@@ -51,30 +43,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             await AppaTask.WaitUntil(() => _menuBarWidget != null);
         }
 
-        protected override async AppaTask Initialize(Initializer initializer)
-        {
-            await base.Initialize(initializer);
-
-            using (_PRF_Initialize.Auto())
-            {
-                _inputField = initializer.Get(gameObject, _inputField, GetComponentStrategy.Children);
-
-                _inputField.onValueChanged.AddListener(OnCommandPaletteInputModified);
-                _inputField.onSubmit.AddListener(OnCommandPaletteInputSubmitted);
-                _inputField.text = ">";
-            }
-        }
-
-        protected override void UnsubscribeFromAllFunctionalities()
-        {
-            using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
-            {
-                base.UnsubscribeFromAllFunctionalities();
-
-                _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-            }
-        }
-
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())
@@ -96,6 +65,43 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
                 UpdateAnchorMin(anchorMin);
                 UpdateAnchorMax(anchorMax);
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                _inputField = initializer.Get(gameObject, _inputField, GetComponentStrategy.Children);
+
+                _inputField.onValueChanged.AddListener(OnCommandPaletteInputModified);
+                _inputField.onSubmit.AddListener(OnCommandPaletteInputSubmitted);
+                _inputField.text = ">";
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void UnsubscribeFromAllFunctionalities()
+        {
+            using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
+            {
+                base.UnsubscribeFromAllFunctionalities();
+
+                _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask WhenEnabled()
+        {
+            await base.WhenEnabled();
+
+            using (_PRF_WhenEnabled.Auto())
+            {
+                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
             }
         }
 

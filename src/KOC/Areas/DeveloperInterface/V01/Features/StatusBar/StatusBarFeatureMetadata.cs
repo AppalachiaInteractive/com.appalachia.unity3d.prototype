@@ -3,16 +3,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
     public class StatusBarFeatureMetadata : DeveloperInterfaceMetadata_V01.FeatureMetadata<StatusBarFeature,
         StatusBarFeatureMetadata>
     {
-        protected override void UpdateFunctionality(StatusBarFeature functionality)
+        /// <inheritdoc />
+        protected override void SubscribeResponsiveComponents(StatusBarFeature target)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
         }
 
-        protected override void SubscribeResponsiveComponents(StatusBarFeature target)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(StatusBarFeature functionality)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

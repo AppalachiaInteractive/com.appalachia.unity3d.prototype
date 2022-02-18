@@ -19,6 +19,7 @@ namespace Appalachia.Prototype.KOC.Components.Styling
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

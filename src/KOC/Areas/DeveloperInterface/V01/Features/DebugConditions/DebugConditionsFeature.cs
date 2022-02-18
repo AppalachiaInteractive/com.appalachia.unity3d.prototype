@@ -172,35 +172,34 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugCo
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeDisable()
         {
             await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeEnable()
         {
             await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeFirstEnable()
         {
             await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnHide()
         {
-            using (_PRF_OnHide.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnShow()
         {
-            using (_PRF_OnShow.Auto())
-            {
-                await AppaTask.CompletedTask;
-            }
+            await AppaTask.CompletedTask;
         }
 
         private bool AreDebugConditionsMet(DebugConditionPacket packet)

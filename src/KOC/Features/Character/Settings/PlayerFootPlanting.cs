@@ -37,12 +37,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
                    stopSpeedThreshold.Equals(other.stopSpeedThreshold);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is PlayerFootPlanting other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

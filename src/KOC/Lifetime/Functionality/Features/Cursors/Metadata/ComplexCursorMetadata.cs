@@ -24,8 +24,10 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Metad
 
         #endregion
 
+        /// <inheritdoc />
         public override bool IsSimple => false;
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

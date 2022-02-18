@@ -78,12 +78,14 @@ namespace Appalachia.Prototype.KOC.Features.Character.Settings
                    locomotion.Equals(other.locomotion);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override bool Equals(object obj)
         {
             return obj is PlayerSettings other && Equals(other);
         }
 
+        /// <inheritdoc />
         [DebuggerStepThrough]
         public override int GetHashCode()
         {

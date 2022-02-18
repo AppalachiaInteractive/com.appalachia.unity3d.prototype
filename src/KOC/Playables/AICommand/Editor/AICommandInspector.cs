@@ -16,7 +16,8 @@ public class AICommandInspector : Editor
 		commandProp = serializedObject.FindProperty("commandType");
 	}
 
-	public override void OnInspectorGUI()
+	/// <inheritdoc />
+public override void OnInspectorGUI()
 	{
 		EditorGUILayout.PropertyField(commandProp);
 

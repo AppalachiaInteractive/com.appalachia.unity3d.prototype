@@ -22,6 +22,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();

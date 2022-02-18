@@ -26,9 +26,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         [OnValueChanged(nameof(OnChanged))]
         public List<DeveloperInfoType> types;
 
+        [FormerlySerializedAs("textSettings")]
         [FormerlySerializedAs("settings")]
         [OnValueChanged(nameof(OnChanged))]
-        public DeveloperInfoTextMeshData textSettings;
+        public DeveloperInfoTextMeshData developerInfoTextMesh;
 
         [FormerlySerializedAs("layoutData")]
         [OnValueChanged(nameof(OnChanged))]
@@ -36,6 +37,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -70,6 +72,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(DeveloperInfoOverlayWidget target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -78,16 +81,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
                 headerImage.Changed.Event += OnChanged;
                 headerLayout.Changed.Event += OnChanged;
-                textSettings.Changed.Event += OnChanged;
+                developerInfoTextMesh.Changed.Event += OnChanged;
                 verticalLayoutGroupData.Changed.Event += OnChanged;
             }
         }
 
-        protected override void UpdateFunctionality(DeveloperInfoOverlayWidget widget)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(DeveloperInfoOverlayWidget widget)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                base.UpdateFunctionality(widget);
+                base.UpdateFunctionalityInternal(widget);
 
                 for (var i = types.Count; i < widget.textMeshes.Count; i++)
                 {
@@ -117,19 +121,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                         textMesh.transform.SetParent(widget.canvas.RectTransform);
                     }
 
-                    textMesh.data = textSettings;
+                    textMesh.data = developerInfoTextMesh;
                     textMesh.currentCalculation = type;
 
-                    DeveloperInfoTextMeshData.UpdateComponent(ref textSettings, textMesh, this);
+                    DeveloperInfoTextMeshData.RefreshAndUpdateComponent(
+                        ref developerInfoTextMesh,
+                        this,
+                        textMesh
+                    );
                 }
-
-                VerticalLayoutGroupData.UpdateComponent(
-                    ref verticalLayoutGroupData,
-                    widget.verticalLayoutGroup,
-                    this
-                );
-                ImageData.UpdateComponent(ref headerImage, widget.headerImage, this);
-                LayoutElementData.UpdateComponent(ref headerLayout, widget.headerLayout, this);
 
                 if (widget.headerImage.transform.parent != widget.canvas.RectTransform)
                 {
@@ -137,8 +137,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                 }
 
                 widget.headerImage.gameObject.GetOrAddComponent(ref widget.headerLayout);
-
                 widget.headerImage.transform.SetSiblingIndex(1);
+
+                ImageData.RefreshAndUpdateComponent(ref headerImage, this, widget.headerImage);
+
+                LayoutElementData.RefreshAndUpdateComponent(ref headerLayout, this, widget.headerLayout);
+
+                VerticalLayoutGroupData.RefreshAndUpdateComponent(
+                    ref verticalLayoutGroupData,
+                    this,
+                    widget.verticalLayoutGroup
+                );
             }
         }
     }

@@ -13,8 +13,6 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Metad
     public abstract class CursorMetadata<T> : AppalachiaObject<T>
         where T : CursorMetadata<T>
     {
-        public abstract bool IsSimple { get; }
-
         #region Fields and Autoproperties
 
         [BoxGroup("General")]
@@ -85,6 +83,9 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Metad
 
         #endregion
 
+        public abstract bool IsSimple { get; }
+
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

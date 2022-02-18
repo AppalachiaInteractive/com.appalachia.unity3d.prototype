@@ -1,7 +1,9 @@
 using System;
+using Appalachia.Prototype.KOC.Lifetime;
 using Appalachia.UI.Controls.Sets.RawImage;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Extensions;
 using Drawing;
 using Unity.Profiling;
 using UnityEngine;
@@ -107,6 +109,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
             {
                 using (_PRF_GetRenderTexture.Auto())
                 {
+                    ValidateTexture();
+
                     return _renderTexture;
                 }
             }
@@ -116,7 +120,11 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
                 using (_PRF_WhenEnabled.Auto())
                 {
                     var cam = DrawCamera;
-                    _renderTexture = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 24);
+                    _renderTexture = new RenderTexture(
+                        LifetimeComponentManager.REFERENCE_RESOLUTION_WIDTH,
+                        LifetimeComponentManager.REFERENCE_RESOLUTION_HEIGHT,
+                        24
+                    );
                     cam.targetTexture = _renderTexture;
 
                     await AppaTask.CompletedTask;
@@ -138,9 +146,25 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
                 }
             }
 
+            private void ValidateTexture()
+            {
+                using (_PRF_ValidateTexture.Auto())
+                {
+                    if ((_renderTexture.width != DrawCamera.pixelWidth) ||
+                        (_renderTexture.height != DrawCamera.pixelHeight))
+                    {
+                        _renderTexture.DestroySafely();
+                        _renderTexture = new RenderTexture(DrawCamera.pixelWidth, DrawCamera.pixelHeight, 24);
+                    }
+                }
+            }
+
             #region Profiling
 
             private const string _PRF_PFX = nameof(GizmoDrawer) + "." + nameof(Service) + ".";
+
+            private static readonly ProfilerMarker _PRF_ValidateTexture =
+                new ProfilerMarker(_PRF_PFX + nameof(ValidateTexture));
 
             private static readonly ProfilerMarker _PRF_GetRenderTexture =
                 new ProfilerMarker(_PRF_PFX + nameof(GetRenderTexture));

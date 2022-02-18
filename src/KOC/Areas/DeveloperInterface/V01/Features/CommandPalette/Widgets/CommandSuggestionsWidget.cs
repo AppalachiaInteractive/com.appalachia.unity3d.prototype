@@ -32,6 +32,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
         {
             await base.DelayEnabling();
@@ -39,18 +40,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             await AppaTask.WaitUntil(() => _commandEntryWidget != null);
         }
 
-        protected override async AppaTask WhenEnabled()
-        {
-            await base.WhenEnabled();
-
-            using (_PRF_WhenEnabled.Auto())
-            {
-                _commandEntryWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _commandEntryWidget.CommandPaletteInputModified.Event += OnCommandEntryInputModified;
-                _commandEntryWidget.CommandPaletteInputSubmitted.Event += OnCommandEntryInputSubmitted;
-            }
-        }
-
+        /// <inheritdoc />
         protected override void EnsureWidgetIsCorrectSize()
         {
             using (_PRF_EnsureWidgetIsCorrectSize.Auto())
@@ -74,6 +64,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -84,6 +75,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             }
         }
 
+        /// <inheritdoc />
         protected override void UnsubscribeFromAllFunctionalities()
         {
             using (_PRF_UnsubscribeFromAllFunctionalities.Auto())
@@ -91,6 +83,19 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
                 base.UnsubscribeFromAllFunctionalities();
 
                 _commandEntryWidget.VisuallyChanged.Event -= OnDependencyChanged;
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask WhenEnabled()
+        {
+            await base.WhenEnabled();
+
+            using (_PRF_WhenEnabled.Auto())
+            {
+                _commandEntryWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _commandEntryWidget.CommandPaletteInputModified.Event += OnCommandEntryInputModified;
+                _commandEntryWidget.CommandPaletteInputSubmitted.Event += OnCommandEntryInputSubmitted;
             }
         }
 

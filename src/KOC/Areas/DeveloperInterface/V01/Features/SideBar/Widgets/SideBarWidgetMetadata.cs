@@ -17,14 +17,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
         #endregion
 
-        protected override void UpdateFunctionality(SideBarWidget widget)
-        {
-            using (_PRF_Apply.Auto())
-            {
-                base.UpdateFunctionality(widget);
-            }
-        }
-
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -35,9 +28,19 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(SideBarWidget target)
         {
             base.SubscribeResponsiveComponents(target);
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(SideBarWidget widget)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                base.UpdateFunctionalityInternal(widget);
+            }
         }
     }
 }

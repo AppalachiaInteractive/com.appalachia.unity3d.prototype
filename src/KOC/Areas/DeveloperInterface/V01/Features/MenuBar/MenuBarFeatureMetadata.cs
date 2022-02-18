@@ -3,16 +3,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
     public class MenuBarFeatureMetadata : DeveloperInterfaceMetadata_V01.FeatureMetadata<MenuBarFeature,
         MenuBarFeatureMetadata>
     {
-        protected override void UpdateFunctionality(MenuBarFeature functionality)
+        /// <inheritdoc />
+        protected override void SubscribeResponsiveComponents(MenuBarFeature target)
         {
-            using (_PRF_Apply.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
             }
         }
 
-        protected override void SubscribeResponsiveComponents(MenuBarFeature target)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(MenuBarFeature functionality)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_UpdateFunctionalityInternal.Auto())
             {
             }
         }

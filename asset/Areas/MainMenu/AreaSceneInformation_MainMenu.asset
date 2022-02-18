@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _area: 3000
   entrySceneReference: {fileID: 11400000, guid: a01b3fc4ca0a4824cb6ff1a7f256c6c0, type: 2}
   _sceneReferences:

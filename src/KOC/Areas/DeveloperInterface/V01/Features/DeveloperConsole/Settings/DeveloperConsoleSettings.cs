@@ -36,7 +36,8 @@ namespace Appalachia.Prototype.KOC.Debugging.DeveloperConsole.Settings
 
         #endregion
 
-        protected override async AppaTask Initialize(Initializer initializer)
+        /// <inheritdoc />
+protected override async AppaTask Initialize(Initializer initializer)
         {
             initializer.Do(this, nameof(VisualSettings),  () => visuals.Initialize());
             initializer.Do(this, nameof(GeneralSettings), () => general.Initialize());

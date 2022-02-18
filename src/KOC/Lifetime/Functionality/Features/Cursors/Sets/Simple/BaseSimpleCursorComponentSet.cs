@@ -30,6 +30,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Sets.
 
         #endregion
 
+        /// <inheritdoc />
         public override void DestroySet()
         {
             using (_PRF_Destroy.Auto())
@@ -43,6 +44,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Sets.
             }
         }
 
+        /// <inheritdoc />
         public override void DisableSet()
         {
             using (_PRF_Disable.Auto())
@@ -56,6 +58,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Sets.
             }
         }
 
+        /// <inheritdoc />
         public override void EnableSet()
         {
             using (_PRF_Enable.Auto())
@@ -69,11 +72,12 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Sets.
             }
         }
 
-        protected override void GetOrAddComponents(ref TSetData data, GameObject parent, string name)
+        /// <inheritdoc />
+        protected override void GetOrAddComponents(TSetData data, GameObject setParent, string setName)
         {
             using (_PRF_GetOrAddComponents.Auto())
             {
-                base.GetOrAddComponents(ref data, parent, name);
+                base.GetOrAddComponents(data, setParent, setName);
 
                 GameObject.GetOrAddComponent(ref _image);
             }

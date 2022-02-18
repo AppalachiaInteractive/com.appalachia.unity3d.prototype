@@ -42,6 +42,7 @@ namespace Appalachia.Prototype.KOC.Lifetime
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);

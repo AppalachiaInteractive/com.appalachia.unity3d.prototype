@@ -32,43 +32,36 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
         public RuntimeGizmoDrawerService RuntimeGizmoDrawerService => _runtimeGizmoDrawerService;
         public RuntimeGizmoDrawerWidget RuntimeGizmoDrawerWidget => _runtimeGizmoDrawerWidget;
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeDisable()
         {
-            using (_PRF_BeforeDisable.Auto())
-            {
-                await HideFeature();
-            }
+            await HideFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeEnable()
         {
-            using (_PRF_BeforeEnable.Auto())
-            {
-                await ShowFeature();
-            }
+            await ShowFeature();
         }
 
+        /// <inheritdoc />
         protected override async AppaTask BeforeFirstEnable()
         {
             await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnHide()
         {
-            using (_PRF_OnHide.Auto())
-            {
-                _runtimeGizmoDrawerWidget.Hide();
-                await AppaTask.CompletedTask;
-            }
+            _runtimeGizmoDrawerWidget.Hide();
+            await AppaTask.CompletedTask;
         }
 
+        /// <inheritdoc />
         protected override async AppaTask OnShow()
         {
-            using (_PRF_OnShow.Auto())
-            {
-                _runtimeGizmoDrawerWidget.Show();
-                await AppaTask.CompletedTask;
-            }
+            _runtimeGizmoDrawerWidget.Show();
+            await AppaTask.CompletedTask;
         }
     }
 }

@@ -17,6 +17,11 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   keyboard: {fileID: 11400000, guid: 62a48ad575a18b445990a32ac3fb8b01, type: 2}
   mouse: {fileID: 11400000, guid: cec8b06ec57b49343a91fb14104fe758, type: 2}
   gamepads:

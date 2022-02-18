@@ -7,6 +7,7 @@ namespace Appalachia.Prototype.KOC.Areas.PauseMenu
     {
         #region IPauseMenuMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.PauseMenu;
 
         #endregion

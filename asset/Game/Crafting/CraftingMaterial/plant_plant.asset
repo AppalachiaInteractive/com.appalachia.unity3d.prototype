@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff671ba63294c15b9c624e07ab1be63, type: 3}
   m_Name: plant_plant
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: plant_plant
+  _niceName: Plant_plant
   _initializer:
     _tags:
     - profileName
     _resetToken: 
+  _objectId:
+    _increment: 12632116
+    _machine: 14129404
+    _timestamp: 1645121943
+    _pid: -14768
   id: 26
   profileName: plant_plant
   icon: {fileID: 0}

@@ -27,6 +27,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Devices
 
         #endregion
 
+        /// <inheritdoc />
         public override bool CanResolve(InputControl control)
         {
             using (_PRF_CanResolve.Auto())
@@ -46,6 +47,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Devices
             }
         }
 
+        /// <inheritdoc />
         public override IEnumerable<ControlButtonMetadata> GetAll()
         {
             if (_controls != null)
@@ -58,6 +60,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Devices
             return _controls;
         }
 
+        /// <inheritdoc />
         public override ControlButtonMetadata Resolve(InputControl control)
         {
             using (_PRF_Resolve.Auto())
@@ -84,6 +87,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Devices
         }
 #if UNITY_EDITOR
 
+        /// <inheritdoc />
         internal override void PopulateAll()
         {
             using (_PRF_SetAll.Auto())

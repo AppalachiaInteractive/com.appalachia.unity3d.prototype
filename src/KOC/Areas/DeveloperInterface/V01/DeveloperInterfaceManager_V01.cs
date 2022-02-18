@@ -55,10 +55,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 
         #endregion
 
+        /// <inheritdoc />
         public override AreaVersion Version => AreaVersion.V01;
 
         public bool IsVisible => _isVisible;
 
+        /// <inheritdoc />
         public override void OnOpenCommandPalette(InputAction.CallbackContext context)
         {
             using (_PRF_OnOpenCommandPalette.Auto())
@@ -67,6 +69,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         public override void OnScreenshot(InputAction.CallbackContext context)
         {
             using (_PRF_OnScreenshot.Auto())
@@ -75,6 +78,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         public override void OnToggleActivityBar(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleActivityBar.Auto())
@@ -83,6 +87,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         public override void OnToggleDeveloperInterface(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleDeveloperInterface.Auto())
@@ -98,6 +103,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         public override void OnToggleMenuBar(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleMenuBar.Auto())
@@ -106,6 +112,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         public override void OnTogglePanel(InputAction.CallbackContext context)
         {
             using (_PRF_OnTogglePanel.Auto())
@@ -114,6 +121,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         public override void OnToggleSideBar(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleSideBar.Auto())
@@ -122,6 +130,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         public override void OnToggleStatusBar(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleStatusBar.Auto())
@@ -130,6 +139,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -140,6 +150,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())
@@ -168,7 +179,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         public CanvasGroup developerConsoleCanvasGroup;*/
 
         /*
-         public override void OnToggleDebugLog(InputAction.CallbackContext context)
+         /// <inheritdoc />
+public override void OnToggleDebugLog(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleDebugLog.Auto())
             {
@@ -183,7 +195,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }        
         
-        public override void OnToggleRuntimeGraph(InputAction.CallbackContext context)
+        /// <inheritdoc />
+public override void OnToggleRuntimeGraph(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleRuntimeGraph.Auto())
             {
@@ -198,7 +211,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             }
         }
 
-        public override void OnToggleRuntimeGraphMode(InputAction.CallbackContext context)
+        /// <inheritdoc />
+public override void OnToggleRuntimeGraphMode(InputAction.CallbackContext context)
         {
             using (_PRF_OnToggleRuntimeGraphMode.Auto())
             {

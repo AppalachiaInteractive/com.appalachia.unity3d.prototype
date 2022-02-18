@@ -48,26 +48,30 @@ namespace Appalachia.Prototype.KOC.Features.Character.Audio.Execution
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();
 
-            player = FindObjectOfType<PlayerCharacter>();
+            using (_PRF_WhenEnabled.Auto())
+            {
+                player = FindObjectOfType<PlayerCharacter>();
 
-            player.OnStep += OnStep;
-            player.OnJump += OnJump;
-            player.OnLand += OnLand;
-            player.OnVocalize_Start += OnVocalize_Start;
-            player.OnVocalize_End += OnVocalize_End;
-            player.OnInWater_Start += OnInWater_Start;
-            player.OnInWater_End += OnInWater_End;
-            player.OnSwimming_Start += OnSwimming_Start;
-            player.OnSwimming_End += OnSwimming_End;
-            player.OnUnderWater_Start += OnUnderWater_Start;
-            player.OnUnderWater_End += OnUnderWater_End;
-            player.OnSleeping_Start += OnSleeping_Start;
-            player.OnSleeping_End += OnSleeping_End;
-            player.OnDie += OnDie;
+                player.OnStep += OnStep;
+                player.OnJump += OnJump;
+                player.OnLand += OnLand;
+                player.OnVocalize_Start += OnVocalize_Start;
+                player.OnVocalize_End += OnVocalize_End;
+                player.OnInWater_Start += OnInWater_Start;
+                player.OnInWater_End += OnInWater_End;
+                player.OnSwimming_Start += OnSwimming_Start;
+                player.OnSwimming_End += OnSwimming_End;
+                player.OnUnderWater_Start += OnUnderWater_Start;
+                player.OnUnderWater_End += OnUnderWater_End;
+                player.OnSleeping_Start += OnSleeping_Start;
+                player.OnSleeping_End += OnSleeping_End;
+                player.OnDie += OnDie;
+            }
         }
 
         private void OnDie(PlayerCharacter pc)

@@ -14,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Servi
 
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
@@ -29,6 +30,7 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Servi
             }
         }
 
+        /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(CursorService target)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -36,7 +38,8 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Servi
             }
         }
 
-        protected override void UpdateFunctionality(CursorService functionality)
+        /// <inheritdoc />
+        protected override void UpdateFunctionalityInternal(CursorService functionality)
         {
             using (_PRF_UpdateFunctionality.Auto())
             {

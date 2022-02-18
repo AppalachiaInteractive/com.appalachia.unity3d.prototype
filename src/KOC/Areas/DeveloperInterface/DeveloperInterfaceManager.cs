@@ -1,7 +1,10 @@
+using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Input;
+using Appalachia.UI.Controls.Extensions;
 using Appalachia.UI.Controls.Sets.UnscaledCanvas;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Extensions;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,15 +22,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         [SerializeField] protected UnscaledCanvasComponentSet unscaledCanvas;
 
+        [SerializeField] protected GameObject unscaledWidgetObject;
+
         #endregion
 
+        /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
             await base.Initialize(initializer);
 
             using (_PRF_Initialize.Auto())
             {
-                UnscaledCanvasComponentSet.UpdateComponentSet(
+                UnscaledCanvasComponentSetData.RefreshAndUpdateComponentSet(
                     ref areaMetadata.unscaledCanvas,
                     ref unscaledCanvas,
                     gameObject,
@@ -40,6 +46,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
             }
         }
 
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_OnActivation.Auto())
@@ -48,11 +55,33 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_OnDeactivation.Auto())
             {
                 Context.Log.Info(nameof(OnDeactivation), this);
+            }
+        }
+
+        protected GameObject GetWidgetParentObject(bool isUnscaled)
+        {
+            using (_PRF_GetWidgetParentObject.Auto())
+            {
+                if (isUnscaled)
+                {
+                    UnscaledCanvas.GameObject.GetOrAddChild(
+                        ref unscaledWidgetObject,
+                        APPASTR.ObjectNames.Widgets,
+                        true
+                    );
+
+                    (unscaledWidgetObject.transform as RectTransform).FullScreen(true);
+
+                    return unscaledWidgetObject;
+                }
+
+                return base.GetWidgetParentObject();
             }
         }
 
@@ -73,7 +102,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         public UnscaledCanvasComponentSet UnscaledCanvas => unscaledCanvas;
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.DeveloperInterface;
+
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.None;
 
         #endregion

@@ -19,7 +19,8 @@ namespace Appalachia.Prototype.KOC.Features.Inventory
 
         #endregion
 
-        protected override async AppaTask WhenEnabled()
+        /// <inheritdoc />
+protected override async AppaTask WhenEnabled()
         {
             await base.WhenEnabled();
 

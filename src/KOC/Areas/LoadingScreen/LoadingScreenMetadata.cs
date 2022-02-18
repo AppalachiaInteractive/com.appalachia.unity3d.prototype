@@ -7,6 +7,7 @@ namespace Appalachia.Prototype.KOC.Areas.LoadingScreen
     {
         #region ILoadingScreenMetadata Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.LoadingScreen;
 
         #endregion

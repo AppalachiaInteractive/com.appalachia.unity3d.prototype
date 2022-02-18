@@ -15,6 +15,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartScreen
             }
         }
 
+        /// <inheritdoc />
         protected override void OnActivation()
         {
             using (_PRF_Activate.Auto())
@@ -23,6 +24,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartScreen
             }
         }
 
+        /// <inheritdoc />
         protected override void OnDeactivation()
         {
             using (_PRF_Deactivate.Auto())
@@ -31,6 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas.StartScreen
             }
         }
 
+        /// <inheritdoc />
         protected override void ResetArea()
         {
             using (_PRF_ResetArea.Auto())
@@ -41,7 +44,10 @@ namespace Appalachia.Prototype.KOC.Areas.StartScreen
 
         #region IStartScreenManager Members
 
+        /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.StartScreen;
+
+        /// <inheritdoc />
         public override ApplicationArea ParentArea => ApplicationArea.None;
 
         #endregion

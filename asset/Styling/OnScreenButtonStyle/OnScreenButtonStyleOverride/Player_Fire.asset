@@ -17,23 +17,53 @@ MonoBehaviour:
   _initializer:
     _tags: []
     _resetToken: 
+  _objectId:
+    _increment: 3571547
+    _machine: 14129404
+    _timestamp: 1644957426
+    _pid: -14768
   _spriteColor:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: {r: 0, g: 0, b: 0, a: 0}
     _value: {r: 1, g: 1, b: 1, a: 1}
   _textColor:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: {r: 0, g: 0, b: 0, a: 0}
     _value: {r: 1, g: 1, b: 1, a: 1}
   _font:
     _overriding: 0
+    _objectId:
+      _increment: 7594953
+      _machine: 14129404
+      _timestamp: 1644971927
+      _pid: -14768
     _initial: {fileID: 0}
     _value: {fileID: 11400000, guid: afee15da68d82f64bb278296bd0d9861, type: 2}
   _spriteStyle:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: 0
     _value: 0
   _textStyle:
     _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     _initial: 4
     _value: 0
