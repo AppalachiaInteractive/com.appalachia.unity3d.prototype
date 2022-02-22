@@ -11,28 +11,8 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors
             await AppaTask.CompletedTask;
         }
 
-        /// <inheritdoc />
-        protected override async AppaTask BeforeEnable()
-        {
-            await AppaTask.CompletedTask;
-        }
+        
 
-        /// <inheritdoc />
-        protected override async AppaTask BeforeFirstEnable()
-        {
-            await AppaTask.CompletedTask;
-        }
 
-        /// <inheritdoc />
-        protected override async AppaTask OnHide()
-        {
-            await AppaTask.CompletedTask;
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask OnShow()
-        {
-            await AppaTask.CompletedTask;
-        }
     }
 }

@@ -1,11 +1,10 @@
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Events;
-using Appalachia.Core.Events.Extensions;
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Core.Features;
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.Models;
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.Services;
 using Appalachia.UI.Controls.Components.Layout;
-using Appalachia.Utility.Async;
+using Appalachia.Utility.Events;
+using Appalachia.Utility.Events.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
@@ -27,10 +26,10 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling
                      {
                          _viewScalingService.Broadcast.Event += myInstance.OnServiceBroadcast;
 
-                         When.AnyComponent<AppaCanvasScaler>()
+                         When.AnyInstance<AppaCanvasScaler>()
                              .IsEnabledThen(myInstance.OnCanvasScalerEnabled);
 
-                         When.AnyComponent<AppaCameraViewportAdjuster>()
+                         When.AnyInstance<AppaCameraViewportAdjuster>()
                              .IsEnabledThen(myInstance.OnCameraViewportAdjusterEnabled);
                      }
                  );
@@ -55,36 +54,6 @@ namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling
             {
                 _viewScalingService.ReBroadcast();
             }
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask BeforeDisable()
-        {
-            await HideFeature();
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask BeforeEnable()
-        {
-            await ShowFeature();
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask BeforeFirstEnable()
-        {
-            await AppaTask.CompletedTask;
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask OnHide()
-        {
-            await AppaTask.CompletedTask;
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask OnShow()
-        {
-            await AppaTask.CompletedTask;
         }
 
         private void OnCameraViewportAdjusterEnabled(ComponentEvent<AppaCameraViewportAdjuster>.Args args)

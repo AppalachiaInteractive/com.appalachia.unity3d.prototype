@@ -1,6 +1,7 @@
 using System;
-using Appalachia.Core.ObjectPooling;
+using Appalachia.Prototype.KOC.Lifetime;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Pooling.Objects;
 using Drawing;
 using Unity.Profiling;
 using UnityEngine;
@@ -15,10 +16,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
     {
         #region Fields and Autoproperties
 
+        public bool drawLocatorLine;
         public Color color;
         public Rect rect;
-
-        private float z;
+        public bool isSelected;
+        public float thickness;
+        public float z;
 
         #endregion
 
@@ -47,12 +50,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
-        public void CopyRect(Rect rect, float z)
+        public void CopyRect(Rect rect, float z, float thickness, bool isSelected)
         {
             using (_PRF_CopyRect.Auto())
             {
                 this.rect = rect;
                 this.z = z;
+                this.thickness = thickness;
+                this.isSelected = isSelected;
             }
         }
 
@@ -65,10 +70,27 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     color,
                     () =>
                     {
-                        drawCommandBuilder.Line(BottomLeft,  TopLeft);
-                        drawCommandBuilder.Line(TopLeft,     TopRight);
-                        drawCommandBuilder.Line(TopRight,    BottomRight);
-                        drawCommandBuilder.Line(BottomRight, BottomLeft);
+                        using (drawCommandBuilder.WithLineWidth(thickness))
+                        {
+                            drawCommandBuilder.Line(BottomLeft,  TopLeft);
+                            drawCommandBuilder.Line(TopLeft,     TopRight);
+                            drawCommandBuilder.Line(TopRight,    BottomRight);
+                            drawCommandBuilder.Line(BottomRight, BottomLeft);
+
+                            if (isSelected)
+                            {
+                                drawCommandBuilder.Line(BottomLeft, TopRight);
+                                drawCommandBuilder.Line(TopLeft,    BottomRight);
+                            }
+
+                            if (drawLocatorLine)
+                            {
+                                var center = .5f * (BottomLeft + TopRight);
+                                var screenCenter = LifetimeComponentManager.SCREEN_CENTER;
+
+                                drawCommandBuilder.Line(center, screenCenter);
+                            }
+                        }
                     }
                 );
             }
@@ -82,7 +104,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
-        public void Shrink(int amount = 1)
+        public void Shrink(float amount = 1f)
         {
             using (_PRF_Shrink.Auto())
             {

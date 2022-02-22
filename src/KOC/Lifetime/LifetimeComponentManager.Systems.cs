@@ -1,5 +1,6 @@
 using Appalachia.Core.Execution;
 using Appalachia.Core.Execution.Hooks;
+using Appalachia.Core.Objects.Availability;
 using Appalachia.Prototype.KOC.Data;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.Utility.Extensions;
@@ -20,6 +21,10 @@ namespace Appalachia.Prototype.KOC.Lifetime
         #endregion
 
         #region Fields and Autoproperties
+
+        [FoldoutGroup(GROUP_SYSTEMS)]
+        [SerializeField]
+        private AvailabilityMarkerDependencyRegistrar _availabilityMarkerDependencyRegistrar;
 
         [FoldoutGroup(GROUP_SYSTEMS)]
         [SerializeField]
@@ -51,6 +56,10 @@ namespace Appalachia.Prototype.KOC.Lifetime
         #endregion
 
         public AudioListener AudioListener => _audioListener;
+
+        public AvailabilityMarkerDependencyRegistrar AvailabilityMarkerDependencyRegistrar =>
+            _availabilityMarkerDependencyRegistrar;
+
         public CleanupManager CleanupManager => _cleanupManager;
         public DatabaseManager DatabasManager => _databasManager;
         public FrameEnd FrameEnd => _frameEnd;
@@ -65,10 +74,13 @@ namespace Appalachia.Prototype.KOC.Lifetime
                 gameObject.GetOrAddChild(ref _systemsObject, PARENT_NAME_SYSTEMS, false);
 
                 _systemsObject.GetOrAddComponentInChild(ref _clearCamera, nameof(_clearCamera));
-                _systemsObject.GetOrAddLifetimeComponentInChild(ref _frameStart, nameof(FrameStart));
-                _systemsObject.GetOrAddLifetimeComponentInChild(ref _frameEnd,   nameof(FrameEnd));
 
-                _systemsObject.GetOrAddLifetimeComponentInChild(ref _audioListener,  nameof(AudioListener));
+                _systemsObject.GetOrAddLifetimeComponentInChild(ref _frameStart, nameof(FrameStart));
+
+                _systemsObject.GetOrAddLifetimeComponentInChild(ref _frameEnd, nameof(FrameEnd));
+
+                _systemsObject.GetOrAddLifetimeComponentInChild(ref _audioListener, nameof(AudioListener));
+
                 _systemsObject.GetOrAddLifetimeComponentInChild(ref _databasManager, nameof(DatabaseManager));
 
                 CameraData.RefreshAndUpdateComponent(
@@ -78,6 +90,11 @@ namespace Appalachia.Prototype.KOC.Lifetime
                 );
 
                 _systemsObject.GetOrAddLifetimeComponentInChild(ref _cleanupManager, nameof(CleanupManager));
+
+                _systemsObject.GetOrAddLifetimeComponentInChild(
+                    ref _availabilityMarkerDependencyRegistrar,
+                    nameof(AvailabilityMarkerDependencyRegistrar)
+                );
             }
         }
 

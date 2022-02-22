@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Model;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Entries;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Entries.Contracts;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Entries.Core;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Controls.Sets.Button;
+using Appalachia.UI.Core.Components.Subsets;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets
 {
@@ -18,17 +22,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     {
         #region Constants and Static Readonly
 
-        private const string BOTTOM_BUTTON_PARENT_NAME = BUTTON_PARENT_BASE + "BOTTOM";
-
-        private const string BUTTON_PARENT_BASE = "Activity Buttons - ";
-        private const string TOP_BUTTON_PARENT_NAME = BUTTON_PARENT_BASE + "TOP";
+        private const string ACTIVITY_BAR_ENTRY_PARENT_NAME = "Activity Bar Entries";
 
         #endregion
 
         static ActivityBarWidget()
         {
             When.Widget(_menuBarWidget).IsAvailableThen(menuBarWidget => { _menuBarWidget = menuBarWidget; });
-
             When.Widget(_statusBarWidget)
                 .IsAvailableThen(statusBarWidget => { _statusBarWidget = statusBarWidget; });
         }
@@ -42,78 +42,54 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         #region Fields and Autoproperties
 
-        [NonSerialized] private List<ButtonComponentSet> _topButtons;
-        [NonSerialized] private List<ButtonComponentSet> _bottomButtons;
-        [SerializeField] private GameObject _topButtonParent;
-        [SerializeField] private GameObject _bottomButtonParent;
+        private GameObject _activityBarEntryParent;
+        private List<IActivityBarEntry> _topActivityBarEntries;
+        private List<IActivityBarEntry> _bottomActivityBarEntries;
+
+        [FormerlySerializedAs("topLayoutGroup")]
+        public VerticalLayoutGroupSubset topActivityBarLayoutGroup;
+
+        [FormerlySerializedAs("bottomLayoutGroup")]
+        public VerticalLayoutGroupSubset bottomActivityBarLayoutGroup;
 
         #endregion
 
-        public GameObject BottomButtonParent => _bottomButtonParent;
+        public GameObject ActivityBarEntryParent => _activityBarEntryParent;
+        public IReadOnlyList<IActivityBarEntry> BottomActivityBarEntries => _bottomActivityBarEntries;
 
-        public GameObject TopButtonParent => _topButtonParent;
+        public IReadOnlyList<IActivityBarEntry> TopActivityBarEntries => _topActivityBarEntries;
+        public VerticalLayoutGroupSubset BottomActivityBarLayoutGroup => bottomActivityBarLayoutGroup;
+        public VerticalLayoutGroupSubset TopActivityBarLayoutGroup => topActivityBarLayoutGroup;
 
-        public IReadOnlyList<ActivityBarEntry> BottomEntries
+        /// <summary>
+        ///     Adds the specified activity bar entry to the appropriate layout group, and refreshes the layout.
+        /// </summary>
+        /// <param name="activityBarEntry">The activity bar entry to add.</param>
+        public void RegisterActivity(IActivityBarEntry activityBarEntry)
         {
-            get
+            using (_PRF_RegisterActivity.Auto())
             {
-                if (Feature == null)
+                // TODO implement this
+
+                switch (activityBarEntry.Metadata.Section)
                 {
-                    return null;
+                    case ActivityBarSection.Top:
+                        _topActivityBarEntries.Add(activityBarEntry);
+
+                        activityBarEntry.Transform.SetParent(topActivityBarLayoutGroup.RectTransform);
+                        LayoutRebuilder.MarkLayoutForRebuild(topActivityBarLayoutGroup.RectTransform);
+
+                        break;
+                    case ActivityBarSection.Bottom:
+                        _bottomActivityBarEntries.Add(activityBarEntry);
+
+                        activityBarEntry.Transform.SetParent(bottomActivityBarLayoutGroup.RectTransform);
+                        LayoutRebuilder.MarkLayoutForRebuild(bottomActivityBarLayoutGroup.RectTransform);
+
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
-
-                return Feature.BottomEntries;
-            }
-        }
-
-        public IReadOnlyList<ActivityBarEntry> TopEntries
-        {
-            get
-            {
-                if (Feature == null)
-                {
-                    return null;
-                }
-
-                return Feature.TopEntries;
-            }
-        }
-
-        public IReadOnlyList<ButtonComponentSet> BottomButtons
-        {
-            get
-            {
-                _bottomButtons ??= new List<ButtonComponentSet>();
-                return _bottomButtons;
-            }
-        }
-
-        public IReadOnlyList<ButtonComponentSet> TopButtons
-        {
-            get
-            {
-                _topButtons ??= new List<ButtonComponentSet>();
-                return _topButtons;
-            }
-        }
-
-        public void UpdateButtons()
-        {
-            using (_PRF_UpdateButtons.Auto())
-            {
-                UpdateActivitySection(
-                    ref _topButtons,
-                    ref _topButtonParent,
-                    TOP_BUTTON_PARENT_NAME,
-                    TopEntries
-                );
-
-                UpdateActivitySection(
-                    ref _bottomButtons,
-                    ref _bottomButtonParent,
-                    BOTTOM_BUTTON_PARENT_NAME,
-                    BottomEntries
-                );
             }
         }
 
@@ -171,50 +147,24 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             {
                 _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
                 _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-            }
-        }
+                _topActivityBarEntries ??= new List<IActivityBarEntry>();
+                _bottomActivityBarEntries ??= new List<IActivityBarEntry>();
 
-        private void UpdateActivitySection(
-            ref List<ButtonComponentSet> buttonList,
-            ref GameObject parent,
-            string parentName,
-            IReadOnlyList<ActivityBarEntry> entries)
-        {
-            buttonList ??= new List<ButtonComponentSet>();
-
-            canvas.GameObject.GetOrAddChild(ref parent, parentName, true);
-
-            while (buttonList.Count > entries.Count)
-            {
-                var lastIndex = buttonList.Count - 1;
-
-                var last = buttonList[lastIndex];
-                last.GameObject.DestroySafely();
-
-                buttonList.RemoveAt(lastIndex);
-            }
-
-            while (buttonList.Count < entries.Count)
-            {
-                var entry = entries[buttonList.Count];
-
-                ButtonComponentSet newButtonComponentSet = null;
-
-                metadata.RefreshAndUpdateComponentSet(
-                    ref metadata._buttonData,
-                    ref newButtonComponentSet,
-                    parent,
-                    entry.name
+                canvas.GameObject.GetOrAddChild(
+                    ref _activityBarEntryParent,
+                    ACTIVITY_BAR_ENTRY_PARENT_NAME,
+                    true
                 );
 
-                buttonList.Add(newButtonComponentSet);
+                var canvasChildCount = canvas.RectTransform.childCount;
+                _activityBarEntryParent.transform.SetSiblingIndex(canvasChildCount - 1);
             }
         }
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_UpdateButtons =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateButtons));
+        private static readonly ProfilerMarker _PRF_RegisterActivity =
+            new ProfilerMarker(_PRF_PFX + nameof(RegisterActivity));
 
         #endregion
     }

@@ -1,31 +1,34 @@
-using System.Collections.Generic;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Model;
-using Appalachia.UI.Controls.Sets.Button;
+using Appalachia.UI.Core.Components.Subsets;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
-using Unity.Profiling;
-using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets
 {
     public sealed class ActivityBarWidgetMetadata : DeveloperInterfaceMetadata_V01.WidgetMetadata<
         ActivityBarWidget, ActivityBarWidgetMetadata, ActivityBarFeature, ActivityBarFeatureMetadata>
     {
+        #region Constants and Static Readonly
+
+        private const string BOTTOM_LAYOUT_GROUP_ENTRIES_OBJ_NAME = "Bottom Activity Bar Entries";
+
+        private const string TOP_LAYOUT_GROUP_ENTRIES_OBJ_NAME = "Top Activity Bar Entries";
+
+        #endregion
+
         #region Fields and Autoproperties
 
         [BoxGroup(APPASTR.GroupNames.Dimensions)]
         [OnValueChanged(nameof(OnChanged))]
-        [PropertyRange(0.015f, 0.045f)]
+        [PropertyRange(0.03f, 0.07f)]
         public float width;
 
-        [FormerlySerializedAs("buttonStyle")]
-        [BoxGroup(APPASTR.GroupNames.Style)]
         [OnValueChanged(nameof(OnChanged))]
-        public ButtonComponentSetData _buttonData;
+        public VerticalLayoutGroupSubsetData topLayoutGroup;
+
+        [OnValueChanged(nameof(OnChanged))]
+        public VerticalLayoutGroupSubsetData bottomLayoutGroup;
 
         #endregion
 
@@ -40,15 +43,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
                 initializer.Do(
                     this,
-                    nameof(_buttonData),
-                    _buttonData == null,
-                    () =>
-                    {
-                        _buttonData = AppalachiaObject.LoadOrCreateNew<ButtonComponentSetData>(
-                            nameof(ActivityBarWidget) + nameof(ButtonComponentSetData),
-                            ownerType: typeof(ApplicationManager)
-                        );
-                    }
+                    nameof(topLayoutGroup),
+                    topLayoutGroup == null,
+                    () => topLayoutGroup = new VerticalLayoutGroupSubsetData(this)
+                );
+
+                initializer.Do(
+                    this,
+                    nameof(bottomLayoutGroup),
+                    bottomLayoutGroup == null,
+                    () => bottomLayoutGroup = new VerticalLayoutGroupSubsetData(this)
                 );
             }
         }
@@ -60,7 +64,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             {
                 base.SubscribeResponsiveComponents(target);
 
-                _buttonData.Changed.Event += OnChanged;
+                topLayoutGroup.Changed.Event += OnChanged;
+                bottomLayoutGroup.Changed.Event += OnChanged;
             }
         }
 
@@ -71,46 +76,37 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             {
                 base.UpdateFunctionalityInternal(widget);
 
-                ApplyToButtons(widget.TopEntries,    widget.TopButtons,    widget.TopButtonParent);
-                ApplyToButtons(widget.BottomEntries, widget.BottomButtons, widget.BottomButtonParent);
-            }
-        }
-
-        private void ApplyToButtons(
-            IReadOnlyList<ActivityBarEntry> entries,
-            IReadOnlyList<ButtonComponentSet> buttons,
-            GameObject parent)
-        {
-            using (_PRF_ApplyToButtons.Auto())
-            {
-                if ((entries == null) || (buttons == null))
+                for (var entryIndex = 0; entryIndex < widget.TopActivityBarEntries.Count; entryIndex++)
                 {
-                    return;
+                    var activityBarEntry = widget.TopActivityBarEntries[entryIndex];
+                    activityBarEntry.UpdateActivityBarEntry();
                 }
 
-                for (var index = 0; index < entries.Count; index++)
+                for (var entryIndex = 0; entryIndex < widget.BottomActivityBarEntries.Count; entryIndex++)
                 {
-                    var button = buttons[index];
-                    var entry = entries[index];
-
-                    ButtonComponentSetData.RefreshAndUpdateComponentSet(
-                        ref _buttonData,
-                        ref button,
-                        parent,
-                        nameof(ActivityBarWidget)
-                    );
-
-                    button.ButtonIcon.sprite = entry.sprite;
-                    button.TooltipData.Text = entry.tooltip;
+                    var activityBarEntry = widget.BottomActivityBarEntries[entryIndex];
+                    activityBarEntry.UpdateActivityBarEntry();
                 }
+
+                VerticalLayoutGroupSubsetData.RefreshAndUpdateComponentSubset(
+                    ref bottomLayoutGroup,
+                    this,
+                    ref widget.bottomActivityBarLayoutGroup,
+                    widget.ActivityBarEntryParent,
+                    BOTTOM_LAYOUT_GROUP_ENTRIES_OBJ_NAME
+                );
+
+                VerticalLayoutGroupSubsetData.RefreshAndUpdateComponentSubset(
+                    ref topLayoutGroup,
+                    this,
+                    ref widget.topActivityBarLayoutGroup,
+                    widget.ActivityBarEntryParent,
+                    TOP_LAYOUT_GROUP_ENTRIES_OBJ_NAME
+                );
+
+                widget.topActivityBarLayoutGroup.RectTransform.SetSiblingIndex(0);
+                widget.bottomActivityBarLayoutGroup.RectTransform.SetSiblingIndex(1);
             }
         }
-
-        #region Profiling
-
-        private static readonly ProfilerMarker _PRF_ApplyToButtons =
-            new ProfilerMarker(_PRF_PFX + nameof(ApplyToButtons));
-
-        #endregion
     }
 }

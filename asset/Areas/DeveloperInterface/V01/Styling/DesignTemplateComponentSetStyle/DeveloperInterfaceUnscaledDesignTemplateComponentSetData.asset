@@ -51,7 +51,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957440
       _pid: -14768
-    disableUpdatesForRootCanvas: 0
+    disableUpdates: 0
+    disablePositionUpdates: 0
     _left: 0
     _posX: 0
     _top: 0

@@ -1,5 +1,5 @@
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.UnscaledCanvas;
+using Appalachia.UI.Controls.Sets.Canvases.UnscaledCanvas;
 using Appalachia.Utility.Async;
 using UnityEngine;
 

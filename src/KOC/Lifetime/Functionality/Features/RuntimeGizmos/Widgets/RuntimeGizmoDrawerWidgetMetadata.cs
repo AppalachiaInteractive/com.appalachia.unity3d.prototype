@@ -1,5 +1,5 @@
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Core.Widgets;
-using Appalachia.UI.Controls.Sets.RawImage;
+using Appalachia.UI.Controls.Sets.Images.RawImage;
 
 namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.Widgets
 {

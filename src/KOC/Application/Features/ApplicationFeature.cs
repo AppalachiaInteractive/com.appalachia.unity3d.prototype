@@ -18,6 +18,7 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features
 {
+    [ExecutionOrder(ExecutionOrders.Feature)]
     [CallStaticConstructorInEditor]
     public abstract partial class ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
                                                      TIWidget, TManager> :
@@ -70,7 +71,7 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         private GameObject _serviceParentObject;
 
-        private bool _isVisible;
+        [ShowInInspector, ReadOnly, HorizontalGroup("State"), PropertyOrder(-1000), NonSerialized]
         private bool _isEnabled;
 
         [NonSerialized] private bool _hasBeenEnabledPreviously;
@@ -90,7 +91,7 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
-        public bool IsVisible => _isVisible;
+        public bool IsEnabled => _isEnabled;
         public GameObject ServiceParentObject => GetServiceParentObject();
 
         public GameObject WidgetParentObject => GetWidgetParentObject();
@@ -104,6 +105,20 @@ namespace Appalachia.Prototype.KOC.Application.Features
         public async AppaTask DisableFeature()
         {
             await AppaTask.WaitUntil(() => FullyInitialized);
+
+            for (var widgetIndex = 0; widgetIndex < Widgets.Count; widgetIndex++)
+            {
+                var widget = Widgets[widgetIndex];
+
+                widget.DisableFeature();
+            }
+
+            for (var serviceIndex = 0; serviceIndex < Services.Count; serviceIndex++)
+            {
+                var service = Services[serviceIndex];
+
+                service.DisableFeature();
+            }
 
             _isEnabled = false;
             await BeforeDisable();
@@ -119,33 +134,23 @@ namespace Appalachia.Prototype.KOC.Application.Features
                 await BeforeFirstEnable();
             }
 
+            for (var widgetIndex = 0; widgetIndex < Widgets.Count; widgetIndex++)
+            {
+                var widget = Widgets[widgetIndex];
+
+                widget.EnableFeature();
+            }
+
+            for (var serviceIndex = 0; serviceIndex < Services.Count; serviceIndex++)
+            {
+                var service = Services[serviceIndex];
+
+                service.EnableFeature();
+            }
+
             _isEnabled = true;
 
             await BeforeEnable();
-        }
-
-        [ButtonGroup(APPASTR.Hide)]
-        [GUIColor(nameof(DisableColor))]
-        [PropertyOrder(-1)]
-        [LabelText(APPASTR.Hide)]
-        public async AppaTask HideFeature()
-        {
-            //using (_PRF_Hide.Auto())
-            {
-                _isVisible = false;
-
-                await OnHide();
-            }
-        }
-
-        public async AppaTask ShowFeature()
-        {
-            //using (_PRF_Show.Auto())
-            {
-                _isVisible = true;
-
-                await OnShow();
-            }
         }
 
         public async AppaTask ToggleFeature()
@@ -159,21 +164,6 @@ namespace Appalachia.Prototype.KOC.Application.Features
                 else
                 {
                     await EnableFeature();
-                }
-            }
-        }
-
-        public async AppaTask ToggleVisibility()
-        {
-            //using (_PRF_ToggleVisibility.Auto())
-            {
-                if (_isVisible)
-                {
-                    await HideFeature();
-                }
-                else
-                {
-                    await ShowFeature();
                 }
             }
         }
@@ -207,15 +197,11 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
-        protected abstract AppaTask BeforeDisable();
+        protected virtual async AppaTask BeforeDisable() => await AppaTask.CompletedTask;
 
-        protected abstract AppaTask BeforeEnable();
+        protected virtual async AppaTask BeforeEnable() => await AppaTask.CompletedTask;
 
-        protected abstract AppaTask BeforeFirstEnable();
-
-        protected abstract AppaTask OnHide();
-
-        protected abstract AppaTask OnShow();
+        protected virtual async AppaTask BeforeFirstEnable() => await AppaTask.CompletedTask;
 
         // ReSharper disable once UnusedParameter.Global
         protected virtual void OnApplyMetadataInternal()
@@ -249,22 +235,7 @@ namespace Appalachia.Prototype.KOC.Application.Features
         {
             await base.WhenEnabled();
 
-            using (_PRF_WhenEnabled.Auto())
-            {
-                if (metadata.startsEnabled)
-                {
-                    await EnableFeature();
-                }
-
-                if (metadata.startsVisible)
-                {
-                    await ShowFeature();
-                }
-                else
-                {
-                    await HideFeature();
-                }
-            }
+            await SetToInitialState();
         }
 
         #region IApplicationFeature<TFeature,TFeatureMetadata> Members
@@ -297,19 +268,13 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         public async AppaTask SetToInitialState()
         {
-            using (_PRF_SetToInitialState.Auto())
+            if (metadata.startsEnabled)
             {
-                if (metadata.startsEnabled)
-                {
-                    await EnableFeature();
-                }
-
-                if (metadata.startsVisible)
-                {
-                    await ShowFeature();
-                }
-
-                await AppaTask.CompletedTask;
+                await EnableFeature();
+            }
+            else
+            {
+                await DisableFeature();
             }
         }
 
@@ -360,21 +325,11 @@ namespace Appalachia.Prototype.KOC.Application.Features
         protected static readonly ProfilerMarker _PRF_GetWidgetParentObject =
             new ProfilerMarker(_PRF_PFX + nameof(GetWidgetParentObject));
 
-        protected static readonly ProfilerMarker _PRF_Hide =
-            new ProfilerMarker(_PRF_PFX + nameof(HideFeature));
-
         protected static readonly ProfilerMarker _PRF_OnApplyMetadataInternal =
             new ProfilerMarker(_PRF_PFX + nameof(OnApplyMetadataInternal));
 
-        protected static readonly ProfilerMarker _PRF_OnHide = new ProfilerMarker(_PRF_PFX + nameof(OnHide));
-
-        protected static readonly ProfilerMarker _PRF_OnShow = new ProfilerMarker(_PRF_PFX + nameof(OnShow));
-
         private static readonly ProfilerMarker _PRF_SetToInitialState =
             new ProfilerMarker(_PRF_PFX + nameof(SetToInitialState));
-
-        protected static readonly ProfilerMarker _PRF_Show =
-            new ProfilerMarker(_PRF_PFX + nameof(ShowFeature));
 
         private static readonly ProfilerMarker _PRF_SortServices =
             new ProfilerMarker(_PRF_PFX + nameof(SortServices));
@@ -384,9 +339,6 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         private static readonly ProfilerMarker _PRF_ToggleFeature =
             new ProfilerMarker(_PRF_PFX + nameof(ToggleFeature));
-
-        protected static readonly ProfilerMarker _PRF_ToggleVisibility =
-            new ProfilerMarker(_PRF_PFX + nameof(ToggleVisibility));
 
         #endregion
     }

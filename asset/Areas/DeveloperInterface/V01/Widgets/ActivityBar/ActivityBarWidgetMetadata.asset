@@ -31,6 +31,11 @@ MonoBehaviour:
     - roundedBackground
     - rectTransform
     - _buttonData
+    - startsVisible
+    - featureEnabledVisibilityMode
+    - featureDisabledVisibilityMode
+    - topLayoutGroup
+    - bottomLayoutGroup
     _resetToken: 2022-01-10T09:51:36.5416405-05:00
   _objectId:
     _increment: 3571743
@@ -69,7 +74,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -149,7 +155,8 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957442
         _pid: -14768
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -232,8 +239,605 @@ MonoBehaviour:
     _initial: {fileID: 11400000, guid: 13f28920ddfb67c418078fb7326ded1f, type: 2}
     _value: {fileID: 11400000, guid: 13f28920ddfb67c418078fb7326ded1f, type: 2}
   fontStyle: {fileID: 11400000, guid: 2db1b4dd0ecda964dbf93fc89ae1377a, type: 2}
+  featureEnabledVisibilityMode: 1
+  featureDisabledVisibilityMode: 2
   transitionsWithFade: 0
   animationDuration: 0.2
   inUnscaledView: 1
-  width: 0.03
-  _buttonData: {fileID: 11400000, guid: c9f853ec40ba2a04992af34bd55e33e8, type: 2}
+  width: 0.045
+  topLayoutGroup:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 12275050
+      _machine: 14129406
+      _timestamp: 1645327030
+      _pid: -8016
+    data1:
+      _initializer:
+        _tags:
+        - padding
+        - childAlignment
+        - childControlHeight
+        - childControlWidth
+        - childForceExpandHeight
+        - childForceExpandWidth
+        - childScaleHeight
+        - childScaleWidth
+        - reverseArrangement
+        - spacing
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 12274933
+        _machine: 14129406
+        _timestamp: 1645326958
+        _pid: -8016
+      padding:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial:
+          m_Left: 0
+          m_Right: 0
+          m_Top: 0
+          m_Bottom: 0
+        _value:
+          m_Left: 0
+          m_Right: 0
+          m_Top: 0
+          m_Bottom: 0
+      spacing:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childAlignment:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      reverseArrangement:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childControlWidth:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childControlHeight:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childScaleWidth:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childScaleHeight:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childForceExpandWidth:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childForceExpandHeight:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+    data2:
+      _initializer:
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 12274932
+        _machine: 14129406
+        _timestamp: 1645326958
+        _pid: -8016
+      disableUpdates: 0
+      disablePositionUpdates: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+    data3:
+      _initializer:
+        _tags:
+        - ignoreLayout
+        - minWidth
+        - minHeight
+        - preferredWidth
+        - preferredHeight
+        - flexibleWidth
+        - flexibleHeight
+        - layoutPriority
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 11584222
+        _machine: 14129404
+        _timestamp: 1645477929
+        _pid: -8016
+      ignoreLayout:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      minWidth:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      minHeight:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      preferredWidth:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      preferredHeight:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      flexibleWidth:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      flexibleHeight:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      layoutPriority:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+        _value: 1
+  bottomLayoutGroup:
+    _initializer:
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 12275051
+      _machine: 14129406
+      _timestamp: 1645327030
+      _pid: -8016
+    data1:
+      _initializer:
+        _tags:
+        - padding
+        - childAlignment
+        - childControlHeight
+        - childControlWidth
+        - childForceExpandHeight
+        - childForceExpandWidth
+        - childScaleHeight
+        - childScaleWidth
+        - reverseArrangement
+        - spacing
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 12274934
+        _machine: 14129406
+        _timestamp: 1645326958
+        _pid: -8016
+      padding:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial:
+          m_Left: 0
+          m_Right: 0
+          m_Top: 0
+          m_Bottom: 0
+        _value:
+          m_Left: 0
+          m_Right: 0
+          m_Top: 0
+          m_Bottom: 0
+      spacing:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childAlignment:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      reverseArrangement:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childControlWidth:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childControlHeight:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childScaleWidth:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childScaleHeight:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childForceExpandWidth:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      childForceExpandHeight:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+    data2:
+      _initializer:
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 12274935
+        _machine: 14129406
+        _timestamp: 1645326958
+        _pid: -8016
+      disableUpdates: 0
+      disablePositionUpdates: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+    data3:
+      _initializer:
+        _tags:
+        - ignoreLayout
+        - minWidth
+        - minHeight
+        - preferredWidth
+        - preferredHeight
+        - flexibleWidth
+        - flexibleHeight
+        - layoutPriority
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 11584217
+        _machine: 14129404
+        _timestamp: 1645477929
+        _pid: -8016
+      ignoreLayout:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      minWidth:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      minHeight:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      preferredWidth:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      preferredHeight:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      flexibleWidth:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      flexibleHeight:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+        _value: -1
+      layoutPriority:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+        _value: 1

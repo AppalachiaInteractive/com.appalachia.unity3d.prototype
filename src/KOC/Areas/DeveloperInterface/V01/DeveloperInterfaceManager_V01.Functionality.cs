@@ -11,8 +11,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
     {
         #region Nested type: Feature
 
-        public abstract class Feature<TFeature, TFeatureMetadata> : AreaFeature<TFeature, TFeatureMetadata,
-            DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
+        public abstract class Feature<TFeature, TFeatureMetadata> :
+            AreaFeature<TFeature, TFeatureMetadata, DeveloperInterfaceManager_V01,
+                DeveloperInterfaceMetadata_V01>
             where TFeature : Feature<TFeature, TFeatureMetadata>
             where TFeatureMetadata :
             DeveloperInterfaceMetadata_V01.FeatureMetadata<TFeature, TFeatureMetadata>

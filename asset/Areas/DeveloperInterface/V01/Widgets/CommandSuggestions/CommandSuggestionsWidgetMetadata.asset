@@ -30,6 +30,9 @@ MonoBehaviour:
     - background
     - roundedBackground
     - rectTransform
+    - startsVisible
+    - featureEnabledVisibilityMode
+    - featureDisabledVisibilityMode
     _resetToken: 
   _objectId:
     _increment: 3571727
@@ -68,7 +71,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -148,7 +152,8 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957442
         _pid: -14768
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -231,9 +236,11 @@ MonoBehaviour:
     _initial: {fileID: 11400000, guid: 5493cb75dcb6ef549bd9a68616639487, type: 2}
     _value: {fileID: 11400000, guid: 5493cb75dcb6ef549bd9a68616639487, type: 2}
   fontStyle: {fileID: 11400000, guid: d4f9d7349831470468c1d10be62812ec, type: 2}
+  featureEnabledVisibilityMode: 1
+  featureDisabledVisibilityMode: 2
   transitionsWithFade: 0
   animationDuration: 0.2
   inUnscaledView: 1
   commandSuggestionHeight: 0.02
   maxSuggestions: 8
-  highlightedSuggestionColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightedSuggestionColor: {r: 1, g: 1, b: 1, a: 1}

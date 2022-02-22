@@ -1,11 +1,7 @@
-using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Model;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.Services;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot.Widgets;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Model;
-using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Unity.Profiling;
 using UnityEngine;
@@ -15,9 +11,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
     [CallStaticConstructorInEditor]
     public class ScreenshotFeature :
         DeveloperInterfaceManager_V01.Feature<ScreenshotFeature, ScreenshotFeatureMetadata>,
-        Screenshotter.IFeature,
-        IActivityBarEntryProvider,
-        IStatusBarEntryProvider
+        Screenshotter.IFeature
     {
         static ScreenshotFeature()
         {
@@ -36,38 +30,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
 
         #endregion
 
-        /// <inheritdoc />
-        protected override async AppaTask BeforeDisable()
-        {
-            await HideFeature();
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask BeforeEnable()
-        {
-            await AppaTask.CompletedTask;
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask BeforeFirstEnable()
-        {
-            await AppaTask.CompletedTask;
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask OnHide()
-        {
-            _screenshotWidget.Hide();
-            await AppaTask.CompletedTask;
-        }
-
-        /// <inheritdoc />
-        protected override async AppaTask OnShow()
-        {
-            _screenshotWidget.Show();
-            await AppaTask.CompletedTask;
-        }
-
         private void OnScreenshotCompleted(Screenshotter.Args args)
         {
             using (_PRF_OnScreenshotCompleted.Auto())
@@ -77,18 +39,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
                 );
             }
         }
-
-        #region IActivityBarEntryProvider Members
-
-        public ActivityBarEntry[] GetActivityBarEntries()
-        {
-            using (_PRF_GetActivityBarEntries.Auto())
-            {
-                return Array.Empty<ActivityBarEntry>();
-            }
-        }
-
-        #endregion
 
         #region IFeature Members
 
@@ -126,25 +76,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
 
         #endregion
 
-        #region IStatusBarEntryProvider Members
-
-        public StatusBarEntry[] GetStatusBarEntries()
-        {
-            using (_PRF_GetStatusBarEntries.Auto())
-            {
-                return Array.Empty<StatusBarEntry>();
-            }
-        }
-
-        #endregion
-
         #region Profiling
-
-        private static readonly ProfilerMarker _PRF_GetActivityBarEntries =
-            new ProfilerMarker(_PRF_PFX + nameof(GetActivityBarEntries));
-
-        private static readonly ProfilerMarker _PRF_GetStatusBarEntries =
-            new ProfilerMarker(_PRF_PFX + nameof(GetStatusBarEntries));
 
         protected static readonly ProfilerMarker _PRF_InitiateServiceTask =
             new ProfilerMarker(_PRF_PFX + nameof(InitiateServiceTask));

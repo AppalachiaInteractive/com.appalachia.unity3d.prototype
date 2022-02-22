@@ -1,12 +1,13 @@
 using System;
 using Appalachia.Core.Collections.NonSerialized;
-using Appalachia.Core.ObjectPooling;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Application.Features;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.UI.Controls.Components.Buttons;
 using Appalachia.UI.Controls.Components.Layout;
 using Appalachia.UI.Controls.Extensions;
+using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Pooling.Objects;
 using Drawing;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -26,6 +27,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         #region Constants and Static Readonly
 
         private const float GROWTH_STEP = 4F;
+        private const float LINE_THICKNESS = 2F;
 
         #endregion
 
@@ -71,120 +73,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         {
             using (_PRF_Create.Auto())
             {
+                var isSelected = false;
+#if UNITY_EDITOR
+                isSelected = rectTransform.gameObject.IsSelected();
+#endif
                 rect = rectTransform.ToScreenSpace();
-
+                
                 _colorList.ClearFast();
 
                 var uiBehaviours = rectTransform.GetComponents<Behaviour>();
 
-                for (var behaviourIndex = 0; behaviourIndex < uiBehaviours.Length; behaviourIndex++)
-                {
-                    var behaviour = uiBehaviours[behaviourIndex];
-
-                    if (behaviour is Canvas c)
-                    {
-                        AddColor(metadata.canvas);
-
-                        AddColor(
-                            c.renderMode == RenderMode.WorldSpace ? metadata.worldSpace : metadata.screenSpace
-                        );
-                    }
-                    else if (behaviour is Mask)
-                    {
-                        AddColor(metadata.mask);
-                    }
-                    else if (behaviour is UIBehaviour uiBehaviour)
-                    {
-                        if (uiBehaviour is Selectable selectable)
-                        {
-                            AddColor(metadata.selectable);
-
-                            if (selectable is Button or AppaButton)
-                            {
-                                AddColor(metadata.button);
-                            }
-                            else if (selectable is Dropdown or TMP_Dropdown)
-                            {
-                                AddColor(metadata.dropdown);
-                            }
-                            else if (selectable is Toggle)
-                            {
-                                AddColor(metadata.toggle);
-                            }
-                            else if (selectable is InputField or TMP_InputField)
-                            {
-                                AddColor(metadata.inputField);
-                            }
-                            else if (selectable is Slider)
-                            {
-                                AddColor(metadata.slider);
-                            }
-                            else if (behaviour is Scrollbar)
-                            {
-                                AddColor(metadata.scrollbar);
-                            }
-                        }
-                        else if (uiBehaviour is Graphic graphic)
-                        {
-                            AddColor(metadata.graphic);
-
-                            if (graphic.raycastTarget)
-                            {
-                                AddColor(metadata.raycastTarget);
-                            }
-
-                            if (graphic is Image i)
-                            {
-                                AddColor(metadata.image);
-
-                                if (i.maskable)
-                                {
-                                    AddColor(metadata.maskable);
-                                }
-                            }
-                            else if (graphic is Text or TMP_Text)
-                            {
-                                AddColor(metadata.text);
-                            }
-                        }
-                        else if (uiBehaviour is CanvasScaler)
-                        {
-                            AddColor(metadata.canvasScaler);
-                        }
-                        else if (uiBehaviour is AspectRatioFitter)
-                        {
-                            AddColor(metadata.aspectRatioFitter);
-                        }
-                        else if (uiBehaviour is ContentSizeFitter)
-                        {
-                            AddColor(metadata.contentSizeFitter);
-                        }
-                        else if (uiBehaviour is LayoutElement)
-                        {
-                            AddColor(metadata.layoutElement);
-                        }
-                        else if (uiBehaviour is LayoutGroup)
-                        {
-                            AddColor(metadata.layoutGroup);
-                        }
-                        else if (uiBehaviour is ScrollRect)
-                        {
-                            AddColor(metadata.scrollRect);
-                        }
-                    }
-                    else if (behaviour is AppaCanvasScaler)
-                    {
-                        AddColor(metadata.appaCanvasScaler);
-                    }
-                    else if (behaviour is IApplicationFeature)
-                    {
-                        AddColor(metadata.feature);
-                    }
-                    else if (behaviour is IApplicationWidget)
-                    {
-                        AddColor(metadata.widget);
-                    }
-                }
+                ApplyColors(metadata, uiBehaviours);
 
                 if (!rectTransform.gameObject.activeInHierarchy)
                 {
@@ -204,16 +103,26 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     _colorList[colorIndex] = color;
                 }
 
+                var drawLocatorLine = rect.IsFullyOutsideScreen();
+
                 elements.ClearFast();
 
                 for (var elementIndex = 0; elementIndex < _colorList.Count; elementIndex++)
                 {
                     var element = RectTransformVisualizationDataElement.Get();
 
-                    element.CopyRect(rect, metadata.z);
+                    element.CopyRect(rect, metadata.z, LINE_THICKNESS, isSelected);
                     element.color = _colorList[elementIndex];
+                    element.drawLocatorLine = drawLocatorLine;
 
-                    element.Grow(-(elementIndex * GROWTH_STEP));
+                    if ((Math.Abs(element.color.r - 1f) < float.Epsilon) &&
+                        (Math.Abs(element.color.g - 1f) < float.Epsilon) &&
+                        (Math.Abs(element.color.b - 1f) < float.Epsilon))
+                    {
+                        element.thickness = 1f;
+                    }
+
+                    element.Shrink(elementIndex * GROWTH_STEP);
 
                     elements.Add(element);
                 }
@@ -242,6 +151,120 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                 if (color.Overriding)
                 {
                     _colorList.Add(color.Value);
+                }
+            }
+        }
+
+        private void ApplyColors(RectVisualizerFeatureMetadata metadata, Behaviour[] uiBehaviours)
+        {
+            AddColor(metadata.rectTransform);
+
+            for (var behaviourIndex = 0; behaviourIndex < uiBehaviours.Length; behaviourIndex++)
+            {
+                var behaviour = uiBehaviours[behaviourIndex];
+
+                if (behaviour is Canvas c)
+                {
+                    AddColor(metadata.canvas);
+
+                    AddColor(
+                        c.renderMode == RenderMode.WorldSpace ? metadata.worldSpace : metadata.screenSpace
+                    );
+                }
+                else if (behaviour is Mask)
+                {
+                    AddColor(metadata.mask);
+                }
+                else if (behaviour is UIBehaviour uiBehaviour)
+                {
+                    if (uiBehaviour is Selectable selectable)
+                    {
+                        AddColor(metadata.selectable);
+
+                        if (selectable is Button or AppaButton)
+                        {
+                            AddColor(metadata.button);
+                        }
+                        else if (selectable is Dropdown or TMP_Dropdown)
+                        {
+                            AddColor(metadata.dropdown);
+                        }
+                        else if (selectable is Toggle)
+                        {
+                            AddColor(metadata.toggle);
+                        }
+                        else if (selectable is InputField or TMP_InputField)
+                        {
+                            AddColor(metadata.inputField);
+                        }
+                        else if (selectable is Slider)
+                        {
+                            AddColor(metadata.slider);
+                        }
+                        else if (behaviour is Scrollbar)
+                        {
+                            AddColor(metadata.scrollbar);
+                        }
+                    }
+                    else if (uiBehaviour is Graphic graphic)
+                    {
+                        AddColor(metadata.graphic);
+
+                        if (graphic.raycastTarget)
+                        {
+                            AddColor(metadata.raycastTarget);
+                        }
+
+                        if (graphic is Image i)
+                        {
+                            AddColor(metadata.image);
+
+                            if (i.maskable)
+                            {
+                                AddColor(metadata.maskable);
+                            }
+                        }
+                        else if (graphic is Text or TMP_Text)
+                        {
+                            AddColor(metadata.text);
+                        }
+                    }
+                    else if (uiBehaviour is CanvasScaler)
+                    {
+                        AddColor(metadata.canvasScaler);
+                    }
+                    else if (uiBehaviour is AspectRatioFitter)
+                    {
+                        AddColor(metadata.aspectRatioFitter);
+                    }
+                    else if (uiBehaviour is ContentSizeFitter)
+                    {
+                        AddColor(metadata.contentSizeFitter);
+                    }
+                    else if (uiBehaviour is LayoutElement)
+                    {
+                        AddColor(metadata.layoutElement);
+                    }
+                    else if (uiBehaviour is LayoutGroup)
+                    {
+                        AddColor(metadata.layoutGroup);
+                    }
+                    else if (uiBehaviour is ScrollRect)
+                    {
+                        AddColor(metadata.scrollRect);
+                    }
+                }
+                else if (behaviour is AppaCanvasScaler)
+                {
+                    AddColor(metadata.appaCanvasScaler);
+                }
+                else if (behaviour is IApplicationFeature)
+                {
+                    AddColor(metadata.feature);
+                }
+                else if (behaviour is IApplicationWidget)
+                {
+                    AddColor(metadata.widget);
                 }
             }
         }

@@ -1,7 +1,5 @@
 using System;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Events;
-using Appalachia.Core.Events.Extensions;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
@@ -10,11 +8,13 @@ using Appalachia.Prototype.KOC.Application.Features.Services;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.UI.Controls.Extensions;
-using Appalachia.UI.Controls.Sets.Background;
-using Appalachia.UI.Controls.Sets.Canvas;
-using Appalachia.UI.Controls.Sets.RoundedBackground;
+using Appalachia.UI.Controls.Sets.Canvases.Canvas;
+using Appalachia.UI.Controls.Sets.Images.Background;
+using Appalachia.UI.Controls.Sets.Images.RoundedBackground;
 using Appalachia.UI.Core.Styling;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Events;
+using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -22,6 +22,7 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 {
+    [ExecutionOrder(ExecutionOrders.Widget)]
     [CallStaticConstructorInEditor]
     [RequireComponent(typeof(RectTransform))]
     public abstract partial class ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
@@ -72,7 +73,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         public AppaEvent.Data VisuallyChanged;
 
-        [ShowInInspector, ReadOnly]
+        [ShowInInspector, ReadOnly, HorizontalGroup("State"), PropertyOrder(-1000), NonSerialized]
         private bool _isVisible;
 
         public CanvasComponentSet canvas;
@@ -80,6 +81,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         public BackgroundComponentSet background;
 
         public RoundedBackgroundComponentSet roundedBackground;
+
+        private Rect _lastRect;
 
         #endregion
 
@@ -111,10 +114,27 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     return;
                 }
 
+                if (AppalachiaApplication.IsQuitting)
+                {
+                    return;
+                }
+
+                if (AppalachiaApplication.IsDomainReloading)
+                {
+                    return;
+                }
+
+                var currentRect = RectTransform.rect;
+
                 if (!ApplyingMetadata && FullyInitialized)
                 {
-                    VisuallyChanged.RaiseEvent();
+                    if (currentRect != _lastRect)
+                    {
+                        VisuallyChanged.RaiseEvent();
+                    }
                 }
+
+                _lastRect = currentRect;
             }
         }
 
@@ -160,6 +180,13 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             using (_PRF_Initialize.Auto())
             {
                 var unused = RectTransform;
+
+                Action DelegateCreator()
+                {
+                    return RefreshWidgetVisuals;
+                }
+
+                metadata.SubscribeForUpdates(this as TWidget, DelegateCreator);
             }
         }
 
@@ -174,12 +201,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
                 transform.SetParent(parentObject.transform);
 
-                Action DelegateCreator()
-                {
-                    return RefreshWidgetVisuals;
-                }
+                await AppaTask.WaitUntil(() => _feature != null);
 
-                metadata.SubscribeForUpdates(this as TWidget, DelegateCreator);
+                UpdateVisibility(_feature.IsEnabled);
             }
         }
 
@@ -196,6 +220,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             using (_PRF_UpdateAnchorMin.Auto())
             {
                 RectTransform.anchorMin = endValue;
+            }
+        }
+
+        protected void UpdateCanvasGroupAlpha(float alpha)
+        {
+            using (_PRF_UpdateAnchorMax.Auto())
+            {
+                canvas.CanvasGroup.alpha = alpha;
             }
         }
 
@@ -238,30 +270,33 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     }
                     else
                     {
+                        var canvasGroupSettings = metadata.canvas.Value.CanvasGroup;
+                        var canvasGroupInnerSettings = canvasGroupSettings.Value;
+
+                        var usingCanvasGroup = canvasGroupSettings.IsElected;
+
                         if (_isVisible)
                         {
                             canvas.Canvas.enabled = true;
 
-                            if (!metadata.canvas.Value.CanvasGroup.IsElected)
+                            if (!usingCanvasGroup)
                             {
                                 return;
                             }
 
-                            canvas.CanvasGroup.alpha =
-                                metadata.canvas.Value.CanvasGroup.Value.alpha.Overriding
-                                    ? metadata.canvas.Value.CanvasGroup.Value.alpha
-                                    : 1.0f;
+                            var newAlpha = canvasGroupInnerSettings.alpha.Overriding
+                                ? canvasGroupInnerSettings.alpha
+                                : metadata.GetCanvasGroupVisibleAlpha();
+
+                            UpdateCanvasGroupAlpha(newAlpha);
                         }
                         else
                         {
                             canvas.Canvas.enabled = false;
 
-                            if (!metadata.canvas.Value.CanvasGroup.IsElected)
-                            {
-                                return;
-                            }
+                            var newAlpha = !usingCanvasGroup ? metadata.GetCanvasGroupInvisibleAlpha() : 0.0f;
 
-                            canvas.CanvasGroup.alpha = 0.0f;
+                            UpdateCanvasGroupAlpha(newAlpha);
                         }
                     }
                 }
@@ -279,7 +314,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
             using (_PRF_RefreshWidgetVisuals.Auto())
             {
-                if (!HasBeenEnabled)
+                if (!HasBeenOrIsBeingEnabled)
                 {
                     return;
                 }
@@ -289,6 +324,32 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                 EnsureWidgetIsCorrectSize();
 
                 VisuallyChanged.RaiseEvent();
+            }
+        }
+
+        private void UpdateVisibility(bool isFeatureEnabled)
+        {
+            using (_PRF_UpdateVisibility.Auto())
+            {
+                var targetCase = isFeatureEnabled
+                    ? metadata.featureEnabledVisibilityMode
+                    : metadata.featureDisabledVisibilityMode;
+
+                switch (targetCase)
+                {
+                    case WidgetVisibilityMode.Visible:
+                        SetVisibility(true);
+                        break;
+
+                    case WidgetVisibilityMode.NotVisible:
+                        SetVisibility(false);
+                        break;
+
+                    case WidgetVisibilityMode.DoNotModify:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
 
@@ -328,6 +389,22 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
+        public virtual void DisableFeature()
+        {
+            using (_PRF_DisableFeature.Auto())
+            {
+                UpdateVisibility(false);
+            }
+        }
+
+        public virtual void EnableFeature()
+        {
+            using (_PRF_EnableFeature.Auto())
+            {
+                UpdateVisibility(true);
+            }
+        }
+
         [ButtonGroup("Visibility")]
         [LabelText("Toggle")]
         public void ToggleVisibility()
@@ -346,6 +423,12 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         #endregion
 
         #region Profiling
+
+        private static readonly ProfilerMarker _PRF_DisableFeature =
+            new ProfilerMarker(_PRF_PFX + nameof(DisableFeature));
+
+        private static readonly ProfilerMarker _PRF_EnableFeature =
+            new ProfilerMarker(_PRF_PFX + nameof(EnableFeature));
 
         protected static readonly ProfilerMarker _PRF_EnsureWidgetIsCorrectSize =
             new ProfilerMarker(_PRF_PFX + nameof(EnsureWidgetIsCorrectSize));
@@ -377,6 +460,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         protected static readonly ProfilerMarker _PRF_UpdateAnchorMin =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateAnchorMin));
+
+        private static readonly ProfilerMarker _PRF_UpdateVisibility =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateVisibility));
 
         private static readonly ProfilerMarker _PRF_ValidateVisibility =
             new ProfilerMarker(_PRF_PFX + nameof(ValidateVisibility));

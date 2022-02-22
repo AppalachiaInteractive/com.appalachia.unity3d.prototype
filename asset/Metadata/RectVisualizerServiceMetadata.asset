@@ -18,12 +18,17 @@ MonoBehaviour:
     _tags:
     - updates
     - updateSteps
+    - startsEnabled
+    - featureEnabledExecutionMode
+    - featureDisabledExecutionMode
     _resetToken: 
   _objectId:
     _increment: 3571638
     _machine: 14129404
     _timestamp: 1644957441
     _pid: -14768
+  featureEnabledExecutionMode: 1
+  featureDisabledExecutionMode: 1
   cameraData:
     _initializer:
       _tags:

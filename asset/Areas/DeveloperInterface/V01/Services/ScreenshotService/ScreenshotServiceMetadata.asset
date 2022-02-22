@@ -22,12 +22,17 @@ MonoBehaviour:
     - textureFormat
     - renderTextureFormat
     - Metadata
+    - startsEnabled
+    - featureEnabledExecutionMode
+    - featureDisabledExecutionMode
     _resetToken: 
   _objectId:
     _increment: 0
     _machine: 0
     _timestamp: 0
     _pid: 0
+  featureEnabledExecutionMode: 1
+  featureDisabledExecutionMode: 1
   _metadata:
     includeCamera: 0
     includeCounter: 1

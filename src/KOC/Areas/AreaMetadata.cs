@@ -2,7 +2,7 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Sets;
-using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;

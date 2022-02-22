@@ -1,4 +1,4 @@
-using Appalachia.UI.Controls.Sets.UnscaledCanvas;
+using Appalachia.UI.Controls.Sets.Canvases.UnscaledCanvas;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 {

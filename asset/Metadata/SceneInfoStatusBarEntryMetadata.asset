@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SceneInfoStatusBarEntryMetadata
+  m_EditorClassIdentifier: Appalachia.Prototype.KOC:Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries:SceneInfoStatusBarEntryMetadata
+  _cachedName: SceneInfoStatusBarEntryMetadata
+  _niceName: Scene Info Status Bar Entry Metadata
+  _initializer:
+    _tags:
+    - width
+    - _enabled
+    - _section
+    - _priority
+    _resetToken: 
+  _objectId:
+    _increment: 10296558
+    _machine: 14129404
+    _timestamp: 1645383057
+    _pid: -8016
+  _button: {fileID: 11400000, guid: 402f1f0f6d06fd04fb3b87fa86592878, type: 2}
+  _enabled: 1
+  _section: 0
+  _priority: 100

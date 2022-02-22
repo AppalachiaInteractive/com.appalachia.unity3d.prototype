@@ -18,6 +18,9 @@ MonoBehaviour:
     _tags:
     - FontStyleOverride
     - animationDuration
+    - startsVisible
+    - featureEnabledVisibilityMode
+    - featureDisabledVisibilityMode
     _resetToken: 
   _objectId:
     _increment: 0
@@ -56,7 +59,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -136,7 +140,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -219,6 +224,8 @@ MonoBehaviour:
     _initial: {fileID: 0}
     _value: {fileID: 0}
   fontStyle: {fileID: 11400000, guid: 9cbaf22259afff24fb92806b4a2926dc, type: 2}
+  featureEnabledVisibilityMode: 1
+  featureDisabledVisibilityMode: 2
   transitionsWithFade: 0
   animationDuration: 0.2
   simpleCursorSet: {fileID: 0}

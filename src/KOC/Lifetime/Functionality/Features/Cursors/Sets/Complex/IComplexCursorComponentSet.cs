@@ -1,5 +1,5 @@
 using Appalachia.UI.Controls.Animation;
-using Appalachia.UI.Controls.Sets.MultiPartSubsetWithCanvas;
+using Appalachia.UI.Controls.Sets.MultiPart.MultiPartSubsetWithCanvas;
 using Appalachia.UI.Core.Components.Subsets;
 using UnityEngine;
 

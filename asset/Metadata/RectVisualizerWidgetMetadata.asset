@@ -27,6 +27,9 @@ MonoBehaviour:
     - roundedBackground
     - rectTransform
     - _rawImageSet
+    - startsVisible
+    - featureEnabledVisibilityMode
+    - featureDisabledVisibilityMode
     _resetToken: 
   _objectId:
     _increment: 3571714
@@ -65,7 +68,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -145,7 +149,8 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957442
         _pid: -14768
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -228,6 +233,8 @@ MonoBehaviour:
     _initial: {fileID: 11400000, guid: 469017494b8bbf843b9c31e88266508c, type: 2}
     _value: {fileID: 11400000, guid: 469017494b8bbf843b9c31e88266508c, type: 2}
   fontStyle: {fileID: 11400000, guid: f40bbf84d0b35ca449b39cf32ec20750, type: 2}
+  featureEnabledVisibilityMode: 1
+  featureDisabledVisibilityMode: 2
   transitionsWithFade: 0
   animationDuration: 0.2
   inUnscaledView: 1

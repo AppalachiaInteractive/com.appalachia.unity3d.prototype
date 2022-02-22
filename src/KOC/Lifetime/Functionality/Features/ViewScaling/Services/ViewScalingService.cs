@@ -1,10 +1,10 @@
 using System;
-using Appalachia.Core.Events;
-using Appalachia.Core.Events.Extensions;
+using Appalachia.Utility.Events;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Core.Services;
 using Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.Models;
 using Appalachia.UI.Controls.Components.Layout.Models;
+using Appalachia.Utility.Events.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 

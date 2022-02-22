@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Events;
+using Appalachia.Utility.Events;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette.Widgets.Model;
 using Appalachia.Utility.Async;

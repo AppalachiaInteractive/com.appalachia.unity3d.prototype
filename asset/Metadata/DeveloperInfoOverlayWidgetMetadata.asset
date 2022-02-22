@@ -33,6 +33,10 @@ MonoBehaviour:
     - rectTransform
     - verticalLayoutGroupData
     - headerLayout
+    - alpha
+    - startsVisible
+    - featureEnabledVisibilityMode
+    - featureDisabledVisibilityMode
     _resetToken: 
   _objectId:
     _increment: 3571684
@@ -71,7 +75,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 0
       _posX: 0
       _top: 0
@@ -151,16 +156,17 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957441
         _pid: -14768
-      disableUpdatesForRootCanvas: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
       _left: 30
-      _posX: 15
+      _posX: 30
       _top: 30
-      _posY: -15
+      _posY: -30
       _posZ: 0
       _right: 0
-      _width: -30
+      _width: 440
       _bottom: 0
-      _height: -30
+      _height: 550
       anchorMin:
         _overriding: 1
         _objectId:
@@ -169,7 +175,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: {x: 0, y: 0}
-        _value: {x: 0, y: 0.35}
+        _value: {x: 0, y: 1}
       anchorMax:
         _overriding: 1
         _objectId:
@@ -178,7 +184,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: {x: 1, y: 1}
-        _value: {x: 0.275, y: 1}
+        _value: {x: 0, y: 1}
       pivot:
         _overriding: 1
         _objectId:
@@ -187,7 +193,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: {x: 0.5, y: 0.5}
-        _value: {x: 0.5, y: 0.5}
+        _value: {x: 0, y: 1}
       localScale:
         _overriding: 1
         _objectId:
@@ -234,9 +240,92 @@ MonoBehaviour:
     _initial: {fileID: 11400000, guid: 5ec2bd47785b5b742ae983a909eb971b, type: 2}
     _value: {fileID: 11400000, guid: 5ec2bd47785b5b742ae983a909eb971b, type: 2}
   fontStyle: {fileID: 11400000, guid: a287b78bb38ee1041a65ea7fa650d892, type: 2}
+  featureEnabledVisibilityMode: 1
+  featureDisabledVisibilityMode: 2
   transitionsWithFade: 0
   animationDuration: 0.2
   inUnscaledView: 0
+  alpha: 0.33
+  headerRect:
+    _initializer:
+      _tags:
+      - _left
+      - _posX
+      - _top
+      - _posY
+      - _posZ
+      - _right
+      - _width
+      - _bottom
+      - _height
+      - pivot
+      - anchorMin
+      - anchorMax
+      - localRotation
+      - localScale
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    _objectId:
+      _increment: 8008842
+      _machine: 14129406
+      _timestamp: 1645194215
+      _pid: -14768
+    disableUpdates: 0
+    disablePositionUpdates: 0
+    _left: 0
+    _posX: 0
+    _top: 0
+    _posY: -30
+    _posZ: 0
+    _right: 0
+    _width: -0
+    _bottom: 0
+    _height: 75
+    anchorMin:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 1}
+    anchorMax:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 1, y: 1}
+      _value: {x: 1, y: 1}
+    pivot:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0.5, y: 0.5}
+      _value: {x: 0.5, y: 1}
+    localScale:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 1, y: 1, z: 1}
+      _value: {x: 1, y: 1, z: 1}
+    localRotation:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0, y: 0, z: 0, w: 1}
+      _value: {x: 0, y: 0, z: 0, w: 1}
   headerImage:
     _initializer:
       _tags:
@@ -423,7 +512,7 @@ MonoBehaviour:
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 1
     minWidth:
       _overriding: 0
       _objectId:
@@ -434,14 +523,14 @@ MonoBehaviour:
       _initial: -1
       _value: -1
     minHeight:
-      _overriding: 1
+      _overriding: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: -1
-      _value: 100
+      _value: -1
     preferredWidth:
       _overriding: 0
       _objectId:
@@ -521,7 +610,7 @@ MonoBehaviour:
     font: {fileID: 11400000, guid: 72ae4525196855b488e31eb6179b536a, type: 2}
     createLabel: 1
     labelFont: {fileID: 11400000, guid: 88386760b658177409a57f730f12e510, type: 2}
-    labelWidth: 0.33
+    labelWidth: 0.3
     labelPadding: 0.05
     initialCalculation: 801
     updateTiming:
@@ -569,14 +658,14 @@ MonoBehaviour:
         _initial: 0
         _value: -1
       minHeight:
-        _overriding: 1
+        _overriding: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 30
+        _value: 0
       preferredWidth:
         _overriding: 0
         _objectId:
@@ -622,7 +711,7 @@ MonoBehaviour:
           _pid: 0
         _initial: 0
         _value: 0
-  verticalLayoutGroupData:
+  verticalLayoutGroup:
     _initializer:
       _tags:
       - padding
@@ -655,9 +744,9 @@ MonoBehaviour:
         m_Top: 0
         m_Bottom: 0
       _value:
-        m_Left: 20
-        m_Right: 20
-        m_Top: 20
+        m_Left: 15
+        m_Right: 15
+        m_Top: 120
         m_Bottom: 20
     spacing:
       _overriding: 1
@@ -667,9 +756,9 @@ MonoBehaviour:
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 2
+      _value: 0
     childAlignment:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -732,11 +821,11 @@ MonoBehaviour:
       _initial: 0
       _value: 1
     childForceExpandHeight:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 1

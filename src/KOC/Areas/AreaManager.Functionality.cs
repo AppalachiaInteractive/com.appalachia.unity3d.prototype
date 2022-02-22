@@ -41,6 +41,23 @@ namespace Appalachia.Prototype.KOC.Areas
 
         public AreaFeatureManager FeatureManager => _featureManager;
 
+        public static void SortFeatures()
+        {
+            using (_PRF_SortFeatures.Auto())
+            {
+                var task = AppaTask.WaitUntil(() => (instance != null) && (instance._featuresObject != null))
+                                   .ContinueWith(
+                                        () =>
+                                        {
+                                            var featuresObject = instance._featuresObject;
+                                            featuresObject.transform.SortChildren();
+                                        }
+                                    );
+
+                task.Forget();
+            }
+        }
+
         protected new static void RegisterDependency<TDependency>(
             SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler handler)
             where TDependency : SingletonAppalachiaBehaviour<TDependency>,
@@ -73,6 +90,7 @@ namespace Appalachia.Prototype.KOC.Areas
             RegisterDependency<ViewScalingFeature>(i => _viewScalingFeature = i);
 
             _featureSet = new AreaFeatureSet();
+            _featureSet.AllFeaturesAvailable.Event += SortFeatures;
         }
 
         private static void ValidateRegistration<TDependency>()
@@ -140,6 +158,9 @@ namespace Appalachia.Prototype.KOC.Areas
         #endregion
 
         #region Profiling
+
+        private static readonly ProfilerMarker _PRF_SortFeatures =
+            new ProfilerMarker(_PRF_PFX + nameof(SortFeatures));
 
         private static readonly ProfilerMarker _PRF_GetFeatureParentObject =
             new ProfilerMarker(_PRF_PFX + nameof(GetFeatureParentObject));

@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
+using Appalachia.Utility.Events;
 using Appalachia.Core.Objects.Dependencies;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
+using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -28,6 +30,8 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
 
         #region Fields and Autoproperties
 
+        public AppaEvent.Data AllFeaturesAvailable;
+
         [InlineProperty]
         [HideLabel]
         [ShowInInspector]
@@ -43,6 +47,8 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
         )]
         private List<TFeature> _features;
 
+        private List<Type> _registeredFeatures;
+
         #endregion
 
         public IReadOnlyList<TFeature> Features => _features;
@@ -57,6 +63,8 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
             {
                 Initialize();
 
+                _registeredFeatures.Add(typeof(TDependency));
+
                 var wrapper = new SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler(
                     i =>
                     {
@@ -64,6 +72,8 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
                         {
                             _features.Add(i);
                             handler?.Invoke(i);
+
+                            ValidateFeatureAvailability();
                         }
                         catch (Exception ex)
                         {
@@ -98,13 +108,28 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
         {
             using (_PRF_Initialize.Auto())
             {
+                _registeredFeatures ??= new();
                 _features ??= new List<TFeature>();
+            }
+        }
+
+        private void ValidateFeatureAvailability()
+        {
+            using (_PRF_ValidateFeatureAvailability.Auto())
+            {
+                if (_features.Count == _registeredFeatures.Count)
+                {
+                    AllFeaturesAvailable.RaiseEvent();
+                }
             }
         }
 
         #region Profiling
 
         private const string _PRF_PFX = nameof(FeatureSet<TFeature>) + ".";
+
+        private static readonly ProfilerMarker _PRF_ValidateFeatureAvailability =
+            new ProfilerMarker(_PRF_PFX + nameof(ValidateFeatureAvailability));
 
         private static readonly ProfilerMarker _PRF_RegisterFeature =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterFeature));

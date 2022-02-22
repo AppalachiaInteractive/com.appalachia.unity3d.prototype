@@ -6,9 +6,9 @@ using Appalachia.Core.Objects.Sets;
 using Appalachia.Prototype.KOC.Application.Features.Services;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Appalachia.UI.Controls.Sets.Background;
-using Appalachia.UI.Controls.Sets.Canvas;
-using Appalachia.UI.Controls.Sets.RoundedBackground;
+using Appalachia.UI.Controls.Sets.Canvases.Canvas;
+using Appalachia.UI.Controls.Sets.Images.Background;
+using Appalachia.UI.Controls.Sets.Images.RoundedBackground;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Styling.Fonts;
 using Appalachia.Utility.Async;
@@ -39,33 +39,62 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
     {
         #region Fields and Autoproperties
 
+        [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         public RectTransformData.Override rectTransform;
 
+        [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         public CanvasComponentSetData.Optional canvas;
 
+        [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         public BackgroundComponentSetData.Optional background;
 
+        [FoldoutGroup(APPASTR.Common)]
         [FormerlySerializedAs("roundedBackgroundStyle")]
         [OnValueChanged(nameof(OnChanged))]
         public RoundedBackgroundComponentSetData.Optional roundedBackground;
 
+        [FoldoutGroup(APPASTR.Common)]
         [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
         [OnValueChanged(nameof(OnChanged))]
         public FontStyleOverride fontStyle;
 
-        [FoldoutGroup(APPASTR.Common)]
+        [FoldoutGroup(APPASTR.Visibility)]
+        [OnValueChanged(nameof(OnChanged))]
+        public WidgetVisibilityMode featureEnabledVisibilityMode;
+
+        [FoldoutGroup(APPASTR.Visibility)]
+        [OnValueChanged(nameof(OnChanged))]
+        public WidgetVisibilityMode featureDisabledVisibilityMode;
+
+        [FoldoutGroup(APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
         public bool transitionsWithFade;
 
-        [FoldoutGroup(APPASTR.Common)]
+        [FoldoutGroup(APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0f, 1f)]
         public float animationDuration;
 
         #endregion
+
+        public virtual float GetCanvasGroupInvisibleAlpha()
+        {
+            using (_PRF_GetCanvasGroupInvisibleAlpha.Auto())
+            {
+                return 0.0f;
+            }
+        }
+
+        public virtual float GetCanvasGroupVisibleAlpha()
+        {
+            using (_PRF_GetCanvasGroupVisibleAlpha.Auto())
+            {
+                return 1.0f;
+            }
+        }
 
         /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
@@ -88,6 +117,17 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                 );
 
                 initializer.Do(this, nameof(animationDuration), () => { animationDuration = .2f; });
+
+                initializer.Do(
+                    this,
+                    nameof(featureEnabledVisibilityMode),
+                    () => featureEnabledVisibilityMode = WidgetVisibilityMode.Visible
+                );
+                initializer.Do(
+                    this,
+                    nameof(featureDisabledVisibilityMode),
+                    () => featureDisabledVisibilityMode = WidgetVisibilityMode.NotVisible
+                );
             }
         }
 
@@ -172,6 +212,12 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         }
 
         #region Profiling
+
+        protected static readonly ProfilerMarker _PRF_GetCanvasGroupInvisibleAlpha =
+            new ProfilerMarker(_PRF_PFX + nameof(GetCanvasGroupInvisibleAlpha));
+
+        protected static readonly ProfilerMarker _PRF_GetCanvasGroupVisibleAlpha =
+            new ProfilerMarker(_PRF_PFX + nameof(GetCanvasGroupVisibleAlpha));
 
         private static readonly ProfilerMarker _PRF_RefreshAndUpdateComponentSet =
             new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdateComponentSet));

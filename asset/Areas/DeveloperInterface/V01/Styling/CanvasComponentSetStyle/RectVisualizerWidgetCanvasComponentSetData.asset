@@ -51,7 +51,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
-    disableUpdatesForRootCanvas: 0
+    disableUpdates: 0
+    disablePositionUpdates: 0
     _left: 0
     _posX: 0
     _top: 0
@@ -141,14 +142,14 @@ MonoBehaviour:
       _initial: 0
       _value: 0
     pixelPerfect:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 1
     overrideSorting:
       _overriding: 1
       _objectId:
@@ -168,7 +169,7 @@ MonoBehaviour:
       _initial: 0
       _value: 9999
     additionalShaderChannels:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0

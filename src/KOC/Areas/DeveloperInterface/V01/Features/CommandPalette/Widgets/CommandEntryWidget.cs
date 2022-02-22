@@ -1,9 +1,9 @@
 using Appalachia.Core.Attributes;
-using Appalachia.Core.Events;
-using Appalachia.Core.Events.Extensions;
+using Appalachia.Utility.Events;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using TMPro;

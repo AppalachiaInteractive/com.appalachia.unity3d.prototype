@@ -1,6 +1,6 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.UI.Controls.Sets.MultiPartSubsetWithCanvas;
+using Appalachia.UI.Controls.Sets.MultiPart.MultiPartSubsetWithCanvas;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Components.Subsets;
 using UnityEngine;

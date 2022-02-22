@@ -1,6 +1,6 @@
 using System;
 using Appalachia.Prototype.KOC.Lifetime;
-using Appalachia.UI.Controls.Sets.RawImage;
+using Appalachia.UI.Controls.Sets.Images.RawImage;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;

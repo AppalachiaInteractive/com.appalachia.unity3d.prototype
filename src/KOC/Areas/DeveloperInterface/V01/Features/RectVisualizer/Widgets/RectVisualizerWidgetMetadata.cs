@@ -1,5 +1,5 @@
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
-using Appalachia.UI.Controls.Sets.RawImage;
+using Appalachia.UI.Controls.Sets.Images.RawImage;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Widgets
 {

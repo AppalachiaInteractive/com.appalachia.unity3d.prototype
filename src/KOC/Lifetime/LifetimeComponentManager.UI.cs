@@ -1,6 +1,6 @@
 using Appalachia.CI.Constants;
-using Appalachia.UI.Controls.Sets.Background;
-using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
+using Appalachia.UI.Controls.Sets.Images.Background;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -19,6 +19,8 @@ namespace Appalachia.Prototype.KOC.Lifetime
             REFERENCE_RESOLUTION_WIDTH,
             REFERENCE_RESOLUTION_HEIGHT
         );
+
+        public static readonly Vector2 SCREEN_CENTER = REFERENCE_RESOLUTION * .5F;
 
         private const string GROUP_UI = GROUP_BASE + PARENT_NAME_UI;
 

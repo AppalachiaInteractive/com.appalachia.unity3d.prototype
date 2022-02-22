@@ -145,7 +145,14 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
             await AppaTask.WaitUntil(() => metadata != null);
 
-            using (_PRF_WhenEnabled.Auto())
+            name = GetType().Name;
+        }
+
+        protected override async AppaTask AfterEnabled()
+        {
+            await base.AfterEnabled();
+
+            using (_PRF_AfterEnabled.Auto())
             {
                 metadata.UpdateFunctionality(this as TFunctionality);
             }

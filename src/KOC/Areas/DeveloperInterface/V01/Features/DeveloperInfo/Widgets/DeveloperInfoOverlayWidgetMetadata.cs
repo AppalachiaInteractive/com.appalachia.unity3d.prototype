@@ -17,9 +17,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
     {
         #region Fields and Autoproperties
 
+        [PropertyRange(0f, 1f)]
+        [PropertyOrder(1000)]
+        [OnValueChanged(nameof(OnChanged))]
+        public float alpha;
+
+        [FoldoutGroup("Header")]
+        [OnValueChanged(nameof(OnChanged))]
+        public RectTransformData headerRect;
+
+        [FoldoutGroup("Header")]
         [OnValueChanged(nameof(OnChanged))]
         public ImageData headerImage;
 
+        [FoldoutGroup("Header")]
         [OnValueChanged(nameof(OnChanged))]
         public LayoutElementData headerLayout;
 
@@ -31,11 +42,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         [OnValueChanged(nameof(OnChanged))]
         public DeveloperInfoTextMeshData developerInfoTextMesh;
 
+        [FormerlySerializedAs("verticalLayoutGroupData")]
         [FormerlySerializedAs("layoutData")]
         [OnValueChanged(nameof(OnChanged))]
-        public VerticalLayoutGroupData verticalLayoutGroupData;
+        public VerticalLayoutGroupData verticalLayoutGroup;
 
         #endregion
+
+        public override float GetCanvasGroupVisibleAlpha()
+        {
+            using (_PRF_GetCanvasGroupVisibleAlpha.Auto())
+            {
+                return alpha;
+            }
+        }
 
         /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
@@ -44,6 +64,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
             using (_PRF_Initialize.Auto())
             {
+                initializer.Do(this, nameof(alpha), () => alpha = .5f);
+
                 initializer.Do(
                     this,
                     nameof(types),
@@ -79,10 +101,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
             {
                 base.SubscribeResponsiveComponents(target);
 
+                headerRect.Changed.Event += OnChanged;
                 headerImage.Changed.Event += OnChanged;
                 headerLayout.Changed.Event += OnChanged;
                 developerInfoTextMesh.Changed.Event += OnChanged;
-                verticalLayoutGroupData.Changed.Event += OnChanged;
+                verticalLayoutGroup.Changed.Event += OnChanged;
             }
         }
 
@@ -124,6 +147,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                     textMesh.data = developerInfoTextMesh;
                     textMesh.currentCalculation = type;
 
+                    var maxPreferredHeight = Mathf.Max(textMesh.textMeshValue.preferredHeight,
+                        textMesh.textMeshLabel.preferredHeight);
+                    
+                    textMesh.layoutElement.minHeight = maxPreferredHeight;
+                    textMesh.layoutElement.preferredHeight = maxPreferredHeight;
+
                     DeveloperInfoTextMeshData.RefreshAndUpdateComponent(
                         ref developerInfoTextMesh,
                         this,
@@ -137,17 +166,24 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                 }
 
                 widget.headerImage.gameObject.GetOrAddComponent(ref widget.headerLayout);
-                widget.headerImage.transform.SetSiblingIndex(1);
+
+                var roundedBackgroundIndex = widget.roundedBackground.GameObject.transform.GetSiblingIndex();
+                widget.headerImage.transform.SetSiblingIndex(roundedBackgroundIndex + 1);
+
+                RectTransformData.RefreshAndUpdateComponent(ref headerRect, this, widget.headerRect);
 
                 ImageData.RefreshAndUpdateComponent(ref headerImage, this, widget.headerImage);
 
                 LayoutElementData.RefreshAndUpdateComponent(ref headerLayout, this, widget.headerLayout);
 
                 VerticalLayoutGroupData.RefreshAndUpdateComponent(
-                    ref verticalLayoutGroupData,
+                    ref verticalLayoutGroup,
                     this,
                     widget.verticalLayoutGroup
                 );
+
+                canvas.Value.CanvasGroup.Value.alpha.Overriding = false;
+                widget.canvas.CanvasGroup.alpha = alpha;
             }
         }
     }

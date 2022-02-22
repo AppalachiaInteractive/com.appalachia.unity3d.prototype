@@ -65,7 +65,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         {
             using (_PRF_OnOpenCommandPalette.Auto())
             {
-                _commandPalette.ShowFeature().Forget();
+                _commandPalette.EnableFeature().Forget();
             }
         }
 
@@ -83,7 +83,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         {
             using (_PRF_OnToggleActivityBar.Auto())
             {
-                _activityBar.ToggleVisibility().Forget();
+                _activityBar.ToggleFeature().Forget();
             }
         }
 
@@ -108,7 +108,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         {
             using (_PRF_OnToggleMenuBar.Auto())
             {
-                _menuBar.ToggleVisibility().Forget();
+                _menuBar.ToggleFeature().Forget();
             }
         }
 
@@ -117,7 +117,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         {
             using (_PRF_OnTogglePanel.Auto())
             {
-                _panel.ToggleVisibility().Forget();
+                _panel.ToggleFeature().Forget();
             }
         }
 
@@ -126,7 +126,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         {
             using (_PRF_OnToggleSideBar.Auto())
             {
-                _sideBar.ToggleVisibility().Forget();
+                _sideBar.ToggleFeature().Forget();
             }
         }
 
@@ -135,7 +135,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         {
             using (_PRF_OnToggleStatusBar.Auto())
             {
-                _statusBar.ToggleVisibility().Forget();
+                _statusBar.ToggleFeature().Forget();
             }
         }
 

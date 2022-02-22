@@ -53,8 +53,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af43b0c82d1fc7449a3d91ed8433e310, type: 2}
   - {fileID: 11400000, guid: a287b78bb38ee1041a65ea7fa650d892, type: 2}
   - {fileID: 11400000, guid: 9cbaf22259afff24fb92806b4a2926dc, type: 2}
+  - {fileID: 11400000, guid: 9a3cb34b1c3671e4e8b467d6cf72ee95, type: 2}
   _font: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
-  _autoSize: 0
+  _autoFontSize: 0
+  _autoContainerSize: 0
   _fontSize: 16
   _fontRange: {x: 8, y: 72}
   _fontWeight: 400

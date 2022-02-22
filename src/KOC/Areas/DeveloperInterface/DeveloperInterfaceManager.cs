@@ -2,7 +2,7 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Input;
 using Appalachia.UI.Controls.Extensions;
-using Appalachia.UI.Controls.Sets.UnscaledCanvas;
+using Appalachia.UI.Controls.Sets.Canvases.UnscaledCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;
@@ -39,6 +39,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
                     gameObject,
                     "Root Canvas Unscaled"
                 );
+
+                unscaledCanvas.isSortingDisabled = true;
 
 #if UNITY_EDITOR
                 InitializeEditor(initializer, areaObjectName);

@@ -1,4 +1,4 @@
-using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
 
 namespace Appalachia.Prototype.KOC.Areas
 {

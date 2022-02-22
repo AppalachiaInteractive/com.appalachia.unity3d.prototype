@@ -133,6 +133,14 @@ MonoBehaviour:
     m_Address: CursorWidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 96cfb70c3b407c149a50f75da3c48927
+    m_Address: DeveloperTooltipFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8b76776bff220ed429ca2da5f3b702e8
+    m_Address: DeveloperTooltipWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

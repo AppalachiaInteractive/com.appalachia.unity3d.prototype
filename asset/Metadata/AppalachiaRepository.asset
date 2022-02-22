@@ -531,6 +531,28 @@ MonoBehaviour:
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Widgets.StatusBar
       editorAsset: {fileID: 11400000, guid: 90697a160d2b55447bb496d78a7b2d93, type: 2}
     - _assetReference:
+        m_AssetGUID: 96cfb70c3b407c149a50f75da3c48927
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperTooltip.DeveloperTooltipFeatureMetadata
+      _typeName: DeveloperTooltipFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperTooltip
+      editorAsset: {fileID: 11400000, guid: 96cfb70c3b407c149a50f75da3c48927, type: 2}
+    - _assetReference:
+        m_AssetGUID: 8b76776bff220ed429ca2da5f3b702e8
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperTooltip.Widgets.DeveloperTooltipWidgetMetadata
+      _typeName: DeveloperTooltipWidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperTooltip.Widgets
+      editorAsset: {fileID: 11400000, guid: 8b76776bff220ed429ca2da5f3b702e8, type: 2}
+    - _assetReference:
         m_AssetGUID: 4a128e515e4776f409543bb3d500bcd3
         m_SubObjectName: 
         m_SubObjectType: 
@@ -1537,26 +1559,6 @@ MonoBehaviour:
       _typeNamespace: 
       editorAsset: {fileID: 0}
     - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
         m_AssetGUID: 68b043d43433e3f4eae459df5794a88a
         m_SubObjectName: 
         m_SubObjectType: 
@@ -1579,7 +1581,7 @@ MonoBehaviour:
       _typeNamespace: 
       editorAsset: {fileID: 0}
     noTracking: 0
-    _count: 113
+    _count: 115
   _editorSingletons:
     _capacityIncreaseMultiplier: 2
     _values:
@@ -1750,6 +1752,17 @@ MonoBehaviour:
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.SceneInfoStatusBarEntryMetadata
+      _typeName: SceneInfoStatusBarEntryMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries
+      editorAsset: {fileID: 11400000, guid: 1a5b7d9481ecf844d8d91102f920f075, type: 2}
+    - _assetReference:
+        m_AssetGUID: 
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Simulation.Trees.Editor, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
       _typeFullName: Appalachia.Simulation.Trees.Snapshot.SnapshotShaders
@@ -1913,15 +1926,5 @@ MonoBehaviour:
       _typeName: 
       _typeNamespace: 
       editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
     noTracking: 0
-    _count: 23
+    _count: 24

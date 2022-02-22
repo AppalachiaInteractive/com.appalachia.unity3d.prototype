@@ -1,5 +1,5 @@
-using Appalachia.Core.Events;
-using Appalachia.Core.Events.Extensions;
+using Appalachia.Utility.Events;
+using Appalachia.Utility.Events.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 

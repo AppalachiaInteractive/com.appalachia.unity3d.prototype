@@ -1,12 +1,12 @@
 using System;
-using Appalachia.Core.Events;
-using Appalachia.Core.Events.Collections;
-using Appalachia.Core.Events.Extensions;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Core.Objects.Sets;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Events;
+using Appalachia.Utility.Events.Collections;
+using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions.Debugging;
 using Unity.Profiling;
 using UnityEngine;
@@ -78,6 +78,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         {
             using (_PRF_SubscribeForUpdates.Auto())
             {
+                _delegates ??= new();
                 _delegates.Subscribe(functionality, ref Updated, delegateCreator);
 
                 if (Updated.SubscriberCount == 0)
@@ -97,6 +98,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         {
             using (_PRF_UnsubscribeFromUpdates.Auto())
             {
+                _delegates ??= new();
                 _delegates.Unsubscribe(functionality, ref Updated);
             }
         }
@@ -123,6 +125,11 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
                 {
                     void SubscribableDelegate()
                     {
+                        if (functionality == null)
+                        {
+                            return;
+                        }
+
                         ExecuteUpdateFunctionalityInternal(functionality);
                     }
 

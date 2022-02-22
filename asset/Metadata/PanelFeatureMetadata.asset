@@ -22,5 +22,4 @@ MonoBehaviour:
     _machine: 0
     _timestamp: 0
     _pid: 0
-  startsEnabled: 1
-  startsVisible: 0
+  startsEnabled: 0

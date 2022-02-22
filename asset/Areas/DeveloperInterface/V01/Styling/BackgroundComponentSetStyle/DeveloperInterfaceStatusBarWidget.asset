@@ -51,7 +51,8 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    disableUpdatesForRootCanvas: 0
+    disableUpdates: 0
+    disablePositionUpdates: 0
     _left: 0
     _posX: 0
     _top: 0
@@ -322,7 +323,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -397,59 +399,25 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _initializer:
-        _tags: []
-        _resetToken: 
-      _owner: {fileID: 0}
-      _objectId:
-        _increment: 0
-        _machine: 0
-        _timestamp: 0
-        _pid: 0
-      data1:
+      data4:
         _initializer:
           _tags:
-          - material
-          - color
-          - raycastTarget
-          - maskable
-          - sprite
-          - imageType
-          - preserveAspect
-          - fillCenter
-          - fillMethod
-          - fillAmount
-          - fillClockwise
-          - fillOrigin
-          - alphaHitTestMinimumThreshold
-          - useSpriteMesh
-          - pixelsPerUnitMultiplier
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
           _resetToken: 
-        _owner: {fileID: 0}
+        _owner: {fileID: 11400000}
         _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
-        material:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: {fileID: 0}
-          _value: {fileID: 0}
-        color:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
-        raycastTarget:
+          _increment: 2721216
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
           _overriding: 0
           _objectId:
             _increment: 0
@@ -458,211 +426,62 @@ MonoBehaviour:
             _pid: 0
           _initial: 0
           _value: 0
-        maskable:
+        minWidth:
           _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: 0
-          _value: 0
-        sprite:
+          _initial: -1
+          _value: -1
+        minHeight:
           _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {fileID: 0}
-          _value: {fileID: 0}
-        imageType:
+          _initial: -1
+          _value: -1
+        preferredWidth:
           _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: 0
-          _value: 0
-        preserveAspect:
+          _initial: -1
+          _value: -1
+        preferredHeight:
           _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: 0
-          _value: 0
-        fillCenter:
+          _initial: -1
+          _value: -1
+        flexibleWidth:
           _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: 0
-          _value: 0
-        fillMethod:
+          _initial: -1
+          _value: -1
+        flexibleHeight:
           _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: 0
-          _value: 0
-        fillAmount:
+          _initial: -1
+          _value: -1
+        layoutPriority:
           _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: 0
-          _value: 0
-        fillClockwise:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: 0
-          _value: 0
-        fillOrigin:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: 0
-          _value: 0
-        alphaHitTestMinimumThreshold:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: 0
-          _value: 0
-        useSpriteMesh:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: 0
-          _value: 0
-        pixelsPerUnitMultiplier:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: 0
-          _value: 0
-      data2:
-        _initializer:
-          _tags:
-          - anchorMin
-          - anchorMax
-          - anchoredPosition
-          - localScale
-          - offsetMin
-          - offsetMax
-          - pivot
-          - localRotation
-          - sizeDelta
-          - _left
-          - _posX
-          - _top
-          - _posY
-          - _posZ
-          - _right
-          - _width
-          - _bottom
-          - _height
-          - _pivot
-          _resetToken: 
-        _owner: {fileID: 0}
-        _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
-        disableUpdatesForRootCanvas: 0
-        _left: 0
-        _posX: 0
-        _top: 0
-        _posY: 0
-        _posZ: 0
-        _right: 0
-        _width: 0
-        _bottom: 0
-        _height: 0
-        anchorMin:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: {x: 0, y: 0}
-          _value: {x: 0, y: 0}
-        anchorMax:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: {x: 0, y: 0}
-          _value: {x: 0, y: 0}
-        pivot:
-          _overriding: 1
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: {x: 0.5, y: 0.5}
-          _value: {x: 0.5, y: 0.5}
-        localScale:
-          _overriding: 0
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: {x: 0, y: 0, z: 0}
-          _value: {x: 0, y: 0, z: 0}
-        localRotation:
-          _overriding: 1
-          _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
-          _initial: {x: 0, y: 0, z: 0, w: 1}
-          _value: {x: 0, y: 0, z: 0, w: 1}
-      data3:
-        _initializer:
-          _tags:
-          - cullTransparentMesh
-          _resetToken: 
-        _owner: {fileID: 0}
-        _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
-        cullTransparentMesh:
-          _overriding: 1
           _objectId:
             _increment: 0
             _machine: 0
@@ -868,7 +687,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -936,6 +756,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721217
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -1141,7 +1051,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -1209,6 +1120,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721218
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -1414,7 +1415,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -1482,6 +1484,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721219
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -1687,7 +1779,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -1755,6 +1848,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721220
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -1960,7 +2143,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -2028,6 +2212,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721221
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -2233,7 +2507,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -2301,6 +2576,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721222
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -2506,7 +2871,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -2574,6 +2940,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721223
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -2779,7 +3235,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -2847,6 +3304,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721224
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -3052,7 +3599,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -3120,6 +3668,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721225
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -3325,7 +3963,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -3393,6 +4032,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721226
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -3598,7 +4327,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -3666,6 +4396,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721227
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -3871,7 +4691,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -3939,6 +4760,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721228
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -4144,7 +5055,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -4212,6 +5124,96 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721229
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0
@@ -4417,7 +5419,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        disableUpdatesForRootCanvas: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
         _left: 0
         _posX: 0
         _top: 0
@@ -4485,6 +5488,460 @@ MonoBehaviour:
           _pid: 0
         cullTransparentMesh:
           _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721230
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+    - _initializer:
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      data1:
+        _initializer:
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        material:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {r: 0, g: 0, b: 0, a: 0}
+          _value: {r: 0, g: 0, b: 0, a: 0}
+        raycastTarget:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        fillCenter:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        fillMethod:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        fillAmount:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        fillClockwise:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        fillOrigin:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+      data2:
+        _initializer:
+          _tags:
+          - anchorMin
+          - anchorMax
+          - anchoredPosition
+          - localScale
+          - offsetMin
+          - offsetMax
+          - pivot
+          - localRotation
+          - sizeDelta
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - _pivot
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0}
+          _value: {x: 0, y: 0, z: 0}
+        localRotation:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      data3:
+        _initializer:
+          _tags:
+          - cullTransparentMesh
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        cullTransparentMesh:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      data4:
+        _initializer:
+          _tags:
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 2721231
+          _machine: 14129406
+          _timestamp: 1645477800
+          _pid: -8016
+        ignoreLayout:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        minWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        minHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        preferredHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleWidth:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        flexibleHeight:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+          _value: -1
+        layoutPriority:
+          _overriding: 0
           _objectId:
             _increment: 0
             _machine: 0

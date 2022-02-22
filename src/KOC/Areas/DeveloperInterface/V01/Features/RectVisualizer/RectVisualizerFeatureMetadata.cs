@@ -18,6 +18,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         public float globalAlpha;
 
         [BoxGroup("Modifiers")] public OverridableColor inactive;
+        [BoxGroup("General")] public OverridableColor rectTransform;
         [BoxGroup("Canvas")] public OverridableColor canvas;
         [BoxGroup("Canvas")] public OverridableColor screenSpace;
         [BoxGroup("Canvas")] public OverridableColor worldSpace;
@@ -70,6 +71,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     nameof(inactive),
                     inactive == default,
                     () => { inactive = new OverridableColor(true, Colors.White.ScaleA(.25f)); }
+                );
+
+                initializer.Do(
+                    this,
+                    nameof(rectTransform),
+                    rectTransform == default,
+                    () => { rectTransform = new OverridableColor(true, Colors.PaleTurquoise4); }
                 );
 
                 initializer.Do(
@@ -258,6 +266,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
                 inactive.Changed.Event += OnChanged;
+                rectTransform.Changed.Event += OnChanged;
                 canvas.Changed.Event += OnChanged;
                 screenSpace.Changed.Event += OnChanged;
                 worldSpace.Changed.Event += OnChanged;

@@ -6,6 +6,7 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperIn
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -17,6 +18,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         DeveloperInfoFeatureMetadata>
     {
         #region Fields and Autoproperties
+
+        [FoldoutGroup("Components")]
+        [BoxGroup("Components/Header")]
+        public RectTransform headerRect;
 
         [FoldoutGroup("Components")]
         [BoxGroup("Components/Header")]
@@ -48,6 +53,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                 canvas.GameObject.GetOrAddComponent(ref verticalLayoutGroup);
 
                 canvas.GameObject.GetOrAddComponentInChild(ref headerImage, "Header");
+
+                headerImage.GetOrAddComponent(ref headerRect);
             }
         }
     }

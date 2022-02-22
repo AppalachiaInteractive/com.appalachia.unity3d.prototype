@@ -17,12 +17,17 @@ MonoBehaviour:
   _initializer:
     _tags:
     - RawImageCanvasComponentSetStyle
+    - startsEnabled
+    - featureEnabledExecutionMode
+    - featureDisabledExecutionMode
     _resetToken: 
   _objectId:
     _increment: 0
     _machine: 0
     _timestamp: 0
     _pid: 0
+  featureEnabledExecutionMode: 1
+  featureDisabledExecutionMode: 1
   cameraData:
     _initializer:
       _tags:

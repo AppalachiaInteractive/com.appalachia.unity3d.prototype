@@ -248,6 +248,8 @@ namespace Appalachia.Prototype.KOC
 
             using (_PRF_Initialize.Auto())
             {
+                AppalachiaApplication.InitializeApplication();
+                
                 try
                 {
                     if (!_hasStarted)
@@ -314,6 +316,14 @@ namespace Appalachia.Prototype.KOC
                 _lifetimeComponentManager.transform.SetSiblingIndex(1);
 
                 DontDestroyOnLoadSafe();
+
+#if UNITY_EDITOR
+                if (AppalachiaApplication.IsPlaying)
+                {
+                    AppalachiaApplication.Editor.ExitingPlayMode.Event +=
+                        AppalachiaApplication.Editor.ForceRecompile;
+                }
+#endif
             }
         }
 

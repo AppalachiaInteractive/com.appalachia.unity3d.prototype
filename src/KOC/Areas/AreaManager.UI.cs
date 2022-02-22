@@ -1,5 +1,5 @@
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.RootCanvas;
+using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;

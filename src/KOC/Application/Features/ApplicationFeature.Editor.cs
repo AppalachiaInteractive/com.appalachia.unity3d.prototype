@@ -78,18 +78,6 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
-        [ButtonGroup(APPASTR.Hide)]
-        [GUIColor(nameof(EnableColor))]
-        [PropertyOrder(-2)]
-        [LabelText(APPASTR.Show)]
-        private void ShowFeatureButton()
-        {
-            using (_PRF_ShowFeatureButton.Auto())
-            {
-                ShowFeature().Forget();
-            }
-        }
-
         #region Profiling
 
         private static readonly ProfilerMarker _PRF_DisableFeatureButton =
@@ -103,9 +91,6 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         private static readonly ProfilerMarker _PRF_JumpToWidgetsButton =
             new ProfilerMarker(_PRF_PFX + nameof(JumpToWidgetsButton));
-
-        private static readonly ProfilerMarker _PRF_ShowFeatureButton =
-            new ProfilerMarker(_PRF_PFX + nameof(ShowFeatureButton));
 
         #endregion
     }

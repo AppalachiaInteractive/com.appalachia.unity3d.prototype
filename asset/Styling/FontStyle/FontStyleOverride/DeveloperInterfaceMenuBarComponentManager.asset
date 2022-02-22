@@ -40,7 +40,16 @@ MonoBehaviour:
       _pid: 0
     _initial: 0
     _value: 16
-  _autoSize:
+  _autoFontSize:
+    _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initial: 0
+    _value: 0
+  _autoContainerSize:
     _overriding: 0
     _objectId:
       _increment: 0

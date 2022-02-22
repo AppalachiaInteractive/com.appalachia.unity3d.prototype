@@ -25,9 +25,9 @@ namespace Appalachia.Prototype.KOC.Application.Features
     {
         #region Fields and Autoproperties
 
-        [BoxGroup("Startup")] public bool startsEnabled;
-
-        [BoxGroup("Startup")] public bool startsVisible;
+        [BoxGroup("Startup")] 
+        [OnValueChanged(nameof(OnChanged))]
+        public bool startsEnabled;
 
         #endregion
     }

@@ -5,6 +5,7 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Models;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Drawing;
 using Sirenix.OdinInspector;
@@ -148,8 +149,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         private async AppaTask Run()
         {
-            while (enabled)
+            while (!AppalachiaApplication.IsQuitting && enabled)
             {
+                if (ShouldSkipUpdate)
+                {
+                    await metadata.updates.Delay();
+                }
+                
                 await UpdateTargets();
                 await metadata.updates.Delay();
             }
@@ -166,7 +172,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                 doReturn = false;
                 doContinue = false;
 
-                if (!enabled || ShouldSkipUpdate)
+                if (ShouldSkipUpdate || !enabled)
                 {
                     doReturn = true;
                     return;

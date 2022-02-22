@@ -1,4 +1,4 @@
-using Appalachia.UI.Controls.Sets.Canvas;
+using Appalachia.UI.Controls.Sets.Canvases.Canvas;
 using Appalachia.UI.Core.Components.Data;
 
 namespace Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Sets.Simple

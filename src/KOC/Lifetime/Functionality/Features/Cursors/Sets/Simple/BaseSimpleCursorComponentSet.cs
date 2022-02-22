@@ -1,6 +1,6 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.UI.Controls.Sets.Canvas;
+using Appalachia.UI.Controls.Sets.Canvases.Canvas;
 using Appalachia.Utility.Extensions;
 using UnityEngine;
 using UnityEngine.UI;

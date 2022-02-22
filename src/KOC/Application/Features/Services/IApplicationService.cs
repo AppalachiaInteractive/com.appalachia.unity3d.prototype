@@ -4,6 +4,10 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
 {
     public interface IApplicationService : IApplicationFunctionality
     {
+        void DisableService();
+        void EnableService();
+        void DisableFeature();
+        void EnableFeature();
     }
 
     public interface IApplicationService<T> : IApplicationService
