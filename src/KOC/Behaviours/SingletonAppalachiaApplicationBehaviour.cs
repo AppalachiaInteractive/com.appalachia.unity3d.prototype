@@ -1,8 +1,8 @@
 using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Root;
+using Appalachia.Prototype.KOC.Application.Lifetime;
 using Appalachia.Prototype.KOC.Input;
-using Appalachia.Prototype.KOC.Lifetime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

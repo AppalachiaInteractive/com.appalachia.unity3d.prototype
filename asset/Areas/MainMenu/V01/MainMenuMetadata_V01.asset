@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - Doozy Graph
     - Doozy Canvas
@@ -233,4 +234,12 @@ MonoBehaviour:
     setEntrySceneActive: 0
   audio:
     mixerGroup: {fileID: 9011247449076656959, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
-  templates: {fileID: 11400000, guid: 3860939088c136b40bbdd2b44c61ba16, type: 2}
+  templates:
+    _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initial: {fileID: 0}
+    _value: {fileID: 0}

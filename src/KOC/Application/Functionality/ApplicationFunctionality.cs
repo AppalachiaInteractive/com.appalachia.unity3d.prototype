@@ -3,6 +3,7 @@ using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Availability;
+using Appalachia.Prototype.KOC.Application.Features.Availability.Contracts;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Reflection.Extensions;
@@ -77,7 +78,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
             internal set => _applyingMetadata = value;
         }
 
-        protected internal void OnDependencyChanged()
+        protected internal void OnRequiresUpdate()
         {
             using (_PRF_OnApplyMetadata.Auto())
             {
@@ -131,7 +132,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
             using (_PRF_WhenDisabled.Auto())
             {
-                metadata.Changed.Event -= OnDependencyChanged;
+                metadata.Changed.Event -= OnRequiresUpdate;
                 UnsubscribeFromAllFunctionalities();
             }
         }
@@ -181,7 +182,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
             new ProfilerMarker(_PRF_PFX + nameof(ApplyMetadata));
 
         protected static readonly ProfilerMarker _PRF_OnApplyMetadata =
-            new ProfilerMarker(_PRF_PFX + nameof(OnDependencyChanged));
+            new ProfilerMarker(_PRF_PFX + nameof(OnRequiresUpdate));
 
         protected static readonly ProfilerMarker _PRF_UnsubscribeFromAllFunctionalities =
             new ProfilerMarker(_PRF_PFX + nameof(UnsubscribeFromAllFunctionalities));

@@ -25,11 +25,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         #endregion
 
         /// <inheritdoc />
-        protected override void ApplyToComponentSet(DeveloperInfoTextMesh target)
+        protected override void ApplyToComponent(DeveloperInfoTextMesh target)
         {
-            using (_PRF_ApplyToComponentSet.Auto())
+            using (_PRF_ApplyToComponent.Auto())
             {
-                base.ApplyToComponentSet(target);
+                base.ApplyToComponent(target);
 
                 target.layoutElement.enabled = true;
 

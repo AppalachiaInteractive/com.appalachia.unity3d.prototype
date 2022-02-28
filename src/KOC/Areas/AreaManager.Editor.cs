@@ -22,10 +22,6 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Fields and Autoproperties
 
-        [SerializeField]
-        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Unscaled_Templates)]
-        protected DesignTemplateComponentSet unscaledTemplates;
-
         [FormerlySerializedAs("scaledTemplates")]
         [SerializeField]
         [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Scaled_Templates)]
@@ -84,8 +80,9 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                areaMetadata.UpdateComponentSet(
+                DesignTemplateComponentSetData.RefreshAndUpdateComponentSet(
                     ref areaMetadata.templates,
+                    false,
                     ref templates,
                     RootCanvas.ScaledCanvas.gameObject,
                     fullObjectName

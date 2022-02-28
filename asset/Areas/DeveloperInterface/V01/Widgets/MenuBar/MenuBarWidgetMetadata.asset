@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - FontStyleOverride
     - backgroundColor
@@ -47,6 +48,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -70,6 +72,7 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0
@@ -128,6 +131,7 @@ MonoBehaviour:
         _value: {x: 0, y: 0, z: 0, w: 1}
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -145,12 +149,13 @@ MonoBehaviour:
         - localScale
         - pivot
         _resetToken: 
-      _owner: {fileID: 0}
+      _owner: {fileID: 11400000}
       _objectId:
         _increment: 3571639
         _machine: 14129404
         _timestamp: 1644957441
         _pid: -14768
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0

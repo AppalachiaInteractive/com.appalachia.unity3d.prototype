@@ -3,6 +3,7 @@ using Appalachia.Core.Collections.NonSerialized;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Application.Features;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
+using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.UI.Controls.Components.Buttons;
 using Appalachia.UI.Controls.Components.Layout;
 using Appalachia.UI.Controls.Extensions;
@@ -77,7 +78,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 #if UNITY_EDITOR
                 isSelected = rectTransform.gameObject.IsSelected();
 #endif
-                rect = rectTransform.ToScreenSpace();
+                rect = rectTransform.GetScreenSpaceRect();
                 
                 _colorList.ClearFast();
 

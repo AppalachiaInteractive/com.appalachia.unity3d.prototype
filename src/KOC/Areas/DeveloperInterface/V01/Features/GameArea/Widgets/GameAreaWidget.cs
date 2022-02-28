@@ -1,12 +1,12 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling.Services;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.Functionality.Widgets.Models;
-using Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.Services;
 using Appalachia.UI.Controls.Components.Layout.Models;
 using Appalachia.Utility.Async;
 using UnityEngine;
@@ -143,11 +143,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
             {
                 base.UnsubscribeFromAllFunctionalities();
 
-                _activityBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _panelWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _sideBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                _activityBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
+                _menuBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
+                _panelWidget.VisualUpdate.Event -= OnRequiresUpdate;
+                _sideBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
+                _statusBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
             }
         }
 
@@ -158,11 +158,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
 
             using (_PRF_WhenEnabled.Auto())
             {
-                _activityBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _panelWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _sideBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _activityBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _menuBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _panelWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _sideBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _statusBarWidget.VisualUpdate.Event += OnRequiresUpdate;
             }
         }
     }

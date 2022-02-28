@@ -15,15 +15,17 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:
-    _increment: 0
-    _machine: 0
-    _timestamp: 0
-    _pid: 0
-  _rectTransformData:
+    _increment: 890416
+    _machine: 14129406
+    _timestamp: 1645800129
+    _pid: -8016
+  _rectTransform:
     _initializer:
+      _initializationCount: 0
       _tags:
       - anchorMin
       - anchorMax
@@ -49,6 +51,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
     _left: 0
@@ -107,6 +110,7 @@ MonoBehaviour:
       _value: {x: 0, y: 0, z: 0, w: 1}
   _canvasData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - renderMode
       - overridePixelPerfect
@@ -121,6 +125,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     renderMode:
       _overriding: 1
       _objectId:
@@ -184,6 +190,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - passiveMode
         - passiveFadeMode
@@ -201,6 +208,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       passiveMode: 0
       passiveFadeMode: 2
       updateAtStart: 1
@@ -212,6 +221,7 @@ MonoBehaviour:
       fadeOut: 2
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - passiveMode
         - passiveFadeMode
@@ -223,12 +233,14 @@ MonoBehaviour:
         - fadeOutDuration
         - fadeOut
         _resetToken: 
-      _owner: {fileID: 0}
+      _owner: {fileID: 11400000}
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       passiveMode: 0
       passiveFadeMode: 2
       updateAtStart: 1
@@ -247,6 +259,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - alpha
         - interactable
@@ -259,6 +272,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       alpha:
         _overriding: 1
         _objectId:
@@ -297,18 +312,21 @@ MonoBehaviour:
         _value: 0
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - alpha
         - interactable
         - blocksRaycasts
         - ignoreParentGroups
         _resetToken: 
-      _owner: {fileID: 0}
+      _owner: {fileID: 11400000}
       _objectId:
         _increment: 3571732
         _machine: 14129404
         _timestamp: 1644957442
         _pid: -14768
+      hideInInspector: 0
+      disableUpdates: 0
       alpha:
         _overriding: 0
         _objectId:
@@ -354,6 +372,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - ignoreReversedGraphics
         - blockingObjects
@@ -365,6 +384,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       ignoreReversedGraphics:
         _overriding: 1
         _objectId:
@@ -398,17 +419,20 @@ MonoBehaviour:
           m_Bits: 4294967295
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - ignoreReversedGraphics
         - blockingObjects
         - blockingMask
         _resetToken: 
-      _owner: {fileID: 0}
+      _owner: {fileID: 11400000}
       _objectId:
         _increment: 3571733
         _machine: 14129404
         _timestamp: 1644957442
         _pid: -14768
+      hideInInspector: 0
+      disableUpdates: 0
       ignoreReversedGraphics:
         _overriding: 1
         _objectId:

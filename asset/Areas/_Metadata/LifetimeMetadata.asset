@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - inputActionAsset
     - SingletonAppalachiaObjectLookup
@@ -27,12 +28,13 @@ MonoBehaviour:
     - CanvasComponentSetStyle
     _resetToken: 2021-12-14T20:34:03.6457917-05:00
   _objectId:
-    _increment: 0
-    _machine: 0
-    _timestamp: 0
-    _pid: 0
+    _increment: 890141
+    _machine: 14129406
+    _timestamp: 1645800114
+    _pid: -8016
   clearCameraData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - allowDynamicResolution
       - allowHDR
@@ -66,6 +68,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957438
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     clearFlags:
       _overriding: 1
       _objectId:

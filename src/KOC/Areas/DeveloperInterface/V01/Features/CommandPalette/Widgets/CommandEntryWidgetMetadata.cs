@@ -10,17 +10,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
     {
         #region Fields and Autoproperties
 
-        [BoxGroup(APPASTR.GroupNames.Dimensions)]
+        [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.3f, 0.5f)]
         public float width;
 
-        [BoxGroup(APPASTR.GroupNames.Dimensions)]
+        [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.02, 0.05f)]
         public float height;
 
-        [BoxGroup(APPASTR.GroupNames.Dimensions)]
+        [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.4f, 0.6f)]
         public float horizontalCenter;

@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: RectVisualizerFeatureMetadata
   _niceName: Rect Visualizer Feature Metadata
   _initializer:
+    _initializationCount: 0
     _tags:
     - inactive
     - canvas
@@ -50,9 +51,9 @@ MonoBehaviour:
     _machine: 14129404
     _timestamp: 1644957426
     _pid: -14768
-  startsEnabled: 1
+  startsEnabled: 0
   z: 1
-  globalAlpha: 0.15
+  globalAlpha: 0.25
   inactive:
     _overriding: 0
     _objectId:
@@ -108,7 +109,7 @@ MonoBehaviour:
     _initial: {r: 0, g: 0, b: 0, a: 0}
     _value: {r: 1, g: 0, b: 0.25, a: 1}
   selectable:
-    _overriding: 0
+    _overriding: 1
     _objectId:
       _increment: 0
       _machine: 0

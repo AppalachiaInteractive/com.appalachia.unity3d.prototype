@@ -127,9 +127,8 @@ namespace Appalachia.Prototype.KOC.Scenes
             if (_sceneReferences == null)
             {
                 _sceneReferences = new SceneReferenceList();
-#if UNITY_EDITOR
+
                 MarkAsModified();
-#endif
             }
 
             var areaName = name.Replace(ASI_PREFIX, string.Empty);
@@ -191,7 +190,7 @@ namespace Appalachia.Prototype.KOC.Scenes
                     entrySceneReference.MarkAsModified();
                 }
 
-                entrySceneReference.elements.SetSerializationOwner(entrySceneReference);
+                entrySceneReference.elements.Changed.Event += entrySceneReference.OnChanged;
 
                 var searchString = ZString.Format(SEARCH_FORMAT_STRING, areaName);
                 var sceneAssets = AssetDatabaseManager.FindAssets<UnityEditor.SceneAsset>(searchString)
@@ -228,7 +227,7 @@ namespace Appalachia.Prototype.KOC.Scenes
                     }
 
                     if ((sceneReferenceElement.sceneAsset != null) &&
-                        (sceneReferenceElement.reference?.Asset == null))
+                        (sceneReferenceElement.reference?.editorAsset == null))
                     {
                         sceneReferenceElement.SetSelection(sceneReferenceElement.sceneAsset);
                     }

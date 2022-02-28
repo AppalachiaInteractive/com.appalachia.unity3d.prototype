@@ -1,5 +1,5 @@
 using System;
-using Appalachia.Prototype.KOC.Lifetime;
+using Appalachia.Prototype.KOC.Application.Lifetime;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Pooling.Objects;
 using Drawing;
@@ -25,10 +25,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #endregion
 
-        public Vector3 BottomLeft => rect.BottomLeft();
-        public Vector3 BottomRight => rect.BottomRight();
-        public Vector3 TopLeft => rect.TopLeft();
-        public Vector3 TopRight => rect.TopRight();
+        public Vector3 BottomLeft => rect.GetBottomLeftCorner();
+        public Vector3 BottomRight => rect.GetBottomRightCorner();
+        public Vector3 TopLeft => rect.GetTopLeft();
+        public Vector3 TopRight => rect.GetTopRight();
 
         /// <inheritdoc />
         public override void Initialize()

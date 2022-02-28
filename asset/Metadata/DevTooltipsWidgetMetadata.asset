@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a909bdeb2b42d68a2f525d7ef847e9, type: 3}
+  m_Name: DevTooltipsWidgetMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _initializationCount: 8
+    _tags:
+    - FontStyleOverride
+    - animationDuration
+    - featureEnabledVisibilityMode
+    - featureDisabledVisibilityMode
+    - distanceFromTarget
+    - textPadding
+    - backgroundColor
+    - outlineColor
+    - outlineThickness
+    - direction
+    - showTriangle
+    - triangleSize
+    _resetToken: 
+  _objectId:
+    _increment: 12467233
+    _machine: 14129404
+    _timestamp: 1645645657
+    _pid: -8016
+  rectTransform:
+    _overriding: 1
+    _objectId:
+      _increment: 7083472
+      _machine: 14129406
+      _timestamp: 1645645761
+      _pid: -8016
+    _initial:
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 0}
+      _objectId:
+        _increment: 12467234
+        _machine: 14129404
+        _timestamp: 1645645657
+        _pid: -8016
+      hideInInspector: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+    _value:
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _objectId:
+        _increment: 12467235
+        _machine: 14129404
+        _timestamp: 1645645657
+        _pid: -8016
+      hideInInspector: 0
+      disableUpdates: 0
+      disablePositionUpdates: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+  canvas:
+    _overriding: 1
+    _objectId:
+      _increment: 7083812
+      _machine: 14129406
+      _timestamp: 1645645806
+      _pid: -8016
+    _initial: {fileID: 0}
+    _value: {fileID: 11400000, guid: df5ab33cfc36c244daf93323a1fa663e, type: 2}
+  background:
+    _overriding: 0
+    _objectId:
+      _increment: 7083897
+      _machine: 14129406
+      _timestamp: 1645645807
+      _pid: -8016
+    _initial: {fileID: 0}
+    _value: {fileID: 11400000, guid: 75701b93102a99c4ab04be8ed2a77a41, type: 2}
+  roundedBackground:
+    _overriding: 0
+    _objectId:
+      _increment: 7083998
+      _machine: 14129406
+      _timestamp: 1645645808
+      _pid: -8016
+    _initial: {fileID: 0}
+    _value: {fileID: 11400000, guid: 1da2a00f57845f444bf24f5af4a6bfdd, type: 2}
+  fontStyle: {fileID: 11400000, guid: a19202bfea2a08c4db21eb910774d592, type: 2}
+  featureEnabledVisibilityMode: 1
+  featureDisabledVisibilityMode: 2
+  transitionsWithFade: 0
+  animationDuration: 0.2
+  inUnscaledView: 1

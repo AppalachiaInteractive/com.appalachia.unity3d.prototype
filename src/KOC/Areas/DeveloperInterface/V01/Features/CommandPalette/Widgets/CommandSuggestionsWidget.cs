@@ -82,7 +82,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             {
                 base.UnsubscribeFromAllFunctionalities();
 
-                _commandEntryWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                _commandEntryWidget.VisualUpdate.Event -= OnRequiresUpdate;
             }
         }
 
@@ -93,13 +93,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
             using (_PRF_WhenEnabled.Auto())
             {
-                _commandEntryWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _commandEntryWidget.VisualUpdate.Event += OnRequiresUpdate;
                 _commandEntryWidget.CommandPaletteInputModified.Event += OnCommandEntryInputModified;
                 _commandEntryWidget.CommandPaletteInputSubmitted.Event += OnCommandEntryInputSubmitted;
             }
         }
 
-        private void OnCommandEntryInputModified(ValueEvent<string>.Args args)
+        private void OnCommandEntryInputModified(AppaEvent<string>.Args args)
         {
             using (_PRF_OnCommandPaletteInputModified.Auto())
             {
@@ -115,7 +115,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             }
         }
 
-        private void OnCommandEntryInputSubmitted(ValueEvent<string>.Args args)
+        private void OnCommandEntryInputSubmitted(AppaEvent<string>.Args args)
         {
             using (_PRF_OnCommandPaletteInputSubmitted.Auto())
             {

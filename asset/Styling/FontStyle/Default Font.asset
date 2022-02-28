@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:
@@ -54,6 +55,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a287b78bb38ee1041a65ea7fa650d892, type: 2}
   - {fileID: 11400000, guid: 9cbaf22259afff24fb92806b4a2926dc, type: 2}
   - {fileID: 11400000, guid: 9a3cb34b1c3671e4e8b467d6cf72ee95, type: 2}
+  - {fileID: 11400000, guid: 0d2b20aff5e50e84fbdb57e223d88f8d, type: 2}
+  - {fileID: 11400000, guid: a19202bfea2a08c4db21eb910774d592, type: 2}
   _font: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
   _autoFontSize: 0
   _autoContainerSize: 0
@@ -66,3 +69,4 @@ MonoBehaviour:
   _color: {r: 1, g: 1, b: 1, a: 1}
   _enableWordWrapping: 0
   _overflowMode: 0
+  _extraPadding: 1

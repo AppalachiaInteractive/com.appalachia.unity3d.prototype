@@ -15,7 +15,21 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
-    _tags: []
+    _initializationCount: 13
+    _tags:
+    - _font
+    - _fontSize
+    - _autoFontSize
+    - _autoContainerSize
+    - _fontRange
+    - _fontWeight
+    - _alignment
+    - _horizontalAlignment
+    - _verticalAlignment
+    - _color
+    - _enableWordWrapping
+    - _overflowMode
+    - _extraPadding
     _resetToken: 
   _objectId:
     _increment: 3571545
@@ -74,7 +88,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 400
+    _initial: 0
     _value: 400
   _alignment:
     _overriding: 0
@@ -83,7 +97,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 514
+    _initial: 0
     _value: 4098
   _horizontalAlignment:
     _overriding: 0
@@ -92,7 +106,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 2
+    _initial: 0
     _value: 2
   _verticalAlignment:
     _overriding: 0
@@ -101,7 +115,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 512
+    _initial: 0
     _value: 512
   _color:
     _overriding: 0
@@ -130,3 +144,12 @@ MonoBehaviour:
       _pid: 0
     _initial: 0
     _value: 0
+  _extraPadding:
+    _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initial: 0
+    _value: 1

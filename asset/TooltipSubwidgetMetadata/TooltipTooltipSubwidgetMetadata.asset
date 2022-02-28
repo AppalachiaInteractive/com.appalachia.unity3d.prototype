@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65544396049346efa8f7a6d53381f7ba, type: 3}
+  m_Name: TooltipTooltipSubwidgetMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _tags:
+    - direction
+    - distance
+    - padding
+    - FontStyleOverride
+    _resetToken: 
+  _objectId:
+    _increment: 10222360
+    _machine: 14129404
+    _timestamp: 1645649670
+    _pid: -8016
+  _devTooltip: {fileID: 11400000, guid: 50a22ca727425e44da03f67a08f9641d, type: 2}
+  direction: 1
+  distance: 20
+  padding: 20

@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: SceneReferenceElement_Game_V01
   _niceName: Scene Reference Element_Game_V01
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:

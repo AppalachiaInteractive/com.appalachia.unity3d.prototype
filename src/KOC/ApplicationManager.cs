@@ -1,10 +1,10 @@
 using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Lifetime;
 using Appalachia.Prototype.KOC.Application.State;
 using Appalachia.Prototype.KOC.Areas;
 using Appalachia.Prototype.KOC.Behaviours;
-using Appalachia.Prototype.KOC.Lifetime;
 using Appalachia.Prototype.KOC.Scenes;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
@@ -241,6 +241,13 @@ namespace Appalachia.Prototype.KOC
             }
         }
 
+        public void OnApplicationAreaStateLookupChanged()
+        {
+            using (_PRF_OnApplicationAreaStateLookupChanged.Auto())
+            {
+            }
+        }
+
         /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
@@ -249,7 +256,7 @@ namespace Appalachia.Prototype.KOC
             using (_PRF_Initialize.Auto())
             {
                 AppalachiaApplication.InitializeApplication();
-                
+
                 try
                 {
                     if (!_hasStarted)
@@ -291,7 +298,7 @@ namespace Appalachia.Prototype.KOC
                     _areaStates = ApplicationAreaStateCollection.CreateNew(this);
                 }
 
-                _areaStates.Areas.SetSerializationOwner(this);
+                _areaStates.Areas.Changed.Event += OnChanged;
                 _areaStates.Initialize(this);
 
                 if (AppalachiaApplication.IsPlaying)
@@ -379,6 +386,9 @@ namespace Appalachia.Prototype.KOC
 
         private static readonly ProfilerMarker _PRF_GetAreaInfo =
             new ProfilerMarker(_PRF_PFX + nameof(GetAreaInfo));
+
+        private static readonly ProfilerMarker _PRF_OnApplicationAreaStateLookupChanged =
+            new ProfilerMarker(_PRF_PFX + nameof(OnApplicationAreaStateLookupChanged));
 
         private static readonly ProfilerMarker _PRF_SceneLoad_SetActive =
             new ProfilerMarker(_PRF_PFX + nameof(SceneLoad_SetActive));

@@ -1,5 +1,5 @@
 using System;
-using Appalachia.Prototype.KOC.Lifetime;
+using Appalachia.Prototype.KOC.Application.Lifetime;
 using Appalachia.UI.Controls.Sets.Images.RawImage;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.Utility.Async;
@@ -126,9 +126,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
                         24
                     );
                     cam.targetTexture = _renderTexture;
-
-                    await AppaTask.CompletedTask;
                 }
+
+                await AppaTask.CompletedTask;
             }
 
             public void OnPreCull()

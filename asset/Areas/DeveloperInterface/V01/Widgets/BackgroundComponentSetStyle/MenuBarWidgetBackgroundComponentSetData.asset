@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: MenuBarWidgetBackgroundComponentSetData
   _niceName: Menu Bar Widget Background Component Set Data
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:
@@ -22,8 +23,9 @@ MonoBehaviour:
     _machine: 14129404
     _timestamp: 1645121945
     _pid: -14768
-  _rectTransformData:
+  _rectTransform:
     _initializer:
+      _initializationCount: 0
       _tags:
       - anchorMin
       - anchorMax
@@ -49,6 +51,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
     _left: 0
@@ -109,7 +112,9 @@ MonoBehaviour:
     _capacityIncreaseMultiplier: 2
     _values:
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 11400000}
       _objectId:
@@ -117,8 +122,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -142,6 +149,8 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1644957441
           _pid: -14768
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -279,6 +288,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -304,6 +314,7 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1644957441
           _pid: -14768
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -362,6 +373,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -371,6 +383,8 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1644957441
           _pid: -14768
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -382,6 +396,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -398,6 +413,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -471,7 +488,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 11400000}
       _objectId:
@@ -479,8 +498,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -504,6 +525,8 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1644957441
           _pid: -14768
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -641,6 +664,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - _left
           - _posX
@@ -664,6 +688,7 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1644957441
           _pid: -14768
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 2
@@ -722,6 +747,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -731,6 +757,8 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1644957441
           _pid: -14768
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -742,6 +770,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -758,6 +787,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -831,7 +862,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -839,8 +872,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -864,6 +899,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -1001,6 +1038,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -1026,6 +1064,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -1084,6 +1123,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -1093,6 +1133,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -1104,6 +1146,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -1120,6 +1163,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -1193,7 +1238,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -1201,8 +1248,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -1226,6 +1275,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -1363,6 +1414,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -1388,6 +1440,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -1446,6 +1499,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -1455,6 +1509,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -1466,6 +1522,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -1482,6 +1539,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -1555,7 +1614,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -1563,8 +1624,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -1588,6 +1651,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -1725,6 +1790,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -1750,6 +1816,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -1808,6 +1875,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -1817,6 +1885,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -1828,6 +1898,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -1844,6 +1915,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -1917,7 +1990,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -1925,8 +2000,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -1950,6 +2027,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -2087,6 +2166,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -2112,6 +2192,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -2170,6 +2251,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -2179,6 +2261,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -2190,6 +2274,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -2206,6 +2291,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -2279,7 +2366,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -2287,8 +2376,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -2312,6 +2403,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -2449,6 +2542,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -2474,6 +2568,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -2532,6 +2627,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -2541,6 +2637,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -2552,6 +2650,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -2568,6 +2667,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -2641,7 +2742,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -2649,8 +2752,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -2674,6 +2779,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -2811,6 +2918,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -2836,6 +2944,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -2894,6 +3003,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -2903,6 +3013,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -2914,6 +3026,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -2930,6 +3043,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -3003,7 +3118,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -3011,8 +3128,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -3036,6 +3155,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -3173,6 +3294,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -3198,6 +3320,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -3256,6 +3379,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -3265,6 +3389,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -3276,6 +3402,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -3292,6 +3419,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -3365,7 +3494,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -3373,8 +3504,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -3398,6 +3531,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -3535,6 +3670,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -3560,6 +3696,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -3618,6 +3755,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -3627,6 +3765,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -3638,6 +3778,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -3654,6 +3795,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -3727,7 +3870,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -3735,8 +3880,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -3760,6 +3907,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -3897,6 +4046,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -3922,6 +4072,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -3980,6 +4131,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -3989,6 +4141,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -4000,6 +4154,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -4016,6 +4171,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -4089,7 +4246,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -4097,8 +4256,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -4122,6 +4283,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -4259,6 +4422,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -4284,6 +4448,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -4342,6 +4507,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -4351,6 +4517,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -4362,6 +4530,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -4378,6 +4547,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -4451,7 +4622,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -4459,8 +4632,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -4484,6 +4659,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -4621,6 +4798,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -4646,6 +4824,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -4704,6 +4883,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -4713,6 +4893,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -4724,6 +4906,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -4740,6 +4923,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -4813,7 +4998,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -4821,8 +5008,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -4846,6 +5035,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -4983,6 +5174,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -5008,6 +5200,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -5066,6 +5259,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -5075,6 +5269,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -5086,6 +5282,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -5102,6 +5299,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -5175,7 +5374,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -5183,8 +5384,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -5208,6 +5411,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -5345,6 +5550,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -5370,6 +5576,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -5428,6 +5635,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -5437,6 +5645,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -5448,6 +5658,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -5464,6 +5675,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -5537,7 +5750,9 @@ MonoBehaviour:
           _initial: 1
           _value: 1
     - _initializer:
-        _tags: []
+        _initializationCount: 1
+        _tags:
+        - _enabled
         _resetToken: 
       _owner: {fileID: 0}
       _objectId:
@@ -5545,8 +5760,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      _enabled: 1
       data1:
         _initializer:
+          _initializationCount: 0
           _tags:
           - material
           - color
@@ -5570,6 +5787,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         material:
           _overriding: 0
           _objectId:
@@ -5707,6 +5926,7 @@ MonoBehaviour:
           _value: 1
       data2:
         _initializer:
+          _initializationCount: 0
           _tags:
           - anchorMin
           - anchorMax
@@ -5732,6 +5952,7 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
         disableUpdates: 0
         disablePositionUpdates: 0
         _left: 0
@@ -5790,6 +6011,7 @@ MonoBehaviour:
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
         _initializer:
+          _initializationCount: 0
           _tags:
           - cullTransparentMesh
           _resetToken: 
@@ -5799,6 +6021,8 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
+        hideInInspector: 0
+        disableUpdates: 0
         cullTransparentMesh:
           _overriding: 1
           _objectId:
@@ -5810,6 +6034,7 @@ MonoBehaviour:
           _value: 1
       data4:
         _initializer:
+          _initializationCount: 0
           _tags:
           - ignoreLayout
           - minWidth
@@ -5826,6 +6051,8 @@ MonoBehaviour:
           _machine: 14129406
           _timestamp: 1645477800
           _pid: -8016
+        hideInInspector: 0
+        disableUpdates: 0
         ignoreLayout:
           _overriding: 0
           _objectId:
@@ -5902,6 +6129,7 @@ MonoBehaviour:
     _count: 2
   _layoutElement:
     _initializer:
+      _initializationCount: 0
       _tags:
       - ignoreLayout
       - minWidth
@@ -5918,6 +6146,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     ignoreLayout:
       _overriding: 1
       _objectId:

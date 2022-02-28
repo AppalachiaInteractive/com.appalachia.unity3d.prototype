@@ -31,7 +31,7 @@ namespace Appalachia.Prototype.KOC.Scenes
 
             elements ??= new SceneReferenceElementLookup();
 
-            elements.SetSerializationOwner(this);
+            elements.Changed.Event += MarkAsModified;
         }
 
 #if UNITY_EDITOR

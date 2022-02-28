@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2af20b34cb474b7ab7c191d811b75fee, type: 3}
   m_Name: CursorServiceMetadata
   m_EditorClassIdentifier: Appalachia.Prototype.KOC:Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Services:CursorServiceMetadata
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - initialSoftwareCursorState
     - startsEnabled

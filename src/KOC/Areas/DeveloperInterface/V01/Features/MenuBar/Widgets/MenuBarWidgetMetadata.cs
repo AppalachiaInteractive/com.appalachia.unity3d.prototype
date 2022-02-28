@@ -10,7 +10,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar
     {
         #region Fields and Autoproperties
 
-        [BoxGroup(APPASTR.GroupNames.Dimensions)]
+        [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.015f, 0.045f)]
         public float height;

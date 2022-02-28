@@ -5,7 +5,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 {
     public partial interface IDeveloperInterfaceMetadata
     {
-        public DesignTemplateComponentSetData UnscaledTemplates { get; }
+        public DesignTemplateComponentSetData.Optional UnscaledTemplates { get; }
     }
 }
 

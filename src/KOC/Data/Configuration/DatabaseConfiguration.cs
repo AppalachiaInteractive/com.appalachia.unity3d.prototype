@@ -164,7 +164,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
             {
                 if (developer != null)
                 {
-                    developer.SetSerializationOwner(this);
+                    developer.Changed.Event += MarkAsModified;
                 }
             }
 
@@ -187,7 +187,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
             {
                 if (developer2 != null)
                 {
-                    developer2.SetSerializationOwner(this);
+                    developer2.Changed.Event += MarkAsModified;
                 }
             }
 
@@ -206,8 +206,8 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
             using (_PRF_Initialize.Auto())
             {
-                developer.SetSerializationOwner(this);
-                developer2.SetSerializationOwner(this);
+                developer.Changed.Event += MarkAsModified;
+                developer2.Changed.Event += MarkAsModified;
             }
 #endif
         }

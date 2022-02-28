@@ -15,7 +15,21 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
-    _tags: []
+    _initializationCount: 13
+    _tags:
+    - _font
+    - _fontSize
+    - _autoFontSize
+    - _autoContainerSize
+    - _fontRange
+    - _fontWeight
+    - _alignment
+    - _horizontalAlignment
+    - _verticalAlignment
+    - _color
+    - _enableWordWrapping
+    - _overflowMode
+    - _extraPadding
     _resetToken: 
   _objectId:
     _increment: 3571565
@@ -30,7 +44,7 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: {fileID: 0}
-    _value: {fileID: 11400000, guid: 80b265e98a0d34c498ba8e2f847e94a6, type: 2}
+    _value: {fileID: 0}
   _fontSize:
     _overriding: 0
     _objectId:
@@ -39,7 +53,7 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: 0
-    _value: 16
+    _value: 0
   _autoFontSize:
     _overriding: 0
     _objectId:
@@ -66,7 +80,7 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: {x: 0, y: 0}
-    _value: {x: 8, y: 72}
+    _value: {x: 0, y: 0}
   _fontWeight:
     _overriding: 0
     _objectId:
@@ -74,8 +88,8 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 400
-    _value: 400
+    _initial: 0
+    _value: 0
   _alignment:
     _overriding: 0
     _objectId:
@@ -83,8 +97,8 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 514
-    _value: 4098
+    _initial: 0
+    _value: 0
   _horizontalAlignment:
     _overriding: 0
     _objectId:
@@ -92,8 +106,8 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 2
-    _value: 2
+    _initial: 0
+    _value: 0
   _verticalAlignment:
     _overriding: 0
     _objectId:
@@ -101,8 +115,8 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 512
-    _value: 512
+    _initial: 0
+    _value: 0
   _color:
     _overriding: 0
     _objectId:
@@ -111,7 +125,7 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: {r: 0, g: 0, b: 0, a: 0}
-    _value: {r: 1, g: 1, b: 1, a: 1}
+    _value: {r: 0, g: 0, b: 0, a: 0}
   _enableWordWrapping:
     _overriding: 0
     _objectId:
@@ -122,6 +136,15 @@ MonoBehaviour:
     _initial: 0
     _value: 0
   _overflowMode:
+    _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initial: 0
+    _value: 0
+  _extraPadding:
     _overriding: 0
     _objectId:
       _increment: 0

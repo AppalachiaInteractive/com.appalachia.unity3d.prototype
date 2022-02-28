@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:
@@ -24,6 +25,7 @@ MonoBehaviour:
     _pid: 0
   gameState:
     _initializer:
+      _initializationCount: 0
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}
@@ -38,6 +40,7 @@ MonoBehaviour:
     name: 
   metadata:
     _initializer:
+      _initializationCount: 0
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}
@@ -52,6 +55,7 @@ MonoBehaviour:
     name: 
   user:
     _initializer:
+      _initializationCount: 0
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}

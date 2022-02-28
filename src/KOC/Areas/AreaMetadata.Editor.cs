@@ -28,7 +28,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         [FormerlySerializedAs("scaledTemplates")]
         [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
-        public DesignTemplateComponentSetData templates;
+        public DesignTemplateComponentSetData.Optional templates;
 
         #endregion
 

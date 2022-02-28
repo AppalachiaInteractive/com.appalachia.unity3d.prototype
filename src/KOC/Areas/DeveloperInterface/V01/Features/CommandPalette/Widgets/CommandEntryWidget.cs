@@ -27,9 +27,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
         #region Fields and Autoproperties
 
-        public ValueEvent<string>.Data CommandPaletteInputModified;
+        public AppaEvent<string>.Data CommandPaletteInputModified;
 
-        public ValueEvent<string>.Data CommandPaletteInputSubmitted;
+        public AppaEvent<string>.Data CommandPaletteInputSubmitted;
 
         [ShowInInspector] private TMP_InputField _inputField;
 
@@ -90,7 +90,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
             {
                 base.UnsubscribeFromAllFunctionalities();
 
-                _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                _menuBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
             }
         }
 
@@ -101,7 +101,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
             using (_PRF_WhenEnabled.Auto())
             {
-                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _menuBarWidget.VisualUpdate.Event += OnRequiresUpdate;
             }
         }
 

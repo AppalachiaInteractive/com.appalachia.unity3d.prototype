@@ -5,6 +5,9 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services;
+using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Widgets.Model;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.UI.Controls.Extensions;
@@ -30,7 +33,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         ApplicationFunctionality<TWidget, TWidgetMetadata, TManager>,
         IApplicationWidget
         where TWidget : ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
-            TFunctionalitySet, TIService, TIWidget, TManager>
+            TFunctionalitySet, TIService, TIWidget, TManager>, TIWidget
         where TWidgetMetadata : ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata
             , TFunctionalitySet, TIService, TIWidget, TManager>
         where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget
@@ -58,7 +61,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                .For<ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet,
                     TIService, TIWidget, TManager>>()
                .When.Behaviour<TFeature>()
-               .IsAvailableThen(f => _feature = f);
+               .AndBehaviour<TWidget>()
+               .AreAvailableThen(
+                    (f, w) =>
+                    {
+                        _feature = f;
+                        _feature.AddWidget(w);
+                    }
+                );
         }
 
         #region Static Fields and Autoproperties
@@ -71,7 +81,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         #region Fields and Autoproperties
 
-        public AppaEvent.Data VisuallyChanged;
+        public AppaEvent.Data VisualUpdate;
 
         [ShowInInspector, ReadOnly, HorizontalGroup("State"), PropertyOrder(-1000), NonSerialized]
         private bool _isVisible;
@@ -130,7 +140,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                 {
                     if (currentRect != _lastRect)
                     {
-                        VisuallyChanged.RaiseEvent();
+                        VisualUpdate.RaiseEvent();
                     }
                 }
 
@@ -200,8 +210,12 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                 var parentObject = GetWidgetParentObject();
 
                 transform.SetParent(parentObject.transform);
+            }
 
-                await AppaTask.WaitUntil(() => _feature != null);
+            await AppaTask.WaitUntil(() => _feature != null);
+            
+            using (_PRF_WhenEnabled.Auto())
+            {
 
                 UpdateVisibility(_feature.IsEnabled);
             }
@@ -305,7 +319,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
                 if (visibilityChanged)
                 {
-                    VisuallyChanged.RaiseEvent();
+                    VisualUpdate.RaiseEvent();
                 }
             }
         }
@@ -323,7 +337,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
                 EnsureWidgetIsCorrectSize();
 
-                VisuallyChanged.RaiseEvent();
+                VisualUpdate.RaiseEvent();
             }
         }
 

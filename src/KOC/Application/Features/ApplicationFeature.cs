@@ -7,7 +7,9 @@ using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services;
+using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
+using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.Utility.Async;
@@ -101,6 +103,24 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         public IReadOnlyList<TIService> Services => FunctionalitySet.Services;
         public IReadOnlyList<TIWidget> Widgets => FunctionalitySet.Widgets;
+
+        public void AddService<TService>(TService service)
+            where TService : MonoBehaviour, TIService
+        {
+            using (_PRF_AddService.Auto())
+            {
+                FunctionalitySet.AddService(service);
+            }
+        }
+
+        public void AddWidget<TWidget>(TWidget widget)
+            where TWidget : MonoBehaviour, TIWidget
+        {
+            using (_PRF_AddWidget.Auto())
+            {
+                FunctionalitySet.AddWidget(widget);
+            }
+        }
 
         public async AppaTask DisableFeature()
         {
@@ -197,11 +217,20 @@ namespace Appalachia.Prototype.KOC.Application.Features
             }
         }
 
-        protected virtual async AppaTask BeforeDisable() => await AppaTask.CompletedTask;
+        protected virtual async AppaTask BeforeDisable()
+        {
+            await AppaTask.CompletedTask;
+        }
 
-        protected virtual async AppaTask BeforeEnable() => await AppaTask.CompletedTask;
+        protected virtual async AppaTask BeforeEnable()
+        {
+            await AppaTask.CompletedTask;
+        }
 
-        protected virtual async AppaTask BeforeFirstEnable() => await AppaTask.CompletedTask;
+        protected virtual async AppaTask BeforeFirstEnable()
+        {
+            await AppaTask.CompletedTask;
+        }
 
         // ReSharper disable once UnusedParameter.Global
         protected virtual void OnApplyMetadataInternal()
@@ -297,6 +326,12 @@ namespace Appalachia.Prototype.KOC.Application.Features
         #endregion
 
         #region Profiling
+
+        private static readonly ProfilerMarker _PRF_AddService =
+            new ProfilerMarker(_PRF_PFX + nameof(AddService));
+
+        private static readonly ProfilerMarker _PRF_AddWidget =
+            new ProfilerMarker(_PRF_PFX + nameof(AddWidget));
 
         protected static readonly ProfilerMarker _PRF_BeforeDisable =
             new ProfilerMarker(_PRF_PFX + nameof(BeforeDisable));

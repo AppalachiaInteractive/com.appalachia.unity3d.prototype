@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: alt
   _niceName: Alt
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:

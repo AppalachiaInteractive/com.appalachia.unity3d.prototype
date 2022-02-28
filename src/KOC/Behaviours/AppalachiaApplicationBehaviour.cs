@@ -1,5 +1,5 @@
 using Appalachia.Core.Objects.Root;
-using Appalachia.Prototype.KOC.Lifetime;
+using Appalachia.Prototype.KOC.Application.Lifetime;
 using Appalachia.UI.Core.Styling;
 
 namespace Appalachia.Prototype.KOC.Behaviours

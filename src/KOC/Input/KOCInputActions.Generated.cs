@@ -646,7 +646,7 @@ namespace Appalachia.Prototype.KOC.Input
                 {
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
-                    ""id"": ""581f8abc-1fe2-4b2b-960f-d419c3432964"",
+                    ""id"": ""0d9863ba-28cd-4fbf-aa16-f52fa94fe9ce"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -671,36 +671,36 @@ namespace Appalachia.Prototype.KOC.Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Click"",
+                    ""name"": ""Select"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""0d9863ba-28cd-4fbf-aa16-f52fa94fe9ce"",
+                    ""id"": ""45620a36-af93-4be8-8888-372a02c959cb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Back"",
-                    ""type"": ""Button"",
-                    ""id"": ""e295eae9-2344-486c-8816-d4a3618ee0ed"",
+                    ""name"": ""Scroll"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""947eeb0e-5a0b-4965-905d-d651390e9dc9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AlternateSelect"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4bf04a24-80ef-422d-b6c2-49e40b7fe2ae"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Apply"",
-                    ""type"": ""Button"",
-                    ""id"": ""8dbc084e-bfbd-4de9-89b6-5063868df0ae"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Default"",
-                    ""type"": ""Button"",
-                    ""id"": ""f6845a4f-8232-4b54-92e5-f4f604550af2"",
+                    ""name"": ""Menu"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b9eaa43b-4f96-43d4-b0c4-47a09c321f0d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -708,39 +708,6 @@ namespace Appalachia.Prototype.KOC.Input
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""81bd6971-82a0-4dfc-87fb-ee9156a2fad9"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Submit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ba4a9133-16ab-4535-9194-17520b9a13a1"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Submit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b532fcf4-5930-49cc-bab8-0d5770f16096"",
-                    ""path"": ""<Keyboard>/numpadEnter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Submit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""32f7d2f3-781d-4970-b22e-34776d9eeffc"",
@@ -787,122 +754,12 @@ namespace Appalachia.Prototype.KOC.Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1d375cd3-7190-4c36-a9d2-f090236acefc"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""a63e2671-6b98-4e90-bbc0-f5079097e063"",
+                    ""path"": ""<Pointer>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Point"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""719e18b1-1498-4359-b0a0-8377be3164a8"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""80b028c0-01f8-4d68-8e65-89cf71d44295"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d71eab41-d280-433d-9621-dff032555b3c"",
-                    ""path"": ""<Keyboard>/backspace"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5fbb1c59-46df-47c7-8ba4-2041057c72e3"",
-                    ""path"": ""<Mouse>/backButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""874e4c24-62f2-47ce-a50f-43a4ce4caa39"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d0ea670d-94e9-4227-ab99-cc22c13b8134"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Apply"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""95446493-fecb-4cde-8149-75c477b1722d"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Apply"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""32f527c9-cab5-4a92-8141-047e1180f1ba"",
-                    ""path"": ""<Keyboard>/numpadEnter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Apply"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f99ab9e5-da37-40b4-b1e7-f3ab50909215"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Default"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""80345161-1d2a-4d0c-aa4c-2f1501d8f9dd"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Default"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1136,6 +993,127 @@ namespace Appalachia.Prototype.KOC.Input
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90298009-079f-48b7-b995-7118c61c4210"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d045ad7-f122-4351-8bc8-e821c1f286e7"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbd2fb67-69d4-4f3e-8c6e-ad0a39637398"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7af89b60-ad1f-4774-baaa-eafa8cb44d42"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""AlternateSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3a19a5e-fbb3-4e1c-98ed-7a30f8303c66"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""AlternateSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64dbe6f6-5059-4211-b053-b280569d8854"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AlternateSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b532fcf4-5930-49cc-bab8-0d5770f16096"",
+                    ""path"": ""<Keyboard>/numpadEnter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba4a9133-16ab-4535-9194-17520b9a13a1"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81bd6971-82a0-4dfc-87fb-ee9156a2fad9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55fbc301-3687-4451-b4ac-13deb0648ce3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea63c5bf-eb7e-49b7-9687-18636e1681d1"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1482,10 +1460,10 @@ namespace Appalachia.Prototype.KOC.Input
             m_GenericMenu_Submit = m_GenericMenu.FindAction("Submit", throwIfNotFound: true);
             m_GenericMenu_Cancel = m_GenericMenu.FindAction("Cancel", throwIfNotFound: true);
             m_GenericMenu_Point = m_GenericMenu.FindAction("Point", throwIfNotFound: true);
-            m_GenericMenu_Click = m_GenericMenu.FindAction("Click", throwIfNotFound: true);
-            m_GenericMenu_Back = m_GenericMenu.FindAction("Back", throwIfNotFound: true);
-            m_GenericMenu_Apply = m_GenericMenu.FindAction("Apply", throwIfNotFound: true);
-            m_GenericMenu_Default = m_GenericMenu.FindAction("Default", throwIfNotFound: true);
+            m_GenericMenu_Select = m_GenericMenu.FindAction("Select", throwIfNotFound: true);
+            m_GenericMenu_Scroll = m_GenericMenu.FindAction("Scroll", throwIfNotFound: true);
+            m_GenericMenu_AlternateSelect = m_GenericMenu.FindAction("AlternateSelect", throwIfNotFound: true);
+            m_GenericMenu_Menu = m_GenericMenu.FindAction("Menu", throwIfNotFound: true);
             // In Game Menu
             m_InGameMenu = asset.FindActionMap("In Game Menu", throwIfNotFound: true);
             // Pause Menu
@@ -1726,10 +1704,10 @@ namespace Appalachia.Prototype.KOC.Input
         private readonly InputAction m_GenericMenu_Submit;
         private readonly InputAction m_GenericMenu_Cancel;
         private readonly InputAction m_GenericMenu_Point;
-        private readonly InputAction m_GenericMenu_Click;
-        private readonly InputAction m_GenericMenu_Back;
-        private readonly InputAction m_GenericMenu_Apply;
-        private readonly InputAction m_GenericMenu_Default;
+        private readonly InputAction m_GenericMenu_Select;
+        private readonly InputAction m_GenericMenu_Scroll;
+        private readonly InputAction m_GenericMenu_AlternateSelect;
+        private readonly InputAction m_GenericMenu_Menu;
         public struct GenericMenuActions
         {
             private @KOCInputActions m_Wrapper;
@@ -1738,10 +1716,10 @@ namespace Appalachia.Prototype.KOC.Input
             public InputAction @Submit => m_Wrapper.m_GenericMenu_Submit;
             public InputAction @Cancel => m_Wrapper.m_GenericMenu_Cancel;
             public InputAction @Point => m_Wrapper.m_GenericMenu_Point;
-            public InputAction @Click => m_Wrapper.m_GenericMenu_Click;
-            public InputAction @Back => m_Wrapper.m_GenericMenu_Back;
-            public InputAction @Apply => m_Wrapper.m_GenericMenu_Apply;
-            public InputAction @Default => m_Wrapper.m_GenericMenu_Default;
+            public InputAction @Select => m_Wrapper.m_GenericMenu_Select;
+            public InputAction @Scroll => m_Wrapper.m_GenericMenu_Scroll;
+            public InputAction @AlternateSelect => m_Wrapper.m_GenericMenu_AlternateSelect;
+            public InputAction @Menu => m_Wrapper.m_GenericMenu_Menu;
             public InputActionMap Get() { return m_Wrapper.m_GenericMenu; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1763,18 +1741,18 @@ namespace Appalachia.Prototype.KOC.Input
                     @Point.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPoint;
                     @Point.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPoint;
                     @Point.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPoint;
-                    @Click.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnClick;
-                    @Click.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnClick;
-                    @Click.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnClick;
-                    @Back.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnBack;
-                    @Back.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnBack;
-                    @Back.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnBack;
-                    @Apply.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnApply;
-                    @Apply.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnApply;
-                    @Apply.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnApply;
-                    @Default.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnDefault;
-                    @Default.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnDefault;
-                    @Default.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnDefault;
+                    @Select.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnSelect;
+                    @Select.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnSelect;
+                    @Select.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnSelect;
+                    @Scroll.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnScroll;
+                    @Scroll.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnScroll;
+                    @Scroll.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnScroll;
+                    @AlternateSelect.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternateSelect;
+                    @AlternateSelect.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternateSelect;
+                    @AlternateSelect.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternateSelect;
+                    @Menu.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnMenu;
+                    @Menu.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnMenu;
+                    @Menu.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnMenu;
                 }
                 m_Wrapper.m_GenericMenuActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1791,18 +1769,18 @@ namespace Appalachia.Prototype.KOC.Input
                     @Point.started += instance.OnPoint;
                     @Point.performed += instance.OnPoint;
                     @Point.canceled += instance.OnPoint;
-                    @Click.started += instance.OnClick;
-                    @Click.performed += instance.OnClick;
-                    @Click.canceled += instance.OnClick;
-                    @Back.started += instance.OnBack;
-                    @Back.performed += instance.OnBack;
-                    @Back.canceled += instance.OnBack;
-                    @Apply.started += instance.OnApply;
-                    @Apply.performed += instance.OnApply;
-                    @Apply.canceled += instance.OnApply;
-                    @Default.started += instance.OnDefault;
-                    @Default.performed += instance.OnDefault;
-                    @Default.canceled += instance.OnDefault;
+                    @Select.started += instance.OnSelect;
+                    @Select.performed += instance.OnSelect;
+                    @Select.canceled += instance.OnSelect;
+                    @Scroll.started += instance.OnScroll;
+                    @Scroll.performed += instance.OnScroll;
+                    @Scroll.canceled += instance.OnScroll;
+                    @AlternateSelect.started += instance.OnAlternateSelect;
+                    @AlternateSelect.performed += instance.OnAlternateSelect;
+                    @AlternateSelect.canceled += instance.OnAlternateSelect;
+                    @Menu.started += instance.OnMenu;
+                    @Menu.performed += instance.OnMenu;
+                    @Menu.canceled += instance.OnMenu;
                 }
             }
         }
@@ -2017,10 +1995,10 @@ namespace Appalachia.Prototype.KOC.Input
             void OnSubmit(InputAction.CallbackContext context);
             void OnCancel(InputAction.CallbackContext context);
             void OnPoint(InputAction.CallbackContext context);
-            void OnClick(InputAction.CallbackContext context);
-            void OnBack(InputAction.CallbackContext context);
-            void OnApply(InputAction.CallbackContext context);
-            void OnDefault(InputAction.CallbackContext context);
+            void OnSelect(InputAction.CallbackContext context);
+            void OnScroll(InputAction.CallbackContext context);
+            void OnAlternateSelect(InputAction.CallbackContext context);
+            void OnMenu(InputAction.CallbackContext context);
         }
         public interface IInGameMenuActions
         {

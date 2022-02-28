@@ -36,27 +36,27 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         /// <summary>
         ///     A simple convenience method to call
-        ///     <see cref="ComponentSetData{TSet, TSetData}" />
-        ///     .<see cref="ComponentSetData{TSet, TSetData}.RefreshAndUpdateComponentSet(ref TSetData,ref TSet,GameObject,string)" />,
+        ///     <see cref="ComponentSetData{TComponentSet, TComponentSetData}" />
+        ///     .<see cref="ComponentSetData{TComponentSet, TComponentSetData}.RefreshAndUpdateComponentSet(ref TComponentSetData,ref TComponentSet,GameObject,string)" />,
         ///     which will ensure the provided component set is synced with its configuration.
         /// </summary>
         /// <param name="data">The component set data.</param>
         /// <param name="set">The component set.</param>
         /// <param name="parent">The parent of the component set.  Only used if we need to create the component set.</param>
         /// <param name="setName">The name of the component set.</param>
-        /// <typeparam name="TSet">The component set.</typeparam>
-        /// <typeparam name="TSetData">The component set data.</typeparam>
-        public void RefreshAndUpdateComponentSet<TSet, TSetData>(
-            ref TSetData data,
-            ref TSet set,
+        /// <typeparam name="TComponentSet">The component set.</typeparam>
+        /// <typeparam name="TComponentSetData">The component set data.</typeparam>
+        public void RefreshAndUpdateComponentSet<TComponentSet, TComponentSetData>(
+            ref TComponentSetData data,
+            ref TComponentSet set,
             GameObject parent,
             string setName)
-            where TSet : ComponentSet<TSet, TSetData>, new()
-            where TSetData : ComponentSetData<TSet, TSetData>
+            where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
+            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>
         {
             using (_PRF_RefreshAndUpdateComponentSet.Auto())
             {
-                ComponentSetData<TSet, TSetData>.RefreshAndUpdateComponentSet(
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdateComponentSet(
                     ref data,
                     ref set,
                     parent,

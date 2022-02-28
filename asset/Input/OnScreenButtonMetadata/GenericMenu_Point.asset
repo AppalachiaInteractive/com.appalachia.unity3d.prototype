@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: GenericMenu_Point
   _niceName: Generic Menu_Point
   _initializer:
+    _initializationCount: 0
     _tags:
     - OnScreenButtonStyleOverride
     _resetToken: 

@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 8
     _tags:
     - FontStyleOverride
     - backgroundColor
@@ -34,6 +35,15 @@ MonoBehaviour:
     - featureDisabledVisibilityMode
     - leftLayoutGroup
     - rightLayoutGroup
+    - statusBarIconRectTransform
+    - devTooltipStyle
+    - statusBarPaddingLeft
+    - statusBarPaddingRight
+    - tooltipIconSize
+    - statusBarSpacingLeft
+    - statusBarSpacingRight
+    - iconSize
+    - iconSpacing
     _resetToken: 2022-01-10T09:51:18.3216769-05:00
   _objectId:
     _increment: 3571635
@@ -49,6 +59,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -72,6 +83,7 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0
@@ -130,6 +142,7 @@ MonoBehaviour:
         _value: {x: 0, y: 0, z: 0, w: 1}
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -147,12 +160,13 @@ MonoBehaviour:
         - localScale
         - pivot
         _resetToken: 
-      _owner: {fileID: 0}
+      _owner: {fileID: 11400000}
       _objectId:
         _increment: 3571621
         _machine: 14129404
         _timestamp: 1644957441
         _pid: -14768
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0
@@ -245,7 +259,9 @@ MonoBehaviour:
   height: 0.03
   leftLayoutGroup:
     _initializer:
-      _tags: []
+      _initializationCount: 1
+      _tags:
+      - _enabled
       _resetToken: 
     _owner: {fileID: 11400000}
     _objectId:
@@ -253,8 +269,10 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1645381734
       _pid: -8016
+    _enabled: 1
     data1:
       _initializer:
+        _initializationCount: 0
         _tags:
         - padding
         - childAlignment
@@ -273,6 +291,8 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645381661
         _pid: -8016
+      hideInInspector: 0
+      disableUpdates: 0
       padding:
         _overriding: 1
         _objectId:
@@ -298,7 +318,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
+        _value: 18
       childAlignment:
         _overriding: 1
         _objectId:
@@ -361,7 +381,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 1
+        _value: 0
       childForceExpandHeight:
         _overriding: 1
         _objectId:
@@ -373,6 +393,7 @@ MonoBehaviour:
         _value: 1
     data2:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -395,6 +416,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645381661
         _pid: -8016
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0
@@ -453,7 +475,9 @@ MonoBehaviour:
         _value: {x: 0, y: 0, z: 0, w: 1}
   rightLayoutGroup:
     _initializer:
-      _tags: []
+      _initializationCount: 1
+      _tags:
+      - _enabled
       _resetToken: 
     _owner: {fileID: 11400000}
     _objectId:
@@ -461,8 +485,10 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1645381734
       _pid: -8016
+    _enabled: 1
     data1:
       _initializer:
+        _initializationCount: 0
         _tags:
         - padding
         - childAlignment
@@ -481,6 +507,8 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645381661
         _pid: -8016
+      hideInInspector: 0
+      disableUpdates: 0
       padding:
         _overriding: 1
         _objectId:
@@ -495,7 +523,7 @@ MonoBehaviour:
           m_Bottom: 0
         _value:
           m_Left: 0
-          m_Right: 0
+          m_Right: 50
           m_Top: 0
           m_Bottom: 0
       spacing:
@@ -506,7 +534,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
+        _value: 12
       childAlignment:
         _overriding: 1
         _objectId:
@@ -515,7 +543,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
+        _value: 2
       reverseArrangement:
         _overriding: 1
         _objectId:
@@ -533,7 +561,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 1
+        _value: 0
       childControlHeight:
         _overriding: 1
         _objectId:
@@ -569,7 +597,7 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 1
+        _value: 0
       childForceExpandHeight:
         _overriding: 1
         _objectId:
@@ -581,6 +609,7 @@ MonoBehaviour:
         _value: 1
     data2:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -603,6 +632,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645381661
         _pid: -8016
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0
@@ -659,3 +689,93 @@ MonoBehaviour:
           _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
+  statusBarIconRectTransform:
+    _initializer:
+      _initializationCount: 0
+      _tags:
+      - _left
+      - _posX
+      - _top
+      - _posY
+      - _posZ
+      - _right
+      - _width
+      - _bottom
+      - _height
+      - pivot
+      - anchorMin
+      - anchorMax
+      - localRotation
+      - localScale
+      _resetToken: 
+    _owner: {fileID: 11400000, guid: 8be8c526877557f429b26d620047d826, type: 2}
+    _objectId:
+      _increment: 10814658
+      _machine: 14129406
+      _timestamp: 1645637603
+      _pid: -8016
+    hideInInspector: 0
+    disableUpdates: 0
+    disablePositionUpdates: 0
+    _left: 0
+    _posX: 0
+    _top: 0
+    _posY: 0
+    _posZ: 0
+    _right: 0
+    _width: 24
+    _bottom: 0
+    _height: 24
+    anchorMin:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0, y: 0}
+      _value: {x: 0, y: 0.5}
+    anchorMax:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 1, y: 1}
+      _value: {x: 0, y: 0.5}
+    pivot:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0.5, y: 0.5}
+      _value: {x: 0.5, y: 0.5}
+    localScale:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 1, y: 1, z: 1}
+      _value: {x: 1, y: 1, z: 1}
+    localRotation:
+      _overriding: 1
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initial: {x: 0, y: 0, z: 0, w: 1}
+      _value: {x: 0, y: 0, z: 0, w: 1}
+  devTooltipStyle: {fileID: 11400000, guid: 0c61299db404b4142b14c3770df2e818, type: 2}
+  statusBarPaddingLeft: 50
+  statusBarSpacingLeft: 18
+  statusBarPaddingRight: 50
+  statusBarSpacingRight: 12
+  iconSize: 24
+  iconSpacing: 8
+  defaultStatusBarIcon: {fileID: 21300000, guid: 69b4c2a2bfc416f4d944529169697458, type: 3}

@@ -15,15 +15,17 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:
-    _increment: 0
-    _machine: 0
-    _timestamp: 0
-    _pid: 0
-  _rectTransformData:
+    _increment: 890367
+    _machine: 14129406
+    _timestamp: 1645800128
+    _pid: -8016
+  _rectTransform:
     _initializer:
+      _initializationCount: 0
       _tags:
       - _left
       - _posX
@@ -47,6 +49,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
     _left: 0
@@ -105,6 +108,7 @@ MonoBehaviour:
       _value: {x: 0, y: 0, z: 0, w: 1}
   _imageData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - material
       - color
@@ -119,6 +123,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     material:
       _overriding: 0
       _objectId:

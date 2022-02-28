@@ -12,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
     {
         #region Fields and Autoproperties
 
-        [BoxGroup(APPASTR.GroupNames.Dimensions)]
+        [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.005f, 0.03f)]
         public float commandSuggestionHeight;

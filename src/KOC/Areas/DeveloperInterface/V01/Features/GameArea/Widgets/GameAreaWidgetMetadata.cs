@@ -10,7 +10,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameAre
     {
         #region Fields and Autoproperties
 
-        [BoxGroup(APPASTR.GroupNames.Dimensions)]
+        [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         public bool maintainAspectRatio;
 

@@ -58,13 +58,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         }
 
         /// <inheritdoc />
-        protected override async AppaTask WhenEnabled()
+        protected override async AppaTask AfterEnabled()
         {
-            await base.WhenEnabled();
+            await base.AfterEnabled();
 
-            using (_PRF_WhenEnabled.Auto())
+            using (_PRF_AfterEnabled.Auto())
             {
-                VisuallyChanged.Event += _rectVisualizerService.DiscoverTargets;
+                VisualUpdate.Event += _rectVisualizerService.DiscoverTargets;
 
                 rawImageSet.RawImage.texture = _rectVisualizerService.GetRenderTexture();
             }

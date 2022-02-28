@@ -10,7 +10,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
     {
         #region Fields and Autoproperties
 
-        [BoxGroup(APPASTR.GroupNames.Dimensions)]
+        [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.25f, 0.35f)]
         public float height;

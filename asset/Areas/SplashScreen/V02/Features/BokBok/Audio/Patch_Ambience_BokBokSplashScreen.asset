@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: Patch_Ambience_BokBokSplashScreen
   _niceName: Patch_Ambience_Bok Bok Splash Screen
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:

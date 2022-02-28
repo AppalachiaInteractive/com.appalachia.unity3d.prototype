@@ -6,6 +6,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         ActiveSceneName = 100,
         ActiveScenePath = 101,
         SceneCount = 102,
+        SceneList = 103,
+        
         ActiveSceneNameAndCount = 110,
 
         ApplicationPlatform = 200,

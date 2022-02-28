@@ -12,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Areas.Functionality.Services
             , IAreaService, IAreaWidget, TAreaManager>,
         IAreaService
         where TService : AreaService<TService, TServiceMetadata, TFeature, TFeatureMetadata, TAreaManager,
-            TAreaMetadata>
+            TAreaMetadata>, IAreaService
         where TServiceMetadata : AreaServiceMetadata<TService, TServiceMetadata, TFeature, TFeatureMetadata,
             TAreaManager, TAreaMetadata>
         where TFeature : AreaFeature<TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>

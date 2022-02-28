@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - Cursor
     - Input
@@ -228,4 +229,12 @@ MonoBehaviour:
     setEntrySceneActive: 0
   audio:
     mixerGroup: {fileID: 0}
-  templates: {fileID: 11400000, guid: 1df6921dd311afe46a256b56714f89c3, type: 2}
+  templates:
+    _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initial: {fileID: 0}
+    _value: {fileID: 0}

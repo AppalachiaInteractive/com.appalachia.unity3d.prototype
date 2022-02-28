@@ -18,7 +18,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
         {
             #region Fields and Autoproperties
 
-            public ValueEvent<TServiceArgs>.Data Broadcast;
+            public AppaEvent<TServiceArgs>.Data Broadcast;
 
             #endregion
 

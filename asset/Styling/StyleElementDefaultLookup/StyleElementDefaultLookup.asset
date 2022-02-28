@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: ApplicationStyleElementDefaultLookup
   _niceName: Application Style Element Default Lookup
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:
@@ -27,7 +28,7 @@ MonoBehaviour:
     _values:
     - {fileID: 11400000, guid: 97ef77b76eba1f1458c9960a11f79713, type: 2}
     - {fileID: 11400000, guid: a926f9bbad767d8408a110926a1247e6, type: 2}
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 03273bc3da63ac540b1678a95e1a078f, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -42,4 +43,4 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     noTracking: 0
-    _count: 2
+    _count: 3

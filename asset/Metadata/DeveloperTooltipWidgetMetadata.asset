@@ -57,6 +57,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645303243
         _pid: -8016
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0
@@ -137,6 +138,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645303243
         _pid: -8016
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0

@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: plant_plant
   _niceName: Plant_plant
   _initializer:
+    _initializationCount: 0
     _tags:
     - profileName
     _resetToken: 

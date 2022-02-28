@@ -1,4 +1,5 @@
 using Appalachia.Core.Objects.Availability;
+using Appalachia.Prototype.KOC.Application.Features.Availability.Contracts;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Availability
 {

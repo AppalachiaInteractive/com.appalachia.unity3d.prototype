@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - RectTransformData
     - CanvasComponentSetStyle
@@ -52,6 +53,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -75,6 +77,7 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 0
@@ -133,6 +136,7 @@ MonoBehaviour:
         _value: {x: 0, y: 0, z: 0, w: 1}
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - _left
         - _posX
@@ -150,12 +154,13 @@ MonoBehaviour:
         - localScale
         - pivot
         _resetToken: 
-      _owner: {fileID: 0}
+      _owner: {fileID: 11400000}
       _objectId:
         _increment: 3571668
         _machine: 14129404
         _timestamp: 1644957441
         _pid: -14768
+      hideInInspector: 0
       disableUpdates: 0
       disablePositionUpdates: 0
       _left: 30
@@ -248,6 +253,7 @@ MonoBehaviour:
   alpha: 0.33
   headerRect:
     _initializer:
+      _initializationCount: 0
       _tags:
       - _left
       - _posX
@@ -270,6 +276,7 @@ MonoBehaviour:
       _machine: 14129406
       _timestamp: 1645194215
       _pid: -14768
+    hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
     _left: 0
@@ -328,6 +335,7 @@ MonoBehaviour:
       _value: {x: 0, y: 0, z: 0, w: 1}
   headerImage:
     _initializer:
+      _initializationCount: 0
       _tags:
       - material
       - color
@@ -351,6 +359,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     material:
       _overriding: 0
       _objectId:
@@ -488,6 +498,7 @@ MonoBehaviour:
       _value: 0
   headerLayout:
     _initializer:
+      _initializationCount: 0
       _tags:
       - ignoreLayout
       - minWidth
@@ -504,6 +515,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     ignoreLayout:
       _overriding: 1
       _objectId:
@@ -579,6 +592,7 @@ MonoBehaviour:
   types: 6e000000ca000000c9000000cf000000ce000000c8000000910100009001000058020000f4010000be020000bd020000bc02000020030000
   developerInfoTextMesh:
     _initializer:
+      _initializationCount: 0
       _tags:
       - createLabel
       - createLayoutElement
@@ -605,6 +619,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     updateName: 1
     createLayoutElement: 1
     font: {fileID: 11400000, guid: 72ae4525196855b488e31eb6179b536a, type: 2}
@@ -620,9 +636,10 @@ MonoBehaviour:
       maximumMilliseconds: 10000
       updateType: 0
       frames: 60
-      milliseconds: 5000
+      milliseconds: 10000
     layoutElementData:
       _initializer:
+        _initializationCount: 0
         _tags:
         - ignoreLayout
         - minWidth
@@ -639,6 +656,8 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957441
         _pid: -14768
+      hideInInspector: 0
+      disableUpdates: 0
       ignoreLayout:
         _overriding: 1
         _objectId:
@@ -713,6 +732,7 @@ MonoBehaviour:
         _value: 0
   verticalLayoutGroup:
     _initializer:
+      _initializationCount: 0
       _tags:
       - padding
       - childAlignment
@@ -731,6 +751,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     padding:
       _overriding: 1
       _objectId:

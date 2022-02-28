@@ -123,7 +123,7 @@ namespace Appalachia.Prototype.KOC.Application.State
 
             _areas ??= new ApplicationAreaStateLookup();
 
-            _areas.SetSerializationOwner(manager);
+            _areas.Changed.Event += manager.OnApplicationAreaStateLookupChanged;
 
             _areas.PopulateEnumKeys(area => new ApplicationAreaState(area), clear: true);
 

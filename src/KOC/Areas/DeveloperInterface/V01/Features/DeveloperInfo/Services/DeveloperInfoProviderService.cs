@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Models;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Constants;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Strings;
@@ -119,6 +121,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                         return "Machine";
                     case DeveloperInfoType.UserName:
                         return "User";
+                    case DeveloperInfoType.SceneList:
+                        return "Scene List";
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -184,8 +188,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                     ),
                     DeveloperInfoType.MachineName => Environment.MachineName,
                     DeveloperInfoType.UserName    => Environment.UserName,
-
-                    _ => throw new ArgumentOutOfRangeException()
+                    DeveloperInfoType.SceneList   => string.Join('\n', GetLoadedSceneNames()),
+                    _                             => throw new ArgumentOutOfRangeException()
                 };
 
                 return result;
@@ -229,6 +233,25 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
             using (_PRF_Initialize.Auto())
             {
+            }
+        }
+
+        private IEnumerable<string> GetLoadedSceneNames()
+        {
+            var sceneCount = SceneManager.sceneCount;
+            var activeScene = SceneManager.GetActiveScene();
+
+            for (var sceneIndex = 0; sceneIndex < sceneCount; sceneIndex++)
+            {
+                var scene = SceneManager.GetSceneAt(sceneIndex);
+                if (scene == activeScene)
+                {
+                    yield return scene.name.Bold();
+                }
+                else
+                {
+                    yield return scene.name;
+                }
             }
         }
 

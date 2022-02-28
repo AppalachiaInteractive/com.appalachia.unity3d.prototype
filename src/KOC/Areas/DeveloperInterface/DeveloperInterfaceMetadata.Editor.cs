@@ -12,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
         #region Fields and Autoproperties
 
         [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
-        public DesignTemplateComponentSetData unscaledTemplates;
+        public DesignTemplateComponentSetData.Optional unscaledTemplates;
 
         #endregion
 
@@ -27,7 +27,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         #region IDeveloperInterfaceMetadata Members
 
-        public DesignTemplateComponentSetData UnscaledTemplates => unscaledTemplates;
+        public DesignTemplateComponentSetData.Optional UnscaledTemplates => unscaledTemplates;
 
         #endregion
     }

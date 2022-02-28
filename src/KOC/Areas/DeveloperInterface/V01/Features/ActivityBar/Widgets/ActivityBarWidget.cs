@@ -1,18 +1,7 @@
-using System;
-using System.Collections.Generic;
 using Appalachia.Core.Attributes;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Entries;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Entries.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Entries.Core;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Core.Components.Subsets;
 using Appalachia.Utility.Async;
-using Appalachia.Utility.Extensions;
-using Unity.Profiling;
-using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets
 {
@@ -39,59 +28,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         private static StatusBarWidget _statusBarWidget;
 
         #endregion
-
-        #region Fields and Autoproperties
-
-        private GameObject _activityBarEntryParent;
-        private List<IActivityBarEntry> _topActivityBarEntries;
-        private List<IActivityBarEntry> _bottomActivityBarEntries;
-
-        [FormerlySerializedAs("topLayoutGroup")]
-        public VerticalLayoutGroupSubset topActivityBarLayoutGroup;
-
-        [FormerlySerializedAs("bottomLayoutGroup")]
-        public VerticalLayoutGroupSubset bottomActivityBarLayoutGroup;
-
-        #endregion
-
-        public GameObject ActivityBarEntryParent => _activityBarEntryParent;
-        public IReadOnlyList<IActivityBarEntry> BottomActivityBarEntries => _bottomActivityBarEntries;
-
-        public IReadOnlyList<IActivityBarEntry> TopActivityBarEntries => _topActivityBarEntries;
-        public VerticalLayoutGroupSubset BottomActivityBarLayoutGroup => bottomActivityBarLayoutGroup;
-        public VerticalLayoutGroupSubset TopActivityBarLayoutGroup => topActivityBarLayoutGroup;
-
-        /// <summary>
-        ///     Adds the specified activity bar entry to the appropriate layout group, and refreshes the layout.
-        /// </summary>
-        /// <param name="activityBarEntry">The activity bar entry to add.</param>
-        public void RegisterActivity(IActivityBarEntry activityBarEntry)
-        {
-            using (_PRF_RegisterActivity.Auto())
-            {
-                // TODO implement this
-
-                switch (activityBarEntry.Metadata.Section)
-                {
-                    case ActivityBarSection.Top:
-                        _topActivityBarEntries.Add(activityBarEntry);
-
-                        activityBarEntry.Transform.SetParent(topActivityBarLayoutGroup.RectTransform);
-                        LayoutRebuilder.MarkLayoutForRebuild(topActivityBarLayoutGroup.RectTransform);
-
-                        break;
-                    case ActivityBarSection.Bottom:
-                        _bottomActivityBarEntries.Add(activityBarEntry);
-
-                        activityBarEntry.Transform.SetParent(bottomActivityBarLayoutGroup.RectTransform);
-                        LayoutRebuilder.MarkLayoutForRebuild(bottomActivityBarLayoutGroup.RectTransform);
-
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
 
         /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
@@ -133,8 +69,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             {
                 base.UnsubscribeFromAllFunctionalities();
 
-                _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                _menuBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
+                _statusBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
             }
         }
 
@@ -145,27 +81,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
             using (_PRF_WhenEnabled.Auto())
             {
-                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _topActivityBarEntries ??= new List<IActivityBarEntry>();
-                _bottomActivityBarEntries ??= new List<IActivityBarEntry>();
-
-                canvas.GameObject.GetOrAddChild(
-                    ref _activityBarEntryParent,
-                    ACTIVITY_BAR_ENTRY_PARENT_NAME,
-                    true
-                );
-
-                var canvasChildCount = canvas.RectTransform.childCount;
-                _activityBarEntryParent.transform.SetSiblingIndex(canvasChildCount - 1);
+                _statusBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _menuBarWidget.VisualUpdate.Event += OnRequiresUpdate;
             }
         }
-
-        #region Profiling
-
-        private static readonly ProfilerMarker _PRF_RegisterActivity =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterActivity));
-
-        #endregion
     }
 }

@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:
@@ -22,8 +23,9 @@ MonoBehaviour:
     _machine: 0
     _timestamp: 0
     _pid: 0
-  _rectTransformData:
+  _rectTransform:
     _initializer:
+      _initializationCount: 0
       _tags:
       - anchorMin
       - anchorMax
@@ -51,6 +53,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
+    hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
     _left: 0
@@ -109,6 +112,7 @@ MonoBehaviour:
       _value: {x: 0, y: 0, z: 0, w: 1}
   _canvasData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - renderMode
       - overridePixelPerfect
@@ -123,6 +127,8 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
+    hideInInspector: 0
+    disableUpdates: 0
     renderMode:
       _overriding: 0
       _objectId:
@@ -186,6 +192,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - passiveMode
         - passiveFadeMode
@@ -203,6 +210,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       passiveMode: 0
       passiveFadeMode: 2
       updateAtStart: 1
@@ -214,6 +223,7 @@ MonoBehaviour:
       fadeOut: 2
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - passiveMode
         - passiveFadeMode
@@ -231,6 +241,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       passiveMode: 0
       passiveFadeMode: 2
       updateAtStart: 1
@@ -249,6 +261,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - alpha
         - interactable
@@ -261,6 +274,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       alpha:
         _overriding: 1
         _objectId:
@@ -299,6 +314,7 @@ MonoBehaviour:
         _value: 0
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - alpha
         - interactable
@@ -311,6 +327,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       alpha:
         _overriding: 1
         _objectId:
@@ -356,6 +374,7 @@ MonoBehaviour:
       _pid: -14768
     _initial:
       _initializer:
+        _initializationCount: 0
         _tags:
         - ignoreReversedGraphics
         - blockingObjects
@@ -367,6 +386,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       ignoreReversedGraphics:
         _overriding: 1
         _objectId:
@@ -400,6 +421,7 @@ MonoBehaviour:
           m_Bits: 4294967295
     _value:
       _initializer:
+        _initializationCount: 0
         _tags:
         - ignoreReversedGraphics
         - blockingObjects
@@ -411,6 +433,8 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      hideInInspector: 0
+      disableUpdates: 0
       ignoreReversedGraphics:
         _overriding: 1
         _objectId:
@@ -444,6 +468,7 @@ MonoBehaviour:
           m_Bits: 4294967295
   _imageData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - material
       - color
@@ -467,6 +492,8 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
+    hideInInspector: 0
+    disableUpdates: 0
     material:
       _overriding: 0
       _objectId:
@@ -604,18 +631,21 @@ MonoBehaviour:
       _value: 0
   _designTemplateData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - enabled
       - templateAlpha
       - templates
       - selectedTemplate
       _resetToken: 
-    _owner: {fileID: 11400000}
+    _owner: {fileID: 0}
     _objectId:
-      _increment: 0
-      _machine: 0
-      _timestamp: 0
-      _pid: 0
+      _increment: 11499786
+      _machine: 14129404
+      _timestamp: 1645634771
+      _pid: -8016
+    hideInInspector: 0
+    disableUpdates: 0
     enabled: 0
     templateAlpha: 1
     templates: []

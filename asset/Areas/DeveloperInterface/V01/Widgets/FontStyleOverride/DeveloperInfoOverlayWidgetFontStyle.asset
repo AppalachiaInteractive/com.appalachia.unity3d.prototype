@@ -12,10 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e656398e31b3fd49b5c5536ba4d19a1, type: 3}
   m_Name: DeveloperInfoOverlayWidgetFontStyle
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
+  _cachedName: DeveloperInfoOverlayWidgetFontStyle
+  _niceName: Developer Info Overlay Widget Font Style
   _initializer:
-    _tags: []
+    _initializationCount: 13
+    _tags:
+    - _font
+    - _fontSize
+    - _autoFontSize
+    - _autoContainerSize
+    - _fontRange
+    - _fontWeight
+    - _alignment
+    - _horizontalAlignment
+    - _verticalAlignment
+    - _color
+    - _enableWordWrapping
+    - _overflowMode
+    - _extraPadding
     _resetToken: 
   _objectId:
     _increment: 3571574
@@ -74,7 +88,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 400
+    _initial: 0
     _value: 400
   _alignment:
     _overriding: 0
@@ -83,7 +97,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 514
+    _initial: 0
     _value: 4098
   _horizontalAlignment:
     _overriding: 1
@@ -92,7 +106,7 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 2
+    _initial: 0
     _value: 1
   _verticalAlignment:
     _overriding: 0
@@ -101,10 +115,10 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 512
+    _initial: 0
     _value: 512
   _color:
-    _overriding: 1
+    _overriding: 0
     _objectId:
       _increment: 0
       _machine: 0
@@ -129,4 +143,13 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: 0
-    _value: 2
+    _value: 3
+  _extraPadding:
+    _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initial: 0
+    _value: 1

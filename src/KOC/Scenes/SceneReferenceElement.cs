@@ -29,6 +29,11 @@ namespace Appalachia.Prototype.KOC.Scenes
 
         private void UpdateSelection()
         {
+            if ((reference != null) && (reference.editorAsset == sceneAsset))
+            {
+                return;
+            }
+
             reference = sceneAsset.ToAssetReference();
             MarkAsModified();
         }

@@ -7,11 +7,14 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features;
 using Appalachia.Prototype.KOC.Application.Features.Services;
+using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
+using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
 {
@@ -75,6 +78,56 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
             {
                 _widgets ??= new();
                 return _widgets;
+            }
+        }
+
+        public void AddService<TService>(TService service)
+            where TService : MonoBehaviour, TIService
+        {
+            using (_PRF_AddService.Auto())
+            {
+                var found = false;
+                for (var i = 0; i < _services.Count; i++)
+                {
+                    var current = _services[i];
+
+                    var currentMonoBehaviour = current as MonoBehaviour;
+                    if (currentMonoBehaviour == service)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    _services.Add(service);
+                }
+            }
+        }
+
+        public void AddWidget<TWidget>(TWidget widget)
+            where TWidget : MonoBehaviour, TIWidget
+        {
+            using (_PRF_AddWidget.Auto())
+            {
+                var found = false;
+                for (var i = 0; i < _widgets.Count; i++)
+                {
+                    var current = _widgets[i];
+
+                    var currentMonoBehaviour = current as MonoBehaviour;
+                    if (currentMonoBehaviour == widget)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    _widgets.Add(widget);
+                }
             }
         }
 
@@ -202,6 +255,12 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
         #region Profiling
 
         private const string _PRF_PFX = nameof(FeatureFunctionalitySet<TIService, TIWidget>) + ".";
+
+        private static readonly ProfilerMarker _PRF_AddService =
+            new ProfilerMarker(_PRF_PFX + nameof(AddService));
+
+        private static readonly ProfilerMarker _PRF_AddWidget =
+            new ProfilerMarker(_PRF_PFX + nameof(AddWidget));
 
         private static readonly ProfilerMarker _PRF_RegisterFeature =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterFeature));

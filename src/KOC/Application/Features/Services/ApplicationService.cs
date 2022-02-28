@@ -3,12 +3,16 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Services.Model;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
+using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Services
 {
@@ -19,7 +23,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
         ApplicationFunctionality<TService, TServiceMetadata, TManager>,
         IApplicationService
         where TService : ApplicationService<TService, TServiceMetadata, TFeature, TFeatureMetadata,
-            TFunctionalitySet, TIService, TIWidget, TManager>
+            TFunctionalitySet, TIService, TIWidget, TManager>, TIService
         where TServiceMetadata : ApplicationServiceMetadata<TService, TServiceMetadata, TFeature,
             TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
         where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget
@@ -54,6 +58,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
                     (thisInstance, feature, _) =>
                     {
                         _feature = feature;
+                        _feature.AddService(instance);
 
                         var parentObject = _feature.GetServiceParentObject();
 
@@ -77,7 +82,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
 
         public static TFeature Feature => _feature;
 
-        protected override bool ShouldSkipUpdate => _isEnabled && base.ShouldSkipUpdate;
+        protected override bool ShouldSkipUpdate => !_isEnabled || base.ShouldSkipUpdate;
 
         /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
@@ -92,10 +97,10 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
         {
             await base.WhenEnabled();
 
+            await AppaTask.WaitUntil(() => _feature != null);
+            
             using (_PRF_WhenEnabled.Auto())
             {
-                await AppaTask.WaitUntil(() => _feature != null);
-
                 UpdateExecution(_feature.IsEnabled);
             }
         }

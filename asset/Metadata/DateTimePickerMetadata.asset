@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - CollectionAnimationMetadata
     _resetToken: 
@@ -25,6 +26,7 @@ MonoBehaviour:
     _pid: 0
   _animation:
     _initializer:
+      _initializationCount: 0
       _tags: []
       _resetToken: 
     _owner: {fileID: 11400000}
@@ -47,6 +49,7 @@ MonoBehaviour:
     onDoneWhenCancelled: 0
   _effects:
     _initializer:
+      _initializationCount: 0
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}
@@ -57,6 +60,7 @@ MonoBehaviour:
       _pid: 0
     _gallery:
       _initializer:
+        _initializationCount: 0
         _tags: []
         _resetToken: 
       _owner: {fileID: 0}
@@ -67,6 +71,7 @@ MonoBehaviour:
         _pid: 0
       rotation:
         _initializer:
+          _initializationCount: 0
           _tags: []
           _resetToken: 
         _owner: {fileID: 0}
@@ -83,6 +88,7 @@ MonoBehaviour:
           to: {x: 0, y: 0, z: 0}
       scale:
         _initializer:
+          _initializationCount: 0
           _tags: []
           _resetToken: 
         _owner: {fileID: 0}
@@ -114,6 +120,7 @@ MonoBehaviour:
     _contentVisual: {fileID: 0}
   _navigation:
     _initializer:
+      _initializationCount: 0
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}
@@ -129,6 +136,7 @@ MonoBehaviour:
     _maxSearchDepthForView: 2
   _optimization:
     _initializer:
+      _initializationCount: 0
       _tags: []
       _resetToken: 
     _owner: {fileID: 0}

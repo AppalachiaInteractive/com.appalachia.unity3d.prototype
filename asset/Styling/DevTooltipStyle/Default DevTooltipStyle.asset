@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0096154b58a7413fb2663ff42e957bb9, type: 3}
+  m_Name: Default DevTooltipStyle
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _initializationCount: 8
+    _tags:
+    - _distanceFromTarget
+    - _textPadding
+    - _backgroundColor
+    - _outlineColor
+    - _outlineThickness
+    - _direction
+    - _showTriangle
+    - _triangleSize
+    _resetToken: 
+  _objectId:
+    _increment: 5527632
+    _machine: 14129404
+    _timestamp: 1645899477
+    _pid: -8016
+  _overrides:
+  - {fileID: 11400000, guid: 0c61299db404b4142b14c3770df2e818, type: 2}
+  _triangleSprite: {fileID: 21300000, guid: d631ea252f4d45647a68dab25ff4d032, type: 3}
+  _direction: 1
+  _distanceFromTarget: 20
+  _textPadding: 10
+  _backgroundColor: {r: 0.14509805, g: 0.14509805, b: 0.14901961, a: 1}
+  _outlineColor: {r: 0.24313726, g: 0.24313726, b: 0.24313726, a: 1}
+  _outlineThickness: 2
+  _showTriangle: 1
+  _triangleSize: 18

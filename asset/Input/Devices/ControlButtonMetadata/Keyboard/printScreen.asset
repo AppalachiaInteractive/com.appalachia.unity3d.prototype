@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: printScreen
   _niceName: Print Screen
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:

@@ -2,11 +2,15 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Services.Model;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
+using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Services
 {
@@ -15,7 +19,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
         ApplicationFunctionalityMetadata<TService, TServiceMetadata, TManager>,
         IApplicationServiceMetadata<TService>
         where TService : ApplicationService<TService, TServiceMetadata, TFeature, TFeatureMetadata,
-            TFunctionalitySet, TIService, TIWidget, TManager>
+            TFunctionalitySet, TIService, TIWidget, TManager>, TIService
         where TServiceMetadata : ApplicationServiceMetadata<TService, TServiceMetadata, TFeature,
             TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
         where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget

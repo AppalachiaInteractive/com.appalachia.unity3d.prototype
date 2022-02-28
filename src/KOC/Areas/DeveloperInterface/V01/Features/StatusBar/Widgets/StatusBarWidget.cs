@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.Core;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
 using Appalachia.UI.Controls.Extensions;
 using Appalachia.UI.Core.Components.Subsets;
 using Appalachia.Utility.Async;
@@ -12,20 +12,21 @@ using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets
 {
-    public sealed class StatusBarWidget : DeveloperInterfaceManager_V01.Widget<StatusBarWidget,
-        StatusBarWidgetMetadata, StatusBarFeature, StatusBarFeatureMetadata>
+    public sealed class StatusBarWidget : DeveloperInterfaceManager_V01.WidgetWithSingletonSubwidgets<
+        IStatusBarSubwidget, IStatusBarSubwidgetMetadata, StatusBarWidget, StatusBarWidgetMetadata,
+        StatusBarFeature, StatusBarFeatureMetadata>
     {
         #region Constants and Static Readonly
 
-        private const string STATUS_BAR_ENTRY_PARENT_NAME = "Status Bar Entries";
+        private const string STATUS_BAR_ENTRY_PARENT_NAME = "Status Bar Subwidgets";
 
         #endregion
 
         #region Fields and Autoproperties
 
-        private GameObject _statusBarEntryParent;
-        private List<IStatusBarEntry> _leftStatusBarEntries;
-        private List<IStatusBarEntry> _rightStatusBarEntries;
+        private GameObject _statusBarSubwidgetParent;
+        private List<IStatusBarSubwidget> _leftStatusBarSubwidgets;
+        private List<IStatusBarSubwidget> _rightStatusBarSubwidgets;
 
         public HorizontalLayoutGroupSubset leftStatusBarLayoutGroup;
 
@@ -33,67 +34,46 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         #endregion
 
-        public GameObject StatusBarEntryParent => _statusBarEntryParent;
+        public GameObject StatusBarSubwidgetParent => _statusBarSubwidgetParent;
         public HorizontalLayoutGroupSubset LeftStatusBarLayoutGroup => leftStatusBarLayoutGroup;
         public HorizontalLayoutGroupSubset RightStatusBarLayoutGroup => rightStatusBarLayoutGroup;
 
-        public IReadOnlyList<IStatusBarEntry> LeftStatusBarEntries => _leftStatusBarEntries;
-        public IReadOnlyList<IStatusBarEntry> RightStatusBarEntries => _rightStatusBarEntries;
+        public IReadOnlyList<IStatusBarSubwidget> LeftStatusBarSubwidgets => _leftStatusBarSubwidgets;
+        public IReadOnlyList<IStatusBarSubwidget> RightStatusBarSubwidgets => _rightStatusBarSubwidgets;
 
-        /// <summary>
-        ///     Adds the specified status bar entry to the appropriate layout group, and refreshes the layout.
-        /// </summary>
-        /// <param name="statusBarEntry">The status bar entry to add.</param>
-        public void RegisterStatus(IStatusBarEntry statusBarEntry)
-        {
-            using (_PRF_RegisterStatus.Auto())
-            {
-                _leftStatusBarEntries ??= new List<IStatusBarEntry>();
-                _rightStatusBarEntries ??= new List<IStatusBarEntry>();
-
-                switch (statusBarEntry.Metadata.Section)
-                {
-                    case StatusBarSection.Left:
-                        _leftStatusBarEntries.Add(statusBarEntry);
-
-                        break;
-                    case StatusBarSection.Right:
-                        _rightStatusBarEntries.Add(statusBarEntry);
-
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-
-        public void SortEntriesByPriority()
+        public void SortSubwidgetsByPriority()
         {
             using (_PRF_SortEntriesByPriority.Auto())
             {
-                SortEntriesByPriority(_leftStatusBarEntries);
-                SortEntriesByPriority(_rightStatusBarEntries);
+                SortSubwidgetsByPriority(_leftStatusBarSubwidgets);
+                SortSubwidgetsByPriority(_rightStatusBarSubwidgets);
             }
         }
 
-        public void ValidateEntries()
+        public void ValidateSubwidgets()
         {
             using (_PRF_ValidateEntries.Auto())
             {
-                RemoveIncorrectEntriesFromList(
-                    _leftStatusBarEntries,
-                    _rightStatusBarEntries,
+                RemoveIncorrectSubwidgetsFromList(
+                    _leftStatusBarSubwidgets,
+                    _rightStatusBarSubwidgets,
                     StatusBarSection.Left
                 );
 
-                RemoveIncorrectEntriesFromList(
-                    _rightStatusBarEntries,
-                    _leftStatusBarEntries,
+                RemoveIncorrectSubwidgetsFromList(
+                    _rightStatusBarSubwidgets,
+                    _leftStatusBarSubwidgets,
                     StatusBarSection.Right
                 );
 
-                EnsureEntryHasCorrectParent(_leftStatusBarEntries,  leftStatusBarLayoutGroup.RectTransform);
-                EnsureEntryHasCorrectParent(_rightStatusBarEntries, rightStatusBarLayoutGroup.RectTransform);
+                EnsureSubwidgetHasCorrectParent(
+                    _leftStatusBarSubwidgets,
+                    leftStatusBarLayoutGroup.RectTransform
+                );
+                EnsureSubwidgetHasCorrectParent(
+                    _rightStatusBarSubwidgets,
+                    rightStatusBarLayoutGroup.RectTransform
+                );
 
                 LayoutRebuilder.MarkLayoutForRebuild(leftStatusBarLayoutGroup.RectTransform);
                 LayoutRebuilder.MarkLayoutForRebuild(rightStatusBarLayoutGroup.RectTransform);
@@ -121,6 +101,29 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
+        protected override void OnRegisterSubwidget(IStatusBarSubwidget subwidget)
+        {
+            using (_PRF_OnRegisterSubwidget.Auto())
+            {
+                _leftStatusBarSubwidgets ??= new List<IStatusBarSubwidget>();
+                _rightStatusBarSubwidgets ??= new List<IStatusBarSubwidget>();
+
+                switch (subwidget.Metadata.Section)
+                {
+                    case StatusBarSection.Left:
+                        _leftStatusBarSubwidgets.Add(subwidget);
+
+                        break;
+                    case StatusBarSection.Right:
+                        _rightStatusBarSubwidgets.Add(subwidget);
+
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
         /// <inheritdoc />
         protected override async AppaTask WhenEnabled()
         {
@@ -128,64 +131,64 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
             using (_PRF_WhenEnabled.Auto())
             {
-                _leftStatusBarEntries ??= new List<IStatusBarEntry>();
-                _rightStatusBarEntries ??= new List<IStatusBarEntry>();
+                _leftStatusBarSubwidgets ??= new List<IStatusBarSubwidget>();
+                _rightStatusBarSubwidgets ??= new List<IStatusBarSubwidget>();
 
                 canvas.GameObject.GetOrAddChild(
-                    ref _statusBarEntryParent,
+                    ref _statusBarSubwidgetParent,
                     STATUS_BAR_ENTRY_PARENT_NAME,
                     true
                 );
 
-                ValidateEntries();
+                ValidateSubwidgets();
 
                 var canvasChildCount = canvas.RectTransform.childCount;
 
-                var entriesRect = _statusBarEntryParent.transform as RectTransform;
-                entriesRect.FullScreen(true);
-                
-                _statusBarEntryParent.transform.SetSiblingIndex(canvasChildCount - 1);
+                var subwidgetRect = _statusBarSubwidgetParent.transform as RectTransform;
+                subwidgetRect.FullScreen(true);
+
+                _statusBarSubwidgetParent.transform.SetSiblingIndex(canvasChildCount - 1);
             }
         }
 
-        private static void SortEntriesByPriority(List<IStatusBarEntry> entries)
+        private static void SortSubwidgetsByPriority(List<IStatusBarSubwidget> subwidgets)
         {
             using (_PRF_SortEntriesByPriority.Auto())
             {
-                entries.Sort((e1, e2) => e1.Metadata.Priority.CompareTo(e2.Metadata.Priority));
+                subwidgets.Sort((e1, e2) => e1.Metadata.Priority.CompareTo(e2.Metadata.Priority));
             }
         }
 
-        private void EnsureEntryHasCorrectParent(List<IStatusBarEntry> entries, Transform parent)
+        private void EnsureSubwidgetHasCorrectParent(List<IStatusBarSubwidget> subwidgets, Transform parent)
         {
             using (_PRF_EnsureEntryHasCorrectParent.Auto())
             {
-                for (var index = 0; index < entries.Count; index++)
+                for (var index = 0; index < subwidgets.Count; index++)
                 {
-                    var statusBarEntry = entries[index];
-                    statusBarEntry.Transform.SetParent(parent);
+                    var statusBarSubwidget = subwidgets[index];
+                    statusBarSubwidget.Transform.SetParent(parent);
                 }
             }
         }
 
-        private void RemoveIncorrectEntriesFromList(
-            List<IStatusBarEntry> reviewing,
-            List<IStatusBarEntry> other,
+        private void RemoveIncorrectSubwidgetsFromList(
+            List<IStatusBarSubwidget> reviewing,
+            List<IStatusBarSubwidget> other,
             StatusBarSection correctSection)
         {
             using (_PRF_RemoveIncorrectEntriesFromList.Auto())
             {
                 for (var index = reviewing.Count - 1; index >= 0; index--)
                 {
-                    var statusBarEntry = reviewing[index];
+                    var statusBarSubwidget = reviewing[index];
 
-                    if (statusBarEntry.Metadata.Section == correctSection)
+                    if (statusBarSubwidget.Metadata.Section == correctSection)
                     {
                         continue;
                     }
 
                     reviewing.RemoveAt(index);
-                    other.Add(statusBarEntry);
+                    other.Add(statusBarSubwidget);
                 }
             }
         }
@@ -193,19 +196,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         #region Profiling
 
         private static readonly ProfilerMarker _PRF_EnsureEntryHasCorrectParent =
-            new ProfilerMarker(_PRF_PFX + nameof(EnsureEntryHasCorrectParent));
-
-        private static readonly ProfilerMarker _PRF_RegisterStatus =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterStatus));
+            new ProfilerMarker(_PRF_PFX + nameof(EnsureSubwidgetHasCorrectParent));
 
         private static readonly ProfilerMarker _PRF_RemoveIncorrectEntriesFromList =
-            new ProfilerMarker(_PRF_PFX + nameof(RemoveIncorrectEntriesFromList));
+            new ProfilerMarker(_PRF_PFX + nameof(RemoveIncorrectSubwidgetsFromList));
 
         private static readonly ProfilerMarker _PRF_SortEntriesByPriority =
-            new ProfilerMarker(_PRF_PFX + nameof(SortEntriesByPriority));
+            new ProfilerMarker(_PRF_PFX + nameof(SortSubwidgetsByPriority));
 
         private static readonly ProfilerMarker _PRF_ValidateEntries =
-            new ProfilerMarker(_PRF_PFX + nameof(ValidateEntries));
+            new ProfilerMarker(_PRF_PFX + nameof(ValidateSubwidgets));
 
         #endregion
     }

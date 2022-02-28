@@ -72,17 +72,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
                 if (_activityBarWidget)
                 {
-                    _activityBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                    _activityBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
                 }
 
                 if (_menuBarWidget)
                 {
-                    _menuBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                    _menuBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
                 }
 
                 if (_statusBarWidget)
                 {
-                    _statusBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                    _statusBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
                 }
             }
         }
@@ -94,9 +94,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
             using (_PRF_WhenDisabled.Auto())
             {
-                _menuBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _activityBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _menuBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _activityBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _statusBarWidget.VisualUpdate.Event += OnRequiresUpdate;
             }
         }
     }

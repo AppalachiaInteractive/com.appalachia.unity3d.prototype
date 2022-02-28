@@ -36,17 +36,17 @@ namespace Appalachia.Prototype.KOC.Areas
         [ShowInInspector, ReadOnly]
         public abstract AreaVersion Version { get; }
 
-        public void UpdateComponentSet<TSet, TSetData>(
-            ref TSetData data,
-            ref TSet target,
+        public void UpdateComponentSet<TComponentSet, TComponentSetData>(
+            ref TComponentSetData data,
+            ref TComponentSet target,
             GameObject parent,
             string setName)
-            where TSet : ComponentSet<TSet, TSetData>, new()
-            where TSetData : ComponentSetData<TSet, TSetData>
+            where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
+            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>
         {
             using (_PRF_UpdateComponentSet.Auto())
             {
-                ComponentSetData<TSet, TSetData>.RefreshAndUpdateComponentSet(
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdateComponentSet(
                     ref data,
                     ref target,
                     parent,

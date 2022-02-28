@@ -70,9 +70,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
             {
                 base.UnsubscribeFromAllFunctionalities();
 
-                _sideBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _activityBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event -= OnDependencyChanged;
+                _sideBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
+                _activityBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
+                _statusBarWidget.VisualUpdate.Event -= OnRequiresUpdate;
             }
         }
 
@@ -83,9 +83,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.W
 
             using (_PRF_WhenEnabled.Auto())
             {
-                _sideBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _activityBarWidget.VisuallyChanged.Event += OnDependencyChanged;
-                _statusBarWidget.VisuallyChanged.Event += OnDependencyChanged;
+                _sideBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _activityBarWidget.VisualUpdate.Event += OnRequiresUpdate;
+                _statusBarWidget.VisualUpdate.Event += OnRequiresUpdate;
             }
         }
     }

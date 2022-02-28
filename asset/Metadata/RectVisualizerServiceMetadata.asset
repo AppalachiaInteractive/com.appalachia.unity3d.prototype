@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - updates
     - updateSteps
@@ -31,6 +32,7 @@ MonoBehaviour:
   featureDisabledExecutionMode: 1
   cameraData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - allowDynamicResolution
       - allowHDR
@@ -64,6 +66,8 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    hideInInspector: 0
+    disableUpdates: 0
     clearFlags:
       _overriding: 1
       _objectId:

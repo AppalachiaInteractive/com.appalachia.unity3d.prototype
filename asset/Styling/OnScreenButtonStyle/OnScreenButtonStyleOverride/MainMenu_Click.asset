@@ -15,7 +15,13 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
-    _tags: []
+    _initializationCount: 5
+    _tags:
+    - _spriteColor
+    - _textColor
+    - _font
+    - _spriteStyle
+    - _textStyle
     _resetToken: 
   _objectId:
     _increment: 3571583
@@ -43,10 +49,10 @@ MonoBehaviour:
   _font:
     _overriding: 0
     _objectId:
-      _increment: 7594911
-      _machine: 14129404
-      _timestamp: 1644971927
-      _pid: -14768
+      _increment: 10401819
+      _machine: 14129406
+      _timestamp: 1645927649
+      _pid: -8016
     _initial: {fileID: 0}
     _value: {fileID: 11400000, guid: afee15da68d82f64bb278296bd0d9861, type: 2}
   _spriteStyle:
@@ -65,5 +71,5 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    _initial: 4
+    _initial: 0
     _value: 0

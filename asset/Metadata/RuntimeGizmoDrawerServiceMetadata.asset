@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
+    _initializationCount: 0
     _tags:
     - RawImageCanvasComponentSetStyle
     - startsEnabled
@@ -22,14 +23,15 @@ MonoBehaviour:
     - featureDisabledExecutionMode
     _resetToken: 
   _objectId:
-    _increment: 0
-    _machine: 0
-    _timestamp: 0
-    _pid: 0
+    _increment: 8208748
+    _machine: 14129406
+    _timestamp: 1645836050
+    _pid: -8016
   featureEnabledExecutionMode: 1
   featureDisabledExecutionMode: 1
   cameraData:
     _initializer:
+      _initializationCount: 0
       _tags:
       - allowDynamicResolution
       - allowHDR
@@ -59,10 +61,12 @@ MonoBehaviour:
       _resetToken: 
     _owner: {fileID: 11400000}
     _objectId:
-      _increment: 0
-      _machine: 0
-      _timestamp: 0
-      _pid: 0
+      _increment: 8208750
+      _machine: 14129406
+      _timestamp: 1645836050
+      _pid: -8016
+    hideInInspector: 0
+    disableUpdates: 0
     clearFlags:
       _overriding: 0
       _objectId:

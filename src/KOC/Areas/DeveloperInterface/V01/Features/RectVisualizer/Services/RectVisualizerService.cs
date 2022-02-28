@@ -3,8 +3,11 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Collections.NonSerialized;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Models;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Events;
+using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Drawing;
@@ -21,8 +24,21 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                                                      RectVisualizerFeatureMetadata>,
                                                  GizmoDrawer.IService
     {
+        static RectVisualizerService()
+        {
+            When.AnyInstance<IRectVisualizer>()
+                .IsEnabledThen(
+                     args =>
+                     {
+                         When.Behaviour<RectVisualizerService>()
+                             .IsAvailableThen(svc => { svc.OnDraw.Event += args.value.VisualizeRectangles; });
+                     }
+                 );
+        }
+
         #region Fields and Autoproperties
 
+        public AppaEvent<CommandBuilder>.Data OnDraw;
         private GizmoDrawer.Service _service;
 
         private RectTransform[] _rectTransforms;
@@ -155,7 +171,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                 {
                     await metadata.updates.Delay();
                 }
-                
+
                 await UpdateTargets();
                 await metadata.updates.Delay();
             }
@@ -220,11 +236,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         {
             using (_PRF_OnPreCull.Auto())
             {
-                if (!FullyInitialized)
+                if (!FullyInitialized || ShouldSkipUpdate)
                 {
                     return;
                 }
 
+                OnDraw.RaiseEvent(Draw);
                 _service.OnPreCull();
             }
         }

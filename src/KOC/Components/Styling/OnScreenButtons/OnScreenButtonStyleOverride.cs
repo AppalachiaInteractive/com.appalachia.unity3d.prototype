@@ -1,11 +1,13 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.Styling.Overrides;
 using Appalachia.UI.Core.Styling.Elements;
 using Appalachia.UI.Core.Styling.Fonts;
 using Appalachia.UI.Core.Styling.Overrides;
+using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -70,6 +72,23 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         }
 
         /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                initializer.Do(this, nameof(_spriteColor), () => _spriteColor = new(false, default));
+                initializer.Do(this, nameof(_textColor),   () => _textColor = new(false, default));
+                initializer.Do(this, nameof(_font),        () => _font = new(false, default));
+                initializer.Do(this, nameof(_spriteStyle), () => _spriteStyle = new(false, default));
+                initializer.Do(this, nameof(_textStyle),   () => _textStyle = new(false, default));
+                
+                SyncWithDefault();
+            }
+        }
+
+        /// <inheritdoc />
         protected override void RegisterOverrideSubscriptions()
         {
             using (_PRF_RegisterOverrideSubscriptions.Auto())
@@ -84,11 +103,35 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 
         #region IOnScreenButtonStyle Members
 
-        public Color SpriteColor => _spriteColor.Get(Defaults.SpriteColor);
-        public Color TextColor => _textColor.Get(Defaults.TextColor);
-        public FontStyleOverride Font => _font.Get(Defaults.Font);
-        public OnScreenButtonSpriteStyle SpriteStyle => _spriteStyle.Get(Defaults.SpriteStyle);
-        public OnScreenButtonTextStyle TextStyle => _textStyle.Get(Defaults.TextStyle);
+        public Color SpriteColor
+        {
+            get => _spriteColor.Get(Defaults.SpriteColor);
+            set => _spriteColor.OverrideValue(value);
+        }
+
+        public Color TextColor
+        {
+            get => _textColor.Get(Defaults.TextColor);
+            set => _textColor.OverrideValue(value);
+        }
+
+        public FontStyleOverride Font
+        {
+            get => _font.Get(Defaults.Font);
+            set => _font.OverrideValue(value);
+        }
+
+        public OnScreenButtonSpriteStyle SpriteStyle
+        {
+            get => _spriteStyle.Get(Defaults.SpriteStyle);
+            set => _spriteStyle.OverrideValue(value);
+        }
+
+        public OnScreenButtonTextStyle TextStyle
+        {
+            get => _textStyle.Get(Defaults.TextStyle);
+            set => _textStyle.OverrideValue(value);
+        }
 
         #endregion
 

@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: Patch_Rock-Sliding+Verb_BokBokSplashScreen
   _niceName: Patch_Rock-Sliding+Verb_Bok Bok Splash Screen
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:

@@ -141,6 +141,42 @@ MonoBehaviour:
     m_Address: DeveloperTooltipWidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 96237e1290e004344bb27be04860568d
+    m_Address: SceneInfoStatusBarSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a1a0ceb4eb775e74ab441d09a48c1e7e
+    m_Address: DevTooltipsFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e30e74bd10e0ebe48a59ead162a91853
+    m_Address: DevTooltipsWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8ce46d9d9a9b5cf44b3c2348f33ce59d
+    m_Address: PerformanceProfiingFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e72f3fd4f555ac4a867d8942184ae05
+    m_Address: MemoryProfilerServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9d6ae30965bcdc345ae92df720eb1c2d
+    m_Address: AudioProfilerServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8c7fb437593813f498d4f22602d23108
+    m_Address: RenderingProfilerServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a57445c8aca77b84f926467c56585c35
+    m_Address: FrameRateStatusBarSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 80d82f569c81ad94da78853083ca84e1
+    m_Address: MemoryStatusBarSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

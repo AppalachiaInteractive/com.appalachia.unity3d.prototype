@@ -15,6 +15,7 @@ MonoBehaviour:
   _cachedName: Patch_Rock-House_BokBokSplashScreen
   _niceName: Patch_Rock-House_Bok Bok Splash Screen
   _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
   _objectId:

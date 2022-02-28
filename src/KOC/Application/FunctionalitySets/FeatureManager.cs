@@ -28,19 +28,16 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
         {
             await base.WhenEnabled();
 
-            using (_PRF_WhenEnabled.Auto())
+            await AppaTask.WaitUntil(() => _functionality != null);
+
+            for (var featureIndex = 0; featureIndex < Functionality.Features.Count; featureIndex++)
             {
-                await AppaTask.WaitUntil(() => _functionality != null);
+                var feature = Functionality.Features[featureIndex];
 
-                for (var featureIndex = 0; featureIndex < Functionality.Features.Count; featureIndex++)
-                {
-                    var feature = Functionality.Features[featureIndex];
+                await AppaTask.WaitUntil(() => feature.FullyInitialized && feature.HasBeenEnabled);
 
-                    await AppaTask.WaitUntil(() => feature.FullyInitialized && feature.HasBeenEnabled);
-
-                    feature.SortWidgets();
-                    feature.SortServices();
-                }
+                feature.SortWidgets();
+                feature.SortServices();
             }
         }
 
