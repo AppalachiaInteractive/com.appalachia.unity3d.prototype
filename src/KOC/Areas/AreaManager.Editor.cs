@@ -5,7 +5,7 @@ using Appalachia.CI.Integration.Attributes;
 using Appalachia.CI.Integration.Core;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.DesignTemplate;
+using Appalachia.UI.Controls.Sets2.DesignTemplate;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -22,6 +22,10 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Fields and Autoproperties
 
+        [SerializeField]
+        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Scaled_Templates)]
+        protected DesignTemplateComponentSet templates2;
+        
         [FormerlySerializedAs("scaledTemplates")]
         [SerializeField]
         [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Scaled_Templates)]
@@ -80,7 +84,9 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                DesignTemplateComponentSetData.RefreshAndUpdateComponentSet(
+                templates = templates2;
+                
+                DesignTemplateComponentSetData.RefreshAndUpdate(
                     ref areaMetadata.templates,
                     false,
                     ref templates,

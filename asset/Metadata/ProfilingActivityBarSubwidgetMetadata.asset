@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44aa1a7f769b4b93b5b49be9590c9a3f, type: 3}
+  m_Name: ProfilingActivityBarSubwidgetMetadata
+  m_EditorClassIdentifier: 
+  _cachedName: 
+  _niceName: 
+  _initializer:
+    _initializationCount: 4
+    _tags:
+    - _enabled
+    - _section
+    - _priority
+    - tooltipText
+    _resetToken: 
+  _objectId:
+    _increment: 1181966
+    _machine: 14129404
+    _timestamp: 1646316156
+    _pid: 23944
+  button: {fileID: 11400000, guid: 4059711d4daa0654e8851630b66a0a5a, type: 2}
+  _enabled: 1
+  _section: 0
+  _priority: 100
+  icon: {fileID: 21300000, guid: a001d4f20848d5141995980bbf2b5e3f, type: 3}
+  tooltipText: Performance Profiling

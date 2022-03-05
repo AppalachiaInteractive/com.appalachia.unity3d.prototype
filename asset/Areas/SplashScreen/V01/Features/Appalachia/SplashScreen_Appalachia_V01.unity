@@ -226,12 +226,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: f597b241026585f4db85d4c522a25fd2, type: 2}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681857
+      _machine: 14129404
+      _timestamp: 1646435762
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
   fadePercentage: 0
-  menuCanvasGroup: {fileID: 272680943}
+  canvas: {fileID: 272680945}
+  canvasGroup: {fileID: 272680943}
 --- !u!223 &272680945
 Canvas:
   m_ObjectHideFlags: 0
@@ -879,12 +920,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: a924837ae3e4cd7409059506f715f83d, type: 2}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681855
+      _machine: 14129404
+      _timestamp: 1646435762
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
   fadePercentage: 0
-  menuCanvasGroup: {fileID: 1528236049}
+  canvas: {fileID: 1528236051}
+  canvasGroup: {fileID: 1528236049}
 --- !u!223 &1528236051
 Canvas:
   m_ObjectHideFlags: 0
@@ -1035,7 +1117,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529648541}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1051,12 +1133,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: f1ed11a3c3f1a174eb1113c18c60b704, type: 2}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681856
+      _machine: 14129404
+      _timestamp: 1646435762
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
   fadePercentage: 0
-  menuCanvasGroup: {fileID: 1529648547}
+  canvas: {fileID: 1529648549}
+  canvasGroup: {fileID: 1529648547}
 --- !u!223 &1529648549
 Canvas:
   m_ObjectHideFlags: 0

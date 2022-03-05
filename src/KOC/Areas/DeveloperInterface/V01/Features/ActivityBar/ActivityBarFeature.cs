@@ -9,10 +9,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     {
         static ActivityBarFeature()
         {
-            FunctionalitySet.RegisterWidget<ActivityBarWidget>(
-                _dependencyTracker,
-                i => _activityBarWidget = i
-            );
+            FunctionalitySet.RegisterWidget<ActivityBarWidget>(_dependencyTracker, i => _activityBarWidget = i);
         }
 
         #region Static Fields and Autoproperties

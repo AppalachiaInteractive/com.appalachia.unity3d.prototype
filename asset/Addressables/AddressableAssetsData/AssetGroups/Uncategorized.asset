@@ -29,10 +29,6 @@ MonoBehaviour:
     m_Address: DeveloperInfoFeatureMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: e8f1f16992f31164987a90492ec99dc3
-    m_Address: CursorManagerMetadata
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: b73d8889b9f9cfa4499ae705cccd4788
     m_Address: ViewScalingServiceMetadata
     m_ReadOnly: 0
@@ -43,10 +39,6 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 4161605ec9480a7449a5ebc245373126
     m_Address: RuntimeGizmoDrawerServiceMetadata
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: bb68e04829d76fc4d8adf018ddd4ecb5
-    m_Address: GizmoDrawerWidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 29240d01388e27a49acc59fb524e4292
@@ -109,10 +101,6 @@ MonoBehaviour:
     m_Address: DateTimePickerMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: f6da464bc5b70044b8381f214a1dd74f
-    m_Address: DeveloperInfoProviderFeatureMetadata
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 698e0e1f4e6fdb14090a3915791d5e6b
     m_Address: DeveloperInfoProviderServiceMetadata
     m_ReadOnly: 0
@@ -133,14 +121,6 @@ MonoBehaviour:
     m_Address: CursorWidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 96cfb70c3b407c149a50f75da3c48927
-    m_Address: DeveloperTooltipFeatureMetadata
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 8b76776bff220ed429ca2da5f3b702e8
-    m_Address: DeveloperTooltipWidgetMetadata
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 96237e1290e004344bb27be04860568d
     m_Address: SceneInfoStatusBarSubwidgetMetadata
     m_ReadOnly: 0
@@ -154,7 +134,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 8ce46d9d9a9b5cf44b3c2348f33ce59d
-    m_Address: PerformanceProfiingFeatureMetadata
+    m_Address: PerformanceProfilingFeatureMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 1e72f3fd4f555ac4a867d8942184ae05
@@ -165,16 +145,20 @@ MonoBehaviour:
     m_Address: AudioProfilerServiceMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 8c7fb437593813f498d4f22602d23108
-    m_Address: RenderingProfilerServiceMetadata
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: a57445c8aca77b84f926467c56585c35
     m_Address: FrameRateStatusBarSubwidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 80d82f569c81ad94da78853083ca84e1
     m_Address: MemoryStatusBarSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 51329c07a1d9d974e994197cad0b58bc
+    m_Address: FPSProfilerServiceMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b82e1d363ab2cf2479058c95e362d8d0
+    m_Address: ProfilingActivityBarSubwidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

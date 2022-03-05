@@ -2,7 +2,6 @@ using System;
 using Appalachia.Core.Collections.NonSerialized;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Application.Features;
-using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.UI.Controls.Components.Buttons;
 using Appalachia.UI.Controls.Components.Layout;

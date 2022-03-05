@@ -1,6 +1,6 @@
 using System;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Widgets;
+using Appalachia.UI.Controls.Common;
 using Appalachia.UI.Core.Styling.Elements;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Colors;
@@ -22,7 +22,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private Sprite _triangleSprite;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
-        private TooltipAppearanceDirection _direction;
+        private AppearanceDirection _direction;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0f, 100f)]
@@ -55,7 +55,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         #region IDevTooltipStyle Members
 
         public Sprite TriangleSprite => _triangleSprite;
-        public TooltipAppearanceDirection Direction => _direction;
+        public AppearanceDirection Direction => _direction;
         public float DistanceFromTarget => _distanceFromTarget;
         public float TextPadding => _textPadding;
         public Color BackgroundColor => _backgroundColor;
@@ -86,7 +86,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
                     () => _outlineColor = Colors.FromHexCode("#3E3E3E")
                 );
                 initializer.Do(this, nameof(_outlineThickness), () => _outlineThickness = 2f);
-                initializer.Do(this, nameof(_direction),        () => _direction = TooltipAppearanceDirection.Above);
+                initializer.Do(this, nameof(_direction),        () => _direction = AppearanceDirection.Above);
                 initializer.Do(this, nameof(_showTriangle),     () => _showTriangle = true);
                 initializer.Do(this, nameof(_triangleSize),     () => _triangleSize = 18f);
             }

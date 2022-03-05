@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb64a33d8a4e40939058d86973c5803d, type: 3}
   m_Name: SplashScreenMetadata_V01
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags:
@@ -42,6 +40,7 @@ MonoBehaviour:
     - Scaled Templates
     - Unscaled Templates
     _resetToken: 2021-11-20a
+  _niceName: 
   _objectId:
     _increment: 0
     _machine: 0
@@ -231,6 +230,792 @@ MonoBehaviour:
         _initial: 0
         _value: 0
   rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+  rootCanvas2:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    showAll: 0
+    _rectTransform:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - anchorMin
+        - anchorMax
+        - anchoredPosition
+        - offsetMin
+        - offsetMax
+        - pivot
+        - localScale
+        - localRotation
+        - sizeDelta
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - _pivot
+        _resetToken: 
+      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _objectId:
+        _increment: 3571590
+        _machine: 14129404
+        _timestamp: 1644957426
+        _pid: -14768
+      showAll: 0
+      hideInInspector: 0
+      disableUpdates: 1
+      disablePositionUpdates: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: -0
+      _bottom: 0
+      _height: -0
+      anchorMin:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+        _value: {x: 1, y: 1}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+    showAllComponents: 0
+    _canvasData:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - renderMode
+        - overridePixelPerfect
+        - pixelPerfect
+        - overrideSorting
+        - sortingOrder
+        - additionalShaderChannels
+        _resetToken: 
+      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _objectId:
+        _increment: 3571591
+        _machine: 14129404
+        _timestamp: 1644957426
+        _pid: -14768
+      showAll: 0
+      hideInInspector: 0
+      disableUpdates: 0
+      renderMode:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      overridePixelPerfect:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      pixelPerfect:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      overrideSorting:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 1
+      sortingOrder:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 1010
+      additionalShaderChannels:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+    _canvasFadeManagerData:
+      _overriding: 0
+      _objectId:
+        _increment: 7594837
+        _machine: 14129404
+        _timestamp: 1644971926
+        _pid: -14768
+      _initial:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 0
+          _tags:
+          - passiveMode
+          - passiveFadeMode
+          - updateAtStart
+          - startVisible
+          - fadeRange
+          - fadeInDuration
+          - fadeIn
+          - fadeOutDuration
+          - fadeOut
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        passiveMode: 0
+        passiveFadeMode: 2
+        updateAtStart: 1
+        startVisible: 1
+        fadeRange: {x: 0, y: 1}
+        fadeInDuration: 1
+        fadeIn: 2
+        fadeOutDuration: 1
+        fadeOut: 2
+      _value:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 0
+          _tags:
+          - passiveMode
+          - passiveFadeMode
+          - updateAtStart
+          - startVisible
+          - fadeRange
+          - fadeInDuration
+          - fadeIn
+          - fadeOutDuration
+          - fadeOut
+          _resetToken: 
+        _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        passiveMode: 0
+        passiveFadeMode: 2
+        updateAtStart: 1
+        startVisible: 1
+        fadeRange: {x: 0, y: 1}
+        fadeInDuration: 1
+        fadeIn: 2
+        fadeOutDuration: 1
+        fadeOut: 2
+    _canvasGroupData:
+      _overriding: 1
+      _objectId:
+        _increment: 7594838
+        _machine: 14129404
+        _timestamp: 1644971926
+        _pid: -14768
+      _initial:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 0
+          _tags:
+          - alpha
+          - interactable
+          - blocksRaycasts
+          - ignoreParentGroups
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        alpha:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        interactable:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        blocksRaycasts:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        ignoreParentGroups:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+      _value:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 0
+          _tags:
+          - alpha
+          - interactable
+          - blocksRaycasts
+          - ignoreParentGroups
+          _resetToken: 
+        _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+        _objectId:
+          _increment: 3571592
+          _machine: 14129404
+          _timestamp: 1644957426
+          _pid: -14768
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        alpha:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        interactable:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 0
+        blocksRaycasts:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 0
+        ignoreParentGroups:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+    _graphicRaycasterData:
+      _overriding: 0
+      _objectId:
+        _increment: 7594839
+        _machine: 14129404
+        _timestamp: 1644971926
+        _pid: -14768
+      _initial:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 0
+          _tags:
+          - ignoreReversedGraphics
+          - blockingObjects
+          - blockingMask
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        ignoreReversedGraphics:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        blockingObjects:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        blockingMask:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial:
+            serializedVersion: 2
+            m_Bits: 4294967295
+          _value:
+            serializedVersion: 2
+            m_Bits: 4294967295
+      _value:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 0
+          _tags:
+          - ignoreReversedGraphics
+          - blockingObjects
+          - blockingMask
+          _resetToken: 
+        _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+        _objectId:
+          _increment: 9211880
+          _machine: 14129404
+          _timestamp: 1646407956
+          _pid: 26192
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        ignoreReversedGraphics:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        blockingObjects:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        blockingMask:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial:
+            serializedVersion: 2
+            m_Bits: 4294967295
+          _value:
+            serializedVersion: 2
+            m_Bits: 4294967295
+    _canvasScaler:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - uiScaleMode
+        - referencePixelsPerUnit
+        - scaleFactor
+        - referenceResolution
+        - screenMatchMode
+        - matchWidthOrHeight
+        - physicalUnit
+        - fallbackScreenDPI
+        - defaultSpriteDPI
+        - dynamicPixelsPerUnit
+        _resetToken: 
+      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _objectId:
+        _increment: 3571593
+        _machine: 14129404
+        _timestamp: 1644957426
+        _pid: -14768
+      showAll: 0
+      hideInInspector: 0
+      disableUpdates: 0
+      uiScaleMode:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+        _value: 1
+      referencePixelsPerUnit:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 100
+        _value: 100
+      scaleFactor:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+        _value: 1
+      referenceResolution:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1920, y: 1080}
+        _value: {x: 1920, y: 1080}
+      screenMatchMode:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      matchWidthOrHeight:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+        _value: 1
+      physicalUnit:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 3
+        _value: 3
+      fallbackScreenDPI:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 96
+        _value: 96
+      defaultSpriteDPI:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 96
+        _value: 96
+      dynamicPixelsPerUnit:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+        _value: 1
+    _scaledRect:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - _pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        - pivot
+        _resetToken: 
+      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _objectId:
+        _increment: 3571594
+        _machine: 14129404
+        _timestamp: 1644957426
+        _pid: -14768
+      showAll: 0
+      hideInInspector: 0
+      disableUpdates: 1
+      disablePositionUpdates: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: -0
+      _bottom: 0
+      _height: -0
+      anchorMin:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+        _value: {x: 0, y: 0}
+      anchorMax:
+        _overriding: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1}
+        _value: {x: 1, y: 1}
+      pivot:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+        _value: {x: 0.5, y: 0.5}
+      localScale:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1, z: 1}
+        _value: {x: 1, y: 1, z: 1}
+      localRotation:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+        _value: {x: 0, y: 0, z: 0, w: 1}
+    _scaledCanvas:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - renderMode
+        - overridePixelPerfect
+        - pixelPerfect
+        - overrideSorting
+        - sortingOrder
+        - additionalShaderChannels
+        _resetToken: 
+      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _objectId:
+        _increment: 3571595
+        _machine: 14129404
+        _timestamp: 1644957426
+        _pid: -14768
+      showAll: 0
+      hideInInspector: 0
+      disableUpdates: 0
+      renderMode:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      overridePixelPerfect:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      pixelPerfect:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      overrideSorting:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      sortingOrder:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+      additionalShaderChannels:
+        _overriding: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+        _value: 0
+    _scaledCanvasScaler:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags:
+        - uiScaleMode
+        - referencePixelsPerUnit
+        - scaleFactor
+        - referenceResolution
+        - screenMatchMode
+        - matchWidthOrHeight
+        - physicalUnit
+        - fallbackScreenDPI
+        - defaultSpriteDPI
+        - dynamicPixelsPerUnit
+        _resetToken: 
+      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _objectId:
+        _increment: 3571596
+        _machine: 14129404
+        _timestamp: 1644957426
+        _pid: -14768
+      showAll: 0
+      hideInInspector: 0
+      disableUpdates: 0
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:
@@ -244,6 +1029,1347 @@ MonoBehaviour:
       _pid: 0
     _initial: {fileID: 0}
     _value: {fileID: 0}
+  templates2:
+    _overriding: 0
+    _objectId:
+      _increment: 15654243
+      _machine: 14129406
+      _timestamp: 1646443055
+      _pid: 26192
+    _initial:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      showAll: 0
+      _rectTransform:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 14
+          _tags:
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - pivot
+          - anchorMin
+          - anchorMax
+          - localRotation
+          - localScale
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1}
+          _value: {x: 1, y: 1}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1, z: 1}
+          _value: {x: 1, y: 1, z: 1}
+        localRotation:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      showAllComponents: 0
+      _canvasData:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 6
+          _tags:
+          - renderMode
+          - overridePixelPerfect
+          - pixelPerfect
+          - overrideSorting
+          - sortingOrder
+          - additionalShaderChannels
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        renderMode:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        overridePixelPerfect:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        pixelPerfect:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        overrideSorting:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        sortingOrder:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        additionalShaderChannels:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+      _canvasFadeManagerData:
+        _overriding: 0
+        _objectId:
+          _increment: 15654237
+          _machine: 14129406
+          _timestamp: 1646443055
+          _pid: 26192
+        _initial:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 9
+            _tags:
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          passiveMode: 0
+          passiveFadeMode: 2
+          updateAtStart: 1
+          startVisible: 1
+          fadeRange: {x: 0, y: 1}
+          fadeInDuration: 1
+          fadeIn: 2
+          fadeOutDuration: 1
+          fadeOut: 2
+        _value:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 9
+            _tags:
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          passiveMode: 0
+          passiveFadeMode: 2
+          updateAtStart: 1
+          startVisible: 1
+          fadeRange: {x: 0, y: 1}
+          fadeInDuration: 1
+          fadeIn: 2
+          fadeOutDuration: 1
+          fadeOut: 2
+      _canvasGroupData:
+        _overriding: 0
+        _objectId:
+          _increment: 15654238
+          _machine: 14129406
+          _timestamp: 1646443055
+          _pid: 26192
+        _initial:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 4
+            _tags:
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          alpha:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          interactable:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blocksRaycasts:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          ignoreParentGroups:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+        _value:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 4
+            _tags:
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          alpha:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          interactable:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blocksRaycasts:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          ignoreParentGroups:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+      _graphicRaycasterData:
+        _overriding: 0
+        _objectId:
+          _increment: 15654239
+          _machine: 14129406
+          _timestamp: 1646443055
+          _pid: 26192
+        _initial:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 3
+            _tags:
+            - ignoreReversedGraphics
+            - blockingObjects
+            - blockingMask
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          ignoreReversedGraphics:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          blockingObjects:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blockingMask:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial:
+              serializedVersion: 2
+              m_Bits: 4294967295
+            _value:
+              serializedVersion: 2
+              m_Bits: 4294967295
+        _value:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 3
+            _tags:
+            - ignoreReversedGraphics
+            - blockingObjects
+            - blockingMask
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          ignoreReversedGraphics:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          blockingObjects:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blockingMask:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial:
+              serializedVersion: 2
+              m_Bits: 4294967295
+            _value:
+              serializedVersion: 2
+              m_Bits: 4294967295
+      _imageData:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 15
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        material:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {r: 1, g: 1, b: 1, a: 1}
+          _value: {r: 1, g: 1, b: 1, a: 1}
+        raycastTarget:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillCenter:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillMethod:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 4
+          _value: 4
+        fillAmount:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillClockwise:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillOrigin:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      _designTemplateData:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 4
+          _tags:
+          - enabled
+          - templateAlpha
+          - templates
+          - selectedTemplate
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        enabled: 0
+        templateAlpha: 1
+        templates: []
+        selectedTemplate: {fileID: 0}
+    _value:
+      _name: 
+      _niceName: 
+      _initializer:
+        _initializationCount: 0
+        _tags: []
+        _resetToken: 
+      _owner: {fileID: 0}
+      _objectId:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      showAll: 0
+      _rectTransform:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 14
+          _tags:
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - pivot
+          - anchorMin
+          - anchorMax
+          - localRotation
+          - localScale
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        disablePositionUpdates: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+          _value: {x: 0, y: 0}
+        anchorMax:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1}
+          _value: {x: 1, y: 1}
+        pivot:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 0.5}
+        localScale:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1, z: 1}
+          _value: {x: 1, y: 1, z: 1}
+        localRotation:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+          _value: {x: 0, y: 0, z: 0, w: 1}
+      showAllComponents: 0
+      _canvasData:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 6
+          _tags:
+          - renderMode
+          - overridePixelPerfect
+          - pixelPerfect
+          - overrideSorting
+          - sortingOrder
+          - additionalShaderChannels
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        renderMode:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        overridePixelPerfect:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        pixelPerfect:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        overrideSorting:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        sortingOrder:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        additionalShaderChannels:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+      _canvasFadeManagerData:
+        _overriding: 0
+        _objectId:
+          _increment: 15654240
+          _machine: 14129406
+          _timestamp: 1646443055
+          _pid: 26192
+        _initial:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 9
+            _tags:
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          passiveMode: 0
+          passiveFadeMode: 2
+          updateAtStart: 1
+          startVisible: 1
+          fadeRange: {x: 0, y: 1}
+          fadeInDuration: 1
+          fadeIn: 2
+          fadeOutDuration: 1
+          fadeOut: 2
+        _value:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 9
+            _tags:
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          passiveMode: 0
+          passiveFadeMode: 2
+          updateAtStart: 1
+          startVisible: 1
+          fadeRange: {x: 0, y: 1}
+          fadeInDuration: 1
+          fadeIn: 2
+          fadeOutDuration: 1
+          fadeOut: 2
+      _canvasGroupData:
+        _overriding: 0
+        _objectId:
+          _increment: 15654241
+          _machine: 14129406
+          _timestamp: 1646443055
+          _pid: 26192
+        _initial:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 4
+            _tags:
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          alpha:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          interactable:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blocksRaycasts:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          ignoreParentGroups:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+        _value:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 4
+            _tags:
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          alpha:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          interactable:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blocksRaycasts:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          ignoreParentGroups:
+            _overriding: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+      _graphicRaycasterData:
+        _overriding: 0
+        _objectId:
+          _increment: 15654242
+          _machine: 14129406
+          _timestamp: 1646443055
+          _pid: 26192
+        _initial:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 3
+            _tags:
+            - ignoreReversedGraphics
+            - blockingObjects
+            - blockingMask
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          ignoreReversedGraphics:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          blockingObjects:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blockingMask:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial:
+              serializedVersion: 2
+              m_Bits: 4294967295
+            _value:
+              serializedVersion: 2
+              m_Bits: 4294967295
+        _value:
+          _name: 
+          _niceName: 
+          _initializer:
+            _initializationCount: 3
+            _tags:
+            - ignoreReversedGraphics
+            - blockingObjects
+            - blockingMask
+            _resetToken: 
+          _owner: {fileID: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          showAll: 0
+          hideInInspector: 0
+          disableUpdates: 0
+          ignoreReversedGraphics:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+            _value: 1
+          blockingObjects:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+            _value: 0
+          blockingMask:
+            _overriding: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial:
+              serializedVersion: 2
+              m_Bits: 4294967295
+            _value:
+              serializedVersion: 2
+              m_Bits: 4294967295
+      _imageData:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 15
+          _tags:
+          - material
+          - color
+          - raycastTarget
+          - maskable
+          - sprite
+          - imageType
+          - preserveAspect
+          - fillCenter
+          - fillMethod
+          - fillAmount
+          - fillClockwise
+          - fillOrigin
+          - alphaHitTestMinimumThreshold
+          - useSpriteMesh
+          - pixelsPerUnitMultiplier
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        material:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        color:
+          _overriding: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {r: 1, g: 1, b: 1, a: 1}
+          _value: {r: 1, g: 1, b: 1, a: 1}
+        raycastTarget:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        maskable:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        sprite:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {fileID: 0}
+          _value: {fileID: 0}
+        imageType:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        preserveAspect:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillCenter:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillMethod:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 4
+          _value: 4
+        fillAmount:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillClockwise:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+        fillOrigin:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        alphaHitTestMinimumThreshold:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        useSpriteMesh:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+          _value: 0
+        pixelsPerUnitMultiplier:
+          _overriding: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+          _value: 1
+      _designTemplateData:
+        _name: 
+        _niceName: 
+        _initializer:
+          _initializationCount: 4
+          _tags:
+          - enabled
+          - templateAlpha
+          - templates
+          - selectedTemplate
+          _resetToken: 
+        _owner: {fileID: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        showAll: 0
+        hideInInspector: 0
+        disableUpdates: 0
+        enabled: 0
+        templateAlpha: 1
+        templates: []
+        selectedTemplate: {fileID: 0}
   splashScreens:
   - {fileID: 0}
   - {fileID: 0}

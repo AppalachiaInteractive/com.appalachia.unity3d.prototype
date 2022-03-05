@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf1f801a005446198124c24bab88e39, type: 3}
   m_Name: SceneInfoStatusBarSubwidgetDevTooltipComponentSetData
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 15893031
     _machine: 14129404
     _timestamp: 1645706547
     _pid: -8016
+  dataTransferred: 0
+  showAll: 0
   _rectTransform:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags:
@@ -48,6 +51,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1645706547
       _pid: -8016
+    showAll: 0
     hideInInspector: 1
     disableUpdates: 0
     disablePositionUpdates: 0
@@ -105,7 +109,10 @@ MonoBehaviour:
         _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
+  showAllComponents: 0
   _background:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 1
       _tags:
@@ -119,6 +126,8 @@ MonoBehaviour:
       _pid: -8016
     _enabled: 1
     data1:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -143,6 +152,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 1
       disableUpdates: 0
       disablePositionUpdates: 0
@@ -201,6 +211,8 @@ MonoBehaviour:
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
     data2:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -226,6 +238,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       material:
@@ -364,6 +377,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data3:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -375,6 +390,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       cullTransparentMesh:
@@ -387,6 +403,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data4:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -405,6 +423,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       ignoreLayout:
@@ -480,6 +499,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data5:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -493,6 +514,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       effectColor:
@@ -523,6 +545,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
   _triangleParent:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 14
       _tags:
@@ -547,6 +571,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1645818854
       _pid: -8016
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
@@ -605,6 +630,8 @@ MonoBehaviour:
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
   _triangleBackground:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 1
       _tags:
@@ -618,6 +645,8 @@ MonoBehaviour:
       _pid: -8016
     _enabled: 1
     data1:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -643,6 +672,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       material:
@@ -781,6 +811,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data2:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -805,6 +837,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 1
       disableUpdates: 0
       disablePositionUpdates: 0
@@ -863,6 +896,8 @@ MonoBehaviour:
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
     data3:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -874,6 +909,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       cullTransparentMesh:
@@ -886,6 +922,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data4:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -904,6 +942,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       ignoreLayout:
@@ -979,6 +1018,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
   _triangleForeground:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 1
       _tags:
@@ -992,6 +1033,8 @@ MonoBehaviour:
       _pid: -8016
     _enabled: 1
     data1:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -1017,6 +1060,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       material:
@@ -1155,6 +1199,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data2:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -1179,6 +1225,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 1
       disableUpdates: 0
       disablePositionUpdates: 0
@@ -1237,6 +1284,8 @@ MonoBehaviour:
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
     data3:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -1248,6 +1297,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       cullTransparentMesh:
@@ -1260,6 +1310,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data4:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -1278,6 +1330,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       ignoreLayout:
@@ -1353,6 +1406,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
   _tooltipText:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 1
       _tags:
@@ -1366,6 +1421,8 @@ MonoBehaviour:
       _pid: -8016
     _enabled: 1
     data1:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 6
         _tags:
@@ -1377,10 +1434,13 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       fontStyle: {fileID: 11400000, guid: 32f265bc4b6f3cc4eaa2699bfa0d0cc9, type: 2}
     data2:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -1405,6 +1465,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 1
       disableUpdates: 0
       disablePositionUpdates: 0
@@ -1463,6 +1524,8 @@ MonoBehaviour:
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
     data3:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -1474,6 +1537,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       cullTransparentMesh:
@@ -1486,6 +1550,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
     data4:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -1504,6 +1570,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1645706547
         _pid: -8016
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       ignoreLayout:
@@ -1579,6 +1646,8 @@ MonoBehaviour:
         _initial: 1
         _value: 1
   _canvasGroup:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 4
       _tags:
@@ -1593,6 +1662,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1645848430
       _pid: -8016
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     alpha:

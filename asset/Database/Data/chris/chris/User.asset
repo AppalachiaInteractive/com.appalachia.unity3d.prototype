@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59229a34e9c4483f985990dd997a00ef, type: 3}
   m_Name: User
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
-    _initializationCount: 187
+    _initializationCount: 462
     _tags: []
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 0
     _machine: 0

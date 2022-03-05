@@ -1,10 +1,9 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Core.Objects.Sets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets2;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Controls.Sets.Buttons.Button;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Components.Subsets;
 using Appalachia.UI.Core.Extensions;
@@ -18,20 +17,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
     [CallStaticConstructorInEditor]
     [RequireComponent(typeof(RectTransform))]
     public abstract partial class
-        StatusBarSubwidget<TSubwidget, TSubwidgetMetadata, TButtonSet, TButtonSetData> :
+        StatusBarSubwidget<TSubwidget, TSubwidgetMetadata> :
             DeveloperInterfaceManager_V01.SingletonSubwidget<TSubwidget, IStatusBarSubwidget,
                 TSubwidgetMetadata, IStatusBarSubwidgetMetadata, StatusBarWidget, StatusBarWidgetMetadata,
                 StatusBarFeature, StatusBarFeatureMetadata>,
             IStatusBarSubwidget
-        where TSubwidget : StatusBarSubwidget<TSubwidget, TSubwidgetMetadata, TButtonSet, TButtonSetData>
-        where TSubwidgetMetadata : StatusBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadata, TButtonSet,
-            TButtonSetData>
-        where TButtonSet : BaseButtonComponentSet<TButtonSet, TButtonSetData>, IButtonComponentSet, new()
-        where TButtonSetData : BaseButtonComponentSetData<TButtonSet, TButtonSetData>, IButtonComponentSetData
+        where TSubwidget : StatusBarSubwidget<TSubwidget, TSubwidgetMetadata>
+        where TSubwidgetMetadata : StatusBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadata>
     {
         #region Fields and Autoproperties
 
-        public TButtonSet button;
+        public StatusBarSubwidgetComponentSet button;
 
         [SerializeField] private DevTooltipSubwidget _devTooltipSubwidget;
 
@@ -47,12 +43,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             {
                 if (!enabled || !_metadata.Enabled)
                 {
-                    button?.DisableSet();
+                    button?.Disable();
 
                     return;
                 }
 
-                ComponentSetData<TButtonSet, TButtonSetData>.RefreshAndUpdateComponentSet(
+                StatusBarSubwidgetComponentSetData.RefreshAndUpdate(
                     ref _metadata.button,
                     ref button,
                     gameObject,
@@ -163,8 +159,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        public abstract void OnClicked();
-
         public void UpdateSubwidgetFont(FontStyleOverride fontStyleOverride)
         {
             using (_PRF_UpdateSubwidgetFont.Auto())
@@ -199,9 +193,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         protected static readonly ProfilerMarker _PRF_GetStatusBarText =
             new ProfilerMarker(_PRF_PFX + nameof(GetStatusBarText));
-
-        protected static readonly ProfilerMarker _PRF_OnClicked =
-            new ProfilerMarker(_PRF_PFX + nameof(OnClicked));
 
         private static readonly ProfilerMarker _PRF_UpdateDevTooltipSubwidget =
             new ProfilerMarker(_PRF_PFX + nameof(OnDevTooltipUpdateRequested));

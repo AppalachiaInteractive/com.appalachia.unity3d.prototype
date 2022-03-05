@@ -33,7 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
                 target.layoutElement.enabled = true;
 
-                LayoutElementData.RefreshAndUpdateComponent(
+                LayoutElementData.RefreshAndUpdate(
                     ref layoutElementData,
                     Owner,
                     target.layoutElement,

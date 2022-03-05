@@ -1,13 +1,12 @@
 using System;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Rendering;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.FPS;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets;
 using Appalachia.Utility.Strings;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.FrameRate
 {
     public class FrameRateStatusBarSubwidget : StatusBarSubwidget<FrameRateStatusBarSubwidget,
-        FrameRateStatusBarSubwidgetMetadata, StatusBarSubwidgetComponentSet, StatusBarSubwidgetComponentSetData>
+        FrameRateStatusBarSubwidgetMetadata>
     {
         #region Constants and Static Readonly
 
@@ -17,26 +16,26 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         static FrameRateStatusBarSubwidget()
         {
-            RegisterDependency<RenderingProfilerService>(i => _renderingProfilerService = i);
+            RegisterDependency<FPSProfilerService>(i => _fpsProfilerService = i);
         }
 
         #region Static Fields and Autoproperties
 
-        private static RenderingProfilerService _renderingProfilerService;
+        private static FPSProfilerService _fpsProfilerService;
         private static Utf8PreparedFormat<string> _tooltipFormat;
 
         #endregion
 
-        internal RenderingProfilerService RenderingProfilerService => _renderingProfilerService;
+        internal FPSProfilerService FPSProfilerService => _fpsProfilerService;
 
         public override string GetDevTooltipText()
         {
             using (_PRF_GetDevTooltipText.Auto())
             {
-                var tooltipText = $"Current FPS: {RenderingProfilerService.CurrentFPS}\n" +
-                                  $"Average FPS: {RenderingProfilerService.AverageFPS}\n" +
-                                  $"1% FPS: {RenderingProfilerService.OnePercentFPS}\n" +
-                                  $"0.1% FPS: {RenderingProfilerService.Zero1PercentFps}";
+                var tooltipText = $"Current FPS: {FPSProfilerService.CurrentFPS}\n" +
+                                  $"Average FPS: {FPSProfilerService.AverageFPS}\n" +
+                                  $"1% FPS: {FPSProfilerService.OnePercentFPS}\n" +
+                                  $"0.1% FPS: {FPSProfilerService.Zero1PercentFPS}";
                 return tooltipText;
             }
         }
@@ -55,8 +54,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_GetStatusBarText.Auto())
             {
-                var averageFramesPerSecond = RenderingProfilerService.AverageFPS;
-                var result = $"Average FPS: {averageFramesPerSecond}";
+                var averageFramesPerSecond = FPSProfilerService.AverageFPS;
+                var result = $"Avg FPS: {averageFramesPerSecond}";
 
                 return result;
             }

@@ -3,8 +3,8 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.Styling;
 using Appalachia.Prototype.KOC.Scenes;
-using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
+using Appalachia.UI.Controls.Sets2.Canvases.RootCanvas;
+using Appalachia.UI.Controls.Sets2.Images.Background;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Styling;
 using Appalachia.Utility.Async;
@@ -16,9 +16,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
     {
         static LifetimeMetadata()
         {
-            RegisterDependency<MainAreaSceneInformationCollection>(
-                i => mainAreaSceneInformationCollection = i
-            );
+            RegisterDependency<MainAreaSceneInformationCollection>(i => mainAreaSceneInformationCollection = i);
         }
 
         #region Static Fields and Autoproperties
@@ -34,6 +32,9 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         public RootCanvasComponentSetData rootCanvas;
 
         public BackgroundComponentSetData rootBackground;
+        public RootCanvasComponentSetData rootCanvas2;
+
+        public BackgroundComponentSetData rootBackground2;
 
         public ApplicationUIStyle uiStyle;
         public DeviceButtonLookup deviceButtons;
@@ -77,6 +78,9 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                 );
             }
 #endif
+
+            rootCanvas = rootCanvas2;
+            rootBackground = rootBackground2;
         }
     }
 }

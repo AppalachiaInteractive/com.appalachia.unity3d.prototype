@@ -2,7 +2,7 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Input;
 using Appalachia.UI.Controls.Extensions;
-using Appalachia.UI.Controls.Sets.Canvases.UnscaledCanvas;
+using Appalachia.UI.Controls.Sets2.Canvases.UnscaledCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;
@@ -33,7 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
             using (_PRF_Initialize.Auto())
             {
-                UnscaledCanvasComponentSetData.RefreshAndUpdateComponentSet(
+                UnscaledCanvasComponentSetData.RefreshAndUpdate(
                     ref areaMetadata.unscaledCanvas,
                     ref unscaledCanvas,
                     gameObject,

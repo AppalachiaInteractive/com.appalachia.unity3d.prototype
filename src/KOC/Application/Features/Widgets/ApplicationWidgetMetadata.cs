@@ -2,16 +2,15 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Core.Objects.Sets;
-using Appalachia.Prototype.KOC.Application.Features.Services;
+using Appalachia.Core.Objects.Sets2;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Model;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Appalachia.UI.Controls.Sets.Canvases.Canvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
-using Appalachia.UI.Controls.Sets.Images.RoundedBackground;
+using Appalachia.UI.Controls.Sets2.Canvases.Canvas;
+using Appalachia.UI.Controls.Sets2.Images.Background;
+using Appalachia.UI.Controls.Sets2.Images.RoundedBackground;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Styling.Fonts;
 using Appalachia.Utility.Async;
@@ -20,43 +19,48 @@ using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-
 namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 {
     public abstract class ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
                                                     TFunctionalitySet, TIService, TIWidget, TManager> :
         ApplicationFunctionalityMetadata<TWidget, TWidgetMetadata, TManager>,
         IApplicationWidgetMetadata<TWidget>
-        where TWidget : ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
-            TFunctionalitySet, TIService, TIWidget, TManager>, TIWidget
-        where TWidgetMetadata : ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata
-            , TFunctionalitySet, TIService, TIWidget, TManager>
-        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget
-            , TManager>
-        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet,
-            TIService, TIWidget, TManager>
+        where TWidget : ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet,
+            TIService, TIWidget, TManager>, TIWidget
+        where TWidgetMetadata : ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+            TFunctionalitySet, TIService, TIWidget, TManager>
+        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
+            TManager>
+        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
+            TIWidget, TManager>
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
-        IApplicationFunctionalityManager
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
         #region Fields and Autoproperties
-        
-        protected virtual bool ShowRectTransformField => true;
-        protected virtual bool ShowCanvasField => true;
-        protected virtual bool ShowBackgroundField => true;
-        protected virtual bool ShowRoundedBackgroundField => true;
-        protected virtual bool ShowFontStyleField => true;
-        protected virtual bool ShowFeatureEnabledVisibilityModeField => true;
-        protected virtual bool ShowFeatureDisabledVisibilityModeField => true;
-        protected virtual bool ShowTransitionsWithFadeField => true;
-        protected virtual bool ShowAnimationDurationField => true;
-        
+
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [ShowIf(nameof(ShowRectTransformField))]
         public RectTransformData.Override rectTransform;
+
+        [FoldoutGroup(APPASTR.Common)]
+        [OnValueChanged(nameof(OnChanged))]
+        [ShowIf(nameof(ShowCanvasField))]
+        public Appalachia.UI.Controls.Sets2.Canvases.Canvas.CanvasComponentSetData.Optional canvas2;
+
+        [FoldoutGroup(APPASTR.Common)]
+        [OnValueChanged(nameof(OnChanged))]
+        [ShowIf(nameof(ShowBackgroundField))]
+        public Appalachia.UI.Controls.Sets2.Images.Background.BackgroundComponentSetData.Optional background2;
+
+        [FoldoutGroup(APPASTR.Common)]
+        [FormerlySerializedAs("roundedBackgroundStyle")]
+        [OnValueChanged(nameof(OnChanged))]
+        [ShowIf(nameof(ShowRoundedBackgroundField))]
+        public Appalachia.UI.Controls.Sets2.Images.RoundedBackground.RoundedBackgroundComponentSetData.Optional
+            roundedBackground2;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
@@ -102,6 +106,17 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         public float animationDuration;
 
         #endregion
+
+        protected virtual bool ShowAnimationDurationField => true;
+        protected virtual bool ShowBackgroundField => true;
+        protected virtual bool ShowCanvasField => true;
+        protected virtual bool ShowFeatureDisabledVisibilityModeField => true;
+        protected virtual bool ShowFeatureEnabledVisibilityModeField => true;
+        protected virtual bool ShowFontStyleField => true;
+
+        protected virtual bool ShowRectTransformField => true;
+        protected virtual bool ShowRoundedBackgroundField => true;
+        protected virtual bool ShowTransitionsWithFadeField => true;
 
         public virtual float GetCanvasGroupInvisibleAlpha()
         {
@@ -151,6 +166,10 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     nameof(featureDisabledVisibilityMode),
                     () => featureDisabledVisibilityMode = WidgetVisibilityMode.NotVisible
                 );
+
+                canvas = canvas2;
+                background = background2;
+                roundedBackground = roundedBackground2;
             }
         }
 
@@ -173,14 +192,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                RectTransformData.RefreshAndUpdateComponent(
-                    ref rectTransform,
-                    true,
-                    this,
-                    widget.RectTransform
-                );
+                RectTransformData.RefreshAndUpdate(ref rectTransform, true, this, widget.RectTransform);
 
-                CanvasComponentSetData.RefreshAndUpdateComponentSet(
+                CanvasComponentSetData.RefreshAndUpdate(
                     ref canvas,
                     true,
                     ref widget.canvas,
@@ -188,7 +202,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     typeof(TWidget).Name
                 );
 
-                BackgroundComponentSetData.RefreshAndUpdateComponentSet(
+                BackgroundComponentSetData.RefreshAndUpdate(
                     ref background,
                     true,
                     ref widget.background,
@@ -196,7 +210,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     typeof(TWidget).Name
                 );
 
-                RoundedBackgroundComponentSetData.RefreshAndUpdateComponentSet(
+                RoundedBackgroundComponentSetData.RefreshAndUpdate(
                     ref roundedBackground,
                     false,
                     ref widget.roundedBackground,
@@ -206,16 +220,16 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
-        protected void RefreshAndUpdateComponentSet<TComponentSet, TComponentSetData>(
+        protected void RefreshAndUpdate<TComponentSet, TComponentSetData>(
             ref TComponentSet set,
             ref TComponentSetData setData,
             TWidget widget,
             GameObject parent = null,
             string setName = null)
             where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
-            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>
+            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
         {
-            using (_PRF_RefreshAndUpdateComponentSet.Auto())
+            using (_PRF_RefreshAndUpdate.Auto())
             {
                 setName ??= typeof(TWidget).Name;
 
@@ -224,7 +238,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     parent = widget.gameObject;
                 }
 
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdateComponentSet(
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdate(
                     ref setData,
                     ref set,
                     parent,
@@ -241,8 +255,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         protected static readonly ProfilerMarker _PRF_GetCanvasGroupVisibleAlpha =
             new ProfilerMarker(_PRF_PFX + nameof(GetCanvasGroupVisibleAlpha));
 
-        private static readonly ProfilerMarker _PRF_RefreshAndUpdateComponentSet =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdateComponentSet));
+        private static readonly ProfilerMarker _PRF_RefreshAndUpdate =
+            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdate));
 
         #endregion
     }

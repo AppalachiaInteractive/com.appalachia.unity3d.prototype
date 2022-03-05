@@ -16,9 +16,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
     {
         #region Constants and Static Readonly
 
-        private const string LEFT_LAYOUT_GROUP_SUBWIDGETS_OBJ_NAME = "Left Status Bar Subwidgets";
+        public static readonly string LeftLayoutGroupSubwidgetsParentName = "Left " + StatusBarWidget.SubwidgetParentName;
 
-        private const string RIGHT_LAYOUT_GROUP_SUBWIDGETS_OBJ_NAME = "Right Status Bar Subwidgets";
+        public static readonly string RightLayoutGroupSubwidgetsParentName = "Right " + StatusBarWidget.SubwidgetParentName;
 
         #endregion
 
@@ -211,20 +211,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     leftLayoutGroup.HorizontalLayoutGroup.spacing.Value = statusBarSpacingLeft;
                 }
                 
-                HorizontalLayoutGroupSubsetData.RefreshAndUpdateComponentSubset(
+                HorizontalLayoutGroupSubsetData.RefreshAndUpdate(
                     ref rightLayoutGroup,
                     this,
                     ref widget.rightStatusBarLayoutGroup,
-                    widget.StatusBarSubwidgetParent,
-                    RIGHT_LAYOUT_GROUP_SUBWIDGETS_OBJ_NAME
+                    widget.SubwidgetParent,
+                    RightLayoutGroupSubwidgetsParentName
                 );
                 
-                HorizontalLayoutGroupSubsetData.RefreshAndUpdateComponentSubset(
+                HorizontalLayoutGroupSubsetData.RefreshAndUpdate(
                     ref leftLayoutGroup,
                     this,
                     ref widget.leftStatusBarLayoutGroup,
-                    widget.StatusBarSubwidgetParent,
-                    LEFT_LAYOUT_GROUP_SUBWIDGETS_OBJ_NAME
+                    widget.SubwidgetParent,
+                    LeftLayoutGroupSubwidgetsParentName
                 );
 
                 widget.ValidateSubwidgets();

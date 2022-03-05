@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2add214392f642dfa3e647e1a9e7d9ca, type: 3}
   m_Name: LabelSets
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
-    _initializationCount: 696
+    _initializationCount: 1684
     _tags:
     - Vegetation
     - Tree
     - Assembly
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 0
     _machine: 0

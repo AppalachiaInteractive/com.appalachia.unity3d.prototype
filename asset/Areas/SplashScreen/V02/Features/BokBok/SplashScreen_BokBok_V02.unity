@@ -517,10 +517,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7ebc0d0c434fb989e658df3d04716e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   lpg: {fileID: 182105195}
   locked: 0
   constraints: {fileID: 977822044}
@@ -1199,10 +1205,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048800ccb8d3af74bb5d4dca5da41f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   audioMixer: {fileID: 24100000, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
   rotationAngleParameter: Rotation Angle
 --- !u!1 &325049928
@@ -1417,7 +1429,7 @@ MonoBehaviour:
     ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775208, y: 1}
+    m_SensorSize: {x: 1.7784091, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1475,11 +1487,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4840472ad49518cb594877fea4a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 1
     _tags:
     - dataSet
+    - EnsureInstanceIsPrepared
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   dataSet: 0
   overrideActiveDataSet: 0
   overrideActiveDataSetName: 
@@ -1517,7 +1536,7 @@ GameObject:
   m_Layer: 0
   m_Name: BokBok_Name-BB_Audio
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 1cf508b46f780c949b95f6da10fb4d00, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1548,10 +1567,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc00357e424ee8f41b3a485669dd607e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   attachment:
     useListenerTransform: 0
     transform: {fileID: 0}
@@ -1843,10 +1868,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b72cf363495a4f4ca5abba925e978d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   parentExclusion: 0
   radius: 20
   gizmo:
@@ -1940,7 +1971,7 @@ GameObject:
   m_Layer: 0
   m_Name: BokBok_SerpentRight_Audio
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 1cf508b46f780c949b95f6da10fb4d00, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1971,10 +2002,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc00357e424ee8f41b3a485669dd607e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   attachment:
     useListenerTransform: 0
     transform: {fileID: 0}
@@ -2573,12 +2610,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: 88518adbbe1cb9f47ab0f5226171eb44, type: 2}
-  menuCanvasGroup: {fileID: 1805235113}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681886
+      _machine: 14129404
+      _timestamp: 1646435765
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
+  fadePercentage: 0
+  canvas: {fileID: 1805235115}
+  canvasGroup: {fileID: 1805235113}
 --- !u!223 &1805235115
 Canvas:
   m_ObjectHideFlags: 0
@@ -2613,7 +2691,7 @@ GameObject:
   m_Layer: 0
   m_Name: BokBok_SerpentLeft_Audio
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 1cf508b46f780c949b95f6da10fb4d00, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2644,10 +2722,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc00357e424ee8f41b3a485669dd607e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   attachment:
     useListenerTransform: 0
     transform: {fileID: 0}
@@ -2820,7 +2904,7 @@ GameObject:
   m_Layer: 0
   m_Name: BokBok_House
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 1cf508b46f780c949b95f6da10fb4d00, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2921,10 +3005,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc00357e424ee8f41b3a485669dd607e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   attachment:
     useListenerTransform: 0
     transform: {fileID: 0}
@@ -3242,12 +3332,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: 2a5d4c66af2949e47ba8ba00baf82168, type: 2}
-  menuCanvasGroup: {fileID: 1998407276}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681888
+      _machine: 14129404
+      _timestamp: 1646435765
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
+  fadePercentage: 0
+  canvas: {fileID: 1998407278}
+  canvasGroup: {fileID: 1998407276}
 --- !u!223 &1998407278
 Canvas:
   m_ObjectHideFlags: 0
@@ -3413,12 +3544,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: 76fd0301ac70f474e922bc1054a2e96b, type: 2}
-  menuCanvasGroup: {fileID: 2014791214}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681887
+      _machine: 14129404
+      _timestamp: 1646435765
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
+  fadePercentage: 0
+  canvas: {fileID: 2014791216}
+  canvasGroup: {fileID: 2014791214}
 --- !u!223 &2014791216
 Canvas:
   m_ObjectHideFlags: 0
@@ -3704,10 +3876,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b80d5018049678b888159e2617060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   occlusionProbeGlobal: 1
   occlusionProbeTerrainOffset: 0
   occlusionProbeTerrainBlendOffset: 0
@@ -3808,10 +3986,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc00357e424ee8f41b3a485669dd607e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   attachment:
     useListenerTransform: 0
     transform: {fileID: 0}
@@ -3819,7 +4003,7 @@ MonoBehaviour:
     source: {fileID: 0}
   autoCue: 0
   playOnceOnly: 0
-  controller: 0
+  controller: 2
   volume: 1
   gizmo:
     color: {r: 1, g: 0, b: 0, a: 1}

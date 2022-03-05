@@ -1,3 +1,4 @@
+using Appalachia.UI.Controls.Common;
 using Appalachia.UI.Core.Styling.Elements;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         float TextPadding { get; }
         float TriangleSize { get; }
         Sprite TriangleSprite { get; }
-        TooltipAppearanceDirection Direction { get; }
+        AppearanceDirection Direction { get; }
 
         #region Profiling
 

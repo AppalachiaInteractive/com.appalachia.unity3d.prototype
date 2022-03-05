@@ -1,13 +1,12 @@
 using System;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Memory;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.Memory;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets;
 using Appalachia.Utility.Strings;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Memory
 {
     public class MemoryStatusBarSubwidget : StatusBarSubwidget<MemoryStatusBarSubwidget,
-        MemoryStatusBarSubwidgetMetadata, StatusBarSubwidgetComponentSet, StatusBarSubwidgetComponentSetData>
+        MemoryStatusBarSubwidgetMetadata>
     {
         static MemoryStatusBarSubwidget()
         {
@@ -31,7 +30,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             {
                 var tooltipText = $"Reserved RAM: {MemoryProfilerService.ReservedRam}\n" +
                                   $"Allocated RAM: {MemoryProfilerService.AllocatedRam}\n" +
-                                  $"Mono RAM: {MemoryProfilerService.MonoRam}\n";
+                                  $"Mono RAM: {MemoryProfilerService.MonoRAM}\n";
 
                 return tooltipText;
             }
@@ -50,7 +49,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             using (_PRF_GetStatusBarText.Auto())
             {
                 var allocatedRam = MemoryProfilerService.AllocatedRam;
-                var result = $"Allocated RAM: {allocatedRam}";
+                var result = $"Allocated: {allocatedRam}";
 
                 return result;
             }

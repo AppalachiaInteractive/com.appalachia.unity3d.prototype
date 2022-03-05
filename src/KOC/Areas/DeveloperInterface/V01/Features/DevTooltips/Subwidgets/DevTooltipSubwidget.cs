@@ -1,8 +1,11 @@
 using System;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Sets;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Application.Features.Contracts;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Sets2;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Contracts;
+using Appalachia.UI.Controls.Common;
 using Appalachia.UI.Controls.Components.Buttons;
 using Appalachia.UI.Controls.Extensions;
 using Appalachia.UI.Core.Components.Data;
@@ -20,10 +23,10 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets
 {
     public sealed class DevTooltipSubwidget : DeveloperInterfaceManager_V01.ControlledSubwidget<
-                                                  DevTooltipSubwidget, DevTooltipsWidget,
-                                                  DevTooltipsWidgetMetadata, DevTooltipsFeature,
-                                                  DevTooltipsFeatureMetadata>,
-                                              IRectVisualizer
+                                                  DevTooltipSubwidget, DevTooltipsWidget, DevTooltipsWidgetMetadata,
+                                                  DevTooltipsFeature, DevTooltipsFeatureMetadata>,
+                                              IRectVisualizer,
+                                              IActivable
     {
         #region Fields and Autoproperties
 
@@ -49,10 +52,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private Vector2 calculatedTooltipFinalPosition;
         private Vector2 calculatedTargetCenter;
 
-        [SerializeField]
         [OnValueChanged(nameof(OnChanged))]
         //[HideInInspector]
-        private DevTooltipComponentSetData componentSetData;
+        [SerializeField] private DevTooltipComponentSetData componentSetData;
+
+        //[HideInInspector]
+        [SerializeField] private DevTooltipComponentSetData componentSetData2;
 
         #endregion
 
@@ -62,9 +67,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
         public string CurrentTooltip => _currentTooltip;
 
+        public override void OnClicked()
+        {
+            using (_PRF_OnClicked.Auto())
+            {
+            }
+        }
+
         public void SetCurrentStyle(DevTooltipStyleOverride newStyle)
         {
-            using (_PRF_UpdateCurrentStyle.Auto())
+            using (_PRF_SetCurrentStyle.Auto())
             {
                 if (_currentStyle == newStyle)
                 {
@@ -104,17 +116,43 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
             }
         }
 
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                componentSetData = componentSetData2;
+            }
+        }
+
         protected override void OnUpdateSubwidget()
         {
             using (_PRF_OnUpdateSubwidget.Auto())
             {
-                DevTooltipComponentSetData.RefreshAndUpdateComponentSet(
+                if (!IsActive)
+                {
+                    Deactivate();
+                }
+
+                if (!gameObject.activeSelf)
+                {
+                    Activate();
+                }
+
+                DevTooltipComponentSetData.RefreshAndUpdate(
                     ref componentSetData,
                     ref componentSet,
                     gameObject,
                     name
                 );
-                
+
+                if (!IsActive)
+                {
+                    gameObject.SetActive(false);
+                }
+
                 var textComponent = componentSet.tooltipText.TextMeshProUGUI;
 
                 var tooltipRectTransform = componentSetData.RectTransform;
@@ -123,6 +161,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
                 var triangleBackground = componentSetData.TriangleBackground;
                 var triangleForeground = componentSetData.TriangleForeground;
                 var tooltipText = componentSetData.TooltipText;
+
+                if (_currentStyle == null)
+                {
+                    return;
+                }
 
                 FormatRectTransform(textComponent, tooltipRectTransform);
 
@@ -141,7 +184,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
             using (_PRF_WhenEnabled.Auto())
             {
-                DevTooltipComponentSetData.RefreshAndUpdateComponentSet(
+                DevTooltipComponentSetData.RefreshAndUpdate(
                     ref componentSetData,
                     ref componentSet,
                     gameObject,
@@ -150,9 +193,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
             }
         }
 
-        private void FormatRectTransform(
-            TextMeshProUGUI textComponent,
-            RectTransformData tooltipRectTransform)
+        private void FormatRectTransform(TextMeshProUGUI textComponent, RectTransformData tooltipRectTransform)
         {
             using (_PRF_FormatRectTransform.Auto())
             {
@@ -171,19 +212,19 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
                 switch (CurrentStyle.Direction)
                 {
-                    case TooltipAppearanceDirection.Above:
+                    case AppearanceDirection.Above:
                         calculatedTooltipReferencePoint = targetRect.GetTopCenter();
                         calculatedTooltipOffset = new Vector2(0f, CurrentStyle.DistanceFromTarget);
                         break;
-                    case TooltipAppearanceDirection.Left:
+                    case AppearanceDirection.Left:
                         calculatedTooltipReferencePoint = targetRect.GetMiddleLeft();
                         calculatedTooltipOffset = new Vector2(-CurrentStyle.DistanceFromTarget, 0f);
                         break;
-                    case TooltipAppearanceDirection.Right:
+                    case AppearanceDirection.Right:
                         calculatedTooltipReferencePoint = targetRect.GetMiddleRight();
                         calculatedTooltipOffset = new Vector2(CurrentStyle.DistanceFromTarget, 0f);
                         break;
-                    case TooltipAppearanceDirection.Below:
+                    case AppearanceDirection.Below:
                         calculatedTooltipReferencePoint = targetRect.GetBottomCenter();
                         calculatedTooltipOffset = new Vector2(0f, -CurrentStyle.DistanceFromTarget);
                         break;
@@ -197,16 +238,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
                 switch (CurrentStyle.Direction)
                 {
-                    case TooltipAppearanceDirection.Above:
+                    case AppearanceDirection.Above:
                         tooltipRectTransform.PivotBottomCenter();
                         break;
-                    case TooltipAppearanceDirection.Left:
+                    case AppearanceDirection.Left:
                         tooltipRectTransform.PivotMiddleRight();
                         break;
-                    case TooltipAppearanceDirection.Right:
+                    case AppearanceDirection.Right:
                         tooltipRectTransform.PivotMiddleLeft();
                         break;
-                    case TooltipAppearanceDirection.Below:
+                    case AppearanceDirection.Below:
                         tooltipRectTransform.PivotTopCenter();
                         break;
                     default:
@@ -225,9 +266,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
             {
                 textComponent.text = CurrentTooltip;
 
-                tooltipText.RectTransform.ResetAnchorsRotationAndScale()
-                           .ResetSize()
-                           .Inset(CurrentStyle.TextPadding);
+                tooltipText.RectTransform.ResetAnchorsRotationAndScale().ResetSize().Inset(CurrentStyle.TextPadding);
 
                 tooltipText.TextMeshProUGUI.fontStyle.OverflowMode = TextOverflowModes.Truncate;
                 tooltipText.TextMeshProUGUI.fontStyle.HorizontalAlignment = HorizontalAlignmentOptions.Left;
@@ -270,26 +309,26 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
                 var offset = CurrentStyle.Direction switch
                 {
-                    TooltipAppearanceDirection.Above => new Vector2(0f, .5f * CurrentStyle.TriangleSize),
-                    TooltipAppearanceDirection.Left  => new Vector2(.5f * -CurrentStyle.TriangleSize, 0f),
-                    TooltipAppearanceDirection.Right => new Vector2(.5f * CurrentStyle.TriangleSize, 0f),
-                    TooltipAppearanceDirection.Below => new Vector2(0f, .5f * -CurrentStyle.TriangleSize),
-                    _                                => throw new ArgumentOutOfRangeException()
+                    AppearanceDirection.Above => new Vector2(0f, .5f * CurrentStyle.TriangleSize),
+                    AppearanceDirection.Left  => new Vector2(.5f * -CurrentStyle.TriangleSize, 0f),
+                    AppearanceDirection.Right => new Vector2(.5f * CurrentStyle.TriangleSize, 0f),
+                    AppearanceDirection.Below => new Vector2(0f, .5f * -CurrentStyle.TriangleSize),
+                    _                         => throw new ArgumentOutOfRangeException()
                 };
 
                 triangleParent.ResetRotationAndScale();
                 switch (CurrentStyle.Direction)
                 {
-                    case TooltipAppearanceDirection.Above:
+                    case AppearanceDirection.Above:
                         triangleParent.AnchorBottomCenter().PivotTopCenter();
                         break;
-                    case TooltipAppearanceDirection.Left:
+                    case AppearanceDirection.Left:
                         triangleParent.AnchorMiddleRight().PivotMiddleLeft();
                         break;
-                    case TooltipAppearanceDirection.Right:
+                    case AppearanceDirection.Right:
                         triangleParent.AnchorMiddleLeft().PivotMiddleRight();
                         break;
-                    case TooltipAppearanceDirection.Below:
+                    case AppearanceDirection.Below:
                         triangleParent.AnchorTopCenter().PivotBottomCenter();
                         break;
                     default:
@@ -318,18 +357,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
                                   .ResetScale()
                                   .SetRotation(0f, 0f, GetTriangleRotation(CurrentStyle.Direction))
                                   .SetPosition(
-                                       CurrentStyle.Direction == TooltipAppearanceDirection.Left
-                                           ? triangleOutlineOffset
-                                           : 0f,
-                                       CurrentStyle.Direction == TooltipAppearanceDirection.Right
-                                           ? triangleOutlineOffset
-                                           : 0f,
-                                       CurrentStyle.Direction == TooltipAppearanceDirection.Above
-                                           ? triangleOutlineOffset
-                                           : 0f,
-                                       CurrentStyle.Direction == TooltipAppearanceDirection.Below
-                                           ? triangleOutlineOffset
-                                           : 0f
+                                       CurrentStyle.Direction == AppearanceDirection.Left ? triangleOutlineOffset : 0f,
+                                       CurrentStyle.Direction == AppearanceDirection.Right ? triangleOutlineOffset : 0f,
+                                       CurrentStyle.Direction == AppearanceDirection.Above ? triangleOutlineOffset : 0f,
+                                       CurrentStyle.Direction == AppearanceDirection.Below ? triangleOutlineOffset : 0f
                                    );
 
                 triangleForeground.Image.color.OverrideValue(CurrentStyle.BackgroundColor);
@@ -337,29 +368,68 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
             }
         }
 
-        private float GetTriangleRotation(TooltipAppearanceDirection appearanceDirection)
+        private float GetTriangleRotation(AppearanceDirection appearanceDirection)
         {
             using (_PRF_GetTriangleRotation.Auto())
             {
                 switch (appearanceDirection)
                 {
-                    case TooltipAppearanceDirection.Above:
+                    case AppearanceDirection.Above:
                         return 45f;
-                    case TooltipAppearanceDirection.Left:
+                    case AppearanceDirection.Left:
                         return 135f;
-                    case TooltipAppearanceDirection.Right:
+                    case AppearanceDirection.Right:
                         return -45f;
-                    case TooltipAppearanceDirection.Below:
+                    case AppearanceDirection.Below:
                         return -135f;
                     default:
-                        throw new ArgumentOutOfRangeException(
-                            nameof(appearanceDirection),
-                            appearanceDirection,
-                            null
-                        );
+                        throw new ArgumentOutOfRangeException(nameof(appearanceDirection), appearanceDirection, null);
                 }
             }
         }
+
+        #region IActivable Members
+
+        public void Deactivate()
+        {
+            using (_PRF_Deactivate.Auto())
+            {
+                if (gameObject.activeSelf)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+
+        public void Activate()
+        {
+            using (_PRF_Activate.Auto())
+            {
+                if (!gameObject.activeSelf)
+                {
+                    gameObject.SetActive(true);
+                }
+            }
+        }
+
+        public void Toggle()
+        {
+            using (_PRF_Toggle.Auto())
+            {
+                if (!IsActive)
+                {
+                    Activate();
+                }
+                else
+                {
+                    Deactivate();
+                }
+            }
+        }
+
+        public bool IsActive => Widget.ActiveSubwidget == this;
+
+        #endregion
 
         #region IRectVisualizer Members
 
@@ -385,11 +455,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
         #region Profiling
 
+        private static readonly ProfilerMarker _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
+
+        private static readonly ProfilerMarker _PRF_Deactivate = new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
+
         private static readonly ProfilerMarker _PRF_FormatRectTransform =
             new ProfilerMarker(_PRF_PFX + nameof(FormatRectTransform));
 
-        private static readonly ProfilerMarker _PRF_FormatText =
-            new ProfilerMarker(_PRF_PFX + nameof(FormatText));
+        private static readonly ProfilerMarker _PRF_FormatText = new ProfilerMarker(_PRF_PFX + nameof(FormatText));
 
         private static readonly ProfilerMarker _PRF_FormatTooltipBackground =
             new ProfilerMarker(_PRF_PFX + nameof(FormatTooltipBackground));
@@ -400,8 +473,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private static readonly ProfilerMarker _PRF_GetTriangleRotation =
             new ProfilerMarker(_PRF_PFX + nameof(GetTriangleRotation));
 
-        private static readonly ProfilerMarker _PRF_UpdateCurrentStyle =
+        private static readonly ProfilerMarker _PRF_SetCurrentStyle =
             new ProfilerMarker(_PRF_PFX + nameof(SetCurrentStyle));
+
+        private static readonly ProfilerMarker _PRF_Toggle = new ProfilerMarker(_PRF_PFX + nameof(Toggle));
 
         private static readonly ProfilerMarker _PRF_UpdateCurrentTarget =
             new ProfilerMarker(_PRF_PFX + nameof(SetCurrentTarget));

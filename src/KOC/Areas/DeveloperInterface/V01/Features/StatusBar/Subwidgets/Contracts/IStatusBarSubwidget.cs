@@ -5,6 +5,7 @@ using Appalachia.UI.Core.Styling.Fonts;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts
 {
+    
     public interface IStatusBarSubwidget : IAreaSingletonSubwidget<IStatusBarSubwidget, IStatusBarSubwidgetMetadata>,
                                            IDevTooltipSubwidgetController
     {

@@ -6,7 +6,7 @@ using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Curso
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Metadata;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State.Contracts;
-using Appalachia.UI.Core.Components.Sets;
+using Appalachia.UI.Core.Components.Sets2;
 using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;
@@ -20,7 +20,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
         where T : CursorInstance<T, TState, TMetadata, TComponentSet, TComponentSetData>
         where TState : CursorInstanceStateData<TState, TMetadata>, new()
         where TComponentSet : UIComponentSet<TComponentSet, TComponentSetData>, new()
-        where TComponentSetData : UIComponentSetData<TComponentSet, TComponentSetData>
+        where TComponentSetData : UIComponentSetData<TComponentSet, TComponentSetData>, new()
         where TMetadata : CursorMetadata<TMetadata>
     {
         static CursorInstance()

@@ -43,6 +43,9 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
                 areaMetadata.splashScreens.Sort(
                     (a, b) =>
                     {
+                        if (a == null && b == null) return 0;
+                        if (a == null) return 1;
+                        if (b == null) return -1;
                         var metadataA = AreaRegistry.GetMetadata(a.Area) as ISplashScreenSubMetadata;
                         var metadataB = AreaRegistry.GetMetadata(b.Area) as ISplashScreenSubMetadata;
 
@@ -55,6 +58,13 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
                 for (var index = 0; index < areaMetadata.splashScreens.Count; index++)
                 {
                     var splashScreen = areaMetadata.splashScreens[index];
+
+                    if (splashScreen == null)
+                    {
+                        areaMetadata.splashScreens.RemoveAt(index);
+                        index -= 1;
+                        continue;
+                    }
 
                     if (index == 0)
                     {

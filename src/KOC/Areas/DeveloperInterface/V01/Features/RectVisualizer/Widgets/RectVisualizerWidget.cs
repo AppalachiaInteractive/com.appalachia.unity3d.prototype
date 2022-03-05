@@ -1,7 +1,7 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Services;
-using Appalachia.UI.Controls.Sets.Images.RawImage;
+using Appalachia.UI.Controls.Sets2.Images.RawImage;
 using Appalachia.Utility.Async;
 using UnityEngine.UI;
 

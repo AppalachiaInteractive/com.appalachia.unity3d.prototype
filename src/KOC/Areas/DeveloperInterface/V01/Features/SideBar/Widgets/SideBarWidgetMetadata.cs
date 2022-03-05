@@ -1,12 +1,14 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Contracts;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets
 {
-    public sealed class SideBarWidgetMetadata : DeveloperInterfaceMetadata_V01.WidgetMetadata<SideBarWidget,
-        SideBarWidgetMetadata, SideBarFeature, SideBarFeatureMetadata>
+    public sealed class SideBarWidgetMetadata : DeveloperInterfaceMetadata_V01.WidgetWithSingletonSubwidgetsMetadata<
+        ISideBarSubwidget, ISideBarSubwidgetMetadata, SideBarWidget, SideBarWidgetMetadata, SideBarFeature,
+        SideBarFeatureMetadata>
     {
         #region Fields and Autoproperties
 
@@ -40,6 +42,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
                 base.UpdateFunctionalityInternal(widget);
+                
+                widget.ValidateSubwidgets();
             }
         }
     }

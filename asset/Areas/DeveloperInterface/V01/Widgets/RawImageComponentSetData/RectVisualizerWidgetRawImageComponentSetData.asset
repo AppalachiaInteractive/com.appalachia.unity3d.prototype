@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b84dbe491ee4755a13f40110e944b26, type: 3}
   m_Name: RectVisualizerWidgetRawImageComponentSetData
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 890367
     _machine: 14129406
     _timestamp: 1645800128
     _pid: -8016
+  dataTransferred: 1
+  showAll: 0
   _rectTransform:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags:
@@ -49,6 +52,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
@@ -106,7 +110,10 @@ MonoBehaviour:
         _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
+  showAllComponents: 0
   _imageData:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags:
@@ -123,6 +130,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     material:

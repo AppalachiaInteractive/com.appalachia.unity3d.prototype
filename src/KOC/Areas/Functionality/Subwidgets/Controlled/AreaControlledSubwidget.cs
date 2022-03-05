@@ -7,16 +7,16 @@ using Appalachia.Prototype.KOC.Areas.Functionality.Widgets;
 namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Controlled
 {
     [CallStaticConstructorInEditor]
-    public abstract class AreaControlledSubwidget<TSubwidget, TWidget, TWidgetMetadata, TFeature,
-                                             TFeatureMetadata, TAreaManager, TAreaMetadata> :
-        ApplicationControlledSubwidget<TSubwidget, TWidget, TWidgetMetadata, TFeature,
-            TFeatureMetadata, AreaFeatureFunctionalitySet, IAreaService, IAreaWidget, TAreaManager>
-        where TSubwidget : AreaControlledSubwidget<TSubwidget, TWidget, TWidgetMetadata, TFeature,
-            TFeatureMetadata, TAreaManager, TAreaMetadata>
-        where TWidget : AreaWidgetWithControlledSubwidgets<TSubwidget, TWidget, TWidgetMetadata,
-            TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>, IAreaWidget
-        where TWidgetMetadata : AreaWidgetWithControlledSubwidgetsMetadata<TSubwidget, TWidget,
-            TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>
+    public abstract class AreaControlledSubwidget<TSubwidget, TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+                                                  TAreaManager, TAreaMetadata> : ApplicationControlledSubwidget<
+        TSubwidget, TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, AreaFeatureFunctionalitySet, IAreaService,
+        IAreaWidget, TAreaManager>
+        where TSubwidget : AreaControlledSubwidget<TSubwidget, TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+            TAreaManager, TAreaMetadata>
+        where TWidget : AreaWidgetWithControlledSubwidgets<TSubwidget, TWidget, TWidgetMetadata, TFeature,
+            TFeatureMetadata, TAreaManager, TAreaMetadata>, IAreaWidget
+        where TWidgetMetadata : AreaWidgetWithControlledSubwidgetsMetadata<TSubwidget, TWidget, TWidgetMetadata,
+            TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>
         where TFeature : AreaFeature<TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>
         where TFeatureMetadata : AreaFeatureMetadata<TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>

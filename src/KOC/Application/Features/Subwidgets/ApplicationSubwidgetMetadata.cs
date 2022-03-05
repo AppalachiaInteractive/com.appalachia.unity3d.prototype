@@ -32,8 +32,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets
         where TIWidget : IApplicationWidget
         where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
         IApplicationFunctionalityManager
-    {
-        public abstract void SubscribeResponsiveComponents(TSubwidget functionality);
+    {   
+        public virtual void SubscribeResponsiveComponents(TSubwidget functionality)
+        {
+            using (_PRF_SubscribeResponsiveComponents.Auto())
+            {
+                Changed.Event += functionality.UpdateSubwidget;
+            }
+        }
 
         #region Profiling
 

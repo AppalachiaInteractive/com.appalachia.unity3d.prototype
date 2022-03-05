@@ -21,10 +21,7 @@ namespace Appalachia.Prototype.KOC.Areas
             {
                 Initialize();
 
-                if (_managerLookup.ContainsKey(area))
-                {
-                    return _managerLookup[area];
-                }
+                if (_managerLookup.TryGetValue(area, out var result)) return result;
 
                 return null;
             }
@@ -36,10 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas
             {
                 Initialize();
 
-                if (_metadataLookup.ContainsKey(area))
-                {
-                    return _metadataLookup[area];
-                }
+                if (_metadataLookup.TryGetValue(area, out var result)) return result;
 
                 return null;
             }

@@ -26,7 +26,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
         protected override void UpdateFunctionalityInternal(RuntimeGizmoDrawerService functionality)
         {
             var drawCamera = functionality.DrawCamera;
-            CameraData.RefreshAndUpdateComponent(ref cameraData, this, drawCamera);
+            CameraData.RefreshAndUpdate(ref cameraData, this, drawCamera);
         }
 
         #region IServiceMetadata Members

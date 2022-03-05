@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e4518a64014a3f94917eac2f993880, type: 3}
   m_Name: RectVisualizerServiceMetadata
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags:
@@ -23,6 +21,7 @@ MonoBehaviour:
     - featureEnabledExecutionMode
     - featureDisabledExecutionMode
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 3571638
     _machine: 14129404
@@ -31,6 +30,8 @@ MonoBehaviour:
   featureEnabledExecutionMode: 1
   featureDisabledExecutionMode: 1
   cameraData:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags:
@@ -66,6 +67,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957441
       _pid: -14768
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     clearFlags:
@@ -304,6 +306,8 @@ MonoBehaviour:
       _initial: 0
       _value: 0
   updates:
+    _name: 
+    _niceName: 
     minimumFrames: 1
     maximumFrames: 300
     minimumMilliseconds: 50

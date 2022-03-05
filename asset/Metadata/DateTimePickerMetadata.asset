@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9002112bab4c70b6525d8d134574a4, type: 3}
   m_Name: DateTimePickerMetadata
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags:
     - CollectionAnimationMetadata
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 0
     _machine: 0
     _timestamp: 0
     _pid: 0
   _animation:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags: []
@@ -48,6 +49,8 @@ MonoBehaviour:
     smoothScrollType: 0
     onDoneWhenCancelled: 0
   _effects:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags: []
@@ -59,6 +62,8 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _gallery:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags: []
@@ -70,6 +75,8 @@ MonoBehaviour:
         _timestamp: 0
         _pid: 0
       rotation:
+        _name: 
+        _niceName: 
         _initializer:
           _initializationCount: 0
           _tags: []
@@ -87,6 +94,8 @@ MonoBehaviour:
           from: {x: 0, y: 0, z: 0}
           to: {x: 0, y: 0, z: 0}
       scale:
+        _name: 
+        _niceName: 
         _initializer:
           _initializationCount: 0
           _tags: []
@@ -119,6 +128,8 @@ MonoBehaviour:
     _releaseTime: 0.1
     _contentVisual: {fileID: 0}
   _navigation:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags: []
@@ -135,6 +146,8 @@ MonoBehaviour:
     _scrollDuration: 0.1
     _maxSearchDepthForView: 2
   _optimization:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags: []

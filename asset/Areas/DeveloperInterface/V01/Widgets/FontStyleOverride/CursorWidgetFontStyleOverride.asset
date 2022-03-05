@@ -15,7 +15,7 @@ MonoBehaviour:
   _cachedName: 
   _niceName: 
   _initializer:
-    _initializationCount: 13
+    _initializationCount: 14
     _tags:
     - _font
     - _fontSize
@@ -30,6 +30,7 @@ MonoBehaviour:
     - _enableWordWrapping
     - _overflowMode
     - _extraPadding
+    - _fontStyles
     _resetToken: 
   _objectId:
     _increment: 3571535
@@ -153,3 +154,12 @@ MonoBehaviour:
       _pid: 0
     _initial: 0
     _value: 1
+  _fontStyles:
+    _overriding: 0
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initial: 0
+    _value: 0

@@ -316,11 +316,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4840472ad49518cb594877fea4a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 1
     _tags:
     - dataSet
+    - EnsureInstanceIsPrepared
     _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   dataSet: 0
   overrideActiveDataSet: 0
   overrideActiveDataSetName: 
@@ -1433,12 +1440,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: b9cff69b0a42a354cbaf13e257ca2603, type: 2}
-  menuCanvasGroup: {fileID: 3060341978989289434}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681906
+      _machine: 14129404
+      _timestamp: 1646435767
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
+  fadePercentage: 0
+  canvas: {fileID: 3060341978989289412}
+  canvasGroup: {fileID: 3060341978989289434}
 --- !u!1 &3060341978989289436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,12 +1592,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: 38e13cd35e922dc448539803b19afa5d, type: 2}
-  menuCanvasGroup: {fileID: 3060341979106074520}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681907
+      _machine: 14129404
+      _timestamp: 1646435767
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
+  fadePercentage: 0
+  canvas: {fileID: 3060341979106074522}
+  canvasGroup: {fileID: 3060341979106074520}
 --- !u!223 &3060341979106074522
 Canvas:
   m_ObjectHideFlags: 0
@@ -2174,12 +2263,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
-    _nonSerializedTags: []
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: 4e432da979a61dc4096c6c5b2ace7c59, type: 2}
-  menuCanvasGroup: {fileID: 3060341979298769501}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681905
+      _machine: 14129404
+      _timestamp: 1646435767
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
+  fadePercentage: 0
+  canvas: {fileID: 3060341979298769503}
+  canvasGroup: {fileID: 3060341979298769501}
 --- !u!223 &3060341979298769503
 Canvas:
   m_ObjectHideFlags: 0

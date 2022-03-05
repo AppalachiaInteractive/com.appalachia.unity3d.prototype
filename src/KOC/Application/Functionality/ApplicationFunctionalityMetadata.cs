@@ -2,7 +2,7 @@ using System;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Core.Objects.Sets;
+using Appalachia.Core.Objects.Sets2;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Collections;
@@ -36,8 +36,8 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         /// <summary>
         ///     A simple convenience method to call
-        ///     <see cref="ComponentSetData{TComponentSet, TComponentSetData}" />
-        ///     .<see cref="ComponentSetData{TComponentSet, TComponentSetData}.RefreshAndUpdateComponentSet(ref TComponentSetData,ref TComponentSet,GameObject,string)" />,
+        ///     <see cref="ComponentSetData{TComponentSet,TComponentSetData}" />
+        ///     .<see cref="ComponentSetData{TComponentSet,TComponentSetData}.RefreshAndUpdate(ref TComponentSetData,ref TComponentSet,UnityEngine.GameObject,string)" />,
         ///     which will ensure the provided component set is synced with its configuration.
         /// </summary>
         /// <param name="data">The component set data.</param>
@@ -46,17 +46,17 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         /// <param name="setName">The name of the component set.</param>
         /// <typeparam name="TComponentSet">The component set.</typeparam>
         /// <typeparam name="TComponentSetData">The component set data.</typeparam>
-        public void RefreshAndUpdateComponentSet<TComponentSet, TComponentSetData>(
+        public void RefreshAndUpdate<TComponentSet, TComponentSetData>(
             ref TComponentSetData data,
             ref TComponentSet set,
             GameObject parent,
             string setName)
             where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
-            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>
+            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
         {
-            using (_PRF_RefreshAndUpdateComponentSet.Auto())
+            using (_PRF_RefreshAndUpdate.Auto())
             {
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdateComponentSet(
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdate(
                     ref data,
                     ref set,
                     parent,
@@ -249,8 +249,8 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         private static readonly ProfilerMarker _PRF_ExecuteUpdateFunctionalityInternal =
             new ProfilerMarker(_PRF_PFX + nameof(ExecuteUpdateFunctionalityInternal));
 
-        private static readonly ProfilerMarker _PRF_RefreshAndUpdateComponentSet =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdateComponentSet));
+        private static readonly ProfilerMarker _PRF_RefreshAndUpdate =
+            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdate));
 
         private static readonly ProfilerMarker _PRF_SubscribeForUpdates =
             new ProfilerMarker(_PRF_PFX + nameof(SubscribeForUpdates));

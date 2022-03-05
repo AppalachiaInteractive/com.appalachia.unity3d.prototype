@@ -1,7 +1,7 @@
 using System;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Metadata;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Model;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Simple;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State;
 using UnityEngine;
 

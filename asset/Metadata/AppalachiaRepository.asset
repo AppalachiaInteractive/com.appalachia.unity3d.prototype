@@ -231,6 +231,17 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.Audio.AudioProfilerServiceMetadata
+      _typeName: AudioProfilerServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.Audio
+      editorAsset: {fileID: 11400000, guid: 9d6ae30965bcdc345ae92df720eb1c2d, type: 2}
+    - _assetReference:
+        m_AssetGUID: 9d6ae30965bcdc345ae92df720eb1c2d
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Audio.AudioProfilerServiceMetadata
       _typeName: AudioProfilerServiceMetadata
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Audio
@@ -631,6 +642,17 @@ MonoBehaviour:
       _typeNamespace: Appalachia.Prototype.KOC.Components.OnScreenButtons
       editorAsset: {fileID: 11400000, guid: 4a128e515e4776f409543bb3d500bcd3, type: 2}
     - _assetReference:
+        m_AssetGUID: 51329c07a1d9d974e994197cad0b58bc
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.FPS.FPSProfilerServiceMetadata
+      _typeName: FPSProfilerServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.FPS
+      editorAsset: {fileID: 11400000, guid: 51329c07a1d9d974e994197cad0b58bc, type: 2}
+    - _assetReference:
         m_AssetGUID: cb4ed668de4fbf24683fc65d9cd12152
         m_SubObjectName: 
         m_SubObjectType: 
@@ -801,9 +823,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Lifetime.LifetimeMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.LifetimeMetadata
       _typeName: LifetimeMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Lifetime
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime
       editorAsset: {fileID: 11400000, guid: b9273a7abb34d6a4f8808db02a66809f, type: 2}
     - _assetReference:
         m_AssetGUID: b9273a7abb34d6a4f8808db02a66809f
@@ -823,9 +845,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.LifetimeMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Lifetime.LifetimeMetadata
       _typeName: LifetimeMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime
       editorAsset: {fileID: 11400000, guid: b9273a7abb34d6a4f8808db02a66809f, type: 2}
     - _assetReference:
         m_AssetGUID: 2e2eda4309547c441bae5245397625f6
@@ -1012,6 +1034,17 @@ MonoBehaviour:
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Memory
       editorAsset: {fileID: 11400000, guid: 1e72f3fd4f555ac4a867d8942184ae05, type: 2}
     - _assetReference:
+        m_AssetGUID: 1e72f3fd4f555ac4a867d8942184ae05
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.Memory.MemoryProfilerServiceMetadata
+      _typeName: MemoryProfilerServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.Memory
+      editorAsset: {fileID: 11400000, guid: 1e72f3fd4f555ac4a867d8942184ae05, type: 2}
+    - _assetReference:
         m_AssetGUID: 80d82f569c81ad94da78853083ca84e1
         m_SubObjectName: 
         m_SubObjectType: 
@@ -1165,6 +1198,28 @@ MonoBehaviour:
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling
       editorAsset: {fileID: 11400000, guid: 8ce46d9d9a9b5cf44b3c2348f33ce59d, type: 2}
     - _assetReference:
+        m_AssetGUID: 8ce46d9d9a9b5cf44b3c2348f33ce59d
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.PerformanceProfilingFeatureMetadata
+      _typeName: PerformanceProfilingFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling
+      editorAsset: {fileID: 11400000, guid: 8ce46d9d9a9b5cf44b3c2348f33ce59d, type: 2}
+    - _assetReference:
+        m_AssetGUID: 8ce46d9d9a9b5cf44b3c2348f33ce59d
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.PerformanceProfilingFeatureMetadata
+      _typeName: PerformanceProfilingFeatureMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling
+      editorAsset: {fileID: 11400000, guid: 8ce46d9d9a9b5cf44b3c2348f33ce59d, type: 2}
+    - _assetReference:
         m_AssetGUID: c98eed138784796488aea63835b28c17
         m_SubObjectName: 
         m_SubObjectType: 
@@ -1230,6 +1285,17 @@ MonoBehaviour:
       _typeName: PrefabReplacementCollection
       _typeNamespace: Appalachia.Rendering.Prefabs.Rendering.Replacement
       editorAsset: {fileID: 11400000, guid: 833ea2b3a278ec64cb701c157adc4995, type: 2}
+    - _assetReference:
+        m_AssetGUID: b82e1d363ab2cf2479058c95e362d8d0
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Profiling.ProfilingActivityBarSubwidgetMetadata
+      _typeName: ProfilingActivityBarSubwidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Profiling
+      editorAsset: {fileID: 11400000, guid: b82e1d363ab2cf2479058c95e362d8d0, type: 2}
     - _assetReference:
         m_AssetGUID: 33dd7c21e639b73479da8058aca61b83
         m_SubObjectName: 
@@ -1314,9 +1380,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.RuntimeGizmoDrawerFeatureMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.RuntimeGizmoDrawerFeatureMetadata
       _typeName: RuntimeGizmoDrawerFeatureMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
       editorAsset: {fileID: 11400000, guid: e2b4aa19b9b9e4a44967e9690014f53e, type: 2}
     - _assetReference:
         m_AssetGUID: e2b4aa19b9b9e4a44967e9690014f53e
@@ -1325,9 +1391,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos.RuntimeGizmoDrawerFeatureMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.RuntimeGizmoDrawerFeatureMetadata
       _typeName: RuntimeGizmoDrawerFeatureMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.RuntimeGizmos
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos
       editorAsset: {fileID: 11400000, guid: e2b4aa19b9b9e4a44967e9690014f53e, type: 2}
     - _assetReference:
         m_AssetGUID: 4161605ec9480a7449a5ebc245373126
@@ -1380,9 +1446,20 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings.RuntimeGraphSettings
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling._old.Settings.RuntimeGraphSettings
       _typeName: RuntimeGraphSettings
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling._old.Settings
+      editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
+    - _assetReference:
+        m_AssetGUID: 388cdb11d1348884190b2c5d1edd1150
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling._old.Settings.RuntimeGraphSettings
+      _typeName: RuntimeGraphSettings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling._old.Settings
       editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
     - _assetReference:
         m_AssetGUID: 388cdb11d1348884190b2c5d1edd1150
@@ -1394,6 +1471,17 @@ MonoBehaviour:
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Settings.RuntimeGraphSettings
       _typeName: RuntimeGraphSettings
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Settings
+      editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
+    - _assetReference:
+        m_AssetGUID: 388cdb11d1348884190b2c5d1edd1150
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings.RuntimeGraphSettings
+      _typeName: RuntimeGraphSettings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings
       editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
     - _assetReference:
         m_AssetGUID: 7de8af9775b0209449481865f115430d
@@ -2802,88 +2890,8 @@ MonoBehaviour:
       _typeName: 
       _typeNamespace: 
       editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
     noTracking: 0
-    _count: 138
+    _count: 146
   _editorSingletons:
     _capacityIncreaseMultiplier: 2
     _values:
@@ -2992,17 +3000,6 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfoProvider.DeveloperInfoProviderFeatureMetadata
-      _typeName: DeveloperInfoProviderFeatureMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfoProvider
-      editorAsset: {fileID: 11400000, guid: f6da464bc5b70044b8381f214a1dd74f, type: 2}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
-        PublicKeyToken=null
       _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Services.DeveloperInfoProviderServiceMetadata
       _typeName: DeveloperInfoProviderServiceMetadata
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Services
@@ -3012,21 +3009,12 @@ MonoBehaviour:
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
-      _assemblyName: Appalachia.Core.Objects, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
-      _typeFullName: Appalachia.Core.Objects.Availability.WhenInstances+DummyObject
-      _typeName: DummyObject
-      _typeNamespace: Appalachia.Core.Objects.Availability
-      editorAsset: {fileID: 11400000, guid: d2f9913f1bc83734b8f9e92802dcda23, type: 2}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: Appalachia.Core.Objects, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
-      _typeFullName: Appalachia.Core.Objects.Availability.WhenInstances+DummyObject
-      _typeName: DummyObject
-      _typeNamespace: Appalachia.Core.Objects.Availability
-      editorAsset: {fileID: 11400000, guid: d2f9913f1bc83734b8f9e92802dcda23, type: 2}
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.FPS.FPSProfilerServiceMetadata
+      _typeName: FPSProfilerServiceMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.FPS
+      editorAsset: {fileID: 11400000, guid: 51329c07a1d9d974e994197cad0b58bc, type: 2}
     - _assetReference:
         m_AssetGUID: 
         m_SubObjectName: 
@@ -3056,21 +3044,10 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Rendering.RenderingProfilerServiceMetadata
-      _typeName: RenderingProfilerServiceMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Rendering
-      editorAsset: {fileID: 11400000, guid: 8c7fb437593813f498d4f22602d23108, type: 2}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
-        PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.SceneInfoStatusBarEntryMetadata
-      _typeName: SceneInfoStatusBarEntryMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries
-      editorAsset: {fileID: 11400000, guid: 1a5b7d9481ecf844d8d91102f920f075, type: 2}
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Profiling.ProfilingSideBarSubwidgetMetadata
+      _typeName: ProfilingSideBarSubwidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Profiling
+      editorAsset: {fileID: 11400000, guid: c1ecec452ca75894e904043c0df15614, type: 2}
     - _assetReference:
         m_AssetGUID: 
         m_SubObjectName: 
@@ -3229,5 +3206,35 @@ MonoBehaviour:
       _typeName: 
       _typeNamespace: 
       editorAsset: {fileID: 0}
+    - _assetReference:
+        m_AssetGUID: 
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: 
+      _typeFullName: 
+      _typeName: 
+      _typeNamespace: 
+      editorAsset: {fileID: 0}
+    - _assetReference:
+        m_AssetGUID: 
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: 
+      _typeFullName: 
+      _typeName: 
+      _typeNamespace: 
+      editorAsset: {fileID: 0}
+    - _assetReference:
+        m_AssetGUID: 
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: 
+      _typeFullName: 
+      _typeName: 
+      _typeNamespace: 
+      editorAsset: {fileID: 0}
     noTracking: 0
-    _count: 25
+    _count: 22

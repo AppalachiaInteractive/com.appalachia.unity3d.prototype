@@ -258,6 +258,238 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108437543}
   m_CullTransparentMesh: 1
+--- !u!1 &136857219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136857226}
+  - component: {fileID: 136857225}
+  - component: {fileID: 136857223}
+  - component: {fileID: 136857222}
+  - component: {fileID: 136857224}
+  - component: {fileID: 136857227}
+  - component: {fileID: 136857221}
+  - component: {fileID: 136857220}
+  m_Layer: 0
+  m_Name: Root Canvas - MainMenu_V01
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: 1cf508b46f780c949b95f6da10fb4d00, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &136857220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!222 &136857221
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_CullTransparentMesh: 1
+--- !u!114 &136857222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!225 &136857223
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &136857224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initializer:
+    _initializationCount: 0
+    _tags: []
+    _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 12681877
+    _machine: 14129404
+    _timestamp: 1646435764
+    _pid: 26192
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 0
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+    _objectId:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
+  fadePercentage: 0
+  canvas: {fileID: 136857225}
+  canvasGroup: {fileID: 136857223}
+--- !u!223 &136857225
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1010
+  m_TargetDisplay: 0
+--- !u!224 &136857226
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 970098122}
+  m_Father: {fileID: 1338641196}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &136857227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136857219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4afdcb1cbadf954ba8b1cf465429e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &150650716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150650717}
+  m_Layer: 0
+  m_Name: Widgets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &150650717
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150650716}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 970098122}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &486836714
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,12 +593,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: 26bc872c94ce82142a00513c36f179b1, type: 2}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681878
+      _machine: 14129404
+      _timestamp: 1646435764
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
   fadePercentage: 0
-  menuCanvasGroup: {fileID: 486836718}
+  canvas: {fileID: 486836720}
+  canvasGroup: {fileID: 486836718}
 --- !u!223 &486836720
 Canvas:
   m_ObjectHideFlags: 0
@@ -914,12 +1187,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: 1f671a4ad9b4f2346966f67e7476ea32, type: 2}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681879
+      _machine: 14129404
+      _timestamp: 1646435764
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
   fadePercentage: 0
-  menuCanvasGroup: {fileID: 633686593}
+  canvas: {fileID: 633686595}
+  canvasGroup: {fileID: 633686593}
 --- !u!223 &633686595
 Canvas:
   m_ObjectHideFlags: 0
@@ -941,6 +1255,91 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &970098119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970098122}
+  - component: {fileID: 970098121}
+  - component: {fileID: 970098120}
+  m_Layer: 0
+  m_Name: Scaled Canvas - MainMenu_V01
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: 1cf508b46f780c949b95f6da10fb4d00, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &970098120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970098119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f221dbb5cd44d85afeb1679753cc374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initializer:
+    _initializationCount: 0
+    _tags: []
+    _resetToken: 
+  _niceName: 
+  _objectId:
+    _increment: 12681876
+    _machine: 14129404
+    _timestamp: 1646435764
+    _pid: 26192
+  scaleFactor: 0.64
+  _canvas: {fileID: 970098121}
+  _rectTransform: {fileID: 970098122}
+--- !u!223 &970098121
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970098119}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &970098122
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970098119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 150650717}
+  m_Father: {fileID: 136857226}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.66499996, y: 0.65}
+  m_AnchorMax: {x: 0.66499996, y: 0.65}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1300037032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1505,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1701118436}
+  - {fileID: 136857226}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1121,40 +1521,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84644e642a064eb7bad43c79fff70067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
+    _initializationCount: 2
     _tags:
     - metadata
     - AreaSceneInformationCollection
+    - EnsureInstanceIsPrepared
+    - MainAreaSceneInformationCollection
     _resetToken: 
-  _singletonLookup: {fileID: 11400000, guid: e861ccb9419e6614eb2a27f7f8fc41a0, type: 2}
-  metadata: {fileID: 11400000, guid: ea1101f5756f0fe43931c4eda9ac6e4b, type: 2}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
   _areaSceneInfo: {fileID: 11400000, guid: 5d5c77f43e6b0d34da85e387a851dcef, type: 2}
-  template:
-    canvas: {fileID: 486836720}
-    canvasFadeManager: {fileID: 486836719}
-    canvasGroup: {fileID: 486836718}
-    gameObject: {fileID: 486836714}
-    image: {fileID: 486836716}
-    rect: {fileID: 486836715}
-  canvas:
-    canvas: {fileID: 1701118442}
-    canvasFadeManager: {fileID: 1701118441}
-    canvasGroup: {fileID: 1701118440}
-    canvasScaler: {fileID: 1701118439}
-    gameObject: {fileID: 1701118434}
-    graphController: {fileID: 1701118438}
-    graphicRaycaster: {fileID: 1701118437}
-    rect: {fileID: 1701118436}
-    uiCanvas: {fileID: 1701118435}
-  view:
-    canvas: {fileID: 633686595}
-    canvasFadeManager: {fileID: 633686594}
-    canvasGroup: {fileID: 633686593}
-    gameObject: {fileID: 633686589}
-    graphicRaycaster: {fileID: 633686592}
-    rect: {fileID: 633686591}
-    uiView: {fileID: 633686590}
-  uiMenuManager: {fileID: 0}
+  templates2:
+    _name: 
+    _niceName: 
+    gameObject: {fileID: 0}
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _resetToken: 
+    isSortingDisabled: 0
+    _rectTransform: {fileID: 0}
+    _canvas: {fileID: 0}
+    _canvasFadeManager: {fileID: 0}
+    _canvasGroup: {fileID: 0}
+    _graphicRaycaster: {fileID: 0}
+    _canvasRenderer: {fileID: 0}
+    _image: {fileID: 0}
+    _designTemplate: {fileID: 0}
+  templates:
+    _name: 
+    _niceName: 
+    gameObject: {fileID: 0}
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _resetToken: 
+    isSortingDisabled: 0
+    _rectTransform: {fileID: 0}
+    _canvas: {fileID: 0}
+    _canvasFadeManager: {fileID: 0}
+    _canvasGroup: {fileID: 0}
+    _graphicRaycaster: {fileID: 0}
+    _canvasRenderer: {fileID: 0}
+    _image: {fileID: 0}
+    _designTemplate: {fileID: 0}
+  rootCanvas:
+    _name: 
+    _niceName: 
+    gameObject: {fileID: 136857219}
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _resetToken: 
+    isSortingDisabled: 0
+    _rectTransform: {fileID: 136857226}
+    _canvas: {fileID: 136857225}
+    _canvasFadeManager: {fileID: 136857224}
+    _canvasGroup: {fileID: 136857223}
+    _graphicRaycaster: {fileID: 136857222}
+    _canvasRenderer: {fileID: 136857221}
+    _canvasScaler: {fileID: 136857220}
+    _scaledRect: {fileID: 970098122}
+    _scaledCanvas: {fileID: 970098121}
+    _scaledCanvasScaler: {fileID: 970098120}
 --- !u!1 &1456455361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,12 +1800,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfc8b81743afff49af7ed1599d823ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationData:
+  _initializer:
+    _initializationCount: 0
     _tags: []
     _resetToken: 
-  fadeSettings: {fileID: 11400000, guid: d7b6f0b9eee711e4983a1873a1cbfb98, type: 2}
+  _niceName: 
+  _objectId:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  data:
+    _name: 
+    _niceName: 
+    _initializer:
+      _initializationCount: 9
+      _tags:
+      - passiveMode
+      - passiveFadeMode
+      - updateAtStart
+      - startVisible
+      - fadeRange
+      - fadeInDuration
+      - fadeIn
+      - fadeOutDuration
+      - fadeOut
+      _resetToken: 
+    _owner: {fileID: 0}
+    _objectId:
+      _increment: 12681880
+      _machine: 14129404
+      _timestamp: 1646435764
+      _pid: 26192
+    showAll: 0
+    hideInInspector: 0
+    disableUpdates: 0
+    passiveMode: 0
+    passiveFadeMode: 2
+    updateAtStart: 1
+    startVisible: 1
+    fadeRange: {x: 0, y: 1}
+    fadeInDuration: 1
+    fadeIn: 2
+    fadeOutDuration: 1
+    fadeOut: 2
   fadePercentage: 0
-  menuCanvasGroup: {fileID: 1701118440}
+  canvas: {fileID: 1701118442}
+  canvasGroup: {fileID: 1701118440}
 --- !u!223 &1701118442
 Canvas:
   m_ObjectHideFlags: 0

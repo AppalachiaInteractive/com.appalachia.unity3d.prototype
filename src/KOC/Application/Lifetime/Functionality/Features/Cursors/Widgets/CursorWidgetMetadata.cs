@@ -1,6 +1,6 @@
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Complex;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Complex;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Simple;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Widgets
 {
@@ -12,6 +12,9 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
         public SimpleCursorComponentSetData simpleCursorSet;
         public ComplexCursorComponentSetData complexCursorSet;
 
+        public SimpleCursorComponentSetData simpleCursorSet2;
+        public ComplexCursorComponentSetData complexCursorSet2;
+        
         #endregion
 
         /// <inheritdoc />
@@ -37,15 +40,18 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
                 {
                     var componentSet = widget.ComplexCursorSets[setIndex];
 
-                    RefreshAndUpdateComponentSet(ref componentSet, ref complexCursorSet, widget);
+                    RefreshAndUpdate(ref componentSet, ref complexCursorSet, widget);
                 }
 
                 for (var setIndex = 0; setIndex < widget.SimpleCursorSets.Count; setIndex++)
                 {
                     var componentSet = widget.SimpleCursorSets[setIndex];
 
-                    RefreshAndUpdateComponentSet(ref componentSet, ref simpleCursorSet, widget);
+                    RefreshAndUpdate(ref componentSet, ref simpleCursorSet, widget);
                 }
+
+                complexCursorSet = complexCursorSet2;
+                simpleCursorSet = simpleCursorSet2;
             }
         }
     }

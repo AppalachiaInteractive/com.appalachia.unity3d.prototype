@@ -3,9 +3,7 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Availability.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Availability.Extensions;
-using Appalachia.Prototype.KOC.Application.Features.Services;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
-using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Availability

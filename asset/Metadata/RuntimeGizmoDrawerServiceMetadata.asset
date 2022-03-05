@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6da3009a7e74966953cdf87687fa149, type: 3}
   m_Name: RuntimeGizmoDrawerServiceMetadata
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags:
@@ -22,6 +20,7 @@ MonoBehaviour:
     - featureEnabledExecutionMode
     - featureDisabledExecutionMode
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 8208748
     _machine: 14129406
@@ -30,6 +29,8 @@ MonoBehaviour:
   featureEnabledExecutionMode: 1
   featureDisabledExecutionMode: 1
   cameraData:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags:
@@ -65,19 +66,20 @@ MonoBehaviour:
       _machine: 14129406
       _timestamp: 1645836050
       _pid: -8016
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     clearFlags:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 2
     backgroundColor:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -86,7 +88,7 @@ MonoBehaviour:
       _initial: {r: 0, g: 0, b: 0, a: 0}
       _value: {r: 0, g: 0, b: 0, a: 0}
     cullingMask:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -95,32 +97,32 @@ MonoBehaviour:
       _initial: 0
       _value: 0
     orthographic:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 1
     orthographicSize:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 2
     fieldOfView:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 60
     usePhysicalProperties:
       _overriding: 0
       _objectId:
@@ -167,25 +169,25 @@ MonoBehaviour:
       _initial: 0
       _value: 0
     nearClipPlane:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 0.1
     farClipPlane:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 10
     rect:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -201,19 +203,19 @@ MonoBehaviour:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
+        width: 1
+        height: 1
     depth:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
+      _value: 100
     renderingPath:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -222,7 +224,7 @@ MonoBehaviour:
       _initial: 0
       _value: 0
     useOcclusionCulling:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -231,7 +233,7 @@ MonoBehaviour:
       _initial: 0
       _value: 0
     allowHDR:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -240,7 +242,7 @@ MonoBehaviour:
       _initial: 0
       _value: 0
     allowMSAA:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -249,7 +251,7 @@ MonoBehaviour:
       _initial: 0
       _value: 0
     allowDynamicResolution:
-      _overriding: 0
+      _overriding: 1
       _objectId:
         _increment: 0
         _machine: 0

@@ -1,0 +1,196 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 1073741824 bytes for Failed to commit area from 0x0000000401000000 to 0x0000000441000000 of length 1073741824.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3619), pid=50360, tid=1500
+#
+# JRE version:  (11.0.13+7) (build )
+# Java VM: Dynamic Code Evolution 64-Bit Server VM (11.0.13+7-b1751.25, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: git4idea.http.GitAskPassApp Username for 'https://github.com': 
+
+Host: AMD Ryzen 9 3900X 12-Core Processor            , 24 cores, 63G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1466)
+Time: Mon Feb 28 10:28:52 2022 Eastern Standard Time elapsed time: 0.011039 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002122f7be000):  JavaThread "Unknown thread" [_thread_in_vm, id=1500, stack(0x000000500c200000,0x000000500c300000)]
+
+Stack: [0x000000500c200000,0x000000500c300000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x61f82a]
+V  [jvm.dll+0x7a6240]
+V  [jvm.dll+0x7a785d]
+V  [jvm.dll+0x7a7f33]
+V  [jvm.dll+0x250b68]
+V  [jvm.dll+0x61c894]
+V  [jvm.dll+0x6115b5]
+V  [jvm.dll+0x3105ab]
+V  [jvm.dll+0x31051a]
+V  [jvm.dll+0x3103f2]
+V  [jvm.dll+0x315346]
+V  [jvm.dll+0x35ec83]
+V  [jvm.dll+0x35f386]
+V  [jvm.dll+0x35ed83]
+V  [jvm.dll+0x2e9de8]
+V  [jvm.dll+0x2eaf97]
+V  [jvm.dll+0x782fe7]
+V  [jvm.dll+0x7848bc]
+V  [jvm.dll+0x36c1f9]
+V  [jvm.dll+0x766c7e]
+V  [jvm.dll+0x3da7d3]
+V  [jvm.dll+0x3dcd31]
+C  [jli.dll+0x536b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000002122d4e4060, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002122f7d8800 GCTaskThread "GC Thread#0" [stack: 0x000000500c300000,0x000000500c400000] [id=27244]
+  0x000002122f899800 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000500c400000,0x000000500c500000] [id=47376]
+  0x000002122f89b000 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000500c500000,0x000000500c600000] [id=38220]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff8e7b8a657]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002122f7b9c70] Heap_lock - owner thread: 0x000002122f7be000
+
+Heap address: 0x0000000401000000, size: 16368 MB, Compressed Oops mode: Non-zero based: 0x0000000401000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.006 Loaded shared library C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff7ff4c0000 - 0x00007ff7ff4ca000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\java.exe
+0x00007ff928570000 - 0x00007ff928765000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff926760000 - 0x00007ff92681e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff926240000 - 0x00007ff926508000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff925ce0000 - 0x00007ff925de0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff90ba30000 - 0x00007ff90ba49000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\jli.dll
+0x00007ff90b710000 - 0x00007ff90b727000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\VCRUNTIME140.dll
+0x00007ff9265b0000 - 0x00007ff926751000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff926080000 - 0x00007ff9260a2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff90e5d0000 - 0x00007ff90e86a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ff927330000 - 0x00007ff92735b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff926b00000 - 0x00007ff926b9e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff925f70000 - 0x00007ff92607d000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff926510000 - 0x00007ff9265ad000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff927d60000 - 0x00007ff927d90000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff8f5900000 - 0x00007ff8f599d000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\msvcp140.dll
+0x00007ff8e7890000 - 0x00007ff8e8416000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\server\jvm.dll
+0x00007ff927ec0000 - 0x00007ff927f6e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff928490000 - 0x00007ff92852c000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff927f70000 - 0x00007ff928095000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff927d50000 - 0x00007ff927d58000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff921830000 - 0x00007ff921839000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff915d40000 - 0x00007ff915d67000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff91f7a0000 - 0x00007ff91f7aa000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff9271b0000 - 0x00007ff92721b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff923ab0000 - 0x00007ff923ac2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff920bd0000 - 0x00007ff920be1000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\verify.dll
+0x00007ff91e280000 - 0x00007ff91e464000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff91de80000 - 0x00007ff91deac000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff926100000 - 0x00007ff926182000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff9203c0000 - 0x00007ff9203e9000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\java.dll
+0x00007ff921bc0000 - 0x00007ff921bcb000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\jimage.dll
+0x00007ff920b20000 - 0x00007ff920b38000 	C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Program Files\JetBrains\JetBrains Rider 2019.1.3\jbr\bin\server
+
+VM Arguments:
+java_command: git4idea.http.GitAskPassApp Username for 'https://github.com': 
+java_class_path (initial): C:/Program Files/JetBrains/JetBrains Rider 2019.1.3/plugins/git4idea/lib/git4idea-rt.jar;C:/Program Files/JetBrains/JetBrains Rider 2019.1.3/lib/3rd-party.jar;C:/Program Files/JetBrains/JetBrains Rider 2019.1.3/lib/3rd-party-rt.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 5                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 18                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 4194304                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 1073741824                                {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 17163091968                               {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 4194304                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7594288                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122031976                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122031976                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files\Git\mingw64\libexec\git-core;C:\Program Files\Git\mingw64\libexec\git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Chris\bin;C:\Program Files (x86)\PHP\v7.4;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\120\Tools\Binn;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git LFS;C:\Program Files\Git\cmd;C:\Users\Chris\com.appalachia\appa;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.11-Q16-HDRI;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Common Files\Autodesk Shared;C:\Program Files (x86)\GitExtensions;C:\Program Files\Microsoft\Web Platform Installer;C:\Users\Chris\com.appalachia\appa\.bin;C:\Users\Chris\AppData\Local\Programs\Python\Python39;C:\Users\Chris\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Chris;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Liquid Technologies\Liquid Studio 2021\XmlDataBinder19\Redist19\cpp\win32\bin;C:\Program Files\Liquid Technologies\Liquid Studio 2021\XmlDataBinder19\Redist19\cpp\win64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\Chris\com.appalachia\appa;C:\Users\Chris\com.appalachia\appa\.bin;C:\Users\Chris\AppData\Local\Programs\Python\Python39;C:\Users\Chris\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Chris\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\PyCharm Community Edition 2020.2.2\bin;C:\Users\Chris\AppData\Roaming\npm;C:\Program Files (x86)\GitHub 
+USERNAME=Chris
+DISPLAY=:0.0
+LC_ALL=en_US.UTF-8
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.1466)
+OS uptime: 45 days 2:34 hours
+
+CPU:total 24 (initial active 24) (24 cores per cpu, 2 threads per core) family 23 model 113 stepping 0 microcode 0x0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, ht, tsc, tscinvbit, tscinv, bmi1, bmi2, adx, sha, fma
+
+Memory: 4k page, system-wide physical 65461M (30748M free)
+TotalPageFile size 89461M (AvailPageFile size 407M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 82M, peak: 1106M
+
+vm_info: Dynamic Code Evolution 64-Bit Server VM (11.0.13+7-b1751.25) for windows-amd64 JRE (11.0.13+7-b1751.25), built on Jan 13 2022 20:46:28 by "" with MS VC++ 14.0 (VS2015)
+
+END.

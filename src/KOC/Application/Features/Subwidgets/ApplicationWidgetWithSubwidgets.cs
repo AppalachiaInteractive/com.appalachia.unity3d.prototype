@@ -4,7 +4,6 @@ using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Core.Objects.Routing;
-using Appalachia.Prototype.KOC.Application.Features.Services;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
@@ -17,30 +16,26 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets
 {
     [CallStaticConstructorInEditor]
-    public abstract class ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget,
-                                                          TWidgetMetadata, TFeature, TFeatureMetadata,
-                                                          TFunctionalitySet, TIService, TIWidget, TManager> :
-        ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
-            TIWidget, TManager>
-        where TWidget : ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget,
-            TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>,
-        TIWidget
-        where TWidgetMetadata : ApplicationWidgetWithSubwidgetsMetadata<TSubwidget, TSubwidgetMetadata,
-            TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
-            TManager>
+    public abstract class ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata,
+                                                          TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
+                                                          TIWidget, TManager> : ApplicationWidget<TWidget,
+        TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
+        where TWidget : ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata,
+            TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>, TIWidget
+        where TWidgetMetadata : ApplicationWidgetWithSubwidgetsMetadata<TSubwidget, TSubwidgetMetadata, TWidget,
+            TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
         where TSubwidget : ApplicationSubwidget<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata,
             TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>, IEnableNotifier
-        where TSubwidgetMetadata : ApplicationSubwidgetMetadata<TSubwidget, TSubwidgetMetadata, TWidget,
-            TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
-        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget
-            , TManager>
-        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet,
-            TIService, TIWidget, TManager>
+        where TSubwidgetMetadata : ApplicationSubwidgetMetadata<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata
+            , TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
+        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
+            TManager>
+        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
+            TIWidget, TManager>
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
-        IApplicationFunctionalityManager
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
         static ApplicationWidgetWithSubwidgets()
         {
@@ -52,9 +47,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets
                 }
 
                 RegisterInstanceCallbacks
-                   .For<ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget,
-                        TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
-                        TManager>>()
+                   .For<ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata,
+                        TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>>()
                    .When.Behaviour<TWidget>()
                    .IsAvailableThen(RegisterSubwidgetWithWidget);
             }

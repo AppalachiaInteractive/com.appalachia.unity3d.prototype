@@ -1,8 +1,8 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Core.Objects.Sets;
-using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
+using Appalachia.Core.Objects.Sets2;
+using Appalachia.UI.Controls.Sets2.Canvases.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;
@@ -24,6 +24,9 @@ namespace Appalachia.Prototype.KOC.Areas
         [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
         public RootCanvasComponentSetData rootCanvas;
 
+        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
+        public RootCanvasComponentSetData rootCanvas2;
+
         [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration sceneBehaviour;
 
@@ -42,11 +45,11 @@ namespace Appalachia.Prototype.KOC.Areas
             GameObject parent,
             string setName)
             where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
-            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>
+            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
         {
             using (_PRF_UpdateComponentSet.Auto())
             {
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdateComponentSet(
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdate(
                     ref data,
                     ref target,
                     parent,
@@ -109,6 +112,8 @@ namespace Appalachia.Prototype.KOC.Areas
                     }
                 }
             );
+
+            rootCanvas = rootCanvas2;
 
 #if UNITY_EDITOR
             InitializeEditor(initializer);

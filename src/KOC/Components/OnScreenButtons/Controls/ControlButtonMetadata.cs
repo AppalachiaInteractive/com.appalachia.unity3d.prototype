@@ -136,7 +136,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls
 
                 foreach (var match in matches)
                 {
-                    var relativeMatch = match.relativePath;
+                    var relativeMatch = match.RelativePath;
 
                     var asset = AssetDatabaseManager.LoadAssetAtPath<Sprite>(relativeMatch);
 

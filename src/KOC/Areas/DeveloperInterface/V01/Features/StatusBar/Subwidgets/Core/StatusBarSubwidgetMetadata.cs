@@ -1,9 +1,8 @@
 using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets2;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
 using Appalachia.UI.Controls.Sets.Buttons.Button;
 using Appalachia.Utility.Async;
@@ -16,24 +15,26 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
     [Serializable]
     [CallStaticConstructorInEditor]
     public abstract class
-        StatusBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadta, TButtonSet, TButtonSetData> :
+        StatusBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadta> :
             DeveloperInterfaceMetadata_V01.SingletonSubwidgetMetadata<TSubwidget, IStatusBarSubwidget,
                 TSubwidgetMetadta, IStatusBarSubwidgetMetadata, StatusBarWidget, StatusBarWidgetMetadata,
                 StatusBarFeature, StatusBarFeatureMetadata>,
             IStatusBarSubwidgetMetadata
-        where TSubwidget : StatusBarSubwidget<TSubwidget, TSubwidgetMetadta, TButtonSet, TButtonSetData>
-        where TSubwidgetMetadta : StatusBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadta, TButtonSet,
-            TButtonSetData>
-        where TButtonSet : BaseButtonComponentSet<TButtonSet, TButtonSetData>, IButtonComponentSet, new()
-        where TButtonSetData : BaseButtonComponentSetData<TButtonSet, TButtonSetData>, IButtonComponentSetData
+        where TSubwidget : StatusBarSubwidget<TSubwidget, TSubwidgetMetadta>
+        where TSubwidgetMetadta : StatusBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadta>
     {
         #region Fields and Autoproperties
 
         [FormerlySerializedAs("_button")]
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         [HideInInspector]
-        public TButtonSetData button;
+        public StatusBarSubwidgetComponentSetData button;
 
+        [FormerlySerializedAs("_button")]
+        [SerializeField, OnValueChanged(nameof(OnChanged))]
+        [HideInInspector]
+        public StatusBarSubwidgetComponentSetData button2;
+        
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         private bool _enabled;
 
@@ -66,6 +67,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                 initializer.Do(this, nameof(_enabled),  () => _enabled = true);
                 initializer.Do(this, nameof(_section),  () => _section = StatusBarSection.Left);
                 initializer.Do(this, nameof(_priority), () => _priority = 100);
+
+                button = button2;
             }
         }
 
@@ -78,12 +81,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         public int Priority => _priority;
 
         public StatusBarSection Section => _section;
-
-        void ISingletonSubwidgetMetadata<IStatusBarSubwidget, IStatusBarSubwidgetMetadata>.
-            SubscribeResponsiveComponents(IStatusBarSubwidget functionality)
-        {
-            SubscribeResponsiveComponents(functionality as TSubwidget);
-        }
 
         #endregion
     }

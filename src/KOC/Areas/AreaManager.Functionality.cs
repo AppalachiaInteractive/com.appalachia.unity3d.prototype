@@ -1,9 +1,7 @@
 using System;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Prototype.KOC.Application.Features.Services;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
-using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling;

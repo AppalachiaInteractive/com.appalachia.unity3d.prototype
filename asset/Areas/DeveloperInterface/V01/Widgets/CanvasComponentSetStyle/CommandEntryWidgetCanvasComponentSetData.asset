@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e877749282448709b55329b9a15e63e, type: 3}
   m_Name: CommandEntryWidgetCanvasComponentSetData
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 890395
     _machine: 14129406
     _timestamp: 1645800128
     _pid: -8016
+  dataTransferred: 1
+  showAll: 0
   _rectTransform:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags:
@@ -51,6 +54,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     disablePositionUpdates: 0
@@ -108,7 +112,10 @@ MonoBehaviour:
         _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
+  showAllComponents: 0
   _canvasData:
+    _name: 
+    _niceName: 
     _initializer:
       _initializationCount: 0
       _tags:
@@ -125,6 +132,7 @@ MonoBehaviour:
       _machine: 14129404
       _timestamp: 1644957442
       _pid: -14768
+    showAll: 0
     hideInInspector: 0
     disableUpdates: 0
     renderMode:
@@ -189,6 +197,8 @@ MonoBehaviour:
       _timestamp: 1644971925
       _pid: -14768
     _initial:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -208,6 +218,7 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       passiveMode: 0
@@ -220,6 +231,8 @@ MonoBehaviour:
       fadeOutDuration: 1
       fadeOut: 2
     _value:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -239,6 +252,7 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       passiveMode: 0
@@ -258,6 +272,8 @@ MonoBehaviour:
       _timestamp: 1644971925
       _pid: -14768
     _initial:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -272,6 +288,7 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       alpha:
@@ -311,6 +328,8 @@ MonoBehaviour:
         _initial: 0
         _value: 0
     _value:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -325,6 +344,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957442
         _pid: -14768
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       alpha:
@@ -371,6 +391,8 @@ MonoBehaviour:
       _timestamp: 1644971925
       _pid: -14768
     _initial:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -384,6 +406,7 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       ignoreReversedGraphics:
@@ -418,6 +441,8 @@ MonoBehaviour:
           serializedVersion: 2
           m_Bits: 4294967295
     _value:
+      _name: 
+      _niceName: 
       _initializer:
         _initializationCount: 0
         _tags:
@@ -431,6 +456,7 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957442
         _pid: -14768
+      showAll: 0
       hideInInspector: 0
       disableUpdates: 0
       ignoreReversedGraphics:

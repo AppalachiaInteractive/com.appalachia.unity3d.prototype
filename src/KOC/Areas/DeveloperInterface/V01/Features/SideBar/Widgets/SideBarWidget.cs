@@ -1,23 +1,23 @@
+using System.Collections.Generic;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
 using Appalachia.Utility.Async;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets
 {
     [CallStaticConstructorInEditor]
-    public sealed class SideBarWidget : DeveloperInterfaceManager_V01.Widget<SideBarWidget,
-        SideBarWidgetMetadata, SideBarFeature, SideBarFeatureMetadata>
+    public sealed class SideBarWidget : DeveloperInterfaceManager_V01.WidgetWithSingletonSubwidgets<ISideBarSubwidget,
+        ISideBarSubwidgetMetadata, SideBarWidget, SideBarWidgetMetadata, SideBarFeature, SideBarFeatureMetadata>
     {
         static SideBarWidget()
         {
             When.Widget<ActivityBarWidget>()
                 .IsAvailableThen(activityBarWidget => { _activityBarWidget = activityBarWidget; });
-            When.Widget<MenuBarWidget>()
-                .IsAvailableThen(menuBarWidget => { _menuBarWidget = menuBarWidget; });
-            When.Widget<StatusBarWidget>()
-                .IsAvailableThen(statusBarWidget => { _statusBarWidget = statusBarWidget; });
+            When.Widget<MenuBarWidget>().IsAvailableThen(menuBarWidget => { _menuBarWidget = menuBarWidget; });
+            When.Widget<StatusBarWidget>().IsAvailableThen(statusBarWidget => { _statusBarWidget = statusBarWidget; });
         }
 
         #region Static Fields and Autoproperties
@@ -27,6 +27,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
         private static StatusBarWidget _statusBarWidget;
 
         #endregion
+
+        public override void ValidateSubwidgets()
+        {
+            using (_PRF_ValidateSubwidgets.Auto())
+            {
+                EnsureSubwidgetsHaveCorrectParent(_subwidgets, SubwidgetParent.transform);
+            }
+        }
 
         /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
@@ -60,6 +68,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
                 UpdateAnchorMin(anchorMin);
                 UpdateAnchorMax(anchorMax);
+            }
+        }
+
+        protected override void OnRegisterSubwidget(ISideBarSubwidget subwidget)
+        {
+            using (_PRF_OnRegisterSubwidget.Auto())
+            {
+                _subwidgets ??= new List<ISideBarSubwidget>();
+
+                _subwidgets.Add(subwidget);
             }
         }
 

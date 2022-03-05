@@ -16,7 +16,11 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: b0aa69d58b95dbc48b0fe0ea4198f217
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: c1ecec452ca75894e904043c0df15614
+    m_Address: ProfilingSideBarSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

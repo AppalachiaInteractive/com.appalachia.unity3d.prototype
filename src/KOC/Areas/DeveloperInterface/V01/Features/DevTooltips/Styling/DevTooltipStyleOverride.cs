@@ -2,6 +2,7 @@ using System;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Overrides.Implementations;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling.Overrides;
+using Appalachia.UI.Controls.Common;
 using Appalachia.UI.Core.Styling.Elements;
 using Appalachia.Utility.Async;
 using Unity.Profiling;
@@ -134,7 +135,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
             set => _triangleSprite.OverrideValue(value);
         }
 
-        public TooltipAppearanceDirection Direction
+        public AppearanceDirection Direction
         {
             get => _direction.Get(Defaults.Direction);
             set => _direction.OverrideValue(value);

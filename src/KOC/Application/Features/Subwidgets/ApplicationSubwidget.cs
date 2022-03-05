@@ -4,6 +4,7 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Core.Preferences;
+using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
@@ -17,28 +18,25 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets
 {
     [CallStaticConstructorInEditor]
-    public abstract class ApplicationSubwidget<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata,
-                                               TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
-                                               TIWidget, TManager> : AppalachiaBehaviour<TSubwidget>
-        where TWidget : ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget,
-            TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>,
-        TIWidget
-        where TWidgetMetadata : ApplicationWidgetWithSubwidgetsMetadata<TSubwidget, TSubwidgetMetadata,
-            TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
-            TManager>
+    public abstract class ApplicationSubwidget<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
+                                               TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
+                                               TManager> : AppalachiaBehaviour<TSubwidget>, IClickable
+        where TWidget : ApplicationWidgetWithSubwidgets<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata,
+            TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>, TIWidget
+        where TWidgetMetadata : ApplicationWidgetWithSubwidgetsMetadata<TSubwidget, TSubwidgetMetadata, TWidget,
+            TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
         where TSubwidget : ApplicationSubwidget<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata,
             TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>, IEnableNotifier
-        where TSubwidgetMetadata : ApplicationSubwidgetMetadata<TSubwidget, TSubwidgetMetadata, TWidget,
-            TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
-        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget
-            , TManager>
-        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet,
-            TIService, TIWidget, TManager>
+        where TSubwidgetMetadata : ApplicationSubwidgetMetadata<TSubwidget, TSubwidgetMetadata, TWidget, TWidgetMetadata
+            , TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>
+        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
+            TManager>
+        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
+            TIWidget, TManager>
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
-        IApplicationFunctionalityManager
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
         static ApplicationSubwidget()
         {
@@ -52,19 +50,11 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets
 
         #region Preferences
 
-        private PREF<Color> _disableColor = PREFS.REG(
-            PKG.Prefs.Group,
-            "Disabled Color",
-            Colors.CadmiumOrange
-        );
+        private PREF<Color> _disableColor = PREFS.REG(PKG.Prefs.Group, "Disabled Color", Colors.CadmiumOrange);
 
         private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
 
-        private PREF<Color> _functionalityColor = PREFS.REG(
-            PKG.Prefs.Group,
-            "Functionality Color",
-            Colors.Teal
-        );
+        private PREF<Color> _functionalityColor = PREFS.REG(PKG.Prefs.Group, "Functionality Color", Colors.Teal);
 
         private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
 
@@ -131,6 +121,12 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets
                 );
             }
         }
+
+        #region IClickable Members
+
+        public abstract void OnClicked();
+
+        #endregion
 
         #region Profiling
 

@@ -1,7 +1,6 @@
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Prototype.KOC.Application.Features.Availability.Contracts;
 using Appalachia.Prototype.KOC.Application.Lifetime;
-using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Availability.Extensions
 {

@@ -60,7 +60,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
                 var camera = functionality.DrawCamera;
-                CameraData.RefreshAndUpdateComponent(ref cameraData, this, camera);
+                CameraData.RefreshAndUpdate(ref cameraData, this, camera);
             }
         }
 

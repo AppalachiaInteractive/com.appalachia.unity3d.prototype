@@ -1,7 +1,7 @@
 #if UNITY_EDITOR
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.DesignTemplate;
+using Appalachia.UI.Controls.Sets2.DesignTemplate;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,13 +15,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
         [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Unscaled_Templates)]
         protected DesignTemplateComponentSet unscaledTemplates;
 
+        [SerializeField]
+        [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Unscaled_Templates)]
+        protected DesignTemplateComponentSet unscaledTemplates2;
+
         #endregion
 
         private void InitializeEditor(Initializer initializer, string setName)
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                DesignTemplateComponentSetData.RefreshAndUpdateComponentSet(
+                DesignTemplateComponentSetData.RefreshAndUpdate(
                     ref areaMetadata.unscaledTemplates,
                     false,
                     ref unscaledTemplates,

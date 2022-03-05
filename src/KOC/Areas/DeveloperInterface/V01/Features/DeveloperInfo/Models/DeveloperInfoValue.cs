@@ -35,6 +35,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
         OperatingSystem = 800,
         MachineName = 801,
-        UserName = 802
+        UserName = 802,
+        
+        ProfilingFPSAverage = 1000,
+        ProfilingFPSMin = 1001,
+        ProfilingFPSMax = 1002,
+        ProfilingFPSCurrent = 1003,
+        ProfilingFPSFrame = 1004,
+        
+        ProfilingRAMMono = 1100,
+        ProfilingRAMAllocated = 1101,
+        ProfilingRAMReserved = 1102,
+        
+        ProfilingAudioDecibals = 1200,
     }
 }

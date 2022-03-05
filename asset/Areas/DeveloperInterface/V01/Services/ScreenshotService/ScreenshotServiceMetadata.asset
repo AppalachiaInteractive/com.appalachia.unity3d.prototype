@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78376a30528c46dc9971aed523df9ebb, type: 3}
   m_Name: ScreenshotServiceMetadata
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
-    _initializationCount: 174
+    _initializationCount: 421
     _tags:
     - outputSize
     - previewSize
@@ -27,6 +25,7 @@ MonoBehaviour:
     - featureEnabledExecutionMode
     - featureDisabledExecutionMode
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 0
     _machine: 0

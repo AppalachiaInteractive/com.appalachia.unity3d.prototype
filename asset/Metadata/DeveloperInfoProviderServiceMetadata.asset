@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f96b3353ccb046dcbbb5b3fdb422c54a, type: 3}
   m_Name: DeveloperInfoProviderServiceMetadata
   m_EditorClassIdentifier: Appalachia.Prototype.KOC:Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Services:DeveloperInfoProviderServiceMetadata
   _cachedName: 
   _niceName: 
   _initializer:
-    _initializationCount: 0
+    _initializationCount: 2
     _tags:
-    - startsEnabled
     - featureEnabledExecutionMode
     - featureDisabledExecutionMode
     _resetToken: 

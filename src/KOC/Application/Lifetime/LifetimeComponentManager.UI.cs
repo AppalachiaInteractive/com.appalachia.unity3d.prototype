@@ -1,6 +1,6 @@
 using Appalachia.CI.Constants;
-using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
+using Appalachia.UI.Controls.Sets2.Canvases.RootCanvas;
+using Appalachia.UI.Controls.Sets2.Images.Background;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions;
@@ -31,6 +31,14 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         #endregion
 
         #region Fields and Autoproperties
+
+        [FoldoutGroup(GROUP_UI)]
+        [SerializeField]
+        private RootCanvasComponentSet _rootCanvas2;
+
+        [FoldoutGroup(GROUP_UI)]
+        [SerializeField]
+        private BackgroundComponentSet _rootBackground2;
 
         [FoldoutGroup(GROUP_UI)]
         [SerializeField]
@@ -136,14 +144,14 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
             {
                 gameObject.GetOrAddChild(ref _uiObject, PARENT_NAME_UI, false);
 
-                RootCanvasComponentSetData.RefreshAndUpdateComponentSet(
+                RootCanvasComponentSetData.RefreshAndUpdate(
                     ref _lifetimeMetadata.rootCanvas,
                     ref _rootCanvas,
                     _uiObject,
                     APPASTR.ObjectNames.Master_Canvas
                 );
 
-                BackgroundComponentSetData.RefreshAndUpdateComponentSet(
+                BackgroundComponentSetData.RefreshAndUpdate(
                     ref _lifetimeMetadata.rootBackground,
                     ref _rootBackground,
                     _rootCanvas.ScaledCanvas.gameObject,

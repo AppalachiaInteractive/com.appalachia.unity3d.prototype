@@ -7,7 +7,7 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameArea;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar;
@@ -34,7 +34,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             fs.RegisterFeature<SideBarFeature>(dt, i => _sideBar = i);
             fs.RegisterFeature<StatusBarFeature>(dt, i => _statusBar = i);
             fs.RegisterFeature<DevTooltipsFeature>(dt, i => _devTooltipsFeature = i);
-            fs.RegisterFeature<PerformanceProfiingFeature>(dt, i => _performanceProfiingFeature = i);
+            fs.RegisterFeature<PerformanceProfilingFeature>(dt, i => _performanceProfilingFeature = i);
             fs.RegisterFeature<DeveloperInfoFeature>(dt, i => _developerInfo = i);
             fs.RegisterFeature<RectVisualizerFeature>(dt, i => _rectVisualizer = i);
         }
@@ -49,7 +49,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         private static MenuBarFeature _menuBar;
         private static PanelFeature _panel;
 
-        private static PerformanceProfiingFeature _performanceProfiingFeature;
+        private static PerformanceProfilingFeature _performanceProfilingFeature;
         private static RectVisualizerFeature _rectVisualizer;
         private static ScreenshotFeature _screenshot;
         private static SideBarFeature _sideBar;

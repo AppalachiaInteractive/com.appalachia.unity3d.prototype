@@ -16,6 +16,11 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 {
     [Serializable]
     [SmartLabelChildren, SmartLabel]
+    [CreateAssetMenu(
+        fileName = "New " + nameof(OnScreenButtonStyleOverride),
+        menuName = PKG.Prefix + nameof(OnScreenButtonStyleOverride),
+        order = PKG.Menu.Assets.Priority
+    )]
     public class OnScreenButtonStyleOverride : StyleElementOverride<OnScreenButtonStyle,
                                                    OnScreenButtonStyleOverride, IOnScreenButtonStyle>,
                                                IOnScreenButtonStyle

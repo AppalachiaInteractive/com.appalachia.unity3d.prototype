@@ -1,6 +1,6 @@
-#if UNITY_EDITOR
-using Appalachia.UI.Controls.Sets.DesignTemplate;
+using Appalachia.UI.Controls.Sets2.DesignTemplate;
 
+#if UNITY_EDITOR
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 {
     public partial interface IDeveloperInterfaceMetadata
