@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SplashScreenMetadata_V01
   m_EditorClassIdentifier: 
   _initializer:
-    _initializationCount: 25
+    _initializationCount: 60
     _tags:
     - Doozy Graph
     - Doozy Canvas
@@ -242,7 +242,10 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    showAll: 0
+    _showAdvancedOptions: 0
+    _hideAllFields: 0
+    _disableAllFields: 0
+    _suspendFieldApplication: 0
     _rectTransform:
       _name: 
       _niceName: 
@@ -275,9 +278,10 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957426
         _pid: -14768
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 1
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
       disablePositionUpdates: 0
       _left: 0
       _posX: 0
@@ -352,9 +356,10 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957426
         _pid: -14768
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
       renderMode:
         _overriding: 1
         _objectId:
@@ -438,9 +443,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         passiveMode: 0
         passiveFadeMode: 2
         updateAtStart: 1
@@ -472,9 +478,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         passiveMode: 0
         passiveFadeMode: 2
         updateAtStart: 1
@@ -508,9 +515,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         alpha:
           _overriding: 1
           _objectId:
@@ -564,9 +572,10 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1644957426
           _pid: -14768
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         alpha:
           _overriding: 1
           _objectId:
@@ -626,9 +635,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         ignoreReversedGraphics:
           _overriding: 1
           _objectId:
@@ -676,9 +686,10 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1646407956
           _pid: 26192
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         ignoreReversedGraphics:
           _overriding: 1
           _objectId:
@@ -733,9 +744,10 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957426
         _pid: -14768
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
       uiScaleMode:
         _overriding: 1
         _objectId:
@@ -854,9 +866,10 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957426
         _pid: -14768
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 1
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
       disablePositionUpdates: 0
       _left: 0
       _posX: 0
@@ -931,9 +944,10 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957426
         _pid: -14768
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
       renderMode:
         _overriding: 1
         _objectId:
@@ -1011,9 +1025,10 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1644957426
         _pid: -14768
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:
@@ -1038,7 +1053,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      showAll: 0
+      _showAdvancedOptions: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
       _rectTransform:
         _name: 
         _niceName: 
@@ -1066,9 +1084,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         disablePositionUpdates: 0
         _left: 0
         _posX: 0
@@ -1143,9 +1162,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         renderMode:
           _overriding: 1
           _objectId:
@@ -1229,9 +1249,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           passiveMode: 0
           passiveFadeMode: 2
           updateAtStart: 1
@@ -1263,9 +1284,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           passiveMode: 0
           passiveFadeMode: 2
           updateAtStart: 1
@@ -1299,9 +1321,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -1355,9 +1378,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -1417,9 +1441,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreReversedGraphics:
             _overriding: 1
             _objectId:
@@ -1467,9 +1492,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreReversedGraphics:
             _overriding: 1
             _objectId:
@@ -1529,9 +1555,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         material:
           _overriding: 0
           _objectId:
@@ -1684,9 +1711,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         enabled: 0
         templateAlpha: 1
         templates: []
@@ -1704,7 +1732,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      showAll: 0
+      _showAdvancedOptions: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
       _rectTransform:
         _name: 
         _niceName: 
@@ -1732,9 +1763,10 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1646592000
           _pid: -26872
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         disablePositionUpdates: 0
         _left: 0
         _posX: 0
@@ -1809,9 +1841,10 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1646592000
           _pid: -26872
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         renderMode:
           _overriding: 1
           _objectId:
@@ -1895,9 +1928,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           passiveMode: 0
           passiveFadeMode: 2
           updateAtStart: 1
@@ -1929,9 +1963,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           passiveMode: 0
           passiveFadeMode: 2
           updateAtStart: 1
@@ -1965,9 +2000,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -2021,9 +2057,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646592000
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -2083,9 +2120,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreReversedGraphics:
             _overriding: 1
             _objectId:
@@ -2133,9 +2171,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646592000
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreReversedGraphics:
             _overriding: 1
             _objectId:
@@ -2195,9 +2234,10 @@ MonoBehaviour:
           _machine: 14129404
           _timestamp: 1646592000
           _pid: -26872
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         material:
           _overriding: 0
           _objectId:
@@ -2350,9 +2390,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        showAll: 0
-        hideInInspector: 0
-        disableUpdates: 0
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         enabled: 0
         templateAlpha: 1
         templates: []

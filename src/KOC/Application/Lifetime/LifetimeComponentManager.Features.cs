@@ -1,6 +1,7 @@
 using System;
 using Appalachia.CI.Constants;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos;

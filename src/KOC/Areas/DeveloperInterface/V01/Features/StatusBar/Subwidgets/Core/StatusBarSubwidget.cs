@@ -2,6 +2,7 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Components.Subsets;
@@ -25,7 +26,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
     {
         #region Fields and Autoproperties
 
-        public Sets2.StatusBarSubwidgetComponentSet button;
+        public StatusBarSubwidgetComponentSet button;
 
         [SerializeField] private DevTooltipSubwidget _devTooltipSubwidget;
 
@@ -44,23 +45,23 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_OnUpdateSubwidget.Auto())
             {
-                if (!enabled || !_metadata.Enabled)
+                if (!enabled || !Metadata.Enabled)
                 {
                     button?.Disable();
 
                     return;
                 }
 
-                if ((_metadata != null) &&
-                    (_metadata.button != null) &&
-                    (_metadata.button.ButtonText != null) &&
-                    _metadata.button.ButtonText.Value is { TextMeshProUGUI: { } })
+                if ((Metadata != null) &&
+                    (Metadata.button != null) &&
+                    (Metadata.button.ButtonText != null) &&
+                    Metadata.button.ButtonText.Value is { TextMeshProUGUI: { } })
                 {
-                    _metadata.button.ButtonText.Value.TextMeshProUGUI.fontStyle = Widget.Metadata.fontStyle;
+                    Metadata.button.ButtonText.Value.TextMeshProUGUI.fontStyle = Widget.Metadata.fontStyle;
                 }
 
-                Sets2.StatusBarSubwidgetComponentSetData.RefreshAndUpdate(
-                    ref _metadata.button,
+                StatusBarSubwidgetComponentSetData.RefreshAndApply(
+                    ref Metadata.button,
                     ref button,
                     gameObject,
                     name
@@ -68,12 +69,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
                 RectTransform.ResetRotationAndScale();
 
-                var buttonTextMetadata = _metadata.button.ButtonText;
-                var buttonIconMetadata = _metadata.button.ButtonIcon;
-                var icon = _metadata.icon;
+                var buttonTextMetadata = Metadata.button.ButtonText;
+                var buttonIconMetadata = Metadata.button.ButtonIcon;
+                var icon = Metadata.icon;
 
+                buttonTextMetadata.BindValueEnabledState();
                 buttonTextMetadata.IsElected = true;
-                buttonTextMetadata.Value.Enabled = true;
 
                 UpdateStatusBarIcon(buttonIconMetadata, icon);
 
@@ -100,7 +101,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     OnDevTooltipUpdateRequested();
                 }
 
-                DevTooltipSubwidget.RefreshAndUpdateSubwidget(ref _devTooltipSubwidget, name);
+                DevTooltipSubwidget.RefreshAndApplySubwidget(ref _devTooltipSubwidget, name);
 
                 _devTooltipSubwidget.SubscribeToUpdateRequests(OnDevTooltipUpdateRequested);
                 _devTooltipSubwidget.UpdateSubwidget();
@@ -136,10 +137,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_UpdateStatusBarIcon.Auto())
             {
+                buttonIconMetadata.BindValueEnabledState();
+                
                 if (RequiresIcon)
                 {
                     buttonIconMetadata.IsElected = true;
-                    buttonIconMetadata.Value.Enabled = true;
 
                     if (icon == null)
                     {
@@ -151,7 +153,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                 else
                 {
                     buttonIconMetadata.IsElected = false;
-                    buttonIconMetadata.Value.Enabled = false;
                     buttonIconMetadata.Value.Image.sprite.OverrideValue(null);
                 }
             }
@@ -176,7 +177,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_UpdateSubwidgetFont.Auto())
             {
-                var buttonData = _metadata.button;
+                var buttonData = Metadata.button;
                 var optionalSubsetData = buttonData.ButtonText;
                 var subsetData = optionalSubsetData.Value;
                 var componentData = subsetData.TextMeshProUGUI;
@@ -189,7 +190,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_UpdateSubwidgetIconSize.Auto())
             {
-                var buttonData = _metadata.button;
+                var buttonData = Metadata.button;
                 var optionalSubsetData = buttonData.ButtonIcon;
                 var subsetData = optionalSubsetData.Value;
 

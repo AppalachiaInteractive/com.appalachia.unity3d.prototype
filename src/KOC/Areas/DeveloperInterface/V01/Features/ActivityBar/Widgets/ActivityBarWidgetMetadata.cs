@@ -240,7 +240,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     topLayoutGroup.VerticalLayoutGroup.spacing.Value = activityBarSpacingTop;
                 }
 
-                VerticalLayoutGroupSubsetData.RefreshAndUpdate(
+                VerticalLayoutGroupSubsetData.RefreshAndApply(
                     ref bottomLayoutGroup,
                     this,
                     ref widget.bottomActivityBarLayoutGroup,
@@ -248,7 +248,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     BottomLayoutGroupSubwidgetsParentName
                 );
 
-                VerticalLayoutGroupSubsetData.RefreshAndUpdate(
+                VerticalLayoutGroupSubsetData.RefreshAndApply(
                     ref topLayoutGroup,
                     this,
                     ref widget.topActivityBarLayoutGroup,
@@ -275,7 +275,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     var swLayoutGroup = subwidget.Metadata.Button.LayoutGroup;
 
                     swLayoutGroup.IsElected = false;
-                    swLayoutGroup.Value.Enabled = false;
+                    swLayoutGroup.BindValueEnabledState();
 
                     subwidget.UpdateSubwidget();
 

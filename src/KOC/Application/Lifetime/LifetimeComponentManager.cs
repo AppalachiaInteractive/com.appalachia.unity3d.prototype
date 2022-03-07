@@ -52,8 +52,6 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
 
         private Queue<Action> _nextFrameActions;
 
-        [SerializeField] private AppalachiaRepository _repository;
-
         #endregion
 
         public ControlScheme CurrentControlScheme

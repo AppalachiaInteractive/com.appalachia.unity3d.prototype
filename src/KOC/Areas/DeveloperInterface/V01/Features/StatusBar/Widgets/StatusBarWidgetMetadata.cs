@@ -31,22 +31,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [ShowIf(nameof(showAll))]
+        [ShowIf(nameof(ShowAllFields))]
         public HorizontalLayoutGroupSubsetData leftLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [ShowIf(nameof(showAll))]
+        [ShowIf(nameof(ShowAllFields))]
         public HorizontalLayoutGroupSubsetData rightLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [ShowIf(nameof(showAll))]
+        [ShowIf(nameof(ShowAllFields))]
         public RectTransformData statusBarIconRectTransform;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [ShowIf(nameof(showAll))]
+        [ShowIf(nameof(ShowAllFields))]
         public DevTooltipStyleOverride devTooltipStyle;
 
         [BoxGroup(APPASTR.GroupNames.Size)]
@@ -211,7 +211,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     leftLayoutGroup.HorizontalLayoutGroup.spacing.Value = statusBarSpacingLeft;
                 }
                 
-                HorizontalLayoutGroupSubsetData.RefreshAndUpdate(
+                HorizontalLayoutGroupSubsetData.RefreshAndApply(
                     ref rightLayoutGroup,
                     this,
                     ref widget.rightStatusBarLayoutGroup,
@@ -219,7 +219,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     RightLayoutGroupSubwidgetsParentName
                 );
                 
-                HorizontalLayoutGroupSubsetData.RefreshAndUpdate(
+                HorizontalLayoutGroupSubsetData.RefreshAndApply(
                     ref leftLayoutGroup,
                     this,
                     ref widget.leftStatusBarLayoutGroup,
@@ -242,7 +242,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     var swLayoutGroup = subwidget.Metadata.Button.LayoutGroup;
                     
                     swLayoutGroup.IsElected = true;
-                    swLayoutGroup.Value.Enabled = true;
+                    swLayoutGroup.BindValueEnabledState();
 
                     var swHLayoutGroup = swLayoutGroup.Value.HorizontalLayoutGroup;
                     

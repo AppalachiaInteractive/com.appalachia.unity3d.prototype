@@ -1,4 +1,6 @@
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Complex;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Widgets
@@ -6,8 +8,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     public class CursorWidgetMetadata : LifetimeWidgetMetadata<CursorWidget, CursorWidgetMetadata,
         CursorFeature, CursorFeatureMetadata>
     {
-        [SerializeField] public Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Simple.SimpleCursorComponentSetData simpleCursorSet;
-        [SerializeField] public Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Complex.ComplexCursorComponentSetData complexCursorSet;
+        [SerializeField] public SimpleCursorComponentSetData simpleCursorSet;
+        [SerializeField] public ComplexCursorComponentSetData complexCursorSet;
 
         /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(CursorWidget target)
@@ -32,14 +34,14 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
                 {
                     var componentSet = widget.ComplexCursorSets[setIndex];
 
-                    RefreshAndUpdate(ref componentSet, ref complexCursorSet, widget);
+                    RefreshAndApply(ref componentSet, ref complexCursorSet, widget);
                 }
 
                 for (var setIndex = 0; setIndex < widget.SimpleCursorSets.Count; setIndex++)
                 {
                     var componentSet = widget.SimpleCursorSets[setIndex];
 
-                    RefreshAndUpdate(ref componentSet, ref simpleCursorSet, widget);
+                    RefreshAndApply(ref componentSet, ref simpleCursorSet, widget);
                 }
             }
         }

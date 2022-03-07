@@ -1,13 +1,13 @@
+using System;
+using Appalachia.Core.Objects.Components.Contracts;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Sirenix.OdinInspector;
-using Unity.Profiling;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 {
@@ -15,7 +15,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
                                                                 TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
                                                                 TFeatureMetadata, TFunctionalitySet, TIService,
                                                                 TIWidget, TManager> :
-        SingletonAppalachiaObject<TSubwidgetMetadata>,
+        ApplicationFunctionalityMetadata<TSubwidget, TSubwidgetMetadata, TManager>,
         ISingletonSubwidgetMetadata<TISubwidget, TISubwidgetMetadata>
         where TSubwidget : ApplicationSingletonSubwidget<TSubwidget, TISubwidget, TSubwidgetMetadata,
             TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
@@ -38,19 +38,19 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         where TIWidget : IApplicationWidget
         where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
-        #region Fields and Autoproperties
-
-        [PropertyOrder(-500)]
-        [SerializeField]
-        protected bool showAll;
-
-        #endregion
-
-        public virtual void SubscribeResponsiveComponents(TSubwidget functionality)
+        protected override void SubscribeResponsiveComponents(TSubwidget functionality)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
                 Changed.Event += functionality.UpdateSubwidget;
+            }
+        }
+
+        protected override void UpdateFunctionalityInternal(TSubwidget functionality)
+        {
+            using (_PRF_UpdateFunctionalityInternal.Auto())
+            {
+                functionality.UpdateSubwidget();
             }
         }
 
@@ -61,13 +61,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         {
             SubscribeResponsiveComponents(functionality as TSubwidget);
         }
-
-        #endregion
-
-        #region Profiling
-
-        protected static readonly ProfilerMarker _PRF_SubscribeResponsiveComponents =
-            new ProfilerMarker(_PRF_PFX + nameof(SubscribeResponsiveComponents));
 
         #endregion
     }

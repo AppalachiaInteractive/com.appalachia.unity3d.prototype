@@ -2,8 +2,9 @@ using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Controls.Sets2.Buttons.Button;
+using Appalachia.UI.Controls.Sets.Buttons.Button;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -26,8 +27,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         [FormerlySerializedAs("_button")]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(showAll))]
-        [SerializeField] public Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets2.StatusBarSubwidgetComponentSetData button;
+        [HideIf(nameof(HideAllFields))]
+        [SerializeField] public StatusBarSubwidgetComponentSetData button;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         private bool _enabled;
@@ -43,10 +44,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         #endregion
 
-        public override void SubscribeResponsiveComponents(TSubwidget functionality)
+        protected override void SubscribeResponsiveComponents(TSubwidget functionality)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
+                base.SubscribeResponsiveComponents(functionality);
+                
                 button.Changed.Event += OnChanged;
             }
         }

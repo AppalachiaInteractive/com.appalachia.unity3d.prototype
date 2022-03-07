@@ -1,7 +1,7 @@
 using System;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Features.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Sets2;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Sets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Contracts;
@@ -144,7 +144,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
                     data.TooltipText.TextMeshProUGUI.fontStyle = Metadata.fontStyle;
                 }
 
-                DevTooltipComponentSetData.RefreshAndUpdate(ref componentSetData, ref componentSet, gameObject, name);
+                DevTooltipComponentSetData.RefreshAndApply(ref componentSetData, ref componentSet, gameObject, name);
 
                 if (!IsActive)
                 {
@@ -182,7 +182,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
             using (_PRF_WhenEnabled.Auto())
             {
-                DevTooltipComponentSetData.RefreshAndUpdate(ref componentSetData, ref componentSet, gameObject, name);
+                DevTooltipComponentSetData.RefreshAndApply(ref componentSetData, ref componentSet, gameObject, name);
             }
         }
 
@@ -291,15 +291,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         {
             using (_PRF_FormatTooltipTriangle.Auto())
             {
+                triangleForeground.ShouldEnableFunction = () => CurrentStyle.ShowTriangle;
+                triangleBackground.ShouldEnableFunction = () => CurrentStyle.ShowTriangle;
+                
                 if (!CurrentStyle.ShowTriangle)
                 {
-                    triangleForeground.Enabled = false;
-                    triangleBackground.Enabled = false;
                     return;
                 }
-
-                triangleForeground.Enabled = true;
-                triangleBackground.Enabled = true;
 
                 var size = Vector2.one * CurrentStyle.TriangleSize;
 

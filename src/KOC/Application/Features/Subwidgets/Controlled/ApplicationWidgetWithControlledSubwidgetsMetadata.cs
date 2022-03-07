@@ -3,10 +3,8 @@ using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
-using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Controlled
 {

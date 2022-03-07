@@ -1,5 +1,6 @@
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Core;
+using Appalachia.UI.Controls.Sets.Layout.Foldout;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
@@ -14,13 +15,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
         #region Fields and Autoproperties
 
         [OnValueChanged(nameof(OnChanged))]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.Layout.Foldout.FoldoutComponentSetData fps;
+        [SerializeField] public FoldoutComponentSetData fps;
 
         [OnValueChanged(nameof(OnChanged))]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.Layout.Foldout.FoldoutComponentSetData memory;
+        [SerializeField] public FoldoutComponentSetData memory;
 
         [OnValueChanged(nameof(OnChanged))]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.Layout.Foldout.FoldoutComponentSetData audio;
+        [SerializeField] public FoldoutComponentSetData audio;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         public VerticalLayoutGroupData verticalLayoutGroup;

@@ -25,15 +25,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         #endregion
 
         /// <inheritdoc />
-        protected override void ApplyToComponent(DeveloperInfoTextMesh target)
+        protected override void OnApply(DeveloperInfoTextMesh target)
         {
-            using (_PRF_ApplyToComponent.Auto())
+            using (_PRF_OnApply.Auto())
             {
-                base.ApplyToComponent(target);
+                base.OnApply(target);
 
                 target.layoutElement.enabled = true;
 
-                LayoutElementData.RefreshAndUpdate(
+                LayoutElementData.RefreshAndApply(
                     ref layoutElementData,
                     Owner,
                     target.layoutElement,

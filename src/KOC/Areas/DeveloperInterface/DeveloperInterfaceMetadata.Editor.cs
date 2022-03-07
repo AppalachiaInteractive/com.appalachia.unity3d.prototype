@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.UI.Controls.Sets.DesignTemplate;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
         #region Fields and Autoproperties
 
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.DesignTemplate.DesignTemplateComponentSetData.Optional unscaledTemplates;
+        [SerializeField] public DesignTemplateComponentSetData.Optional unscaledTemplates;
 
         #endregion
 
@@ -26,7 +27,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         #region IDeveloperInterfaceMetadata Members
 
-        public Appalachia.UI.Controls.Sets2.DesignTemplate.DesignTemplateComponentSetData.Optional UnscaledTemplates => unscaledTemplates;
+        public DesignTemplateComponentSetData.Optional UnscaledTemplates => unscaledTemplates;
 
         #endregion
     }

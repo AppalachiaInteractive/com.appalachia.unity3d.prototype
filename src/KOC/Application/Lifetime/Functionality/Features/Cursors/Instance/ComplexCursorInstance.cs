@@ -1,6 +1,6 @@
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Animation;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Metadata;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Complex;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Complex;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Instance

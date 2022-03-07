@@ -1,7 +1,8 @@
 using Appalachia.CI.Constants;
+using Appalachia.Core.Objects.Components.Sets;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
-using Appalachia.Core.Objects.Sets2;
+using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;
@@ -22,7 +23,7 @@ namespace Appalachia.Prototype.KOC.Areas
         public AreaMetadataConfigurations.AreaInputConfiguration input;
 
         [FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSetData rootCanvas;
+        [SerializeField] public RootCanvasComponentSetData rootCanvas;
         
         [SerializeField]
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
@@ -48,7 +49,7 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_UpdateComponentSet.Auto())
             {
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdate(
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndApply(
                     ref data,
                     ref target,
                     parent,
@@ -129,7 +130,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         public AreaMetadataConfigurations.AreaInputConfiguration Input => input;
 
-        public Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSetData RootCanvas => rootCanvas;
+        public RootCanvasComponentSetData RootCanvas => rootCanvas;
 
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour => sceneBehaviour;
         public AreaMetadataConfigurations.AreaAudioConfiguration Audio => audio;

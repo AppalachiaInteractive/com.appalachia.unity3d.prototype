@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Attributes.Editing;
@@ -23,23 +24,23 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         #region Preferences
 
-        private PREF<Color> _disableColor = PREFS.REG(
+        [NonSerialized] private PREF<Color> _disableColor = PREFS.REG(
             PKG.Prefs.Group,
             "Disabled Color",
             Colors.CadmiumOrange
         );
 
-        private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
+        [NonSerialized] private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
 
-        private PREF<Color> _functionalityColor = PREFS.REG(
+        [NonSerialized] private PREF<Color> _functionalityColor = PREFS.REG(
             PKG.Prefs.Group,
             "Functionality Color",
             Colors.Teal
         );
 
-        private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
+        [NonSerialized] private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
 
-        private PREF<Color> _navigationColor = PREFS.REG(PKG.Prefs.Group, "Navigation Color", Colors.SkyBlue);
+        [NonSerialized] private PREF<Color> _navigationColor = PREFS.REG(PKG.Prefs.Group, "Navigation Color", Colors.SkyBlue);
 
         #endregion
 

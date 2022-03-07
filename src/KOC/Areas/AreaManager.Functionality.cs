@@ -4,6 +4,7 @@ using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling;
 using Appalachia.Prototype.KOC.Areas.Functionality;
 using Appalachia.UI.Controls.Extensions;

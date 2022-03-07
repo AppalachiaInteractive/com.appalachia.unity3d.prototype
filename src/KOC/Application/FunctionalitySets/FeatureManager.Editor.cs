@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System;
 using Appalachia.Core.Preferences;
 using Appalachia.Utility.Colors;
 using Sirenix.OdinInspector;
@@ -11,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
     {
         #region Preferences
 
-        private PREF<Color> _functionalityColor = PREFS.REG(
+        [NonSerialized] private PREF<Color> _functionalityColor = PREFS.REG(
             PKG.Prefs.Group,
             "Functionality Color",
             Colors.Teal

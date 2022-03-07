@@ -12,12 +12,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel
         static PanelFeature()
         {
             FunctionalitySet.RegisterWidget<PanelWidget>(_dependencyTracker, i => _panelWidget = i);
-            FunctionalitySet.RegisterFeature<ActivityBarFeature>(
+            FunctionalitySet.RequireFeature<ActivityBarFeature>(
                 _dependencyTracker,
                 i => _activityBarFeature = i
             );
-            FunctionalitySet.RegisterFeature<MenuBarFeature>(_dependencyTracker, i => _menuBarFeature = i);
-            FunctionalitySet.RegisterFeature<StatusBarFeature>(
+            FunctionalitySet.RequireFeature<MenuBarFeature>(_dependencyTracker, i => _menuBarFeature = i);
+            FunctionalitySet.RequireFeature<StatusBarFeature>(
                 _dependencyTracker,
                 i => _statusBarFeature = i
             );

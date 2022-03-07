@@ -4,6 +4,7 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Availability;
 using Appalachia.Prototype.KOC.Application.Features.Availability.Contracts;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Reflection.Extensions;
@@ -110,7 +111,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         {
             using (_PRF_RegisterDependency.Auto())
             {
-                if (typeof(TDependency).ImplementsOrInheritsFrom(typeof(IApplicationFunctionality)))
+                /*if (typeof(TDependency).ImplementsOrInheritsFrom(typeof(IApplicationFunctionality)))
                 {
                     throw new NotSupportedException(
                         ZString.Format(
@@ -119,7 +120,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
                             typeof(TDependency).FormatForLogging()
                         )
                     );
-                }
+                }*/
 
                 _dependencyTracker.RegisterDependency(handler);
             }

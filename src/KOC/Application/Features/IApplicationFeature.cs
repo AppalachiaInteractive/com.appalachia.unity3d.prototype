@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Utility.Async;
 
 namespace Appalachia.Prototype.KOC.Application.Features

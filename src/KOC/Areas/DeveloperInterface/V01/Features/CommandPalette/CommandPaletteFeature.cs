@@ -21,11 +21,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
                 i => _commandSuggestionsWidget = i
             );
 
-            FunctionalitySet.RegisterFeature<ActivityBarFeature>(
+            FunctionalitySet.RequireFeature<ActivityBarFeature>(
                 _dependencyTracker,
                 i => _activityBarFeature = i
             );
-            FunctionalitySet.RegisterFeature<StatusBarFeature>(
+            FunctionalitySet.RequireFeature<StatusBarFeature>(
                 _dependencyTracker,
                 i => _statusBarFeature = i
             );

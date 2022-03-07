@@ -1,14 +1,19 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
+using Appalachia.Core.Objects.Components.Contracts;
+using Appalachia.Core.Objects.Components.Sets;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Core.Objects.Sets2;
+using Appalachia.Core.Preferences;
+using Appalachia.Prototype.KOC.Application.Features.Contracts;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Colors;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Collections;
 using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions.Debugging;
-using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -16,33 +21,268 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 {
     public abstract class ApplicationFunctionalityMetadata<TFunctionality, TFunctionalityMetadata, TManager> :
         SingletonAppalachiaObject<TFunctionalityMetadata>,
-        IApplicationFunctionalityMetadata<TFunctionality>
+        IApplicationFunctionalityMetadata<TFunctionality>,
+        IInspectorVisibility,
+        IFieldLockable,
+        IReleasable
         where TFunctionality : ApplicationFunctionality<TFunctionality, TFunctionalityMetadata, TManager>
         where TFunctionalityMetadata :
         ApplicationFunctionalityMetadata<TFunctionality, TFunctionalityMetadata, TManager>
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
-        IApplicationFunctionalityManager
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
+
     {
+        #region Preferences
+
+        [NonSerialized] private PREF<Color> _advancedToggleColorOff;
+        [NonSerialized] private PREF<Color> _advancedToggleColorOn;
+
+        [NonSerialized] private PREF<Color> _hideToggleColorOff;
+        [NonSerialized] private PREF<Color> _hideToggleColorOn;
+        [NonSerialized] private PREF<Color> _lockToggleColorOff;
+        [NonSerialized] private PREF<Color> _lockToggleColorOn;
+        [NonSerialized] private PREF<Color> _showToggleColorOff;
+        [NonSerialized] private PREF<Color> _showToggleColorOn;
+        [NonSerialized] private PREF<Color> _suspendToggleColorOff;
+
+        [NonSerialized] private PREF<Color> _suspendToggleColorOn;
+
+        private PREF<Color> AdvancedToggleColorOff
+        {
+            get
+            {
+                if (_advancedToggleColorOff == null)
+                {
+                    _advancedToggleColorOff = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(AdvancedToggleColorOff),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _advancedToggleColorOff;
+            }
+        }
+
+        private PREF<Color> AdvancedToggleColorOn
+        {
+            get
+            {
+                if (_advancedToggleColorOn == null)
+                {
+                    _advancedToggleColorOn = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(AdvancedToggleColorOn),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _advancedToggleColorOn;
+            }
+        }
+
+        private PREF<Color> HideToggleColorOff
+        {
+            get
+            {
+                if (_hideToggleColorOff == null)
+                {
+                    _hideToggleColorOff = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(HideToggleColorOff),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _hideToggleColorOff;
+            }
+        }
+
+        private PREF<Color> HideToggleColorOn
+        {
+            get
+            {
+                if (_hideToggleColorOn == null)
+                {
+                    _hideToggleColorOn = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(HideToggleColorOn),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _hideToggleColorOn;
+            }
+        }
+
+        private PREF<Color> LockToggleColorOff
+        {
+            get
+            {
+                if (_lockToggleColorOff == null)
+                {
+                    _lockToggleColorOff = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(LockToggleColorOff),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _lockToggleColorOff;
+            }
+        }
+
+        private PREF<Color> LockToggleColorOn
+        {
+            get
+            {
+                if (_lockToggleColorOn == null)
+                {
+                    _lockToggleColorOn = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(LockToggleColorOn),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _lockToggleColorOn;
+            }
+        }
+
+        private PREF<Color> ShowToggleColorOff
+        {
+            get
+            {
+                if (_showToggleColorOff == null)
+                {
+                    _showToggleColorOff = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(ShowToggleColorOff),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _showToggleColorOff;
+            }
+        }
+
+        private PREF<Color> ShowToggleColorOn
+        {
+            get
+            {
+                if (_showToggleColorOn == null)
+                {
+                    _showToggleColorOn = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(ShowToggleColorOn),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _showToggleColorOn;
+            }
+        }
+
+        private PREF<Color> SuspendToggleColorOff
+        {
+            get
+            {
+                if (_suspendToggleColorOff == null)
+                {
+                    _suspendToggleColorOff = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(SuspendToggleColorOff),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _suspendToggleColorOff;
+            }
+        }
+
+        private PREF<Color> SuspendToggleColorOn
+        {
+            get
+            {
+                if (_suspendToggleColorOn == null)
+                {
+                    _suspendToggleColorOn = PREFS.REG(
+                        PKG.Prefs.Colors.Group,
+                        nameof(SuspendToggleColorOn),
+                        Colors.WhiteSmokeGray96
+                    );
+                }
+
+                return _suspendToggleColorOn;
+            }
+        }
+
+        #endregion
+
         #region Fields and Autoproperties
 
+        [SerializeField, HideInInspector]
+        private bool _showAdvancedOptions;
+
         private ReusableDelegateCollection<TFunctionality> _delegates;
+
+        [NonSerialized] private bool _showAllFields;
+
+        [SerializeField, HideInInspector]
+        private bool _hideAllFields;
+
+        [SerializeField, HideInInspector]
+        private bool _disableAllFields;
+
+        [SerializeField, HideInInspector]
+        private bool _suspendFieldApplication;
+
+        private Func<bool> _shouldEnable;
+
+        [SerializeField, HideInInspector]
+        private bool _notReadyForRelease;
 
         /// <summary>
         ///     Offers notifications whenever this metadata is applied to a functionality.
         ///     Use this to drive any further behaviour needed to keep the functionality in sync.
         /// </summary>
         public AppaEvent.Data Updated;
-        
-        [PropertyOrder(-500)]
-        [SerializeField]
-        protected bool showAll;
-        
+
         #endregion
+
+        [SuppressMessage("ReSharper", "NotAccessedVariable")]
+        public override void InitializePreferences()
+        {
+            using (_PRF_InitializePreferences.Auto())
+            {
+                base.InitializePreferences();
+
+                var tempPreference = AdvancedToggleColorOff;
+                tempPreference = AdvancedToggleColorOff;
+                tempPreference = HideToggleColorOff;
+
+                tempPreference = HideToggleColorOn;
+
+                tempPreference = LockToggleColorOff;
+
+                tempPreference = LockToggleColorOn;
+
+                tempPreference = ShowToggleColorOff;
+
+                tempPreference = ShowToggleColorOn;
+
+                tempPreference = SuspendToggleColorOff;
+
+                tempPreference = SuspendToggleColorOn;
+            }
+        }
 
         /// <summary>
         ///     A simple convenience method to call
         ///     <see cref="ComponentSetData{TComponentSet, TComponentSetData}" />
-        ///     .<see cref="ComponentSetData{TComponentSet,TComponentSetData}.RefreshAndUpdate(ref TComponentSetData,ref TComponentSet,UnityEngine.GameObject,string)" />,
+        ///     .
+        ///     <see
+        ///         cref="ComponentSetData{TComponentSet,TComponentSetData}.RefreshAndApply(ref TComponentSetData,ref TComponentSet,UnityEngine.GameObject,string)" />
+        ///     ,
         ///     which will ensure the provided component set is synced with its configuration.
         /// </summary>
         /// <param name="data">The component set data.</param>
@@ -51,7 +291,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         /// <param name="setName">The name of the component set.</param>
         /// <typeparam name="TComponentSet">The component set.</typeparam>
         /// <typeparam name="TComponentSetData">The component set data.</typeparam>
-        public void RefreshAndUpdate<TComponentSet, TComponentSetData>(
+        public void RefreshAndApply<TComponentSet, TComponentSetData>(
             ref TComponentSetData data,
             ref TComponentSet set,
             GameObject parent,
@@ -59,14 +299,9 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
             where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
             where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
         {
-            using (_PRF_RefreshAndUpdate.Auto())
+            using (_PRF_RefreshAndApply.Auto())
             {
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdate(
-                    ref data,
-                    ref set,
-                    parent,
-                    setName
-                );
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndApply(ref data, ref set, parent, setName);
             }
         }
 
@@ -229,8 +464,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         #region IApplicationFunctionalityMetadata<TFunctionality> Members
 
-        void IApplicationFunctionalityMetadata<TFunctionality>.UpdateFunctionality(
-            TFunctionality functionality)
+        void IApplicationFunctionalityMetadata<TFunctionality>.UpdateFunctionality(TFunctionality functionality)
         {
             using (_PRF_UpdateFunctionality.Auto())
             {
@@ -240,10 +474,63 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         #endregion
 
+        #region IFieldLockable Members
+
+        public Color LockToggleColor => DisableAllFields ? LockToggleColorOn.v : LockToggleColorOff.v;
+
+        public Color SuspendToggleColor => SuspendFieldApplication ? SuspendToggleColorOn.v : SuspendToggleColorOff.v;
+
+        public bool DisableAllFields
+        {
+            get => _disableAllFields;
+            set => _disableAllFields = value;
+        }
+
+        public bool SuspendFieldApplication
+        {
+            get => _suspendFieldApplication;
+            set => _suspendFieldApplication = value;
+        }
+
+        #endregion
+
+        #region IInspectorVisibility Members
+
+        public bool ShowAdvancedOptions
+        {
+            get => _showAdvancedOptions || HideAllFields || ShowAllFields || SuspendFieldApplication || DisableAllFields;
+            set => _showAdvancedOptions = value;
+        }
+
+        public Color AdvancedToggleColor => ShowAdvancedOptions ? AdvancedToggleColorOn.v : AdvancedToggleColorOff.v;
+
+        public Color ShowToggleColor => ShowAllFields ? ShowToggleColorOn.v : ShowToggleColorOff.v;
+
+        public Color HideToggleColor => HideAllFields ? HideToggleColorOn.v : HideToggleColorOff.v;
+
+        public bool HideAllFields
+        {
+            get => _hideAllFields && !_showAllFields;
+            set => _hideAllFields = value;
+        }
+
+        public bool ShowAllFields
+        {
+            get => _showAllFields;
+            set => _showAllFields = value;
+        }
+
+        #endregion
+
+        #region IReleasable Members
+
+        public bool NotReadyForRelease => _notReadyForRelease;
+
+        #endregion
+
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_GetAssetName =
-            new ProfilerMarker(_PRF_PFX + nameof(GetAssetName));
+        private static readonly ProfilerMarker _PRF_GetAssetName = new ProfilerMarker(_PRF_PFX + nameof(GetAssetName));
 
         private static readonly ProfilerMarker _PRF_AfterUpdateFunctionality =
             new ProfilerMarker(_PRF_PFX + nameof(AfterUpdateFunctionality));
@@ -254,8 +541,8 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         private static readonly ProfilerMarker _PRF_ExecuteUpdateFunctionalityInternal =
             new ProfilerMarker(_PRF_PFX + nameof(ExecuteUpdateFunctionalityInternal));
 
-        private static readonly ProfilerMarker _PRF_RefreshAndUpdate =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdate));
+        private static readonly ProfilerMarker _PRF_RefreshAndApply =
+            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndApply));
 
         private static readonly ProfilerMarker _PRF_SubscribeForUpdates =
             new ProfilerMarker(_PRF_PFX + nameof(SubscribeForUpdates));

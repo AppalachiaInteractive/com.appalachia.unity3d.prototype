@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
@@ -7,6 +8,7 @@ using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.UI.Controls.Extensions;
 using Appalachia.Utility.Colors;
@@ -61,15 +63,15 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Controlled
 
         #region Preferences
 
-        private PREF<Color> _disableColor = PREFS.REG(PKG.Prefs.Group, "Disabled Color", Colors.CadmiumOrange);
+        [NonSerialized] private PREF<Color> _disableColor = PREFS.REG(PKG.Prefs.Group, "Disabled Color", Colors.CadmiumOrange);
 
-        private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
+        [NonSerialized] private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
 
-        private PREF<Color> _functionalityColor = PREFS.REG(PKG.Prefs.Group, "Functionality Color", Colors.Teal);
+        [NonSerialized] private PREF<Color> _functionalityColor = PREFS.REG(PKG.Prefs.Group, "Functionality Color", Colors.Teal);
 
-        private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
+        [NonSerialized] private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
 
-        private PREF<Color> _navigationColor = PREFS.REG(PKG.Prefs.Group, "Navigation Color", Colors.SkyBlue);
+        [NonSerialized] private PREF<Color> _navigationColor = PREFS.REG(PKG.Prefs.Group, "Navigation Color", Colors.SkyBlue);
 
         #endregion
 
@@ -106,9 +108,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Controlled
         protected Color MetadataColor => _metadataColor;
         protected Color NavigationColor => _navigationColor;
 
-        public static void RefreshAndUpdateSubwidget(ref TSubwidget subwidget, string subwidgetNamePrefix)
+        public static void RefreshAndApplySubwidget(ref TSubwidget subwidget, string subwidgetNamePrefix)
         {
-            using (_PRF_RefreshAndUpdateSubwidget.Auto())
+            using (_PRF_RefreshAndApplySubwidget.Auto())
             {
                 var parentObject = _widget.GetSubwidgetParent();
 
@@ -191,8 +193,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Controlled
         private static readonly ProfilerMarker _PRF_GetSubwidgetName =
             new ProfilerMarker(_PRF_PFX + nameof(GetSubwidgetName));
 
-        private static readonly ProfilerMarker _PRF_RefreshAndUpdateSubwidget =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdateSubwidget));
+        private static readonly ProfilerMarker _PRF_RefreshAndApplySubwidget =
+            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndApplySubwidget));
 
         protected static readonly ProfilerMarker _PRF_OnClicked = new ProfilerMarker(_PRF_PFX + nameof(OnClicked));
 

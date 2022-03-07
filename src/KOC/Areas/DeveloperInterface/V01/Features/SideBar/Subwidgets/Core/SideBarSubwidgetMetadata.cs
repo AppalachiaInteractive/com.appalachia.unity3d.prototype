@@ -25,10 +25,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
         #endregion
 
-        public override void SubscribeResponsiveComponents(TSubwidget functionality)
+        protected override void SubscribeResponsiveComponents(TSubwidget functionality)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
+                base.SubscribeResponsiveComponents(functionality);
             }
         }
 

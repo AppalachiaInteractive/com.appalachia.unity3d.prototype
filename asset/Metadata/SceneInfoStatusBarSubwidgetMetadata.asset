@@ -20,13 +20,17 @@ MonoBehaviour:
     - _priority
     - _devTooltipSubwidgetData
     _resetToken: 
-  _niceName: 
+  _niceName: Scene Info Status Bar Subwidget Metadata
   _objectId:
     _increment: 216001
     _machine: 14129404
     _timestamp: 1645579730
     _pid: -8016
-  showAll: 0
+  _showAdvancedOptions: 0
+  _hideAllFields: 0
+  _disableAllFields: 0
+  _suspendFieldApplication: 0
+  _notReadyForRelease: 0
   button:
     _name: 
     _niceName: 
@@ -40,7 +44,10 @@ MonoBehaviour:
       _machine: 0
       _timestamp: 0
       _pid: 0
-    showAll: 0
+    _showAdvancedOptions: 0
+    _hideAllFields: 0
+    _disableAllFields: 0
+    _suspendFieldApplication: 0
     _rectTransform:
       _name: 
       _niceName: 
@@ -68,9 +75,10 @@ MonoBehaviour:
         _machine: 14129404
         _timestamp: 1646592018
         _pid: -26872
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
       disablePositionUpdates: 0
       _left: 0
       _posX: 0
@@ -127,7 +135,7 @@ MonoBehaviour:
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
     _appaButton:
-      _name: 
+      _name: AppaButtonData
       _niceName: 
       _initializer:
         _initializationCount: 2
@@ -141,9 +149,10 @@ MonoBehaviour:
         _machine: 0
         _timestamp: 0
         _pid: 0
-      showAll: 0
-      hideInInspector: 0
-      disableUpdates: 0
+      _hideAllFields: 0
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _showAdvancedOptions: 0
       requiredButtons: 0
       supportsDrag: 0
     _layoutGroup:
@@ -167,7 +176,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -191,9 +203,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           padding:
             _overriding: 1
             _objectId:
@@ -319,9 +332,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -378,7 +392,7 @@ MonoBehaviour:
             _initial: {x: 0, y: 0, z: 0, w: 1}
             _value: {x: 0, y: 0, z: 0, w: 1}
       _value:
-        _name: 
+        _name: HorizontalLayoutGroupSubsetData
         _niceName: 
         _initializer:
           _initializationCount: 1
@@ -391,7 +405,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -415,9 +432,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           padding:
             _overriding: 1
             _objectId:
@@ -543,9 +561,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -622,7 +641,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -651,9 +673,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           fillType:
             _overriding: 1
             _objectId:
@@ -816,9 +839,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -888,9 +912,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -917,9 +942,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -977,9 +1003,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:
@@ -1053,7 +1080,7 @@ MonoBehaviour:
             _initial: 1
             _value: 1
       _value:
-        _name: 
+        _name: RoundedImageSubsetData
         _niceName: 
         _initializer:
           _initializationCount: 1
@@ -1066,7 +1093,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -1095,9 +1125,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           fillType:
             _overriding: 1
             _objectId:
@@ -1260,9 +1291,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -1332,9 +1364,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -1361,9 +1394,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -1421,9 +1455,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:
@@ -1517,7 +1552,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -1546,9 +1584,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           fillType:
             _overriding: 1
             _objectId:
@@ -1711,9 +1750,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -1783,9 +1823,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -1812,9 +1853,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -1872,9 +1914,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:
@@ -1948,7 +1991,7 @@ MonoBehaviour:
             _initial: 1
             _value: 1
       _value:
-        _name: 
+        _name: RoundedImageSubsetData
         _niceName: 
         _initializer:
           _initializationCount: 1
@@ -1961,7 +2004,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -1990,9 +2036,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           fillType:
             _overriding: 1
             _objectId:
@@ -2155,9 +2202,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -2227,9 +2275,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -2256,9 +2305,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           alpha:
             _overriding: 0
             _objectId:
@@ -2316,9 +2366,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:
@@ -2412,7 +2463,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -2441,9 +2495,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           material:
             _overriding: 0
             _objectId:
@@ -2606,9 +2661,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -2678,9 +2734,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -2711,9 +2768,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:
@@ -2787,7 +2845,7 @@ MonoBehaviour:
             _initial: 1
             _value: 1
       _value:
-        _name: 
+        _name: ImageSubsetData
         _niceName: 
         _initializer:
           _initializationCount: 1
@@ -2800,7 +2858,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -2829,9 +2890,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           material:
             _overriding: 0
             _objectId:
@@ -2988,15 +3050,16 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 8be8c526877557f429b26d620047d826, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 10814658
             _machine: 14129406
             _timestamp: 1645637603
             _pid: -8016
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -3066,9 +3129,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -3099,9 +3163,10 @@ MonoBehaviour:
             _machine: 14129404
             _timestamp: 1646608101
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:
@@ -3195,12 +3260,15 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
           _initializer:
-            _initializationCount: 18
+            _initializationCount: 43
             _tags:
             - fontStyle
             _resetToken: 
@@ -3210,9 +3278,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           fontStyle: {fileID: 0}
         data2:
           _name: 
@@ -3241,9 +3310,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -3313,9 +3383,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -3346,9 +3417,10 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:
@@ -3422,7 +3494,7 @@ MonoBehaviour:
             _initial: 1
             _value: 1
       _value:
-        _name: 
+        _name: TextMeshProUGUISubsetData
         _niceName: 
         _initializer:
           _initializationCount: 1
@@ -3435,7 +3507,10 @@ MonoBehaviour:
           _machine: 0
           _timestamp: 0
           _pid: 0
-        _enabled: 1
+        _hideAllFields: 0
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _showAdvancedOptions: 0
         data1:
           _name: 
           _niceName: 
@@ -3450,9 +3525,10 @@ MonoBehaviour:
             _machine: 14129406
             _timestamp: 1646608993
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           fontStyle: {fileID: 11400000, guid: f6273592146e8a9488fdfae45d3e4833, type: 2}
         data2:
           _name: 
@@ -3481,9 +3557,10 @@ MonoBehaviour:
             _machine: 14129406
             _timestamp: 1646608993
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           disablePositionUpdates: 0
           _left: 0
           _posX: 0
@@ -3553,9 +3630,10 @@ MonoBehaviour:
             _machine: 14129406
             _timestamp: 1646608993
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           cullTransparentMesh:
             _overriding: 1
             _objectId:
@@ -3586,9 +3664,10 @@ MonoBehaviour:
             _machine: 14129406
             _timestamp: 1646608993
             _pid: -26872
-          showAll: 0
-          hideInInspector: 0
-          disableUpdates: 0
+          _hideAllFields: 0
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          _showAdvancedOptions: 0
           ignoreLayout:
             _overriding: 0
             _objectId:

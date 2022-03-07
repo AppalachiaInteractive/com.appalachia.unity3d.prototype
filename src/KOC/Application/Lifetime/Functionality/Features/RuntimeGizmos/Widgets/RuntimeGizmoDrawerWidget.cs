@@ -1,7 +1,7 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Services;
-using Appalachia.UI.Controls.Sets2.Images.RawImage;
+using Appalachia.UI.Controls.Sets.Images.RawImage;
 using Appalachia.Utility.Async;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Widgets

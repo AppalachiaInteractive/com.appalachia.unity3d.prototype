@@ -2,18 +2,17 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Core.Preferences;
 using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.UI.Controls.Extensions;
-using Appalachia.Utility.Colors;
+using Appalachia.UI.Core.Styling;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
-using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 {
@@ -21,10 +20,10 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
     public abstract class ApplicationSingletonSubwidget<TSubwidget, TISubwidget, TSubwidgetMetadata,
                                                         TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
                                                         TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
-                                                        TManager> : SingletonAppalachiaBehaviour<TSubwidget>,
-                                                                    ISingletonSubwidget<TISubwidget,
-                                                                        TISubwidgetMetadata>,
-                                                                    IClickable
+                                                        TManager> :
+        ApplicationFunctionality<TSubwidget, TSubwidgetMetadata, TManager>,
+        ISingletonSubwidget<TISubwidget, TISubwidgetMetadata>,
+        IClickable
         where TSubwidget : ApplicationSingletonSubwidget<TSubwidget, TISubwidget, TSubwidgetMetadata,
             TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
             TIWidget, TManager>, TISubwidget
@@ -53,32 +52,15 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
                     TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
                     TManager>>();
 
-            RegisterDependency<TSubwidgetMetadata>(i => _metadata = i);
             callbacks.When.Behaviour<TFeature>().IsAvailableThen(i => _feature = i);
             callbacks.When.Behaviour<TWidget>().IsAvailableThen(i => _widget = i);
+
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
         }
-
-        #region Preferences
-
-        private PREF<Color> _disableColor = PREFS.REG(PKG.Prefs.Group, "Disabled Color", Colors.CadmiumOrange);
-
-        private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
-
-        private PREF<Color> _functionalityColor = PREFS.REG(PKG.Prefs.Group, "Functionality Color", Colors.Teal);
-
-        private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
-
-        private PREF<Color> _navigationColor = PREFS.REG(PKG.Prefs.Group, "Navigation Color", Colors.SkyBlue);
-
-        #endregion
-
-        public virtual bool ResetTransform => false;
 
         #region Static Fields and Autoproperties
 
-        [PropertyOrder(-10)]
-        [ShowInInspector, InlineEditor(InlineEditorObjectFieldModes.Foldout)]
-        protected static TSubwidgetMetadata _metadata;
+        private static StyleElementDefaultLookup _styleElementDefaultLookup;
 
         private static TFeature _feature;
 
@@ -86,19 +68,13 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
         #endregion
 
+        public virtual bool ResetTransform => false;
+
         public override bool GuaranteedEventRouting => true;
 
         public TFeature Feature => _feature;
 
-        public TSubwidgetMetadata Metadata => _metadata;
-
         public TWidget Widget => _widget;
-
-        protected Color DisableColor => _disableColor;
-        protected Color EnableColor => _enableColor;
-        protected Color FunctionalityColor => _functionalityColor;
-        protected Color MetadataColor => _metadataColor;
-        protected Color NavigationColor => _navigationColor;
 
         protected abstract void OnUpdateSubwidget();
 
@@ -117,7 +93,11 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         {
             using (_PRF_UpdateSubwidget.Auto())
             {
-                if (ResetTransform) RectTransform.Reset(RectResetOptions.All);
+                if (ResetTransform)
+                {
+                    RectTransform.Reset(RectResetOptions.All);
+                }
+
                 OnUpdateSubwidget();
             }
         }

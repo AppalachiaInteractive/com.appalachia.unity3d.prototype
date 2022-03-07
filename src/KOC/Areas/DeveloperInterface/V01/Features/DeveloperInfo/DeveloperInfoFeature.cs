@@ -19,7 +19,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                 _dependencyTracker,
                 i => _developerInfoOverlayWidget = i
             );
-            FunctionalitySet.RegisterFeature<ActivityBarFeature>(
+            FunctionalitySet.RequireFeature<ActivityBarFeature>(
                 _dependencyTracker,
                 i => _activityBarFeature = i
             );

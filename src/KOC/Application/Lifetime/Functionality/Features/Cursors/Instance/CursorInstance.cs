@@ -6,7 +6,7 @@ using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Curso
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Metadata;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State.Contracts;
-using Appalachia.UI.Core.Components.Sets2;
+using Appalachia.UI.Core.Components.Sets;
 using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;

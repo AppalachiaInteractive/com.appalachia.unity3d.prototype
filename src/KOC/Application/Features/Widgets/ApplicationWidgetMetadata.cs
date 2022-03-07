@@ -1,16 +1,17 @@
 using Appalachia.CI.Constants;
+using Appalachia.Core.Objects.Components.Sets;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Core.Objects.Sets2;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Model;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Appalachia.UI.Controls.Sets2.Canvases.Canvas;
-using Appalachia.UI.Controls.Sets2.Images.Background;
-using Appalachia.UI.Controls.Sets2.Images.RoundedBackground;
+using Appalachia.UI.Controls.Sets.Canvases.Canvas;
+using Appalachia.UI.Controls.Sets.Images.Background;
+using Appalachia.UI.Controls.Sets.Images.RoundedBackground;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Styling.Fonts;
 using Appalachia.Utility.Async;
@@ -48,18 +49,18 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [ShowIf(nameof(ShowCanvasField))]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.Canvases.Canvas.CanvasComponentSetData.Optional canvas;
+        [SerializeField] public CanvasComponentSetData.Optional canvas;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [ShowIf(nameof(ShowBackgroundField))]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.Images.Background.BackgroundComponentSetData.Optional background;
+        [SerializeField] public BackgroundComponentSetData.Optional background;
 
         [FoldoutGroup(APPASTR.Common)]
         [FormerlySerializedAs("roundedBackgroundStyle")]
         [OnValueChanged(nameof(OnChanged))]
         [ShowIf(nameof(ShowRoundedBackgroundField))]
-        [SerializeField] public Appalachia.UI.Controls.Sets2.Images.RoundedBackground.RoundedBackgroundComponentSetData.Optional roundedBackground;
+        [SerializeField] public RoundedBackgroundComponentSetData.Optional roundedBackground;
 
         [FoldoutGroup(APPASTR.Common)]
         [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
@@ -171,9 +172,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                RectTransformData.RefreshAndUpdate(ref rectTransform, true, this, widget.RectTransform);
+                RectTransformData.RefreshAndApply(ref rectTransform, true, this, widget.RectTransform);
 
-                CanvasComponentSetData.RefreshAndUpdate(
+                CanvasComponentSetData.RefreshAndApply(
                     ref canvas,
                     true,
                     ref widget.canvas,
@@ -181,7 +182,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     typeof(TWidget).Name
                 );
 
-                BackgroundComponentSetData.RefreshAndUpdate(
+                BackgroundComponentSetData.RefreshAndApply(
                     ref background,
                     true,
                     ref widget.background,
@@ -189,7 +190,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     typeof(TWidget).Name
                 );
 
-                RoundedBackgroundComponentSetData.RefreshAndUpdate(
+                RoundedBackgroundComponentSetData.RefreshAndApply(
                     ref roundedBackground,
                     false,
                     ref widget.roundedBackground,
@@ -199,7 +200,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
-        protected void RefreshAndUpdate<TComponentSet, TComponentSetData>(
+        protected void RefreshAndApply<TComponentSet, TComponentSetData>(
             ref TComponentSet set,
             ref TComponentSetData setData,
             TWidget widget,
@@ -208,7 +209,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
             where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
         {
-            using (_PRF_RefreshAndUpdate.Auto())
+            using (_PRF_RefreshAndApply.Auto())
             {
                 setName ??= typeof(TWidget).Name;
 
@@ -217,7 +218,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     parent = widget.gameObject;
                 }
 
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndUpdate(
+                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndApply(
                     ref setData,
                     ref set,
                     parent,
@@ -234,8 +235,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         protected static readonly ProfilerMarker _PRF_GetCanvasGroupVisibleAlpha =
             new ProfilerMarker(_PRF_PFX + nameof(GetCanvasGroupVisibleAlpha));
 
-        private static readonly ProfilerMarker _PRF_RefreshAndUpdate =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndUpdate));
+        private static readonly ProfilerMarker _PRF_RefreshAndApply =
+            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndApply));
 
         #endregion
     }

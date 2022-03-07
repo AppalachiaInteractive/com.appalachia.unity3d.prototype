@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ScreenshotServiceMetadata
   m_EditorClassIdentifier: 
   _initializer:
-    _initializationCount: 458
+    _initializationCount: 493
     _tags:
     - outputSize
     - previewSize
@@ -31,7 +31,11 @@ MonoBehaviour:
     _machine: 0
     _timestamp: 0
     _pid: 0
-  showAll: 0
+  _showAdvancedOptions: 0
+  _hideAllFields: 0
+  _disableAllFields: 0
+  _suspendFieldApplication: 0
+  _notReadyForRelease: 0
   featureEnabledExecutionMode: 1
   featureDisabledExecutionMode: 1
   _metadata:

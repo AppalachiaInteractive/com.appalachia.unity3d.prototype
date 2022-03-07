@@ -1,5 +1,5 @@
 #if UNITY_EDITOR
-using Appalachia.UI.Controls.Sets2.DesignTemplate;
+using Appalachia.UI.Controls.Sets.DesignTemplate;
 
 namespace Appalachia.Prototype.KOC.Areas
 {

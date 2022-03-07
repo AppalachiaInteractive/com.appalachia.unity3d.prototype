@@ -129,13 +129,13 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
             }
         }
 
-        public void RegisterFeature<TDependency>(
+        public void RequireFeature<TDependency>(
             AppalachiaRepositoryDependencyTracker dependencyTracker,
             SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler handler)
             where TDependency : SingletonAppalachiaBehaviour<TDependency>,
             IRepositoryDependencyTracker<TDependency>, IApplicationFeature
         {
-            using (_PRF_RegisterFeature.Auto())
+            using (_PRF_RequireFeature.Auto())
             {
                 Initialize();
 
@@ -260,8 +260,8 @@ namespace Appalachia.Prototype.KOC.Application.FunctionalitySets
         private static readonly ProfilerMarker _PRF_AddWidget =
             new ProfilerMarker(_PRF_PFX + nameof(AddWidget));
 
-        private static readonly ProfilerMarker _PRF_RegisterFeature =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterFeature));
+        private static readonly ProfilerMarker _PRF_RequireFeature =
+            new ProfilerMarker(_PRF_PFX + nameof(RequireFeature));
 
         private static readonly ProfilerMarker _PRF_RegisterWidget =
             new ProfilerMarker(_PRF_PFX + nameof(RegisterWidget));

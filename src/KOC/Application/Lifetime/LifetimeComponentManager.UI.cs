@@ -1,4 +1,6 @@
 using Appalachia.CI.Constants;
+using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
+using Appalachia.UI.Controls.Sets.Images.Background;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions;
@@ -32,16 +34,16 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
 
         [FoldoutGroup(GROUP_UI)]
         [SerializeField]
-        private Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSet _rootCanvas;
+        private RootCanvasComponentSet _rootCanvas;
 
         [FoldoutGroup(GROUP_UI)]
         [SerializeField]
-        private Appalachia.UI.Controls.Sets2.Images.Background.BackgroundComponentSet _rootBackground;
+        private BackgroundComponentSet _rootBackground;
 
         [FoldoutGroup(GROUP_UI), SerializeField]
         private GameObject _uiObject;
 
-        public AppaEvent<Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSet>.Data RootCanvasComponentSetReady;
+        public AppaEvent<RootCanvasComponentSet>.Data RootCanvasComponentSetReady;
 
         #endregion
 
@@ -50,7 +52,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         public Rect ScaledCanvasBounds => ScaledCanvas.rect;
 
         public RectTransform ScaledCanvas => _rootCanvas.ScaledCanvas.transform as RectTransform;
-        public Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSet RootCanvasComponentSet => _rootCanvas;
+        public RootCanvasComponentSet RootCanvasComponentSet => _rootCanvas;
 
         public Vector2 GetPositionInScaledCanvas(Vector2 position)
         {
@@ -134,14 +136,14 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
             {
                 gameObject.GetOrAddChild(ref _uiObject, PARENT_NAME_UI, false);
 
-                Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSetData.RefreshAndUpdate(
+                RootCanvasComponentSetData.RefreshAndApply(
                     ref _lifetimeMetadata.rootCanvas,
                     ref _rootCanvas,
                     _uiObject,
                     APPASTR.ObjectNames.Master_Canvas
                 );
 
-                Appalachia.UI.Controls.Sets2.Images.Background.BackgroundComponentSetData.RefreshAndUpdate(
+                BackgroundComponentSetData.RefreshAndApply(
                     ref _lifetimeMetadata.rootBackground,
                     ref _rootBackground,
                     _rootCanvas.ScaledCanvas.gameObject,

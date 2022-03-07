@@ -153,7 +153,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                     textMesh.layoutElement.minHeight = maxPreferredHeight;
                     textMesh.layoutElement.preferredHeight = maxPreferredHeight;
 
-                    DeveloperInfoTextMeshData.RefreshAndUpdate(
+                    DeveloperInfoTextMeshData.RefreshAndApply(
                         ref developerInfoTextMesh,
                         this,
                         textMesh
@@ -170,13 +170,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                 var roundedBackgroundIndex = widget.roundedBackground.GameObject.transform.GetSiblingIndex();
                 widget.headerImage.transform.SetSiblingIndex(roundedBackgroundIndex + 1);
 
-                RectTransformData.RefreshAndUpdate(ref headerRect, this, widget.headerRect);
+                RectTransformData.RefreshAndApply(ref headerRect, this, widget.headerRect);
 
-                ImageData.RefreshAndUpdate(ref headerImage, this, widget.headerImage);
+                ImageData.RefreshAndApply(ref headerImage, this, widget.headerImage);
 
-                LayoutElementData.RefreshAndUpdate(ref headerLayout, this, widget.headerLayout);
+                LayoutElementData.RefreshAndApply(ref headerLayout, this, widget.headerLayout);
 
-                VerticalLayoutGroupData.RefreshAndUpdate(
+                VerticalLayoutGroupData.RefreshAndApply(
                     ref verticalLayoutGroup,
                     this,
                     widget.verticalLayoutGroup

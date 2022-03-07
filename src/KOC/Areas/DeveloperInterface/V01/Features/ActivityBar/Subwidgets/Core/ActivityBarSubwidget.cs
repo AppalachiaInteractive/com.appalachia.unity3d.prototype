@@ -3,6 +3,7 @@ using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
+using Appalachia.UI.Controls.Sets.Buttons.SelectableButton;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Extensions;
 using Sirenix.OdinInspector;
@@ -23,7 +24,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     {
         #region Fields and Autoproperties
 
-        public Appalachia.UI.Controls.Sets2.Buttons.SelectableButton.SelectableButtonComponentSet button;
+        public SelectableButtonComponentSet button;
 
         [SerializeField] private DevTooltipSubwidget _devTooltipSubwidget;
 
@@ -35,15 +36,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         {
             using (_PRF_OnUpdateSubwidget.Auto())
             {
-                if (!enabled || !_metadata.Enabled)
+                if (!enabled || !Metadata.Enabled)
                 {
                     button?.Disable();
 
                     return;
                 }
 
-                Appalachia.UI.Controls.Sets2.Buttons.SelectableButton.SelectableButtonComponentSetData.RefreshAndUpdate(
-                    ref _metadata.button,
+                SelectableButtonComponentSetData.RefreshAndApply(
+                    ref Metadata.button,
                     ref button,
                     gameObject,
                     name
@@ -51,16 +52,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
                 RectTransform.ResetRotationAndScale();
 
-                _metadata.button.ButtonText.IsElected = false;
-                _metadata.button.ButtonShadow.IsElected = false;
-                _metadata.button.ButtonBackground.IsElected = false;
+                Metadata.button.ButtonText.IsElected = false;
+                Metadata.button.ButtonShadow.IsElected = false;
+                Metadata.button.ButtonBackground.IsElected = false;
 
-                var icon = _metadata.icon;
-                var buttonIconMetadata = _metadata.button.ButtonIcon;
+                var icon = Metadata.icon;
+                var buttonIconMetadata = Metadata.button.ButtonIcon;
 
+                buttonIconMetadata.BindValueEnabledState();
                 buttonIconMetadata.IsElected = true;
-                buttonIconMetadata.Value.Enabled = true;
-
                 if (icon == null)
                 {
                     icon = Widget.Metadata.defaultActivityBarIcon;
@@ -79,7 +79,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     OnDevTooltipUpdateRequested();
                 }
 
-                DevTooltipSubwidget.RefreshAndUpdateSubwidget(ref _devTooltipSubwidget, name);
+                DevTooltipSubwidget.RefreshAndApplySubwidget(ref _devTooltipSubwidget, name);
 
                 _devTooltipSubwidget.SubscribeToUpdateRequests(OnDevTooltipUpdateRequested);
                 _devTooltipSubwidget.UpdateSubwidget();
@@ -142,7 +142,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         {
             using (_PRF_GetDevTooltipText.Auto())
             {
-                return _metadata.tooltipText;
+                return Metadata.tooltipText;
             }
         }
 
@@ -161,7 +161,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         {
             using (_PRF_UpdateSubwidgetIconSize.Auto())
             {
-                var buttonData = _metadata.button;
+                var buttonData = Metadata.button;
                 var optionalSubsetData = buttonData.ButtonIcon;
                 var subsetData = optionalSubsetData.Value;
 

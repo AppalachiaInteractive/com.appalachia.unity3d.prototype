@@ -3,7 +3,7 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
-using Appalachia.UI.Controls.Sets2.Buttons.SelectableButton;
+using Appalachia.UI.Controls.Sets.Buttons.SelectableButton;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -23,8 +23,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         #region Fields and Autoproperties
 
         [OnValueChanged(nameof(OnChanged)), HideInInspector, SerializeField]
-        [ShowIf(nameof(showAll))]
-        public Appalachia.UI.Controls.Sets2.Buttons.SelectableButton.SelectableButtonComponentSetData button;
+        [HideIf(nameof(HideAllFields))]
+        public SelectableButtonComponentSetData button;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         private bool _enabled;
@@ -43,7 +43,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         #endregion
 
-        public override void SubscribeResponsiveComponents(TSubwidget functionality)
+        protected override void SubscribeResponsiveComponents(TSubwidget functionality)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {

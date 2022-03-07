@@ -5,6 +5,7 @@ using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contrac
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton

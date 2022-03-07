@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Initialization;
@@ -8,6 +9,7 @@ using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
+using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Colors;
@@ -50,15 +52,15 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets
 
         #region Preferences
 
-        private PREF<Color> _disableColor = PREFS.REG(PKG.Prefs.Group, "Disabled Color", Colors.CadmiumOrange);
+        [NonSerialized] private PREF<Color> _disableColor = PREFS.REG(PKG.Prefs.Group, "Disabled Color", Colors.CadmiumOrange);
 
-        private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
+        [NonSerialized] private PREF<Color> _enableColor = PREFS.REG(PKG.Prefs.Group, "Enabled Color", Colors.PaleGreen4);
 
-        private PREF<Color> _functionalityColor = PREFS.REG(PKG.Prefs.Group, "Functionality Color", Colors.Teal);
+        [NonSerialized] private PREF<Color> _functionalityColor = PREFS.REG(PKG.Prefs.Group, "Functionality Color", Colors.Teal);
 
-        private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
+        [NonSerialized] private PREF<Color> _metadataColor = PREFS.REG(PKG.Prefs.Group, "Metadata Color", Colors.PaleGreen4);
 
-        private PREF<Color> _navigationColor = PREFS.REG(PKG.Prefs.Group, "Navigation Color", Colors.SkyBlue);
+        [NonSerialized] private PREF<Color> _navigationColor = PREFS.REG(PKG.Prefs.Group, "Navigation Color", Colors.SkyBlue);
 
         #endregion
 
