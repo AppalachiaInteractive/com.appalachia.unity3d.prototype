@@ -413,7 +413,7 @@ CanvasGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429932042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
     _name: 
     _niceName: 
     _initializer:
-      _initializationCount: 0
+      _initializationCount: 9
       _tags:
       - passiveMode
       - passiveFadeMode
@@ -456,12 +456,12 @@ MonoBehaviour:
       - fadeOutDuration
       - fadeOut
       _resetToken: 
-    _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+    _owner: {fileID: 0}
     _objectId:
-      _increment: 0
-      _machine: 0
-      _timestamp: 0
-      _pid: 0
+      _increment: 5465737
+      _machine: 14129404
+      _timestamp: 1646508377
+      _pid: -26872
     showAll: 0
     hideInInspector: 0
     disableUpdates: 0
@@ -496,7 +496,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1010
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &429932049
 RectTransform:
@@ -512,7 +512,7 @@ RectTransform:
   m_Children:
   - {fileID: 1382831071}
   m_Father: {fileID: 986485490}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1152,8 +1152,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1992880871}
   - {fileID: 429932049}
+  - {fileID: 1992880871}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1184,23 +1184,6 @@ MonoBehaviour:
     _timestamp: 0
     _pid: 0
   _areaSceneInfo: {fileID: 11400000, guid: 1a2ccb3c3e7c9204ca58d0e9e401e010, type: 2}
-  templates2:
-    _name: 
-    _niceName: 
-    gameObject: {fileID: 0}
-    _initializer:
-      _initializationCount: 0
-      _tags: []
-      _resetToken: 
-    isSortingDisabled: 0
-    _rectTransform: {fileID: 0}
-    _canvas: {fileID: 0}
-    _canvasFadeManager: {fileID: 0}
-    _canvasGroup: {fileID: 0}
-    _graphicRaycaster: {fileID: 0}
-    _canvasRenderer: {fileID: 0}
-    _image: {fileID: 0}
-    _designTemplate: {fileID: 0}
   templates:
     _name: 
     _niceName: 
@@ -1344,7 +1327,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382831068}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
   m_ConstrainProportionsScale: 0
@@ -1587,7 +1570,7 @@ RectTransform:
   m_Children:
   - {fileID: 511157978}
   m_Father: {fileID: 986485490}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

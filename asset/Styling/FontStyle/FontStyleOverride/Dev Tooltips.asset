@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e656398e31b3fd49b5c5536ba4d19a1, type: 3}
   m_Name: Dev Tooltips
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 14
     _tags:
@@ -32,6 +30,7 @@ MonoBehaviour:
     - _extraPadding
     - _fontStyles
     _resetToken: 
+  _niceName: 
   _objectId:
     _increment: 12467236
     _machine: 14129404
@@ -101,23 +100,23 @@ MonoBehaviour:
     _initial: 0
     _value: 4098
   _horizontalAlignment:
-    _overriding: 0
+    _overriding: 1
     _objectId:
       _increment: 0
       _machine: 0
       _timestamp: 0
       _pid: 0
     _initial: 0
-    _value: 2
+    _value: 1
   _verticalAlignment:
-    _overriding: 0
+    _overriding: 1
     _objectId:
       _increment: 0
       _machine: 0
       _timestamp: 0
       _pid: 0
     _initial: 0
-    _value: 512
+    _value: 256
   _color:
     _overriding: 0
     _objectId:
@@ -137,14 +136,14 @@ MonoBehaviour:
     _initial: 0
     _value: 0
   _overflowMode:
-    _overriding: 0
+    _overriding: 1
     _objectId:
       _increment: 0
       _machine: 0
       _timestamp: 0
       _pid: 0
     _initial: 0
-    _value: 0
+    _value: 3
   _extraPadding:
     _overriding: 0
     _objectId:

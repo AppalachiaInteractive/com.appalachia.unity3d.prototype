@@ -22,8 +22,9 @@ MonoBehaviour:
     _machine: 14129404
     _timestamp: 1646268475
     _pid: 23944
+  showAll: 0
   _enabled: 1
-  fps2:
+  fps:
     _name: FoldoutComponentSetData
     _niceName: 
     _initializer:
@@ -59,7 +60,7 @@ MonoBehaviour:
         - localRotation
         - localScale
         _resetToken: 
-      _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744159
         _machine: 14129404
@@ -123,7 +124,6 @@ MonoBehaviour:
           _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
-    showAllComponents: 0
     _foldout:
       _name: AppaFoldoutData
       _niceName: 
@@ -132,7 +132,7 @@ MonoBehaviour:
         _tags:
         - _startsOn
         _resetToken: 
-      _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744160
         _machine: 14129404
@@ -546,7 +546,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 0
           _machine: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 8244171
             _machine: 14129406
@@ -740,7 +740,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 8244173
             _machine: 14129406
@@ -812,7 +812,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 8244175
             _machine: 14129406
@@ -845,7 +845,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 8244177
             _machine: 14129406
@@ -926,8 +926,7 @@ MonoBehaviour:
               _pid: 0
             _initial: 1
             _value: 1
-    _foldoutButton: {fileID: 11400000, guid: ab5439357a31be94ea9859bf50f3f560, type: 2}
-    _foldoutButton2:
+    _foldoutButton:
       _name: 
       _niceName: 
       _initializer:
@@ -964,10 +963,10 @@ MonoBehaviour:
           _resetToken: 
         _owner: {fileID: 0}
         _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
+          _increment: 367887
+          _machine: 14129404
+          _timestamp: 1646592019
+          _pid: -26872
         showAll: 0
         hideInInspector: 0
         disableUpdates: 0
@@ -978,9 +977,9 @@ MonoBehaviour:
         _posY: 0
         _posZ: 0
         _right: 0
-        _width: 0
+        _width: -0
         _bottom: 0
-        _height: 0
+        _height: 24
         anchorMin:
           _overriding: 1
           _objectId:
@@ -989,7 +988,7 @@ MonoBehaviour:
             _timestamp: 0
             _pid: 0
           _initial: {x: 0, y: 0}
-          _value: {x: 0, y: 0}
+          _value: {x: 0, y: 1}
         anchorMax:
           _overriding: 1
           _objectId:
@@ -1007,7 +1006,7 @@ MonoBehaviour:
             _timestamp: 0
             _pid: 0
           _initial: {x: 0.5, y: 0.5}
-          _value: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 1}
         localScale:
           _overriding: 1
           _objectId:
@@ -1026,7 +1025,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _appaButton:
         _name: 
         _niceName: 
@@ -1312,10 +1310,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367891
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -1440,10 +1438,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367893
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -1992,10 +1990,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367896
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -2157,10 +2155,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367898
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -2229,10 +2227,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367900
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -2258,10 +2256,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367902
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -2318,10 +2316,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367904
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -2887,10 +2885,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367907
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -3052,10 +3050,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367909
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -3124,10 +3122,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367911
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -3153,10 +3151,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367913
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -3213,10 +3211,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367915
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -3293,7 +3291,7 @@ MonoBehaviour:
               _initial: 1
               _value: 1
       _buttonIcon:
-        _overriding: 0
+        _overriding: 1
         _objectId:
           _increment: 10042864
           _machine: 14129404
@@ -3726,10 +3724,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367918
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -3777,7 +3775,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {fileID: 0}
-              _value: {fileID: 0}
+              _value: {fileID: 21300000, guid: 4f44fba176d03ed478ffc5983a33f00b, type: 3}
             imageType:
               _overriding: 1
               _objectId:
@@ -3891,23 +3889,23 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367920
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
             disablePositionUpdates: 0
-            _left: 0
-            _posX: 0
+            _left: 22
+            _posX: 22
             _top: 0
-            _posY: 0
+            _posY: -0
             _posZ: 0
             _right: 0
-            _width: 0
+            _width: 18
             _bottom: 0
-            _height: 0
+            _height: 18
             anchorMin:
               _overriding: 1
               _objectId:
@@ -3916,7 +3914,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {x: 0, y: 0}
-              _value: {x: 0, y: 0}
+              _value: {x: 0, y: 0.5}
             anchorMax:
               _overriding: 1
               _objectId:
@@ -3925,7 +3923,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {x: 1, y: 1}
-              _value: {x: 1, y: 1}
+              _value: {x: 0, y: 0.5}
             pivot:
               _overriding: 1
               _objectId:
@@ -3952,7 +3950,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {x: 0, y: 0, z: 0, w: 1}
-              _value: {x: 0, y: 0, z: 0, w: 1}
+              _value: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
           data3:
             _name: 
             _niceName: 
@@ -3963,10 +3961,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367922
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -3996,10 +3994,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367924
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -4076,7 +4074,7 @@ MonoBehaviour:
               _initial: 1
               _value: 1
       _buttonText:
-        _overriding: 0
+        _overriding: 1
         _objectId:
           _increment: 10042865
           _machine: 14129404
@@ -4101,7 +4099,7 @@ MonoBehaviour:
             _name: 
             _niceName: 
             _initializer:
-              _initializationCount: 18
+              _initializationCount: 54
               _tags:
               - fontStyle
               _resetToken: 
@@ -4341,20 +4339,20 @@ MonoBehaviour:
             _name: 
             _niceName: 
             _initializer:
-              _initializationCount: 18
+              _initializationCount: 29
               _tags:
               - fontStyle
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367927
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
-            fontStyle: {fileID: 0}
+            fontStyle: {fileID: 11400000, guid: 8f6e96ab8b6fcc845acc6f70a5231934, type: 2}
           data2:
             _name: 
             _niceName: 
@@ -4378,23 +4376,23 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367929
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
             disablePositionUpdates: 0
-            _left: 0
-            _posX: 0
+            _left: 62
+            _posX: 31
             _top: 0
             _posY: 0
             _posZ: 0
             _right: 0
-            _width: 0
+            _width: -62
             _bottom: 0
-            _height: 0
+            _height: -0
             anchorMin:
               _overriding: 1
               _objectId:
@@ -4450,10 +4448,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367931
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -4483,10 +4481,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367933
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -4965,7 +4963,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1744166
           _machine: 14129404
@@ -4994,7 +4992,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744167
             _machine: 14129404
@@ -5159,7 +5157,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744168
             _machine: 14129404
@@ -5231,7 +5229,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744169
             _machine: 14129404
@@ -5264,7 +5262,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744170
             _machine: 14129404
@@ -5451,7 +5449,7 @@ MonoBehaviour:
         - localRotation
         - localScale
         _resetToken: 
-      _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744172
         _machine: 14129404
@@ -5918,7 +5916,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1744178
           _machine: 14129404
@@ -5947,7 +5945,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744179
             _machine: 14129404
@@ -6112,7 +6110,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744180
             _machine: 14129404
@@ -6184,7 +6182,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744181
             _machine: 14129404
@@ -6217,7 +6215,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744182
             _machine: 14129404
@@ -6299,7 +6297,7 @@ MonoBehaviour:
             _initial: 1
             _value: 1
     _style: {fileID: 11400000, guid: a2414c1872de4684e89e894a42174a74, type: 2}
-  memory2:
+  memory:
     _name: 
     _niceName: 
     _initializer:
@@ -6335,7 +6333,7 @@ MonoBehaviour:
         - localRotation
         - localScale
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744252
         _machine: 14129404
@@ -6399,7 +6397,6 @@ MonoBehaviour:
           _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
-    showAllComponents: 0
     _foldout:
       _name: AppaFoldoutData
       _niceName: 
@@ -6408,7 +6405,7 @@ MonoBehaviour:
         _tags:
         - _startsOn
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744253
         _machine: 14129404
@@ -6822,7 +6819,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1992223
           _machine: 14129406
@@ -6851,7 +6848,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992224
             _machine: 14129406
@@ -7016,7 +7013,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992225
             _machine: 14129406
@@ -7088,7 +7085,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992226
             _machine: 14129406
@@ -7121,7 +7118,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992227
             _machine: 14129406
@@ -7202,8 +7199,7 @@ MonoBehaviour:
               _pid: 0
             _initial: 1
             _value: 1
-    _foldoutButton: {fileID: 11400000, guid: ab5439357a31be94ea9859bf50f3f560, type: 2}
-    _foldoutButton2:
+    _foldoutButton:
       _name: 
       _niceName: 
       _initializer:
@@ -7240,10 +7236,10 @@ MonoBehaviour:
           _resetToken: 
         _owner: {fileID: 0}
         _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
+          _increment: 367936
+          _machine: 14129404
+          _timestamp: 1646592019
+          _pid: -26872
         showAll: 0
         hideInInspector: 0
         disableUpdates: 0
@@ -7254,9 +7250,9 @@ MonoBehaviour:
         _posY: 0
         _posZ: 0
         _right: 0
-        _width: 0
+        _width: -0
         _bottom: 0
-        _height: 0
+        _height: 24
         anchorMin:
           _overriding: 1
           _objectId:
@@ -7265,7 +7261,7 @@ MonoBehaviour:
             _timestamp: 0
             _pid: 0
           _initial: {x: 0, y: 0}
-          _value: {x: 0, y: 0}
+          _value: {x: 0, y: 1}
         anchorMax:
           _overriding: 1
           _objectId:
@@ -7283,7 +7279,7 @@ MonoBehaviour:
             _timestamp: 0
             _pid: 0
           _initial: {x: 0.5, y: 0.5}
-          _value: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 1}
         localScale:
           _overriding: 1
           _objectId:
@@ -7302,7 +7298,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _appaButton:
         _name: 
         _niceName: 
@@ -7588,10 +7583,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367940
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -7716,10 +7711,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367942
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -8268,10 +8263,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367945
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -8433,10 +8428,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367947
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -8505,10 +8500,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367949
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -8534,10 +8529,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367951
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -8594,10 +8589,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367953
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -9163,10 +9158,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367956
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -9328,10 +9323,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367958
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -9400,10 +9395,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367960
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -9429,10 +9424,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367962
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -9489,10 +9484,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367964
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -9569,7 +9564,7 @@ MonoBehaviour:
               _initial: 1
               _value: 1
       _buttonIcon:
-        _overriding: 0
+        _overriding: 1
         _objectId:
           _increment: 10042869
           _machine: 14129404
@@ -10002,10 +9997,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367967
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -10053,7 +10048,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {fileID: 0}
-              _value: {fileID: 0}
+              _value: {fileID: 21300000, guid: 4f44fba176d03ed478ffc5983a33f00b, type: 3}
             imageType:
               _overriding: 1
               _objectId:
@@ -10167,23 +10162,23 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367969
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
             disablePositionUpdates: 0
-            _left: 0
-            _posX: 0
+            _left: 22
+            _posX: 22
             _top: 0
-            _posY: 0
+            _posY: -0
             _posZ: 0
             _right: 0
-            _width: 0
+            _width: 18
             _bottom: 0
-            _height: 0
+            _height: 18
             anchorMin:
               _overriding: 1
               _objectId:
@@ -10192,7 +10187,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {x: 0, y: 0}
-              _value: {x: 0, y: 0}
+              _value: {x: 0, y: 0.5}
             anchorMax:
               _overriding: 1
               _objectId:
@@ -10201,7 +10196,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {x: 1, y: 1}
-              _value: {x: 1, y: 1}
+              _value: {x: 0, y: 0.5}
             pivot:
               _overriding: 1
               _objectId:
@@ -10239,10 +10234,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367971
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -10272,10 +10267,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367973
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -10352,7 +10347,7 @@ MonoBehaviour:
               _initial: 1
               _value: 1
       _buttonText:
-        _overriding: 0
+        _overriding: 1
         _objectId:
           _increment: 10042870
           _machine: 14129404
@@ -10377,7 +10372,7 @@ MonoBehaviour:
             _name: 
             _niceName: 
             _initializer:
-              _initializationCount: 18
+              _initializationCount: 54
               _tags:
               - fontStyle
               _resetToken: 
@@ -10617,20 +10612,20 @@ MonoBehaviour:
             _name: 
             _niceName: 
             _initializer:
-              _initializationCount: 18
+              _initializationCount: 29
               _tags:
               - fontStyle
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367976
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
-            fontStyle: {fileID: 0}
+            fontStyle: {fileID: 11400000, guid: 8f6e96ab8b6fcc845acc6f70a5231934, type: 2}
           data2:
             _name: 
             _niceName: 
@@ -10654,23 +10649,23 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367978
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
             disablePositionUpdates: 0
-            _left: 0
-            _posX: 0
+            _left: 62
+            _posX: 31
             _top: 0
             _posY: 0
             _posZ: 0
             _right: 0
-            _width: 0
+            _width: -62
             _bottom: 0
-            _height: 0
+            _height: -0
             anchorMin:
               _overriding: 1
               _objectId:
@@ -10726,10 +10721,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367980
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -10759,10 +10754,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367982
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -11241,7 +11236,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1744259
           _machine: 14129404
@@ -11270,7 +11265,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744260
             _machine: 14129404
@@ -11435,7 +11430,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744261
             _machine: 14129404
@@ -11507,7 +11502,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744262
             _machine: 14129404
@@ -11540,7 +11535,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744263
             _machine: 14129404
@@ -11642,7 +11637,7 @@ MonoBehaviour:
         - localRotation
         - localScale
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744264
         _machine: 14129404
@@ -12194,7 +12189,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1744271
           _machine: 14129404
@@ -12223,7 +12218,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744272
             _machine: 14129404
@@ -12388,7 +12383,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744273
             _machine: 14129404
@@ -12460,7 +12455,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744274
             _machine: 14129404
@@ -12493,7 +12488,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744275
             _machine: 14129404
@@ -12575,7 +12570,7 @@ MonoBehaviour:
             _initial: 1
             _value: 1
     _style: {fileID: 11400000, guid: a2414c1872de4684e89e894a42174a74, type: 2}
-  audio2:
+  audio:
     _name: 
     _niceName: 
     _initializer:
@@ -12611,7 +12606,7 @@ MonoBehaviour:
         - localRotation
         - localScale
         _resetToken: 
-      _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744283
         _machine: 14129404
@@ -12675,7 +12670,6 @@ MonoBehaviour:
           _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
-    showAllComponents: 0
     _foldout:
       _name: AppaFoldoutData
       _niceName: 
@@ -12684,7 +12678,7 @@ MonoBehaviour:
         _tags:
         - _startsOn
         _resetToken: 
-      _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744284
         _machine: 14129404
@@ -13098,7 +13092,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1992233
           _machine: 14129406
@@ -13127,7 +13121,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992234
             _machine: 14129406
@@ -13292,7 +13286,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992235
             _machine: 14129406
@@ -13364,7 +13358,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992236
             _machine: 14129406
@@ -13397,7 +13391,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1992237
             _machine: 14129406
@@ -13478,8 +13472,7 @@ MonoBehaviour:
               _pid: 0
             _initial: 1
             _value: 1
-    _foldoutButton: {fileID: 11400000, guid: ab5439357a31be94ea9859bf50f3f560, type: 2}
-    _foldoutButton2:
+    _foldoutButton:
       _name: 
       _niceName: 
       _initializer:
@@ -13516,10 +13509,10 @@ MonoBehaviour:
           _resetToken: 
         _owner: {fileID: 0}
         _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
+          _increment: 367985
+          _machine: 14129404
+          _timestamp: 1646592019
+          _pid: -26872
         showAll: 0
         hideInInspector: 0
         disableUpdates: 0
@@ -13530,9 +13523,9 @@ MonoBehaviour:
         _posY: 0
         _posZ: 0
         _right: 0
-        _width: 0
+        _width: -0
         _bottom: 0
-        _height: 0
+        _height: 24
         anchorMin:
           _overriding: 1
           _objectId:
@@ -13541,7 +13534,7 @@ MonoBehaviour:
             _timestamp: 0
             _pid: 0
           _initial: {x: 0, y: 0}
-          _value: {x: 0, y: 0}
+          _value: {x: 0, y: 1}
         anchorMax:
           _overriding: 1
           _objectId:
@@ -13559,7 +13552,7 @@ MonoBehaviour:
             _timestamp: 0
             _pid: 0
           _initial: {x: 0.5, y: 0.5}
-          _value: {x: 0.5, y: 0.5}
+          _value: {x: 0.5, y: 1}
         localScale:
           _overriding: 1
           _objectId:
@@ -13578,7 +13571,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _appaButton:
         _name: 
         _niceName: 
@@ -13864,10 +13856,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367989
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -13992,10 +13984,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367991
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -14544,10 +14536,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367994
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -14709,10 +14701,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367996
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -14781,10 +14773,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 367998
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -14810,10 +14802,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368000
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -14870,10 +14862,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368002
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -15439,10 +15431,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368005
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -15604,10 +15596,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368007
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -15676,10 +15668,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368009
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -15705,10 +15697,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368011
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -15765,10 +15757,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368013
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -15845,7 +15837,7 @@ MonoBehaviour:
               _initial: 1
               _value: 1
       _buttonIcon:
-        _overriding: 0
+        _overriding: 1
         _objectId:
           _increment: 10042874
           _machine: 14129404
@@ -16278,10 +16270,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368016
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -16329,7 +16321,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {fileID: 0}
-              _value: {fileID: 0}
+              _value: {fileID: 21300000, guid: 4f44fba176d03ed478ffc5983a33f00b, type: 3}
             imageType:
               _overriding: 1
               _objectId:
@@ -16443,23 +16435,23 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368018
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
             disablePositionUpdates: 0
-            _left: 0
-            _posX: 0
+            _left: 22
+            _posX: 22
             _top: 0
-            _posY: 0
+            _posY: -0
             _posZ: 0
             _right: 0
-            _width: 0
+            _width: 18
             _bottom: 0
-            _height: 0
+            _height: 18
             anchorMin:
               _overriding: 1
               _objectId:
@@ -16468,7 +16460,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {x: 0, y: 0}
-              _value: {x: 0, y: 0}
+              _value: {x: 0, y: 0.5}
             anchorMax:
               _overriding: 1
               _objectId:
@@ -16477,7 +16469,7 @@ MonoBehaviour:
                 _timestamp: 0
                 _pid: 0
               _initial: {x: 1, y: 1}
-              _value: {x: 1, y: 1}
+              _value: {x: 0, y: 0.5}
             pivot:
               _overriding: 1
               _objectId:
@@ -16515,10 +16507,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368020
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -16548,10 +16540,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368022
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -16628,7 +16620,7 @@ MonoBehaviour:
               _initial: 1
               _value: 1
       _buttonText:
-        _overriding: 0
+        _overriding: 1
         _objectId:
           _increment: 10042875
           _machine: 14129404
@@ -16653,7 +16645,7 @@ MonoBehaviour:
             _name: 
             _niceName: 
             _initializer:
-              _initializationCount: 18
+              _initializationCount: 54
               _tags:
               - fontStyle
               _resetToken: 
@@ -16893,20 +16885,20 @@ MonoBehaviour:
             _name: 
             _niceName: 
             _initializer:
-              _initializationCount: 18
+              _initializationCount: 29
               _tags:
               - fontStyle
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368025
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
-            fontStyle: {fileID: 0}
+            fontStyle: {fileID: 11400000, guid: 8f6e96ab8b6fcc845acc6f70a5231934, type: 2}
           data2:
             _name: 
             _niceName: 
@@ -16930,23 +16922,23 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368027
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
             disablePositionUpdates: 0
-            _left: 0
-            _posX: 0
+            _left: 62
+            _posX: 31
             _top: 0
             _posY: 0
             _posZ: 0
             _right: 0
-            _width: 0
+            _width: -62
             _bottom: 0
-            _height: 0
+            _height: -0
             anchorMin:
               _overriding: 1
               _objectId:
@@ -17002,10 +16994,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368029
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -17035,10 +17027,10 @@ MonoBehaviour:
               _resetToken: 
             _owner: {fileID: 0}
             _objectId:
-              _increment: 0
-              _machine: 0
-              _timestamp: 0
-              _pid: 0
+              _increment: 368031
+              _machine: 14129404
+              _timestamp: 1646592019
+              _pid: -26872
             showAll: 0
             hideInInspector: 0
             disableUpdates: 0
@@ -17517,7 +17509,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1744290
           _machine: 14129404
@@ -17546,7 +17538,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744291
             _machine: 14129404
@@ -17711,7 +17703,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744292
             _machine: 14129404
@@ -17783,7 +17775,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744293
             _machine: 14129404
@@ -17816,7 +17808,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744294
             _machine: 14129404
@@ -17918,7 +17910,7 @@ MonoBehaviour:
         - localRotation
         - localScale
         _resetToken: 
-      _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 1744295
         _machine: 14129404
@@ -18470,7 +18462,7 @@ MonoBehaviour:
           _tags:
           - _enabled
           _resetToken: 
-        _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 1744302
           _machine: 14129404
@@ -18499,7 +18491,7 @@ MonoBehaviour:
             - useSpriteMesh
             - pixelsPerUnitMultiplier
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744303
             _machine: 14129404
@@ -18664,7 +18656,7 @@ MonoBehaviour:
             - localRotation
             - localScale
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744304
             _machine: 14129404
@@ -18736,7 +18728,7 @@ MonoBehaviour:
             _tags:
             - cullTransparentMesh
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744305
             _machine: 14129404
@@ -18769,7 +18761,7 @@ MonoBehaviour:
             - flexibleHeight
             - layoutPriority
             _resetToken: 
-          _owner: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 1744306
             _machine: 14129404
@@ -18851,9 +18843,6 @@ MonoBehaviour:
             _initial: 1
             _value: 1
     _style: {fileID: 11400000, guid: a2414c1872de4684e89e894a42174a74, type: 2}
-  fps: {fileID: 11400000, guid: eeaef09c6b40551448c37c381999bd0c, type: 2}
-  memory: {fileID: 11400000, guid: 003e80319ebd1de418d8ba01dab60e20, type: 2}
-  audio: {fileID: 11400000, guid: b30d52c3ba797454abd8ffc500875dd2, type: 2}
   verticalLayoutGroup:
     _name: 
     _niceName: 

@@ -33,7 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
             using (_PRF_Initialize.Auto())
             {
-                UnscaledCanvasComponentSetData.RefreshAndUpdate(
+                Appalachia.UI.Controls.Sets2.Canvases.UnscaledCanvas.UnscaledCanvasComponentSetData.RefreshAndUpdate(
                     ref areaMetadata.unscaledCanvas,
                     ref unscaledCanvas,
                     gameObject,

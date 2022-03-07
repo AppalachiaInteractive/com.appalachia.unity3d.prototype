@@ -112,7 +112,6 @@ MonoBehaviour:
         _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
-  showAllComponents: 0
   _componentSubsetDataList:
     _capacityIncreaseMultiplier: 2
     _values:

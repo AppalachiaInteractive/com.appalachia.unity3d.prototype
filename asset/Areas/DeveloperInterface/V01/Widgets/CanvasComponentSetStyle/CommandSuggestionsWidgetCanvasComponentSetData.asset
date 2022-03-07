@@ -25,6 +25,7 @@ MonoBehaviour:
   dataTransferred: 1
   showAll: 0
   _rectTransform:
+    _displayTypeName: 
     _name: 
     _niceName: 
     _initializer:
@@ -112,8 +113,8 @@ MonoBehaviour:
         _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
-  showAllComponents: 0
   _canvasData:
+    _displayTypeName: 
     _name: CanvasData
     _niceName: 
     _initializer:
@@ -197,6 +198,7 @@ MonoBehaviour:
       _timestamp: 1644971926
       _pid: -14768
     _initial:
+      _displayTypeName: 
       _name: 
       _niceName: 
       _initializer:
@@ -231,6 +233,7 @@ MonoBehaviour:
       fadeOutDuration: 1
       fadeOut: 2
     _value:
+      _displayTypeName: 
       _name: CanvasFadeManagerData
       _niceName: 
       _initializer:
@@ -272,6 +275,7 @@ MonoBehaviour:
       _timestamp: 1644971926
       _pid: -14768
     _initial:
+      _displayTypeName: 
       _name: 
       _niceName: 
       _initializer:
@@ -328,6 +332,7 @@ MonoBehaviour:
         _initial: 0
         _value: 0
     _value:
+      _displayTypeName: 
       _name: CanvasGroupData
       _niceName: 
       _initializer:
@@ -391,6 +396,7 @@ MonoBehaviour:
       _timestamp: 1644971926
       _pid: -14768
     _initial:
+      _displayTypeName: 
       _name: 
       _niceName: 
       _initializer:
@@ -435,12 +441,11 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial:
-          serializedVersion: 2
           m_Bits: 4294967295
         _value:
-          serializedVersion: 2
           m_Bits: 4294967295
     _value:
+      _displayTypeName: 
       _name: GraphicRaycasterData
       _niceName: 
       _initializer:
@@ -485,8 +490,6 @@ MonoBehaviour:
           _timestamp: 0
           _pid: 0
         _initial:
-          serializedVersion: 2
           m_Bits: 4294967295
         _value:
-          serializedVersion: 2
-          m_Bits: 3821534007
+          m_Bits: 4294966071

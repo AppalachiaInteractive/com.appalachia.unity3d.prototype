@@ -1,7 +1,7 @@
 using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Objects.Sets;
+using Appalachia.Core.Objects.Sets2;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Sets;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Sets2

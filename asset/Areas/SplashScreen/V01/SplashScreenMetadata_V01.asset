@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SplashScreenMetadata_V01
   m_EditorClassIdentifier: 
   _initializer:
-    _initializationCount: 0
+    _initializationCount: 25
     _tags:
     - Doozy Graph
     - Doozy Canvas
@@ -229,8 +229,7 @@ MonoBehaviour:
           _pid: 0
         _initial: 0
         _value: 0
-  rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
-  rootCanvas2:
+  rootCanvas:
     _name: 
     _niceName: 
     _initializer:
@@ -270,7 +269,7 @@ MonoBehaviour:
         - _height
         - _pivot
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 3571590
         _machine: 14129404
@@ -334,7 +333,6 @@ MonoBehaviour:
           _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
-    showAllComponents: 0
     _canvasData:
       _name: 
       _niceName: 
@@ -348,7 +346,7 @@ MonoBehaviour:
         - sortingOrder
         - additionalShaderChannels
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 3571591
         _machine: 14129404
@@ -468,7 +466,7 @@ MonoBehaviour:
           - fadeOutDuration
           - fadeOut
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 0
           _machine: 0
@@ -560,7 +558,7 @@ MonoBehaviour:
           - blocksRaycasts
           - ignoreParentGroups
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 3571592
           _machine: 14129404
@@ -672,7 +670,7 @@ MonoBehaviour:
           - blockingObjects
           - blockingMask
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 9211880
           _machine: 14129404
@@ -729,7 +727,7 @@ MonoBehaviour:
         - defaultSpriteDPI
         - dynamicPixelsPerUnit
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 3571593
         _machine: 14129404
@@ -850,7 +848,7 @@ MonoBehaviour:
         - localScale
         - pivot
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 3571594
         _machine: 14129404
@@ -927,7 +925,7 @@ MonoBehaviour:
         - sortingOrder
         - additionalShaderChannels
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 3571595
         _machine: 14129404
@@ -1007,7 +1005,7 @@ MonoBehaviour:
         - defaultSpriteDPI
         - dynamicPixelsPerUnit
         _resetToken: 
-      _owner: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+      _owner: {fileID: 0}
       _objectId:
         _increment: 3571596
         _machine: 14129404
@@ -1021,15 +1019,6 @@ MonoBehaviour:
   audio:
     mixerGroup: {fileID: -228110193480769040, guid: ed0ac54b580288e46b0468f0b536ecf8, type: 2}
   templates:
-    _overriding: 0
-    _objectId:
-      _increment: 0
-      _machine: 0
-      _timestamp: 0
-      _pid: 0
-    _initial: {fileID: 0}
-    _value: {fileID: 0}
-  templates2:
     _overriding: 0
     _objectId:
       _increment: 15654243
@@ -1135,7 +1124,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _canvasData:
         _name: 
         _niceName: 
@@ -1740,10 +1728,10 @@ MonoBehaviour:
           _resetToken: 
         _owner: {fileID: 0}
         _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
+          _increment: 366992
+          _machine: 14129404
+          _timestamp: 1646592000
+          _pid: -26872
         showAll: 0
         hideInInspector: 0
         disableUpdates: 0
@@ -1802,7 +1790,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _canvasData:
         _name: 
         _niceName: 
@@ -1818,10 +1805,10 @@ MonoBehaviour:
           _resetToken: 
         _owner: {fileID: 0}
         _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
+          _increment: 366994
+          _machine: 14129404
+          _timestamp: 1646592000
+          _pid: -26872
         showAll: 0
         hideInInspector: 0
         disableUpdates: 0
@@ -2030,10 +2017,10 @@ MonoBehaviour:
             _resetToken: 
           _owner: {fileID: 0}
           _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
+            _increment: 366997
+            _machine: 14129404
+            _timestamp: 1646592000
+            _pid: -26872
           showAll: 0
           hideInInspector: 0
           disableUpdates: 0
@@ -2142,10 +2129,10 @@ MonoBehaviour:
             _resetToken: 
           _owner: {fileID: 0}
           _objectId:
-            _increment: 0
-            _machine: 0
-            _timestamp: 0
-            _pid: 0
+            _increment: 366999
+            _machine: 14129404
+            _timestamp: 1646592000
+            _pid: -26872
           showAll: 0
           hideInInspector: 0
           disableUpdates: 0
@@ -2204,10 +2191,10 @@ MonoBehaviour:
           _resetToken: 
         _owner: {fileID: 0}
         _objectId:
-          _increment: 0
-          _machine: 0
-          _timestamp: 0
-          _pid: 0
+          _increment: 367001
+          _machine: 14129404
+          _timestamp: 1646592000
+          _pid: -26872
         showAll: 0
         hideInInspector: 0
         disableUpdates: 0
@@ -2370,7 +2357,4 @@ MonoBehaviour:
         templateAlpha: 1
         templates: []
         selectedTemplate: {fileID: 0}
-  splashScreens:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  splashScreens: []

@@ -31,22 +31,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [HideInInspector]
+        [ShowIf(nameof(showAll))]
         public HorizontalLayoutGroupSubsetData leftLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [HideInInspector]
+        [ShowIf(nameof(showAll))]
         public HorizontalLayoutGroupSubsetData rightLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [HideInInspector]
+        [ShowIf(nameof(showAll))]
         public RectTransformData statusBarIconRectTransform;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [HideInInspector]
+        [ShowIf(nameof(showAll))]
         public DevTooltipStyleOverride devTooltipStyle;
 
         [BoxGroup(APPASTR.GroupNames.Size)]

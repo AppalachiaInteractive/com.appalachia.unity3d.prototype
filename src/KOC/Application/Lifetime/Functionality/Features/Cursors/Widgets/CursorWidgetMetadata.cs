@@ -1,21 +1,13 @@
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Complex;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Simple;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Widgets
 {
     public class CursorWidgetMetadata : LifetimeWidgetMetadata<CursorWidget, CursorWidgetMetadata,
         CursorFeature, CursorFeatureMetadata>
     {
-        #region Fields and Autoproperties
-
-        public SimpleCursorComponentSetData simpleCursorSet;
-        public ComplexCursorComponentSetData complexCursorSet;
-
-        public SimpleCursorComponentSetData simpleCursorSet2;
-        public ComplexCursorComponentSetData complexCursorSet2;
-        
-        #endregion
+        [SerializeField] public Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Simple.SimpleCursorComponentSetData simpleCursorSet;
+        [SerializeField] public Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Complex.ComplexCursorComponentSetData complexCursorSet;
 
         /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(CursorWidget target)
@@ -49,9 +41,6 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
 
                     RefreshAndUpdate(ref componentSet, ref simpleCursorSet, widget);
                 }
-
-                complexCursorSet = complexCursorSet2;
-                simpleCursorSet = simpleCursorSet2;
             }
         }
     }

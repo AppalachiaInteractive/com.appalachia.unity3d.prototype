@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e237d179537dd840b83fcf60dde2966, type: 3}
   m_Name: AppalachiaRepository
   m_EditorClassIdentifier: 
-  _cachedName: AppalachiaRepository
-  _niceName: Appalachia Repository
   _initializer:
     _initializationCount: 0
     _tags: []
     _resetToken: 
+  _niceName: Appalachia Repository
   _objectId:
     _increment: 0
     _machine: 0
@@ -247,6 +246,17 @@ MonoBehaviour:
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling.Services.Audio
       editorAsset: {fileID: 11400000, guid: 9d6ae30965bcdc345ae92df720eb1c2d, type: 2}
     - _assetReference:
+        m_AssetGUID: 34cec63e4dc9fd0409296eb8c30dd9a1
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Audio.AudioStatusBarSubwidgetMetadata
+      _typeName: AudioStatusBarSubwidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Audio
+      editorAsset: {fileID: 11400000, guid: 34cec63e4dc9fd0409296eb8c30dd9a1, type: 2}
+    - _assetReference:
         m_AssetGUID: 7401fa2cd8866c040a833e925ec36cd1
         m_SubObjectName: 
         m_SubObjectType: 
@@ -275,9 +285,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling.CanvasScalingServiceMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Application.Services.CanvasScaling.CanvasScalingServiceMetadata
       _typeName: CanvasScalingServiceMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.CanvasScaling
       editorAsset: {fileID: 11400000, guid: b73d8889b9f9cfa4499ae705cccd4788, type: 2}
     - _assetReference:
         m_AssetGUID: b73d8889b9f9cfa4499ae705cccd4788
@@ -286,9 +296,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Application.Services.CanvasScaling.CanvasScalingServiceMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling.CanvasScalingServiceMetadata
       _typeName: CanvasScalingServiceMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.CanvasScaling
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Services.Broadcast.CanvasScaling
       editorAsset: {fileID: 11400000, guid: b73d8889b9f9cfa4499ae705cccd4788, type: 2}
     - _assetReference:
         m_AssetGUID: 8ca899bfd7686464cb08a16d3e806184
@@ -443,6 +453,17 @@ MonoBehaviour:
       _typeName: DebugOverlayInfoFeatureMetadata
       _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DebugOverlayInfo
       editorAsset: {fileID: 11400000, guid: fc885850e6480664ab48225b2cecce58, type: 2}
+    - _assetReference:
+        m_AssetGUID: 26fc3d7bb0ca04f469e80d06b03330f3
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.DebugStatus.DebuggerStatusBarSubwidgetMetadata
+      _typeName: DebuggerStatusBarSubwidgetMetadata
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.DebugStatus
+      editorAsset: {fileID: 11400000, guid: 26fc3d7bb0ca04f469e80d06b03330f3, type: 2}
     - _assetReference:
         m_AssetGUID: 5fa304d461b9a6a47b6e6d3109e694be
         m_SubObjectName: 
@@ -985,9 +1006,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Collections.MainSimpleCursorLookup
+      _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata.MainSimpleCursorLookup
       _typeName: MainSimpleCursorLookup
-      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Collections
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata
       editorAsset: {fileID: 11400000, guid: d3c8b90d3ffc7b04db8848a29b175ee8, type: 2}
     - _assetReference:
         m_AssetGUID: d3c8b90d3ffc7b04db8848a29b175ee8
@@ -996,9 +1017,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata.MainSimpleCursorLookup
+      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Collections.MainSimpleCursorLookup
       _typeName: MainSimpleCursorLookup
-      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.Cursors.Model.Metadata
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Collections
       editorAsset: {fileID: 11400000, guid: d3c8b90d3ffc7b04db8848a29b175ee8, type: 2}
     - _assetReference:
         m_AssetGUID: 65594f4fc396a8945b3b607dfba7173a
@@ -1446,20 +1467,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling._old.Settings.RuntimeGraphSettings
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings.RuntimeGraphSettings
       _typeName: RuntimeGraphSettings
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling._old.Settings
-      editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
-    - _assetReference:
-        m_AssetGUID: 388cdb11d1348884190b2c5d1edd1150
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
-        PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling._old.Settings.RuntimeGraphSettings
-      _typeName: RuntimeGraphSettings
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling._old.Settings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings
       editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
     - _assetReference:
         m_AssetGUID: 388cdb11d1348884190b2c5d1edd1150
@@ -1479,9 +1489,20 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings.RuntimeGraphSettings
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling._old.Settings.RuntimeGraphSettings
       _typeName: RuntimeGraphSettings
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RuntimeGraphs.Settings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling._old.Settings
+      editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
+    - _assetReference:
+        m_AssetGUID: 388cdb11d1348884190b2c5d1edd1150
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
+        PublicKeyToken=null
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling._old.Settings.RuntimeGraphSettings
+      _typeName: RuntimeGraphSettings
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.PerformanceProfiling._old.Settings
       editorAsset: {fileID: 11400000, guid: 388cdb11d1348884190b2c5d1edd1150, type: 2}
     - _assetReference:
         m_AssetGUID: 7de8af9775b0209449481865f115430d
@@ -1501,9 +1522,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.SceneInfo.SceneInfoStatusBarSubwidgetMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.SceneInfo.SceneInfoStatusBarSubwidgetMetadata
       _typeName: SceneInfoStatusBarSubwidgetMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.SceneInfo
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.SceneInfo
       editorAsset: {fileID: 11400000, guid: 96237e1290e004344bb27be04860568d, type: 2}
     - _assetReference:
         m_AssetGUID: 96237e1290e004344bb27be04860568d
@@ -1512,9 +1533,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.SceneInfo.SceneInfoStatusBarSubwidgetMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.SceneInfo.SceneInfoStatusBarSubwidgetMetadata
       _typeName: SceneInfoStatusBarSubwidgetMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Entries.SceneInfo
+      _typeNamespace: Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.SceneInfo
       editorAsset: {fileID: 11400000, guid: 96237e1290e004344bb27be04860568d, type: 2}
     - _assetReference:
         m_AssetGUID: c7625f75b8bd9be48ae4b59df0f08638
@@ -1709,9 +1730,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.ViewScalingFeatureMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling.ViewScalingFeatureMetadata
       _typeName: ViewScalingFeatureMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling
+      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling
       editorAsset: {fileID: 11400000, guid: 29240d01388e27a49acc59fb524e4292, type: 2}
     - _assetReference:
         m_AssetGUID: 29240d01388e27a49acc59fb524e4292
@@ -1720,9 +1741,9 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
       _assemblyName: Appalachia.Prototype.KOC, Version=0.2.0.0, Culture=neutral,
         PublicKeyToken=null
-      _typeFullName: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling.ViewScalingFeatureMetadata
+      _typeFullName: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling.ViewScalingFeatureMetadata
       _typeName: ViewScalingFeatureMetadata
-      _typeNamespace: Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling
+      _typeNamespace: Appalachia.Prototype.KOC.Lifetime.Functionality.Features.ViewScaling
       editorAsset: {fileID: 11400000, guid: 29240d01388e27a49acc59fb524e4292, type: 2}
     - _assetReference:
         m_AssetGUID: b73d8889b9f9cfa4499ae705cccd4788
@@ -2870,28 +2891,8 @@ MonoBehaviour:
       _typeName: 
       _typeNamespace: 
       editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
-    - _assetReference:
-        m_AssetGUID: 
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
-      _assemblyName: 
-      _typeFullName: 
-      _typeName: 
-      _typeNamespace: 
-      editorAsset: {fileID: 0}
     noTracking: 0
-    _count: 146
+    _count: 148
   _editorSingletons:
     _capacityIncreaseMultiplier: 2
     _values:

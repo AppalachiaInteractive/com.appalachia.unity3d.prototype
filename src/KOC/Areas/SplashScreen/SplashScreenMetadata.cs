@@ -12,6 +12,17 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
         where TManager : SplashScreenManager<TManager, TMetadata>
         where TMetadata : SplashScreenMetadata<TManager, TMetadata>
     {
+        static SplashScreenMetadata()
+        {
+            RegisterDependency<MainAreaSceneInformationCollection>(i => _mainAreaSceneInformationCollection = i);
+        }
+
+        #region Static Fields and Autoproperties
+
+        private static MainAreaSceneInformationCollection _mainAreaSceneInformationCollection;
+
+        #endregion
+
         #region Fields and Autoproperties
 
         public List<AreaSceneInformation> splashScreens;
@@ -33,10 +44,9 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen
                     {
                         splashScreens ??= new List<AreaSceneInformation>();
 
-                        var lookup = MainAreaSceneInformationCollection.instance.Lookup;
+                        var lookup = _mainAreaSceneInformationCollection.Lookup;
 
-                        var splashAreas =
-                            lookup.Items.Where(a => a.Key.ToString().StartsWith("SplashScreen_"));
+                        var splashAreas = lookup.Items.Where(a => a.Key.ToString().StartsWith("SplashScreen_"));
 
                         splashScreens.AddRange(splashAreas.Select(sa => sa.Value));
                     }

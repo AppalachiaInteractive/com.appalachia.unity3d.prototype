@@ -2,7 +2,6 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets2;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Components.Subsets;
@@ -16,18 +15,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 {
     [CallStaticConstructorInEditor]
     [RequireComponent(typeof(RectTransform))]
-    public abstract partial class
-        StatusBarSubwidget<TSubwidget, TSubwidgetMetadata> :
-            DeveloperInterfaceManager_V01.SingletonSubwidget<TSubwidget, IStatusBarSubwidget,
-                TSubwidgetMetadata, IStatusBarSubwidgetMetadata, StatusBarWidget, StatusBarWidgetMetadata,
-                StatusBarFeature, StatusBarFeatureMetadata>,
-            IStatusBarSubwidget
+    public abstract partial class StatusBarSubwidget<TSubwidget, TSubwidgetMetadata> :
+        DeveloperInterfaceManager_V01.SingletonSubwidget<TSubwidget, IStatusBarSubwidget, TSubwidgetMetadata,
+            IStatusBarSubwidgetMetadata, StatusBarWidget, StatusBarWidgetMetadata, StatusBarFeature,
+            StatusBarFeatureMetadata>,
+        IStatusBarSubwidget
         where TSubwidget : StatusBarSubwidget<TSubwidget, TSubwidgetMetadata>
         where TSubwidgetMetadata : StatusBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadata>
     {
         #region Fields and Autoproperties
 
-        public StatusBarSubwidgetComponentSet button;
+        public Sets2.StatusBarSubwidgetComponentSet button;
 
         [SerializeField] private DevTooltipSubwidget _devTooltipSubwidget;
 
@@ -36,6 +34,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         protected abstract bool RequiresIcon { get; }
 
         protected abstract string GetStatusBarText();
+
+        protected virtual Color GetStatusBarColor()
+        {
+            return Color.white;
+        }
 
         protected override void OnUpdateSubwidget()
         {
@@ -48,7 +51,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     return;
                 }
 
-                StatusBarSubwidgetComponentSetData.RefreshAndUpdate(
+                if ((_metadata != null) &&
+                    (_metadata.button != null) &&
+                    (_metadata.button.ButtonText != null) &&
+                    _metadata.button.ButtonText.Value is { TextMeshProUGUI: { } })
+                {
+                    _metadata.button.ButtonText.Value.TextMeshProUGUI.fontStyle = Widget.Metadata.fontStyle;
+                }
+
+                Sets2.StatusBarSubwidgetComponentSetData.RefreshAndUpdate(
                     ref _metadata.button,
                     ref button,
                     gameObject,
@@ -78,6 +89,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                 var textComponent = button.buttonText.TextMeshProUGUI;
                 textComponent.text = statusBarText;
 
+                var statusBarColor = GetStatusBarColor();
+                var spriteComponent = button.ButtonIcon.Image;
+                spriteComponent.color = statusBarColor;
+                
                 UpdateStatusBarTextSize();
 
                 if (_devTooltipSubwidget != null)
@@ -117,9 +132,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        private void UpdateStatusBarIcon(
-            AppalachiaBase<ImageSubsetData>.Optional buttonIconMetadata,
-            Sprite icon)
+        private void UpdateStatusBarIcon(AppalachiaBase<ImageSubsetData>.Optional buttonIconMetadata, Sprite icon)
         {
             using (_PRF_UpdateStatusBarIcon.Auto())
             {

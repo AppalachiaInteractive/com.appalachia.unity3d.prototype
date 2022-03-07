@@ -3,7 +3,6 @@ using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
-using Appalachia.UI.Controls.Sets2.Buttons.SelectableButton;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Extensions;
 using Sirenix.OdinInspector;
@@ -24,8 +23,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     {
         #region Fields and Autoproperties
 
-        public SelectableButtonComponentSet button;
-        public SelectableButtonComponentSet button2;
+        public Appalachia.UI.Controls.Sets2.Buttons.SelectableButton.SelectableButtonComponentSet button;
 
         [SerializeField] private DevTooltipSubwidget _devTooltipSubwidget;
 
@@ -44,7 +42,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     return;
                 }
 
-                SelectableButtonComponentSetData.RefreshAndUpdate(
+                Appalachia.UI.Controls.Sets2.Buttons.SelectableButton.SelectableButtonComponentSetData.RefreshAndUpdate(
                     ref _metadata.button,
                     ref button,
                     gameObject,

@@ -3,7 +3,6 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
-using Appalachia.UI.Controls.Sets.Buttons.SelectableButton;
 using Appalachia.UI.Controls.Sets2.Buttons.SelectableButton;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
@@ -23,13 +22,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     {
         #region Fields and Autoproperties
 
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        [HideInInspector]
-        public SelectableButtonComponentSetData button;
-            
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        [HideInInspector]
-        public SelectableButtonComponentSetData button2;
+        [OnValueChanged(nameof(OnChanged)), HideInInspector, SerializeField]
+        [ShowIf(nameof(showAll))]
+        public Appalachia.UI.Controls.Sets2.Buttons.SelectableButton.SelectableButtonComponentSetData button;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         private bool _enabled;
@@ -69,8 +64,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 initializer.Do(this, nameof(_section),    () => _section = ActivityBarSection.Top);
                 initializer.Do(this, nameof(_priority),   () => _priority = 100);
                 initializer.Do(this, nameof(tooltipText), () => tooltipText ??= "Where is my tooltip?");
-
-                button = button2;
             }
         }
 

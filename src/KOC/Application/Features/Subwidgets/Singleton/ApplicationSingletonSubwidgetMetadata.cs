@@ -5,7 +5,9 @@ using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contrac
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
+using Sirenix.OdinInspector;
 using Unity.Profiling;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 {
@@ -36,6 +38,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         where TIWidget : IApplicationWidget
         where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
+        #region Fields and Autoproperties
+
+        [PropertyOrder(-500)]
+        [SerializeField]
+        protected bool showAll;
+
+        #endregion
+
         public virtual void SubscribeResponsiveComponents(TSubwidget functionality)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())

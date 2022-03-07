@@ -2,7 +2,6 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Sets2;
-using Appalachia.UI.Controls.Sets2.Canvases.RootCanvas;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;
@@ -18,19 +17,19 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Fields and Autoproperties
 
-        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Input, Expanded = false)]
+        [SerializeField]
+        [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Input, Expanded = false)]
         public AreaMetadataConfigurations.AreaInputConfiguration input;
 
-        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
-        public RootCanvasComponentSetData rootCanvas;
-
-        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
-        public RootCanvasComponentSetData rootCanvas2;
-
-        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
+        [FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSetData rootCanvas;
+        
+        [SerializeField]
+        [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration sceneBehaviour;
 
-        [SerializeField, FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Audio, Expanded = false)]
+        [SerializeField]
+        [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Audio, Expanded = false)]
         public AreaMetadataConfigurations.AreaAudioConfiguration audio;
 
         #endregion
@@ -112,9 +111,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     }
                 }
             );
-
-            rootCanvas = rootCanvas2;
-
+            
 #if UNITY_EDITOR
             InitializeEditor(initializer);
 #endif
@@ -132,7 +129,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         public AreaMetadataConfigurations.AreaInputConfiguration Input => input;
 
-        public RootCanvasComponentSetData RootCanvas => rootCanvas;
+        public Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSetData RootCanvas => rootCanvas;
 
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour => sceneBehaviour;
         public AreaMetadataConfigurations.AreaAudioConfiguration Audio => audio;

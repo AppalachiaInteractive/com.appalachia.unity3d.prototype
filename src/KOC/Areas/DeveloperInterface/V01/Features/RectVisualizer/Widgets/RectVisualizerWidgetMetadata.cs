@@ -1,5 +1,4 @@
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
-using Appalachia.UI.Controls.Sets2.Images.RawImage;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Widgets
@@ -11,8 +10,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
     {
         #region Fields and Autoproperties
 
-        [SerializeField] public RawImageComponentSetData _rawImageSet;
-        [SerializeField] public RawImageComponentSetData _rawImageSet2;
+        [SerializeField] private Appalachia.UI.Controls.Sets2.Images.RawImage.RawImageComponentSetData _rawImageSet;
 
         #endregion
 
@@ -32,9 +30,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             {
                 base.UpdateFunctionalityInternal(widget);
 
-                _rawImageSet = _rawImageSet2;
-                
-                RawImageComponentSetData.RefreshAndUpdate(
+                Appalachia.UI.Controls.Sets2.Images.RawImage.RawImageComponentSetData.RefreshAndUpdate(
                     ref _rawImageSet,
                     ref widget.rawImageSet,
                     widget.canvas.GameObject,
@@ -45,7 +41,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #region IWidgetMetadata Members
 
-        public RawImageComponentSetData RawImageSet => _rawImageSet;
+        public Appalachia.UI.Controls.Sets2.Images.RawImage.RawImageComponentSetData RawImageSet => _rawImageSet;
 
         #endregion
     }

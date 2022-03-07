@@ -3,7 +3,6 @@ using Appalachia.Core.Attributes.Editing;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Collections;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Metadata;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Model;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
 using Appalachia.UI.Controls.Sets2.Canvases.Canvas;
 using Appalachia.UI.Core.Components.Data;
 using Unity.Profiling;

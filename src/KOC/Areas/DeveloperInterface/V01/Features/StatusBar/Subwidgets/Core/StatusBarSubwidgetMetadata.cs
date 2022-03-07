@@ -2,9 +2,8 @@ using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets2;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Controls.Sets.Buttons.Button;
+using Appalachia.UI.Controls.Sets2.Buttons.Button;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -26,15 +25,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         #region Fields and Autoproperties
 
         [FormerlySerializedAs("_button")]
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        [HideInInspector]
-        public StatusBarSubwidgetComponentSetData button;
+        [OnValueChanged(nameof(OnChanged))]
+        [ShowIf(nameof(showAll))]
+        [SerializeField] public Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets2.StatusBarSubwidgetComponentSetData button;
 
-        [FormerlySerializedAs("_button")]
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        [HideInInspector]
-        public StatusBarSubwidgetComponentSetData button2;
-        
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         private bool _enabled;
 
@@ -67,8 +61,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                 initializer.Do(this, nameof(_enabled),  () => _enabled = true);
                 initializer.Do(this, nameof(_section),  () => _section = StatusBarSection.Left);
                 initializer.Do(this, nameof(_priority), () => _priority = 100);
-
-                button = button2;
             }
         }
 

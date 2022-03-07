@@ -1,8 +1,7 @@
 using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Core.Objects.Sets;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Complex;
+using Appalachia.Core.Objects.Sets2;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets2.Complex
 {

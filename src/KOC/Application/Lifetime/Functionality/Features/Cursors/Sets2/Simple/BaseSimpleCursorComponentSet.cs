@@ -1,6 +1,5 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
 using Appalachia.UI.Controls.Sets2.Canvases.Canvas;
 using Appalachia.Utility.Extensions;
 using UnityEngine;

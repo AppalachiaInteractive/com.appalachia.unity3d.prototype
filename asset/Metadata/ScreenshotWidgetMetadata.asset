@@ -35,6 +35,7 @@ MonoBehaviour:
     _machine: 14129404
     _timestamp: 1644957441
     _pid: -14768
+  showAll: 0
   rectTransform:
     _overriding: 1
     _objectId:
@@ -214,7 +215,7 @@ MonoBehaviour:
           _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
-  canvas2:
+  canvas:
     _overriding: 0
     _objectId:
       _increment: 15654087
@@ -320,7 +321,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _canvasData:
         _name: 
         _niceName: 
@@ -738,7 +738,7 @@ MonoBehaviour:
           - _height
           - _pivot
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 63102e6f8fdc02e4ebc9ec39a8419911, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 2521892
           _machine: 14129404
@@ -802,7 +802,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _canvasData:
         _name: 
         _niceName: 
@@ -816,7 +815,7 @@ MonoBehaviour:
           - sortingOrder
           - additionalShaderChannels
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 63102e6f8fdc02e4ebc9ec39a8419911, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 2521894
           _machine: 14129404
@@ -936,7 +935,7 @@ MonoBehaviour:
             - fadeOutDuration
             - fadeOut
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 63102e6f8fdc02e4ebc9ec39a8419911, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 0
             _machine: 0
@@ -1028,7 +1027,7 @@ MonoBehaviour:
             - blocksRaycasts
             - ignoreParentGroups
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 63102e6f8fdc02e4ebc9ec39a8419911, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 9212402
             _machine: 14129404
@@ -1140,7 +1139,7 @@ MonoBehaviour:
             - blockingObjects
             - blockingMask
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 63102e6f8fdc02e4ebc9ec39a8419911, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 9212404
             _machine: 14129404
@@ -1180,7 +1179,7 @@ MonoBehaviour:
             _value:
               serializedVersion: 2
               m_Bits: 4294967295
-  background2:
+  background:
     _overriding: 0
     _objectId:
       _increment: 15654088
@@ -1286,7 +1285,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -7620,7 +7618,7 @@ MonoBehaviour:
           - _height
           - _pivot
           _resetToken: 
-        _owner: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 2521900
           _machine: 14129404
@@ -7684,7 +7682,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -7695,7 +7692,7 @@ MonoBehaviour:
             _tags:
             - _enabled
             _resetToken: 
-          _owner: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 111365
             _machine: 14129406
@@ -7724,7 +7721,7 @@ MonoBehaviour:
               - useSpriteMesh
               - pixelsPerUnitMultiplier
               _resetToken: 
-            _owner: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 3571659
               _machine: 14129404
@@ -7894,7 +7891,7 @@ MonoBehaviour:
               - _height
               - _pivot
               _resetToken: 
-            _owner: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 3571660
               _machine: 14129404
@@ -7966,7 +7963,7 @@ MonoBehaviour:
               _tags:
               - cullTransparentMesh
               _resetToken: 
-            _owner: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 3571661
               _machine: 14129404
@@ -7999,7 +7996,7 @@ MonoBehaviour:
               - flexibleHeight
               - layoutPriority
               _resetToken: 
-            _owner: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 2721342
               _machine: 14129406
@@ -13977,7 +13974,7 @@ MonoBehaviour:
           - flexibleHeight
           - layoutPriority
           _resetToken: 
-        _owner: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 2521907
           _machine: 14129404
@@ -14058,7 +14055,7 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-  roundedBackground2:
+  roundedBackground:
     _overriding: 0
     _objectId:
       _increment: 15654089
@@ -14164,7 +14161,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -21392,7 +21388,7 @@ MonoBehaviour:
           - _height
           - _pivot
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 2521910
           _machine: 14129404
@@ -21456,7 +21452,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -21467,7 +21462,7 @@ MonoBehaviour:
             _tags:
             - _enabled
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 0
             _machine: 0
@@ -21496,7 +21491,7 @@ MonoBehaviour:
               - alphaHitTestMinimumThreshold
               - pixelsPerUnitMultiplier
               _resetToken: 
-            _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 3571662
               _machine: 14129404
@@ -21664,7 +21659,7 @@ MonoBehaviour:
               - _height
               - _pivot
               _resetToken: 
-            _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 3571663
               _machine: 14129404
@@ -21736,7 +21731,7 @@ MonoBehaviour:
               _tags:
               - cullTransparentMesh
               _resetToken: 
-            _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 3571664
               _machine: 14129404
@@ -21765,7 +21760,7 @@ MonoBehaviour:
               - blocksRaycasts
               - ignoreParentGroups
               _resetToken: 
-            _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 3571665
               _machine: 14129404
@@ -21825,7 +21820,7 @@ MonoBehaviour:
               - flexibleHeight
               - layoutPriority
               _resetToken: 
-            _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+            _owner: {fileID: 0}
             _objectId:
               _increment: 2721184
               _machine: 14129406
@@ -28613,7 +28608,7 @@ MonoBehaviour:
           - flexibleHeight
           - layoutPriority
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 2521918
           _machine: 14129404
@@ -28694,33 +28689,6 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-  canvas:
-    _overriding: 0
-    _objectId:
-      _increment: 7594979
-      _machine: 14129404
-      _timestamp: 1644971928
-      _pid: -14768
-    _initial: {fileID: 11400000, guid: 63102e6f8fdc02e4ebc9ec39a8419911, type: 2}
-    _value: {fileID: 11400000, guid: 63102e6f8fdc02e4ebc9ec39a8419911, type: 2}
-  background:
-    _overriding: 0
-    _objectId:
-      _increment: 7594980
-      _machine: 14129404
-      _timestamp: 1644971928
-      _pid: -14768
-    _initial: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
-    _value: {fileID: 11400000, guid: cf9f3363f1d4ec046989644539c9f7b7, type: 2}
-  roundedBackground:
-    _overriding: 0
-    _objectId:
-      _increment: 7594981
-      _machine: 14129404
-      _timestamp: 1644971928
-      _pid: -14768
-    _initial: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
-    _value: {fileID: 11400000, guid: 01bfa44a48c0bdb4bba51cb60411e0cd, type: 2}
   fontStyle: {fileID: 11400000, guid: 494b96ea2df77f24fb69ce4cae6686e3, type: 2}
   featureEnabledVisibilityMode: 1
   featureDisabledVisibilityMode: 2

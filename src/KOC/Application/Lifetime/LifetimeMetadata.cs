@@ -3,11 +3,10 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.Styling;
 using Appalachia.Prototype.KOC.Scenes;
-using Appalachia.UI.Controls.Sets2.Canvases.RootCanvas;
-using Appalachia.UI.Controls.Sets2.Images.Background;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.UI.Core.Styling;
 using Appalachia.Utility.Async;
+using UnityEngine;
 using UnityEngine.Audio;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime
@@ -29,12 +28,9 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
 
         public CameraData clearCameraData;
 
-        public RootCanvasComponentSetData rootCanvas;
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Canvases.RootCanvas.RootCanvasComponentSetData rootCanvas;
 
-        public BackgroundComponentSetData rootBackground;
-        public RootCanvasComponentSetData rootCanvas2;
-
-        public BackgroundComponentSetData rootBackground2;
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Images.Background.BackgroundComponentSetData rootBackground;
 
         public ApplicationUIStyle uiStyle;
         public DeviceButtonLookup deviceButtons;
@@ -78,9 +74,6 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                 );
             }
 #endif
-
-            rootCanvas = rootCanvas2;
-            rootBackground = rootBackground2;
         }
     }
 }

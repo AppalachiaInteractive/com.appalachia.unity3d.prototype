@@ -1,6 +1,5 @@
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Core;
-using Appalachia.UI.Controls.Sets2.Layout.Foldout;
 using Appalachia.UI.Core.Components.Data;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
@@ -14,23 +13,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
     {
         #region Fields and Autoproperties
 
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public FoldoutComponentSetData fps2;
+        [OnValueChanged(nameof(OnChanged))]
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Layout.Foldout.FoldoutComponentSetData fps;
 
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public FoldoutComponentSetData memory2;
+        [OnValueChanged(nameof(OnChanged))]
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Layout.Foldout.FoldoutComponentSetData memory;
 
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public FoldoutComponentSetData audio2;
-
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public FoldoutComponentSetData fps;
-
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public FoldoutComponentSetData memory;
-
-        [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public FoldoutComponentSetData audio;
+        [OnValueChanged(nameof(OnChanged))]
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Layout.Foldout.FoldoutComponentSetData audio;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         public VerticalLayoutGroupData verticalLayoutGroup;
@@ -46,9 +36,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
             using (_PRF_Initialize.Auto())
             {
-                fps = fps2;
-                memory = memory2;
-                audio = audio2;
             }
         }
     }

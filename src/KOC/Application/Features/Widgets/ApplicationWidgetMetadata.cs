@@ -48,35 +48,18 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [ShowIf(nameof(ShowCanvasField))]
-        public Appalachia.UI.Controls.Sets2.Canvases.Canvas.CanvasComponentSetData.Optional canvas2;
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Canvases.Canvas.CanvasComponentSetData.Optional canvas;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [ShowIf(nameof(ShowBackgroundField))]
-        public Appalachia.UI.Controls.Sets2.Images.Background.BackgroundComponentSetData.Optional background2;
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Images.Background.BackgroundComponentSetData.Optional background;
 
         [FoldoutGroup(APPASTR.Common)]
         [FormerlySerializedAs("roundedBackgroundStyle")]
         [OnValueChanged(nameof(OnChanged))]
         [ShowIf(nameof(ShowRoundedBackgroundField))]
-        public Appalachia.UI.Controls.Sets2.Images.RoundedBackground.RoundedBackgroundComponentSetData.Optional
-            roundedBackground2;
-
-        [FoldoutGroup(APPASTR.Common)]
-        [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowCanvasField))]
-        public CanvasComponentSetData.Optional canvas;
-
-        [FoldoutGroup(APPASTR.Common)]
-        [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowBackgroundField))]
-        public BackgroundComponentSetData.Optional background;
-
-        [FoldoutGroup(APPASTR.Common)]
-        [FormerlySerializedAs("roundedBackgroundStyle")]
-        [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowRoundedBackgroundField))]
-        public RoundedBackgroundComponentSetData.Optional roundedBackground;
+        [SerializeField] public Appalachia.UI.Controls.Sets2.Images.RoundedBackground.RoundedBackgroundComponentSetData.Optional roundedBackground;
 
         [FoldoutGroup(APPASTR.Common)]
         [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
@@ -166,10 +149,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     nameof(featureDisabledVisibilityMode),
                     () => featureDisabledVisibilityMode = WidgetVisibilityMode.NotVisible
                 );
-
-                canvas = canvas2;
-                background = background2;
-                roundedBackground = roundedBackground2;
             }
         }
 

@@ -53,11 +53,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private Vector2 calculatedTargetCenter;
 
         [OnValueChanged(nameof(OnChanged))]
-        //[HideInInspector]
-        [SerializeField] private DevTooltipComponentSetData componentSetData;
 
         //[HideInInspector]
-        [SerializeField] private DevTooltipComponentSetData componentSetData2;
+        [SerializeField]
+        private DevTooltipComponentSetData componentSetData;
 
         #endregion
 
@@ -123,7 +122,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
             using (_PRF_Initialize.Auto())
             {
-                componentSetData = componentSetData2;
             }
         }
 
@@ -141,12 +139,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
                     Activate();
                 }
 
-                DevTooltipComponentSetData.RefreshAndUpdate(
-                    ref componentSetData,
-                    ref componentSet,
-                    gameObject,
-                    name
-                );
+                if (componentSetData is { TooltipText: { TextMeshProUGUI: { } } } data)
+                {
+                    data.TooltipText.TextMeshProUGUI.fontStyle = Metadata.fontStyle;
+                }
+
+                DevTooltipComponentSetData.RefreshAndUpdate(ref componentSetData, ref componentSet, gameObject, name);
 
                 if (!IsActive)
                 {
@@ -184,12 +182,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
             using (_PRF_WhenEnabled.Auto())
             {
-                DevTooltipComponentSetData.RefreshAndUpdate(
-                    ref componentSetData,
-                    ref componentSet,
-                    gameObject,
-                    name
-                );
+                DevTooltipComponentSetData.RefreshAndUpdate(ref componentSetData, ref componentSet, gameObject, name);
             }
         }
 
@@ -198,7 +191,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
             using (_PRF_FormatRectTransform.Auto())
             {
                 var requiredPaddingSize = CurrentStyle.TextPadding * 2f * Vector2.one;
-                var requiredTextSize = textComponent.GetPreferredValues(CurrentTooltip);
+                Vector2 requiredTextSize;
+                requiredTextSize = textComponent.text.IsNullOrEmpty()
+                    ? new Vector2(0, 0)
+                    : textComponent.GetPreferredValues(CurrentTooltip);
 
                 var requiredSize = requiredPaddingSize + requiredTextSize;
 

@@ -8,6 +8,7 @@ using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Collections;
 using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions.Debugging;
+using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -31,12 +32,16 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         ///     Use this to drive any further behaviour needed to keep the functionality in sync.
         /// </summary>
         public AppaEvent.Data Updated;
-
+        
+        [PropertyOrder(-500)]
+        [SerializeField]
+        protected bool showAll;
+        
         #endregion
 
         /// <summary>
         ///     A simple convenience method to call
-        ///     <see cref="ComponentSetData{TComponentSet,TComponentSetData}" />
+        ///     <see cref="ComponentSetData{TComponentSet, TComponentSetData}" />
         ///     .<see cref="ComponentSetData{TComponentSet,TComponentSetData}.RefreshAndUpdate(ref TComponentSetData,ref TComponentSet,UnityEngine.GameObject,string)" />,
         ///     which will ensure the provided component set is synced with its configuration.
         /// </summary>

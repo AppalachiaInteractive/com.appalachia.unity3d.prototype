@@ -34,6 +34,7 @@ MonoBehaviour:
     _machine: 14129404
     _timestamp: 1645645657
     _pid: -8016
+  showAll: 0
   rectTransform:
     _overriding: 1
     _objectId:
@@ -211,7 +212,7 @@ MonoBehaviour:
           _pid: 0
         _initial: {x: 0, y: 0, z: 0, w: 1}
         _value: {x: 0, y: 0, z: 0, w: 1}
-  canvas2:
+  canvas:
     _overriding: 1
     _objectId:
       _increment: 15654022
@@ -317,7 +318,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _canvasData:
         _name: 
         _niceName: 
@@ -730,7 +730,7 @@ MonoBehaviour:
           - localRotation
           - localScale
           _resetToken: 
-        _owner: {fileID: 11400000, guid: df5ab33cfc36c244daf93323a1fa663e, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 7083804
           _machine: 14129406
@@ -794,7 +794,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _canvasData:
         _name: 
         _niceName: 
@@ -808,7 +807,7 @@ MonoBehaviour:
           - sortingOrder
           - additionalShaderChannels
           _resetToken: 
-        _owner: {fileID: 11400000, guid: df5ab33cfc36c244daf93323a1fa663e, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 7083805
           _machine: 14129406
@@ -928,7 +927,7 @@ MonoBehaviour:
             - fadeOutDuration
             - fadeOut
             _resetToken: 
-          _owner: {fileID: 11400000, guid: df5ab33cfc36c244daf93323a1fa663e, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 7083807
             _machine: 14129406
@@ -1020,7 +1019,7 @@ MonoBehaviour:
             - blocksRaycasts
             - ignoreParentGroups
             _resetToken: 
-          _owner: {fileID: 11400000, guid: df5ab33cfc36c244daf93323a1fa663e, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 7083809
             _machine: 14129406
@@ -1132,7 +1131,7 @@ MonoBehaviour:
             - blockingObjects
             - blockingMask
             _resetToken: 
-          _owner: {fileID: 11400000, guid: df5ab33cfc36c244daf93323a1fa663e, type: 2}
+          _owner: {fileID: 0}
           _objectId:
             _increment: 7083811
             _machine: 14129406
@@ -1172,7 +1171,7 @@ MonoBehaviour:
             _value:
               serializedVersion: 2
               m_Bits: 4294967295
-  background2:
+  background:
     _overriding: 0
     _objectId:
       _increment: 15654023
@@ -1278,7 +1277,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -7607,7 +7605,7 @@ MonoBehaviour:
           - localRotation
           - localScale
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 75701b93102a99c4ab04be8ed2a77a41, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 7083815
           _machine: 14129406
@@ -7671,7 +7669,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -13884,7 +13881,7 @@ MonoBehaviour:
           - flexibleHeight
           - layoutPriority
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 75701b93102a99c4ab04be8ed2a77a41, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 7083896
           _machine: 14129406
@@ -13965,7 +13962,7 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-  roundedBackground2:
+  roundedBackground:
     _overriding: 0
     _objectId:
       _increment: 15654024
@@ -14071,7 +14068,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -21296,7 +21292,7 @@ MonoBehaviour:
           - localRotation
           - localScale
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 1da2a00f57845f444bf24f5af4a6bfdd, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 7083900
           _machine: 14129406
@@ -21360,7 +21356,6 @@ MonoBehaviour:
             _pid: 0
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
-      showAllComponents: 0
       _componentSubsetDataList:
         _capacityIncreaseMultiplier: 2
         _values:
@@ -28469,7 +28464,7 @@ MonoBehaviour:
           - flexibleHeight
           - layoutPriority
           _resetToken: 
-        _owner: {fileID: 11400000, guid: 1da2a00f57845f444bf24f5af4a6bfdd, type: 2}
+        _owner: {fileID: 0}
         _objectId:
           _increment: 7083997
           _machine: 14129406
@@ -28550,33 +28545,6 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-  canvas:
-    _overriding: 1
-    _objectId:
-      _increment: 7083812
-      _machine: 14129406
-      _timestamp: 1645645806
-      _pid: -8016
-    _initial: {fileID: 0}
-    _value: {fileID: 11400000, guid: df5ab33cfc36c244daf93323a1fa663e, type: 2}
-  background:
-    _overriding: 0
-    _objectId:
-      _increment: 7083897
-      _machine: 14129406
-      _timestamp: 1645645807
-      _pid: -8016
-    _initial: {fileID: 0}
-    _value: {fileID: 11400000, guid: 75701b93102a99c4ab04be8ed2a77a41, type: 2}
-  roundedBackground:
-    _overriding: 0
-    _objectId:
-      _increment: 7083998
-      _machine: 14129406
-      _timestamp: 1645645808
-      _pid: -8016
-    _initial: {fileID: 0}
-    _value: {fileID: 11400000, guid: 1da2a00f57845f444bf24f5af4a6bfdd, type: 2}
   fontStyle: {fileID: 11400000, guid: a19202bfea2a08c4db21eb910774d592, type: 2}
   featureEnabledVisibilityMode: 1
   featureDisabledVisibilityMode: 2

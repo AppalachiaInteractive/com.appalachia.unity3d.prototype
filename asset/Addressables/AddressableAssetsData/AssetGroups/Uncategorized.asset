@@ -161,6 +161,14 @@ MonoBehaviour:
     m_Address: ProfilingActivityBarSubwidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 34cec63e4dc9fd0409296eb8c30dd9a1
+    m_Address: AudioStatusBarSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 26fc3d7bb0ca04f469e80d06b03330f3
+    m_Address: DebuggerStatusBarSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

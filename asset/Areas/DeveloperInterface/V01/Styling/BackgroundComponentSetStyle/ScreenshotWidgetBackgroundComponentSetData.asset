@@ -25,6 +25,7 @@ MonoBehaviour:
   dataTransferred: 1
   showAll: 0
   _rectTransform:
+    _displayTypeName: 
     _name: 
     _niceName: 
     _initializer:
@@ -114,11 +115,11 @@ MonoBehaviour:
         _pid: 0
       _initial: {x: 0, y: 0, z: 0, w: 1}
       _value: {x: 0, y: 0, z: 0, w: 1}
-  showAllComponents: 0
   _componentSubsetDataList:
     _capacityIncreaseMultiplier: 2
     _values:
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -133,6 +134,7 @@ MonoBehaviour:
         _pid: -14768
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -179,8 +181,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -299,6 +309,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -389,6 +400,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -415,6 +427,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -510,7 +523,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -525,6 +539,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -571,8 +586,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -691,6 +714,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -781,6 +805,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -807,6 +832,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -902,7 +928,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -917,6 +944,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -963,8 +991,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -1083,6 +1119,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1173,6 +1210,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1199,6 +1237,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1294,7 +1333,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -1309,6 +1349,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1355,8 +1396,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -1475,6 +1524,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1565,6 +1615,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1591,6 +1642,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1686,7 +1738,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -1701,6 +1754,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1747,8 +1801,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -1867,6 +1929,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1957,6 +2020,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -1983,6 +2047,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2078,7 +2143,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -2093,6 +2159,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2139,8 +2206,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -2259,6 +2334,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2349,6 +2425,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2375,6 +2452,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2470,7 +2548,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -2485,6 +2564,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2531,8 +2611,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -2651,6 +2739,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2741,6 +2830,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2767,6 +2857,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2862,7 +2953,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -2877,6 +2969,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -2923,8 +3016,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -3043,6 +3144,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3133,6 +3235,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3159,6 +3262,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3254,7 +3358,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -3269,6 +3374,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3315,8 +3421,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -3435,6 +3549,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3525,6 +3640,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3551,6 +3667,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3646,7 +3763,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -3661,6 +3779,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3707,8 +3826,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -3827,6 +3954,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3917,6 +4045,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -3943,6 +4072,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4038,7 +4168,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -4053,6 +4184,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4099,8 +4231,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -4219,6 +4359,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4309,6 +4450,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4335,6 +4477,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4430,7 +4573,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -4445,6 +4589,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4491,8 +4636,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -4611,6 +4764,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4701,6 +4855,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4727,6 +4882,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4822,7 +4978,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -4837,6 +4994,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -4883,8 +5041,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -5003,6 +5169,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5093,6 +5260,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5119,6 +5287,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5214,7 +5383,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -5229,6 +5399,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5275,8 +5446,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -5395,6 +5574,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5485,6 +5665,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5511,6 +5692,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5606,7 +5788,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -5621,6 +5804,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5667,8 +5851,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -5787,6 +5979,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5877,6 +6070,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5903,6 +6097,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -5998,7 +6193,8 @@ MonoBehaviour:
             _pid: 0
           _initial: 1
           _value: 1
-    - _name: 
+    - _displayTypeName: 
+      _name: 
       _niceName: 
       _initializer:
         _initializationCount: 1
@@ -6013,6 +6209,7 @@ MonoBehaviour:
         _pid: 0
       _enabled: 1
       data1:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -6059,8 +6256,16 @@ MonoBehaviour:
             _machine: 0
             _timestamp: 0
             _pid: 0
-          _initial: {r: 0, g: 0, b: 0, a: 0}
-          _value: {r: 0, g: 0, b: 0, a: 0}
+          _initial:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
+          _value:
+            r: 0
+            g: 0
+            b: 0
+            a: 0
         raycastTarget:
           _overriding: 0
           _objectId:
@@ -6179,6 +6384,7 @@ MonoBehaviour:
           _initial: 0
           _value: 0
       data2:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -6269,6 +6475,7 @@ MonoBehaviour:
           _initial: {x: 0, y: 0, z: 0, w: 1}
           _value: {x: 0, y: 0, z: 0, w: 1}
       data3:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -6295,6 +6502,7 @@ MonoBehaviour:
           _initial: 1
           _value: 1
       data4:
+        _displayTypeName: 
         _name: 
         _niceName: 
         _initializer:
@@ -6393,6 +6601,7 @@ MonoBehaviour:
     noTracking: 0
     _count: 1
   _layoutElement:
+    _displayTypeName: 
     _name: 
     _niceName: 
     _initializer:
