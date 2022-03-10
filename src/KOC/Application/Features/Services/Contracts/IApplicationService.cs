@@ -7,7 +7,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services.Contracts
     {
         void DisableService();
         void EnableService();
-        void DisableFeature();
+        void OnDisableFeature();
         void EnableFeature();
     }
 

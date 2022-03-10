@@ -6,6 +6,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 {
     public interface IDevTooltipStyle : IStyleElement
     {
+        AppearanceDirection Direction { get; }
         bool ShowTriangle { get; }
         Color BackgroundColor { get; }
         Color OutlineColor { get; }
@@ -14,7 +15,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         float TextPadding { get; }
         float TriangleSize { get; }
         Sprite TriangleSprite { get; }
-        AppearanceDirection Direction { get; }
 
         #region Profiling
 

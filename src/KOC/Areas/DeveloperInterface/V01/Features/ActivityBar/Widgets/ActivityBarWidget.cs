@@ -14,11 +14,10 @@ using UnityEngine.UI;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets
 {
     [CallStaticConstructorInEditor]
-    public sealed class ActivityBarWidget : DeveloperInterfaceManager_V01.WidgetWithSingletonSubwidgets<
-                                                IActivityBarSubwidget, IActivityBarSubwidgetMetadata, ActivityBarWidget,
-                                                ActivityBarWidgetMetadata, ActivityBarFeature,
-                                                ActivityBarFeatureMetadata>,
-                                            ISubwidgetActivator<IActivityBarSubwidget, IActivityBarSubwidgetMetadata>
+    public sealed partial class ActivityBarWidget : DeveloperInterfaceManager_V01.WidgetWithSingletonSubwidgets<
+                                                        IActivityBarSubwidget, IActivityBarSubwidgetMetadata,
+                                                        ActivityBarWidget, ActivityBarWidgetMetadata, ActivityBarFeature
+                                                        , ActivityBarFeatureMetadata>
     {
         static ActivityBarWidget()
         {
@@ -35,8 +34,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         #region Fields and Autoproperties
 
-        private IActivityBarSubwidget _activeSubwidget;
-
         private List<IActivityBarSubwidget> _topActivityBarSubwidgets;
         private List<IActivityBarSubwidget> _bottomActivityBarSubwidgets;
 
@@ -45,8 +42,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         public VerticalLayoutGroupSubset bottomActivityBarLayoutGroup;
 
         #endregion
-
-        public IActivityBarSubwidget ActiveSubwidget => _activeSubwidget;
 
         public IReadOnlyList<IActivityBarSubwidget> BottomActivityBarSubwidgets => _bottomActivityBarSubwidgets;
 
@@ -179,47 +174,5 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 ValidateSubwidgets();
             }
         }
-
-        #region ISubwidgetActivator<IActivityBarSubwidget,IActivityBarSubwidgetMetadata> Members
-
-        public void DeactivateActiveSubwidget()
-        {
-            using (_PRF_DeactivateActiveSubwidget.Auto())
-            {
-                if (_activeSubwidget != null)
-                {
-                    _activeSubwidget.Deactivate();
-                    _activeSubwidget = null;
-                }
-            }
-        }
-
-        public void SetActiveSubwidget(IActivityBarSubwidget subwidget)
-        {
-            using (_PRF_SetActiveSubwidget.Auto())
-            {
-                if (_activeSubwidget != subwidget)
-                {
-                    if (_activeSubwidget != null)
-                    {
-                        _activeSubwidget.Deactivate();
-                    }
-
-                    _activeSubwidget = subwidget;
-                }
-            }
-        }
-
-        #endregion
-
-        #region Profiling
-
-        private static readonly ProfilerMarker _PRF_DeactivateActiveSubwidget =
-            new ProfilerMarker(_PRF_PFX + nameof(DeactivateActiveSubwidget));
-
-        private static readonly ProfilerMarker _PRF_SetActiveSubwidget =
-            new ProfilerMarker(_PRF_PFX + nameof(SetActiveSubwidget));
-
-        #endregion
     }
 }

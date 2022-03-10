@@ -1,4 +1,3 @@
-using System;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
@@ -6,9 +5,6 @@ using Appalachia.Prototype.KOC.Application.Features.Availability;
 using Appalachia.Prototype.KOC.Application.Features.Availability.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Utility.Async;
-using Appalachia.Utility.Constants;
-using Appalachia.Utility.Reflection.Extensions;
-using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
@@ -21,8 +17,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         where TFunctionality : ApplicationFunctionality<TFunctionality, TFunctionalityMetadata, TManager>
         where TFunctionalityMetadata :
         ApplicationFunctionalityMetadata<TFunctionality, TFunctionalityMetadata, TManager>
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
-        IApplicationFunctionalityManager
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
         static ApplicationFunctionality()
         {
@@ -32,10 +27,9 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
              * intentional use of base class ApplicationFunctionality<> to ensure that this callback
              * runs before other TFunctionality callbacks.
              */
-            RegisterInstanceCallbacks
-               .For<ApplicationFunctionality<TFunctionality, TFunctionalityMetadata, TManager>>()
-               .When.Behaviour<TManager>()
-               .IsAvailableThen(manager => { _manager = manager; });
+            RegisterInstanceCallbacks.For<ApplicationFunctionality<TFunctionality, TFunctionalityMetadata, TManager>>()
+                                     .When.Behaviour<TManager>()
+                                     .IsAvailableThen(manager => { _manager = manager; });
         }
 
         #region Static Fields and Autoproperties
@@ -106,8 +100,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         protected new static void RegisterDependency<TDependency>(
             SingletonAppalachiaBehaviour<TDependency>.InstanceAvailableHandler handler)
-            where TDependency : SingletonAppalachiaBehaviour<TDependency>,
-            IRepositoryDependencyTracker<TDependency>
+            where TDependency : SingletonAppalachiaBehaviour<TDependency>, IRepositoryDependencyTracker<TDependency>
         {
             using (_PRF_RegisterDependency.Auto())
             {
@@ -123,6 +116,16 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
                 }*/
 
                 _dependencyTracker.RegisterDependency(handler);
+            }
+        }
+
+        protected override async AppaTask AfterEnabled()
+        {
+            await base.AfterEnabled();
+
+            using (_PRF_AfterEnabled.Auto())
+            {
+                metadata.UpdateFunctionality(this as TFunctionality);
             }
         }
 
@@ -148,16 +151,6 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
             await AppaTask.WaitUntil(() => metadata != null);
 
             name = GetType().Name;
-        }
-
-        protected override async AppaTask AfterEnabled()
-        {
-            await base.AfterEnabled();
-
-            using (_PRF_AfterEnabled.Auto())
-            {
-                metadata.UpdateFunctionality(this as TFunctionality);
-            }
         }
 
         #region IApplicationFunctionality Members

@@ -21,7 +21,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         #endregion
 
-        protected override bool RequiresIcon => true;
 
         public override string GetDevTooltipText()
         {
@@ -40,7 +39,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        protected override Color GetStatusBarColor()
+        public override Color GetStatusBarColor()
         {
             if (AppalachiaApplication.IsReleaseBuild)
             {
@@ -50,7 +49,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             return Color.magenta;
         }
 
-        protected override string GetStatusBarText()
+        public override string GetStatusBarText()
         {
             using (_PRF_GetStatusBarText.Auto())
             {

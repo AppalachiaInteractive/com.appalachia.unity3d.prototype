@@ -11,8 +11,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts
         void Hide();
         void SetVisibility(bool setVisibilityTo);
         void Show();
-        void EnableFeature();
-        void DisableFeature();
+        void OnEnableFeature();
+        void OnDisableFeature();
         void ToggleVisibility();
     }
 

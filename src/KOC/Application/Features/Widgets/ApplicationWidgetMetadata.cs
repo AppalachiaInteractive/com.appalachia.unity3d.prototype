@@ -1,4 +1,6 @@
 using Appalachia.CI.Constants;
+using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Components.Sets;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
@@ -22,6 +24,7 @@ using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 {
+    [CallStaticConstructorInEditor]
     public abstract class ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
                                                     TFunctionalitySet, TIService, TIWidget, TManager> :
         ApplicationFunctionalityMetadata<TWidget, TWidgetMetadata, TManager>,
@@ -39,68 +42,88 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         where TIWidget : IApplicationWidget
         where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
+        static ApplicationWidgetMetadata()
+        {
+            var callbacks = RegisterInstanceCallbacks
+               .For<ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet,
+                    TIService, TIWidget, TManager>>();
+
+            callbacks.When.Object<TFeatureMetadata>().IsAvailableThen(i => _featureMetadata = i);
+        }
+
+        #region Static Fields and Autoproperties
+
+        private static TFeatureMetadata _featureMetadata;
+
+        #endregion
+
         #region Fields and Autoproperties
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowRectTransformField))]
+        [HideIf(nameof(HideRectTransformField))]
         public RectTransformData.Override rectTransform;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowCanvasField))]
-        [SerializeField] public CanvasComponentSetData.Optional canvas;
+        [HideIf(nameof(HideCanvasField))]
+        [SerializeField]
+        public CanvasComponentSetData.Optional canvas;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowBackgroundField))]
-        [SerializeField] public BackgroundComponentSetData.Optional background;
+        [HideIf(nameof(HideBackgroundField))]
+        [SerializeField]
+        public BackgroundComponentSetData.Optional background;
 
         [FoldoutGroup(APPASTR.Common)]
         [FormerlySerializedAs("roundedBackgroundStyle")]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowRoundedBackgroundField))]
-        [SerializeField] public RoundedBackgroundComponentSetData.Optional roundedBackground;
+        [HideIf(nameof(HideRoundedBackgroundField))]
+        [SerializeField]
+        public RoundedBackgroundComponentSetData.Optional roundedBackground;
 
         [FoldoutGroup(APPASTR.Common)]
         [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowFontStyleField))]
+        [HideIf(nameof(HideFontStyleField))]
         public FontStyleOverride fontStyle;
 
         [FoldoutGroup(APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowFeatureEnabledVisibilityModeField))]
+        [HideIf(nameof(HideFeatureEnabledVisibilityModeField))]
         public WidgetVisibilityMode featureEnabledVisibilityMode;
 
         [FoldoutGroup(APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowFeatureDisabledVisibilityModeField))]
+        [HideIf(nameof(HideFeatureDisabledVisibilityModeField))]
         public WidgetVisibilityMode featureDisabledVisibilityMode;
 
         [FoldoutGroup(APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
-        [ShowIf(nameof(ShowTransitionsWithFadeField))]
+        [HideIf(nameof(HideTransitionsWithFadeField))]
         public bool transitionsWithFade;
 
         [FoldoutGroup(APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0f, 1f)]
-        [ShowIf(nameof(ShowAnimationDurationField))]
+        [HideIf(nameof(HideAnimationDurationField))]
         public float animationDuration;
 
         #endregion
 
-        protected virtual bool ShowAnimationDurationField => true;
-        protected virtual bool ShowBackgroundField => true;
-        protected virtual bool ShowCanvasField => true;
-        protected virtual bool ShowFeatureDisabledVisibilityModeField => true;
-        protected virtual bool ShowFeatureEnabledVisibilityModeField => true;
-        protected virtual bool ShowFontStyleField => true;
+        protected virtual bool HideAnimationDurationField => false;
+        protected virtual bool HideBackgroundField => false;
+        protected virtual bool HideCanvasField => false;
+        protected virtual bool HideFeatureDisabledVisibilityModeField => false;
+        protected virtual bool HideFeatureEnabledVisibilityModeField => false;
+        protected virtual bool HideFontStyleField => false;
 
-        protected virtual bool ShowRectTransformField => true;
-        protected virtual bool ShowRoundedBackgroundField => true;
-        protected virtual bool ShowTransitionsWithFadeField => true;
+        protected virtual bool HideRectTransformField => false;
+        protected virtual bool HideRoundedBackgroundField => false;
+        protected virtual bool HideTransitionsWithFadeField => false;
+
+        protected TFeatureMetadata FeatureMetadata => _featureMetadata;
 
         public virtual float GetCanvasGroupInvisibleAlpha()
         {
@@ -179,7 +202,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     true,
                     ref widget.canvas,
                     widget.gameObject,
-                    typeof(TWidget).Name
+                    typeof(TWidget).Name,
+                    this
                 );
 
                 BackgroundComponentSetData.RefreshAndApply(
@@ -187,7 +211,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     true,
                     ref widget.background,
                     widget.canvas.GameObject,
-                    typeof(TWidget).Name
+                    typeof(TWidget).Name,
+                    this
                 );
 
                 RoundedBackgroundComponentSetData.RefreshAndApply(
@@ -195,34 +220,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     false,
                     ref widget.roundedBackground,
                     widget.canvas.GameObject,
-                    typeof(TWidget).Name
-                );
-            }
-        }
-
-        protected void RefreshAndApply<TComponentSet, TComponentSetData>(
-            ref TComponentSet set,
-            ref TComponentSetData setData,
-            TWidget widget,
-            GameObject parent = null,
-            string setName = null)
-            where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
-            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
-        {
-            using (_PRF_RefreshAndApply.Auto())
-            {
-                setName ??= typeof(TWidget).Name;
-
-                if (parent == null)
-                {
-                    parent = widget.gameObject;
-                }
-
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndApply(
-                    ref setData,
-                    ref set,
-                    parent,
-                    setName
+                    typeof(TWidget).Name,
+                    this
                 );
             }
         }

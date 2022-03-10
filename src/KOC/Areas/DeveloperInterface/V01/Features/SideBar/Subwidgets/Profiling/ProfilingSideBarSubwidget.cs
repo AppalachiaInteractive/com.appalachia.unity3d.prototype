@@ -1,7 +1,8 @@
+using System;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Core;
+using Appalachia.UI.Controls.Components.Buttons;
 using Appalachia.UI.Controls.Sets.Layout.Foldout;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.Utility.Extensions;
+using Appalachia.UI.Core.Components.Subsets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,9 +19,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
         [SerializeField] public new FoldoutComponentSet audio;
 
-        [SerializeField] public VerticalLayoutGroup verticalLayoutGroup;
+        [SerializeField] public VerticalLayoutGroupSubset verticalLayoutGroup;
 
         #endregion
+
+        protected override bool ShowsTooltip => false;
+
+        public override string GetDevTooltipText()
+        {
+            throw new NotImplementedException();
+        }
 
         public override void OnClicked()
         {
@@ -29,24 +37,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
             }
         }
 
-        protected override void OnUpdateSubwidget()
+        protected override AppaButton GetTooltipTarget()
         {
-            using (_PRF_OnUpdateSubwidget.Auto())
-            {
-                base.OnUpdateSubwidget();
+            throw new NotImplementedException();
+        }
 
-                FoldoutComponentSetData.RefreshAndApply(ref Metadata.fps,    ref fps,    gameObject, "FPS");
-                FoldoutComponentSetData.RefreshAndApply(ref Metadata.memory, ref memory, gameObject, "RAM");
-                FoldoutComponentSetData.RefreshAndApply(ref Metadata.audio,  ref audio,  gameObject, "Audio");
+        protected override void OnActivate()
+        {
+        }
 
-                gameObject.GetOrAddComponent(ref verticalLayoutGroup);
-
-                VerticalLayoutGroupData.RefreshAndApply(
-                    ref Metadata.verticalLayoutGroup,
-                    Metadata,
-                    verticalLayoutGroup
-                );
-            }
+        protected override void OnDeactivate()
+        {
         }
     }
 }

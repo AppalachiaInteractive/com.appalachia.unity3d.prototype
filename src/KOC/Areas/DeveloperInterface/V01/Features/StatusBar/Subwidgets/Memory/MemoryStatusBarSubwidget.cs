@@ -22,8 +22,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         internal MemoryProfilerService MemoryProfilerService => _memoryProfilerService;
 
-        protected override bool RequiresIcon => true;
-
         public override string GetDevTooltipText()
         {
             using (_PRF_GetDevTooltipText.Auto())
@@ -44,7 +42,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        protected override string GetStatusBarText()
+        public override string GetStatusBarText()
         {
             using (_PRF_GetStatusBarText.Auto())
             {

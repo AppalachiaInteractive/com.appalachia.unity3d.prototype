@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e656398e31b3fd49b5c5536ba4d19a1, type: 3}
   m_Name: DeveloperInterfaceSideBarComponent
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 14
     _tags:
@@ -32,7 +30,8 @@ MonoBehaviour:
     - _extraPadding
     - _fontStyles
     _resetToken: 
-  _objectId:
+  _niceName: Developer Interface Side Bar Component
+  _objectID:
     _increment: 3571554
     _machine: 14129404
     _timestamp: 1644957426

@@ -48,10 +48,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         [HideInInspector]
         public RectTransformData activityBarIconRectTransform;
 
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        public DevTooltipStyleOverride devTooltipStyle;
-
         [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
@@ -272,12 +268,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     subwidget.Metadata.Button.SelectionIndicatorDirection = selectionIndicatorDirection;
                     subwidget.Metadata.Button.SelectionIndicatorSize = selectionIndicatorSize;
                     
-                    var swLayoutGroup = subwidget.Metadata.Button.LayoutGroup;
+                    /*var swLayoutGroup = subwidget.Metadata.Button.LayoutGroup;
 
                     swLayoutGroup.IsElected = false;
-                    swLayoutGroup.BindValueEnabledState();
+                    swLayoutGroup.BindValueEnabledState();*/
 
-                    subwidget.UpdateSubwidget();
+                    subwidget.ApplyMetadata();
 
                     subwidget.RectTransform.SetHeight(iconSize + (iconPadding * 2f));
 
@@ -290,7 +286,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 {
                     var subwidget = widget.BottomActivityBarSubwidgets[subwidgetIndex];
 
-                    subwidget.UpdateSubwidget();
+                    subwidget.ApplyMetadata();
 
                     subwidget.UpdateSubwidgetIconSize(activityBarIconRectTransform);
                 }

@@ -88,24 +88,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
             using (_PRF_Initialize.Auto())
             {
-                initializer.Do(this, nameof(_triangleSprite), () => _triangleSprite = new(false, default));
-                initializer.Do(this, nameof(_direction),      () => _direction = new(false, default));
-                initializer.Do(
-                    this,
-                    nameof(_distanceFromTarget),
-                    () => _distanceFromTarget = new(false, default)
-                );
-                initializer.Do(this, nameof(_textPadding),     () => _textPadding = new(false, default));
-                initializer.Do(this, nameof(_backgroundColor), () => _backgroundColor = new(false, default));
-                initializer.Do(this, nameof(_outlineColor),    () => _outlineColor = new(false, default));
-                initializer.Do(
-                    this,
-                    nameof(_outlineThickness),
-                    () => _outlineThickness = new(false, default)
-                );
-                initializer.Do(this, nameof(_showTriangle), () => _showTriangle = new(false, default));
-                initializer.Do(this, nameof(_triangleSize), () => _triangleSize = new(false, default));
-                
+                initializer.Do(this, nameof(_triangleSprite),     () => _triangleSprite = new(false, default));
+                initializer.Do(this, nameof(_direction),          () => _direction = new(false, default));
+                initializer.Do(this, nameof(_distanceFromTarget), () => _distanceFromTarget = new(false, default));
+                initializer.Do(this, nameof(_textPadding),        () => _textPadding = new(false, default));
+                initializer.Do(this, nameof(_backgroundColor),    () => _backgroundColor = new(false, default));
+                initializer.Do(this, nameof(_outlineColor),       () => _outlineColor = new(false, default));
+                initializer.Do(this, nameof(_outlineThickness),   () => _outlineThickness = new(false, default));
+                initializer.Do(this, nameof(_showTriangle),       () => _showTriangle = new(false, default));
+                initializer.Do(this, nameof(_triangleSize),       () => _triangleSize = new(false, default));
+
                 SyncWithDefault();
             }
         }

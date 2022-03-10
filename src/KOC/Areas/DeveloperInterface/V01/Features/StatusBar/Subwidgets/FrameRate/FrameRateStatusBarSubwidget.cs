@@ -48,9 +48,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        protected override bool RequiresIcon => true;
-
-        protected override string GetStatusBarText()
+        public override string GetStatusBarText()
         {
             using (_PRF_GetStatusBarText.Auto())
             {

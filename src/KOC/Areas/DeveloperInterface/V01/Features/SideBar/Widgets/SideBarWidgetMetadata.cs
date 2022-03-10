@@ -1,8 +1,10 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Contracts;
+using Appalachia.UI.Controls.Sets.Layout.Foldout.Styling;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets
 {
@@ -15,7 +17,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
         [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.10f, 0.40f)]
+        [SerializeField]
         public float width;
+
+        [SerializeField]
+        [OnValueChanged(nameof(OnChanged))]
+        public FoldoutStyleOverride foldoutStyle;
 
         #endregion
 
@@ -42,7 +49,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
                 base.UpdateFunctionalityInternal(widget);
-                
+
                 widget.ValidateSubwidgets();
             }
         }

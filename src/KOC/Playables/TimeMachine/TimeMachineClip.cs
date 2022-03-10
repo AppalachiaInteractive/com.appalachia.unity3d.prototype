@@ -14,24 +14,59 @@ namespace Appalachia.Prototype.KOC.Playables.TimeMachine
         [HideIf(nameof(_hideCondition))]
         public TimeMachineBehaviour.Condition condition;
 
-        [HideIf(nameof(_hideCondition))]
-        [ShowIf(nameof(_showGameObject))]
+        [HideIf(
+            "@this." +
+            nameof(_hideCondition) +
+            " || (!this." +
+            nameof(_hideCondition) +
+            " && this." +
+            nameof(_showGameObject) +
+            ")"
+        )]
         public ExposedReference<GameObject> gameObject;
 
-        [HideIf(nameof(_hideCondition))]
-        [ShowIf(nameof(_showComponent))]
+        [HideIf(
+            "@this." +
+            nameof(_hideCondition) +
+            " || (!this." +
+            nameof(_hideCondition) +
+            " && this." +
+            nameof(_showComponent) +
+            ")"
+        )]
         public ExposedReference<MonoBehaviour> component;
 
-        [HideIf(nameof(_hideCondition))]
-        [ShowIf(nameof(_showTimeToJumpTo))]
+        [HideIf(
+            "@this." +
+            nameof(_hideCondition) +
+            " || (!this." +
+            nameof(_hideCondition) +
+            " && this." +
+            nameof(_showTimeToJumpTo) +
+            ")"
+        )]
         public float timeToJumpTo;
 
-        [HideIf(nameof(_hideCondition))]
-        [ShowIf(nameof(_showMarkerLabel))]
+        [HideIf(
+            "@this." +
+            nameof(_hideCondition) +
+            " || (!this." +
+            nameof(_hideCondition) +
+            " && this." +
+            nameof(_showMarkerLabel) +
+            ")"
+        )]
         public string markerLabel = "";
 
-        [HideIf(nameof(_hideCondition))]
-        [ShowIf(nameof(_showMarkerToJumpTo))]
+        [HideIf(
+            "@this." +
+            nameof(_hideCondition) +
+            " || (!this." +
+            nameof(_hideCondition) +
+            " && this." +
+            nameof(_showMarkerToJumpTo) +
+            ")"
+        )]
         public string markerToJumpTo = "";
 
         public TimeMachineBehaviour.TimeMachineAction action;

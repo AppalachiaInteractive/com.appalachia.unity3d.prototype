@@ -35,7 +35,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
                     ref rawImageSet,
                     ref widget.rawImageSet,
                     widget.gameObject,
-                    nameof(RuntimeGizmoDrawerWidget)
+                    nameof(RuntimeGizmoDrawerWidget),
+                    this
                 );
             }
         }

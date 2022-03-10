@@ -23,7 +23,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
         BaseCanvasComponentSetData<TComponentSet, TComponentSetData, TIComponentSetData>,
         ISimpleCursorComponentSetData
         where TComponentSet : BaseSimpleCursorComponentSet<TComponentSet, TComponentSetData, TIComponentSetData>, new()
-        where TComponentSetData : BaseSimpleCursorComponentSetData<TComponentSet, TComponentSetData, TIComponentSetData>, TIComponentSetData, new()
+        where TComponentSetData : BaseSimpleCursorComponentSetData<TComponentSet, TComponentSetData, TIComponentSetData>
+        , TIComponentSetData, new()
         where TIComponentSetData : ISimpleCursorComponentSetData
     {
         static BaseSimpleCursorComponentSetData()
@@ -62,7 +63,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
         }
 
         /// <inheritdoc />
-        public override void OnApply(TComponentSet componentSet)
+        protected override void OnApply(TComponentSet componentSet)
         {
             using (_PRF_OnApply.Auto())
             {
@@ -91,8 +92,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_Metadata =
-            new ProfilerMarker(_PRF_PFX + nameof(Metadata));
+        private static readonly ProfilerMarker _PRF_Metadata = new ProfilerMarker(_PRF_PFX + nameof(Metadata));
 
         #endregion
     }

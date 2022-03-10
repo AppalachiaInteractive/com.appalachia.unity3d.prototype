@@ -144,20 +144,20 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                         textMesh.transform.SetParent(widget.canvas.RectTransform);
                     }
 
-                    textMesh.data = developerInfoTextMesh;
+                    textMesh.updateTiming = developerInfoTextMesh.updateTiming;
+                    textMesh.createLabel = developerInfoTextMesh.createLabel;
+
                     textMesh.currentCalculation = type;
 
-                    var maxPreferredHeight = Mathf.Max(textMesh.textMeshValue.preferredHeight,
-                        textMesh.textMeshLabel.preferredHeight);
-                    
+                    var maxPreferredHeight = Mathf.Max(
+                        textMesh.textMeshValue.preferredHeight,
+                        textMesh.textMeshLabel.preferredHeight
+                    );
+
                     textMesh.layoutElement.minHeight = maxPreferredHeight;
                     textMesh.layoutElement.preferredHeight = maxPreferredHeight;
 
-                    DeveloperInfoTextMeshData.RefreshAndApply(
-                        ref developerInfoTextMesh,
-                        this,
-                        textMesh
-                    );
+                    DeveloperInfoTextMeshData.RefreshAndApply(ref developerInfoTextMesh, this, textMesh);
                 }
 
                 if (widget.headerImage.transform.parent != widget.canvas.RectTransform)
@@ -176,11 +176,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
                 LayoutElementData.RefreshAndApply(ref headerLayout, this, widget.headerLayout);
 
-                VerticalLayoutGroupData.RefreshAndApply(
-                    ref verticalLayoutGroup,
-                    this,
-                    widget.verticalLayoutGroup
-                );
+                VerticalLayoutGroupData.RefreshAndApply(ref verticalLayoutGroup, this, widget.verticalLayoutGroup);
 
                 canvas.Value.CanvasGroup.Value.alpha.Overriding = false;
                 widget.canvas.CanvasGroup.alpha = alpha;

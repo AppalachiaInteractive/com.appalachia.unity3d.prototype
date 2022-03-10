@@ -22,7 +22,7 @@ MonoBehaviour:
     - featureDisabledExecutionMode
     _resetToken: 
   _niceName: 
-  _objectId:
+  _objectID:
     _increment: 3571638
     _machine: 14129404
     _timestamp: 1644957441
@@ -37,8 +37,13 @@ MonoBehaviour:
   cameraData:
     _name: 
     _niceName: 
+    _objectID:
+      _increment: 3571637
+      _machine: 14129404
+      _timestamp: 1644957441
+      _pid: -14768
     _initializer:
-      _initializationCount: 0
+      _initializationCount: 1
       _tags:
       - allowDynamicResolution
       - allowHDR
@@ -65,17 +70,14 @@ MonoBehaviour:
       - transparencySortMode
       - useOcclusionCulling
       - usePhysicalProperties
+      - _enabled
       _resetToken: 
     _owner: {fileID: 11400000}
-    _objectId:
-      _increment: 3571637
-      _machine: 14129404
-      _timestamp: 1644957441
-      _pid: -14768
     _hideAllFields: 0
     _disableAllFields: 0
     _suspendFieldApplication: 0
     _showAdvancedOptions: 0
+    _enabled: 1
     clearFlags:
       _overriding: 1
       _objectId:
@@ -314,6 +316,11 @@ MonoBehaviour:
   updates:
     _name: 
     _niceName: 
+    _objectID:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
     minimumFrames: 1
     maximumFrames: 300
     minimumMilliseconds: 50

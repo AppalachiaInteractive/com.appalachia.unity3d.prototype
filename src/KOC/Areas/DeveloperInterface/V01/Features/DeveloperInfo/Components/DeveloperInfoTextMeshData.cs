@@ -25,6 +25,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         #endregion
 
         /// <inheritdoc />
+        protected override DeveloperInfoType GetInitialEnum()
+        {
+            return DeveloperInfoType.MachineName;
+        }
+
+        /// <inheritdoc />
         protected override void OnApply(DeveloperInfoTextMesh target)
         {
             using (_PRF_OnApply.Auto())
@@ -53,12 +59,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                     (data, comp) => { data.minHeight.Disabled = false; }
                 );
             }
-        }
-
-        /// <inheritdoc />
-        protected override DeveloperInfoType GetInitialEnum()
-        {
-            return DeveloperInfoType.MachineName;
         }
 
         /// <inheritdoc />

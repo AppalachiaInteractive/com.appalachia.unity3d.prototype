@@ -129,14 +129,14 @@ namespace Appalachia.Prototype.KOC.Application.Features
             {
                 var widget = Widgets[widgetIndex];
 
-                widget.DisableFeature();
+                widget.OnDisableFeature();
             }
 
             for (var serviceIndex = 0; serviceIndex < Services.Count; serviceIndex++)
             {
                 var service = Services[serviceIndex];
 
-                service.DisableFeature();
+                service.OnDisableFeature();
             }
 
             _isEnabled = false;
@@ -157,7 +157,7 @@ namespace Appalachia.Prototype.KOC.Application.Features
             {
                 var widget = Widgets[widgetIndex];
 
-                widget.EnableFeature();
+                widget.OnEnableFeature();
             }
 
             for (var serviceIndex = 0; serviceIndex < Services.Count; serviceIndex++)

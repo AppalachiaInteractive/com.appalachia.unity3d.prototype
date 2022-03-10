@@ -22,7 +22,6 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Fields and Autoproperties
 
-        
         [FormerlySerializedAs("scaledTemplates")]
         [SerializeField]
         [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Scaled_Templates)]
@@ -54,10 +53,7 @@ namespace Appalachia.Prototype.KOC.Areas
             return Brand.AreaManager.Color;
         }
 
-        protected void CreateAreaAsset<TC, TS>(
-            ref TC assetReference,
-            TS markAsModified,
-            string additionalName = null)
+        protected void CreateAreaAsset<TC, TS>(ref TC assetReference, TS markAsModified, string additionalName = null)
             where TC : ScriptableObject
             where TS : ScriptableObject
         {
@@ -86,7 +82,8 @@ namespace Appalachia.Prototype.KOC.Areas
                     false,
                     ref templates,
                     RootCanvas.ScaledCanvas.gameObject,
-                    fullObjectName
+                    fullObjectName,
+                    this
                 );
             }
         }
@@ -106,8 +103,7 @@ namespace Appalachia.Prototype.KOC.Areas
         protected static readonly ProfilerMarker _PRF_InitializeEditor =
             new ProfilerMarker(_PRF_PFX + nameof(InitializeEditor));
 
-        private static readonly ProfilerMarker _PRF_UpdateEditor =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateEditor));
+        private static readonly ProfilerMarker _PRF_UpdateEditor = new ProfilerMarker(_PRF_PFX + nameof(UpdateEditor));
 
         #endregion
     }

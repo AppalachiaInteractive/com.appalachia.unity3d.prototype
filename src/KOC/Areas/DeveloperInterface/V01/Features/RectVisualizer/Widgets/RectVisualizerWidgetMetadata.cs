@@ -21,7 +21,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
                 base.SubscribeResponsiveComponents(target);
-                
+
                 _rawImageSet.Changed.Event += OnChanged;
             }
         }
@@ -37,7 +37,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                     ref _rawImageSet,
                     ref widget.rawImageSet,
                     widget.canvas.GameObject,
-                    nameof(RectVisualizerWidget)
+                    nameof(RectVisualizerWidget),
+                    this
                 );
             }
         }

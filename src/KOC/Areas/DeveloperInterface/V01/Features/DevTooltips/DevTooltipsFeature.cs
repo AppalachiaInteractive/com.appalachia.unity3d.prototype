@@ -9,10 +9,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
     {
         static DevTooltipsFeature()
         {
-            FunctionalitySet.RegisterWidget<DevTooltipsWidget>(
-                _dependencyTracker,
-                i => _devTooltipsWidget = i
-            );
+            FunctionalitySet.RegisterWidget<DevTooltipsWidget>(_dependencyTracker, i => _devTooltipsWidget = i);
         }
 
         #region Static Fields and Autoproperties

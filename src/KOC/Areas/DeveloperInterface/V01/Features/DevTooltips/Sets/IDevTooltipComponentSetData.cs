@@ -5,9 +5,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 {
     public interface IDevTooltipComponentSetData : IUIComponentSetData
     {
-        public ImageSubsetData TriangleBackground {get;}
-        public ImageSubsetData TriangleForeground {get;}
-        public OutlinedImageSubsetData Background {get;}
-        public TextMeshProUGUISubsetData TooltipText {get;}
+        public ImageSubsetData TriangleBackground { get; }
+        public ImageSubsetData TriangleForeground { get; }
+        public OutlinedImageSubsetData Background { get; }
+        public TextMeshProUGUISubsetData TooltipText { get; }
     }
 }

@@ -79,7 +79,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         }
 
         /// <inheritdoc />
-        public override void OnApply(TComponentSet componentSet)
+        protected override void OnApply(TComponentSet componentSet)
         {
             using (_PRF_OnApply.Auto())
             {

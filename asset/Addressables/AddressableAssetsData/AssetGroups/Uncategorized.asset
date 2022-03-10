@@ -169,6 +169,34 @@ MonoBehaviour:
     m_Address: DebuggerStatusBarSubwidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 30e348394da569f43908bcae5400b6b0
+    m_Address: ProfilingSideBarSubwidgetDevTooltipSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6ed0b205092edfc438917c31aaa46c3d
+    m_Address: DebuggerStatusBarSubwidgetDevTooltipSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9f4f69f9495751d4b98dd1099f1c18a2
+    m_Address: AudioStatusBarSubwidgetDevTooltipSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 162263b86a3d7f1409b8559a3ff54792
+    m_Address: MemoryStatusBarSubwidgetDevTooltipSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b89fca79f23ca974f8cd06ae155cd587
+    m_Address: ProfilingActivityBarSubwidgetDevTooltipSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f8b5b1e5e1ea6e644901cf829fbc1b4a
+    m_Address: FrameRateStatusBarSubwidgetDevTooltipSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6cd88e009f5414b48bc0b00549290499
+    m_Address: SceneInfoStatusBarSubwidgetDevTooltipSubwidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

@@ -148,7 +148,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
             }
         }
 
-        public virtual void DisableFeature()
+        public virtual void OnDisableFeature()
         {
             using (_PRF_DisableFeature.Auto())
             {
@@ -169,7 +169,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Services
         #region Profiling
 
         protected static readonly ProfilerMarker _PRF_DisableFeature =
-            new ProfilerMarker(_PRF_PFX + nameof(DisableFeature));
+            new ProfilerMarker(_PRF_PFX + nameof(OnDisableFeature));
 
         protected static readonly ProfilerMarker _PRF_DisableService =
             new ProfilerMarker(_PRF_PFX + nameof(DisableService));

@@ -8,8 +8,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
     /// <inheritdoc />
     [Serializable]
     [SmartLabelChildren]
-    public sealed class DevTooltipComponentSet : BaseDevTooltipComponentSet<DevTooltipComponentSet, DevTooltipComponentSetData,
-        IDevTooltipComponentSetData>
+    public sealed class DevTooltipComponentSet : BaseDevTooltipComponentSet<DevTooltipComponentSet,
+        DevTooltipComponentSetData, IDevTooltipComponentSetData>
     {
         /// <inheritdoc />
         public override ComponentSetSorting DesiredComponentOrder => ComponentSetSorting.NotFirst;

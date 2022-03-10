@@ -12,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         #endregion
 
-        private bool _canJumpToDevTooltipSubwidget => _devTooltipSubwidget != null;
+        private bool _canJumpToDevTooltipSubwidget => devTooltipSubwidget != null;
 
         [EnableIf(nameof(_canJumpToDevTooltipSubwidget))]
         [ButtonGroup(NAVIGATION_BUTTON_GROUP)]
@@ -22,7 +22,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_JumpToTooltipButton.Auto())
             {
-                UnityEditor.Selection.activeGameObject = _devTooltipSubwidget.gameObject;
+                UnityEditor.Selection.activeGameObject = devTooltipSubwidget.gameObject;
             }
         }
 

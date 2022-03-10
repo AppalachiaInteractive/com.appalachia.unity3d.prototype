@@ -1,6 +1,7 @@
 using System;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.Audio;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
+using Appalachia.UI.Controls.Components.Buttons;
 using Appalachia.Utility.Strings;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Audio
@@ -27,8 +28,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         internal AudioProfilerService AudioProfilerService => _audioProfilerService;
 
-        protected override bool RequiresIcon => true;
-
         public override string GetDevTooltipText()
         {
             using (_PRF_GetDevTooltipText.Auto())
@@ -46,7 +45,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        protected override string GetStatusBarText()
+        public override string GetStatusBarText()
         {
             using (_PRF_GetStatusBarText.Auto())
             {

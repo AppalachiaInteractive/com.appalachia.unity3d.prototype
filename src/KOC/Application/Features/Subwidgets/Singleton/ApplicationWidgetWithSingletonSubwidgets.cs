@@ -6,10 +6,10 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Common.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
-using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.UI.Controls.Extensions;
@@ -26,8 +26,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
                                                                    TFunctionalitySet, TIService, TIWidget, TManager> :
         ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
             TManager>
-        where TISubwidget : class, ISingletonSubwidget<TISubwidget, TISubwidgetMetadata>
-        where TISubwidgetMetadata : class, ISingletonSubwidgetMetadata<TISubwidget, TISubwidgetMetadata>
+        where TISubwidget : class, IApplicationSingletonSubwidget<TISubwidget, TISubwidgetMetadata>
+        where TISubwidgetMetadata : class, IApplicationSingletonSubwidgetMetadata<TISubwidget, TISubwidgetMetadata>
         where TWidget : ApplicationWidgetWithSingletonSubwidgets<TISubwidget, TISubwidgetMetadata, TWidget,
             TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>, TIWidget
         where TWidgetMetadata : ApplicationWidgetWithSingletonSubwidgetsMetadata<TISubwidget, TISubwidgetMetadata,
@@ -57,7 +57,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
             {
                 void RegisterSubwidgetAction(TWidget widget)
                 {
-                    widget.RegisterSubwidget(subwidget);
+                    widget.AddSubwidget(subwidget);
                 }
 
                 callbacks.When.Behaviour<TWidget>().IsAvailableThen(RegisterSubwidgetAction);
@@ -74,7 +74,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
         #endregion
 
-        public GameObject SubwidgetParent => _subwidgetParent;
+        public GameObject SubwidgetParent
+        {
+            get
+            {
+                canvas.GameObject.GetOrAddChild(ref _subwidgetParent, SubwidgetParentName, true);
+                return _subwidgetParent;
+            }
+        }
 
         public IReadOnlyList<TISubwidget> Subwidgets
         {
@@ -95,7 +102,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         ///     Adds the specified element to the widget's collection.
         /// </summary>
         /// <param name="element">The element to add.</param>
-        public void RegisterSubwidget(TISubwidget element)
+        public void AddSubwidget(TISubwidget element)
         {
             using (_PRF_RegisterSubwidget.Auto())
             {
@@ -122,12 +129,12 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         protected abstract void OnRegisterSubwidget(TISubwidget subwidget);
 
         protected static void SortSubwidgetsByPriority<TI, TIM>(List<TI> subwidgets)
-            where TI : class, ISingletonSubwidget<TI, TIM>
-            where TIM : class, ISingletonSubwidgetMetadata<TI, TIM>, IPrioritySubwidgetMetadata
+            where TI : class, IApplicationSubwidget<TI, TIM>
+            where TIM : class, IApplicationSubwidgetMetadata<TI, TIM>, IPrioritySubwidgetMetadata
         {
             using (_PRF_SortSubwidgetsByPriority.Auto())
             {
-                subwidgets.Sort((e1, e2) => e1.Metadata.Priority.CompareTo(e2.Metadata.Priority));
+                subwidgets.Sort((e1, e2) => { return e1.Priority.CompareTo(e2.Priority); });
             }
         }
 
@@ -138,14 +145,12 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
             using (_PRF_WhenEnabled.Auto())
             {
-                canvas.GameObject.GetOrAddChild(ref _subwidgetParent, SubwidgetParentName, true);
-
                 var canvasChildCount = canvas.RectTransform.childCount;
 
                 var subwidgetRect = SubwidgetParent.transform as RectTransform;
                 subwidgetRect.FullScreen(true);
 
-                _subwidgetParent.transform.SetSiblingIndex(canvasChildCount - 1);
+                SubwidgetParent.transform.SetSiblingIndex(canvasChildCount - 1);
             }
         }
 
@@ -153,6 +158,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         {
             using (_PRF_EnsureSubwidgetsHaveCorrectParent.Auto())
             {
+                var subwidgetRect = SubwidgetParent.transform as RectTransform;
+                subwidgetRect.FullScreen(true);
+
                 for (var index = 0; index < subwidgets.Count; index++)
                 {
                     var subwidget = subwidgets[index];
@@ -195,7 +203,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
             new ProfilerMarker(_PRF_PFX + nameof(OnRegisterSubwidget));
 
         protected static readonly ProfilerMarker _PRF_RegisterSubwidget =
-            new ProfilerMarker(_PRF_PFX + nameof(RegisterSubwidget));
+            new ProfilerMarker(_PRF_PFX + nameof(AddSubwidget));
 
         protected static readonly ProfilerMarker _PRF_SwapSubwidgetsBetweenLists =
             new ProfilerMarker(_PRF_PFX + nameof(RemoveIncorrectSubwidgetsFromList));

@@ -32,19 +32,18 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                                                     TFunctionalitySet, TIService, TIWidget, TManager> :
         ApplicationFunctionality<TWidget, TWidgetMetadata, TManager>,
         IApplicationWidget
-        where TWidget : ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
-            TFunctionalitySet, TIService, TIWidget, TManager>, TIWidget
-        where TWidgetMetadata : ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata
-            , TFunctionalitySet, TIService, TIWidget, TManager>
-        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget
-            , TManager>
-        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet,
-            TIService, TIWidget, TManager>
+        where TWidget : ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet,
+            TIService, TIWidget, TManager>, TIWidget
+        where TWidgetMetadata : ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+            TFunctionalitySet, TIService, TIWidget, TManager>
+        where TFeature : ApplicationFeature<TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
+            TManager>
+        where TFeatureMetadata : ApplicationFeatureMetadata<TFeature, TFeatureMetadata, TFunctionalitySet, TIService,
+            TIWidget, TManager>
         where TFunctionalitySet : FeatureFunctionalitySet<TIService, TIWidget>, new()
         where TIService : IApplicationService
         where TIWidget : IApplicationWidget
-        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>,
-        IApplicationFunctionalityManager
+        where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
 
     {
         #region Constants and Static Readonly
@@ -58,8 +57,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
 
             RegisterInstanceCallbacks
-               .For<ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet,
-                    TIService, TIWidget, TManager>>()
+               .For<ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService
+                    , TIWidget, TManager>>()
                .When.Behaviour<TFeature>()
                .AndBehaviour<TWidget>()
                .AreAvailableThen(
@@ -213,10 +212,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
 
             await AppaTask.WaitUntil(() => _feature != null);
-            
+
             using (_PRF_WhenEnabled.Auto())
             {
-
                 UpdateVisibility(_feature.IsEnabled);
             }
         }
@@ -403,17 +401,17 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
-        public virtual void DisableFeature()
+        public virtual void OnDisableFeature()
         {
-            using (_PRF_DisableFeature.Auto())
+            using (_PRF_OnDisableFeature.Auto())
             {
                 UpdateVisibility(false);
             }
         }
 
-        public virtual void EnableFeature()
+        public virtual void OnEnableFeature()
         {
-            using (_PRF_EnableFeature.Auto())
+            using (_PRF_OnEnableFeature.Auto())
             {
                 UpdateVisibility(true);
             }
@@ -438,12 +436,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_DisableFeature =
-            new ProfilerMarker(_PRF_PFX + nameof(DisableFeature));
-
-        private static readonly ProfilerMarker _PRF_EnableFeature =
-            new ProfilerMarker(_PRF_PFX + nameof(EnableFeature));
-
         protected static readonly ProfilerMarker _PRF_EnsureWidgetIsCorrectSize =
             new ProfilerMarker(_PRF_PFX + nameof(EnsureWidgetIsCorrectSize));
 
@@ -452,11 +444,16 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         protected static readonly ProfilerMarker _PRF_Hide = new ProfilerMarker(_PRF_PFX + nameof(Hide));
 
+        private static readonly ProfilerMarker _PRF_OnDisableFeature =
+            new ProfilerMarker(_PRF_PFX + nameof(OnDisableFeature));
+
+        private static readonly ProfilerMarker _PRF_OnEnableFeature =
+            new ProfilerMarker(_PRF_PFX + nameof(OnEnableFeature));
+
         private static readonly ProfilerMarker _PRF_OnRectTransformDimensionsChange =
             new ProfilerMarker(_PRF_PFX + nameof(OnRectTransformDimensionsChange));
 
-        protected static readonly ProfilerMarker _PRF_OnUpdate =
-            new ProfilerMarker(_PRF_PFX + nameof(OnUpdate));
+        protected static readonly ProfilerMarker _PRF_OnUpdate = new ProfilerMarker(_PRF_PFX + nameof(OnUpdate));
 
         protected static readonly ProfilerMarker _PRF_RefreshWidgetVisuals =
             new ProfilerMarker(_PRF_PFX + nameof(RefreshWidgetVisuals));
@@ -466,8 +463,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         protected static readonly ProfilerMarker _PRF_Show = new ProfilerMarker(_PRF_PFX + nameof(Show));
 
-        protected static readonly ProfilerMarker _PRF_Toggle =
-            new ProfilerMarker(_PRF_PFX + nameof(ToggleVisibility));
+        protected static readonly ProfilerMarker _PRF_Toggle = new ProfilerMarker(_PRF_PFX + nameof(ToggleVisibility));
 
         protected static readonly ProfilerMarker _PRF_UpdateAnchorMax =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateAnchorMax));

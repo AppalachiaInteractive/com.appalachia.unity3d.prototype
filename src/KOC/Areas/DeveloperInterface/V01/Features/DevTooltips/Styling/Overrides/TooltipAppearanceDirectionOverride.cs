@@ -6,8 +6,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 {
     [Serializable]
     public sealed class
-        OverridableTooltipAppearanceDirection : Overridable<AppearanceDirection,
-            OverridableTooltipAppearanceDirection>
+        OverridableTooltipAppearanceDirection : Overridable<AppearanceDirection, OverridableTooltipAppearanceDirection>
     {
         public OverridableTooltipAppearanceDirection() : base(false, default)
         {

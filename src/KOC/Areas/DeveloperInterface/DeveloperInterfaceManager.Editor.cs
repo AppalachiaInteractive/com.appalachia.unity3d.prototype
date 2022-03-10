@@ -14,6 +14,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
         [SerializeField]
         [FoldoutGroup(APPASTR.Components + "/" + APPASTR.Unscaled_Templates)]
         protected DesignTemplateComponentSet unscaledTemplates;
+
         #endregion
 
         private void InitializeEditor(Initializer initializer, string setName)
@@ -25,7 +26,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
                     false,
                     ref unscaledTemplates,
                     unscaledCanvas.GameObject,
-                    $"{Area}Unscaled"
+                    $"{Area}Unscaled",
+                    areaMetadata
                 );
             }
         }

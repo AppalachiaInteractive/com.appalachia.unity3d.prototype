@@ -23,8 +23,9 @@ namespace Appalachia.Prototype.KOC.Areas
         public AreaMetadataConfigurations.AreaInputConfiguration input;
 
         [FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
-        [SerializeField] public RootCanvasComponentSetData rootCanvas;
-        
+        [SerializeField]
+        public RootCanvasComponentSetData rootCanvas;
+
         [SerializeField]
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration sceneBehaviour;
@@ -53,7 +54,8 @@ namespace Appalachia.Prototype.KOC.Areas
                     ref data,
                     ref target,
                     parent,
-                    setName
+                    setName,
+                    this
                 );
             }
         }
@@ -112,7 +114,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     }
                 }
             );
-            
+
 #if UNITY_EDITOR
             InitializeEditor(initializer);
 #endif
@@ -141,8 +143,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_GetManager =
-            new ProfilerMarker(_PRF_PFX + nameof(GetManager));
+        private static readonly ProfilerMarker _PRF_GetManager = new ProfilerMarker(_PRF_PFX + nameof(GetManager));
 
         private static readonly ProfilerMarker _PRF_UpdateComponentSet =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateComponentSet));

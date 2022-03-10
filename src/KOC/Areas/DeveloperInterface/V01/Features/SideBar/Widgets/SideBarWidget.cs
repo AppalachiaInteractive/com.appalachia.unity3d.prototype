@@ -9,8 +9,9 @@ using Appalachia.Utility.Async;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets
 {
     [CallStaticConstructorInEditor]
-    public sealed class SideBarWidget : DeveloperInterfaceManager_V01.WidgetWithSingletonSubwidgets<ISideBarSubwidget,
-        ISideBarSubwidgetMetadata, SideBarWidget, SideBarWidgetMetadata, SideBarFeature, SideBarFeatureMetadata>
+    public sealed partial class SideBarWidget : DeveloperInterfaceManager_V01.WidgetWithSingletonSubwidgets<
+        ISideBarSubwidget, ISideBarSubwidgetMetadata, SideBarWidget, SideBarWidgetMetadata, SideBarFeature,
+        SideBarFeatureMetadata>
     {
         static SideBarWidget()
         {

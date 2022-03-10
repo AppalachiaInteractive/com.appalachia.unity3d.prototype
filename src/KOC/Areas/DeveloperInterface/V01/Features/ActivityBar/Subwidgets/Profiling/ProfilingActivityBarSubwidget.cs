@@ -1,5 +1,6 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Core;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Profiling;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Profiling
@@ -8,9 +9,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     public class ProfilingActivityBarSubwidget : ActivityBarSubwidget<ProfilingActivityBarSubwidget,
         ProfilingActivityBarSubwidgetMetadata>
     {
+        static ProfilingActivityBarSubwidget()
+        {
+            RegisterDependency<SideBarWidget>(i => _sideBarWidget = i);
+            RegisterDependency<ProfilingSideBarSubwidget>(i => _profilingSideBarSubwidget = i);
+        }
+
         #region Static Fields and Autoproperties
 
         private static SideBarWidget _sideBarWidget;
+        private static ProfilingSideBarSubwidget _profilingSideBarSubwidget;
 
         #endregion
 
@@ -23,12 +31,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         protected override void OnActivate()
         {
-            throw new System.NotImplementedException();
+            using (_PRF_OnActivate.Auto())
+            {
+            }
         }
 
         protected override void OnDeactivate()
         {
-            throw new System.NotImplementedException();
+            using (_PRF_OnDeactivate.Auto())
+            {
+                
+            }
         }
     }
 }

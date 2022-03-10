@@ -5,7 +5,7 @@ using UnityEngine.Timeline;
 namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
 {
     public abstract class SplashScreenSubMetadata<TManager, TMetadata> : AreaMetadata<TManager, TMetadata>,
-        ISplashScreenSubMetadata
+                                                                         ISplashScreenSubMetadata
         where TManager : AreaManager<TManager, TMetadata>
         where TMetadata : AreaMetadata<TManager, TMetadata>
     {
@@ -18,7 +18,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
         public TimelineSkipMode timelineSkipMode;
 
         [BoxGroup("Timeline Skipping")]
-        [ShowIf(nameof(_showSkipDelay))]
+        [HideIf(nameof(_hideSkipDelay))]
         public int skipFrameDelay;
 
         [BoxGroup("Timeline Execution")]
@@ -38,7 +38,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
         public TimelinePlayMode timelinePlayMode;
 
         [BoxGroup("Timeline Director")]
-        [ShowIf(nameof(_showFrameDelay))]
+        [HideIf(nameof(_hideFrameDelay))]
         public int frameDelay;
 
         [BoxGroup("Timeline Director")]
@@ -46,9 +46,9 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
 
         #endregion
 
-        private bool _showFrameDelay => timelinePlayMode == TimelinePlayMode.AfterDelay;
+        private bool _hideFrameDelay => timelinePlayMode != TimelinePlayMode.AfterDelay;
 
-        private bool _showSkipDelay => timelineSkipMode == TimelineSkipMode.AfterDelay;
+        private bool _hideSkipDelay => timelineSkipMode != TimelineSkipMode.AfterDelay;
 
         #region ISplashScreenSubMetadata Members
 

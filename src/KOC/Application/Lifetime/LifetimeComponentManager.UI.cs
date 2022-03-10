@@ -140,14 +140,16 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                     ref _lifetimeMetadata.rootCanvas,
                     ref _rootCanvas,
                     _uiObject,
-                    APPASTR.ObjectNames.Master_Canvas
+                    APPASTR.ObjectNames.Master_Canvas,
+                    _lifetimeMetadata
                 );
 
                 BackgroundComponentSetData.RefreshAndApply(
                     ref _lifetimeMetadata.rootBackground,
                     ref _rootBackground,
                     _rootCanvas.ScaledCanvas.gameObject,
-                    APPASTR.ObjectNames.Master_Canvas
+                    APPASTR.ObjectNames.Master_Canvas,
+                    _lifetimeMetadata
                 );
 
                 RootCanvasComponentSetReady.RaiseEvent(RootCanvasComponentSet);
@@ -159,8 +161,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         private static readonly ProfilerMarker _PRF_GetPositionInScaledCanvas =
             new ProfilerMarker(_PRF_PFX + nameof(GetPositionInScaledCanvas));
 
-        private static readonly ProfilerMarker _PRF_InitializeUI =
-            new ProfilerMarker(_PRF_PFX + nameof(InitializeUI));
+        private static readonly ProfilerMarker _PRF_InitializeUI = new ProfilerMarker(_PRF_PFX + nameof(InitializeUI));
 
         private static readonly ProfilerMarker _PRF_ScreenPointToLocalPointInRectangle =
             new ProfilerMarker(_PRF_PFX + nameof(ScreenPointToLocalPointInRectangle));

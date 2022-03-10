@@ -2,6 +2,7 @@ using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Features;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Services;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Subwidgets.Singleton.Contracts;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Subwidgets.Singleton

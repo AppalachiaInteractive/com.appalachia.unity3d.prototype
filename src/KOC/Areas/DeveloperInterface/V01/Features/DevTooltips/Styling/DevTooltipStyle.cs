@@ -11,9 +11,8 @@ using UnityEngine;
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling
 {
     [Serializable]
-    public class DevTooltipStyle :
-        StyleElementDefault<DevTooltipStyle, DevTooltipStyleOverride, IDevTooltipStyle>,
-        IDevTooltipStyle
+    public class DevTooltipStyle : StyleElementDefault<DevTooltipStyle, DevTooltipStyleOverride, IDevTooltipStyle>,
+                                   IDevTooltipStyle
     {
         #region Fields and Autoproperties
 
@@ -52,6 +51,24 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
         #endregion
 
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                initializer.Do(this, nameof(_distanceFromTarget), () => _distanceFromTarget = 20f);
+                initializer.Do(this, nameof(_textPadding), () => _textPadding = 5f);
+                initializer.Do(this, nameof(_backgroundColor), () => _backgroundColor = Colors.FromHexCode("#252526"));
+                initializer.Do(this, nameof(_outlineColor), () => _outlineColor = Colors.FromHexCode("#3E3E3E"));
+                initializer.Do(this, nameof(_outlineThickness), () => _outlineThickness = 2f);
+                initializer.Do(this, nameof(_direction), () => _direction = AppearanceDirection.Above);
+                initializer.Do(this, nameof(_showTriangle), () => _showTriangle = true);
+                initializer.Do(this, nameof(_triangleSize), () => _triangleSize = 18f);
+            }
+        }
+
         #region IDevTooltipStyle Members
 
         public Sprite TriangleSprite => _triangleSprite;
@@ -66,32 +83,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
         #endregion
 
-        /// <inheritdoc />
-        protected override async AppaTask Initialize(Initializer initializer)
-        {
-            await base.Initialize(initializer);
-
-            using (_PRF_Initialize.Auto())
-            {
-                initializer.Do(this, nameof(_distanceFromTarget), () => _distanceFromTarget = 20f);
-                initializer.Do(this, nameof(_textPadding),        () => _textPadding = 5f);
-                initializer.Do(
-                    this,
-                    nameof(_backgroundColor),
-                    () => _backgroundColor = Colors.FromHexCode("#252526")
-                );
-                initializer.Do(
-                    this,
-                    nameof(_outlineColor),
-                    () => _outlineColor = Colors.FromHexCode("#3E3E3E")
-                );
-                initializer.Do(this, nameof(_outlineThickness), () => _outlineThickness = 2f);
-                initializer.Do(this, nameof(_direction),        () => _direction = AppearanceDirection.Above);
-                initializer.Do(this, nameof(_showTriangle),     () => _showTriangle = true);
-                initializer.Do(this, nameof(_triangleSize),     () => _triangleSize = 18f);
-            }
-        }
-        
         #region Profiling
 
         private static readonly ProfilerMarker _PRF_RegisterOverride =

@@ -11,8 +11,7 @@ using UnityEngine.InputSystem;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 {
-    public abstract partial class DeveloperInterfaceManager<TManager, TMetadata> :
-        AreaManager<TManager, TMetadata>,
+    public abstract partial class DeveloperInterfaceManager<TManager, TMetadata> : AreaManager<TManager, TMetadata>,
         IDeveloperInterfaceManager,
         KOCInputActions.IDeveloperInterfaceActions
         where TManager : DeveloperInterfaceManager<TManager, TMetadata>
@@ -37,7 +36,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
                     ref areaMetadata.unscaledCanvas,
                     ref unscaledCanvas,
                     gameObject,
-                    "Root Canvas Unscaled"
+                    "Root Canvas Unscaled",
+                    areaMetadata
                 );
 
                 unscaledCanvas.isSortingDisabled = true;
