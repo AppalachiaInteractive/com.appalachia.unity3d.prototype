@@ -1,5 +1,4 @@
 using Appalachia.Core.Attributes;
-using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets;
 using UnityEngine;

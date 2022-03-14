@@ -2,10 +2,6 @@ using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Contracts;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contracts
 {
-    public interface IApplicationSingletonSubwidgetMetadata : IApplicationSubwidgetMetadata
-    {
-    }
-
     public interface IApplicationSingletonSubwidgetMetadata<in T> : IApplicationSubwidgetMetadata<T>,
                                                                     IApplicationSingletonSubwidgetMetadata
         where T : class, IApplicationSingletonSubwidget

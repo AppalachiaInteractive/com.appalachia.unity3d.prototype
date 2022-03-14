@@ -2,7 +2,7 @@ using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Controls.Components.Buttons;
+using Appalachia.UI.Functionality.Buttons.Components;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +21,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
     {
         #region Fields and Autoproperties
 
-        public StatusBarSubwidgetComponentSet button;
+        public StatusBarSubwidgetControl button;
 
         #endregion
 
@@ -61,7 +61,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_GetTooltipTarget.Auto())
             {
-                return button.AppaButton;
+                return button.button.AppaButton;
             }
         }
 

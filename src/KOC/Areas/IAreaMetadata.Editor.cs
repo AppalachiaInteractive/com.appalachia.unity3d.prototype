@@ -1,11 +1,11 @@
-#if UNITY_EDITOR
-using Appalachia.UI.Controls.Sets.DesignTemplate;
+using Appalachia.UI.Functionality.Design.Controls.Template;
 
+#if UNITY_EDITOR
 namespace Appalachia.Prototype.KOC.Areas
 {
     public partial interface IAreaMetadata
     {
-        public DesignTemplateComponentSetData Templates { get; }
+        public TemplateControlConfig Templates { get; }
     }
 }
 

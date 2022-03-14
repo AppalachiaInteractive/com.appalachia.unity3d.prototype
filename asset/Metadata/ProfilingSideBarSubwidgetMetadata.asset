@@ -33415,7 +33415,7 @@ MonoBehaviour:
               _timestamp: 0
               _pid: 0
             _initializer:
-              _initializationCount: 197
+              _initializationCount: 213
               _tags:
               - fontStyle
               - _enabled
@@ -39479,7 +39479,7 @@ MonoBehaviour:
               _timestamp: 0
               _pid: 0
             _initializer:
-              _initializationCount: 197
+              _initializationCount: 213
               _tags:
               - fontStyle
               - _enabled
@@ -45543,7 +45543,7 @@ MonoBehaviour:
               _timestamp: 0
               _pid: 0
             _initializer:
-              _initializationCount: 197
+              _initializationCount: 213
               _tags:
               - fontStyle
               - _enabled

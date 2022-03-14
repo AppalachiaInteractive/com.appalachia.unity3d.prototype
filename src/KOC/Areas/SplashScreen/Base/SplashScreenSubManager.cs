@@ -165,9 +165,9 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
         {
             using (_PRF_SkipTimeline.Auto())
             {
-                rootCanvas.CanvasFadeManager.ForceActive();
+                rootCanvas.rootCanvas.CanvasFadeManager.ForceActive();
 
-                rootCanvas.CanvasFadeManager.FadeOutCompleted += () =>
+                rootCanvas.rootCanvas.CanvasFadeManager.FadeOutCompleted += () =>
                 {
                     _playableDirector.Stop();
                     _playableDirector.enabled = false;
@@ -175,7 +175,7 @@ namespace Appalachia.Prototype.KOC.Areas.SplashScreen.Base
                     enabled = false;
                 };
 
-                rootCanvas.CanvasFadeManager.FadeOut();
+                rootCanvas.rootCanvas.CanvasFadeManager.FadeOut();
                 _alreadySkipping = true;
             }
         }

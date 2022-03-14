@@ -4,17 +4,16 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Controls.Sets.Buttons.Button;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.ControlModel.Components;
 using Appalachia.UI.Core.Extensions;
-using Appalachia.UI.Core.Styling.Fonts;
+using Appalachia.UI.Functionality.Buttons.Controls.Default.Contracts;
+using Appalachia.UI.Functionality.Images.Groups.Default;
+using Appalachia.UI.Styling.Fonts;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core
 {
@@ -34,7 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         [OnValueChanged(nameof(OnChanged))]
         [HideIf(nameof(HideAllFields))]
         [SerializeField]
-        public StatusBarSubwidgetComponentSetData button;
+        public StatusBarSubwidgetControlConfig button;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         private bool _enabled;
@@ -53,24 +52,23 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_UpdateSubwidgetFont.Auto())
             {
-                var buttonData = button;
-                var optionalSubsetData = buttonData.ButtonText;
-                var subsetData = optionalSubsetData.Value;
-                var componentData = subsetData.TextMeshProUGUI;
+
+                var optionalGroupConfig = button.ButtonText;
+                var groupConfig = optionalGroupConfig.Value;
+                var componentData = groupConfig.TextMeshProUGUI;
 
                 componentData.fontStyle = fontStyleOverride;
             }
         }
 
-        public void UpdateSubwidgetIconSize(RectTransformData rectTransformData)
+        public void UpdateSubwidgetIconSize(RectTransformConfig rectTransformData)
         {
             using (_PRF_UpdateSubwidgetIconSize.Auto())
             {
-                var buttonData = button;
-                var optionalSubsetData = buttonData.ButtonIcon;
-                var subsetData = optionalSubsetData.Value;
+                var optionalGroupConfig = button.ButtonIcon;
+                var groupConfig = optionalGroupConfig.Value;
 
-                subsetData.UpdateRectTransformData(rectTransformData);
+                groupConfig.UpdateRectTransformConfig(rectTransformData);
             }
         }
 
@@ -116,7 +114,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     button.ButtonText.Value.TextMeshProUGUI.fontStyle = WidgetMetadata.fontStyle;
                 }
 
-                StatusBarSubwidgetComponentSetData.RefreshAndApply(ref button, ref subwidget.button, subwidget.gameObject, name, this);
+                StatusBarSubwidgetControlConfig.RefreshAndApply(ref button, ref subwidget.button, subwidget.gameObject, name, this);
 
                 subwidget.RectTransform.ResetRotationAndScale();
 
@@ -154,7 +152,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        private void UpdateStatusBarIcon(ImageSubsetData.Optional buttonIconMetadata, Sprite tempIcon)
+        private void UpdateStatusBarIcon(ImageComponentGroupConfig.Optional buttonIconMetadata, Sprite tempIcon)
         {
             using (_PRF_UpdateStatusBarIcon.Auto())
             {
@@ -183,7 +181,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         public bool Enabled => _enabled;
 
-        public IButtonComponentSetData Button => button;
+        public IAppaButtonControlConfig Button => button;
         public StatusBarSection Section => _section;
 
         #endregion

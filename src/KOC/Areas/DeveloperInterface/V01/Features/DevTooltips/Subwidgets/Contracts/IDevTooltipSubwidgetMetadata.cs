@@ -10,6 +10,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
     {
         DevTooltipStyleOverride StyleOverride {get;}
 
-        DevTooltipComponentSetData ComponentSetData {get;}
+        DevTooltipControlConfig ControlConfig {get;}
     }
 }

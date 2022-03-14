@@ -2,7 +2,7 @@ using Appalachia.Core.Execution;
 using Appalachia.Core.Execution.Hooks;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Prototype.KOC.Data;
-using Appalachia.UI.Core.Components.Data;
+using Appalachia.UI.Functionality.Rendering.Cameras.Components;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions;
@@ -98,8 +98,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                     nameof(DatabaseManager)
                 );
 
-                CameraData.RefreshAndApply(
-                    ref _lifetimeMetadata.clearCameraData,
+                CameraConfig.RefreshAndApply(
+                    ref _lifetimeMetadata.clearCameraConfig,
                     lifetimeMetadata,
                     _clearCamera
                 );

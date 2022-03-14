@@ -6,7 +6,7 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Contracts;
-using Appalachia.UI.Controls.Components.Buttons;
+using Appalachia.UI.Functionality.Buttons.Components;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Colors;
 using Appalachia.Utility.Events;
@@ -15,6 +15,7 @@ using Drawing;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets
 {
@@ -28,9 +29,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
     {
         #region Fields and Autoproperties
 
+        [FormerlySerializedAs("componentSet")]
         [SerializeField]
         [ReadOnly]
-        public DevTooltipComponentSet componentSet;
+        public DevTooltipControl control;
 
         [SerializeField]
         [TextArea]

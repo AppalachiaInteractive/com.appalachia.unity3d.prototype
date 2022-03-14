@@ -1,7 +1,7 @@
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
-using Appalachia.UI.Controls.Common;
-using Appalachia.UI.Core.Components.Data;
+using Appalachia.UI.Core.Timing;
+using Appalachia.UI.Functionality.Rendering.Cameras.Components;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -16,7 +16,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         #region Fields and Autoproperties
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public CameraData cameraData;
+        public CameraConfig cameraData;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         public UpdateTiming updates;
@@ -60,13 +60,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
                 var camera = functionality.DrawCamera;
-                CameraData.RefreshAndApply(ref cameraData, this, camera);
+                CameraConfig.RefreshAndApply(ref cameraData, this, camera);
             }
         }
 
         #region IServiceMetadata Members
 
-        public CameraData CameraData => cameraData;
+        public CameraConfig CameraConfig => cameraData;
 
         #endregion
     }

@@ -1,11 +1,9 @@
 using Appalachia.Core.Attributes;
-using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
-using Appalachia.UI.Controls.Components.Buttons;
-using Appalachia.UI.Controls.Sets.Buttons.SelectableButton;
-using Appalachia.UI.Core.Components.Data;
-using Sirenix.OdinInspector;
+using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.Functionality.Buttons.Components;
+using Appalachia.UI.Functionality.Buttons.Controls.Default;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -23,7 +21,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     {
         #region Fields and Autoproperties
 
-        public SelectableButtonComponentSet button;
+        public AppaButtonControl button;
 
         #endregion
 
@@ -31,7 +29,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         {
             using (_PRF_GetTooltipTarget.Auto())
             {
-                return button.AppaButton;
+                return button.button.AppaButton;
             }
         }
 
@@ -45,15 +43,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             }
         }
 
-        public void UpdateSubwidgetIconSize(RectTransformData rectTransformData)
+        public void UpdateSubwidgetIconSize(RectTransformConfig rectTransformData)
         {
             using (_PRF_UpdateSubwidgetIconSize.Auto())
             {
                 var buttonData = Metadata.button;
-                var optionalSubsetData = buttonData.ButtonIcon;
-                var subsetData = optionalSubsetData.Value;
+                var optionalGroupConfig = buttonData.ButtonIcon;
+                var groupConfig = optionalGroupConfig.Value;
 
-                subsetData.UpdateRectTransformData(rectTransformData);
+                groupConfig.UpdateRectTransformConfig(rectTransformData);
             }
         }
 

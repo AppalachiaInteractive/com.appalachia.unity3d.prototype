@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Components;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Models;
-using Appalachia.UI.Core.Components.Data;
+using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.Functionality.Images.Components;
+using Appalachia.UI.Functionality.Layout.Components;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
@@ -24,15 +26,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
         [FoldoutGroup("Header")]
         [OnValueChanged(nameof(OnChanged))]
-        public RectTransformData headerRect;
+        public RectTransformConfig headerRect;
 
         [FoldoutGroup("Header")]
         [OnValueChanged(nameof(OnChanged))]
-        public ImageData headerImage;
+        public ImageConfig headerImage;
 
         [FoldoutGroup("Header")]
         [OnValueChanged(nameof(OnChanged))]
-        public LayoutElementData headerLayout;
+        public LayoutElementConfig headerLayout;
 
         [OnValueChanged(nameof(OnChanged))]
         public List<DeveloperInfoType> types;
@@ -40,12 +42,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         [FormerlySerializedAs("textSettings")]
         [FormerlySerializedAs("settings")]
         [OnValueChanged(nameof(OnChanged))]
-        public DeveloperInfoTextMeshData developerInfoTextMesh;
+        public DeveloperInfoTextMeshControlConfig developerInfoTextMesh;
 
         [FormerlySerializedAs("verticalLayoutGroupData")]
         [FormerlySerializedAs("layoutData")]
         [OnValueChanged(nameof(OnChanged))]
-        public VerticalLayoutGroupData verticalLayoutGroup;
+        public VerticalLayoutGroupConfig verticalLayoutGroup;
 
         #endregion
 
@@ -126,7 +128,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                     var type = types[i];
 
                     GameObject childGameObject = null;
-                    DeveloperInfoTextMesh textMesh = null;
+                    DeveloperInfoTextMeshControl textMesh = null;
 
                     widget.canvas.GameObject.GetOrAddChild(ref childGameObject, type.ToString(), true);
                     childGameObject.GetOrAddComponent(ref textMesh);
@@ -150,14 +152,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                     textMesh.currentCalculation = type;
 
                     var maxPreferredHeight = Mathf.Max(
-                        textMesh.textMeshValue.preferredHeight,
-                        textMesh.textMeshLabel.preferredHeight
+                        textMesh.textMeshValue.textMeshProUGUI.preferredHeight,
+                        textMesh.textMeshLabel.textMeshProUGUI.preferredHeight
                     );
 
-                    textMesh.layoutElement.minHeight = maxPreferredHeight;
-                    textMesh.layoutElement.preferredHeight = maxPreferredHeight;
+                    textMesh.layoutElement.layoutElement.minHeight = maxPreferredHeight;
+                    textMesh.layoutElement.layoutElement.preferredHeight = maxPreferredHeight;
 
-                    DeveloperInfoTextMeshData.RefreshAndApply(ref developerInfoTextMesh, this, textMesh);
+                    developerInfoTextMesh.Apply(textMesh);
                 }
 
                 if (widget.headerImage.transform.parent != widget.canvas.RectTransform)
@@ -170,16 +172,16 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
                 var roundedBackgroundIndex = widget.roundedBackground.GameObject.transform.GetSiblingIndex();
                 widget.headerImage.transform.SetSiblingIndex(roundedBackgroundIndex + 1);
 
-                RectTransformData.RefreshAndApply(ref headerRect, this, widget.headerRect);
+                RectTransformConfig.RefreshAndApply(ref headerRect, this, widget.headerRect);
 
-                ImageData.RefreshAndApply(ref headerImage, this, widget.headerImage);
+                ImageConfig.RefreshAndApply(ref headerImage, this, widget.headerImage);
 
-                LayoutElementData.RefreshAndApply(ref headerLayout, this, widget.headerLayout);
+                LayoutElementConfig.RefreshAndApply(ref headerLayout, this, widget.headerLayout);
 
-                VerticalLayoutGroupData.RefreshAndApply(ref verticalLayoutGroup, this, widget.verticalLayoutGroup);
+                VerticalLayoutGroupConfig.RefreshAndApply(ref verticalLayoutGroup, this, widget.verticalLayoutGroup);
 
-                canvas.Value.CanvasGroup.Value.alpha.Overriding = false;
-                widget.canvas.CanvasGroup.alpha = alpha;
+                canvas.Value.Canvas.CanvasGroup.Value.alpha.Overriding = false;
+                widget.canvas.Canvas.CanvasGroup.alpha = alpha;
             }
         }
     }

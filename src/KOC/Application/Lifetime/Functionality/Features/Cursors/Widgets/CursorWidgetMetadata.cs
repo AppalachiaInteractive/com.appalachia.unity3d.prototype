@@ -1,15 +1,16 @@
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Complex;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Complex;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Simple;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Widgets
 {
     public class CursorWidgetMetadata : LifetimeWidgetMetadata<CursorWidget, CursorWidgetMetadata,
         CursorFeature, CursorFeatureMetadata>
     {
-        [SerializeField] public SimpleCursorComponentSetData simpleCursorSet;
-        [SerializeField] public ComplexCursorComponentSetData complexCursorSet;
+        [FormerlySerializedAs("simpleCursorSet")] [SerializeField] public SimpleCursorControlConfig simpleCursorControl;
+        [FormerlySerializedAs("complexCursorSet")] [SerializeField] public ComplexCursorControlConfig complexCursorControl;
 
         /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(CursorWidget target)
@@ -18,8 +19,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 base.SubscribeResponsiveComponents(target);
 
-                simpleCursorSet.Changed.Event += OnChanged;
-                complexCursorSet.Changed.Event += OnChanged;
+                simpleCursorControl.Changed.Event += OnChanged;
+                complexCursorControl.Changed.Event += OnChanged;
             }
         }
 
@@ -30,18 +31,18 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 base.UpdateFunctionalityInternal(widget);
 
-                for (var setIndex = 0; setIndex < widget.ComplexCursorSets.Count; setIndex++)
+                for (var setIndex = 0; setIndex < widget.ComplexCursorControls.Count; setIndex++)
                 {
-                    var componentSet = widget.ComplexCursorSets[setIndex];
+                    var control = widget.ComplexCursorControls[setIndex];
 
-                    RefreshAndApply(ref componentSet, ref complexCursorSet, widget);
+                    RefreshAndApply(ref control, ref complexCursorControl, widget);
                 }
 
-                for (var setIndex = 0; setIndex < widget.SimpleCursorSets.Count; setIndex++)
+                for (var setIndex = 0; setIndex < widget.SimpleCursorControls.Count; setIndex++)
                 {
-                    var componentSet = widget.SimpleCursorSets[setIndex];
+                    var control = widget.SimpleCursorControls[setIndex];
 
-                    RefreshAndApply(ref componentSet, ref simpleCursorSet, widget);
+                    RefreshAndApply(ref control, ref simpleCursorControl, widget);
                 }
             }
         }

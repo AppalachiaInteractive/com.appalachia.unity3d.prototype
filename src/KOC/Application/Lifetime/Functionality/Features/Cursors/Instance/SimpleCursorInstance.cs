@@ -1,14 +1,14 @@
 using System;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Simple;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Metadata;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Model;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Instance
 {
     public sealed class SimpleCursorInstance : CursorInstance<SimpleCursorInstance, SimpleCursorInstanceState,
-        SimpleCursorMetadata, SimpleCursorComponentSet, SimpleCursorComponentSetData>
+        SimpleCursorMetadata, SimpleCursorControl, SimpleCursorControlConfig>
     {
         /// <inheritdoc />
         protected override void BeforeRendering()
@@ -52,7 +52,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
 
                     stateData.RecordColor(color);
 
-                    components.Image.CrossFadeColor(
+                    components.Image.image.CrossFadeColor(
                         color,
                         stateData.Metadata.cursorColorChangeDuration,
                         true,

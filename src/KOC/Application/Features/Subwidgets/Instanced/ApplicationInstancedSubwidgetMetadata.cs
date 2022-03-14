@@ -1,8 +1,8 @@
 using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.ControlModel.Controls;
 using Appalachia.Core.Objects.Availability;
-using Appalachia.Core.Objects.Components.Sets;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
@@ -12,11 +12,11 @@ using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Model;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Appalachia.UI.Controls.Sets.Canvases.Canvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
-using Appalachia.UI.Controls.Sets.Images.RoundedBackground;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.UI.Core.Styling.Fonts;
+using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.Functionality.Canvas.Controls.Default;
+using Appalachia.UI.Functionality.Images.Controls.Background;
+using Appalachia.UI.Functionality.Images.Controls.RoundedBackground;
+using Appalachia.UI.Styling.Fonts;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Collections;
@@ -85,25 +85,25 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf("@HideAllFields || HideRectTransformField")]
-        public RectTransformData.Override rectTransform;
+        public RectTransformConfig.Override rectTransform;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf("@HideAllFields || HideCanvasField")]
         [SerializeField]
-        public CanvasComponentSetData.Optional canvas;
+        public CanvasControlConfig.Optional canvas;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf("@HideAllFields || HideBackgroundField")]
         [SerializeField]
-        public BackgroundComponentSetData.Optional background;
+        public BackgroundControlConfig.Optional background;
 
         [FoldoutGroup(APPASTR.Common)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf("@HideAllFields || HideRoundedBackgroundField")]
         [SerializeField]
-        public RoundedBackgroundComponentSetData.Optional roundedBackground;
+        public RoundedBackgroundControlConfig.Optional roundedBackground;
 
         [FoldoutGroup(APPASTR.Common)]
         [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
@@ -328,9 +328,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         {
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                RectTransformData.RefreshAndApply(ref rectTransform, true, this, subwidget.RectTransform);
+                RectTransformConfig.RefreshAndApply(ref rectTransform, true, this, subwidget.RectTransform);
 
-                CanvasComponentSetData.RefreshAndApply(
+                CanvasControlConfig.RefreshAndApply(
                     ref canvas,
                     true,
                     ref subwidget.canvas,
@@ -339,7 +339,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
                     this
                 );
 
-                BackgroundComponentSetData.RefreshAndApply(
+                BackgroundControlConfig.RefreshAndApply(
                     ref background,
                     false,
                     ref subwidget.background,
@@ -348,7 +348,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
                     this
                 );
 
-                RoundedBackgroundComponentSetData.RefreshAndApply(
+                RoundedBackgroundControlConfig.RefreshAndApply(
                     ref roundedBackground,
                     false,
                     ref subwidget.roundedBackground,
@@ -427,14 +427,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
             }
         }
 
-        protected void RefreshAndApply<TComponentSet, TComponentSetData>(
-            ref TComponentSet set,
-            ref TComponentSetData setData,
+        protected void RefreshAndApply<TControl, TConfig>(
+            ref TControl control,
+            ref TConfig config,
             TSubwidget subwidget,
             GameObject parent = null,
             string setName = null)
-            where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
-            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
+            where TControl : AppaControl<TControl, TConfig>, new()
+            where TConfig: AppaControlConfig<TControl, TConfig>, new()
         {
             using (_PRF_RefreshAndApply.Auto())
             {
@@ -445,9 +445,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
                     parent = subwidget.gameObject;
                 }
 
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndApply(
-                    ref setData,
-                    ref set,
+                AppaControlConfig<TControl, TConfig>.RefreshAndApply(
+                    ref config,
+                    ref control,
                     parent,
                     setName,
                     this
@@ -473,10 +473,10 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         }
 
         public int Priority => priority;
-        public BackgroundComponentSetData.Optional Background => background;
-        public CanvasComponentSetData.Optional Canvas => canvas;
-        public RectTransformData.Override RectTransform => rectTransform;
-        public RoundedBackgroundComponentSetData.Optional RoundedBackground => roundedBackground;
+        public BackgroundControlConfig.Optional Background => background;
+        public CanvasControlConfig.Optional Canvas => canvas;
+        public RectTransformConfig.Override RectTransform => rectTransform;
+        public RoundedBackgroundControlConfig.Optional RoundedBackground => roundedBackground;
         public bool TransitionsWithFade => transitionsWithFade;
         public float AnimationDuration => animationDuration;
         public FontStyleOverride FontStyle

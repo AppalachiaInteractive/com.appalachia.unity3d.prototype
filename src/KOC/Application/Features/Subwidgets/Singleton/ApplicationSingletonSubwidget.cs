@@ -13,11 +13,11 @@ using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Appalachia.UI.Controls.Extensions;
-using Appalachia.UI.Controls.Sets.Canvases.Canvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
-using Appalachia.UI.Controls.Sets.Images.RoundedBackground;
-using Appalachia.UI.Core.Styling;
+using Appalachia.UI.Core.Extensions;
+using Appalachia.UI.Functionality.Canvas.Controls.Default;
+using Appalachia.UI.Functionality.Images.Controls.Background;
+using Appalachia.UI.Functionality.Images.Controls.RoundedBackground;
+using Appalachia.UI.Styling;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;
@@ -105,11 +105,11 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         [ShowInInspector, ReadOnly, HorizontalGroup("State"), PropertyOrder(-1000), NonSerialized]
         private bool _isVisible;
 
-        public CanvasComponentSet canvas;
+        public CanvasControl canvas;
 
-        public BackgroundComponentSet background;
+        public BackgroundControl background;
 
-        public RoundedBackgroundComponentSet roundedBackground;
+        public RoundedBackgroundControl roundedBackground;
 
         private Rect _lastRect;
         private int _priority;
@@ -264,7 +264,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         {
             using (_PRF_UpdateAnchorMax.Auto())
             {
-                canvas.CanvasGroup.alpha = alpha;
+                canvas.canvas.CanvasGroup.alpha = alpha;
             }
         }
 
@@ -286,28 +286,28 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
                             return;
                         }
 
-                        if (!metadata.canvas.Value.CanvasFadeManager.IsElected)
+                        if (!metadata.canvas.Value.Canvas.CanvasFadeManager.IsElected)
                         {
                             return;
                         }
 
-                        if (metadata.canvas.Value.CanvasFadeManager.Value.passiveMode)
+                        if (metadata.canvas.Value.Canvas.CanvasFadeManager.Value.passiveMode)
                         {
                             return;
                         }
 
                         if (_isVisible)
                         {
-                            canvas.CanvasFadeManager.EnsureFadeIn();
+                            canvas.Canvas.CanvasFadeManager.EnsureFadeIn();
                         }
                         else
                         {
-                            canvas.CanvasFadeManager.EnsureFadeOut();
+                            canvas.Canvas.CanvasFadeManager.EnsureFadeOut();
                         }
                     }
                     else
                     {
-                        var canvasGroupSettings = metadata.canvas.Value.CanvasGroup;
+                        var canvasGroupSettings = metadata.canvas.Value.Canvas.CanvasGroup;
                         var canvasGroupInnerSettings = canvasGroupSettings.Value;
 
                         var usingCanvasGroup = canvasGroupSettings.IsElected;

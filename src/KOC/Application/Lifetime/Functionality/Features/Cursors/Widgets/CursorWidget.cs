@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Complex;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Simple;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Instance.Contracts;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Services;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Complex;
-using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Sets.Simple;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Widgets
@@ -26,12 +26,12 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
 
         #region Fields and Autoproperties
 
-        [SerializeField] private ComplexCursorComponentSet.List _complexCursorSets;
-        [SerializeField] private SimpleCursorComponentSet.List _simpleCursorSets;
+        [SerializeField] private ComplexCursorControl.List _complexCursorSets;
+        [SerializeField] private SimpleCursorControl.List _simpleCursorSets;
 
         #endregion
 
-        public ComplexCursorComponentSet.List ComplexCursorSets
+        public ComplexCursorControl.List ComplexCursorControls
         {
             get
             {
@@ -44,7 +44,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             }
         }
 
-        public SimpleCursorComponentSet.List SimpleCursorSets
+        public SimpleCursorControl.List SimpleCursorControls
         {
             get
             {

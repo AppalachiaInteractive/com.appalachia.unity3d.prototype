@@ -1,7 +1,7 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Services;
-using Appalachia.UI.Controls.Sets.Images.RawImage;
+using Appalachia.UI.Functionality.Images.Controls.Raw;
 using Appalachia.Utility.Async;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Widgets
@@ -24,7 +24,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
 
         #region Fields and Autoproperties
 
-        public RawImageComponentSet rawImageSet;
+        public RawImageControl rawImageSet;
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
 
             await AppaTask.WaitUntil(() => (rawImageSet != null) && (_runtimeGizmoDrawerService != null));
 
-            rawImageSet.RawImage.texture = _runtimeGizmoDrawerService.GetRenderTexture();
+            rawImageSet.RawImage.rawImage.texture = _runtimeGizmoDrawerService.GetRenderTexture();
         }
     }
 }

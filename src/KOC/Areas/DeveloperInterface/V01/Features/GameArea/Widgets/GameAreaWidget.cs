@@ -7,7 +7,7 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel.Widge
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.Functionality.Widgets.Models;
-using Appalachia.UI.Controls.Components.Layout.Models;
+using Appalachia.UI.Core.Layout;
 using Appalachia.Utility.Async;
 using UnityEngine;
 

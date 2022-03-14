@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 using Appalachia.CI.Integration.Assets;
-using Appalachia.UI.Controls.Animation.Extensions;
+using Appalachia.UI.Animations.Extensions;
 using Unity.Profiling;
 using UnityEditor.Animations;
 using UnityEngine;

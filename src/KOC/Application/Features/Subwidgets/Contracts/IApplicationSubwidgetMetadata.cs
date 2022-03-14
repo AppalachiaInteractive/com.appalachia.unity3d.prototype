@@ -1,23 +1,17 @@
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Common.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Model;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
-using Appalachia.UI.Controls.Sets.Canvases.Canvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
-using Appalachia.UI.Controls.Sets.Images.RoundedBackground;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.UI.Core.Styling.Fonts;
+using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.Functionality.Canvas.Controls.Default;
+using Appalachia.UI.Styling.Fonts;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Contracts
 {
     public interface IApplicationSubwidgetMetadata : IPrioritySubwidgetMetadata
     {
-        BackgroundComponentSetData.Optional Background { get; }
+        CanvasControlConfig.Optional Canvas { get; }
 
-        CanvasComponentSetData.Optional Canvas { get; }
-
-        RectTransformData.Override RectTransform { get; }
-
-        RoundedBackgroundComponentSetData.Optional RoundedBackground { get; }
+        RectTransformConfig.Override RectTransform { get; }
 
         bool TransitionsWithFade { get; }
 

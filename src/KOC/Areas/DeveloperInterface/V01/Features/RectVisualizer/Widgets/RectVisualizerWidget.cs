@@ -1,7 +1,7 @@
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Services;
-using Appalachia.UI.Controls.Sets.Images.RawImage;
+using Appalachia.UI.Functionality.Images.Controls.Raw;
 using Appalachia.Utility.Async;
 using UnityEngine.UI;
 
@@ -27,7 +27,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #region Fields and Autoproperties
 
-        public RawImageComponentSet rawImageSet;
+        public RawImageControl rawImageSet;
 
         #endregion
 
@@ -66,13 +66,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             {
                 VisualUpdate.Event += _rectVisualizerService.DiscoverTargets;
 
-                rawImageSet.RawImage.texture = _rectVisualizerService.GetRenderTexture();
+                rawImageSet.RawImage.RawImage.texture = _rectVisualizerService.GetRenderTexture();
             }
         }
 
         #region IWidget Members
 
-        public RawImage RawImage => rawImageSet.RawImage;
+        public RawImage RawImage => rawImageSet.RawImage.RawImage;
 
         #endregion
     }

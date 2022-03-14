@@ -1,7 +1,7 @@
 using System;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Common;
-using Appalachia.UI.Core.Styling.Elements;
+using Appalachia.UI.Core.Layout;
+using Appalachia.UI.Styling.Elements;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Colors;
 using Sirenix.OdinInspector;

@@ -1,5 +1,4 @@
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Common.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Contracts

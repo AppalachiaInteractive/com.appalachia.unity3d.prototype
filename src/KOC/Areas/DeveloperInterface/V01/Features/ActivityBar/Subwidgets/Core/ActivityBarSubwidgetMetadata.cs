@@ -1,12 +1,11 @@
 using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
-using Appalachia.UI.Controls.Sets.Buttons.SelectableButton;
 using Appalachia.UI.Core.Extensions;
+using Appalachia.UI.Functionality.Buttons.Controls.Default;
+using Appalachia.UI.Functionality.Buttons.Controls.Default.Contracts;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -27,7 +26,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         [OnValueChanged(nameof(OnChanged)), SerializeField]
         [HideIf("@!ShowAllFields")]
-        public SelectableButtonComponentSetData button;
+        public AppaButtonControlConfig button;
 
         [HideIf(nameof(HideAllFields))]
         [SerializeField, OnValueChanged(nameof(OnChanged))]
@@ -70,7 +69,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     return;
                 }
 
-                SelectableButtonComponentSetData.RefreshAndApply(
+                AppaButtonControlConfig.RefreshAndApply(
                     ref button,
                     ref subwidget.button,
                     subwidget.canvas.GameObject,
@@ -127,7 +126,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         public bool Enabled => _enabled;
 
-        public ISelectableButtonComponentSetData Button => button;
+        public IAppaButtonControlConfig Button => button;
 
         public ActivityBarSection Section => _section;
 

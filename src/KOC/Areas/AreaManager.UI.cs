@@ -1,5 +1,5 @@
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
+using Appalachia.UI.Functionality.Canvas.Controls.Root;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;
@@ -11,17 +11,17 @@ namespace Appalachia.Prototype.KOC.Areas
     {
         #region Fields and Autoproperties
 
-        [SerializeField] protected RootCanvasComponentSet rootCanvas;
+        [SerializeField] protected RootCanvasControl rootCanvas;
 
         #endregion
 
-        public RootCanvasComponentSet RootCanvas => rootCanvas;
+        public RootCanvasControl RootCanvas => rootCanvas;
 
         public async AppaTask HideAreaInterface()
         {
             using (_PRF_HideAreaInterface.Auto())
             {
-                rootCanvas.CanvasFadeManager.EnsureFadeOut();
+                rootCanvas.rootCanvas.CanvasFadeManager.EnsureFadeOut();
 
                 await OnHideAreaInterface();
 
@@ -33,7 +33,7 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_ShowAreaInterface.Auto())
             {
-                rootCanvas.CanvasFadeManager.EnsureFadeIn();
+                rootCanvas.rootCanvas.CanvasFadeManager.EnsureFadeIn();
 
                 await OnShowAreaInterface();
 
@@ -45,9 +45,9 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_ToggleAreaInterface.Auto())
             {
-                if (rootCanvas.CanvasGroup.IsHidden())
+                if (rootCanvas.rootCanvas.CanvasGroup.IsHidden())
                 {
-                    if (rootCanvas.CanvasFadeManager.IsFadingIn)
+                    if (rootCanvas.rootCanvas.CanvasFadeManager.IsFadingIn)
                     {
                         return;
                     }
@@ -56,7 +56,7 @@ namespace Appalachia.Prototype.KOC.Areas
                 }
                 else
                 {
-                    if (rootCanvas.CanvasFadeManager.IsFadingOut)
+                    if (rootCanvas.rootCanvas.CanvasFadeManager.IsFadingOut)
                     {
                         return;
                     }
@@ -80,7 +80,7 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_Initialize.Auto())
             {
-                areaMetadata.UpdateComponentSet(
+                areaMetadata.UpdateControl(
                     ref areaMetadata.rootCanvas,
                     ref rootCanvas,
                     gameObject,

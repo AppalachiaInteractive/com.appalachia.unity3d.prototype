@@ -31,7 +31,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         public LayoutElement headerLayout;
 
         [BoxGroup("Components/Text")]
-        public List<DeveloperInfoTextMesh> textMeshes;
+        public List<DeveloperInfoTextMeshControl> textMeshes;
 
         [FormerlySerializedAs("layoutGroup")]
         [BoxGroup("Components/Text")]
@@ -46,9 +46,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
             using (_PRF_Initialize.Auto())
             {
-                textMeshes ??= new List<DeveloperInfoTextMesh>();
+                textMeshes ??= new List<DeveloperInfoTextMeshControl>();
 
-                textMeshes = GetComponentsInChildren<DeveloperInfoTextMesh>().ToList();
+                textMeshes = GetComponentsInChildren<DeveloperInfoTextMeshControl>().ToList();
 
                 canvas.GameObject.GetOrAddComponent(ref verticalLayoutGroup);
 

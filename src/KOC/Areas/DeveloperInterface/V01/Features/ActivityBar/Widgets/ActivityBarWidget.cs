@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
-using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Common.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Core;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.Functionality.Layout.Groups.Vertical;
 using Appalachia.Utility.Async;
-using Unity.Profiling;
 using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets
@@ -37,18 +35,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         private List<IActivityBarSubwidget> _topActivityBarSubwidgets;
         private List<IActivityBarSubwidget> _bottomActivityBarSubwidgets;
 
-        public VerticalLayoutGroupSubset topActivityBarLayoutGroup;
+        public VerticalLayoutGroupComponentGroup topActivityBarLayoutGroup;
 
-        public VerticalLayoutGroupSubset bottomActivityBarLayoutGroup;
+        public VerticalLayoutGroupComponentGroup bottomActivityBarLayoutGroup;
 
         #endregion
 
         public IReadOnlyList<IActivityBarSubwidget> BottomActivityBarSubwidgets => _bottomActivityBarSubwidgets;
 
         public IReadOnlyList<IActivityBarSubwidget> TopActivityBarSubwidgets => _topActivityBarSubwidgets;
-        public VerticalLayoutGroupSubset BottomActivityBarLayoutGroup => bottomActivityBarLayoutGroup;
+        public VerticalLayoutGroupComponentGroup BottomActivityBarLayoutGroup => bottomActivityBarLayoutGroup;
 
-        public VerticalLayoutGroupSubset TopActivityBarLayoutGroup => topActivityBarLayoutGroup;
+        public VerticalLayoutGroupComponentGroup TopActivityBarLayoutGroup => topActivityBarLayoutGroup;
 
         public override void ValidateSubwidgets()
         {

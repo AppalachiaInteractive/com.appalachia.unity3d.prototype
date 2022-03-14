@@ -1,9 +1,9 @@
 using System;
-using Appalachia.Prototype.KOC.Application.Lifetime;
-using Appalachia.UI.Controls.Sets.Images.RawImage;
-using Appalachia.UI.Core.Components.Data;
+using Appalachia.UI.Functionality.Images.Controls.Raw;
+using Appalachia.UI.Functionality.Rendering.Cameras.Components;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Standards;
 using Drawing;
 using Unity.Profiling;
 using UnityEngine;
@@ -30,7 +30,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
 
         public interface IServiceMetadata
         {
-            CameraData CameraData { get; }
+            CameraConfig CameraConfig { get; }
         }
 
         #endregion
@@ -48,7 +48,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
 
         public interface IWidgetMetadata
         {
-            RawImageComponentSetData RawImageSet { get; }
+            RawImageControlConfig RawImageSet { get; }
         }
 
         #endregion
@@ -121,8 +121,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Aspects
                 {
                     var cam = DrawCamera;
                     _renderTexture = new RenderTexture(
-                        LifetimeComponentManager.REFERENCE_RESOLUTION_WIDTH,
-                        LifetimeComponentManager.REFERENCE_RESOLUTION_HEIGHT,
+                        Constants.REFERENCE_RESOLUTION_WIDTH,
+                        Constants.REFERENCE_RESOLUTION_HEIGHT,
                         24
                     );
                     cam.targetTexture = _renderTexture;

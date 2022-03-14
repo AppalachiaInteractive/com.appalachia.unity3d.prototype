@@ -32483,7 +32483,7 @@ MonoBehaviour:
             _timestamp: 1646330117
             _pid: 23944
           _initializer:
-            _initializationCount: 304
+            _initializationCount: 320
             _tags:
             - fontStyle
             - _enabled

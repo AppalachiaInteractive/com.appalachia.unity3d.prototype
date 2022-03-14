@@ -1,7 +1,7 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Contracts;
-using Appalachia.UI.Controls.Sets.Layout.Foldout.Styling;
+using Appalachia.UI.Functionality.Foldout.Styling;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;

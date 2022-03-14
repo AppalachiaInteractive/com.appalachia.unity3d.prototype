@@ -1,6 +1,6 @@
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Services;
-using Appalachia.UI.Core.Components.Data;
+using Appalachia.UI.Functionality.Rendering.Cameras.Components;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Services
 {
@@ -12,7 +12,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
     {
         #region Fields and Autoproperties
 
-        public CameraData cameraData;
+        public CameraConfig cameraData;
 
         #endregion
 
@@ -29,12 +29,12 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
         protected override void UpdateFunctionalityInternal(RuntimeGizmoDrawerService functionality)
         {
             var drawCamera = functionality.DrawCamera;
-            CameraData.RefreshAndApply(ref cameraData, this, drawCamera);
+            CameraConfig.RefreshAndApply(ref cameraData, this, drawCamera);
         }
 
         #region IServiceMetadata Members
 
-        public CameraData CameraData => cameraData;
+        public CameraConfig CameraConfig => cameraData;
 
         #endregion
     }

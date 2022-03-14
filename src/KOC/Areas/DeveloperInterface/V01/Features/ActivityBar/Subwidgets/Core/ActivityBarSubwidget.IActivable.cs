@@ -15,7 +15,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             using (_PRF_Activate.Auto())
             {
                 Widget.SetActiveSubwidget(this);
-                button.Selected = true;
+                button.selectionIndicator.Selected = true;
 
                 OnActivate();
             }
@@ -26,7 +26,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         {
             using (_PRF_Deactivate.Auto())
             {
-                button.Selected = false;
+                button.selectionIndicator.Selected = false;
 
                 OnDeactivate();
             }

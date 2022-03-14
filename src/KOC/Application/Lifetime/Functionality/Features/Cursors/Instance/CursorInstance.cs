@@ -1,4 +1,5 @@
 using Appalachia.Core.Attributes;
+using Appalachia.Core.ControlModel.Controls;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Drivers.Contracts;
@@ -6,21 +7,20 @@ using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Curso
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Metadata;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.State.Contracts;
-using Appalachia.UI.Core.Components.Sets;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Standards;
 using Unity.Profiling;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Instance
 {
     [CallStaticConstructorInEditor]
-    public abstract class
-        CursorInstance<T, TState, TMetadata, TComponentSet, TComponentSetData> : AppalachiaBehaviour<T>,
-            ICursorInstance
-        where T : CursorInstance<T, TState, TMetadata, TComponentSet, TComponentSetData>
+    public abstract class CursorInstance<T, TState, TMetadata, TControl, TConfig> : AppalachiaBehaviour<T>,
+        ICursorInstance
+        where T : CursorInstance<T, TState, TMetadata, TControl, TConfig>
         where TState : CursorInstanceStateData<TState, TMetadata>, new()
-        where TComponentSet : UIComponentSet<TComponentSet, TComponentSetData>, new()
-        where TComponentSetData : UIComponentSetData<TComponentSet, TComponentSetData>, new()
+        where TControl : AppaControl<TControl, TConfig>
+        where TConfig : AppaControlConfig<TControl, TConfig>, new()
         where TMetadata : CursorMetadata<TMetadata>
     {
         static CursorInstance()
@@ -36,7 +36,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
 
         #region Fields and Autoproperties
 
-        public TComponentSet components;
+        public TControl components;
         protected TState stateData;
         protected ICursorDriver driver;
 
@@ -111,7 +111,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
                 {
                     var targetPosition = stateData.CurrentPosition;
 
-                    var screenSize = LifetimeComponentManager.REFERENCE_RESOLUTION;
+                    var screenSize = Constants.REFERENCE_RESOLUTION;
 
                     var x = targetPosition.x;
                     var y = screenSize.y - targetPosition.y;
@@ -174,8 +174,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
         protected static readonly ProfilerMarker _PRF_BeforeRendering =
             new ProfilerMarker(_PRF_PFX + nameof(BeforeRendering));
 
-        private static readonly ProfilerMarker _PRF_SetDriver =
-            new ProfilerMarker(_PRF_PFX + nameof(SetDriver));
+        private static readonly ProfilerMarker _PRF_SetDriver = new ProfilerMarker(_PRF_PFX + nameof(SetDriver));
 
         private static readonly ProfilerMarker _PRF_ShouldExecute =
             new ProfilerMarker(_PRF_PFX + nameof(ShouldExecute));

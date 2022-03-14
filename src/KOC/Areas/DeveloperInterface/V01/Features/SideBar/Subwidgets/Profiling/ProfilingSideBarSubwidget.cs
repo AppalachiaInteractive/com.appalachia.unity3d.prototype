@@ -1,10 +1,9 @@
 using System;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Core;
-using Appalachia.UI.Controls.Components.Buttons;
-using Appalachia.UI.Controls.Sets.Layout.Foldout;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.Functionality.Buttons.Components;
+using Appalachia.UI.Functionality.Foldout.Control.Default;
+using Appalachia.UI.Functionality.Layout.Groups.Vertical;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Profiling
 {
@@ -13,13 +12,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
     {
         #region Fields and Autoproperties
 
-        [SerializeField] public FoldoutComponentSet fps;
+        [SerializeField] public FoldoutControl fps;
 
-        [SerializeField] public FoldoutComponentSet memory;
+        [SerializeField] public FoldoutControl memory;
 
-        [SerializeField] public new FoldoutComponentSet audio;
+        [SerializeField] public new FoldoutControl audio;
 
-        [SerializeField] public VerticalLayoutGroupSubset verticalLayoutGroup;
+        [SerializeField] public VerticalLayoutGroupComponentGroup verticalLayoutGroup;
 
         #endregion
 

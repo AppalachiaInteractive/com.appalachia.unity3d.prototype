@@ -1,6 +1,6 @@
 using Appalachia.CI.Constants;
-using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
+using Appalachia.UI.Functionality.Canvas.Controls.Root;
+using Appalachia.UI.Functionality.Images.Controls.Background;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions;
@@ -14,16 +14,6 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
     {
         #region Constants and Static Readonly
 
-        public const int REFERENCE_RESOLUTION_HEIGHT = 1080;
-        public const int REFERENCE_RESOLUTION_WIDTH = 1920;
-
-        public static readonly Vector2 REFERENCE_RESOLUTION = new Vector2(
-            REFERENCE_RESOLUTION_WIDTH,
-            REFERENCE_RESOLUTION_HEIGHT
-        );
-
-        public static readonly Vector2 SCREEN_CENTER = REFERENCE_RESOLUTION * .5F;
-
         private const string GROUP_UI = GROUP_BASE + PARENT_NAME_UI;
 
         private const string PARENT_NAME_UI = "UI";
@@ -34,16 +24,16 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
 
         [FoldoutGroup(GROUP_UI)]
         [SerializeField]
-        private RootCanvasComponentSet _rootCanvas;
+        private RootCanvasControl _rootCanvas;
 
         [FoldoutGroup(GROUP_UI)]
         [SerializeField]
-        private BackgroundComponentSet _rootBackground;
+        private BackgroundControl _rootBackground;
 
         [FoldoutGroup(GROUP_UI), SerializeField]
         private GameObject _uiObject;
 
-        public AppaEvent<RootCanvasComponentSet>.Data RootCanvasComponentSetReady;
+        public AppaEvent<RootCanvasControl>.Data RootCanvasControlReady;
 
         #endregion
 
@@ -52,7 +42,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         public Rect ScaledCanvasBounds => ScaledCanvas.rect;
 
         public RectTransform ScaledCanvas => _rootCanvas.ScaledCanvas.transform as RectTransform;
-        public RootCanvasComponentSet RootCanvasComponentSet => _rootCanvas;
+        public RootCanvasControl RootCanvasControl => _rootCanvas;
 
         public Vector2 GetPositionInScaledCanvas(Vector2 position)
         {
@@ -136,7 +126,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
             {
                 gameObject.GetOrAddChild(ref _uiObject, PARENT_NAME_UI, false);
 
-                RootCanvasComponentSetData.RefreshAndApply(
+                RootCanvasControlConfig.RefreshAndApply(
                     ref _lifetimeMetadata.rootCanvas,
                     ref _rootCanvas,
                     _uiObject,
@@ -144,7 +134,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                     _lifetimeMetadata
                 );
 
-                BackgroundComponentSetData.RefreshAndApply(
+                BackgroundControlConfig.RefreshAndApply(
                     ref _lifetimeMetadata.rootBackground,
                     ref _rootBackground,
                     _rootCanvas.ScaledCanvas.gameObject,
@@ -152,7 +142,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                     _lifetimeMetadata
                 );
 
-                RootCanvasComponentSetReady.RaiseEvent(RootCanvasComponentSet);
+                RootCanvasControlReady.RaiseEvent(RootCanvasControl);
             }
         }
 

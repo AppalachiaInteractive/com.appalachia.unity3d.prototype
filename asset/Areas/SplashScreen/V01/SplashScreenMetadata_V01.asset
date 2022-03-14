@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SplashScreenMetadata_V01
   m_EditorClassIdentifier: 
   _initializer:
-    _initializationCount: 129
+    _initializationCount: 137
     _tags:
     - Doozy Graph
     - Doozy Canvas

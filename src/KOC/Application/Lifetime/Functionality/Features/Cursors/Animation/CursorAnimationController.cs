@@ -1,7 +1,7 @@
 using System;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Animation.Controllers;
-using Appalachia.UI.Controls.Animation.Controllers.Core;
+using Appalachia.UI.Animations.Controllers;
+using Appalachia.UI.Animations.Controllers.Core;
 using Appalachia.Utility.Async;
 using UnityEngine;
 using Object = UnityEngine.Object;

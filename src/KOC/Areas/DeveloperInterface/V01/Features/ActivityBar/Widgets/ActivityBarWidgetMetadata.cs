@@ -2,10 +2,10 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling;
-using Appalachia.UI.Controls.Common;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.ControlModel.Components;
 using Appalachia.UI.Core.Extensions;
+using Appalachia.UI.Core.Layout;
+using Appalachia.UI.Functionality.Layout.Groups.Vertical;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -36,17 +36,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
         [HideInInspector]
-        public VerticalLayoutGroupSubsetData topLayoutGroup;
+        public VerticalLayoutGroupComponentGroupConfig topLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
         [HideInInspector]
-        public VerticalLayoutGroupSubsetData bottomLayoutGroup;
+        public VerticalLayoutGroupComponentGroupConfig bottomLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
         [HideInInspector]
-        public RectTransformData activityBarIconRectTransform;
+        public RectTransformConfig activityBarIconRectTransform;
 
         [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
@@ -154,21 +154,21 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 this,
                 nameof(topLayoutGroup),
                 topLayoutGroup == null,
-                () => topLayoutGroup = new VerticalLayoutGroupSubsetData(this)
+                () => topLayoutGroup = new VerticalLayoutGroupComponentGroupConfig(this)
             );
 
             initializer.Do(
                 this,
                 nameof(bottomLayoutGroup),
                 bottomLayoutGroup == null,
-                () => bottomLayoutGroup = new VerticalLayoutGroupSubsetData(this)
+                () => bottomLayoutGroup = new VerticalLayoutGroupComponentGroupConfig(this)
             );
 
             initializer.Do(
                 this,
                 nameof(activityBarIconRectTransform),
                 activityBarIconRectTransform == null,
-                () => activityBarIconRectTransform = new RectTransformData(this)
+                () => activityBarIconRectTransform = new RectTransformConfig(this)
             );
 
             initializer.Do(
@@ -236,7 +236,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     topLayoutGroup.VerticalLayoutGroup.spacing.Value = activityBarSpacingTop;
                 }
 
-                VerticalLayoutGroupSubsetData.RefreshAndApply(
+                VerticalLayoutGroupComponentGroupConfig.RefreshAndApply(
                     ref bottomLayoutGroup,
                     this,
                     ref widget.bottomActivityBarLayoutGroup,
@@ -244,7 +244,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     BottomLayoutGroupSubwidgetsParentName
                 );
 
-                VerticalLayoutGroupSubsetData.RefreshAndApply(
+                VerticalLayoutGroupComponentGroupConfig.RefreshAndApply(
                     ref topLayoutGroup,
                     this,
                     ref widget.topActivityBarLayoutGroup,
@@ -262,11 +262,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 {
                     var subwidget = widget.TopActivityBarSubwidgets[subwidgetIndex];
 
-                    subwidget.Metadata.Button.SelectedIndicatorColor = selectedIndicatorColor;
-                    subwidget.Metadata.Button.HoveringIndicatorColor = hoveringIndicatorColor;
-                    subwidget.Metadata.Button.UnselectedIndicatorColor = unselectedIndicatorColor;
-                    subwidget.Metadata.Button.SelectionIndicatorDirection = selectionIndicatorDirection;
-                    subwidget.Metadata.Button.SelectionIndicatorSize = selectionIndicatorSize;
+                    subwidget.Metadata.Button.SelectionIndicator.Value.SelectedIndicatorColor = selectedIndicatorColor;
+                    subwidget.Metadata.Button.SelectionIndicator.Value.HoveringIndicatorColor = hoveringIndicatorColor;
+                    subwidget.Metadata.Button.SelectionIndicator.Value.UnselectedIndicatorColor = unselectedIndicatorColor;
+                    subwidget.Metadata.Button.SelectionIndicator.Value.SelectionIndicatorDirection = selectionIndicatorDirection;
+                    subwidget.Metadata.Button.SelectionIndicator.Value.SelectionIndicatorSize = selectionIndicatorSize;
                     
                     /*var swLayoutGroup = subwidget.Metadata.Button.LayoutGroup;
 

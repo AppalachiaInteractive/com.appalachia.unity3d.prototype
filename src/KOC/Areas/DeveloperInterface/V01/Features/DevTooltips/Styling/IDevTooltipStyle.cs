@@ -1,5 +1,5 @@
-using Appalachia.UI.Controls.Common;
-using Appalachia.UI.Core.Styling.Elements;
+using Appalachia.UI.Core.Layout;
+using Appalachia.UI.Styling.Elements;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling

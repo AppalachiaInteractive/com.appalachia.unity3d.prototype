@@ -2,7 +2,7 @@ using System;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Services;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling.Models;
-using Appalachia.UI.Controls.Components.Layout.Models;
+using Appalachia.UI.Core.Layout;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;
 using Sirenix.OdinInspector;

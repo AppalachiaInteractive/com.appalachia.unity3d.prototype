@@ -1,5 +1,5 @@
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
-using Appalachia.UI.Controls.Sets.Images.RawImage;
+using Appalachia.UI.Functionality.Images.Controls.Raw;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Widgets
@@ -9,7 +9,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
     {
         #region Fields and Autoproperties
 
-        [SerializeField] public RawImageComponentSetData rawImageSet;
+        [SerializeField] public RawImageControlConfig rawImageSet;
 
         #endregion
 
@@ -31,7 +31,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
             {
                 base.UpdateFunctionalityInternal(widget);
 
-                RawImageComponentSetData.RefreshAndApply(
+                RawImageControlConfig.RefreshAndApply(
                     ref rawImageSet,
                     ref widget.rawImageSet,
                     widget.gameObject,

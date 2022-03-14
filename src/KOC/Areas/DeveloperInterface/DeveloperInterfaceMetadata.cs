@@ -1,5 +1,5 @@
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.Canvases.UnscaledCanvas;
+using Appalachia.UI.Functionality.Canvas.Controls.Unscaled;
 using Appalachia.Utility.Async;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
     {
         #region Fields and Autoproperties
 
-        [SerializeField] public UnscaledCanvasComponentSetData unscaledCanvas;
+        [SerializeField] public UnscaledCanvasControlConfig unscaledCanvas;
         #endregion
 
         /// <inheritdoc />
@@ -31,7 +31,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         #region IDeveloperInterfaceMetadata Members
 
-        public UnscaledCanvasComponentSetData UnscaledCanvas => unscaledCanvas;
+        public UnscaledCanvasControlConfig UnscaledCanvas => unscaledCanvas;
 
         /// <inheritdoc />
         public override ApplicationArea Area => ApplicationArea.DeveloperInterface;

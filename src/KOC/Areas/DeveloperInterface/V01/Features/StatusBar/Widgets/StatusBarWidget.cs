@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.Functionality.Layout.Groups.Horizontal;
 using Appalachia.Utility.Async;
 using UnityEngine.UI;
 
@@ -17,14 +17,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         private List<IStatusBarSubwidget> _leftStatusBarSubwidgets;
         private List<IStatusBarSubwidget> _rightStatusBarSubwidgets;
 
-        public HorizontalLayoutGroupSubset leftStatusBarLayoutGroup;
+        public HorizontalLayoutGroupComponentGroup leftStatusBarLayoutGroup;
 
-        public HorizontalLayoutGroupSubset rightStatusBarLayoutGroup;
+        public HorizontalLayoutGroupComponentGroup rightStatusBarLayoutGroup;
 
         #endregion
 
-        public HorizontalLayoutGroupSubset LeftStatusBarLayoutGroup => leftStatusBarLayoutGroup;
-        public HorizontalLayoutGroupSubset RightStatusBarLayoutGroup => rightStatusBarLayoutGroup;
+        public HorizontalLayoutGroupComponentGroup LeftStatusBarLayoutGroup => leftStatusBarLayoutGroup;
+        public HorizontalLayoutGroupComponentGroup RightStatusBarLayoutGroup => rightStatusBarLayoutGroup;
 
         public IReadOnlyList<IStatusBarSubwidget> LeftStatusBarSubwidgets => _leftStatusBarSubwidgets;
         public IReadOnlyList<IStatusBarSubwidget> RightStatusBarSubwidgets => _rightStatusBarSubwidgets;

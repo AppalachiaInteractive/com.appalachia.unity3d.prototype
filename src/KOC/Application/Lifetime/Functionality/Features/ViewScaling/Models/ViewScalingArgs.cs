@@ -1,6 +1,6 @@
 using System;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
-using Appalachia.UI.Controls.Components.Layout.Models;
+using Appalachia.UI.Core.Layout;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling.Models
 {

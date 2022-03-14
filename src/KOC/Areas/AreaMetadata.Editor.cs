@@ -3,7 +3,7 @@ using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.UI.Controls.Sets.DesignTemplate;
+using Appalachia.UI.Functionality.Design.Controls.Template;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -28,7 +28,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         [FormerlySerializedAs("scaledTemplates")]
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Templates, Expanded = false)]
-        [SerializeField] public DesignTemplateComponentSetData.Optional templates;
+        [SerializeField] public TemplateControlConfig.Optional templates;
 
         #endregion
 
@@ -65,7 +65,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #region IAreaMetadata Members
 
-        public DesignTemplateComponentSetData Templates => templates;
+        public TemplateControlConfig Templates => templates;
 
         #endregion
 

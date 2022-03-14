@@ -1,7 +1,7 @@
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls;
-using Appalachia.UI.Core.Styling.Elements;
-using Appalachia.UI.Core.Styling.Fonts;
+using Appalachia.UI.Styling.Elements;
+using Appalachia.UI.Styling.Fonts;
 using TMPro;
 using Unity.Profiling;
 using UnityEngine;

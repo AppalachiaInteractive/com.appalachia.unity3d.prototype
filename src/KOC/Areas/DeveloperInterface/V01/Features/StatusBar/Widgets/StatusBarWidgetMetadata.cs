@@ -1,9 +1,8 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.Functionality.Layout.Groups.Horizontal;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -34,17 +33,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
         [HideIf(nameof(HideAllFields))]
-        public HorizontalLayoutGroupSubsetData leftLayoutGroup;
+        public HorizontalLayoutGroupComponentGroupConfig leftLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
         [HideIf(nameof(HideAllFields))]
-        public HorizontalLayoutGroupSubsetData rightLayoutGroup;
+        public HorizontalLayoutGroupComponentGroupConfig rightLayoutGroup;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
         [HideIf(nameof(HideAllFields))]
-        public RectTransformData statusBarIconRectTransform;
+        public RectTransformConfig statusBarIconRectTransform;
 
         [BoxGroup(APPASTR.GroupNames.Size)]
         [OnValueChanged(nameof(OnChanged))]
@@ -126,21 +125,21 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                 this,
                 nameof(leftLayoutGroup),
                 leftLayoutGroup == null,
-                () => leftLayoutGroup = new HorizontalLayoutGroupSubsetData(this)
+                () => leftLayoutGroup = new HorizontalLayoutGroupComponentGroupConfig(this)
             );
 
             initializer.Do(
                 this,
                 nameof(rightLayoutGroup),
                 rightLayoutGroup == null,
-                () => rightLayoutGroup = new HorizontalLayoutGroupSubsetData(this)
+                () => rightLayoutGroup = new HorizontalLayoutGroupComponentGroupConfig(this)
             );
 
             initializer.Do(
                 this,
                 nameof(statusBarIconRectTransform),
                 statusBarIconRectTransform == null,
-                () => statusBarIconRectTransform = new RectTransformData(this)
+                () => statusBarIconRectTransform = new RectTransformConfig(this)
             );
 
 
@@ -197,7 +196,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     leftLayoutGroup.HorizontalLayoutGroup.spacing.Value = statusBarSpacingLeft;
                 }
 
-                HorizontalLayoutGroupSubsetData.RefreshAndApply(
+                HorizontalLayoutGroupComponentGroupConfig.RefreshAndApply(
                     ref rightLayoutGroup,
                     this,
                     ref widget.rightStatusBarLayoutGroup,
@@ -205,7 +204,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     RightLayoutGroupSubwidgetsParentName
                 );
 
-                HorizontalLayoutGroupSubsetData.RefreshAndApply(
+                HorizontalLayoutGroupComponentGroupConfig.RefreshAndApply(
                     ref leftLayoutGroup,
                     this,
                     ref widget.leftStatusBarLayoutGroup,

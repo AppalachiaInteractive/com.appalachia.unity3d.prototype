@@ -21,8 +21,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
     [ExecutionOrder(ExecutionOrders.LifetimeComponentManager)]
     [Serializable, DoNotReorderFields]
     [CallStaticConstructorInEditor]
-    public sealed partial class
-        LifetimeComponentManager : GlobalSingletonAppalachiaBehaviour<LifetimeComponentManager>
+    public sealed partial class LifetimeComponentManager : GlobalSingletonAppalachiaBehaviour<LifetimeComponentManager>
     {
         #region Constants and Static Readonly
 
@@ -297,11 +296,9 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         private static readonly ProfilerMarker _PRF_ExecuteInitialization =
             new ProfilerMarker(_PRF_PFX + nameof(ExecuteInitialization));
 
-        private static readonly ProfilerMarker _PRF_SetFlags =
-            new ProfilerMarker(_PRF_PFX + nameof(SetFlags));
+        private static readonly ProfilerMarker _PRF_SetFlags = new ProfilerMarker(_PRF_PFX + nameof(SetFlags));
 
-        private static readonly ProfilerMarker _PRF_DoNextFrame =
-            new ProfilerMarker(_PRF_PFX + nameof(DoNextFrame));
+        private static readonly ProfilerMarker _PRF_DoNextFrame = new ProfilerMarker(_PRF_PFX + nameof(DoNextFrame));
 
         private static readonly ProfilerMarker _PRF_ExecuteDelayedActions =
             new ProfilerMarker(_PRF_PFX + nameof(ExecuteDelayedActions));
@@ -309,8 +306,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         private static readonly ProfilerMarker _PRF_ExecuteInitializationActions =
             new ProfilerMarker(_PRF_PFX + nameof(ExecuteInitializationActions));
 
-        private static readonly ProfilerMarker _PRF_GetActions =
-            new ProfilerMarker(_PRF_PFX + nameof(GetActions));
+        private static readonly ProfilerMarker _PRF_GetActions = new ProfilerMarker(_PRF_PFX + nameof(GetActions));
 
         private static readonly ProfilerMarker _PRF_RunAsMainScene =
             new ProfilerMarker(_PRF_PFX + nameof(RunAsMainScene));

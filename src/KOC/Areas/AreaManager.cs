@@ -194,7 +194,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     () => { _areaSceneInfo ??= _mainAreaSceneInformationCollection.Lookup.Items.Get(Area); }
                 );
 
-                areaMetadata.UpdateComponentSet(
+                areaMetadata.UpdateControl(
                     ref areaMetadata.rootCanvas,
                     ref rootCanvas,
                     gameObject,

@@ -1,7 +1,7 @@
 using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
 using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton.Contracts;
-using Appalachia.UI.Core.Components.Data;
+using Appalachia.UI.ControlModel.Components;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts
 {
@@ -10,6 +10,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         IDevTooltipSubwidgetController,
         IActivable
     {
-        void UpdateSubwidgetIconSize(RectTransformData rectTransformData);
+        void UpdateSubwidgetIconSize(RectTransformConfig rectTransformData);
     }
 }

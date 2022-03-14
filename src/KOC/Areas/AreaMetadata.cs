@@ -1,8 +1,8 @@
 using Appalachia.CI.Constants;
-using Appalachia.Core.Objects.Components.Sets;
+using Appalachia.Core.ControlModel.Controls;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
-using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
+using Appalachia.UI.Functionality.Canvas.Controls.Root;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;
@@ -24,7 +24,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         [FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
         [SerializeField]
-        public RootCanvasComponentSetData rootCanvas;
+        public RootCanvasControlConfig rootCanvas;
 
         [SerializeField]
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
@@ -40,18 +40,18 @@ namespace Appalachia.Prototype.KOC.Areas
         [ShowInInspector, ReadOnly]
         public abstract AreaVersion Version { get; }
 
-        public void UpdateComponentSet<TComponentSet, TComponentSetData>(
-            ref TComponentSetData data,
-            ref TComponentSet target,
+        public void UpdateControl<TControl, TConfig>(
+            ref TConfig config,
+            ref TControl target,
             GameObject parent,
             string setName)
-            where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
-            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
+            where TControl : AppaControl<TControl, TConfig>, new()
+            where TConfig: AppaControlConfig<TControl, TConfig>, new()
         {
-            using (_PRF_UpdateComponentSet.Auto())
+            using (_PRF_UpdateControl.Auto())
             {
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndApply(
-                    ref data,
+                AppaControlConfig<TControl, TConfig>.RefreshAndApply(
+                    ref config,
                     ref target,
                     parent,
                     setName,
@@ -132,7 +132,7 @@ namespace Appalachia.Prototype.KOC.Areas
 
         public AreaMetadataConfigurations.AreaInputConfiguration Input => input;
 
-        public RootCanvasComponentSetData RootCanvas => rootCanvas;
+        public RootCanvasControlConfig RootCanvas => rootCanvas;
 
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration SceneBehaviour => sceneBehaviour;
         public AreaMetadataConfigurations.AreaAudioConfiguration Audio => audio;
@@ -145,8 +145,8 @@ namespace Appalachia.Prototype.KOC.Areas
 
         private static readonly ProfilerMarker _PRF_GetManager = new ProfilerMarker(_PRF_PFX + nameof(GetManager));
 
-        private static readonly ProfilerMarker _PRF_UpdateComponentSet =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateComponentSet));
+        private static readonly ProfilerMarker _PRF_UpdateControl =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateControl));
 
         #endregion
     }

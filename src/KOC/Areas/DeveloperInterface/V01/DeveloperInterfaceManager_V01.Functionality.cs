@@ -8,7 +8,7 @@ using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Instanced.Contract
 using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton;
 using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton.Contracts;
 using Appalachia.Prototype.KOC.Areas.Functionality.Widgets;
-using Appalachia.UI.Controls.Components.Buttons;
+using Appalachia.UI.Functionality.Buttons.Components;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;

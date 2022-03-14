@@ -1,6 +1,6 @@
 using System;
-using Appalachia.Core.Objects.Components.Contracts;
-using Appalachia.Core.Objects.Components.Sets;
+using Appalachia.Core.ControlModel.Contracts;
+using Appalachia.Core.ControlModel.Controls;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
@@ -154,6 +154,18 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         protected abstract void UpdateFunctionalityInternal(TFunctionality functionality);
 
+        protected virtual void AfterUpdateFunctionality(TFunctionality functionality)
+        {
+            using (_PRF_AfterUpdateFunctionality.Auto())
+            {
+                SubscribeResponsiveComponents(functionality);
+
+                Updated.RaiseEvent();
+
+                functionality.ApplyingMetadata = false;
+            }
+        }
+
         /// <summary>
         ///     Returns an asset name which which concatenates the current functionality <see cref="Type" />.<see cref="Type.Name" />
         ///     with the <see cref="Type" />.<see cref="Type.Name" /> of the provided <see cref="T" />.
@@ -186,43 +198,25 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
             }
         }
 
-        protected void RefreshAndApply<TComponentSet, TComponentSetData>(
-            ref TComponentSet set,
-            ref TComponentSetData setData,
+        protected void RefreshAndApply<TControl, TConfig>(
+            ref TControl control,
+            ref TConfig config,
             TFunctionality functionality,
             GameObject parent = null,
-            string setName = null)
-            where TComponentSet : ComponentSet<TComponentSet, TComponentSetData>, new()
-            where TComponentSetData : ComponentSetData<TComponentSet, TComponentSetData>, new()
+            string name = null)
+            where TControl : AppaControl<TControl, TConfig>, new()
+            where TConfig : AppaControlConfig<TControl, TConfig>, new()
         {
             using (_PRF_RefreshAndApply.Auto())
             {
-                setName ??= typeof(TFunctionality).Name;
+                name ??= typeof(TFunctionality).Name;
 
                 if (parent == null)
                 {
                     parent = functionality.gameObject;
                 }
 
-                ComponentSetData<TComponentSet, TComponentSetData>.RefreshAndApply(
-                    ref setData,
-                    ref set,
-                    parent,
-                    setName,
-                    this
-                );
-            }
-        }
-
-        protected virtual void AfterUpdateFunctionality(TFunctionality functionality)
-        {
-            using (_PRF_AfterUpdateFunctionality.Auto())
-            {
-                SubscribeResponsiveComponents(functionality);
-
-                Updated.RaiseEvent();
-
-                functionality.ApplyingMetadata = false;
+                AppaControlConfig<TControl, TConfig>.RefreshAndApply(ref config, ref control, parent, name, this);
             }
         }
 

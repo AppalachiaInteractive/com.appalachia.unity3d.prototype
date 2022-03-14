@@ -1,12 +1,11 @@
 using System;
 using Appalachia.CI.Constants;
-using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.ViewScaling;
-using Appalachia.UI.Controls.Extensions;
+using Appalachia.UI.Core.Extensions;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;

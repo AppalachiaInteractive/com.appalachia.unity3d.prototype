@@ -3,10 +3,12 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Widgets;
-using Appalachia.UI.Controls.Common;
-using Appalachia.UI.Controls.Extensions;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.Core.Extensions;
+using Appalachia.UI.Core.Layout;
+using Appalachia.UI.Functionality.Images.Groups.Default;
+using Appalachia.UI.Functionality.Images.Groups.Outline;
+using Appalachia.UI.Functionality.Text.Groups;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -34,7 +36,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
         [HideIf(nameof(HideAllFields))]
-        private DevTooltipComponentSetData _componentSetData;
+        private DevTooltipControlConfig _componentControlConfig;
 
         #endregion
 
@@ -42,9 +44,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         {
             using (_PRF_UpdateFunctionalityInternal.Auto())
             {
-                DevTooltipComponentSetData.CreateOrRefresh(ref _componentSetData, this);
+                DevTooltipControlConfig.Refresh(ref _componentControlConfig, this);
 
-                _componentSetData.TooltipText.TextMeshProUGUI.fontStyle = WidgetMetadata.fontStyle;
+                _componentControlConfig.TooltipText.TextMeshProUGUI.fontStyle = WidgetMetadata.fontStyle;
 
                 if (!subwidget.IsActive)
                 {
@@ -54,18 +56,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
                 var currentStyle = _styleOverride == null ? subwidget.CurrentStyle : _styleOverride;
                 var currentTooltip = subwidget.CurrentTooltip;
 
-                var textComponent = subwidget.componentSet.tooltipText.TextMeshProUGUI;
+                var textComponent = subwidget.control.tooltipText.TextMeshProUGUI;
 
                 var requiredTextSize = currentTooltip.IsNullOrEmpty()
                     ? new Vector2(0, 0)
                     : textComponent.GetPreferredValues(currentTooltip);
 
-                var tooltipRectTransform = _componentSetData.RectTransform;
-                var tooltipBackground = _componentSetData.Background;
-                var triangleParent = _componentSetData.TriangleParent;
-                var triangleBackground = _componentSetData.TriangleBackground;
-                var triangleForeground = _componentSetData.TriangleForeground;
-                var tooltipText = _componentSetData.TooltipText;
+                var tooltipRectTransform = _componentControlConfig.RectTransform;
+                var tooltipBackground = _componentControlConfig.Background;
+                var triangleParent = _componentControlConfig.TriangleParent;
+                var triangleBackground = _componentControlConfig.TriangleBackground;
+                var triangleForeground = _componentControlConfig.TriangleForeground;
+                var tooltipText = _componentControlConfig.TooltipText;
 
                 if (currentStyle == null)
                 {
@@ -80,9 +82,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
                 FormatText(subwidget, currentStyle, tooltipText);
 
-                DevTooltipComponentSetData.RefreshAndApply(
-                    ref _componentSetData,
-                    ref subwidget.componentSet,
+                DevTooltipControlConfig.RefreshAndApply(
+                    ref _componentControlConfig,
+                    ref subwidget.control,
                     subwidget.canvas.GameObject,
                     name,
                     this
@@ -95,7 +97,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private void FormatRectTransform(
             DevTooltipSubwidget subwidget,
             IDevTooltipStyle currentStyle,
-            RectTransformData tooltipRectTransform,
+            RectTransformConfig tooltipRectTransform,
             Vector2 requiredTextSize)
         {
             using (_PRF_FormatRectTransform.Auto())
@@ -166,7 +168,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private void FormatText(
             DevTooltipSubwidget subwidget,
             IDevTooltipStyle currentStyle,
-            TextMeshProUGUISubsetData tooltipText)
+            TextMeshProUGUIComponentGroupConfig tooltipText)
         {
             using (_PRF_FormatText.Auto())
             {
@@ -181,7 +183,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private void FormatTooltipBackground(
             DevTooltipSubwidget subwidget,
             IDevTooltipStyle currentStyle,
-            OutlinedImageSubsetData tooltipBackground)
+            OutlineImageComponentGroupConfig tooltipBackground)
         {
             using (_PRF_FormatTooltipBackground.Auto())
             {
@@ -198,9 +200,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
         private void FormatTooltipTriangle(
             DevTooltipSubwidget subwidget,
             IDevTooltipStyle currentStyle,
-            RectTransformData triangleParent,
-            ImageSubsetData triangleForeground,
-            ImageSubsetData triangleBackground)
+            RectTransformConfig triangleParent,
+            ImageComponentGroupConfig triangleForeground,
+            ImageComponentGroupConfig triangleBackground)
         {
             using (_PRF_FormatTooltipTriangle.Auto())
             {
@@ -299,7 +301,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTool
 
         public DevTooltipStyleOverride StyleOverride => _styleOverride;
 
-        public DevTooltipComponentSetData ComponentSetData => _componentSetData;
+        public DevTooltipControlConfig ControlConfig => _componentControlConfig;
 
         #endregion
 

@@ -1,8 +1,8 @@
 using System;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
-using Appalachia.UI.Core.Styling.Elements;
-using Appalachia.UI.Core.Styling.Fonts;
+using Appalachia.UI.Styling.Elements;
+using Appalachia.UI.Styling.Fonts;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using Unity.Profiling;

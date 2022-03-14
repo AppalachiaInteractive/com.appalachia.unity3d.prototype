@@ -32254,7 +32254,7 @@ MonoBehaviour:
             - localScale
             - _enabled
             _resetToken: 
-          _owner: {fileID: 11400000, guid: 96237e1290e004344bb27be04860568d, type: 2}
+          _owner: {fileID: 11400000}
           _hideAllFields: 0
           _disableAllFields: 0
           _suspendFieldApplication: 0
@@ -32477,7 +32477,7 @@ MonoBehaviour:
             _timestamp: 1646615743
             _pid: -26872
           _initializer:
-            _initializationCount: 118
+            _initializationCount: 134
             _tags:
             - fontStyle
             - _enabled

@@ -3,10 +3,10 @@ using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.Styling;
 using Appalachia.Prototype.KOC.Scenes;
-using Appalachia.UI.Controls.Sets.Canvases.RootCanvas;
-using Appalachia.UI.Controls.Sets.Images.Background;
-using Appalachia.UI.Core.Components.Data;
-using Appalachia.UI.Core.Styling;
+using Appalachia.UI.Functionality.Canvas.Controls.Root;
+using Appalachia.UI.Functionality.Images.Controls.Background;
+using Appalachia.UI.Functionality.Rendering.Cameras.Components;
+using Appalachia.UI.Styling;
 using Appalachia.Utility.Async;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -28,11 +28,11 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
 
         #region Fields and Autoproperties
 
-        public CameraData clearCameraData;
+        public CameraConfig clearCameraConfig;
 
-        [SerializeField] public RootCanvasComponentSetData rootCanvas;
+        [SerializeField] public RootCanvasControlConfig rootCanvas;
 
-        [SerializeField] public BackgroundComponentSetData rootBackground;
+        [SerializeField] public BackgroundControlConfig rootBackground;
 
         public ApplicationUIStyle uiStyle;
         public DeviceButtonLookup deviceButtons;

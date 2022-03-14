@@ -1,3 +1,4 @@
+using Appalachia.Utility.Standards;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -46,7 +47,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
                 {
                     var targetPosition = CurrentPosition;
 
-                    var screenSize = LifetimeComponentManager.REFERENCE_RESOLUTION;
+                    var screenSize = Constants.REFERENCE_RESOLUTION;
 
                     var x = targetPosition.x;
                     var y = screenSize.y - targetPosition.y;

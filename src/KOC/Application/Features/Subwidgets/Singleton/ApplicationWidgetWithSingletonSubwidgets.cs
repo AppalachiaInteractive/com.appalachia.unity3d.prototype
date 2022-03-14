@@ -12,7 +12,7 @@ using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
-using Appalachia.UI.Controls.Extensions;
+using Appalachia.UI.Core.Extensions;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Unity.Profiling;

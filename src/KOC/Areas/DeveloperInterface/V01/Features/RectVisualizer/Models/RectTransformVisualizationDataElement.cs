@@ -2,6 +2,7 @@ using System;
 using Appalachia.Prototype.KOC.Application.Lifetime;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Pooling.Objects;
+using Appalachia.Utility.Standards;
 using Drawing;
 using Unity.Profiling;
 using UnityEngine;
@@ -86,7 +87,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                             if (drawLocatorLine)
                             {
                                 var center = .5f * (BottomLeft + TopRight);
-                                var screenCenter = LifetimeComponentManager.SCREEN_CENTER;
+                                var screenCenter = Constants.SCREEN_CENTER;
 
                                 drawCommandBuilder.Line(center, screenCenter);
                             }

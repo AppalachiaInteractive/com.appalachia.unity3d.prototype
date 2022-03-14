@@ -1,8 +1,8 @@
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Core;
-using Appalachia.UI.Controls.Sets.Layout.Foldout;
-using Appalachia.UI.Controls.Sets.Layout.Foldout.Styling;
-using Appalachia.UI.Core.Components.Subsets;
+using Appalachia.UI.Functionality.Foldout.Control.Default;
+using Appalachia.UI.Functionality.Foldout.Styling;
+using Appalachia.UI.Functionality.Layout.Groups.Vertical;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -17,18 +17,18 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        public FoldoutComponentSetData fps;
+        public FoldoutControlConfig fps;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        public FoldoutComponentSetData memory;
+        public FoldoutControlConfig memory;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        public FoldoutComponentSetData audio;
+        public FoldoutControlConfig audio;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public VerticalLayoutGroupSubsetData verticalLayoutGroup;
+        public VerticalLayoutGroupComponentGroupConfig verticalLayoutGroup;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         public FoldoutStyleOverride style;
@@ -42,10 +42,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
             using (_PRF_Initialize.Auto())
             {
-                FoldoutComponentSetData.CreateOrRefresh(ref fps,    this);
-                FoldoutComponentSetData.CreateOrRefresh(ref memory, this);
-                FoldoutComponentSetData.CreateOrRefresh(ref audio,  this);
-                VerticalLayoutGroupSubsetData.CreateOrRefresh(ref verticalLayoutGroup, this);
+                FoldoutControlConfig.Refresh(ref fps,    this);
+                FoldoutControlConfig.Refresh(ref memory, this);
+                FoldoutControlConfig.Refresh(ref audio,  this);
+                VerticalLayoutGroupComponentGroupConfig.Refresh(ref verticalLayoutGroup, this);
             }
         }
 
@@ -57,7 +57,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
                 var layoutParent = subwidget.canvas.GameObject;
 
-                VerticalLayoutGroupSubsetData.RefreshAndApply(
+                VerticalLayoutGroupComponentGroupConfig.RefreshAndApply(
                     ref verticalLayoutGroup,
                     this,
                     ref subwidget.verticalLayoutGroup,
@@ -72,9 +72,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
                 memory.Style = style;
                 audio.Style = style;
 
-                FoldoutComponentSetData.RefreshAndApply(ref fps,    ref subwidget.fps,    layoutObject, "FPS",   this);
-                FoldoutComponentSetData.RefreshAndApply(ref memory, ref subwidget.memory, layoutObject, "RAM",   this);
-                FoldoutComponentSetData.RefreshAndApply(ref audio,  ref subwidget.audio,  layoutObject, "Audio", this);
+                FoldoutControlConfig.RefreshAndApply(ref fps,    ref subwidget.fps,    layoutObject, "FPS",   this);
+                FoldoutControlConfig.RefreshAndApply(ref memory, ref subwidget.memory, layoutObject, "RAM",   this);
+                FoldoutControlConfig.RefreshAndApply(ref audio,  ref subwidget.audio,  layoutObject, "Audio", this);
             }
         }
     }

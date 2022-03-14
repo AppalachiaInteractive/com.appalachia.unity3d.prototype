@@ -4,7 +4,7 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons;
 using Appalachia.Prototype.KOC.Extensions;
-using Appalachia.UI.Core.Styling;
+using Appalachia.UI.Styling;
 using Appalachia.Utility.Async;
 using TMPro;
 using Unity.Profiling;
