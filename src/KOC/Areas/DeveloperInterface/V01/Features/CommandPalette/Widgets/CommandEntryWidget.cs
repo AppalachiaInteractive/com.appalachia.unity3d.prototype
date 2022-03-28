@@ -7,6 +7,7 @@ using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette.Widgets
 {
@@ -75,8 +76,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
 
             using (_PRF_Initialize.Auto())
             {
-                _inputField = initializer.Get(gameObject, _inputField, GetComponentStrategy.Children);
-
+                gameObject.GetOrAddComponentInChild(ref _inputField, nameof(InputField));
+                
                 _inputField.onValueChanged.AddListener(OnCommandPaletteInputModified);
                 _inputField.onSubmit.AddListener(OnCommandPaletteInputSubmitted);
                 _inputField.text = ">";

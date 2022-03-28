@@ -10,6 +10,7 @@ using Appalachia.Prototype.KOC.Application.Features.Widgets.Model;
 using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
+using Appalachia.UI.ControlModel.Controls.Default.Contracts;
 using Appalachia.UI.Core.Extensions;
 using Appalachia.UI.Functionality.Canvas.Controls.Default;
 using Appalachia.UI.Functionality.Images.Controls.Background;
@@ -46,15 +47,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
 
     {
-        #region Constants and Static Readonly
-
-        protected const string GROUP_NAME = "Widget";
-
-        #endregion
-
         static ApplicationWidget()
         {
-            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleLookup = i);
 
             RegisterInstanceCallbacks
                .For<ApplicationWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService
@@ -72,7 +67,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         #region Static Fields and Autoproperties
 
-        private static StyleElementDefaultLookup _styleElementDefaultLookup;
+        private static StyleElementDefaultLookup _styleLookup;
 
         private static TFeature _feature;
 
@@ -86,18 +81,19 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         private bool _isVisible;
 
         public CanvasControl canvas;
-
         public BackgroundControl background;
-
         public RoundedBackgroundControl roundedBackground;
-
         private Rect _lastRect;
 
         #endregion
 
-        public static TFeature Feature => _feature;
+        protected static StyleElementDefaultLookup StyleLookup => _styleLookup;
 
-        protected static StyleElementDefaultLookup StyleElementDefaultLookup => _styleElementDefaultLookup;
+        public BackgroundControl Background => background;
+        public CanvasControl Canvas => canvas;
+        public RoundedBackgroundControl RoundedBackground => roundedBackground;
+
+        public TFeature Feature => _feature;
 
         #region Event Functions
 
@@ -153,6 +149,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
         }
 
+        protected virtual IAppaUIControl[] GetControls()
+        {
+            using (_PRF_GetControls.Auto())
+            {
+                return GetComponentsInChildren<IAppaUIControl>();
+            }
+        }
+
         /// <summary>
         ///     Returns the correct parent for the current widget to live under.
         /// </summary>
@@ -190,12 +194,15 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             {
                 var unused = RectTransform;
 
-                Action DelegateCreator()
-                {
-                    return RefreshWidgetVisuals;
-                }
+                CanvasControl.Refresh(ref canvas, gameObject, nameof(Canvas));
 
-                metadata.SubscribeForUpdates(this as TWidget, DelegateCreator);
+                BackgroundControl.Refresh(ref background, canvas.ChildContainer, nameof(Background));
+
+                RoundedBackgroundControl.Refresh(
+                    ref roundedBackground,
+                    canvas.ChildContainer,
+                    nameof(RoundedBackground)
+                );
             }
         }
 
@@ -239,7 +246,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
             using (_PRF_UpdateAnchorMax.Auto())
             {
-                canvas.canvas.CanvasGroup.alpha = alpha;
+                canvas.CanvasGroup.alpha = alpha;
             }
         }
 
@@ -282,19 +289,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     }
                     else
                     {
-                        var canvasGroupSettings = metadata.canvas.Value.Canvas.CanvasGroup;
-                        var canvasGroupInnerSettings = canvasGroupSettings.Value;
-
-                        var usingCanvasGroup = canvasGroupSettings.IsElected;
+                        var canvasGroupSettings = metadata.canvas.Value.CanvasGroup;
+                        var canvasGroupInnerSettings = canvasGroupSettings;
 
                         if (_isVisible)
                         {
-                            canvas.Canvas.enabled = true;
-
-                            if (!usingCanvasGroup)
-                            {
-                                return;
-                            }
+                            canvas.enabled = true;
+                            canvas.canvas.enabled = true;
+                            canvas.canvas.canvas.enabled = true;
 
                             var newAlpha = canvasGroupInnerSettings.alpha.Overriding
                                 ? canvasGroupInnerSettings.alpha
@@ -304,9 +306,11 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                         }
                         else
                         {
-                            canvas.Canvas.enabled = false;
+                            canvas.enabled = false;
+                            canvas.canvas.enabled = false;
+                            canvas.canvas.canvas.enabled = false;
 
-                            var newAlpha = !usingCanvasGroup ? metadata.GetCanvasGroupInvisibleAlpha() : 0.0f;
+                            var newAlpha = metadata.GetCanvasGroupInvisibleAlpha();
 
                             UpdateCanvasGroupAlpha(newAlpha);
                         }
@@ -322,7 +326,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
-        private void RefreshWidgetVisuals()
+        internal void RefreshWidgetVisuals()
         {
             using (_PRF_RefreshWidgetVisuals.Auto())
             {
@@ -432,6 +436,19 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
             }
         }
 
+        public void ForEachControl(Action<IAppaUIControl> action)
+        {
+            using (_PRF_ForEachControl.Auto())
+            {
+                var controls = GetControls();
+
+                foreach (var control in controls)
+                {
+                    action(control);
+                }
+            }
+        }
+
         #endregion
 
         #region Profiling
@@ -439,7 +456,12 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         protected static readonly ProfilerMarker _PRF_EnsureWidgetIsCorrectSize =
             new ProfilerMarker(_PRF_PFX + nameof(EnsureWidgetIsCorrectSize));
 
-        private static readonly ProfilerMarker _PRF_GetWidgetParentObject =
+        private static readonly ProfilerMarker _PRF_ForEachControl =
+            new ProfilerMarker(_PRF_PFX + nameof(ForEachControl));
+
+        private static readonly ProfilerMarker _PRF_GetControls = new ProfilerMarker(_PRF_PFX + nameof(GetControls));
+
+        protected static readonly ProfilerMarker _PRF_GetWidgetParentObject =
             new ProfilerMarker(_PRF_PFX + nameof(GetWidgetParentObject));
 
         protected static readonly ProfilerMarker _PRF_Hide = new ProfilerMarker(_PRF_PFX + nameof(Hide));

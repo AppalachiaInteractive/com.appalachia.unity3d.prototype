@@ -1,12 +1,13 @@
 using System;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
-using Appalachia.Core.ControlModel.Controls;
+using Appalachia.Core.ControlModel.Extensions;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Services.Contracts;
+using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Model;
 using Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts;
@@ -106,10 +107,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         public RoundedBackgroundControlConfig.Optional roundedBackground;
 
         [FoldoutGroup(APPASTR.Common)]
-        [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf("@HideAllFields || HideFontStyleField")]
-        public FontStyleOverride fontStyle;
+        public FontStyleTypes fontStyle;
 
         [FoldoutGroup(APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
@@ -178,6 +178,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         protected virtual bool HideRectTransformField => false;
         protected virtual bool HideRoundedBackgroundField => false;
         protected virtual bool HideTransitionsWithFadeField => false;
+        public BackgroundControlConfig.Optional Background => background;
+        public RoundedBackgroundControlConfig.Optional RoundedBackground => roundedBackground;
 
         public bool NotReadyForRelease => _notReadyForRelease;
 
@@ -266,7 +268,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
                             return;
                         }
 
-                        ExecuteUpdateFunctionalityInternal(subwidget);
+                        ExecuteOnApply(subwidget);
                     }
 
                     return SubscribableDelegate;
@@ -287,7 +289,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
                     APPADEBUG.BREAKPOINT(() => nameof(Changed), subwidget);
                 }
 
-                ExecuteUpdateFunctionalityInternal(subwidget);
+                ExecuteOnApply(subwidget);
             }
         }
 
@@ -303,11 +305,25 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
             }
         }
 
-        protected virtual void BeforeUpdateFunctionality(TSubwidget subwidget)
+        protected virtual void BeforeApply(TSubwidget subwidget)
         {
-            using (_PRF_BeforeUpdateFunctionality.Auto())
+            using (_PRF_BeforeApply.Auto())
             {
                 subwidget.ApplyingMetadata = true;
+            }
+        }
+
+        protected virtual void OnApply(TSubwidget subwidget)
+        {
+            using (_PRF_OnApply.Auto())
+            {
+                rectTransform.Apply(subwidget.RectTransform);
+
+                canvas.Apply(subwidget.canvas);
+
+                background.Apply(subwidget.background);
+
+                roundedBackground.Apply(subwidget.roundedBackground);
             }
         }
 
@@ -315,49 +331,61 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
-                target.Changed.Event += OnChanged;
-                rectTransform.Changed.Event += OnChanged;
-                canvas.Changed.Event += OnChanged;
-                background.Changed.Event += OnChanged;
-                roundedBackground.Changed.Event += OnChanged;
-                fontStyle.Changed.Event += OnChanged;
+                target.SubscribeToChanges(OnChanged);
+                rectTransform.SubscribeToChanges(OnChanged);
+                canvas.SubscribeToChanges(OnChanged);
+                background.SubscribeToChanges(OnChanged);
+                roundedBackground.SubscribeToChanges(OnChanged);
             }
         }
 
-        protected virtual void UpdateFunctionalityInternal(TSubwidget subwidget)
+        protected virtual void SuspendResponsiveComponents(TSubwidget target)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_SuspendResponsiveComponents.Auto())
             {
-                RectTransformConfig.RefreshAndApply(ref rectTransform, true, this, subwidget.RectTransform);
-
-                CanvasControlConfig.RefreshAndApply(
-                    ref canvas,
-                    true,
-                    ref subwidget.canvas,
-                    subwidget.gameObject,
-                    typeof(TSubwidget).Name,
-                    this
-                );
-
-                BackgroundControlConfig.RefreshAndApply(
-                    ref background,
-                    false,
-                    ref subwidget.background,
-                    subwidget.canvas.GameObject,
-                    typeof(TSubwidget).Name,
-                    this
-                );
-
-                RoundedBackgroundControlConfig.RefreshAndApply(
-                    ref roundedBackground,
-                    false,
-                    ref subwidget.roundedBackground,
-                    subwidget.canvas.GameObject,
-                    typeof(TSubwidget).Name,
-                    this
-                );
+                target.SuspendChanges();
+                rectTransform.SuspendChanges();
+                canvas.SuspendChanges();
+                background.SuspendChanges();
+                roundedBackground.SuspendChanges();
             }
         }
+
+        protected virtual void UnsuspendResponsiveComponents(TSubwidget target)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                target.UnsuspendChanges();
+                rectTransform.UnsuspendChanges();
+                canvas.UnsuspendChanges();
+                background.UnsuspendChanges();
+                roundedBackground.UnsuspendChanges();
+            }
+        }
+        
+        
+        /*
+        public override void UnsuspendChanges(TSubwidget target)
+        {
+            using (_PRF_UnsuspendChanges.Auto())
+            {
+                base.UnsuspendChanges();
+            
+                UnsuspendResponsiveComponents(target);
+            }
+        }
+
+        public override void SuspendChanges(TSubwidget target)
+        {
+            using (_PRF_SuspendChanges.Auto())
+            {
+                base.SuspendChanges();
+            
+                SuspendResponsiveComponents(target);
+            }
+        }
+        */
+
 
         /// <summary>
         ///     Returns an asset name which which concatenates the current subwidget <see cref="Type" />.<see cref="Type.Name" />
@@ -403,19 +431,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
 
                 initializer.Do(
                     this,
-                    nameof(FontStyleOverride),
-                    fontStyle == null,
-                    () =>
-                    {
-                        fontStyle = LoadOrCreateNew<FontStyleOverride>(
-                            GetAssetName<FontStyleOverride>(),
-                            ownerType: typeof(ApplicationManager)
-                        );
-                    }
-                );
-
-                initializer.Do(
-                    this,
                     nameof(widgetEnabledVisibilityMode),
                     () => widgetEnabledVisibilityMode = SubwidgetVisibilityMode.Visible
                 );
@@ -427,59 +442,30 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
             }
         }
 
-        protected void RefreshAndApply<TControl, TConfig>(
-            ref TControl control,
-            ref TConfig config,
-            TSubwidget subwidget,
-            GameObject parent = null,
-            string setName = null)
-            where TControl : AppaControl<TControl, TConfig>, new()
-            where TConfig: AppaControlConfig<TControl, TConfig>, new()
+        private void ExecuteOnApply(TSubwidget subwidget)
         {
-            using (_PRF_RefreshAndApply.Auto())
+            using (_PRF_ExecuteOnApply.Auto())
             {
-                setName ??= typeof(TSubwidget).Name;
-
-                if (parent == null)
-                {
-                    parent = subwidget.gameObject;
-                }
-
-                AppaControlConfig<TControl, TConfig>.RefreshAndApply(
-                    ref config,
-                    ref control,
-                    parent,
-                    setName,
-                    this
-                );
-            }
-        }
-
-        private void ExecuteUpdateFunctionalityInternal(TSubwidget subwidget)
-        {
-            using (_PRF_ExecuteUpdateFunctionalityInternal.Auto())
-            {
-                BeforeUpdateFunctionality(subwidget);
-                UpdateFunctionalityInternal(subwidget);
+                BeforeApply(subwidget);
+                OnApply(subwidget);
                 AfterUpdateFunctionality(subwidget);
             }
         }
 
         #region IApplicationInstancedSubwidgetMetadata<TISubwidget,TISubwidgetMetadata> Members
 
-        void IApplicationFunctionalityMetadata<TISubwidget>.UpdateFunctionality(TISubwidget functionality)
+        void IApplicationFunctionalityMetadata<TISubwidget>.Apply(TISubwidget functionality)
         {
             UpdateFunctionality(functionality as TSubwidget);
         }
 
         public int Priority => priority;
-        public BackgroundControlConfig.Optional Background => background;
         public CanvasControlConfig.Optional Canvas => canvas;
         public RectTransformConfig.Override RectTransform => rectTransform;
-        public RoundedBackgroundControlConfig.Optional RoundedBackground => roundedBackground;
         public bool TransitionsWithFade => transitionsWithFade;
         public float AnimationDuration => animationDuration;
-        public FontStyleOverride FontStyle
+
+        public FontStyleTypes FontStyle
         {
             get => fontStyle;
             set => fontStyle = value;
@@ -487,6 +473,21 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
 
         public SubwidgetVisibilityMode WidgetDisabledVisibilityMode => widgetDisabledVisibilityMode;
         public SubwidgetVisibilityMode WidgetEnabledVisibilityMode => widgetEnabledVisibilityMode;
+
+        void IApplicationSubwidgetMetadata.SubscribeResponsiveComponents(IApplicationSubwidget target)
+        {
+            SubscribeResponsiveComponents(target as TSubwidget);
+        }
+
+        void IApplicationSubwidgetMetadata.UnsuspendResponsiveComponents(IApplicationSubwidget target)
+        {
+            UnsuspendResponsiveComponents(target as TSubwidget);
+        }
+
+        void IApplicationSubwidgetMetadata.SuspendResponsiveComponents(IApplicationSubwidget target)
+        {
+            SuspendResponsiveComponents(target as TSubwidget);
+        }
 
         #endregion
 
@@ -498,19 +499,17 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         protected static readonly ProfilerMarker _PRF_GetCanvasGroupVisibleAlpha =
             new ProfilerMarker(_PRF_PFX + nameof(GetCanvasGroupVisibleAlpha));
 
-        private static readonly ProfilerMarker _PRF_RefreshAndApply =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndApply));
-
         private static readonly ProfilerMarker _PRF_GetAssetName = new ProfilerMarker(_PRF_PFX + nameof(GetAssetName));
 
         protected static readonly ProfilerMarker _PRF_AfterUpdateFunctionality =
             new ProfilerMarker(_PRF_PFX + nameof(AfterUpdateFunctionality));
 
-        protected static readonly ProfilerMarker _PRF_BeforeUpdateFunctionality =
-            new ProfilerMarker(_PRF_PFX + nameof(BeforeUpdateFunctionality));
+        protected static readonly ProfilerMarker _PRF_BeforeApply = new ProfilerMarker(_PRF_PFX + nameof(BeforeApply));
 
-        private static readonly ProfilerMarker _PRF_ExecuteUpdateFunctionalityInternal =
-            new ProfilerMarker(_PRF_PFX + nameof(ExecuteUpdateFunctionalityInternal));
+        private static readonly ProfilerMarker _PRF_ExecuteOnApply =
+            new ProfilerMarker(_PRF_PFX + nameof(ExecuteOnApply));
+
+        protected static readonly ProfilerMarker _PRF_OnApply = new ProfilerMarker(_PRF_PFX + nameof(OnApply));
 
         private static readonly ProfilerMarker _PRF_SubscribeForUpdates =
             new ProfilerMarker(_PRF_PFX + nameof(SubscribeForUpdates));
@@ -518,14 +517,17 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         protected static readonly ProfilerMarker _PRF_SubscribeResponsiveComponents =
             new ProfilerMarker(_PRF_PFX + nameof(SubscribeResponsiveComponents));
 
+        protected static readonly ProfilerMarker _PRF_SuspendResponsiveComponents =
+            new ProfilerMarker(_PRF_PFX + nameof(SuspendResponsiveComponents));
+
         private static readonly ProfilerMarker _PRF_UnsubscribeFromUpdates =
             new ProfilerMarker(_PRF_PFX + nameof(UnsubscribeFromUpdates));
 
+        protected static readonly ProfilerMarker _PRF_UnsuspendResponsiveComponents =
+            new ProfilerMarker(_PRF_PFX + nameof(UnsuspendResponsiveComponents));
+
         protected static readonly ProfilerMarker _PRF_UpdateFunctionality =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateFunctionality));
-
-        protected static readonly ProfilerMarker _PRF_UpdateFunctionalityInternal =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateFunctionalityInternal));
 
         #endregion
     }

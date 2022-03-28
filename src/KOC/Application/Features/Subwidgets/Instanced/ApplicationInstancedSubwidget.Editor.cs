@@ -12,7 +12,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
 {
     [SmartLabelChildren]
     [ExecuteAlways]
-    public abstract partial class ApplicationInstancedSubwidget<TSubwidget, TSubwidgetMetadata, TISubwidget, TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
+    public abstract partial class ApplicationInstancedSubwidget<TSubwidget, TSubwidgetMetadata, TISubwidget,
+                                                                TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
                                                                 TFeatureMetadata, TFunctionalitySet, TIService,
                                                                 TIWidget, TManager>
     {

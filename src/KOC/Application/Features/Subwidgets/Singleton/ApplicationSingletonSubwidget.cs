@@ -31,13 +31,14 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
     [ExecutionOrder(ExecutionOrders.Subwidget)]
     [CallStaticConstructorInEditor]
     [RequireComponent(typeof(RectTransform))]
+    [Serializable]
     public abstract class ApplicationSingletonSubwidget<TSubwidget, TSubwidgetMetadata, TISubwidget,
                                                         TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
                                                         TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
                                                         TManager> :
         ApplicationFunctionality<TSubwidget, TSubwidgetMetadata, TManager>,
         IApplicationSingletonSubwidget<TISubwidget, TISubwidgetMetadata>,
-        IClickable
+        IPrioritizable
         where TSubwidget :
         ApplicationSingletonSubwidget<TSubwidget, TSubwidgetMetadata, TISubwidget, TISubwidgetMetadata, TWidget,
             TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>, TISubwidget,
@@ -61,37 +62,25 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         where TIWidget : IApplicationWidget
         where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
-        #region Constants and Static Readonly
-
-        protected const string GROUP_NAME = "Subwidget";
-
-        #endregion
-
         static ApplicationSingletonSubwidget()
         {
-            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
-
-            RegisterInstanceCallbacks
+            var callbacks = RegisterInstanceCallbacks
                .For<ApplicationSingletonSubwidget<TSubwidget, TSubwidgetMetadata, TISubwidget, TISubwidgetMetadata,
                     TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget,
-                    TManager>>()
-               .When.Behaviour<TWidget>()
-               .AndBehaviour<TFeature>()
-               .AndBehaviour<TSubwidget>()
-               .AreAvailableThen(
-                    (w, f, s) =>
-                    {
-                        _feature = f;
-                        _widget = w;
+                    TManager>>();
 
-                        _widget.AddSubwidget(s);
-                    }
-                );
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleLookup = i);
+            RegisterDependency<TWidget>(i => _widget = i);
+
+            callbacks.When.Behaviour<TFeature>().IsAvailableThen(f => _feature = f);
+            callbacks.When.Behaviour<TSubwidget>()
+                     .AndBehaviour<TWidget>()
+                     .AreAvailableThen((s, w) => { w.AddSubwidget(s); });
         }
 
         #region Static Fields and Autoproperties
 
-        private static StyleElementDefaultLookup _styleElementDefaultLookup;
+        private static StyleElementDefaultLookup _styleLookup;
 
         private static TFeature _feature;
         private static TWidget _widget;
@@ -105,18 +94,22 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         [ShowInInspector, ReadOnly, HorizontalGroup("State"), PropertyOrder(-1000), NonSerialized]
         private bool _isVisible;
 
-        public CanvasControl canvas;
+        [SerializeField] public CanvasControl canvas;
 
-        public BackgroundControl background;
+        [SerializeField] public BackgroundControl background;
 
-        public RoundedBackgroundControl roundedBackground;
+        [SerializeField] public RoundedBackgroundControl roundedBackground;
 
-        private Rect _lastRect;
-        private int _priority;
+        [SerializeField] private Rect _lastRect;
+        [SerializeField] private int _priority;
 
         #endregion
 
-        protected static StyleElementDefaultLookup StyleElementDefaultLookup => _styleElementDefaultLookup;
+        protected static StyleElementDefaultLookup StyleLookup => _styleLookup;
+
+        public BackgroundControl Background => background;
+        public CanvasControl Canvas => canvas;
+        public RoundedBackgroundControl RoundedBackground => roundedBackground;
 
         public TFeature Feature => _feature;
 
@@ -172,7 +165,51 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
         #endregion
 
-        TISubwidgetMetadata IApplicationSubwidget<TISubwidget, TISubwidgetMetadata>.Metadata => metadata;
+        public void ValidateSiblingSort()
+        {
+            using (_PRF_ValidateSiblingSort.Auto())
+            {
+                var parent = transform.parent;
+                var siblingCount = parent.childCount;
+
+                if (siblingCount < 2)
+                {
+                    return;
+                }
+
+                var myIndex = 0;
+
+                var lowerPriorities = 0;
+
+                for (var i = 0; i < siblingCount; i++)
+                {
+                    var sibling = parent.GetChild(i);
+
+                    if (sibling == transform)
+                    {
+                        myIndex = i;
+                        continue;
+                    }
+
+                    var comp = sibling.GetComponent<IPrioritizable>();
+
+                    if (comp == null)
+                    {
+                        continue;
+                    }
+
+                    if (comp.Priority < _priority)
+                    {
+                        lowerPriorities += 1;
+                    }
+                }
+
+                if (myIndex != lowerPriorities)
+                {
+                    transform.SetSiblingIndex(lowerPriorities);
+                }
+            }
+        }
 
         protected virtual void EnsureSubwidgetIsCorrectSize()
         {
@@ -215,12 +252,22 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
             {
                 var unused = RectTransform;
 
+                CanvasControl.Refresh(ref canvas, gameObject, nameof(Canvas));
+
+                BackgroundControl.Refresh(ref background, canvas.ChildContainer, nameof(Background));
+
+                RoundedBackgroundControl.Refresh(
+                    ref roundedBackground,
+                    canvas.ChildContainer,
+                    nameof(RoundedBackground)
+                );
+
                 Action DelegateCreator()
                 {
                     return RefreshSubwidgetVisuals;
                 }
 
-                metadata.SubscribeForUpdates(this as TSubwidget, DelegateCreator);
+                metadata.SubscribeToChanges(this as TSubwidget, DelegateCreator);
             }
         }
 
@@ -241,6 +288,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
             using (_PRF_WhenEnabled.Auto())
             {
                 UpdateVisibility(_feature.IsEnabled);
+                ValidateSiblingSort();
             }
         }
 
@@ -392,6 +440,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
         #region IApplicationSingletonSubwidget<TISubwidget,TISubwidgetMetadata> Members
 
+        TISubwidgetMetadata IApplicationSubwidget<TISubwidget, TISubwidgetMetadata>.Metadata => metadata;
+
         public bool IsVisible => _isVisible;
         public float EffectiveAnchorHeight => IsVisible ? RectTransform.GetAnchorHeight() : 0f;
         public float EffectiveAnchorWidth => IsVisible ? RectTransform.GetAnchorWidth() : 0f;
@@ -461,12 +511,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
         #endregion
 
-        #region IClickable Members
-
-        public abstract void OnClicked();
-
-        #endregion
-
         #region Profiling
 
         protected static readonly ProfilerMarker _PRF_EnsureSubwidgetIsCorrectSize =
@@ -476,8 +520,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
             new ProfilerMarker(_PRF_PFX + nameof(GetSubwidgetParentObject));
 
         protected static readonly ProfilerMarker _PRF_Hide = new ProfilerMarker(_PRF_PFX + nameof(Hide));
-
-        protected static readonly ProfilerMarker _PRF_OnClicked = new ProfilerMarker(_PRF_PFX + nameof(OnClicked));
 
         private static readonly ProfilerMarker _PRF_OnDisableWidget =
             new ProfilerMarker(_PRF_PFX + nameof(OnDisableWidget));
@@ -508,6 +550,9 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
         private static readonly ProfilerMarker _PRF_UpdateVisibility =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateVisibility));
+
+        private static readonly ProfilerMarker _PRF_ValidateSiblingSort =
+            new ProfilerMarker(_PRF_PFX + nameof(ValidateSiblingSort));
 
         private static readonly ProfilerMarker _PRF_ValidateVisibility =
             new ProfilerMarker(_PRF_PFX + nameof(ValidateVisibility));

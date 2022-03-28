@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: LabelSets
   m_EditorClassIdentifier: 
   _initializer:
-    _initializationCount: 2280
+    _initializationCount: 3552
     _tags:
     - Vegetation
     - Tree
     - Assembly
+    _unityObject: {fileID: 11400000}
     _resetToken: 
   _niceName: 
   _objectID:

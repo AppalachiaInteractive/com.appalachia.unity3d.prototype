@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0054f8791634cfaa2fc4e247857b0d8, type: 3}
   m_Name: ComplexCursorLookup_MainInternal
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags: []
+    _unityObject: {fileID: 0}
     _resetToken: 
-  _objectId:
+  _niceName: Complex Cursor Lookup Main Internal
+  _objectID:
     _increment: 3077308
     _machine: 14129404
     _timestamp: 1645733495

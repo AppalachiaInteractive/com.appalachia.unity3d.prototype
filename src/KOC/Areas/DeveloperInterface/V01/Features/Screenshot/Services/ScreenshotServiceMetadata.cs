@@ -35,22 +35,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screens
                 _metadata.Initialize(initializer, this);
             }
         }
-
-        /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(ScreenshotService target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(ScreenshotService functionality)
-        {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
-            {
-            }
-        }
+        
 
         #region IServiceMetadata Members
 

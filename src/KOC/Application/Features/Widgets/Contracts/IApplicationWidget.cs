@@ -1,4 +1,7 @@
+using System;
+using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
+using Appalachia.UI.ControlModel.Controls.Default.Contracts;
 
 namespace Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts
 {
@@ -13,6 +16,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets.Contracts
         void OnEnableFeature();
         void OnDisableFeature();
         void ToggleVisibility();
+        void ForEachControl(Action<IAppaUIControl> action);
     }
 
     public interface IApplicationWidget<T> : IApplicationWidget

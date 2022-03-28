@@ -57,21 +57,5 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profili
                 initializer.Do(this, nameof(textUpdateRate),  () => textUpdateRate = 3);
             }
         }
-
-        /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(MemoryProfilerService target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(MemoryProfilerService functionality)
-        {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
-            {
-            }
-        }
     }
 }

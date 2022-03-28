@@ -1,5 +1,5 @@
 using System;
-using Appalachia.Prototype.KOC.Application.Lifetime;
+using Appalachia.Utility.Colors;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Pooling.Objects;
 using Appalachia.Utility.Standards;
@@ -11,18 +11,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 {
 #pragma warning disable CS0612
     [Serializable]
-    public class
-        RectTransformVisualizationDataElement : SelfPoolingObject<RectTransformVisualizationDataElement>
+    public class RectTransformVisualizationDataElement : SelfPoolingObject<RectTransformVisualizationDataElement>
 #pragma warning restore CS0612
     {
         #region Fields and Autoproperties
 
         public bool drawLocatorLine;
-        public Color color;
-        public Rect rect;
         public bool isSelected;
+        public Color color;
         public float thickness;
         public float z;
+        public Rect rect;
 
         #endregion
 
@@ -78,12 +77,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                             drawCommandBuilder.Line(TopRight,    BottomRight);
                             drawCommandBuilder.Line(BottomRight, BottomLeft);
 
-                            if (isSelected)
-                            {
-                                drawCommandBuilder.Line(BottomLeft, TopRight);
-                                drawCommandBuilder.Line(TopLeft,    BottomRight);
-                            }
-
                             if (drawLocatorLine)
                             {
                                 var center = .5f * (BottomLeft + TopRight);
@@ -94,6 +87,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
                         }
                     }
                 );
+
+                if (isSelected)
+                {
+                    DrawInternal(
+                        drawCommandBuilder,
+                        color.ScaleA(2.5f),
+                        () =>
+                        {
+                            using (drawCommandBuilder.WithLineWidth(thickness))
+                            {
+                                drawCommandBuilder.Line(BottomLeft, TopRight);
+                                drawCommandBuilder.Line(TopLeft,    BottomRight);
+                            }
+                        }
+                    );
+                }
             }
         }
 
@@ -126,17 +135,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_CopyRect =
-            new ProfilerMarker(_PRF_PFX + nameof(CopyRect));
+        private static readonly ProfilerMarker _PRF_CopyRect = new ProfilerMarker(_PRF_PFX + nameof(CopyRect));
 
-        private static readonly ProfilerMarker _PRF_DrawAsCube =
-            new ProfilerMarker(_PRF_PFX + nameof(DrawAsCube));
+        private static readonly ProfilerMarker _PRF_DrawAsCube = new ProfilerMarker(_PRF_PFX + nameof(DrawAsCube));
 
-        private static readonly ProfilerMarker _PRF_DrawInternal =
-            new ProfilerMarker(_PRF_PFX + nameof(DrawInternal));
+        private static readonly ProfilerMarker _PRF_DrawInternal = new ProfilerMarker(_PRF_PFX + nameof(DrawInternal));
 
-        private static readonly ProfilerMarker _PRF_CopyCorners =
-            new ProfilerMarker(_PRF_PFX + nameof(CopyRect));
+        private static readonly ProfilerMarker _PRF_CopyCorners = new ProfilerMarker(_PRF_PFX + nameof(CopyRect));
 
         private static readonly ProfilerMarker _PRF_Grow = new ProfilerMarker(_PRF_PFX + nameof(Grow));
 

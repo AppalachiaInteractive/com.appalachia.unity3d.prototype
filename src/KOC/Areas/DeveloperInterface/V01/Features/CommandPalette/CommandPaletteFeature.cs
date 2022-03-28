@@ -16,11 +16,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
                 i => _commandEntryWidget = i
             );
 
-            FunctionalitySet.RegisterWidget<CommandSuggestionsWidget>(
-                _dependencyTracker,
-                i => _commandSuggestionsWidget = i
-            );
-
             FunctionalitySet.RequireFeature<ActivityBarFeature>(
                 _dependencyTracker,
                 i => _activityBarFeature = i
@@ -36,7 +31,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Command
         private static ActivityBarFeature _activityBarFeature;
 
         private static CommandEntryWidget _commandEntryWidget;
-        private static CommandSuggestionsWidget _commandSuggestionsWidget;
         private static StatusBarFeature _statusBarFeature;
 
         #endregion

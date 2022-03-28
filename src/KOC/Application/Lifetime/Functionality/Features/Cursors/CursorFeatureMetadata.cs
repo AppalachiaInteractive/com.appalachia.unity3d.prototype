@@ -4,20 +4,5 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
 {
     public class CursorFeatureMetadata : LifetimeFeatureMetadata<CursorFeature, CursorFeatureMetadata>
     {
-        /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(CursorFeature target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(CursorFeature functionality)
-        {
-            using (_PRF_UpdateFunctionality.Auto())
-            {
-            }
-        }
     }
 }

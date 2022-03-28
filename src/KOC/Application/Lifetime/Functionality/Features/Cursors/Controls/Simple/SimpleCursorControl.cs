@@ -9,8 +9,5 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     [Serializable]
     [SmartLabelChildren]
     public sealed class SimpleCursorControl : BaseSimpleCursorControl<SimpleCursorControl, SimpleCursorControlConfig>
-    {
-        /// <inheritdoc />
-        public override ControlSorting DesiredComponentOrder => ControlSorting.Anywhere;
-    }
+    {    }
 }

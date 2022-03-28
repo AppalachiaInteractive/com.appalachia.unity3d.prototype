@@ -126,21 +126,11 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
             {
                 gameObject.GetOrAddChild(ref _uiObject, PARENT_NAME_UI, false);
 
-                RootCanvasControlConfig.RefreshAndApply(
-                    ref _lifetimeMetadata.rootCanvas,
-                    ref _rootCanvas,
-                    _uiObject,
-                    APPASTR.ObjectNames.Master_Canvas,
-                    _lifetimeMetadata
-                );
+                RootCanvasControl.Refresh(ref _rootCanvas, _uiObject, nameof(_rootCanvas));
+                _lifetimeMetadata.rootCanvas.Apply(_rootCanvas);
 
-                BackgroundControlConfig.RefreshAndApply(
-                    ref _lifetimeMetadata.rootBackground,
-                    ref _rootBackground,
-                    _rootCanvas.ScaledCanvas.gameObject,
-                    APPASTR.ObjectNames.Master_Canvas,
-                    _lifetimeMetadata
-                );
+                BackgroundControl.Refresh(ref _rootBackground, _rootCanvas.ScaledCanvas.gameObject, nameof(_rootCanvas));
+                _lifetimeMetadata.rootBackground.Apply(_rootBackground);
 
                 RootCanvasControlReady.RaiseEvent(RootCanvasControl);
             }

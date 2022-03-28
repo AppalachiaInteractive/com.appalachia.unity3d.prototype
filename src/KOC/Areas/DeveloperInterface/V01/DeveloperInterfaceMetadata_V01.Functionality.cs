@@ -1,9 +1,6 @@
+using System;
 using Appalachia.CI.Constants;
-using Appalachia.Core.Objects.Initialization;
-using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Subwidgets;
 using Appalachia.Prototype.KOC.Areas.Functionality.Features;
 using Appalachia.Prototype.KOC.Areas.Functionality.Services;
 using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Instanced;
@@ -11,9 +8,7 @@ using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Instanced.Contract
 using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton;
 using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton.Contracts;
 using Appalachia.Prototype.KOC.Areas.Functionality.Widgets;
-using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
-using UnityEngine;
 using MANAGER = Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.DeveloperInterfaceManager_V01;
 using METADATA = Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.DeveloperInterfaceMetadata_V01;
 
@@ -23,6 +18,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
     {
         #region Nested type: FeatureMetadata
 
+        [Serializable]
         public abstract class FeatureMetadata<TFeature, TFeatureMetadata> : AreaFeatureMetadata<TFeature,
             TFeatureMetadata, MANAGER, METADATA>
             where TFeature : MANAGER.Feature<TFeature, TFeatureMetadata>
@@ -34,6 +30,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 
         #region Nested type: InstancedSubwidgetMetadata
 
+        [Serializable]
         public abstract class InstancedSubwidgetMetadata<TSubwidget, TSubwidgetMetadata, TISubwidget,
                                                          TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
                                                          TFeatureMetadata> : AreaInstancedSubwidgetMetadata<TSubwidget,
@@ -55,75 +52,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             where TFeature : MANAGER.Feature<TFeature, TFeatureMetadata>
             where TFeatureMetadata : FeatureMetadata<TFeature, TFeatureMetadata>
         {
-            #region Fields and Autoproperties
-
-            [SerializeField]
-            [OnValueChanged(nameof(OnChanged))]
-            [HideIf("@HideAllFields || !ShowsTooltip")]
-            public DevTooltipSubwidgetMetadata devTooltipSubwidget;
-
-            #endregion
-
-            protected virtual bool ShowsTooltip => true;
-
-            protected override void AfterUpdateFunctionality(TSubwidget subwidget)
-            {
-                using (_PRF_AfterUpdateFunctionality.Auto())
-                {
-                    base.AfterUpdateFunctionality(subwidget);
-
-                    if (subwidget != null)
-                    {
-                        subwidget.OnDevTooltipUpdateRequested();
-                    }
-                }
-            }
-
-            /// <inheritdoc />
-            protected override async AppaTask Initialize(Initializer initializer)
-            {
-                await base.Initialize(initializer);
-
-                using (_PRF_Initialize.Auto())
-                {
-                    if (ShowsTooltip)
-                    {
-                        initializer.Do(
-                            this,
-                            nameof(devTooltipSubwidget),
-                            devTooltipSubwidget == null,
-                            () =>
-                            {
-                                if (devTooltipSubwidget == null)
-                                {
-                                    var metadataName = typeof(TSubwidget).Name + nameof(DevTooltipSubwidgetMetadata);
-
-                                    devTooltipSubwidget = AppalachiaObject.LoadOrCreateNew<DevTooltipSubwidgetMetadata>(
-                                        metadataName,
-                                        ownerType: AppalachiaRepository.PrimaryOwnerType
-                                    );
-                                }
-                            }
-                        );
-                    }
-                }
-            }
-
-            protected override void SubscribeResponsiveComponents(TSubwidget target)
-            {
-                using (_PRF_SubscribeResponsiveComponents.Auto())
-                {
-                    base.SubscribeResponsiveComponents(target);
-
-                    devTooltipSubwidget.Changed.Event += OnChanged;
-                }
-            }
         }
 
         #endregion
 
         #region Nested type: ServiceMetadata
 
+        [Serializable]
         public abstract class ServiceMetadata<TService, TServiceMetadata, TFeature, TFeatureMetadata> :
             AreaServiceMetadata<TService, TServiceMetadata, TFeature, TFeatureMetadata, MANAGER, METADATA>
             where TService : MANAGER.Service<TService, TServiceMetadata, TFeature, TFeatureMetadata>
@@ -137,6 +72,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 
         #region Nested type: SingletonSubwidgetMetadata
 
+        [Serializable]
         public abstract class SingletonSubwidgetMetadata<TSubwidget, TSubwidgetMetadata, TISubwidget,
                                                          TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
                                                          TFeatureMetadata> : AreaSingletonSubwidgetMetadata<TSubwidget,
@@ -159,75 +95,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             where TFeature : MANAGER.Feature<TFeature, TFeatureMetadata>
             where TFeatureMetadata : FeatureMetadata<TFeature, TFeatureMetadata>
         {
-            #region Fields and Autoproperties
-
-            [SerializeField]
-            [OnValueChanged(nameof(OnChanged))]
-            [HideIf("@HideAllFields || !ShowsTooltip")]
-            public DevTooltipSubwidgetMetadata devTooltipSubwidget;
-
-            #endregion
-
-            protected virtual bool ShowsTooltip => true;
-
-            protected override void AfterUpdateFunctionality(TSubwidget subwidget)
-            {
-                using (_PRF_AfterUpdateFunctionality.Auto())
-                {
-                    base.AfterUpdateFunctionality(subwidget);
-
-                    if (subwidget != null)
-                    {
-                        subwidget.OnDevTooltipUpdateRequested();
-                    }
-                }
-            }
-
-            /// <inheritdoc />
-            protected override async AppaTask Initialize(Initializer initializer)
-            {
-                await base.Initialize(initializer);
-
-                using (_PRF_Initialize.Auto())
-                {
-                    if (ShowsTooltip)
-                    {
-                        initializer.Do(
-                            this,
-                            nameof(devTooltipSubwidget),
-                            devTooltipSubwidget == null,
-                            () =>
-                            {
-                                if (devTooltipSubwidget == null)
-                                {
-                                    var metadataName = typeof(TSubwidget).Name + nameof(DevTooltipSubwidgetMetadata);
-
-                                    devTooltipSubwidget = AppalachiaObject.LoadOrCreateNew<DevTooltipSubwidgetMetadata>(
-                                        metadataName,
-                                        ownerType: AppalachiaRepository.PrimaryOwnerType
-                                    );
-                                }
-                            }
-                        );
-                    }
-                }
-            }
-
-            protected override void SubscribeResponsiveComponents(TSubwidget target)
-            {
-                using (_PRF_SubscribeResponsiveComponents.Auto())
-                {
-                    base.SubscribeResponsiveComponents(target);
-
-                    devTooltipSubwidget.Changed.Event += OnChanged;
-                }
-            }
         }
 
         #endregion
 
         #region Nested type: WidgetMetadata
 
+        [Serializable]
         public abstract class WidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata> : AreaWidgetMetadata<
             TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, MANAGER, METADATA>
             where TWidget : MANAGER.Widget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata>
@@ -248,6 +122,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 
         #region Nested type: WidgetWithInstancedSubwidgetsMetadata
 
+        [Serializable]
         public abstract class WidgetWithInstancedSubwidgetsMetadata<TSubwidget, TSubwidgetMetadata, TISubwidget,
                                                                     TISubwidgetMetadata, TWidget, TWidgetMetadata,
                                                                     TFeature, TFeatureMetadata> :
@@ -275,44 +150,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             [OnValueChanged(nameof(OnChanged))]
             public bool inUnscaledView;
 
-            [OnValueChanged(nameof(OnChanged))]
-            [SerializeField]
-            public DevTooltipStyleOverride devTooltipStyle;
-
             #endregion
-
-            protected virtual bool ShowsTooltip => true;
-
-            /// <inheritdoc />
-            protected override async AppaTask Initialize(Initializer initializer)
-            {
-                await base.Initialize(initializer);
-
-                using (_PRF_Initialize.Auto())
-                {
-                    if (ShowsTooltip)
-                    {
-                        initializer.Do(
-                            this,
-                            nameof(devTooltipStyle),
-                            devTooltipStyle == null,
-                            () =>
-                            {
-                                devTooltipStyle = LoadOrCreateNew<DevTooltipStyleOverride>(
-                                    GetAssetName<DevTooltipStyleOverride>(),
-                                    ownerType: typeof(ApplicationManager)
-                                );
-                            }
-                        );
-                    }
-                }
-            }
         }
 
         #endregion
 
         #region Nested type: WidgetWithSingletonSubwidgetsMetadata
 
+        [Serializable]
         public abstract class WidgetWithSingletonSubwidgetsMetadata<TISubwidget, TISubwidgetMetadata, TWidget,
                                                                     TWidgetMetadata, TFeature, TFeatureMetadata> :
             AreaWidgetWithSingletonSubwidgetsMetadata<TISubwidget, TISubwidgetMetadata, TWidget, TWidgetMetadata,
@@ -328,43 +173,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         {
             #region Fields and Autoproperties
 
-            [OnValueChanged(nameof(OnChanged))]
-            [SerializeField]
-            [HideIf(nameof(HideAllFields))]
-            public DevTooltipStyleOverride devTooltipStyle;
-
             [FoldoutGroup(APPASTR.GroupNames.Common)]
             [OnValueChanged(nameof(OnChanged))]
             public bool inUnscaledView;
 
             #endregion
-
-            protected virtual bool ShowsTooltip => true;
-
-            /// <inheritdoc />
-            protected override async AppaTask Initialize(Initializer initializer)
-            {
-                await base.Initialize(initializer);
-
-                using (_PRF_Initialize.Auto())
-                {
-                    if (ShowsTooltip)
-                    {
-                        initializer.Do(
-                            this,
-                            nameof(devTooltipStyle),
-                            devTooltipStyle == null,
-                            () =>
-                            {
-                                devTooltipStyle = LoadOrCreateNew<DevTooltipStyleOverride>(
-                                    GetAssetName<DevTooltipStyleOverride>(),
-                                    ownerType: typeof(ApplicationManager)
-                                );
-                            }
-                        );
-                    }
-                }
-            }
         }
 
         #endregion

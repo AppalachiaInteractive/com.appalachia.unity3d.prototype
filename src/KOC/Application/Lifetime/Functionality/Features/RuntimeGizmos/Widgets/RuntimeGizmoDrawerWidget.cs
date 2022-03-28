@@ -1,8 +1,10 @@
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Services;
 using Appalachia.UI.Functionality.Images.Controls.Raw;
 using Appalachia.Utility.Async;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Widgets
 {
@@ -24,18 +26,31 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
 
         #region Fields and Autoproperties
 
-        public RawImageControl rawImageSet;
+        [FormerlySerializedAs("rawImageSet")] public RawImageControl rawImage;
 
         #endregion
+
+
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(
+            Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                RawImageControl.Refresh(ref rawImage, gameObject, nameof(rawImage));
+            }
+        }
 
         /// <inheritdoc />
         protected override async AppaTask AfterEnabled()
         {
             await base.AfterEnabled();
 
-            await AppaTask.WaitUntil(() => (rawImageSet != null) && (_runtimeGizmoDrawerService != null));
+            await AppaTask.WaitUntil(() => (rawImage != null) && (_runtimeGizmoDrawerService != null));
 
-            rawImageSet.RawImage.rawImage.texture = _runtimeGizmoDrawerService.GetRenderTexture();
+            rawImage.RawImage.rawImage.texture = _runtimeGizmoDrawerService.GetRenderTexture();
         }
     }
 }

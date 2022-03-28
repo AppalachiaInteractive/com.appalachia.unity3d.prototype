@@ -9,7 +9,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
     {
         #region Fields and Autoproperties
 
-        [SerializeField] public RawImageControlConfig rawImageSet;
+        [SerializeField] public RawImageControlConfig rawImage;
 
         #endregion
 
@@ -20,24 +20,41 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
             {
                 base.SubscribeResponsiveComponents(target);
 
-                rawImageSet.Changed.Event += OnChanged;
+                rawImage.SubscribeToChanges(OnChanged);
+            }
+        }
+
+        
+        /// <inheritdoc />
+        protected override void UnsuspendResponsiveComponents(RuntimeGizmoDrawerWidget target)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(target);
+
+                rawImage.UnsuspendChanges();
             }
         }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(RuntimeGizmoDrawerWidget widget)
+        protected override void SuspendResponsiveComponents(RuntimeGizmoDrawerWidget target)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_SuspendResponsiveComponents.Auto())
             {
-                base.UpdateFunctionalityInternal(widget);
+                base.SuspendResponsiveComponents(target);
 
-                RawImageControlConfig.RefreshAndApply(
-                    ref rawImageSet,
-                    ref widget.rawImageSet,
-                    widget.gameObject,
-                    nameof(RuntimeGizmoDrawerWidget),
-                    this
-                );
+                rawImage.SuspendChanges();
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void OnApply(RuntimeGizmoDrawerWidget widget)
+        {
+            using (_PRF_OnApply.Auto())
+            {
+                base.OnApply(widget);
+
+                rawImage.Apply(widget.rawImage);
             }
         }
     }

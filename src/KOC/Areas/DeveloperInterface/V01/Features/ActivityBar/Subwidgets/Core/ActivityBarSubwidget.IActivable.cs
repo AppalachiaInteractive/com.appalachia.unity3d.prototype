@@ -1,4 +1,6 @@
+using Appalachia.Core.Objects.Models.Selectable;
 using Appalachia.Prototype.KOC.Application.Features.Contracts;
+using Appalachia.Utility.Enums;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
@@ -15,7 +17,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             using (_PRF_Activate.Auto())
             {
                 Widget.SetActiveSubwidget(this);
-                button.selectionIndicator.Selected = true;
+                button.selectionIndicator.State = button.selectionIndicator.State.SetFlag(SelectableState.Selected);
 
                 OnActivate();
             }
@@ -26,7 +28,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         {
             using (_PRF_Deactivate.Auto())
             {
-                button.selectionIndicator.Selected = false;
+                button.selectionIndicator.State = button.selectionIndicator.State.UnsetFlag(SelectableState.Selected);
 
                 OnDeactivate();
             }
@@ -74,7 +76,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         private static readonly ProfilerMarker _PRF_Activate = new ProfilerMarker(_PRF_PFX + nameof(Activate));
         private static readonly ProfilerMarker _PRF_Deactivate = new ProfilerMarker(_PRF_PFX + nameof(Deactivate));
         protected static readonly ProfilerMarker _PRF_OnActivate = new ProfilerMarker(_PRF_PFX + nameof(OnActivate));
-        protected static readonly ProfilerMarker _PRF_OnDeactivate = new ProfilerMarker(_PRF_PFX + nameof(OnDeactivate));
+
+        protected static readonly ProfilerMarker
+            _PRF_OnDeactivate = new ProfilerMarker(_PRF_PFX + nameof(OnDeactivate));
 
         #endregion
     }

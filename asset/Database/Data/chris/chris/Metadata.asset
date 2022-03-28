@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Metadata
   m_EditorClassIdentifier: 
   _initializer:
-    _initializationCount: 669
+    _initializationCount: 1082
     _tags: []
+    _unityObject: {fileID: 11400000}
     _resetToken: 
   _niceName: 
   _objectID:

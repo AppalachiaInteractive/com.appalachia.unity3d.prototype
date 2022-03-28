@@ -21,7 +21,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
         [SerializeField] protected UnscaledCanvasControl unscaledCanvas;
 
-        [SerializeField] protected GameObject unscaledWidgetObject;
+        [SerializeField] private GameObject _unscaledWidgetObject;
 
         #endregion
 
@@ -32,18 +32,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
             using (_PRF_Initialize.Auto())
             {
-                UnscaledCanvasControlConfig.RefreshAndApply(
-                    ref areaMetadata.unscaledCanvas,
-                    ref unscaledCanvas,
-                    gameObject,
-                    "Root Canvas Unscaled",
-                    areaMetadata
-                );
-
-                unscaledCanvas.isSortingDisabled = true;
+                UnscaledCanvasControl.Refresh(ref unscaledCanvas, gameObject, nameof(unscaledCanvas));
+                unscaledCanvas.transform.SetSiblingIndex(1);
+                areaMetadata.unscaledCanvas.Apply(unscaledCanvas);
 
 #if UNITY_EDITOR
-                InitializeEditor(initializer, areaObjectName);
+                InitializeEditor(initializer);
 #endif
             }
         }
@@ -66,21 +60,29 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
             }
         }
 
-        protected GameObject GetWidgetParentObject(bool isUnscaled)
+        protected GameObject UnscaledWidgetObject => GetWidgetParentObject(true);
+
+        internal GameObject GetWidgetParentObject(bool isUnscaled)
         {
             using (_PRF_GetWidgetParentObject.Auto())
             {
                 if (isUnscaled)
                 {
-                    UnscaledCanvas.GameObject.GetOrAddChild(
-                        ref unscaledWidgetObject,
+                    UnscaledCanvasControl.Refresh(
+                        ref unscaledCanvas,
+                        gameObject,
+                        nameof(unscaledCanvas)
+                    );
+                    
+                    UnscaledCanvas.unscaledCanvas.GameObject.GetOrAddChild(
+                        ref _unscaledWidgetObject,
                         APPASTR.ObjectNames.Widgets,
                         true
                     );
 
-                    (unscaledWidgetObject.transform as RectTransform).FullScreen(true);
+                    (_unscaledWidgetObject.transform as RectTransform).FullScreen(true);
 
-                    return unscaledWidgetObject;
+                    return _unscaledWidgetObject;
                 }
 
                 return base.GetWidgetParentObject();

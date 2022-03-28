@@ -9,6 +9,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     public class ProfilingActivityBarSubwidget : ActivityBarSubwidget<ProfilingActivityBarSubwidget,
         ProfilingActivityBarSubwidgetMetadata>
     {
+        #region Constants and Static Readonly
+
+        private const string TOOLTIP_TEXT = "Performance and Profiling";
+
+        #endregion
+
         static ProfilingActivityBarSubwidget()
         {
             RegisterDependency<SideBarWidget>(i => _sideBarWidget = i);
@@ -17,15 +23,31 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
         #region Static Fields and Autoproperties
 
-        private static SideBarWidget _sideBarWidget;
         private static ProfilingSideBarSubwidget _profilingSideBarSubwidget;
+        private static SideBarWidget _sideBarWidget;
 
         #endregion
+
+        public override string GetTooltipContent()
+        {
+            return TOOLTIP_TEXT;
+        }
 
         public override void OnClicked()
         {
             using (_PRF_OnClicked.Auto())
             {
+                _sideBarWidget.DeactivateActiveSubwidget();
+
+                if (ReferenceEquals(_sideBarWidget.ActiveSubwidget, _profilingSideBarSubwidget))
+                {
+                    _sideBarWidget.Hide();
+                }
+                else
+                {
+                    _sideBarWidget.Show();
+                    _sideBarWidget.SetActiveSubwidget(_profilingSideBarSubwidget);
+                }
             }
         }
 
@@ -40,7 +62,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         {
             using (_PRF_OnDeactivate.Auto())
             {
-                
             }
         }
     }

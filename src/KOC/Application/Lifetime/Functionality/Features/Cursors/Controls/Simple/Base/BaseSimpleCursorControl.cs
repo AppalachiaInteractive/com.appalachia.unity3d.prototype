@@ -17,19 +17,20 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     /// <typeparam name="TConfig">Configuration for the control.</typeparam>
     [Serializable]
     [SmartLabelChildren]
-    public abstract class
-        BaseSimpleCursorControl<TControl, TConfig> : BaseCanvasControl<TControl, TConfig>,
-                                                            ISimpleCursorControl
+    public abstract class BaseSimpleCursorControl<TControl, TConfig> : BaseCanvasControl<TControl, TConfig>,
+                                                                       ISimpleCursorControl
         where TControl : BaseSimpleCursorControl<TControl, TConfig>, new()
-        where TConfig: BaseSimpleCursorControlConfig<TControl, TConfig>, new()
+        where TConfig : BaseSimpleCursorControlConfig<TControl, TConfig>, new()
     {
         #region Fields and Autoproperties
 
+        [FoldoutGroup(GROUP_COMP)]
         [PropertyOrder(ORDER_ELEMENTS + 00)]
         [SerializeField]
         [ReadOnly]
         public ImageComponentGroup image;
 
+        [FoldoutGroup(GROUP_COMP)]
         [PropertyOrder(ORDER_OBJECTS + 00)]
         [SerializeField]
         [ReadOnly]
@@ -96,15 +97,15 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
         #region ISimpleCursorControl Members
 
         /// <inheritdoc />
-        public override void Refresh()
+        protected override void OnRefresh()
         {
-            using (_PRF_Refresh.Auto())
+            using (_PRF_OnRefresh.Auto())
             {
-                base.Refresh();
+                base.OnRefresh();
 
-                canvas.GetOrAddChild(ref _imageParent, nameof(Image), IsUI);
+                _imageParent = gameObject;
 
-                ImageComponentGroup.Refresh(ref image, ImageParent, NamePrefix);
+                ImageComponentGroup.Refresh(ref image, ImageParent, nameof(Image));
             }
         }
 

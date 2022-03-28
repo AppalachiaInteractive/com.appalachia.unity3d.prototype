@@ -1,8 +1,8 @@
-using System;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Core;
-using Appalachia.UI.Functionality.Buttons.Components;
 using Appalachia.UI.Functionality.Foldout.Control.Default;
 using Appalachia.UI.Functionality.Layout.Groups.Vertical;
+using Appalachia.Utility.Async;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Profiling
@@ -22,23 +22,23 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
         #endregion
 
-        protected override bool ShowsTooltip => false;
-
-        public override string GetDevTooltipText()
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            throw new NotImplementedException();
-        }
+            await base.Initialize(initializer);
 
-        public override void OnClicked()
-        {
-            using (_PRF_OnClicked.Auto())
+            using (_PRF_Initialize.Auto())
             {
-            }
-        }
+                VerticalLayoutGroupComponentGroup.Refresh(
+                    ref verticalLayoutGroup,
+                    canvas.ChildContainer,
+                    nameof(verticalLayoutGroup)
+                );
 
-        protected override AppaButton GetTooltipTarget()
-        {
-            throw new NotImplementedException();
+                FoldoutControl.Refresh(ref fps,    verticalLayoutGroup.gameObject, nameof(fps));
+                FoldoutControl.Refresh(ref memory, verticalLayoutGroup.gameObject, nameof(memory));
+                FoldoutControl.Refresh(ref audio,  verticalLayoutGroup.gameObject, nameof(audio));
+            }
         }
 
         protected override void OnActivate()

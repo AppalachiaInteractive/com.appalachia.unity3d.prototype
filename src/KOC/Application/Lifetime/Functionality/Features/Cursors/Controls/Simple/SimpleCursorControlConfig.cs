@@ -7,7 +7,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     /// <inheritdoc />
     [Serializable]
     [SmartLabelChildren]
-    public sealed class SimpleCursorControlConfig : BaseSimpleCursorControlConfig<SimpleCursorControl, SimpleCursorControlConfig>
+    public sealed class
+        SimpleCursorControlConfig : BaseSimpleCursorControlConfig<SimpleCursorControl, SimpleCursorControlConfig>
     {
     }
 }

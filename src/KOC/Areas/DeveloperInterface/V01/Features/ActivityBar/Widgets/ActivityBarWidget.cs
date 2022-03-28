@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Controls.Main;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Core;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar.Widgets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
-using Appalachia.UI.Functionality.Layout.Groups.Vertical;
 using Appalachia.Utility.Async;
 using UnityEngine.UI;
 
@@ -13,9 +14,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 {
     [CallStaticConstructorInEditor]
     public sealed partial class ActivityBarWidget : DeveloperInterfaceManager_V01.WidgetWithSingletonSubwidgets<
-                                                        IActivityBarSubwidget, IActivityBarSubwidgetMetadata,
-                                                        ActivityBarWidget, ActivityBarWidgetMetadata, ActivityBarFeature
-                                                        , ActivityBarFeatureMetadata>
+        IActivityBarSubwidget, IActivityBarSubwidgetMetadata, ActivityBarWidget, ActivityBarWidgetMetadata,
+        ActivityBarFeature, ActivityBarFeatureMetadata>
     {
         static ActivityBarWidget()
         {
@@ -35,23 +35,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
         private List<IActivityBarSubwidget> _topActivityBarSubwidgets;
         private List<IActivityBarSubwidget> _bottomActivityBarSubwidgets;
 
-        public VerticalLayoutGroupComponentGroup topActivityBarLayoutGroup;
-
-        public VerticalLayoutGroupComponentGroup bottomActivityBarLayoutGroup;
+        public ActivityBarControl activityBar;
 
         #endregion
+
+        public ActivityBarControl ActivityBarControl => activityBar;
 
         public IReadOnlyList<IActivityBarSubwidget> BottomActivityBarSubwidgets => _bottomActivityBarSubwidgets;
 
         public IReadOnlyList<IActivityBarSubwidget> TopActivityBarSubwidgets => _topActivityBarSubwidgets;
-        public VerticalLayoutGroupComponentGroup BottomActivityBarLayoutGroup => bottomActivityBarLayoutGroup;
-
-        public VerticalLayoutGroupComponentGroup TopActivityBarLayoutGroup => topActivityBarLayoutGroup;
 
         public override void ValidateSubwidgets()
         {
             using (_PRF_ValidateSubwidgets.Auto())
             {
+                ActivityBarControl.Refresh(ref activityBar, canvas.ChildContainer, nameof(activityBar));
+                
                 RemoveIncorrectSubwidgetsFromList(
                     _topActivityBarSubwidgets,
                     _bottomActivityBarSubwidgets,
@@ -64,14 +63,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                     e => e.Metadata.Section == ActivityBarSection.Bottom
                 );
 
-                EnsureSubwidgetsHaveCorrectParent(_topActivityBarSubwidgets, topActivityBarLayoutGroup.RectTransform);
+                EnsureSubwidgetsHaveCorrectParent(_topActivityBarSubwidgets, activityBar.TopActivityBar.RectTransform);
                 EnsureSubwidgetsHaveCorrectParent(
                     _bottomActivityBarSubwidgets,
-                    bottomActivityBarLayoutGroup.RectTransform
+                    activityBar.bottomActivityBar.RectTransform
                 );
 
-                LayoutRebuilder.MarkLayoutForRebuild(topActivityBarLayoutGroup.RectTransform);
-                LayoutRebuilder.MarkLayoutForRebuild(bottomActivityBarLayoutGroup.RectTransform);
+                LayoutRebuilder.MarkLayoutForRebuild(activityBar.topActivityBar.RectTransform);
+                LayoutRebuilder.MarkLayoutForRebuild(activityBar.bottomActivityBar.RectTransform);
             }
         }
 
@@ -118,6 +117,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
 
                 UpdateAnchorMin(anchorMin);
                 UpdateAnchorMax(anchorMax);
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                ActivityBarControl.Refresh(ref activityBar, canvas.ChildContainer, nameof(activityBar));
             }
         }
 

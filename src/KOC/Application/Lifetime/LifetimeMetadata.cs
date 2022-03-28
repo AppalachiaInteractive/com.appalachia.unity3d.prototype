@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
@@ -10,9 +11,11 @@ using Appalachia.UI.Styling;
 using Appalachia.Utility.Async;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime
 {
+    [Serializable]
     public sealed class LifetimeMetadata : SingletonAppalachiaObject<LifetimeMetadata>
     {
         static LifetimeMetadata()
@@ -28,16 +31,18 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
 
         #region Fields and Autoproperties
 
-        public CameraConfig clearCameraConfig;
+        [SerializeField] public CameraConfig clearCameraConfig;
 
         [SerializeField] public RootCanvasControlConfig rootCanvas;
 
         [SerializeField] public BackgroundControlConfig rootBackground;
 
-        public ApplicationUIStyle uiStyle;
-        public DeviceButtonLookup deviceButtons;
-        public AudioMixer audioMixer;
-        public StyleElementDefaultLookup styleLookup;
+        [SerializeField] public ApplicationUIStyle uiStyle;
+        [SerializeField] public DeviceButtonLookup deviceButtons;
+        [SerializeField] public AudioMixer audioMixer;
+        [SerializeField] public StyleElementDefaultLookup styleLookup;
+
+        [SerializeField] public InputActionAsset inputAsset;
 
         #endregion
 
@@ -46,9 +51,13 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
         {
             await base.Initialize(initializer);
 
-#if UNITY_EDITOR
             using (_PRF_Initialize.Auto())
             {
+                CameraConfig.Refresh(ref clearCameraConfig, this);
+                RootCanvasControlConfig.Refresh(ref rootCanvas, this);
+                BackgroundControlConfig.Refresh(ref rootBackground, this);
+                
+#if UNITY_EDITOR
                 initializer.Do(
                     this,
                     nameof(ApplicationUIStyle),
@@ -74,8 +83,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                         }
                     }
                 );
-            }
 #endif
+            }
         }
     }
 }

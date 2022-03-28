@@ -1,10 +1,11 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Functionality.Animation.Groups;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Complex.Contracts;
-using Appalachia.UI.Functionality.Animation;
 using Appalachia.UI.Functionality.Images.Groups.Default;
 using Appalachia.UI.Functionality.MultiPartCanvas;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -28,9 +29,14 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     {
         #region Fields and Autoproperties
 
-        [SerializeField] private AnimatorConfig _animatorData;
+        [HideIf("@!ShowAllFields && (HideAnimator || HideAllFields)")]
+        [PropertyOrder(ORDER_ROOT - 10)]
+        [SerializeField, OnValueChanged(nameof(OnChanged))]
+        public AnimatorComponentGroupConfig animator;
 
         #endregion
+
+        protected virtual bool HideAnimator => false;
 
         /// <inheritdoc />
         protected override void OnApply(TControl control)
@@ -39,26 +45,65 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 base.OnApply(control);
 
-                AnimatorConfig.RefreshAndApply(ref _animatorData, Owner, control.Animator);
+                animator.Apply(control.animator);
             }
         }
 
-        protected override void OnInitializeFields(Initializer initializer, Object owner)
+        protected override void OnInitializeFields(Initializer initializer)
         {
             using (_PRF_OnInitializeFields.Auto())
             {
-                base.OnInitializeFields(initializer, owner);
+                base.OnInitializeFields(initializer);
 
-                AnimatorConfig.Refresh(ref _animatorData, owner);
+                AnimatorComponentGroupConfig.Refresh(ref animator, Owner);
+            }
+        }
+
+        protected override void OnRefresh(Object owner)
+        {
+            using (_PRF_OnRefresh.Auto())
+            {
+                base.OnRefresh(owner);
+                
+                AnimatorComponentGroupConfig.Refresh(ref animator, Owner);
+            }
+        }
+
+        protected override void SubscribeResponsiveConfigs()
+        {
+            using (_PRF_SubscribeResponsiveConfigs.Auto())
+            {
+                base.SubscribeResponsiveConfigs();
+
+                animator.SubscribeToChanges(OnChanged);
+            }
+        }
+        
+        protected override void SuspendResponsiveConfigs()
+        {
+            using (_PRF_SuspendResponsiveConfigs.Auto())
+            {
+                base.SuspendResponsiveConfigs();
+
+                animator.SuspendChanges();
+            }
+        }
+        protected override void UnsuspendResponsiveConfigs()
+        {
+            using (_PRF_UnsuspendResponsiveConfigs.Auto())
+            {
+                base.UnsuspendResponsiveConfigs();
+
+                animator.UnsuspendChanges();
             }
         }
 
         #region IComplexCursorControlConfig Members
 
-        public AnimatorConfig AnimatorConfig
+        public AnimatorComponentGroupConfig Animator
         {
-            get => _animatorData;
-            protected set => _animatorData = value;
+            get => animator;
+            protected set => animator = value;
         }
 
         #endregion

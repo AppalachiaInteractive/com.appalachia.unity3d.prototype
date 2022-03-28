@@ -197,6 +197,14 @@ MonoBehaviour:
     m_Address: SceneInfoStatusBarSubwidgetDevTooltipSubwidgetMetadata
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 412ad3beb246d844fb22cef88cf5c208
+    m_Address: DeveloperInterfaceTooltipsFeatureMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 78c7f574939ba714591a2a03348c7146
+    m_Address: DeveloperInterfaceTooltipsWidgetMetadata
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e9d716475127bdd4da28886dd3272187, type: 2}
   m_SchemaSet:

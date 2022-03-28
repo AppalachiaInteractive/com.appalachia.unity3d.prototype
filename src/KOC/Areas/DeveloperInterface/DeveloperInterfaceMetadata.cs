@@ -23,6 +23,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
 
             using (_PRF_Initialize.Auto())
             {
+                UnscaledCanvasControlConfig.Refresh(ref unscaledCanvas, this);
+                
 #if UNITY_EDITOR
                 InitializeEditor(initializer);
 #endif

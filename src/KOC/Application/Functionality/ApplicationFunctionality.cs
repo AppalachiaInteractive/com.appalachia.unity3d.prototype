@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
@@ -5,11 +6,13 @@ using Appalachia.Prototype.KOC.Application.Features.Availability;
 using Appalachia.Prototype.KOC.Application.Features.Availability.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 
 namespace Appalachia.Prototype.KOC.Application.Functionality
 {
+    [Serializable]
     public abstract partial class
         ApplicationFunctionality<TFunctionality, TFunctionalityMetadata, TManager> :
             SingletonAppalachiaBehaviour<TFunctionality>,
@@ -82,7 +85,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
                     return;
                 }
 
-                metadata.UpdateFunctionality(this as TFunctionality);
+                metadata.Apply(this as TFunctionality);
             }
         }
 
@@ -125,7 +128,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
             using (_PRF_AfterEnabled.Auto())
             {
-                metadata.UpdateFunctionality(this as TFunctionality);
+                metadata.Apply(this as TFunctionality);
             }
         }
 
@@ -150,7 +153,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
             await AppaTask.WaitUntil(() => metadata != null);
 
-            name = GetType().Name;
+            name = GetType().Name.Nicify();
         }
 
         #region IApplicationFunctionality Members
@@ -159,7 +162,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         {
             using (_PRF_ApplyMetadata.Auto())
             {
-                metadata.UpdateFunctionality(this as TFunctionality);
+                metadata.Apply(this as TFunctionality);
             }
         }
 

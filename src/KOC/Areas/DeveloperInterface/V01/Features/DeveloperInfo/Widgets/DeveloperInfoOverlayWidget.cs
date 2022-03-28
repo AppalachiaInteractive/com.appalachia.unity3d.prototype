@@ -3,39 +3,32 @@ using System.Linq;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Components;
+using Appalachia.UI.Functionality.Images.Controls.Default;
+using Appalachia.UI.Functionality.Layout.Groups.Vertical;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Widgets
 {
     [CallStaticConstructorInEditor]
-    public sealed class DeveloperInfoOverlayWidget : DeveloperInterfaceManager_V01.Widget<
-        DeveloperInfoOverlayWidget, DeveloperInfoOverlayWidgetMetadata, DeveloperInfoFeature,
-        DeveloperInfoFeatureMetadata>
+    public sealed class DeveloperInfoOverlayWidget : DeveloperInterfaceManager_V01.Widget<DeveloperInfoOverlayWidget,
+        DeveloperInfoOverlayWidgetMetadata, DeveloperInfoFeature, DeveloperInfoFeatureMetadata>
     {
         #region Fields and Autoproperties
 
         [FoldoutGroup("Components")]
-        [BoxGroup("Components/Header")]
-        public RectTransform headerRect;
+        [SerializeField]
+        public ImageControl headerImage;
 
         [FoldoutGroup("Components")]
-        [BoxGroup("Components/Header")]
-        public Image headerImage;
+        [SerializeField]
+        public VerticalLayoutGroupComponentGroup verticalLayoutGroup;
 
-        [BoxGroup("Components/Header")]
-        public LayoutElement headerLayout;
-
-        [BoxGroup("Components/Text")]
+        [FoldoutGroup("Components")]
+        [SerializeField]
         public List<DeveloperInfoTextMeshControl> textMeshes;
-
-        [FormerlySerializedAs("layoutGroup")]
-        [BoxGroup("Components/Text")]
-        public VerticalLayoutGroup verticalLayoutGroup;
 
         #endregion
 
@@ -46,15 +39,23 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
 
             using (_PRF_Initialize.Auto())
             {
-                textMeshes ??= new List<DeveloperInfoTextMeshControl>();
+                VerticalLayoutGroupComponentGroup.Refresh(
+                    ref verticalLayoutGroup,
+                    canvas.ChildContainer.gameObject,
+                    nameof(verticalLayoutGroup)
+                );
 
+                ImageControl.Refresh(ref headerImage, verticalLayoutGroup.gameObject, nameof(headerImage));
+
+                textMeshes ??= new List<DeveloperInfoTextMeshControl>();
                 textMeshes = GetComponentsInChildren<DeveloperInfoTextMeshControl>().ToList();
 
-                canvas.GameObject.GetOrAddComponent(ref verticalLayoutGroup);
+                for (var index = 0; index < textMeshes.Count; index++)
+                {
+                    var textMesh = textMeshes[index];
 
-                canvas.GameObject.GetOrAddComponentInChild(ref headerImage, "Header");
-
-                headerImage.GetOrAddComponent(ref headerRect);
+                    textMesh.gameObject.SetParentTo(verticalLayoutGroup.gameObject);
+                }
             }
         }
     }

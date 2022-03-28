@@ -50,17 +50,42 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
-                cameraData.Changed.Event += OnChanged;
+                base.SubscribeResponsiveComponents(target);
+                
+                cameraData.SubscribeToChanges(OnChanged);
+            }
+        }
+        
+        /// <inheritdoc />
+        protected override void UnsuspendResponsiveComponents(RectVisualizerService target)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(target);
+                
+                cameraData.UnsuspendChanges();
+            }
+        }
+        /// <inheritdoc />
+        protected override void SuspendResponsiveComponents(RectVisualizerService target)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(target);
+                
+                cameraData.SuspendChanges();
             }
         }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(RectVisualizerService functionality)
+        protected override void OnApply(RectVisualizerService functionality)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_OnApply.Auto())
             {
+                base.OnApply(functionality);
+                
                 var camera = functionality.DrawCamera;
-                CameraConfig.RefreshAndApply(ref cameraData, this, camera);
+                cameraData.Apply(camera);
             }
         }
 

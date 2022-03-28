@@ -1,4 +1,5 @@
 using System;
+using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Strings;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.DebugStatus
 {
+    [CallStaticConstructorInEditor]
     public class
         DebuggerStatusBarSubwidget : StatusBarSubwidget<DebuggerStatusBarSubwidget, DebuggerStatusBarSubwidgetMetadata>
     {
@@ -22,9 +24,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         #endregion
 
 
-        public override string GetDevTooltipText()
+        public override string GetTooltipContent()
         {
-            using (_PRF_GetDevTooltipText.Auto())
+            using (_PRF_GetTooltipContent.Auto())
             {
                 var tooltipText = "green: game is release mode\n" + "magenta: game is debug mode";
                 return tooltipText;

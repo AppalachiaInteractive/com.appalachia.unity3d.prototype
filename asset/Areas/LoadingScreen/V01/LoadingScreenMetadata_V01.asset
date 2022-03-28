@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b7769e72d14042a0d1eb641fb08227, type: 3}
   m_Name: LoadingScreenMetadata_V01
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
-    _initializationCount: 0
+    _initializationCount: 3
     _tags:
     - Cursor
     - Input
@@ -35,206 +33,3862 @@ MonoBehaviour:
     - Unscaled View
     - Scaled Templates
     - Unscaled Templates
+    - tooltipStyle
+    _unityObject: {fileID: 11400000}
     _resetToken: 2021-11-20a
-  _objectId:
-    _increment: 0
-    _machine: 0
-    _timestamp: 0
-    _pid: 0
+  _niceName: 
+  _objectID:
+    _increment: 9166244
+    _machine: 14129406
+    _timestamp: 1647354144
+    _pid: 11972
   input:
     onDisableMapState:
       DeathMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       DeveloperInterface:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       GenericMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       InGameMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       LoadingScreen:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       MainMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       PauseMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       Player:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       SplashScreen:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       StartScreen:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
     onEnableMapState:
       DeathMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       DeveloperInterface:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       GenericMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       InGameMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       LoadingScreen:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       MainMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       PauseMenu:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       Player:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       SplashScreen:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
       StartScreen:
-        _overriding: 0
+        overriding: 0
+        value: 0
         _objectId:
           _increment: 0
           _machine: 0
           _timestamp: 0
           _pid: 0
         _initial: 0
-        _value: 0
-  rootCanvas: {fileID: 11400000, guid: 638e2d1870b3b974e85afb1d42603e74, type: 2}
+  rootCanvas:
+    _name: RootCanvasControlConfig
+    _niceName: 
+    _objectID:
+      _increment: 7543819
+      _machine: 14129404
+      _timestamp: 1647275116
+      _pid: 11972
+    _initializer:
+      _initializationCount: 1
+      _tags:
+      - _enabled
+      _unityObject: {fileID: 0}
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    _sharesOwnership: 0
+    _showAdvancedOptions: 0
+    _enabled: 1
+    _disableAllFields: 0
+    _suspendFieldApplication: 0
+    _hideAllFields: 0
+    rectTransform:
+      _name: 
+      _niceName: 
+      _objectID:
+        _increment: 3862437
+        _machine: 14129404
+        _timestamp: 1647274997
+        _pid: 11972
+      _initializer:
+        _initializationCount: 15
+        _tags:
+        - _enabled
+        - _left
+        - _posX
+        - _top
+        - _posY
+        - _posZ
+        - _right
+        - _width
+        - _bottom
+        - _height
+        - pivot
+        - anchorMin
+        - anchorMax
+        - localRotation
+        - localScale
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _sharesOwnership: 0
+      _showAdvancedOptions: 0
+      _enabled: 1
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      disablePositionUpdates: 0
+      _left: 0
+      _posX: 0
+      _top: 0
+      _posY: 0
+      _posZ: 0
+      _right: 0
+      _width: 0
+      _bottom: 0
+      _height: 0
+      anchorMin:
+        overriding: 1
+        value: {x: 0, y: 0}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0}
+      anchorMax:
+        overriding: 1
+        value: {x: 1, y: 1}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1}
+      pivot:
+        overriding: 1
+        value: {x: 0.5, y: 0.5}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0.5, y: 0.5}
+      localScale:
+        overriding: 1
+        value: {x: 1, y: 1, z: 1}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 1, y: 1, z: 1}
+      localRotation:
+        overriding: 1
+        value: {x: 0, y: 0, z: 0, w: 1}
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: {x: 0, y: 0, z: 0, w: 1}
+    layoutElement:
+      _name: 
+      _niceName: 
+      _objectID:
+        _increment: 11641595
+        _machine: 14129406
+        _timestamp: 1647540484
+        _pid: 11972
+      _initializer:
+        _initializationCount: 9
+        _tags:
+        - _enabled
+        - ignoreLayout
+        - minWidth
+        - minHeight
+        - preferredWidth
+        - preferredHeight
+        - flexibleWidth
+        - flexibleHeight
+        - layoutPriority
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _sharesOwnership: 0
+      _showAdvancedOptions: 0
+      _enabled: 1
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      ignoreLayout:
+        overriding: 0
+        value: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+      minWidth:
+        overriding: 0
+        value: -1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+      minHeight:
+        overriding: 0
+        value: -1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+      preferredWidth:
+        overriding: 0
+        value: -1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+      preferredHeight:
+        overriding: 0
+        value: -1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+      flexibleWidth:
+        overriding: 0
+        value: -1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+      flexibleHeight:
+        overriding: 0
+        value: -1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: -1
+      layoutPriority:
+        overriding: 0
+        value: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+    canvasGroup:
+      _name: 
+      _niceName: 
+      _objectID:
+        _increment: 3277318
+        _machine: 14129404
+        _timestamp: 1647976997
+        _pid: -19724
+      _initializer:
+        _initializationCount: 5
+        _tags:
+        - _enabled
+        - alpha
+        - interactable
+        - blocksRaycasts
+        - ignoreParentGroups
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _sharesOwnership: 0
+      _showAdvancedOptions: 0
+      _enabled: 1
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      alpha:
+        overriding: 0
+        value: 1
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 1
+      interactable:
+        overriding: 0
+        value: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+      blocksRaycasts:
+        overriding: 0
+        value: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+      ignoreParentGroups:
+        overriding: 0
+        value: 0
+        _objectId:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initial: 0
+    rootCanvas:
+      _name: ScaledCanvasComponentGroupConfig
+      _niceName: 
+      _objectID:
+        _increment: 7543817
+        _machine: 14129404
+        _timestamp: 1647275116
+        _pid: 11972
+      _initializer:
+        _initializationCount: 1
+        _tags:
+        - _enabled
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _sharesOwnership: 0
+      _showAdvancedOptions: 0
+      _enabled: 1
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _hideAllFields: 0
+      rectTransform:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 7543820
+          _machine: 14129404
+          _timestamp: 1647275116
+          _pid: 11972
+        _initializer:
+          _initializationCount: 15
+          _tags:
+          - _enabled
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - pivot
+          - anchorMin
+          - anchorMax
+          - localRotation
+          - localScale
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        disablePositionUpdates: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          overriding: 1
+          value: {x: 0, y: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+        anchorMax:
+          overriding: 1
+          value: {x: 1, y: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1}
+        pivot:
+          overriding: 1
+          value: {x: 0.5, y: 0.5}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+        localScale:
+          overriding: 1
+          value: {x: 1, y: 1, z: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1, z: 1}
+        localRotation:
+          overriding: 1
+          value: {x: 0, y: 0, z: 0, w: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+      canvasGroup:
+        overriding: 0
+        value:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 14452470
+            _machine: 14129404
+            _timestamp: 1647374208
+            _pid: 11972
+          _initializer:
+            _initializationCount: 5
+            _tags:
+            - _enabled
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          alpha:
+            overriding: 0
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          interactable:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          blocksRaycasts:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          ignoreParentGroups:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+        _objectId:
+          _increment: 3862441
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initial:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862440
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initializer:
+            _initializationCount: 5
+            _tags:
+            - _enabled
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          alpha:
+            overriding: 0
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          interactable:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          blocksRaycasts:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          ignoreParentGroups:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+      canvas:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3862444
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initializer:
+          _initializationCount: 7
+          _tags:
+          - _enabled
+          - renderMode
+          - overridePixelPerfect
+          - pixelPerfect
+          - overrideSorting
+          - sortingOrder
+          - additionalShaderChannels
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        renderMode:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        overridePixelPerfect:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        pixelPerfect:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        overrideSorting:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        sortingOrder:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        additionalShaderChannels:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+      canvasFadeManager:
+        overriding: 0
+        value:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initializer:
+            _initializationCount: 10
+            _tags:
+            - _enabled
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          passiveMode: 0
+          startVisible: 1
+          updateAtStart: 1
+          fadeInDuration: 1
+          fadeOutDuration: 1
+          fadeIn: 2
+          fadeOut: 2
+          passiveFadeMode: 2
+          fadeRange: {x: 0, y: 1}
+        _objectId:
+          _increment: 3862445
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initial:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initializer:
+            _initializationCount: 10
+            _tags:
+            - _enabled
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          passiveMode: 0
+          startVisible: 1
+          updateAtStart: 1
+          fadeInDuration: 1
+          fadeOutDuration: 1
+          fadeIn: 2
+          fadeOut: 2
+          passiveFadeMode: 2
+          fadeRange: {x: 0, y: 1}
+      graphicRaycaster:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3862443
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initializer:
+          _initializationCount: 4
+          _tags:
+          - _enabled
+          - ignoreReversedGraphics
+          - blockingObjects
+          - blockingMask
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        ignoreReversedGraphics:
+          overriding: 1
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+        blockingObjects:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        blockingMask:
+          overriding: 1
+          value:
+            serializedVersion: 2
+            m_Bits: 4294967295
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial:
+            serializedVersion: 2
+            m_Bits: 4294967295
+      canvasScaler:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3862446
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initializer:
+          _initializationCount: 11
+          _tags:
+          - _enabled
+          - uiScaleMode
+          - referencePixelsPerUnit
+          - scaleFactor
+          - referenceResolution
+          - screenMatchMode
+          - matchWidthOrHeight
+          - physicalUnit
+          - fallbackScreenDPI
+          - defaultSpriteDPI
+          - dynamicPixelsPerUnit
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        uiScaleMode:
+          overriding: 1
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+        referencePixelsPerUnit:
+          overriding: 1
+          value: 100
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 100
+        scaleFactor:
+          overriding: 1
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+        referenceResolution:
+          overriding: 1
+          value: {x: 1920, y: 1080}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1920, y: 1080}
+        screenMatchMode:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        matchWidthOrHeight:
+          overriding: 1
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+        physicalUnit:
+          overriding: 1
+          value: 3
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 3
+        fallbackScreenDPI:
+          overriding: 1
+          value: 96
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 96
+        defaultSpriteDPI:
+          overriding: 1
+          value: 96
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 96
+        dynamicPixelsPerUnit:
+          overriding: 1
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+    scaledCanvas:
+      _name: AppaScaledCanvasComponentGroupConfig
+      _niceName: 
+      _objectID:
+        _increment: 7543818
+        _machine: 14129404
+        _timestamp: 1647275116
+        _pid: 11972
+      _initializer:
+        _initializationCount: 1
+        _tags:
+        - _enabled
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _sharesOwnership: 0
+      _showAdvancedOptions: 0
+      _enabled: 1
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _hideAllFields: 0
+      rectTransform:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 7543821
+          _machine: 14129404
+          _timestamp: 1647275117
+          _pid: 11972
+        _initializer:
+          _initializationCount: 15
+          _tags:
+          - _enabled
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - pivot
+          - anchorMin
+          - anchorMax
+          - localRotation
+          - localScale
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        disablePositionUpdates: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          overriding: 1
+          value: {x: 0, y: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+        anchorMax:
+          overriding: 1
+          value: {x: 1, y: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1}
+        pivot:
+          overriding: 1
+          value: {x: 0.5, y: 0.5}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+        localScale:
+          overriding: 1
+          value: {x: 1, y: 1, z: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1, z: 1}
+        localRotation:
+          overriding: 1
+          value: {x: 0, y: 0, z: 0, w: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+      canvasGroup:
+        overriding: 0
+        value:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 14452473
+            _machine: 14129404
+            _timestamp: 1647374208
+            _pid: 11972
+          _initializer:
+            _initializationCount: 5
+            _tags:
+            - _enabled
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          alpha:
+            overriding: 0
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          interactable:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          blocksRaycasts:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          ignoreParentGroups:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+        _objectId:
+          _increment: 3862450
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initial:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862449
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initializer:
+            _initializationCount: 5
+            _tags:
+            - _enabled
+            - alpha
+            - interactable
+            - blocksRaycasts
+            - ignoreParentGroups
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          alpha:
+            overriding: 0
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          interactable:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          blocksRaycasts:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          ignoreParentGroups:
+            overriding: 0
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+      canvas:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3862453
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initializer:
+          _initializationCount: 7
+          _tags:
+          - _enabled
+          - renderMode
+          - overridePixelPerfect
+          - pixelPerfect
+          - overrideSorting
+          - sortingOrder
+          - additionalShaderChannels
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        renderMode:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        overridePixelPerfect:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        pixelPerfect:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        overrideSorting:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        sortingOrder:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        additionalShaderChannels:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+      canvasFadeManager:
+        overriding: 0
+        value:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initializer:
+            _initializationCount: 10
+            _tags:
+            - _enabled
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          passiveMode: 0
+          startVisible: 1
+          updateAtStart: 1
+          fadeInDuration: 1
+          fadeOutDuration: 1
+          fadeIn: 2
+          fadeOut: 2
+          passiveFadeMode: 2
+          fadeRange: {x: 0, y: 1}
+        _objectId:
+          _increment: 3862454
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initial:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initializer:
+            _initializationCount: 10
+            _tags:
+            - _enabled
+            - passiveMode
+            - passiveFadeMode
+            - updateAtStart
+            - startVisible
+            - fadeRange
+            - fadeInDuration
+            - fadeIn
+            - fadeOutDuration
+            - fadeOut
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          passiveMode: 0
+          startVisible: 1
+          updateAtStart: 1
+          fadeInDuration: 1
+          fadeOutDuration: 1
+          fadeIn: 2
+          fadeOut: 2
+          passiveFadeMode: 2
+          fadeRange: {x: 0, y: 1}
+      graphicRaycaster:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3862452
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initializer:
+          _initializationCount: 4
+          _tags:
+          - _enabled
+          - ignoreReversedGraphics
+          - blockingObjects
+          - blockingMask
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        ignoreReversedGraphics:
+          overriding: 1
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+        blockingObjects:
+          overriding: 1
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        blockingMask:
+          overriding: 1
+          value:
+            serializedVersion: 2
+            m_Bits: 4294967295
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial:
+            serializedVersion: 2
+            m_Bits: 4294967295
+      appaCanvasScaler:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initializer:
+          _initializationCount: 1
+          _tags:
+          - _enabled
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
   sceneBehaviour:
     setEntrySceneActive: 0
   audio:
     mixerGroup: {fileID: 0}
+  tooltipStyle: 0
+  fontStyle: 0
   templates:
-    _overriding: 0
+    overriding: 0
+    value:
+      _name: TemplateControlConfig
+      _niceName: 
+      _objectID:
+        _increment: 7543829
+        _machine: 14129404
+        _timestamp: 1647275117
+        _pid: 11972
+      _initializer:
+        _initializationCount: 5
+        _tags:
+        - Enabled
+        - templateAlpha
+        - templates
+        - selectedTemplate
+        - _enabled
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 11400000}
+      _sharesOwnership: 0
+      _showAdvancedOptions: 0
+      _enabled: 1
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _hideAllFields: 0
+      rectTransform:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3862471
+          _machine: 14129404
+          _timestamp: 1647274998
+          _pid: 11972
+        _initializer:
+          _initializationCount: 15
+          _tags:
+          - _enabled
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - pivot
+          - anchorMin
+          - anchorMax
+          - localRotation
+          - localScale
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        disablePositionUpdates: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          overriding: 1
+          value: {x: 0, y: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+        anchorMax:
+          overriding: 1
+          value: {x: 1, y: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1}
+        pivot:
+          overriding: 1
+          value: {x: 0.5, y: 0.5}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+        localScale:
+          overriding: 1
+          value: {x: 1, y: 1, z: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1, z: 1}
+        localRotation:
+          overriding: 1
+          value: {x: 0, y: 0, z: 0, w: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+      layoutElement:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 11641597
+          _machine: 14129406
+          _timestamp: 1647540485
+          _pid: 11972
+        _initializer:
+          _initializationCount: 9
+          _tags:
+          - _enabled
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        ignoreLayout:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        minWidth:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        minHeight:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        preferredWidth:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        preferredHeight:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        flexibleWidth:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        flexibleHeight:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        layoutPriority:
+          overriding: 0
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+      canvasGroup:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3277319
+          _machine: 14129404
+          _timestamp: 1647976997
+          _pid: -19724
+        _initializer:
+          _initializationCount: 5
+          _tags:
+          - _enabled
+          - alpha
+          - interactable
+          - blocksRaycasts
+          - ignoreParentGroups
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        alpha:
+          overriding: 0
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+        interactable:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        blocksRaycasts:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        ignoreParentGroups:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+      canvas:
+        _name: CanvasComponentGroupConfig
+        _niceName: 
+        _objectID:
+          _increment: 7543827
+          _machine: 14129404
+          _timestamp: 1647275117
+          _pid: 11972
+        _initializer:
+          _initializationCount: 1
+          _tags:
+          - _enabled
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _hideAllFields: 0
+        rectTransform:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 7543830
+            _machine: 14129404
+            _timestamp: 1647275117
+            _pid: 11972
+          _initializer:
+            _initializationCount: 15
+            _tags:
+            - _enabled
+            - _left
+            - _posX
+            - _top
+            - _posY
+            - _posZ
+            - _right
+            - _width
+            - _bottom
+            - _height
+            - pivot
+            - anchorMin
+            - anchorMax
+            - localRotation
+            - localScale
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          disablePositionUpdates: 0
+          _left: 0
+          _posX: 0
+          _top: 0
+          _posY: 0
+          _posZ: 0
+          _right: 0
+          _width: 0
+          _bottom: 0
+          _height: 0
+          anchorMin:
+            overriding: 1
+            value: {x: 0, y: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0}
+          anchorMax:
+            overriding: 1
+            value: {x: 1, y: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1}
+          pivot:
+            overriding: 1
+            value: {x: 0.5, y: 0.5}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0.5, y: 0.5}
+          localScale:
+            overriding: 1
+            value: {x: 1, y: 1, z: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1, z: 1}
+          localRotation:
+            overriding: 1
+            value: {x: 0, y: 0, z: 0, w: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0, z: 0, w: 1}
+        canvasGroup:
+          overriding: 0
+          value:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 14452482
+              _machine: 14129404
+              _timestamp: 1647374208
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 11400000}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+          _objectId:
+            _increment: 3862475
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initial:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 3862474
+              _machine: 14129404
+              _timestamp: 1647274998
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+        canvas:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862478
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initializer:
+            _initializationCount: 7
+            _tags:
+            - _enabled
+            - renderMode
+            - overridePixelPerfect
+            - pixelPerfect
+            - overrideSorting
+            - sortingOrder
+            - additionalShaderChannels
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          renderMode:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          overridePixelPerfect:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          pixelPerfect:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          overrideSorting:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          sortingOrder:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          additionalShaderChannels:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+        canvasFadeManager:
+          overriding: 0
+          value:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initializer:
+              _initializationCount: 10
+              _tags:
+              - _enabled
+              - passiveMode
+              - passiveFadeMode
+              - updateAtStart
+              - startVisible
+              - fadeRange
+              - fadeInDuration
+              - fadeIn
+              - fadeOutDuration
+              - fadeOut
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 11400000}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            passiveMode: 0
+            startVisible: 1
+            updateAtStart: 1
+            fadeInDuration: 1
+            fadeOutDuration: 1
+            fadeIn: 2
+            fadeOut: 2
+            passiveFadeMode: 2
+            fadeRange: {x: 0, y: 1}
+          _objectId:
+            _increment: 3862479
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initial:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initializer:
+              _initializationCount: 10
+              _tags:
+              - _enabled
+              - passiveMode
+              - passiveFadeMode
+              - updateAtStart
+              - startVisible
+              - fadeRange
+              - fadeInDuration
+              - fadeIn
+              - fadeOutDuration
+              - fadeOut
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            passiveMode: 0
+            startVisible: 1
+            updateAtStart: 1
+            fadeInDuration: 1
+            fadeOutDuration: 1
+            fadeIn: 2
+            fadeOut: 2
+            passiveFadeMode: 2
+            fadeRange: {x: 0, y: 1}
+        graphicRaycaster:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862477
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initializer:
+            _initializationCount: 4
+            _tags:
+            - _enabled
+            - ignoreReversedGraphics
+            - blockingObjects
+            - blockingMask
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          ignoreReversedGraphics:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          blockingObjects:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          blockingMask:
+            overriding: 1
+            value:
+              serializedVersion: 2
+              m_Bits: 4294967295
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial:
+              serializedVersion: 2
+              m_Bits: 4294967295
+      image:
+        _name: ImageComponentGroupConfig
+        _niceName: 
+        _objectID:
+          _increment: 7543828
+          _machine: 14129404
+          _timestamp: 1647275117
+          _pid: 11972
+        _initializer:
+          _initializationCount: 1
+          _tags:
+          - _enabled
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 11400000}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _hideAllFields: 0
+        rectTransform:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 7543831
+            _machine: 14129404
+            _timestamp: 1647275117
+            _pid: 11972
+          _initializer:
+            _initializationCount: 15
+            _tags:
+            - _enabled
+            - _left
+            - _posX
+            - _top
+            - _posY
+            - _posZ
+            - _right
+            - _width
+            - _bottom
+            - _height
+            - pivot
+            - anchorMin
+            - anchorMax
+            - localRotation
+            - localScale
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          disablePositionUpdates: 0
+          _left: 0
+          _posX: 0
+          _top: 0
+          _posY: 0
+          _posZ: 0
+          _right: 0
+          _width: 0
+          _bottom: 0
+          _height: 0
+          anchorMin:
+            overriding: 1
+            value: {x: 0, y: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0}
+          anchorMax:
+            overriding: 1
+            value: {x: 1, y: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1}
+          pivot:
+            overriding: 1
+            value: {x: 0.5, y: 0.5}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0.5, y: 0.5}
+          localScale:
+            overriding: 1
+            value: {x: 1, y: 1, z: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1, z: 1}
+          localRotation:
+            overriding: 1
+            value: {x: 0, y: 0, z: 0, w: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0, z: 0, w: 1}
+        canvasGroup:
+          overriding: 0
+          value:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 14452485
+              _machine: 14129404
+              _timestamp: 1647374208
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 11400000}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+          _objectId:
+            _increment: 3862483
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initial:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 3862482
+              _machine: 14129404
+              _timestamp: 1647274998
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+        canvasRenderer:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862481
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initializer:
+            _initializationCount: 2
+            _tags:
+            - _enabled
+            - cullTransparentMesh
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          cullTransparentMesh:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+        image:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862486
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initializer:
+            _initializationCount: 16
+            _tags:
+            - _enabled
+            - material
+            - color
+            - raycastTarget
+            - maskable
+            - sprite
+            - imageType
+            - preserveAspect
+            - fillCenter
+            - fillMethod
+            - fillAmount
+            - fillClockwise
+            - fillOrigin
+            - alphaHitTestMinimumThreshold
+            - useSpriteMesh
+            - pixelsPerUnitMultiplier
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 11400000}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          material:
+            overriding: 0
+            value: {fileID: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {fileID: 0}
+          color:
+            overriding: 0
+            value: {r: 1, g: 1, b: 1, a: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {r: 1, g: 1, b: 1, a: 1}
+          raycastTarget:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          maskable:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          sprite:
+            overriding: 1
+            value: {fileID: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {fileID: 0}
+          imageType:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          preserveAspect:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillCenter:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillMethod:
+            overriding: 1
+            value: 4
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 4
+          fillAmount:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillClockwise:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillOrigin:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          alphaHitTestMinimumThreshold:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          useSpriteMesh:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          pixelsPerUnitMultiplier:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+      templateAlpha: 1
+      templates: []
+      selectedTemplate: {fileID: 0}
     _objectId:
-      _increment: 0
-      _machine: 0
-      _timestamp: 0
-      _pid: 0
-    _initial: {fileID: 0}
-    _value: {fileID: 0}
+      _increment: 9165004
+      _machine: 14129406
+      _timestamp: 1647354122
+      _pid: 11972
+    _initial:
+      _name: TemplateControlConfig
+      _niceName: 
+      _objectID:
+        _increment: 7543824
+        _machine: 14129404
+        _timestamp: 1647275117
+        _pid: 11972
+      _initializer:
+        _initializationCount: 5
+        _tags:
+        - Enabled
+        - templateAlpha
+        - templates
+        - selectedTemplate
+        - _enabled
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 0}
+      _sharesOwnership: 0
+      _showAdvancedOptions: 0
+      _enabled: 1
+      _disableAllFields: 0
+      _suspendFieldApplication: 0
+      _hideAllFields: 0
+      rectTransform:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3862455
+          _machine: 14129404
+          _timestamp: 1647274997
+          _pid: 11972
+        _initializer:
+          _initializationCount: 15
+          _tags:
+          - _enabled
+          - _left
+          - _posX
+          - _top
+          - _posY
+          - _posZ
+          - _right
+          - _width
+          - _bottom
+          - _height
+          - pivot
+          - anchorMin
+          - anchorMax
+          - localRotation
+          - localScale
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 0}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        disablePositionUpdates: 0
+        _left: 0
+        _posX: 0
+        _top: 0
+        _posY: 0
+        _posZ: 0
+        _right: 0
+        _width: 0
+        _bottom: 0
+        _height: 0
+        anchorMin:
+          overriding: 1
+          value: {x: 0, y: 0}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0}
+        anchorMax:
+          overriding: 1
+          value: {x: 1, y: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1}
+        pivot:
+          overriding: 1
+          value: {x: 0.5, y: 0.5}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0.5, y: 0.5}
+        localScale:
+          overriding: 1
+          value: {x: 1, y: 1, z: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 1, y: 1, z: 1}
+        localRotation:
+          overriding: 1
+          value: {x: 0, y: 0, z: 0, w: 1}
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: {x: 0, y: 0, z: 0, w: 1}
+      layoutElement:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 11641596
+          _machine: 14129406
+          _timestamp: 1647540484
+          _pid: 11972
+        _initializer:
+          _initializationCount: 9
+          _tags:
+          - _enabled
+          - ignoreLayout
+          - minWidth
+          - minHeight
+          - preferredWidth
+          - preferredHeight
+          - flexibleWidth
+          - flexibleHeight
+          - layoutPriority
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 0}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        ignoreLayout:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        minWidth:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        minHeight:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        preferredWidth:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        preferredHeight:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        flexibleWidth:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        flexibleHeight:
+          overriding: 0
+          value: -1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: -1
+        layoutPriority:
+          overriding: 0
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+      canvasGroup:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 3277843
+          _machine: 14129404
+          _timestamp: 1647977024
+          _pid: -19724
+        _initializer:
+          _initializationCount: 5
+          _tags:
+          - _enabled
+          - alpha
+          - interactable
+          - blocksRaycasts
+          - ignoreParentGroups
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 0}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        alpha:
+          overriding: 0
+          value: 1
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 1
+        interactable:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        blocksRaycasts:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+        ignoreParentGroups:
+          overriding: 0
+          value: 0
+          _objectId:
+            _increment: 0
+            _machine: 0
+            _timestamp: 0
+            _pid: 0
+          _initial: 0
+      canvas:
+        _name: CanvasComponentGroupConfig
+        _niceName: 
+        _objectID:
+          _increment: 7543822
+          _machine: 14129404
+          _timestamp: 1647275117
+          _pid: 11972
+        _initializer:
+          _initializationCount: 1
+          _tags:
+          - _enabled
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 0}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _hideAllFields: 0
+        rectTransform:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 7543825
+            _machine: 14129404
+            _timestamp: 1647275117
+            _pid: 11972
+          _initializer:
+            _initializationCount: 15
+            _tags:
+            - _enabled
+            - _left
+            - _posX
+            - _top
+            - _posY
+            - _posZ
+            - _right
+            - _width
+            - _bottom
+            - _height
+            - pivot
+            - anchorMin
+            - anchorMax
+            - localRotation
+            - localScale
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          disablePositionUpdates: 0
+          _left: 0
+          _posX: 0
+          _top: 0
+          _posY: 0
+          _posZ: 0
+          _right: 0
+          _width: 0
+          _bottom: 0
+          _height: 0
+          anchorMin:
+            overriding: 1
+            value: {x: 0, y: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0}
+          anchorMax:
+            overriding: 1
+            value: {x: 1, y: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1}
+          pivot:
+            overriding: 1
+            value: {x: 0.5, y: 0.5}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0.5, y: 0.5}
+          localScale:
+            overriding: 1
+            value: {x: 1, y: 1, z: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1, z: 1}
+          localRotation:
+            overriding: 1
+            value: {x: 0, y: 0, z: 0, w: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0, z: 0, w: 1}
+        canvasGroup:
+          overriding: 0
+          value:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 13352558
+              _machine: 14129404
+              _timestamp: 1647362576
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+          _objectId:
+            _increment: 3862459
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initial:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 3862458
+              _machine: 14129404
+              _timestamp: 1647274997
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+        canvas:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862462
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initializer:
+            _initializationCount: 7
+            _tags:
+            - _enabled
+            - renderMode
+            - overridePixelPerfect
+            - pixelPerfect
+            - overrideSorting
+            - sortingOrder
+            - additionalShaderChannels
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          renderMode:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          overridePixelPerfect:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          pixelPerfect:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          overrideSorting:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          sortingOrder:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          additionalShaderChannels:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+        canvasFadeManager:
+          overriding: 0
+          value:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 13363542
+              _machine: 14129404
+              _timestamp: 1647362766
+              _pid: 11972
+            _initializer:
+              _initializationCount: 10
+              _tags:
+              - _enabled
+              - passiveMode
+              - passiveFadeMode
+              - updateAtStart
+              - startVisible
+              - fadeRange
+              - fadeInDuration
+              - fadeIn
+              - fadeOutDuration
+              - fadeOut
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            passiveMode: 0
+            startVisible: 1
+            updateAtStart: 1
+            fadeInDuration: 1
+            fadeOutDuration: 1
+            fadeIn: 2
+            fadeOut: 2
+            passiveFadeMode: 2
+            fadeRange: {x: 0, y: 1}
+          _objectId:
+            _increment: 3862463
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initial:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initializer:
+              _initializationCount: 10
+              _tags:
+              - _enabled
+              - passiveMode
+              - passiveFadeMode
+              - updateAtStart
+              - startVisible
+              - fadeRange
+              - fadeInDuration
+              - fadeIn
+              - fadeOutDuration
+              - fadeOut
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            passiveMode: 0
+            startVisible: 1
+            updateAtStart: 1
+            fadeInDuration: 1
+            fadeOutDuration: 1
+            fadeIn: 2
+            fadeOut: 2
+            passiveFadeMode: 2
+            fadeRange: {x: 0, y: 1}
+        graphicRaycaster:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862461
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initializer:
+            _initializationCount: 4
+            _tags:
+            - _enabled
+            - ignoreReversedGraphics
+            - blockingObjects
+            - blockingMask
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          ignoreReversedGraphics:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          blockingObjects:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          blockingMask:
+            overriding: 1
+            value:
+              serializedVersion: 2
+              m_Bits: 4294967295
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial:
+              serializedVersion: 2
+              m_Bits: 4294967295
+      image:
+        _name: ImageComponentGroupConfig
+        _niceName: 
+        _objectID:
+          _increment: 7543823
+          _machine: 14129404
+          _timestamp: 1647275117
+          _pid: 11972
+        _initializer:
+          _initializationCount: 1
+          _tags:
+          - _enabled
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 0}
+        _sharesOwnership: 0
+        _showAdvancedOptions: 0
+        _enabled: 1
+        _disableAllFields: 0
+        _suspendFieldApplication: 0
+        _hideAllFields: 0
+        rectTransform:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 7543826
+            _machine: 14129404
+            _timestamp: 1647275117
+            _pid: 11972
+          _initializer:
+            _initializationCount: 15
+            _tags:
+            - _enabled
+            - _left
+            - _posX
+            - _top
+            - _posY
+            - _posZ
+            - _right
+            - _width
+            - _bottom
+            - _height
+            - pivot
+            - anchorMin
+            - anchorMax
+            - localRotation
+            - localScale
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          disablePositionUpdates: 0
+          _left: 0
+          _posX: 0
+          _top: 0
+          _posY: 0
+          _posZ: 0
+          _right: 0
+          _width: 0
+          _bottom: 0
+          _height: 0
+          anchorMin:
+            overriding: 1
+            value: {x: 0, y: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0}
+          anchorMax:
+            overriding: 1
+            value: {x: 1, y: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1}
+          pivot:
+            overriding: 1
+            value: {x: 0.5, y: 0.5}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0.5, y: 0.5}
+          localScale:
+            overriding: 1
+            value: {x: 1, y: 1, z: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 1, y: 1, z: 1}
+          localRotation:
+            overriding: 1
+            value: {x: 0, y: 0, z: 0, w: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {x: 0, y: 0, z: 0, w: 1}
+        canvasGroup:
+          overriding: 0
+          value:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 13352561
+              _machine: 14129404
+              _timestamp: 1647362576
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+          _objectId:
+            _increment: 3862467
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initial:
+            _name: 
+            _niceName: 
+            _objectID:
+              _increment: 3862466
+              _machine: 14129404
+              _timestamp: 1647274997
+              _pid: 11972
+            _initializer:
+              _initializationCount: 5
+              _tags:
+              - _enabled
+              - alpha
+              - interactable
+              - blocksRaycasts
+              - ignoreParentGroups
+              _unityObject: {fileID: 0}
+              _resetToken: 
+            _owner: {fileID: 0}
+            _sharesOwnership: 0
+            _showAdvancedOptions: 0
+            _enabled: 1
+            _disableAllFields: 0
+            _suspendFieldApplication: 0
+            alpha:
+              overriding: 0
+              value: 1
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 1
+            interactable:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            blocksRaycasts:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+            ignoreParentGroups:
+              overriding: 0
+              value: 0
+              _objectId:
+                _increment: 0
+                _machine: 0
+                _timestamp: 0
+                _pid: 0
+              _initial: 0
+        canvasRenderer:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862465
+            _machine: 14129404
+            _timestamp: 1647274997
+            _pid: 11972
+          _initializer:
+            _initializationCount: 2
+            _tags:
+            - _enabled
+            - cullTransparentMesh
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          cullTransparentMesh:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+        image:
+          _name: 
+          _niceName: 
+          _objectID:
+            _increment: 3862470
+            _machine: 14129404
+            _timestamp: 1647274998
+            _pid: 11972
+          _initializer:
+            _initializationCount: 16
+            _tags:
+            - _enabled
+            - material
+            - color
+            - raycastTarget
+            - maskable
+            - sprite
+            - imageType
+            - preserveAspect
+            - fillCenter
+            - fillMethod
+            - fillAmount
+            - fillClockwise
+            - fillOrigin
+            - alphaHitTestMinimumThreshold
+            - useSpriteMesh
+            - pixelsPerUnitMultiplier
+            _unityObject: {fileID: 0}
+            _resetToken: 
+          _owner: {fileID: 0}
+          _sharesOwnership: 0
+          _showAdvancedOptions: 0
+          _enabled: 1
+          _disableAllFields: 0
+          _suspendFieldApplication: 0
+          material:
+            overriding: 0
+            value: {fileID: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {fileID: 0}
+          color:
+            overriding: 0
+            value: {r: 1, g: 1, b: 1, a: 1}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {r: 1, g: 1, b: 1, a: 1}
+          raycastTarget:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          maskable:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          sprite:
+            overriding: 1
+            value: {fileID: 0}
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: {fileID: 0}
+          imageType:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          preserveAspect:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillCenter:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillMethod:
+            overriding: 1
+            value: 4
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 4
+          fillAmount:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillClockwise:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+          fillOrigin:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          alphaHitTestMinimumThreshold:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          useSpriteMesh:
+            overriding: 1
+            value: 0
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 0
+          pixelsPerUnitMultiplier:
+            overriding: 1
+            value: 1
+            _objectId:
+              _increment: 0
+              _machine: 0
+              _timestamp: 0
+              _pid: 0
+            _initial: 1
+      templateAlpha: 1
+      templates: []
+      selectedTemplate: {fileID: 0}

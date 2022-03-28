@@ -6,7 +6,6 @@ using Appalachia.UI.Functionality.Layout.Groups.Vertical;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Profiling
 {
@@ -31,9 +30,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
         public VerticalLayoutGroupComponentGroupConfig verticalLayoutGroup;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
-        public FoldoutStyleOverride style;
+        public FoldoutStyleTypes style;
 
         #endregion
+
+        protected override int DefaultPriority => 10;
 
         /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
@@ -42,39 +43,41 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
             using (_PRF_Initialize.Auto())
             {
+                VerticalLayoutGroupComponentGroupConfig.Refresh(ref verticalLayoutGroup, this);
                 FoldoutControlConfig.Refresh(ref fps,    this);
                 FoldoutControlConfig.Refresh(ref memory, this);
                 FoldoutControlConfig.Refresh(ref audio,  this);
-                VerticalLayoutGroupComponentGroupConfig.Refresh(ref verticalLayoutGroup, this);
             }
         }
 
-        protected override void UpdateFunctionalityInternal(ProfilingSideBarSubwidget subwidget)
+        protected override void BeforeApplying(ProfilingSideBarSubwidget subwidget)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_BeforeApplying.Auto())
             {
-                base.UpdateFunctionalityInternal(subwidget);
+                base.BeforeApplying(subwidget);
 
-                var layoutParent = subwidget.canvas.GameObject;
+                fps.foldoutButton.tooltip.tooltipStyle = TooltipStyle;
+                memory.foldoutButton.tooltip.tooltipStyle = TooltipStyle;
+                audio.foldoutButton.tooltip.tooltipStyle = TooltipStyle;
+            }
+        }
 
-                VerticalLayoutGroupComponentGroupConfig.RefreshAndApply(
-                    ref verticalLayoutGroup,
-                    this,
-                    ref subwidget.verticalLayoutGroup,
-                    layoutParent,
-                    nameof(VerticalLayoutGroup)
-                );
+        protected override void OnApply(ProfilingSideBarSubwidget subwidget)
+        {
+            using (_PRF_OnApply.Auto())
+            {
+                base.OnApply(subwidget);
 
-                var layoutObject = subwidget.verticalLayoutGroup.gameObject;
+                verticalLayoutGroup.Apply(subwidget.verticalLayoutGroup);
 
                 style = WidgetMetadata.foldoutStyle;
                 fps.Style = style;
                 memory.Style = style;
                 audio.Style = style;
 
-                FoldoutControlConfig.RefreshAndApply(ref fps,    ref subwidget.fps,    layoutObject, "FPS",   this);
-                FoldoutControlConfig.RefreshAndApply(ref memory, ref subwidget.memory, layoutObject, "RAM",   this);
-                FoldoutControlConfig.RefreshAndApply(ref audio,  ref subwidget.audio,  layoutObject, "Audio", this);
+                fps.Apply(subwidget.fps);
+                memory.Apply(subwidget.memory);
+                audio.Apply(subwidget.audio);
             }
         }
     }

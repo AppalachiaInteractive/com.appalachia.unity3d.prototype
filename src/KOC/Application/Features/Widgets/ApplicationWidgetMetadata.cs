@@ -1,5 +1,6 @@
 using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.ControlModel.Extensions;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
@@ -11,9 +12,11 @@ using Appalachia.Prototype.KOC.Application.Functionality;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.Core.Extensions;
 using Appalachia.UI.Functionality.Canvas.Controls.Default;
 using Appalachia.UI.Functionality.Images.Controls.Background;
 using Appalachia.UI.Functionality.Images.Controls.RoundedBackground;
+using Appalachia.UI.Styling;
 using Appalachia.UI.Styling.Fonts;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
@@ -43,6 +46,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
     {
         static ApplicationWidgetMetadata()
         {
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleLookup = i);
+
             var callbacks = RegisterInstanceCallbacks
                .For<ApplicationWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet,
                     TIService, TIWidget, TManager>>();
@@ -51,6 +56,8 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         }
 
         #region Static Fields and Autoproperties
+
+        private static StyleElementDefaultLookup _styleLookup;
 
         private static TFeatureMetadata _featureMetadata;
 
@@ -82,34 +89,34 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         [SerializeField]
         public RoundedBackgroundControlConfig.Optional roundedBackground;
 
-        [FoldoutGroup(APPASTR.Common)]
-        [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf(nameof(HideFontStyleField))]
-        public FontStyleOverride fontStyle;
+        public FontStyleTypes fontStyle;
 
-        [FoldoutGroup(APPASTR.Visibility)]
+        [FoldoutGroup(APPASTR.Common + "/" + APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf(nameof(HideFeatureEnabledVisibilityModeField))]
         public WidgetVisibilityMode featureEnabledVisibilityMode;
 
-        [FoldoutGroup(APPASTR.Visibility)]
+        [FoldoutGroup(APPASTR.Common + "/" + APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf(nameof(HideFeatureDisabledVisibilityModeField))]
         public WidgetVisibilityMode featureDisabledVisibilityMode;
 
-        [FoldoutGroup(APPASTR.Visibility)]
+        [FoldoutGroup(APPASTR.Common + "/" + APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
         [HideIf(nameof(HideTransitionsWithFadeField))]
         public bool transitionsWithFade;
 
-        [FoldoutGroup(APPASTR.Visibility)]
+        [FoldoutGroup(APPASTR.Common + "/" + APPASTR.Visibility)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0f, 1f)]
         [HideIf(nameof(HideAnimationDurationField))]
         public float animationDuration;
 
         #endregion
+
+        protected static StyleElementDefaultLookup StyleLookup => _styleLookup;
 
         protected virtual bool HideAnimationDurationField => false;
         protected virtual bool HideBackgroundField => false;
@@ -121,6 +128,11 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         protected virtual bool HideRectTransformField => false;
         protected virtual bool HideRoundedBackgroundField => false;
         protected virtual bool HideTransitionsWithFadeField => false;
+        public BackgroundControlConfig.Optional Background => background;
+        public CanvasControlConfig.Optional Canvas => canvas;
+
+        public RectTransformConfig.Override RectTransform => rectTransform;
+        public RoundedBackgroundControlConfig.Optional RoundedBackground => roundedBackground;
 
         protected TFeatureMetadata FeatureMetadata => _featureMetadata;
 
@@ -147,19 +159,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
             using (_PRF_Initialize.Auto())
             {
-                initializer.Do(
-                    this,
-                    nameof(FontStyleOverride),
-                    fontStyle == null,
-                    () =>
-                    {
-                        fontStyle = LoadOrCreateNew<FontStyleOverride>(
-                            GetAssetName<FontStyleOverride>(),
-                            ownerType: typeof(ApplicationManager)
-                        );
-                    }
-                );
-
                 initializer.Do(this, nameof(animationDuration), () => { animationDuration = .2f; });
 
                 initializer.Do(
@@ -172,6 +171,41 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
                     nameof(featureDisabledVisibilityMode),
                     () => featureDisabledVisibilityMode = WidgetVisibilityMode.NotVisible
                 );
+
+                RectTransformConfig.Refresh(ref rectTransform, true, this);
+
+                CanvasControlConfig.Refresh(ref canvas, true, this);
+
+                BackgroundControlConfig.Refresh(ref background, true, this);
+
+                RoundedBackgroundControlConfig.Refresh(ref roundedBackground, false, this);
+            }
+        }
+
+        protected override void AfterApplying(TWidget functionality)
+        {
+            using (_PRF_AfterApplying.Auto())
+            {
+                base.AfterApplying(functionality);
+                
+                functionality.RefreshWidgetVisuals();
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void OnApply(TWidget widget)
+        {
+            using (_PRF_OnApply.Auto())
+            {
+                base.OnApply(widget);
+                
+                rectTransform.Apply(widget.RectTransform);
+
+                canvas.Apply(widget.canvas);
+
+                background.Apply(widget.background);
+
+                roundedBackground.Apply(widget.roundedBackground);
             }
         }
 
@@ -180,51 +214,45 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
-                target.Changed.Event += OnChanged;
-                rectTransform.Changed.Event += OnChanged;
-                canvas.Changed.Event += OnChanged;
-                background.Changed.Event += OnChanged;
-                roundedBackground.Changed.Event += OnChanged;
-                fontStyle.Changed.Event += OnChanged;
+                base.SubscribeResponsiveComponents(target);
+                
+                target.SubscribeToChanges(OnChanged);
+                rectTransform.SubscribeToChanges(OnChanged);
+                canvas.SubscribeToChanges(OnChanged);
+                background.SubscribeToChanges(OnChanged);
+                roundedBackground.SubscribeToChanges(OnChanged);
             }
         }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(TWidget widget)
+        protected override void UnsuspendResponsiveComponents(TWidget target)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
             {
-                RectTransformConfig.RefreshAndApply(ref rectTransform, true, this, widget.RectTransform);
-
-                CanvasControlConfig.RefreshAndApply(
-                    ref canvas,
-                    true,
-                    ref widget.canvas,
-                    widget.gameObject,
-                    typeof(TWidget).Name,
-                    this
-                );
-
-                BackgroundControlConfig.RefreshAndApply(
-                    ref background,
-                    true,
-                    ref widget.background,
-                    widget.canvas.GameObject,
-                    typeof(TWidget).Name,
-                    this
-                );
-
-                RoundedBackgroundControlConfig.RefreshAndApply(
-                    ref roundedBackground,
-                    false,
-                    ref widget.roundedBackground,
-                    widget.canvas.GameObject,
-                    typeof(TWidget).Name,
-                    this
-                );
+                base.UnsuspendResponsiveComponents(target);
+                
+                target.UnsuspendChanges();
+                rectTransform.UnsuspendChanges();
+                canvas.UnsuspendChanges();
+                background.UnsuspendChanges();
+                roundedBackground.UnsuspendChanges();
             }
         }
-
+        
+        /// <inheritdoc />
+        protected override void SuspendResponsiveComponents(TWidget target)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(target);
+                
+                target.SuspendChanges();
+                rectTransform.SuspendChanges();
+                canvas.SuspendChanges();
+                background.SuspendChanges();
+                roundedBackground.SuspendChanges();
+            }
+        }
         #region Profiling
 
         protected static readonly ProfilerMarker _PRF_GetCanvasGroupInvisibleAlpha =
@@ -232,9 +260,6 @@ namespace Appalachia.Prototype.KOC.Application.Features.Widgets
 
         protected static readonly ProfilerMarker _PRF_GetCanvasGroupVisibleAlpha =
             new ProfilerMarker(_PRF_PFX + nameof(GetCanvasGroupVisibleAlpha));
-
-        private static readonly ProfilerMarker _PRF_RefreshAndApply =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndApply));
 
         #endregion
     }

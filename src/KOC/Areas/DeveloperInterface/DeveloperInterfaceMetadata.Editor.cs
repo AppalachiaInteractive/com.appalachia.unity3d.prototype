@@ -22,6 +22,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface
             using (_PRF_InitializeEditor.Auto())
             {
                 base.InitializeEditor(initializer);
+
+                TemplateControlConfig.Refresh(ref unscaledTemplates, false, this);
             }
         }
 

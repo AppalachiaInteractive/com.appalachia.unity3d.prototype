@@ -5,5 +5,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     public class ProfilingActivityBarSubwidgetMetadata : ActivityBarSubwidgetMetadata<ProfilingActivityBarSubwidget,
         ProfilingActivityBarSubwidgetMetadata>
     {
+        public override ActivityBarSection DefaultSection => ActivityBarSection.Top;
+        protected override int DefaultPriority => 10;
     }
 }

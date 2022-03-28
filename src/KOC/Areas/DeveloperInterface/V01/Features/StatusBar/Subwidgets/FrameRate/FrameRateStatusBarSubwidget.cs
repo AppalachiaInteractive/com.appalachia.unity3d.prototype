@@ -1,10 +1,13 @@
 using System;
+using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profiling.Services.FPS;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Profiling;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
 using Appalachia.Utility.Strings;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.FrameRate
 {
+    [CallStaticConstructorInEditor]
     public class FrameRateStatusBarSubwidget : StatusBarSubwidget<FrameRateStatusBarSubwidget,
         FrameRateStatusBarSubwidgetMetadata>
     {
@@ -17,20 +20,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         static FrameRateStatusBarSubwidget()
         {
             RegisterDependency<FPSProfilerService>(i => _fpsProfilerService = i);
+            RegisterDependency<ProfilingSideBarSubwidget>(i => _profilingSideBarSubwidget = i);
         }
 
         #region Static Fields and Autoproperties
 
         private static FPSProfilerService _fpsProfilerService;
+        private static ProfilingSideBarSubwidget _profilingSideBarSubwidget;
         private static Utf8PreparedFormat<string> _tooltipFormat;
 
         #endregion
 
         internal FPSProfilerService FPSProfilerService => _fpsProfilerService;
 
-        public override string GetDevTooltipText()
+        public override string GetTooltipContent()
         {
-            using (_PRF_GetDevTooltipText.Auto())
+            using (_PRF_GetTooltipContent.Auto())
             {
                 var tooltipText = $"Current FPS: {FPSProfilerService.CurrentFPS}\n" +
                                   $"Average FPS: {FPSProfilerService.AverageFPS}\n" +

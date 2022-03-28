@@ -10,6 +10,7 @@ using Appalachia.UI.Functionality.Images.Groups.Default;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Simple.Base
@@ -22,11 +23,10 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     /// <typeparam name="TConfig">Configuration for the control.</typeparam>
     [Serializable]
     [SmartLabelChildren]
-    public abstract class
-        BaseSimpleCursorControlConfig<TControl, TConfig> : BaseCanvasControlConfig<TControl, TConfig>,
-                                                                  ISimpleCursorControlConfig
+    public abstract class BaseSimpleCursorControlConfig<TControl, TConfig> : BaseCanvasControlConfig<TControl, TConfig>,
+                                                                             ISimpleCursorControlConfig
         where TControl : BaseSimpleCursorControl<TControl, TConfig>, new()
-        where TConfig: BaseSimpleCursorControlConfig<TControl, TConfig>, new()
+        where TConfig : BaseSimpleCursorControlConfig<TControl, TConfig>, new()
     {
         static BaseSimpleCursorControlConfig()
         {
@@ -51,11 +51,14 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
 
         [HideIf("@!ShowAllFields && (HideImage || HideAllFields)")]
         [SerializeField, OnValueChanged(nameof(OnChanged))]
-        private ImageComponentGroupConfig _image;
+        public ImageComponentGroupConfig image;
 
-        [SerializeField] private SimpleCursors value;
+        [SerializeField, OnValueChanged(nameof(OnChanged))]
+        public SimpleCursors value;
 
-        [SerializeField] private SimpleCursorMetadata _metadata;
+        [FormerlySerializedAs("_metadata")]
+        [SerializeField, OnValueChanged(nameof(OnChanged))]
+        public SimpleCursorMetadata metadata;
 
         #endregion
 
@@ -67,34 +70,85 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             using (_PRF_OnApply.Auto())
             {
                 base.OnApply(control);
-                if (_metadata != null)
+                if (metadata != null)
                 {
-                    _image.image.sprite.Overriding = true;
-                    _image.image.sprite.Value = _metadata.texture;
+                    image.image.sprite.Overriding = true;
+                    image.image.sprite.Value = Metadata.texture;
                 }
-                
-                ImageComponentGroupConfig.Apply(ref _image, Owner, control.image);
+
+                image.Apply(control.image);
 
                 control.enabled = Enabled;
             }
         }
 
-        protected override void OnInitializeFields(Initializer initializer, Object owner)
+        protected override void OnInitializeFields(Initializer initializer)
         {
             using (_PRF_OnInitializeFields.Auto())
             {
-                base.OnInitializeFields(initializer, owner);
+                base.OnInitializeFields(initializer);
 
-                ImageComponentGroupConfig.Refresh(ref _image, owner);
+                ImageComponentGroupConfig.Refresh(ref image, Owner);
             }
         }
 
+        protected override void OnRefresh(Object owner)
+        {
+            using (_PRF_OnRefresh.Auto())
+            {
+                base.OnRefresh(owner);
+                
+                ImageComponentGroupConfig.Refresh(ref image, Owner);
+            }
+        }
+
+        protected override void SubscribeResponsiveConfigs()
+        {
+            using (_PRF_SubscribeResponsiveConfigs.Auto())
+            {
+                base.SubscribeResponsiveConfigs();
+
+                image.SubscribeToChanges(OnChanged);
+                if (Metadata != null)
+                {
+                    Metadata.SubscribeToChanges(OnChanged);
+                }
+            }
+        }
+
+        protected override void UnsuspendResponsiveConfigs()
+        {
+            using (_PRF_UnsuspendResponsiveConfigs.Auto())
+            {
+                base.UnsuspendResponsiveConfigs();
+
+                image.UnsuspendChanges();
+                if (Metadata != null)
+                {
+                    Metadata.UnsuspendChanges();
+                }
+            }
+        }
+        
+        protected override void SuspendResponsiveConfigs()
+        {
+            using (_PRF_SuspendResponsiveConfigs.Auto())
+            {
+                base.SuspendResponsiveConfigs();
+
+                image.SuspendChanges();
+                if (Metadata != null)
+                {
+                    Metadata.SuspendChanges();
+                }
+            }
+        }
         #region ISimpleCursorControlConfig Members
 
         public ImageComponentGroupConfig Image
         {
-            get => _image;
-            protected set => _image = value;
+            get => image;
+            protected set => image = value;
         }
 
         public SimpleCursorMetadata Metadata
@@ -103,12 +157,12 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 using (_PRF_Metadata.Auto())
                 {
-                    if (_metadata == null)
+                    if (metadata == null)
                     {
-                        _metadata = _mainSimpleCursorLookup.Lookup.Find(_metadata.value);
+                        metadata = _mainSimpleCursorLookup.Lookup.Find(value);
                     }
 
-                    return _metadata;
+                    return metadata;
                 }
             }
         }

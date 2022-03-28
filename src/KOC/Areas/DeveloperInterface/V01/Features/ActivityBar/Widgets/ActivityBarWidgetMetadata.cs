@@ -1,117 +1,38 @@
+using System.Linq;
 using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Controls.Main;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips.Styling;
-using Appalachia.UI.ControlModel.Components;
-using Appalachia.UI.Core.Extensions;
-using Appalachia.UI.Core.Layout;
-using Appalachia.UI.Functionality.Layout.Groups.Vertical;
+using Appalachia.UI.Functionality.Images.Groups.Default;
+using Appalachia.UI.Functionality.Tooltips.Contracts;
+using Appalachia.UI.Functionality.Tooltips.Styling;
 using Appalachia.Utility.Async;
+using Appalachia.Utility.Colors;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets
 {
-    public sealed class ActivityBarWidgetMetadata : DeveloperInterfaceMetadata_V01.WidgetWithSingletonSubwidgetsMetadata
-    <IActivityBarSubwidget, IActivityBarSubwidgetMetadata, ActivityBarWidget, ActivityBarWidgetMetadata,
-        ActivityBarFeature, ActivityBarFeatureMetadata>
+    public sealed partial class ActivityBarWidgetMetadata : DeveloperInterfaceMetadata_V01.WidgetWithSingletonSubwidgetsMetadata
+                                                    <IActivityBarSubwidget, IActivityBarSubwidgetMetadata,
+                                                        ActivityBarWidget, ActivityBarWidgetMetadata, ActivityBarFeature
+                                                        , ActivityBarFeatureMetadata>
     {
-        #region Constants and Static Readonly
-
-        public static readonly string BottomLayoutGroupSubwidgetsParentName =
-            "Bottom " + ActivityBarWidget.SubwidgetParentName;
-
-        public static readonly string TopLayoutGroupSubwidgetsParentName =
-            "Top " + ActivityBarWidget.SubwidgetParentName;
-
-        #endregion
-
         #region Fields and Autoproperties
 
-        [BoxGroup(APPASTR.GroupNames.Size)]
+        [FoldoutGroup(APPASTR.GroupNames.Visual)]
         [OnValueChanged(nameof(OnChanged))]
         [PropertyRange(0.03f, 0.07f)]
         public float width;
 
+        [FoldoutGroup(APPASTR.GroupNames.Visual)]
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [HideInInspector]
-        public VerticalLayoutGroupComponentGroupConfig topLayoutGroup;
+        public Color color;
 
         [OnValueChanged(nameof(OnChanged))]
         [SerializeField]
-        [HideInInspector]
-        public VerticalLayoutGroupComponentGroupConfig bottomLayoutGroup;
-
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        [HideInInspector]
-        public RectTransformConfig activityBarIconRectTransform;
-
-        [BoxGroup(APPASTR.GroupNames.Size)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        [PropertyRange(8, 100)]
-        public int activityBarPaddingTop;
-
-        [BoxGroup(APPASTR.GroupNames.Size)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        [PropertyRange(0, 100)]
-        public int activityBarSpacingTop;
-
-        [BoxGroup(APPASTR.GroupNames.Size)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        [PropertyRange(8, 100)]
-        public int activityBarPaddingBottom;
-
-        [BoxGroup(APPASTR.GroupNames.Size)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        [PropertyRange(0, 100)]
-        public int activityBarSpacingBottom;
-
-        [BoxGroup(APPASTR.GroupNames.Content)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        [PropertyRange(8, 64)]
-        public int iconSize;
-
-        [BoxGroup(APPASTR.GroupNames.Content)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        [PropertyRange(8, 64)]
-        public int iconPadding;
-
-        [BoxGroup(APPASTR.GroupNames.Content)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        public float selectionIndicatorSize;
-
-        [BoxGroup(APPASTR.GroupNames.Content)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        public Color selectedIndicatorColor;
-
-        [BoxGroup(APPASTR.GroupNames.Content)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        public Color unselectedIndicatorColor;
-
-        [BoxGroup(APPASTR.GroupNames.Content)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        public Color hoveringIndicatorColor;
-
-        [BoxGroup(APPASTR.GroupNames.Content)]
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        public AppearanceDirection selectionIndicatorDirection;
-
-        [OnValueChanged(nameof(OnChanged))]
-        [SerializeField]
-        public Sprite defaultActivityBarIcon;
+        public ActivityBarControlConfig activityBar;
 
         #endregion
 
@@ -121,163 +42,42 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
             await base.Initialize(initializer);
 
             initializer.Do(this, nameof(width), () => width = 0.03f);
+            initializer.Do(this, nameof(color), color == Color.clear, () => color = Colors.FromHexCode("333333"));
 
-            initializer.Do(
-                this,
-                nameof(activityBarPaddingTop),
-                activityBarPaddingTop == 0,
-                () => activityBarPaddingTop = 50
-            );
-            initializer.Do(
-                this,
-                nameof(activityBarPaddingBottom),
-                activityBarPaddingBottom == 0,
-                () => activityBarPaddingBottom = 50
-            );
-            initializer.Do(
-                this,
-                nameof(activityBarSpacingTop),
-                activityBarSpacingTop == 0,
-                () => activityBarSpacingTop = 10
-            );
-            initializer.Do(
-                this,
-                nameof(activityBarSpacingBottom),
-                activityBarSpacingBottom == 0,
-                () => activityBarSpacingBottom = 10
-            );
-
-            initializer.Do(this, nameof(iconPadding), iconPadding == 0, () => iconPadding = 10);
-            initializer.Do(this, nameof(iconSize),    iconSize == 0,    () => iconSize = 24);
-
-            initializer.Do(
-                this,
-                nameof(topLayoutGroup),
-                topLayoutGroup == null,
-                () => topLayoutGroup = new VerticalLayoutGroupComponentGroupConfig(this)
-            );
-
-            initializer.Do(
-                this,
-                nameof(bottomLayoutGroup),
-                bottomLayoutGroup == null,
-                () => bottomLayoutGroup = new VerticalLayoutGroupComponentGroupConfig(this)
-            );
-
-            initializer.Do(
-                this,
-                nameof(activityBarIconRectTransform),
-                activityBarIconRectTransform == null,
-                () => activityBarIconRectTransform = new RectTransformConfig(this)
-            );
-
-            initializer.Do(
-                this,
-                nameof(devTooltipStyle),
-                devTooltipStyle == null,
-                () =>
-                {
-                    devTooltipStyle = LoadOrCreateNew<DevTooltipStyleOverride>(
-                        GetAssetName<DevTooltipStyleOverride>(),
-                        ownerType: typeof(ApplicationManager)
-                    );
-                }
-            );
-        }
-
-        protected override void SubscribeResponsiveComponents(ActivityBarWidget target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-                base.SubscribeResponsiveComponents(target);
-
-                topLayoutGroup.Changed.Event += OnChanged;
-                bottomLayoutGroup.Changed.Event += OnChanged;
-                rectTransform.Changed.Event += OnChanged;
-            }
+            ActivityBarControlConfig.Refresh(ref activityBar, this);
         }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(ActivityBarWidget widget)
+        protected override void OnApply(ActivityBarWidget widget)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_OnApply.Auto())
             {
-                base.UpdateFunctionalityInternal(widget);
+                background.IsElected = true;
 
-                if (bottomLayoutGroup != null)
+                var firstBackground = background.Value.ConfigList.FirstOrDefault();
+
+                if (firstBackground == null)
                 {
-                    bottomLayoutGroup.VerticalLayoutGroup.childControlWidth.OverrideValue(true);
-                    bottomLayoutGroup.VerticalLayoutGroup.childControlHeight.OverrideValue(false);
-
-                    bottomLayoutGroup.VerticalLayoutGroup.childForceExpandWidth.OverrideValue(true);
-                    bottomLayoutGroup.VerticalLayoutGroup.childForceExpandHeight.OverrideValue(false);
-
-                    bottomLayoutGroup.VerticalLayoutGroup.childScaleWidth.OverrideValue(false);
-                    bottomLayoutGroup.VerticalLayoutGroup.childScaleHeight.OverrideValue(false);
-
-                    bottomLayoutGroup.VerticalLayoutGroup.padding.Overriding = true;
-                    bottomLayoutGroup.VerticalLayoutGroup.padding.Value.bottom = activityBarPaddingBottom;
-                    bottomLayoutGroup.VerticalLayoutGroup.spacing.Value = activityBarSpacingBottom;
+                    firstBackground = ImageComponentGroupConfig.CreateWithOwner(this);
+                    background.Value.ConfigList.Add(firstBackground);
                 }
 
-                if (topLayoutGroup != null)
-                {
-                    topLayoutGroup.VerticalLayoutGroup.childControlWidth.OverrideValue(true);
-                    topLayoutGroup.VerticalLayoutGroup.childControlHeight.OverrideValue(false);
+                firstBackground.image.color.OverrideValue(color);
 
-                    topLayoutGroup.VerticalLayoutGroup.childForceExpandWidth.OverrideValue(true);
-                    topLayoutGroup.VerticalLayoutGroup.childForceExpandHeight.OverrideValue(false);
+                base.OnApply(widget);
 
-                    topLayoutGroup.VerticalLayoutGroup.childScaleWidth.OverrideValue(false);
-                    topLayoutGroup.VerticalLayoutGroup.childScaleHeight.OverrideValue(false);
-
-                    topLayoutGroup.VerticalLayoutGroup.padding.Overriding = true;
-                    topLayoutGroup.VerticalLayoutGroup.padding.Value.top = activityBarPaddingTop;
-                    topLayoutGroup.VerticalLayoutGroup.spacing.Value = activityBarSpacingTop;
-                }
-
-                VerticalLayoutGroupComponentGroupConfig.RefreshAndApply(
-                    ref bottomLayoutGroup,
-                    this,
-                    ref widget.bottomActivityBarLayoutGroup,
-                    widget.SubwidgetParent,
-                    BottomLayoutGroupSubwidgetsParentName
-                );
-
-                VerticalLayoutGroupComponentGroupConfig.RefreshAndApply(
-                    ref topLayoutGroup,
-                    this,
-                    ref widget.topActivityBarLayoutGroup,
-                    widget.SubwidgetParent,
-                    TopLayoutGroupSubwidgetsParentName
-                );
+                activityBar.Apply(widget.activityBar, this);
 
                 widget.ValidateSubwidgets();
 
                 widget.SortSubwidgetsByPriority();
 
-                activityBarIconRectTransform.AnchorCenter().PivotCenter().SetSize(iconSize, iconSize);
-
                 for (var subwidgetIndex = 0; subwidgetIndex < widget.TopActivityBarSubwidgets.Count; subwidgetIndex++)
                 {
                     var subwidget = widget.TopActivityBarSubwidgets[subwidgetIndex];
-
-                    subwidget.Metadata.Button.SelectionIndicator.Value.SelectedIndicatorColor = selectedIndicatorColor;
-                    subwidget.Metadata.Button.SelectionIndicator.Value.HoveringIndicatorColor = hoveringIndicatorColor;
-                    subwidget.Metadata.Button.SelectionIndicator.Value.UnselectedIndicatorColor = unselectedIndicatorColor;
-                    subwidget.Metadata.Button.SelectionIndicator.Value.SelectionIndicatorDirection = selectionIndicatorDirection;
-                    subwidget.Metadata.Button.SelectionIndicator.Value.SelectionIndicatorSize = selectionIndicatorSize;
                     
-                    /*var swLayoutGroup = subwidget.Metadata.Button.LayoutGroup;
-
-                    swLayoutGroup.IsElected = false;
-                    swLayoutGroup.BindValueEnabledState();*/
-
-                    subwidget.ApplyMetadata();
-
-                    subwidget.RectTransform.SetHeight(iconSize + (iconPadding * 2f));
-
-                    subwidget.UpdateSubwidgetIconSize(activityBarIconRectTransform);
+                    subwidget.Metadata.UpdateTooltipStyle(TooltipStyle);
+                    activityBar.ApplyToSubwidget(subwidget);
                 }
 
                 for (var subwidgetIndex = 0;
@@ -286,13 +86,42 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
                 {
                     var subwidget = widget.BottomActivityBarSubwidgets[subwidgetIndex];
 
-                    subwidget.ApplyMetadata();
-
-                    subwidget.UpdateSubwidgetIconSize(activityBarIconRectTransform);
+                    subwidget.Metadata.UpdateTooltipStyle(TooltipStyle);
+                    activityBar.ApplyToSubwidget(subwidget);
                 }
+            }
+        }
 
-                widget.topActivityBarLayoutGroup.RectTransform.SetSiblingIndex(0);
-                widget.bottomActivityBarLayoutGroup.RectTransform.SetSiblingIndex(1);
+        protected override void SubscribeResponsiveComponents(ActivityBarWidget target)
+        {
+            using (_PRF_SubscribeResponsiveComponents.Auto())
+            {
+                base.SubscribeResponsiveComponents(target);
+
+                activityBar.SubscribeToChanges(OnChanged);
+                rectTransform.SubscribeToChanges(OnChanged);
+            }
+        }
+
+        protected override void UnsuspendResponsiveComponents(ActivityBarWidget target)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(target);
+
+                activityBar.UnsuspendChanges();
+                rectTransform.UnsuspendChanges();
+            }
+        }
+
+        protected override void SuspendResponsiveComponents(ActivityBarWidget target)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(target);
+
+                activityBar.SuspendChanges();
+                rectTransform.SuspendChanges();
             }
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
@@ -11,6 +12,7 @@ using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
@@ -152,7 +154,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
 
             enabled = true;
 
-            gameObject.name = nameof(LifetimeComponentManager);
+            gameObject.name = nameof(LifetimeComponentManager).Nicify();
             gameObject.SetActive(true);
 
             DontDestroyOnLoadSafe();

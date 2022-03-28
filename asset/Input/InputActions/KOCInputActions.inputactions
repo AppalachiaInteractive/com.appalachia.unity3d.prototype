@@ -647,7 +647,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Select",
+                    "name": "Press",
                     "type": "PassThrough",
                     "id": "45620a36-af93-4be8-8888-372a02c959cb",
                     "expectedControlType": "Button",
@@ -665,7 +665,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AlternateSelect",
+                    "name": "AlternatePress",
                     "type": "PassThrough",
                     "id": "4bf04a24-80ef-422d-b6c2-49e40b7fe2ae",
                     "expectedControlType": "Button",
@@ -674,7 +674,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Menu",
+                    "name": "ContextMenu",
                     "type": "PassThrough",
                     "id": "b9eaa43b-4f96-43d4-b0c4-47a09c321f0d",
                     "expectedControlType": "Button",
@@ -977,7 +977,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Menu",
+                    "action": "ContextMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -988,7 +988,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Menu",
+                    "action": "ContextMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -999,7 +999,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Menu",
+                    "action": "ContextMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1010,18 +1010,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "AlternateSelect",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e3a19a5e-fbb3-4e1c-98ed-7a30f8303c66",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "AlternateSelect",
+                    "action": "AlternatePress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1032,7 +1021,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "AlternateSelect",
+                    "action": "AlternatePress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1071,12 +1060,23 @@
                 },
                 {
                     "name": "",
+                    "id": "3145b77b-be7e-4a6f-b41f-d02189265713",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "55fbc301-3687-4451-b4ac-13deb0648ce3",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Select",
+                    "action": "Press",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

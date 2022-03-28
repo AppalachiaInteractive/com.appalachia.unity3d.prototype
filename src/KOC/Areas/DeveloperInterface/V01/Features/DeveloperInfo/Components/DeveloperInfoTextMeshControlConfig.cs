@@ -1,5 +1,4 @@
 using System;
-using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo.Models;
 using Appalachia.UI.ControlModel.ComponentGroups.Layout;
 using Appalachia.UI.Functionality.Text.Controls.Calculated;
@@ -19,12 +18,6 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         {
         }
 
-        #region Fields and Autoproperties
-
-        public LayoutElementComponentGroupConfig layoutElement;
-
-        #endregion
-
         /// <inheritdoc />
         protected override DeveloperInfoType GetInitialEnum()
         {
@@ -36,39 +29,29 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Develop
         {
             using (_PRF_OnApply.Auto())
             {
+                layoutElement.SuspendFieldApplication = true;
                 base.OnApply(target);
+                layoutElement.SuspendFieldApplication = false;
 
                 target.layoutElement.enabled = true;
 
-                LayoutElementComponentGroupConfig.Apply(
-                    ref layoutElement,
-                    Owner,
+                layoutElement.Apply(
                     target.layoutElement,
-                    (data, comp) =>
+                    (config, _) =>
                     {
-                        data.layoutElement.minHeight.Disabled = target.LineCount > 1;
+                        config.minHeight.Disabled = target.LineCount > 1;
 
-                        if (data.layoutElement.minHeight.Disabled)
+                        if (config.minHeight.Disabled)
                         {
-                            var extraLineHeight = data.layoutElement.minHeight * .7f;
+                            var extraLineHeight = config.minHeight * .7f;
                             var extraLines = target.LineCount - 1;
 
                             var lineAdditive = extraLineHeight * extraLines;
-                            data.layoutElement.minHeight.OverrideValue(data.layoutElement.minHeight + lineAdditive);
+                            config.minHeight.OverrideValue(config.minHeight + lineAdditive);
                         }
                     },
-                    (data, comp) => { data.layoutElement.minHeight.Disabled = false; }
+                    (config, _) => { config.minHeight.Disabled = false; }
                 );
-            }
-        }
-
-        protected override void OnInitializeFields(Initializer initializer, Object owner)
-        {
-            using (_PRF_OnInitializeFields.Auto())
-            {
-                base.OnInitializeFields(initializer, owner);
-
-                layoutElement.Changed.Event += OnChanged;
             }
         }
     }

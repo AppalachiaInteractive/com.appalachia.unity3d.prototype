@@ -296,6 +296,8 @@ namespace Appalachia.Prototype.KOC.Application.Features
 
         public async AppaTask SetToInitialState()
         {
+            await AppaTask.WaitUntil(() => metadata != null);
+            
             if (metadata.startsEnabled)
             {
                 await EnableFeature();

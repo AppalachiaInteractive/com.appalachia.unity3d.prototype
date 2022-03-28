@@ -1,7 +1,9 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Features;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Services;
+using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Subwidgets;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widgets
 {
@@ -16,5 +18,8 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Widge
         where TFeatureMetadata : LifetimeFeatureMetadata<TFeature, TFeatureMetadata>
 
     {
+        public void ForEachSubwidget(Action<ILifetimeSubwidget> forEachAction)
+        {
+        }
     }
 }

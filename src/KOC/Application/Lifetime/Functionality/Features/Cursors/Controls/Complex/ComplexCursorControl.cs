@@ -10,10 +10,5 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     [SmartLabelChildren]
     public sealed class ComplexCursorControl : BaseComplexCursorControl<ComplexCursorControl,
         ComplexCursorControlConfig>
-    {
-        /// <inheritdoc />
-        public override ControlSorting DesiredComponentOrder => ControlSorting.Anywhere;
-
-        
-    }
+    {    }
 }

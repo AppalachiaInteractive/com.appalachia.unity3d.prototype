@@ -265,40 +265,126 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
             {
-                inactive.Changed.Event += OnChanged;
-                rectTransform.Changed.Event += OnChanged;
-                canvas.Changed.Event += OnChanged;
-                screenSpace.Changed.Event += OnChanged;
-                worldSpace.Changed.Event += OnChanged;
-                mask.Changed.Event += OnChanged;
-                selectable.Changed.Event += OnChanged;
-                button.Changed.Event += OnChanged;
-                dropdown.Changed.Event += OnChanged;
-                inputField.Changed.Event += OnChanged;
-                slider.Changed.Event += OnChanged;
-                toggle.Changed.Event += OnChanged;
-                scrollbar.Changed.Event += OnChanged;
-                graphic.Changed.Event += OnChanged;
-                text.Changed.Event += OnChanged;
-                image.Changed.Event += OnChanged;
-                raycastTarget.Changed.Event += OnChanged;
-                maskable.Changed.Event += OnChanged;
-                canvasScaler.Changed.Event += OnChanged;
-                aspectRatioFitter.Changed.Event += OnChanged;
-                contentSizeFitter.Changed.Event += OnChanged;
-                layoutElement.Changed.Event += OnChanged;
-                layoutGroup.Changed.Event += OnChanged;
-                scrollRect.Changed.Event += OnChanged;
+                base.SubscribeResponsiveComponents(target);
+                
+                inactive.SubscribeToChanges(OnChanged);
+                rectTransform.SubscribeToChanges(OnChanged);
+                canvas.SubscribeToChanges(OnChanged);
+                screenSpace.SubscribeToChanges(OnChanged);
+                worldSpace.SubscribeToChanges(OnChanged);
+                mask.SubscribeToChanges(OnChanged);
+                selectable.SubscribeToChanges(OnChanged);
+                button.SubscribeToChanges(OnChanged);
+                dropdown.SubscribeToChanges(OnChanged);
+                inputField.SubscribeToChanges(OnChanged);
+                slider.SubscribeToChanges(OnChanged);
+                toggle.SubscribeToChanges(OnChanged);
+                scrollbar.SubscribeToChanges(OnChanged);
+                graphic.SubscribeToChanges(OnChanged);
+                text.SubscribeToChanges(OnChanged);
+                image.SubscribeToChanges(OnChanged);
+                raycastTarget.SubscribeToChanges(OnChanged);
+                maskable.SubscribeToChanges(OnChanged);
+                canvasScaler.SubscribeToChanges(OnChanged);
+                aspectRatioFitter.SubscribeToChanges(OnChanged);
+                contentSizeFitter.SubscribeToChanges(OnChanged);
+                layoutElement.SubscribeToChanges(OnChanged);
+                layoutGroup.SubscribeToChanges(OnChanged);
+                scrollRect.SubscribeToChanges(OnChanged);
 
-                appaCanvasScaler.Changed.Event += OnChanged;
-                feature.Changed.Event += OnChanged;
-                widget.Changed.Event += OnChanged;
+                appaCanvasScaler.SubscribeToChanges(OnChanged);
+                feature.SubscribeToChanges(OnChanged);
+                widget.SubscribeToChanges(OnChanged);
+            }
+        }
+        
+        
+
+        /// <inheritdoc />
+        protected override void UnsuspendResponsiveComponents(RectVisualizerFeature target)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(target);
+                
+                inactive.UnsuspendChanges();
+                rectTransform.UnsuspendChanges();
+                canvas.UnsuspendChanges();
+                screenSpace.UnsuspendChanges();
+                worldSpace.UnsuspendChanges();
+                mask.UnsuspendChanges();
+                selectable.UnsuspendChanges();
+                button.UnsuspendChanges();
+                dropdown.UnsuspendChanges();
+                inputField.UnsuspendChanges();
+                slider.UnsuspendChanges();
+                toggle.UnsuspendChanges();
+                scrollbar.UnsuspendChanges();
+                graphic.UnsuspendChanges();
+                text.UnsuspendChanges();
+                image.UnsuspendChanges();
+                raycastTarget.UnsuspendChanges();
+                maskable.UnsuspendChanges();
+                canvasScaler.UnsuspendChanges();
+                aspectRatioFitter.UnsuspendChanges();
+                contentSizeFitter.UnsuspendChanges();
+                layoutElement.UnsuspendChanges();
+                layoutGroup.UnsuspendChanges();
+                scrollRect.UnsuspendChanges();
+
+                appaCanvasScaler.UnsuspendChanges();
+                feature.UnsuspendChanges();
+                widget.UnsuspendChanges();
+            }
+        }
+        
+        
+
+        /// <inheritdoc />
+        protected override void SuspendResponsiveComponents(RectVisualizerFeature target)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(target);
+                
+                inactive.SuspendChanges();
+                rectTransform.SuspendChanges();
+                canvas.SuspendChanges();
+                screenSpace.SuspendChanges();
+                worldSpace.SuspendChanges();
+                mask.SuspendChanges();
+                selectable.SuspendChanges();
+                button.SuspendChanges();
+                dropdown.SuspendChanges();
+                inputField.SuspendChanges();
+                slider.SuspendChanges();
+                toggle.SuspendChanges();
+                scrollbar.SuspendChanges();
+                graphic.SuspendChanges();
+                text.SuspendChanges();
+                image.SuspendChanges();
+                raycastTarget.SuspendChanges();
+                maskable.SuspendChanges();
+                canvasScaler.SuspendChanges();
+                aspectRatioFitter.SuspendChanges();
+                contentSizeFitter.SuspendChanges();
+                layoutElement.SuspendChanges();
+                layoutGroup.SuspendChanges();
+                scrollRect.SuspendChanges();
+
+                appaCanvasScaler.SuspendChanges();
+                feature.SuspendChanges();
+                widget.SuspendChanges();
             }
         }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(RectVisualizerFeature functionality)
+        protected override void OnApply(RectVisualizerFeature functionality)
         {
+            using (_PRF_OnApply.Auto())
+            {
+                base.OnApply(functionality);
+            }
         }
     }
 }

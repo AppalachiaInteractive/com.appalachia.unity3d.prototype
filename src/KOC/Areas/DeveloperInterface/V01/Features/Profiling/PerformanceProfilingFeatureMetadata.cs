@@ -50,21 +50,5 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profili
                 );
             }
         }
-
-        /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(PerformanceProfilingFeature target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(PerformanceProfilingFeature functionality)
-        {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
-            {
-            }
-        }
     }
 }

@@ -5,8 +5,8 @@ using Appalachia.Utility.Async;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Services
 {
-    public class CursorServiceMetadata : LifetimeServiceMetadata<CursorService, CursorServiceMetadata,
-        CursorFeature, CursorFeatureMetadata>
+    public class CursorServiceMetadata : LifetimeServiceMetadata<CursorService, CursorServiceMetadata, CursorFeature,
+        CursorFeatureMetadata>
     {
         #region Fields and Autoproperties
 
@@ -27,22 +27,6 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
                     () => initialSoftwareCursorState =
                         SoftwareCursorStateFlags.Hidden | SoftwareCursorStateFlags.Confined
                 );
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(CursorService target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(CursorService functionality)
-        {
-            using (_PRF_UpdateFunctionality.Auto())
-            {
             }
         }
     }

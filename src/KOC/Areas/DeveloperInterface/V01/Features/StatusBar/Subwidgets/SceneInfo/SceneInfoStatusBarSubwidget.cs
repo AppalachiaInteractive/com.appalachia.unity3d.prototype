@@ -37,9 +37,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             }
         }
 
-        public override string GetDevTooltipText()
+        public override string GetTooltipContent()
         {
-            using (_PRF_GetDevTooltipText.Auto())
+            using (_PRF_GetTooltipContent.Auto())
             {
                 var sceneList = _developerInfoProviderService.GetUpdatedText(DeveloperInfoType.SceneList);
 

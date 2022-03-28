@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Controls.Main;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Core;
-using Appalachia.UI.Functionality.Layout.Groups.Horizontal;
 using Appalachia.Utility.Async;
 using UnityEngine.UI;
 
@@ -17,14 +18,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         private List<IStatusBarSubwidget> _leftStatusBarSubwidgets;
         private List<IStatusBarSubwidget> _rightStatusBarSubwidgets;
 
-        public HorizontalLayoutGroupComponentGroup leftStatusBarLayoutGroup;
-
-        public HorizontalLayoutGroupComponentGroup rightStatusBarLayoutGroup;
+        public StatusBarControl statusBar;
 
         #endregion
-
-        public HorizontalLayoutGroupComponentGroup LeftStatusBarLayoutGroup => leftStatusBarLayoutGroup;
-        public HorizontalLayoutGroupComponentGroup RightStatusBarLayoutGroup => rightStatusBarLayoutGroup;
 
         public IReadOnlyList<IStatusBarSubwidget> LeftStatusBarSubwidgets => _leftStatusBarSubwidgets;
         public IReadOnlyList<IStatusBarSubwidget> RightStatusBarSubwidgets => _rightStatusBarSubwidgets;
@@ -33,6 +29,8 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
         {
             using (_PRF_ValidateSubwidgets.Auto())
             {
+                StatusBarControl.Refresh(ref statusBar, canvas.ChildContainer, nameof(statusBar));
+
                 RemoveIncorrectSubwidgetsFromList(
                     _leftStatusBarSubwidgets,
                     _rightStatusBarSubwidgets,
@@ -45,11 +43,11 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                     e => e.Metadata.Section == StatusBarSection.Right
                 );
 
-                EnsureSubwidgetsHaveCorrectParent(_leftStatusBarSubwidgets,  leftStatusBarLayoutGroup.RectTransform);
-                EnsureSubwidgetsHaveCorrectParent(_rightStatusBarSubwidgets, rightStatusBarLayoutGroup.RectTransform);
+                EnsureSubwidgetsHaveCorrectParent(_leftStatusBarSubwidgets,  statusBar.leftStatusBar.RectTransform);
+                EnsureSubwidgetsHaveCorrectParent(_rightStatusBarSubwidgets, statusBar.rightStatusBar.RectTransform);
 
-                LayoutRebuilder.MarkLayoutForRebuild(leftStatusBarLayoutGroup.RectTransform);
-                LayoutRebuilder.MarkLayoutForRebuild(rightStatusBarLayoutGroup.RectTransform);
+                LayoutRebuilder.MarkLayoutForRebuild(statusBar.leftStatusBar.RectTransform);
+                LayoutRebuilder.MarkLayoutForRebuild(statusBar.rightStatusBar.RectTransform);
             }
         }
 
@@ -80,6 +78,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
                 UpdateAnchorMin(anchorMin);
                 UpdateAnchorMax(anchorMax);
+            }
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                StatusBarControl.Refresh(ref statusBar, canvas.ChildContainer, nameof(statusBar));
             }
         }
 

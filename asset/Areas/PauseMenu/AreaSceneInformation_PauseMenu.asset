@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a27e3be23f1ceb4787279b1483e8281, type: 3}
   m_Name: AreaSceneInformation_PauseMenu
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags: []
+    _unityObject: {fileID: 0}
     _resetToken: 
-  _objectId:
-    _increment: 0
-    _machine: 0
-    _timestamp: 0
-    _pid: 0
+  _niceName: 
+  _objectID:
+    _increment: 11664488
+    _machine: 14129404
+    _timestamp: 1648341837
+    _pid: -13852
   _area: 5000
   entrySceneReference: {fileID: 11400000, guid: 0aebe2399aefdff45a4fa354f9c99aa6, type: 2}
   _sceneReferences:

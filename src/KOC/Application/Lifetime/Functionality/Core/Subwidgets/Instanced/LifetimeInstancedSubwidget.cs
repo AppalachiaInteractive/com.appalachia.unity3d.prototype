@@ -32,7 +32,6 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Subwi
             TISubwidget, TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature, TFeatureMetadata>
         where TFeature : LifetimeFeature<TFeature, TFeatureMetadata>
         where TFeatureMetadata : LifetimeFeatureMetadata<TFeature, TFeatureMetadata>
-
     {
     }
 }

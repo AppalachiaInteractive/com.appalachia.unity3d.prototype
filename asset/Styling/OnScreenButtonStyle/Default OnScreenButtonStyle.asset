@@ -12,22 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12717d586d44629b7fa19eac97b6276, type: 3}
   m_Name: Default OnScreenButtonStyle
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
-    _initializationCount: 0
+    _initializationCount: 1
     _tags:
     - _font
     - OnScreenButtonSpriteStyle
     - OnScreenButtonTextStyle
     - _spriteColor
     - _textColor
+    _unityObject: {fileID: 11400000}
     _resetToken: 
-  _objectId:
+  _niceName: 
+  _objectID:
     _increment: 0
     _machine: 0
     _timestamp: 0
     _pid: 0
+  type: 0
   _overrides:
   - {fileID: 11400000, guid: df1a0a2b2c3d34e458915076ced7887d, type: 2}
   - {fileID: 11400000, guid: b3da2a090be226147b71e45963b87b50, type: 2}
@@ -60,6 +61,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09a9e09ef1f41e84bbeb984a933d87aa, type: 2}
   _spriteColor: {r: 1, g: 1, b: 1, a: 1}
   _textColor: {r: 1, g: 1, b: 1, a: 1}
-  _font: {fileID: 11400000, guid: afee15da68d82f64bb278296bd0d9861, type: 2}
+  _font: 100
   _spriteStyle: 0
   _textStyle: 0

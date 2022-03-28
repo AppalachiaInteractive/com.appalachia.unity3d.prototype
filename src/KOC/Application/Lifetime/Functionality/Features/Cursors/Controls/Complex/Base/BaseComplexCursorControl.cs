@@ -1,10 +1,11 @@
 using System;
 using Appalachia.Core.Attributes.Editing;
+using Appalachia.Core.Functionality.Animation.Groups;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Complex.Contracts;
-using Appalachia.UI.Animations;
 using Appalachia.UI.Functionality.Images.Groups.Default;
 using Appalachia.UI.Functionality.MultiPartCanvas;
 using Appalachia.Utility.Extensions;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Controls.Complex.Base
@@ -27,10 +28,17 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
     {
         #region Fields and Autoproperties
 
-        [SerializeField] private Animator _animator;
-#if UNITY_EDITOR
-        [SerializeField] private AnimationRemapper _animationRemapper;
-#endif
+        [FoldoutGroup(GROUP_COMP)]
+        [PropertyOrder(ORDER_ELEMENTS + 00)]
+        [SerializeField]
+        [ReadOnly]
+        public AnimatorComponentGroup animator;
+
+        [FoldoutGroup(GROUP_COMP)]
+        [PropertyOrder(ORDER_OBJECTS + 00)]
+        [SerializeField]
+        [ReadOnly]
+        private GameObject _animatorParent;
 
         #endregion
 
@@ -41,16 +49,10 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 base.DestroySafely();
 
-                if (_animator)
+                if (animator)
                 {
-                    _animator.DestroySafely();
+                    animator.DestroySafely();
                 }
-#if UNITY_EDITOR
-                if (_animationRemapper)
-                {
-                    _animationRemapper.DestroySafely();
-                }
-#endif
             }
         }
 
@@ -61,17 +63,10 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 base.Disable();
 
-                if (_animator)
+                if (animator)
                 {
-                    _animator.enabled = false;
+                    animator.enabled = false;
                 }
-
-#if UNITY_EDITOR
-                if (_animationRemapper)
-                {
-                    _animationRemapper.enabled = false;
-                }
-#endif
             }
         }
 
@@ -82,17 +77,10 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 base.Enable(config);
 
-                if (_animator)
+                if (animator)
                 {
-                    _animator.enabled = true;
+                    animator.enabled = true;
                 }
-
-#if UNITY_EDITOR
-                if (_animationRemapper)
-                {
-                    _animationRemapper.enabled = true;
-                }
-#endif
             }
         }
 
@@ -100,29 +88,32 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
         {
             using (_PRF_GetMultiPartParent.Auto())
             {
-                return _animator.gameObject;
+                _animatorParent = gameObject;
+
+                AnimatorComponentGroup.Refresh(ref animator, _animatorParent, nameof(animator));
+
+                return animator.gameObject;
             }
         }
 
         #region IComplexCursorControl Members
 
         /// <inheritdoc />
-        public override void Refresh()
+        protected override void OnRefresh()
         {
-            using (_PRF_Refresh.Auto())
+            using (_PRF_OnRefresh.Auto())
             {
-                base.Refresh();
+                base.OnRefresh();
 
-                GameObject.GetOrAddComponent(ref _animator);
-                GameObject.GetOrAddComponent(ref _animationRemapper);
+                _animatorParent = gameObject;
+
+                AnimatorComponentGroup.Refresh(ref animator, _animatorParent, nameof(animator));
             }
         }
 
-        public Animator Animator => _animator;
+        public AnimatorComponentGroup Animator => animator;
 
-#if UNITY_EDITOR
-        public AnimationRemapper AnimationRemapper => _animationRemapper;
-#endif
+        public GameObject AnimatorParent => _animatorParent;
 
         #endregion
     }

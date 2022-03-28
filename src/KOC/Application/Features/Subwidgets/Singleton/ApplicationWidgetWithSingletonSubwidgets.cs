@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Appalachia.CI.Constants;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Availability;
 using Appalachia.Core.Objects.Root;
@@ -15,6 +16,7 @@ using Appalachia.Prototype.KOC.Application.FunctionalitySets;
 using Appalachia.UI.Core.Extensions;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
+using Appalachia.Utility.Strings;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -43,7 +45,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
     {
         #region Constants and Static Readonly
 
-        public static readonly string SubwidgetParentName = typeof(TWidget).Name + " Subwidgets";
+        public static readonly string SubwidgetParentName = typeof(TWidget).Name.Nicify() + " Subwidgets";
 
         #endregion
 
@@ -78,7 +80,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
         {
             get
             {
-                canvas.GameObject.GetOrAddChild(ref _subwidgetParent, SubwidgetParentName, true);
+                canvas.ChildContainer.GetOrAddChild(ref _subwidgetParent, SubwidgetParentName, true);
                 return _subwidgetParent;
             }
         }
@@ -145,7 +147,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
 
             using (_PRF_WhenEnabled.Auto())
             {
-                var canvasChildCount = canvas.RectTransform.childCount;
+                var canvasChildCount = canvas.ChildContainer.transform.childCount;
 
                 var subwidgetRect = SubwidgetParent.transform as RectTransform;
                 subwidgetRect.FullScreen(true);

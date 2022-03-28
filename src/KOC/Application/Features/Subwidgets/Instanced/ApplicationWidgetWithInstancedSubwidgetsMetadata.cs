@@ -42,6 +42,34 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
         where TIWidget : IApplicationWidget
         where TManager : SingletonAppalachiaBehaviour<TManager>, ISingleton<TManager>, IApplicationFunctionalityManager
     {
+        protected override void SuspendResponsiveComponents(TWidget widget)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(widget);
+
+                for (var index = 0; index < widget.Subwidgets.Count; index++)
+                {
+                    var subwidget = widget.Subwidgets[index];
+                    subwidget.SuspendChanges();
+                }
+            }
+        }
+
+        protected override void UnsuspendResponsiveComponents(TWidget widget)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(widget);
+
+                for (var index = 0; index < widget.Subwidgets.Count; index++)
+                {
+                    var subwidget = widget.Subwidgets[index];
+                    subwidget.UnsuspendChanges();
+                }
+            }
+        }
+
         protected override void SubscribeResponsiveComponents(TWidget widget)
         {
             using (_PRF_SubscribeResponsiveComponents.Auto())
@@ -51,16 +79,16 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
                 for (var index = 0; index < widget.Subwidgets.Count; index++)
                 {
                     var subwidget = widget.Subwidgets[index];
-                    subwidget.ApplyMetadata();
+                    subwidget.SubscribeToChanges(OnChanged);
                 }
             }
         }
 
-        protected override void UpdateFunctionalityInternal(TWidget widget)
+        protected override void OnApply(TWidget widget)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_OnApply.Auto())
             {
-                base.UpdateFunctionalityInternal(widget);
+                base.OnApply(widget);
 
                 for (var index = 0; index < widget.Subwidgets.Count; index++)
                 {

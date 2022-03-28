@@ -37,8 +37,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
                                                                 TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
                                                                 TFeatureMetadata, TFunctionalitySet, TIService,
                                                                 TIWidget, TManager> : AppalachiaBehaviour<TSubwidget>,
-        IApplicationInstancedSubwidget<TISubwidget, TISubwidgetMetadata>,
-        IClickable
+        IApplicationInstancedSubwidget<TISubwidget, TISubwidgetMetadata>
         where TSubwidget :
         ApplicationInstancedSubwidget<TSubwidget, TSubwidgetMetadata, TISubwidget, TISubwidgetMetadata, TWidget,
             TWidgetMetadata, TFeature, TFeatureMetadata, TFunctionalitySet, TIService, TIWidget, TManager>, TISubwidget,
@@ -72,7 +71,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
 
         static ApplicationInstancedSubwidget()
         {
-            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleLookup = i);
 
             var callbacks = RegisterInstanceCallbacks
                .For<ApplicationInstancedSubwidget<TSubwidget, TSubwidgetMetadata, TISubwidget, TISubwidgetMetadata,
@@ -104,7 +103,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
 
         private static IFeatureAvailabilitySet _when;
 
-        private static StyleElementDefaultLookup _styleElementDefaultLookup;
+        private static StyleElementDefaultLookup _styleLookup;
 
         private static TFeature _feature;
         private static TManager _manager;
@@ -145,7 +144,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
             }
         }
 
-        protected static StyleElementDefaultLookup StyleElementDefaultLookup => _styleElementDefaultLookup;
+        protected static StyleElementDefaultLookup StyleLookup => _styleLookup;
 
         protected static TManager Manager => _manager;
 
@@ -331,7 +330,7 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced
 
                 UpdateVisibility(_widget.IsVisible);
 
-                metadata.Changed.Event += OnRequiresUpdate;
+                metadata.SubscribeToChanges(OnRequiresUpdate);
             }
         }
 

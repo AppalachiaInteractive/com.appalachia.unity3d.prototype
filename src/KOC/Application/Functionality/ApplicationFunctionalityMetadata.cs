@@ -1,15 +1,12 @@
 using System;
 using Appalachia.Core.ControlModel.Contracts;
-using Appalachia.Core.ControlModel.Controls;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Core.Objects.Root.Contracts;
 using Appalachia.Prototype.KOC.Application.Features.Contracts;
 using Appalachia.Prototype.KOC.Application.Functionality.Contracts;
 using Appalachia.Utility.Async;
-using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Collections;
-using Appalachia.Utility.Events.Extensions;
 using Appalachia.Utility.Extensions.Debugging;
 using Unity.Profiling;
 using UnityEngine;
@@ -51,51 +48,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         [SerializeField, HideInInspector]
         private bool _notReadyForRelease;
 
-        /// <summary>
-        ///     Offers notifications whenever this metadata is applied to a functionality.
-        ///     Use this to drive any further behaviour needed to keep the functionality in sync.
-        /// </summary>
-        public AppaEvent.Data Updated;
-
         #endregion
-
-        /// <summary>
-        ///     Subscribes the provided functionality to metadata updates, using the provided delegate
-        ///     creator to produce an event handler.
-        /// </summary>
-        /// <param name="functionality">The functionality to subscribe.</param>
-        /// <param name="delegateCreator">
-        ///     A function that produces an event handler.  Essentially,
-        ///     this is the "what you want to happen" when the event is raised.
-        /// </param>
-        public void SubscribeForUpdates(TFunctionality functionality, Func<Action> delegateCreator)
-        {
-            using (_PRF_SubscribeForUpdates.Auto())
-            {
-                _delegates ??= new();
-                _delegates.Subscribe(functionality, ref Updated, delegateCreator);
-
-                if (Updated.SubscriberCount == 0)
-                {
-                    APPADEBUG.BREAKPOINT(() => nameof(Updated), functionality);
-                }
-            }
-        }
-
-        /// <summary>
-        ///     Unsubscribes the provided functionality from any subsequent metadata updates.
-        ///     This will only have an impact if you have previously subscribed for updates
-        ///     via <see cref="SubscribeForUpdates" />.
-        /// </summary>
-        /// <param name="functionality">The functionality to unsubscribe.</param>
-        public void UnsubscribeFromUpdates(TFunctionality functionality)
-        {
-            using (_PRF_UnsubscribeFromUpdates.Auto())
-            {
-                _delegates ??= new();
-                _delegates.Unsubscribe(functionality, ref Updated);
-            }
-        }
 
         /// <summary>
         ///     Given a functionality, applies this metadata to it to ensure that its
@@ -103,9 +56,9 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
         /// </summary>
         /// <param name="functionality">The functionality to update.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="functionality" /> is null.</exception>
-        public void UpdateFunctionality(TFunctionality functionality)
+        public void Apply(TFunctionality functionality)
         {
-            using (_PRF_UpdateFunctionality.Auto())
+            using (_PRF_Apply.Auto())
             {
                 if (functionality == null)
                 {
@@ -124,7 +77,7 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
                             return;
                         }
 
-                        ExecuteUpdateFunctionalityInternal(functionality);
+                        ExecuteOnApply(functionality);
                     }
 
                     return SubscribableDelegate;
@@ -145,26 +98,120 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
                     APPADEBUG.BREAKPOINT(() => nameof(Changed), functionality);
                 }
 
-                ExecuteUpdateFunctionalityInternal(functionality);
+                ExecuteOnApply(functionality);
+            }
+        }
+
+        /// <summary>
+        ///     Subscribes the provided functionality to metadata updates, using the provided delegate
+        ///     creator to produce an event handler.
+        /// </summary>
+        /// <param name="functionality">The functionality to subscribe.</param>
+        /// <param name="delegateCreator">
+        ///     A function that produces an event handler.  Essentially,
+        ///     this is the "what you want to happen" when the event is raised.
+        /// </param>
+        public void SubscribeToChanges(TFunctionality functionality, Func<Action> delegateCreator)
+        {
+            using (_PRF_SubscribeToChanges.Auto())
+            {
+                _delegates ??= new();
+                _delegates.Subscribe(functionality, ref Changed, delegateCreator);
+
+                if (Changed.SubscriberCount == 0)
+                {
+                    APPADEBUG.BREAKPOINT(() => nameof(Changed), functionality);
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Unsubscribes the provided functionality from any subsequent metadata updates.
+        ///     This will only have an impact if you have previously subscribed for updates
+        ///     via <see cref="SubscribeToChanges" />.
+        /// </summary>
+        /// <param name="functionality">The functionality to unsubscribe.</param>
+        public void UnsubscribeFromChanges(TFunctionality functionality)
+        {
+            using (_PRF_UnsubscribeFromChanges.Auto())
+            {
+                _delegates ??= new();
+                _delegates.Unsubscribe(functionality, ref Changed);
+            }
+        }
+
+        protected virtual void AfterApplying(TFunctionality functionality)
+        {
+            using (_PRF_AfterApplying.Auto())
+            {
+                SubscribeResponsiveComponents(functionality);
+
+                functionality.ApplyingMetadata = false;
+                Changed.Unsuspend();
+                UnsuspendResponsiveComponents(functionality);
+            }
+        }
+
+        protected virtual void BeforeApplying(TFunctionality subwidget)
+        {
+            using (_PRF_BeforeApplying.Auto())
+            {
+                SuspendResponsiveComponents(subwidget);
+                Changed.Suspend();
+                subwidget.ApplyingMetadata = true;
+            }
+        }
+
+        protected virtual void OnApply(TFunctionality functionality)
+        {
+            using (_PRF_OnApply.Auto())
+            {
             }
         }
 
         // ReSharper disable once UnusedParameter.Global
-        protected abstract void SubscribeResponsiveComponents(TFunctionality functionality);
-
-        protected abstract void UpdateFunctionalityInternal(TFunctionality functionality);
-
-        protected virtual void AfterUpdateFunctionality(TFunctionality functionality)
+        protected virtual void SubscribeResponsiveComponents(TFunctionality functionality)
         {
-            using (_PRF_AfterUpdateFunctionality.Auto())
+            using (_PRF_SubscribeResponsiveComponents.Auto())
             {
-                SubscribeResponsiveComponents(functionality);
-
-                Updated.RaiseEvent();
-
-                functionality.ApplyingMetadata = false;
             }
         }
+
+        protected virtual void SuspendResponsiveComponents(TFunctionality functionality)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+            }
+        }
+
+        protected virtual void UnsuspendResponsiveComponents(TFunctionality functionality)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+            }
+        }
+
+        /*
+        public override void UnsuspendChanges(TFunctionality functionality)
+        {
+            using (_PRF_UnsuspendChanges.Auto())
+            {
+                base.UnsuspendChanges();
+            
+                UnsuspendResponsiveComponents(functionality);
+            }
+        }
+
+        public override void SuspendChanges(TFunctionality functionality)
+        {
+            using (_PRF_SuspendChanges.Auto())
+            {
+                base.SuspendChanges();
+            
+                SuspendResponsiveComponents(functionality);
+            }
+        }
+        */
 
         /// <summary>
         ///     Returns an asset name which which concatenates the current functionality <see cref="Type" />.<see cref="Type.Name" />
@@ -198,53 +245,23 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
             }
         }
 
-        protected void RefreshAndApply<TControl, TConfig>(
-            ref TControl control,
-            ref TConfig config,
-            TFunctionality functionality,
-            GameObject parent = null,
-            string name = null)
-            where TControl : AppaControl<TControl, TConfig>, new()
-            where TConfig : AppaControlConfig<TControl, TConfig>, new()
+        private void ExecuteOnApply(TFunctionality functionality)
         {
-            using (_PRF_RefreshAndApply.Auto())
+            using (_PRF_ExecuteOnApply.Auto())
             {
-                name ??= typeof(TFunctionality).Name;
-
-                if (parent == null)
-                {
-                    parent = functionality.gameObject;
-                }
-
-                AppaControlConfig<TControl, TConfig>.RefreshAndApply(ref config, ref control, parent, name, this);
-            }
-        }
-
-        private void BeforeUpdateFunctionality(TFunctionality functionality)
-        {
-            using (_PRF_BeforeUpdateFunctionality.Auto())
-            {
-                functionality.ApplyingMetadata = true;
-            }
-        }
-
-        private void ExecuteUpdateFunctionalityInternal(TFunctionality functionality)
-        {
-            using (_PRF_ExecuteUpdateFunctionalityInternal.Auto())
-            {
-                BeforeUpdateFunctionality(functionality);
-                UpdateFunctionalityInternal(functionality);
-                AfterUpdateFunctionality(functionality);
+                BeforeApplying(functionality);
+                OnApply(functionality);
+                AfterApplying(functionality);
             }
         }
 
         #region IApplicationFunctionalityMetadata<TFunctionality> Members
 
-        void IApplicationFunctionalityMetadata<TFunctionality>.UpdateFunctionality(TFunctionality functionality)
+        void IApplicationFunctionalityMetadata<TFunctionality>.Apply(TFunctionality functionality)
         {
-            using (_PRF_UpdateFunctionality.Auto())
+            using (_PRF_Apply.Auto())
             {
-                UpdateFunctionality(functionality);
+                Apply(functionality);
             }
         }
 
@@ -258,34 +275,29 @@ namespace Appalachia.Prototype.KOC.Application.Functionality
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_RefreshAndApply =
-            new ProfilerMarker(_PRF_PFX + nameof(RefreshAndApply));
-
         private static readonly ProfilerMarker _PRF_GetAssetName = new ProfilerMarker(_PRF_PFX + nameof(GetAssetName));
 
-        protected static readonly ProfilerMarker _PRF_AfterUpdateFunctionality =
-            new ProfilerMarker(_PRF_PFX + nameof(AfterUpdateFunctionality));
+        protected static readonly ProfilerMarker _PRF_AfterApplying =
+            new ProfilerMarker(_PRF_PFX + nameof(AfterApplying));
 
-        private static readonly ProfilerMarker _PRF_BeforeUpdateFunctionality =
-            new ProfilerMarker(_PRF_PFX + nameof(BeforeUpdateFunctionality));
+        protected static readonly ProfilerMarker _PRF_Apply = new ProfilerMarker(_PRF_PFX + nameof(Apply));
 
-        private static readonly ProfilerMarker _PRF_ExecuteUpdateFunctionalityInternal =
-            new ProfilerMarker(_PRF_PFX + nameof(ExecuteUpdateFunctionalityInternal));
+        protected static readonly ProfilerMarker _PRF_BeforeApplying =
+            new ProfilerMarker(_PRF_PFX + nameof(BeforeApplying));
 
-        private static readonly ProfilerMarker _PRF_SubscribeForUpdates =
-            new ProfilerMarker(_PRF_PFX + nameof(SubscribeForUpdates));
+        private static readonly ProfilerMarker _PRF_ExecuteOnApply =
+            new ProfilerMarker(_PRF_PFX + nameof(ExecuteOnApply));
+
+        protected static readonly ProfilerMarker _PRF_OnApply = new ProfilerMarker(_PRF_PFX + nameof(OnApply));
 
         protected static readonly ProfilerMarker _PRF_SubscribeResponsiveComponents =
             new ProfilerMarker(_PRF_PFX + nameof(SubscribeResponsiveComponents));
 
-        private static readonly ProfilerMarker _PRF_UnsubscribeFromUpdates =
-            new ProfilerMarker(_PRF_PFX + nameof(UnsubscribeFromUpdates));
+        protected static readonly ProfilerMarker _PRF_SuspendResponsiveComponents =
+            new ProfilerMarker(_PRF_PFX + nameof(SuspendResponsiveComponents));
 
-        protected static readonly ProfilerMarker _PRF_UpdateFunctionality =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateFunctionality));
-
-        protected static readonly ProfilerMarker _PRF_UpdateFunctionalityInternal =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateFunctionalityInternal));
+        protected static readonly ProfilerMarker _PRF_UnsuspendResponsiveComponents =
+            new ProfilerMarker(_PRF_PFX + nameof(UnsuspendResponsiveComponents));
 
         #endregion
     }

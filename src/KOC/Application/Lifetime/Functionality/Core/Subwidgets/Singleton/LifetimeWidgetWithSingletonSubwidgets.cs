@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Features;
@@ -13,7 +14,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Subwi
                                               TFeature, TFeatureMetadata> :
             ApplicationWidgetWithSingletonSubwidgets<TISubwidget, TISubwidgetMetadata, TWidget,
                 TWidgetMetadata, TFeature, TFeatureMetadata, LifetimeFeatureFunctionalitySet, ILifetimeService
-                , ILifetimeWidget, LifetimeComponentManager>
+                , ILifetimeWidget, LifetimeComponentManager>, ILifetimeWidget
         where TISubwidget : class, ILifetimeSingletonSubwidget<TISubwidget, TISubwidgetMetadata>
         where TISubwidgetMetadata : class, ILifetimeSingletonSubwidgetMetadata<TISubwidget, TISubwidgetMetadata>
         where TWidget : LifetimeWidgetWithSingletonSubwidgets<TISubwidget, TISubwidgetMetadata, TWidget,
@@ -23,5 +24,12 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Subwi
         where TFeature : LifetimeFeature<TFeature, TFeatureMetadata>
         where TFeatureMetadata : LifetimeFeatureMetadata<TFeature, TFeatureMetadata>
     {
+        public void ForEachSubwidget(Action<ILifetimeSubwidget> forEachAction)
+        {
+            foreach (var subwidget in _subwidgets)
+            {
+                forEachAction(subwidget);
+            }
+        }
     }
 }

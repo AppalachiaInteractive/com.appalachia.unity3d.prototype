@@ -1,6 +1,7 @@
 using Appalachia.Prototype.KOC.Extensions;
 using Appalachia.Utility.Events;
 using Appalachia.Utility.Events.Extensions;
+using Appalachia.Utility.Execution;
 using Appalachia.Utility.Extensions;
 using Sirenix.OdinInspector;
 using Unity.Profiling;
@@ -66,7 +67,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                 _inputSystemUIInputModule.enabled = false;
 
                 var actions = GetActions();
-                var asset = actions.asset;
+                var asset = AppalachiaApplication.IsPlaying ? actions.asset : lifetimeMetadata.inputAsset;
 
 /*
 #if UNITY_EDITOR
@@ -84,24 +85,42 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                 _playerInput.enabled = true;
 
                 _inputSystemUIInputModule.UnassignActions();
+
                 _inputSystemUIInputModule.actionsAsset = asset;
 
-                _inputSystemUIInputModule.point =
-                    asset.FindAction(actions.GenericMenu.Point.id).GetReference();
-                _inputSystemUIInputModule.leftClick =
-                    asset.FindAction(actions.GenericMenu.Select.id).GetReference();
-                _inputSystemUIInputModule.rightClick =
-                    asset.FindAction(actions.GenericMenu.Menu.id).GetReference();
-                _inputSystemUIInputModule.middleClick =
-                    asset.FindAction(actions.GenericMenu.AlternateSelect.id).GetReference();
-                _inputSystemUIInputModule.scrollWheel =
-                    asset.FindAction(actions.GenericMenu.Scroll.id).GetReference();
-                _inputSystemUIInputModule.move =
-                    asset.FindAction(actions.GenericMenu.Navigate.id).GetReference();
-                _inputSystemUIInputModule.submit =
-                    asset.FindAction(actions.GenericMenu.Select.id).GetReference();
-                _inputSystemUIInputModule.cancel =
-                    asset.FindAction(actions.GenericMenu.Cancel.id).GetReference();
+                var point = asset.FindAction(actions.GenericMenu.Point.id);
+                var leftClick = asset.FindAction(actions.GenericMenu.Press.id);
+                var rightClick = asset.FindAction(actions.GenericMenu.AlternatePress.id);
+                var middleClick = asset.FindAction(actions.GenericMenu.ContextMenu.id);
+                var scrollWheel = asset.FindAction(actions.GenericMenu.Scroll.id);
+                var move = asset.FindAction(actions.GenericMenu.Navigate.id);
+                var submit = asset.FindAction(actions.GenericMenu.Submit.id);
+                var cancel = asset.FindAction(actions.GenericMenu.Cancel.id);
+
+                if (AppalachiaApplication.IsPlaying)
+                {
+                    _inputSystemUIInputModule.point = InputActionReference.Create(point);
+                    _inputSystemUIInputModule.leftClick = InputActionReference.Create(leftClick);
+                    _inputSystemUIInputModule.rightClick = InputActionReference.Create(rightClick);
+                    _inputSystemUIInputModule.middleClick = InputActionReference.Create(middleClick);
+                    _inputSystemUIInputModule.scrollWheel = InputActionReference.Create(scrollWheel);
+                    _inputSystemUIInputModule.move = InputActionReference.Create(move);
+                    _inputSystemUIInputModule.submit = InputActionReference.Create(submit);
+                    _inputSystemUIInputModule.cancel = InputActionReference.Create(cancel);
+                }
+#if UNITY_EDITOR
+                else
+                {
+                    _inputSystemUIInputModule.point = point.GetReference();
+                    _inputSystemUIInputModule.leftClick = leftClick.GetReference();
+                    _inputSystemUIInputModule.rightClick = rightClick.GetReference();
+                    _inputSystemUIInputModule.middleClick = middleClick.GetReference();
+                    _inputSystemUIInputModule.scrollWheel = scrollWheel.GetReference();
+                    _inputSystemUIInputModule.move = move.GetReference();
+                    _inputSystemUIInputModule.submit = submit.GetReference();
+                    _inputSystemUIInputModule.cancel = cancel.GetReference();
+                }
+#endif
 
                 EventSystemReady.RaiseEvent(_eventSystem);
                 InputSystemUIInputModuleReady.RaiseEvent(_inputSystemUIInputModule);

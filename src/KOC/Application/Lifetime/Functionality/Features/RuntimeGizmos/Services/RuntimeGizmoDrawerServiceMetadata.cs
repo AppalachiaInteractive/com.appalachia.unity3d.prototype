@@ -1,12 +1,13 @@
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Core.Services;
 using Appalachia.UI.Functionality.Rendering.Cameras.Components;
+using Appalachia.Utility.Async;
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.RuntimeGizmos.Services
 {
     public class RuntimeGizmoDrawerServiceMetadata : LifetimeServiceMetadata<RuntimeGizmoDrawerService,
-                                                         RuntimeGizmoDrawerServiceMetadata,
-                                                         RuntimeGizmoDrawerFeature,
+                                                         RuntimeGizmoDrawerServiceMetadata, RuntimeGizmoDrawerFeature,
                                                          RuntimeGizmoDrawerFeatureMetadata>,
                                                      GizmoDrawer.IServiceMetadata
     {
@@ -17,19 +18,53 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.R
         #endregion
 
         /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(RuntimeGizmoDrawerService target)
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
             {
-                cameraData.Changed.Event += OnChanged;
+                CameraConfig.Refresh(ref cameraData, this);
             }
         }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(RuntimeGizmoDrawerService functionality)
+        protected override void SubscribeResponsiveComponents(RuntimeGizmoDrawerService target)
+        {
+            using (_PRF_SubscribeResponsiveComponents.Auto())
+            {
+                base.SubscribeResponsiveComponents(target);
+                
+                cameraData.SubscribeToChanges(OnChanged);
+            }
+        }
+        
+        /// <inheritdoc />
+        protected override void SuspendResponsiveComponents(RuntimeGizmoDrawerService target)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(target);
+                
+                cameraData.SuspendChanges();
+            }
+        }
+        /// <inheritdoc />
+        protected override void UnsuspendResponsiveComponents(RuntimeGizmoDrawerService target)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(target);
+                
+                cameraData.UnsuspendChanges();
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void OnApply(RuntimeGizmoDrawerService functionality)
         {
             var drawCamera = functionality.DrawCamera;
-            CameraConfig.RefreshAndApply(ref cameraData, this, drawCamera);
+            cameraData.Apply(drawCamera);
         }
 
         #region IServiceMetadata Members

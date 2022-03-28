@@ -53,19 +53,14 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Profili
             }
         }
 
-        /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(AudioProfilerService target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-            }
-        }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(AudioProfilerService functionality)
+        protected override void OnApply(AudioProfilerService functionality)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_OnApply.Auto())
             {
+                base.OnApply(functionality);
+                
                 functionality.ValidateArraySizes();
             }
         }

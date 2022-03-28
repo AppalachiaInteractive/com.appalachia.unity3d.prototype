@@ -1,8 +1,11 @@
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Services;
 using Appalachia.UI.Functionality.Images.Controls.Raw;
 using Appalachia.Utility.Async;
+using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Widgets
@@ -15,8 +18,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
     {
         static RectVisualizerWidget()
         {
-            When.Service<RectVisualizerService>()
-                .IsAvailableThen(service => { _rectVisualizerService = service; });
+            When.Service<RectVisualizerService>().IsAvailableThen(service => { _rectVisualizerService = service; });
         }
 
         #region Static Fields and Autoproperties
@@ -27,9 +29,24 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
 
         #region Fields and Autoproperties
 
-        public RawImageControl rawImageSet;
+        [FormerlySerializedAs("rawImageSet")]
+        [SerializeField]
+        public RawImageControl rawImage;
 
         #endregion
+
+        /// <inheritdoc />
+        protected override async AppaTask AfterEnabled()
+        {
+            await base.AfterEnabled();
+
+            using (_PRF_AfterEnabled.Auto())
+            {
+                VisualUpdate.Event += _rectVisualizerService.DiscoverTargets;
+
+                rawImage.RawImage.RawImage.texture = _rectVisualizerService.GetRenderTexture();
+            }
+        }
 
         /// <inheritdoc />
         protected override async AppaTask DelayEnabling()
@@ -37,6 +54,17 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             await base.DelayEnabling();
 
             await AppaTask.WaitUntil(() => _rectVisualizerService != null);
+        }
+
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                RawImageControl.Refresh(ref rawImage, canvas.ChildContainer, nameof(RawImage));
+            }
         }
 
         /// <inheritdoc />
@@ -57,22 +85,9 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             }
         }
 
-        /// <inheritdoc />
-        protected override async AppaTask AfterEnabled()
-        {
-            await base.AfterEnabled();
-
-            using (_PRF_AfterEnabled.Auto())
-            {
-                VisualUpdate.Event += _rectVisualizerService.DiscoverTargets;
-
-                rawImageSet.RawImage.RawImage.texture = _rectVisualizerService.GetRenderTexture();
-            }
-        }
-
         #region IWidget Members
 
-        public RawImage RawImage => rawImageSet.RawImage.RawImage;
+        public RawImage RawImage => rawImage.RawImage.RawImage;
 
         #endregion
     }

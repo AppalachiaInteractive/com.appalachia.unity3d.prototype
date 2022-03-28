@@ -3,7 +3,12 @@ using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets;
+using Appalachia.UI.ControlModel.Components.Extensions;
+using Appalachia.UI.Functionality.Tooltips.Styling;
 using Appalachia.Utility.Async;
+using Sirenix.OdinInspector;
+using Unity.Profiling;
+using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Subwidgets.Core
 {
@@ -16,6 +21,24 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
         where TSubwidget : SideBarSubwidget<TSubwidget, TSubwidgetMetadta>
         where TSubwidgetMetadta : SideBarSubwidgetMetadata<TSubwidget, TSubwidgetMetadta>
     {
+        #region Fields and Autoproperties
+
+        [OnValueChanged(nameof(OnChanged))]
+        [SerializeField]
+        private TooltipStyleTypes _tooltipStyle;
+
+        #endregion
+
+        public TooltipStyleTypes TooltipStyle => _tooltipStyle;
+
+        public void UpdateTooltipStyle(TooltipStyleTypes tooltipStyle)
+        {
+            using (_PRF_UpdateTooltipStyle.Auto())
+            {
+                _tooltipStyle = tooltipStyle;
+            }
+        }
+
         /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {
@@ -23,6 +46,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
 
             using (_PRF_Initialize.Auto())
             {
+                rectTransform.value.BeginModifications().FullScreen().ApplyModifications();
             }
         }
 
@@ -33,5 +57,12 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar
                 base.SubscribeResponsiveComponents(functionality);
             }
         }
+
+        #region Profiling
+
+        private static readonly ProfilerMarker _PRF_UpdateTooltipStyle =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateTooltipStyle));
+
+        #endregion
     }
 }

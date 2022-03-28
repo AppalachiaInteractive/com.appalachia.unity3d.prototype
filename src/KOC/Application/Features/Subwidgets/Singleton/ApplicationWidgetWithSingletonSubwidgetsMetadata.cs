@@ -37,16 +37,44 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton
                 for (var index = 0; index < widget.Subwidgets.Count; index++)
                 {
                     var subwidget = widget.Subwidgets[index];
-                    subwidget.ApplyMetadata();
+                    subwidget.Metadata.SubscribeResponsiveComponents(subwidget);
                 }
             }
         }
 
-        protected override void UpdateFunctionalityInternal(TWidget widget)
+        protected override void SuspendResponsiveComponents(TWidget widget)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_SuspendResponsiveComponents.Auto())
             {
-                base.UpdateFunctionalityInternal(widget);
+                base.SuspendResponsiveComponents(widget);
+
+                for (var index = 0; index < widget.Subwidgets.Count; index++)
+                {
+                    var subwidget = widget.Subwidgets[index];
+                    subwidget.Metadata.SuspendResponsiveComponents(subwidget);
+                }
+            }
+        }
+
+        protected override void UnsuspendResponsiveComponents(TWidget widget)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(widget);
+
+                for (var index = 0; index < widget.Subwidgets.Count; index++)
+                {
+                    var subwidget = widget.Subwidgets[index];
+                    subwidget.Metadata.UnsuspendResponsiveComponents(subwidget);
+                }
+            }
+        }
+
+        protected override void OnApply(TWidget widget)
+        {
+            using (_PRF_OnApply.Auto())
+            {
+                base.OnApply(widget);
 
                 for (var index = 0; index < widget.Subwidgets.Count; index++)
                 {

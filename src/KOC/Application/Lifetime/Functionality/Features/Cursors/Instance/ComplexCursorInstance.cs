@@ -5,9 +5,8 @@ using Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Curso
 
 namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.Cursors.Instance
 {
-    public sealed class ComplexCursorInstance : CursorInstance<ComplexCursorInstance,
-        ComplexCursorInstanceState, ComplexCursorMetadata, ComplexCursorControl,
-        ComplexCursorControlConfig>
+    public sealed class ComplexCursorInstance : CursorInstance<ComplexCursorInstance, ComplexCursorInstanceState,
+        ComplexCursorMetadata, ComplexCursorControl, ComplexCursorControlConfig>
     {
         #region Fields and Autoproperties
 
@@ -22,7 +21,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.C
             {
                 if (controller == null)
                 {
-                    controller = new CursorAnimationController(components.Animator, this);
+                    controller = new CursorAnimationController(components.Animator.Animator, this);
                 }
 
                 var shouldHide = stateData.RequiresVisibilityChange && stateData.CurrentVisibility;

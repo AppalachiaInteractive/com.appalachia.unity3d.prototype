@@ -1,9 +1,12 @@
 using Appalachia.Core.Attributes;
+using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Controls.Subwidget;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Controls.Subwidget.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Subwidgets.Contracts;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar.Widgets;
 using Appalachia.UI.ControlModel.Components;
-using Appalachia.UI.Functionality.Buttons.Components;
 using Appalachia.UI.Functionality.Buttons.Controls.Default;
+using Appalachia.Utility.Async;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -21,47 +24,21 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Activit
     {
         #region Fields and Autoproperties
 
-        public AppaButtonControl button;
-
+        public ActivityBarSubwidgetControl button;
+        
         #endregion
 
-        protected override AppaButton GetTooltipTarget()
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
         {
-            using (_PRF_GetTooltipTarget.Auto())
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
             {
-                return button.button.AppaButton;
+                ActivityBarSubwidgetControl.Refresh(ref button, canvas.ChildContainer, nameof(button));
             }
         }
 
-        #region IActivityBarSubwidget Members
-
-        public override string GetDevTooltipText()
-        {
-            using (_PRF_GetDevTooltipText.Auto())
-            {
-                return Metadata.tooltipText;
-            }
-        }
-
-        public void UpdateSubwidgetIconSize(RectTransformConfig rectTransformData)
-        {
-            using (_PRF_UpdateSubwidgetIconSize.Auto())
-            {
-                var buttonData = Metadata.button;
-                var optionalGroupConfig = buttonData.ButtonIcon;
-                var groupConfig = optionalGroupConfig.Value;
-
-                groupConfig.UpdateRectTransformConfig(rectTransformData);
-            }
-        }
-
-        #endregion
-
-        #region Profiling
-
-        private static readonly ProfilerMarker _PRF_UpdateSubwidgetIconSize =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateSubwidgetIconSize));
-
-        #endregion
+        public IActivityBarSubwidgetControl Control => button;
     }
 }

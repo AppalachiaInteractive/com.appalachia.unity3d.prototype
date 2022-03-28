@@ -98,10 +98,7 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime
                     nameof(DatabaseManager)
                 );
 
-                CameraConfig.RefreshAndApply(
-                    ref _lifetimeMetadata.clearCameraConfig,
-                    lifetimeMetadata,
-                    _clearCamera
+                _lifetimeMetadata.clearCameraConfig.Apply(_clearCamera
                 );
 
                 _systemsObject.GetOrAddLifetimeComponentInChild(ref _cleanupManager, nameof(CleanupManager));

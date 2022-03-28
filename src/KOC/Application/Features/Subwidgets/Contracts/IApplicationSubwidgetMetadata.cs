@@ -12,16 +12,15 @@ namespace Appalachia.Prototype.KOC.Application.Features.Subwidgets.Contracts
         CanvasControlConfig.Optional Canvas { get; }
 
         RectTransformConfig.Override RectTransform { get; }
-
         bool TransitionsWithFade { get; }
 
         float AnimationDuration { get; }
-
-        FontStyleOverride FontStyle { get; set; }
-
+        FontStyleTypes FontStyle { get; set; }
         SubwidgetVisibilityMode WidgetDisabledVisibilityMode { get; }
-
         SubwidgetVisibilityMode WidgetEnabledVisibilityMode { get; }
+        void SubscribeResponsiveComponents(IApplicationSubwidget target);
+        void UnsuspendResponsiveComponents(IApplicationSubwidget target);
+        void SuspendResponsiveComponents(IApplicationSubwidget target);
     }
 
     public interface IApplicationSubwidgetMetadata<in T> : IApplicationSubwidgetMetadata,

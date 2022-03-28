@@ -1,7 +1,9 @@
+using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Application.Features.Aspects;
 using Appalachia.UI.Functionality.Images.Controls.Raw;
-using Appalachia.UI.Functionality.Images.Controls.RawImageCanvas;
+using Appalachia.Utility.Async;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisualizer.Widgets
 {
@@ -12,9 +14,22 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
     {
         #region Fields and Autoproperties
 
-        [SerializeField] private RawImageControlConfig _rawImageSet;
+        [FormerlySerializedAs("_rawImageSet")]
+        [SerializeField]
+        private RawImageControlConfig _rawImage;
 
         #endregion
+
+        /// <inheritdoc />
+        protected override async AppaTask Initialize(Initializer initializer)
+        {
+            await base.Initialize(initializer);
+
+            using (_PRF_Initialize.Auto())
+            {
+                RawImageControlConfig.Refresh(ref _rawImage, this);
+            }
+        }
 
         /// <inheritdoc />
         protected override void SubscribeResponsiveComponents(RectVisualizerWidget target)
@@ -23,30 +38,46 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVis
             {
                 base.SubscribeResponsiveComponents(target);
 
-                _rawImageSet.Changed.Event += OnChanged;
+                _rawImage.SubscribeToChanges(OnChanged);
+            }
+        }
+        
+        /// <inheritdoc />
+        protected override void UnsuspendResponsiveComponents(RectVisualizerWidget target)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(target);
+
+                _rawImage.UnsuspendChanges();
+            }
+        }
+        
+        /// <inheritdoc />
+        protected override void SuspendResponsiveComponents(RectVisualizerWidget target)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(target);
+
+                _rawImage.SuspendChanges();
             }
         }
 
         /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(RectVisualizerWidget widget)
+        protected override void OnApply(RectVisualizerWidget widget)
         {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
+            using (_PRF_OnApply.Auto())
             {
-                base.UpdateFunctionalityInternal(widget);
+                base.OnApply(widget);
 
-                RawImageControlConfig.RefreshAndApply(
-                    ref _rawImageSet,
-                    ref widget.rawImageSet,
-                    widget.canvas.GameObject,
-                    nameof(RectVisualizerWidget),
-                    this
-                );
+                _rawImage.Apply(widget.rawImage);
             }
         }
 
         #region IWidgetMetadata Members
 
-        public RawImageControlConfig RawImageSet => _rawImageSet;
+        public RawImageControlConfig RawImageSet => _rawImage;
 
         #endregion
     }

@@ -9,20 +9,6 @@ namespace Appalachia.Prototype.KOC.Application.Lifetime.Functionality.Features.V
             ViewScalingFeatureMetadata>,
         Broadcaster.IServiceMetadata<ViewScalingService, ViewScalingServiceMetadata, ViewScalingArgs>
     {
-        /// <inheritdoc />
-        protected override void SubscribeResponsiveComponents(ViewScalingService target)
-        {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
-            {
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void UpdateFunctionalityInternal(ViewScalingService widget)
-        {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
-            {
-            }
-        }
+ 
     }
 }

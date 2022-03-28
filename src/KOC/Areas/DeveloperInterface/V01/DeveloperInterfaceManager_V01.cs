@@ -3,7 +3,6 @@ using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.ActivityBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.CommandPalette;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DeveloperInfo;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.DevTooltips;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.GameArea;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.MenuBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Panel;
@@ -12,14 +11,15 @@ using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.RectVisuali
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Screenshot;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.Tooltips;
 using Appalachia.Utility.Async;
 using UnityEngine.InputSystem;
 
 namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
 {
     [CallStaticConstructorInEditor]
-    public sealed partial class DeveloperInterfaceManager_V01 : DeveloperInterfaceManager<
-        DeveloperInterfaceManager_V01, DeveloperInterfaceMetadata_V01>
+    public sealed partial class DeveloperInterfaceManager_V01 : DeveloperInterfaceManager<DeveloperInterfaceManager_V01,
+        DeveloperInterfaceMetadata_V01>
     {
         static DeveloperInterfaceManager_V01()
         {
@@ -33,10 +33,10 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
             fs.RegisterFeature<ScreenshotFeature>(dt, i => _screenshot = i);
             fs.RegisterFeature<SideBarFeature>(dt, i => _sideBar = i);
             fs.RegisterFeature<StatusBarFeature>(dt, i => _statusBar = i);
-            fs.RegisterFeature<DevTooltipsFeature>(dt, i => _devTooltipsFeature = i);
             fs.RegisterFeature<PerformanceProfilingFeature>(dt, i => _performanceProfilingFeature = i);
             fs.RegisterFeature<DeveloperInfoFeature>(dt, i => _developerInfo = i);
             fs.RegisterFeature<RectVisualizerFeature>(dt, i => _rectVisualizer = i);
+            fs.RegisterFeature<DeveloperInterfaceTooltipsFeature>(dt, i => _tooltips = i);
         }
 
         #region Static Fields and Autoproperties
@@ -44,16 +44,15 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01
         private static ActivityBarFeature _activityBar;
         private static CommandPaletteFeature _commandPalette;
         private static DeveloperInfoFeature _developerInfo;
-        private static DevTooltipsFeature _devTooltipsFeature;
         private static GameAreaFeature _gameArea;
         private static MenuBarFeature _menuBar;
         private static PanelFeature _panel;
-
         private static PerformanceProfilingFeature _performanceProfilingFeature;
         private static RectVisualizerFeature _rectVisualizer;
         private static ScreenshotFeature _screenshot;
         private static SideBarFeature _sideBar;
         private static StatusBarFeature _statusBar;
+        private static DeveloperInterfaceTooltipsFeature _tooltips;
 
         #endregion
 

@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9002112bab4c70b6525d8d134574a4, type: 3}
+  m_Name: Date Time Picker Metadata
+  m_EditorClassIdentifier: 
+  _initializer:
+    _initializationCount: 0
+    _tags:
+    - CollectionAnimationMetadata
+    _unityObject: {fileID: 11400000}
+    _resetToken: 
+  _niceName: 
+  _objectID:
+    _increment: 0
+    _machine: 0
+    _timestamp: 0
+    _pid: 0
+  _animation:
+    _name: 
+    _niceName: 
+    _objectID:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _unityObject: {fileID: 0}
+      _resetToken: 
+    _owner: {fileID: 11400000}
+    _sharesOwnership: 0
+    cancel:
+      smoothScroll:
+        onCountChanges: 1
+        onScrollTo: 1
+        onSizeChanges: 1
+      userAnimations:
+        onCountChanges: 1
+        onScrollTo: 1
+        onSizeChanges: 1
+        onBeginSmoothScroll: 1
+    smoothScrollType: 0
+    onDoneWhenCancelled: 0
+  _effects:
+    _name: 
+    _niceName: 
+    _objectID:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _unityObject: {fileID: 0}
+      _resetToken: 
+    _owner: {fileID: 0}
+    _sharesOwnership: 0
+    _gallery:
+      _name: 
+      _niceName: 
+      _objectID:
+        _increment: 0
+        _machine: 0
+        _timestamp: 0
+        _pid: 0
+      _initializer:
+        _initializationCount: 0
+        _tags: []
+        _unityObject: {fileID: 0}
+        _resetToken: 
+      _owner: {fileID: 0}
+      _sharesOwnership: 0
+      rotation:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initializer:
+          _initializationCount: 0
+          _tags: []
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 0}
+        _sharesOwnership: 0
+        amount: 0
+        exponent: 1
+        viewportPivot: 0.5
+        transformSpace:
+          from: {x: 0, y: 0, z: 0}
+          to: {x: 0, y: 0, z: 0}
+      scale:
+        _name: 
+        _niceName: 
+        _objectID:
+          _increment: 0
+          _machine: 0
+          _timestamp: 0
+          _pid: 0
+        _initializer:
+          _initializationCount: 0
+          _tags: []
+          _unityObject: {fileID: 0}
+          _resetToken: 
+        _owner: {fileID: 0}
+        _sharesOwnership: 0
+        amount: 1
+        exponent: 1
+        viewportPivot: 0.5
+        minValue: 0
+        transformSpace:
+          from: {x: 0, y: 0, z: 0}
+          to: {x: 1, y: 1, z: 1}
+      overallAmount: 0
+    _cutMovementOnPointerDown: 1
+    _elasticMovement: 1
+    _inertia: 1
+    _loopViews: 0
+    _transientSpeedBetweenDrags: 1
+    _contentVisualParallaxEffect: -0.85
+    _galleryEffectAmount: 0
+    _galleryEffectViewportPivot: 0.5
+    _inertiaDecelerationRate: 0.865
+    _maxSpeed: 10000
+    _pullElasticity: 0.3
+    _releaseTime: 0.1
+    _contentVisual: {fileID: 0}
+  _navigation:
+    _name: 
+    _niceName: 
+    _objectID:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _unityObject: {fileID: 0}
+      _resetToken: 
+    _owner: {fileID: 0}
+    _sharesOwnership: 0
+    _centered: 0
+    _enabled: 0
+    _additionalSpacingTowardsEdge: 0
+    _scrollDuration: 0.1
+    _maxSearchDepthForView: 2
+  _optimization:
+    _name: 
+    _niceName: 
+    _objectID:
+      _increment: 0
+      _machine: 0
+      _timestamp: 0
+      _pid: 0
+    _initializer:
+      _initializationCount: 0
+      _tags: []
+      _unityObject: {fileID: 0}
+      _resetToken: 
+    _owner: {fileID: 0}
+    _sharesOwnership: 0
+    _forceLayoutRebuildOnBeginSmoothScroll: 1
+    _forceLayoutRebuildOnDrag: 0
+    _keepViewsPoolOnEmptyList: 0
+    _keepViewsPoolOnLayoutRebuild: 0
+    _keepViewsSizesOnLayoutRebuild: 0
+    _keepViewsSortedInHierarchy: 0
+    _scaleToZeroInsteadOfDisable: 0
+    _recycleBinCapacity: -1
+  _orientation: 0
+  _dragEnabled: 1
+  _forwardDragSameDirectionAtBoundary: 0
+  _forwardDragToParents: 0
+  _scrollEnabled: 1
+  _useUnscaledTime: 1
+  _gravity: 1
+  _contentSpacing: 0
+  _defaultViewSize: 60
+  _viewTransversalSize: 0
+  _scrollSensitivity: 100
+  _scrollSensitivityOnXAxis: 100
+  _contentPadding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  alsoControlViewTransversalSize: 0
+  prefabControlsDefaultViewSize: 1
+  _viewPrefab: {fileID: 0}
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
+  nonSelectedColor: {r: 0, g: 0, b: 0, a: 0}
+  increment: 1
+  startViewNumber: 0

@@ -20,6 +20,7 @@ MonoBehaviour:
     - startsEnabled
     - featureEnabledExecutionMode
     - featureDisabledExecutionMode
+    _unityObject: {fileID: 11400000}
     _resetToken: 
   _niceName: 
   _objectID:
@@ -71,132 +72,139 @@ MonoBehaviour:
       - useOcclusionCulling
       - usePhysicalProperties
       - _enabled
+      _unityObject: {fileID: 0}
       _resetToken: 
     _owner: {fileID: 11400000}
-    _hideAllFields: 0
-    _disableAllFields: 0
-    _suspendFieldApplication: 0
+    _sharesOwnership: 0
     _showAdvancedOptions: 0
     _enabled: 1
+    _disableAllFields: 0
+    _suspendFieldApplication: 0
     clearFlags:
-      _overriding: 1
+      overriding: 1
+      value: 2
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 2
     backgroundColor:
-      _overriding: 1
+      overriding: 1
+      value: {r: 0, g: 0, b: 0, a: 0}
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: {r: 0, g: 0, b: 0, a: 0}
-      _value: {r: 0, g: 0, b: 0, a: 0}
     cullingMask:
-      _overriding: 1
+      overriding: 1
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     orthographic:
-      _overriding: 1
+      overriding: 1
+      value: 1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 1
     orthographicSize:
-      _overriding: 1
+      overriding: 1
+      value: 2
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 2
     fieldOfView:
-      _overriding: 1
+      overriding: 1
+      value: 60
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 60
     usePhysicalProperties:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     focalLength:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     sensorSize:
-      _overriding: 0
+      overriding: 0
+      value: {x: 0, y: 0}
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: {x: 0, y: 0}
-      _value: {x: 0, y: 0}
     lensShift:
-      _overriding: 0
+      overriding: 0
+      value: {x: 0, y: 0}
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: {x: 0, y: 0}
-      _value: {x: 0, y: 0}
     gateFit:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     nearClipPlane:
-      _overriding: 1
+      overriding: 1
+      value: 0.1
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0.1
     farClipPlane:
-      _overriding: 1
+      overriding: 1
+      value: 10
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 10
     rect:
-      _overriding: 1
+      overriding: 1
+      value:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1
+        height: 1
       _objectId:
         _increment: 0
         _machine: 0
@@ -208,111 +216,105 @@ MonoBehaviour:
         y: 0
         width: 0
         height: 0
-      _value:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1
-        height: 1
     depth:
-      _overriding: 1
+      overriding: 1
+      value: 100
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 100
     renderingPath:
-      _overriding: 1
+      overriding: 1
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     useOcclusionCulling:
-      _overriding: 1
+      overriding: 1
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     allowHDR:
-      _overriding: 1
+      overriding: 1
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     allowMSAA:
-      _overriding: 1
+      overriding: 1
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     allowDynamicResolution:
-      _overriding: 1
+      overriding: 1
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     showAdvanced:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     forceIntoRenderTexture:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     depthTextureMode:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     opaqueSortMode:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
     transparencySortMode:
-      _overriding: 0
+      overriding: 0
+      value: 0
       _objectId:
         _increment: 0
         _machine: 0
         _timestamp: 0
         _pid: 0
       _initial: 0
-      _value: 0
   updates:
     _name: 
     _niceName: 

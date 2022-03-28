@@ -1,16 +1,19 @@
 using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Core.Objects.Initialization;
+using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Controls.Subwidget;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Contracts;
-using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Subwidgets.Sets;
 using Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusBar.Widgets;
 using Appalachia.UI.ControlModel.Components;
+using Appalachia.UI.ControlModel.Components.Extensions;
 using Appalachia.UI.Core.Extensions;
 using Appalachia.UI.Functionality.Buttons.Controls.Default.Contracts;
 using Appalachia.UI.Functionality.Images.Groups.Default;
+using Appalachia.UI.Functionality.Tooltips.Styling;
 using Appalachia.UI.Styling.Fonts;
 using Appalachia.Utility.Async;
 using Sirenix.OdinInspector;
+using TMPro;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -46,29 +49,41 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         #endregion
 
+        public abstract StatusBarSection DefaultSection { get; }
+
         public virtual bool RequiresIcon => true;
 
-        public void UpdateSubwidgetFont(FontStyleOverride fontStyleOverride)
+        protected override void BeforeApplying(TSubwidget subwidget)
         {
-            using (_PRF_UpdateSubwidgetFont.Auto())
+            using (_PRF_BeforeApplying.Auto())
             {
+                base.BeforeApplying(subwidget);
 
-                var optionalGroupConfig = button.ButtonText;
-                var groupConfig = optionalGroupConfig.Value;
-                var componentData = groupConfig.TextMeshProUGUI;
+                button.buttonText.IsElected = true;
+                button.buttonText.Value.RectTransform.BeginModifications().AnchorRight().PivotMiddleRight().ApplyModifications();
 
-                componentData.fontStyle = fontStyleOverride;
-            }
-        }
+                button.buttonText.value.textMeshProUGUI.fontStyle = fontStyle;
 
-        public void UpdateSubwidgetIconSize(RectTransformConfig rectTransformData)
-        {
-            using (_PRF_UpdateSubwidgetIconSize.Auto())
-            {
-                var optionalGroupConfig = button.ButtonIcon;
-                var groupConfig = optionalGroupConfig.Value;
+                var fontStyleOverride = StyleLookup.GetFont(button.buttonText.value.textMeshProUGUI.fontStyle);
+                fontStyleOverride.HorizontalAlignment = HorizontalAlignmentOptions.Right;
 
-                groupConfig.UpdateRectTransformConfig(rectTransformData);
+                button.buttonIcon.IsElected = true;
+                button.buttonIcon.Value.RectTransform.BeginModifications().AnchorLeft().PivotMiddleLeft().ApplyModifications();
+
+                if ((button.ButtonText != null) && button.ButtonText.Value is { TextMeshProUGUI: { } })
+                {
+                    button.ButtonText.Value.TextMeshProUGUI.fontStyle = WidgetMetadata.fontStyle;
+                }
+
+                var buttonTextMetadata = button.ButtonText;
+
+                buttonTextMetadata.BindValueEnabledState();
+                buttonTextMetadata.IsElected = true;
+
+                var buttonIconMetadata = button.ButtonIcon;
+                var tempIcon = icon;
+
+                UpdateStatusBarIcon(buttonIconMetadata, tempIcon);
             }
         }
 
@@ -79,58 +94,36 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
             using (_PRF_Initialize.Auto())
             {
-                initializer.Do(this, nameof(_enabled), () => _enabled = true);
-                initializer.Do(this, nameof(_section), () => _section = StatusBarSection.Left);
+                initializer.Do(this, nameof(_enabled),       () => _enabled = true);
+                initializer.Do(this, nameof(DefaultSection), () => _section = DefaultSection);
+
+                StatusBarSubwidgetControlConfig.Refresh(ref button, this);
             }
         }
 
-        protected override void SubscribeResponsiveComponents(TSubwidget functionality)
+        protected override void OnApply(TSubwidget subwidget)
         {
-            using (_PRF_SubscribeResponsiveComponents.Auto())
+            using (_PRF_OnApply.Auto())
             {
-                base.SubscribeResponsiveComponents(functionality);
-
-                button.Changed.Event += OnChanged;
-            }
-        }
-
-        protected override void UpdateFunctionalityInternal(TSubwidget subwidget)
-        {
-            using (_PRF_UpdateFunctionalityInternal.Auto())
-            {
-                base.UpdateFunctionalityInternal(subwidget);
+                base.OnApply(subwidget);
 
                 if (!subwidget.enabled || !Enabled)
                 {
-                    subwidget.button?.Disable();
+                    subwidget.button.Disable();
 
                     return;
                 }
 
-                if ((button != null) &&
-                    (button.ButtonText != null) &&
-                    button.ButtonText.Value is { TextMeshProUGUI: { } })
-                {
-                    button.ButtonText.Value.TextMeshProUGUI.fontStyle = WidgetMetadata.fontStyle;
-                }
-
-                StatusBarSubwidgetControlConfig.RefreshAndApply(ref button, ref subwidget.button, subwidget.gameObject, name, this);
-
                 subwidget.RectTransform.ResetRotationAndScale();
 
-                var buttonTextMetadata = button.ButtonText;
-                var buttonIconMetadata = button.ButtonIcon;
-                var tempIcon = icon;
-
-                buttonTextMetadata.BindValueEnabledState();
-                buttonTextMetadata.IsElected = true;
-
-                UpdateStatusBarIcon(buttonIconMetadata, tempIcon);
-
+                button.Apply(subwidget.button);
+                
                 var sizeDelta = subwidget.RectTransform.sizeDelta;
 
-                sizeDelta.x = subwidget.button.ButtonIcon.RectTransform.sizeDelta.x +
-                              subwidget.button.buttonText.TextMeshProUGUI.preferredWidth;
+                var iconSize = subwidget.button.ButtonIcon.RectTransform.sizeDelta.x;
+                var padding = 8f;
+
+                sizeDelta.x = iconSize + padding + subwidget.button.buttonText.TextMeshProUGUI.preferredWidth;
 
                 subwidget.RectTransform.sizeDelta = sizeDelta;
 
@@ -144,11 +137,36 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
                 spriteComponent.color = statusBarColor;
 
                 subwidget.LayoutStatusBarText();
+            }
+        }
 
-                if (subwidget.devTooltipSubwidget != null)
-                {
-                    subwidget.OnDevTooltipUpdateRequested();
-                }
+        protected override void SubscribeResponsiveComponents(TSubwidget functionality)
+        {
+            using (_PRF_SubscribeResponsiveComponents.Auto())
+            {
+                base.SubscribeResponsiveComponents(functionality);
+
+                button.SubscribeToChanges(OnChanged);
+            }
+        }
+
+        protected override void UnsuspendResponsiveComponents(TSubwidget functionality)
+        {
+            using (_PRF_UnsuspendResponsiveComponents.Auto())
+            {
+                base.UnsuspendResponsiveComponents(functionality);
+
+                button.UnsuspendChanges();
+            }
+        }
+
+        protected override void SuspendResponsiveComponents(TSubwidget functionality)
+        {
+            using (_PRF_SuspendResponsiveComponents.Auto())
+            {
+                base.SuspendResponsiveComponents(functionality);
+
+                button.SuspendChanges();
             }
         }
 
@@ -164,7 +182,7 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
                     if (tempIcon == null)
                     {
-                        tempIcon = WidgetMetadata.defaultStatusBarIcon;
+                        tempIcon = WidgetMetadata.statusBar.defaultStatusBarIcon;
                     }
 
                     buttonIconMetadata.Value.Image.sprite.OverrideValue(tempIcon);
@@ -179,6 +197,33 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
 
         #region IStatusBarSubwidgetMetadata Members
 
+        public void UpdateFontStyle(FontStyleTypes style)
+        {
+            using (_PRF_UpdateSubwidgetFont.Auto())
+            {
+                button.buttonText.value.textMeshProUGUI.fontStyle = style;
+            }
+        }
+
+        public void UpdateTooltipStyle(TooltipStyleTypes style)
+        {
+            using (_PRF_UpdateTooltipStyle.Auto())
+            {
+                button.tooltip.tooltipStyle = style;
+            }
+        }
+
+        public void UpdateSubwidgetIconSize(RectTransformConfig rectTransformData)
+        {
+            using (_PRF_UpdateSubwidgetIconSize.Auto())
+            {
+                var optionalGroupConfig = button.ButtonIcon;
+                var groupConfig = optionalGroupConfig.Value;
+
+                groupConfig.UpdateRectTransformConfig(rectTransformData);
+            }
+        }
+
         public bool Enabled => _enabled;
 
         public IAppaButtonControlConfig Button => button;
@@ -192,10 +237,13 @@ namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.StatusB
             new ProfilerMarker(_PRF_PFX + nameof(UpdateStatusBarIcon));
 
         private static readonly ProfilerMarker _PRF_UpdateSubwidgetFont =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateSubwidgetFont));
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateFontStyle));
 
         private static readonly ProfilerMarker _PRF_UpdateSubwidgetIconSize =
             new ProfilerMarker(_PRF_PFX + nameof(UpdateSubwidgetIconSize));
+
+        private static readonly ProfilerMarker _PRF_UpdateTooltipStyle =
+            new ProfilerMarker(_PRF_PFX + nameof(UpdateTooltipStyle));
 
         #endregion
     }

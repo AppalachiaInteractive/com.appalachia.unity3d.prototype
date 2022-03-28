@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2ce54640bf43c6adeea9f26af0ff66, type: 3}
   m_Name: MainMenu_Point
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 5
     _tags:
@@ -22,13 +20,17 @@ MonoBehaviour:
     - _font
     - _spriteStyle
     - _textStyle
+    _unityObject: {fileID: 11400000}
     _resetToken: 
-  _objectId:
+  _niceName: 
+  _objectID:
     _increment: 3571556
     _machine: 14129404
     _timestamp: 1644957426
     _pid: -14768
+  type: 0
   _spriteColor:
+    value: {r: 1, g: 1, b: 1, a: 1}
     _overriding: 0
     _objectId:
       _increment: 0
@@ -36,8 +38,8 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: {r: 0, g: 0, b: 0, a: 0}
-    _value: {r: 1, g: 1, b: 1, a: 1}
   _textColor:
+    value: {r: 1, g: 1, b: 1, a: 1}
     _overriding: 0
     _objectId:
       _increment: 0
@@ -45,17 +47,17 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: {r: 0, g: 0, b: 0, a: 0}
-    _value: {r: 1, g: 1, b: 1, a: 1}
   _font:
+    value: 100
     _overriding: 0
     _objectId:
       _increment: 10401826
       _machine: 14129406
       _timestamp: 1645927649
       _pid: -8016
-    _initial: {fileID: 0}
-    _value: {fileID: 11400000, guid: afee15da68d82f64bb278296bd0d9861, type: 2}
+    _initial: 0
   _spriteStyle:
+    value: 0
     _overriding: 0
     _objectId:
       _increment: 0
@@ -63,8 +65,8 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: 0
-    _value: 0
   _textStyle:
+    value: 0
     _overriding: 0
     _objectId:
       _increment: 0
@@ -72,4 +74,3 @@ MonoBehaviour:
       _timestamp: 0
       _pid: 0
     _initial: 0
-    _value: 0

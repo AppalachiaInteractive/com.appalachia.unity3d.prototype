@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a823896ed608d14a988f9be23ef7899, type: 3}
   m_Name: ComplexCursor_Default
   m_EditorClassIdentifier: 
-  _cachedName: 
-  _niceName: 
   _initializer:
     _initializationCount: 0
     _tags:
@@ -30,8 +28,10 @@ MonoBehaviour:
     - pressedColor
     - disabledColor
     - sprites
+    _unityObject: {fileID: 11400000}
     _resetToken: 
-  _objectId:
+  _niceName: Complex Cursor Default
+  _objectID:
     _increment: 0
     _machine: 0
     _timestamp: 0
@@ -41,41 +41,41 @@ MonoBehaviour:
   drivenByAnimator: 0
   cursorColorChangeDuration: 0.1
   cursorColor:
-    _overriding: 0
+    overriding: 0
+    value: {r: 0, g: 0, b: 0, a: 0}
     _objectId:
       _increment: 0
       _machine: 0
       _timestamp: 0
       _pid: 0
     _initial: {r: 0, g: 0, b: 0, a: 0}
-    _value: {r: 0, g: 0, b: 0, a: 0}
   hoveringColor:
-    _overriding: 0
+    overriding: 0
+    value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
     _objectId:
       _increment: 0
       _machine: 0
       _timestamp: 0
       _pid: 0
     _initial: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-    _value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   pressedColor:
-    _overriding: 0
+    overriding: 0
+    value: {r: 0.7, g: 0.7, b: 0.7, a: 1}
     _objectId:
       _increment: 0
       _machine: 0
       _timestamp: 0
       _pid: 0
     _initial: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-    _value: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   disabledColor:
-    _overriding: 0
+    overriding: 0
+    value: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
     _objectId:
       _increment: 0
       _machine: 0
       _timestamp: 0
       _pid: 0
     _initial: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
-    _value: {r: 0.5, g: 0.5, b: 0.5, a: 0.75}
   maximumVelocityMagnitude: 5000
   smoothTime: 0.13
   maxVelocity: 5000
