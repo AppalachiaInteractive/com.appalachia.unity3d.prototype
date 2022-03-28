@@ -1,7 +1,7 @@
-using Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons;
+using Appalachia.UI.Styling;
 using Unity.Profiling;
 
-namespace Appalachia.UI.Styling.OnScreenButtons
+namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 {
     public static class StyleElementDefaultLookupExtensions
     {

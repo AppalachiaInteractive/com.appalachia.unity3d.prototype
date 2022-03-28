@@ -190,7 +190,7 @@ namespace Appalachia.Prototype.KOC.Scenes
                     entrySceneReference.MarkAsModified();
                 }
 
-                entrySceneReference.elements.Changed.Event += entrySceneReference.OnChanged;
+                entrySceneReference.elements.Changed.Event += OnChanged;
 
                 var searchString = ZString.Format(SEARCH_FORMAT_STRING, areaName);
                 var sceneAssets = AssetDatabaseManager.FindAssets<UnityEditor.SceneAsset>(searchString)
@@ -337,7 +337,7 @@ namespace Appalachia.Prototype.KOC.Scenes
                             _area.ToString().FormatNameForLogging(),
                             args.state.State,
                             args.state.Substate
-                        ),
+                        ), null,
                         ex
                     );
 

@@ -1,8 +1,9 @@
+using System;
 using Appalachia.CI.Constants;
-using Appalachia.Core.ControlModel.Controls;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.UI.Functionality.Canvas.Controls.Root;
+using Appalachia.UI.Functionality.Tooltips.Styling;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Execution;
 using Sirenix.OdinInspector;
@@ -11,6 +12,7 @@ using UnityEngine;
 
 namespace Appalachia.Prototype.KOC.Areas
 {
+    [Serializable]
     public abstract partial class AreaMetadata<TManager, TMetadata> : SingletonAppalachiaObject<TMetadata>,
                                                                       IAreaMetadata
         where TManager : AreaManager<TManager, TMetadata>
@@ -20,45 +22,39 @@ namespace Appalachia.Prototype.KOC.Areas
 
         [SerializeField]
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Input, Expanded = false)]
+        [OnValueChanged(nameof(OnChanged))]
         public AreaMetadataConfigurations.AreaInputConfiguration input;
 
         [FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
         [SerializeField]
+        [OnValueChanged(nameof(OnChanged))]
         public RootCanvasControlConfig rootCanvas;
 
         [SerializeField]
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Scene_Behaviour, Expanded = false)]
+        [OnValueChanged(nameof(OnChanged))]
         public AreaMetadataConfigurations.AreaSceneBehaviourConfiguration sceneBehaviour;
 
         [SerializeField]
         [FoldoutGroup(COMMON_FOLDOUT_GROUP_INNER + APPASTR.Audio, Expanded = false)]
+        [OnValueChanged(nameof(OnChanged))]
         public AreaMetadataConfigurations.AreaAudioConfiguration audio;
+
+        [SerializeField]
+        [FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
+        [OnValueChanged(nameof(OnChanged))]
+        public TooltipStyleTypes tooltipStyle;
+        
+        [SerializeField]
+        [FoldoutGroup(COMMON_FOLDOUT_GROUP, Expanded = false)]
+        [OnValueChanged(nameof(OnChanged))]
+        public TooltipStyleTypes fontStyle;
 
         #endregion
 
         [FoldoutGroup(COMMON_FOLDOUT_GROUP), PropertyOrder(-100)]
         [ShowInInspector, ReadOnly]
         public abstract AreaVersion Version { get; }
-
-        public void UpdateControl<TControl, TConfig>(
-            ref TConfig config,
-            ref TControl target,
-            GameObject parent,
-            string setName)
-            where TControl : AppaControl<TControl, TConfig>, new()
-            where TConfig: AppaControlConfig<TControl, TConfig>, new()
-        {
-            using (_PRF_UpdateControl.Auto())
-            {
-                AppaControlConfig<TControl, TConfig>.RefreshAndApply(
-                    ref config,
-                    ref target,
-                    parent,
-                    setName,
-                    this
-                );
-            }
-        }
 
         /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
@@ -72,8 +68,6 @@ namespace Appalachia.Prototype.KOC.Areas
                 {
                     return;
                 }
-
-                initializer.Reset(this, "2021-11-20a");
             }
 
             initializer.Do(
@@ -115,9 +109,30 @@ namespace Appalachia.Prototype.KOC.Areas
                 }
             );
 
+            RootCanvasControlConfig.Refresh(ref rootCanvas, this);
+
 #if UNITY_EDITOR
             InitializeEditor(initializer);
 #endif
+        }
+
+        /// <summary>
+        ///     Returns an asset name which which concatenates the current area
+        ///     with the <see cref="Type" />.<see cref="Type.Name" /> of the provided <see cref="T" />.
+        /// </summary>
+        /// <typeparam name="T">The type whose name should be the second half of the output name.</typeparam>
+        /// <returns>The formatted name.</returns>
+        /// <example>
+        ///     If the area is "MyArea", and
+        ///     <see cref="T" /> is "MySpecialComponent", the resulting output will be:
+        ///     "MyAreaMySpecialComponent"
+        /// </example>
+        protected string GetAssetName<T>()
+        {
+            using (_PRF_GetAssetName.Auto())
+            {
+                return Area + typeof(T).Name;
+            }
         }
 
         private IAreaManager GetManager()
@@ -143,10 +158,9 @@ namespace Appalachia.Prototype.KOC.Areas
 
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_GetManager = new ProfilerMarker(_PRF_PFX + nameof(GetManager));
+        private static readonly ProfilerMarker _PRF_GetAssetName = new ProfilerMarker(_PRF_PFX + nameof(GetAssetName));
 
-        private static readonly ProfilerMarker _PRF_UpdateControl =
-            new ProfilerMarker(_PRF_PFX + nameof(UpdateControl));
+        private static readonly ProfilerMarker _PRF_GetManager = new ProfilerMarker(_PRF_PFX + nameof(GetManager));
 
         #endregion
     }

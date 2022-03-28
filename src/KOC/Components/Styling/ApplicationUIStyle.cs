@@ -11,10 +11,10 @@ namespace Appalachia.Prototype.KOC.Components.Styling
     {
         #region Fields and Autoproperties
 
-        [InlineEditor(InlineEditorObjectFieldModes.Boxed), FoldoutGroup("General")]
+        [FoldoutGroup("General")]
         public FontStyle defaultFont;
 
-        [InlineEditor(InlineEditorObjectFieldModes.Foldout), FoldoutGroup(nameof(onScreenButtonStyle))]
+        [FoldoutGroup(nameof(onScreenButtonStyle))]
         public OnScreenButtonStyle onScreenButtonStyle;
 
         #endregion

@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Instanced;
 using Appalachia.Prototype.KOC.Areas.Functionality.Features;
@@ -34,5 +35,12 @@ namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Instanced
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
+        public void ForEachSubwidget(Action<IAreaSubwidget> forEachAction)
+        {
+            foreach (var subwidget in _subwidgets)
+            {
+                forEachAction(subwidget);
+            }
+        }
     }
 }

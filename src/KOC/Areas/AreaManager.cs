@@ -3,6 +3,7 @@ using Appalachia.CI.Constants;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Prototype.KOC.Behaviours;
 using Appalachia.Prototype.KOC.Scenes;
+using Appalachia.UI.Functionality.Canvas.Controls.Root;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Constants;
 using Appalachia.Utility.Extensions;
@@ -194,12 +195,15 @@ namespace Appalachia.Prototype.KOC.Areas
                     () => { _areaSceneInfo ??= _mainAreaSceneInformationCollection.Lookup.Items.Get(Area); }
                 );
 
-                areaMetadata.UpdateControl(
-                    ref areaMetadata.rootCanvas,
+                RootCanvasControl.Refresh(
                     ref rootCanvas,
                     gameObject,
-                    areaObjectName
+                    nameof(rootCanvas)
                 );
+
+                rootCanvas.transform.SetSiblingIndex(0);
+
+                areaMetadata.rootCanvas.Apply(rootCanvas);
 
                 var applicationManagerObject = _applicationManager.gameObject;
                 var applicationManagerInvalid = (applicationManagerObject == null) ||
@@ -224,7 +228,7 @@ namespace Appalachia.Prototype.KOC.Areas
                     Activate();
 
 #if UNITY_EDITOR
-                    InitializeEditor(initializer, areaObjectName);
+                    InitializeEditor(initializer);
 #endif
                 }
 

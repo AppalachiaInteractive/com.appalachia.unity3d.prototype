@@ -8,12 +8,11 @@ using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 
-
 namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 {
     [Serializable]
     public class OnScreenButtonStyle : StyleElementDefault<OnScreenButtonStyle,
-                                           OnScreenButtonStyleOverride, IOnScreenButtonStyle>,
+                                           OnScreenButtonStyleOverride, IOnScreenButtonStyle, OnScreenButtonStyleTypes>,
                                        IOnScreenButtonStyle
     {
         #region Fields and Autoproperties
@@ -25,7 +24,7 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         private Color _textColor;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
-        private FontStyleOverride _font;
+        private FontStyleTypes _font;
 
         [SerializeField, OnValueChanged(nameof(OnChanged))]
         private OnScreenButtonSpriteStyle _spriteStyle;
@@ -41,18 +40,20 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
             await base.Initialize(initializer);
 
 #if UNITY_EDITOR
+
             initializer.Do(
                 this,
                 nameof(_font),
-                _font == null,
+                _font == default,
                 () =>
                 {
                     using (_PRF_Initialize.Auto())
                     {
-                        _font = LoadOrCreateNew<FontStyleOverride>("On Screen Buttons");
+                        _font = FontStyleTypes.OnScreenButton;
                     }
                 }
             );
+
             initializer.Do(
                 this,
                 nameof(OnScreenButtonSpriteStyle),
@@ -101,15 +102,13 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
             );
 
 #endif
-
-            _font.SyncWithDefault();
         }
 
         #region IOnScreenButtonStyle Members
 
         public Color SpriteColor => _spriteColor;
         public Color TextColor => _textColor;
-        public FontStyleOverride Font => _font;
+        public FontStyleTypes Font => _font;
         public OnScreenButtonSpriteStyle SpriteStyle => _spriteStyle;
         public OnScreenButtonTextStyle TextStyle => _textStyle;
 

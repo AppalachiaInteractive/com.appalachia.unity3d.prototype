@@ -1,3 +1,4 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Subwidgets.Singleton;
 using Appalachia.Prototype.KOC.Areas.Functionality.Features;
@@ -11,7 +12,8 @@ namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton
     public abstract class AreaWidgetWithSingletonSubwidgets<TISubwidget, TISubwidgetMetadata, TWidget, TWidgetMetadata,
                                                             TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata> :
         ApplicationWidgetWithSingletonSubwidgets<TISubwidget, TISubwidgetMetadata, TWidget, TWidgetMetadata, TFeature,
-            TFeatureMetadata, AreaFeatureFunctionalitySet, IAreaService, IAreaWidget, TAreaManager>, IAreaWidget
+            TFeatureMetadata, AreaFeatureFunctionalitySet, IAreaService, IAreaWidget, TAreaManager>,
+        IAreaWidget
         where TISubwidget : class, IAreaSingletonSubwidget<TISubwidget, TISubwidgetMetadata>
         where TISubwidgetMetadata : class, IAreaSingletonSubwidgetMetadata<TISubwidget, TISubwidgetMetadata>
         where TWidget : AreaWidgetWithSingletonSubwidgets<TISubwidget, TISubwidgetMetadata, TWidget, TWidgetMetadata,
@@ -23,5 +25,16 @@ namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
+        #region IAreaWidget Members
+
+        public void ForEachSubwidget(Action<IAreaSubwidget> forEachAction)
+        {
+            foreach (var subwidget in _subwidgets)
+            {
+                forEachAction(subwidget);
+            }
+        }
+
+        #endregion
     }
 }

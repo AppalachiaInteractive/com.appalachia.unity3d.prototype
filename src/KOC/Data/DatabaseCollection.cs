@@ -22,15 +22,15 @@ namespace Appalachia.Prototype.KOC.Data
 
         #region Fields and Autoproperties
 
-        [HideLabel, InlineProperty, BoxGroup(APPASTR.Current_Game)]
+        [HideLabel, InlineProperty, FoldoutGroup(APPASTR.Current_Game)]
         public GameStateDatabase currentGame;
 
-        [HideLabel, InlineProperty, BoxGroup(APPASTR.Metadata)]
+        [HideLabel, InlineProperty, FoldoutGroup(APPASTR.Metadata)]
         public MetadataDatabase metadata;
 
         [ReadOnly] public string dataSetName;
 
-        [HideLabel, InlineProperty, BoxGroup(APPASTR.User)]
+        [HideLabel, InlineProperty, FoldoutGroup(APPASTR.User)]
         public UserDatabase user;
 
         #endregion

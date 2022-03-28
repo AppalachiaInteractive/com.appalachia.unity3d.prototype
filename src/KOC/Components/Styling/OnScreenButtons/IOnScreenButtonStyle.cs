@@ -1,5 +1,6 @@
 using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls;
+using Appalachia.UI.Styling;
 using Appalachia.UI.Styling.Elements;
 using Appalachia.UI.Styling.Fonts;
 using TMPro;
@@ -8,14 +9,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
 namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
 {
     public interface IOnScreenButtonStyle : IStyleElement
     {
         public Color SpriteColor { get; }
         public Color TextColor { get; }
-        public FontStyleOverride Font { get; }
+        public FontStyleTypes Font { get; }
         public OnScreenButtonSpriteStyle SpriteStyle { get; }
         public OnScreenButtonTextStyle TextStyle { get; }
 
@@ -29,11 +29,16 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
             }
         }
 
-        public void Apply(InputAction action, ControlButtonMetadata metadata, TextMeshProUGUI component)
+        public void Apply(
+            InputAction action,
+            ControlButtonMetadata metadata,
+            TextMeshProUGUI component,
+            StyleElementDefaultLookup styleLookup)
         {
             using (_PRF_Apply.Auto())
             {
-                Font.ToApplicable.Apply(component);
+                var fontStyle = styleLookup.GetFont(Font);
+                fontStyle.ToApplicable.Apply(component);
 
                 component.text = metadata.GetDisplayText(action, TextStyle);
 

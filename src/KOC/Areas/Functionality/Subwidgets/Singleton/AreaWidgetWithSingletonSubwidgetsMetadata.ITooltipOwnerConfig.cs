@@ -5,9 +5,12 @@ using Sirenix.OdinInspector;
 using Unity.Profiling;
 using UnityEngine;
 
-namespace Appalachia.Prototype.KOC.Areas.DeveloperInterface.V01.Features.SideBar.Widgets
+namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton
 {
-    public sealed partial class SideBarWidgetMetadata : ITooltipOwnerConfig
+    public abstract partial class AreaWidgetWithSingletonSubwidgetsMetadata<TISubwidget, TISubwidgetMetadata, TWidget,
+                                                                            TWidgetMetadata, TFeature, TFeatureMetadata,
+                                                                            TAreaManager,
+                                                                            TAreaMetadata> : ITooltipOwnerConfig
     {
         #region Fields and Autoproperties
 

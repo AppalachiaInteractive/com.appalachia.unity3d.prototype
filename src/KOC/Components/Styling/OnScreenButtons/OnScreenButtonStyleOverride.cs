@@ -21,8 +21,8 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         menuName = PKG.Prefix + nameof(OnScreenButtonStyleOverride),
         order = PKG.Menu.Assets.Priority
     )]
-    public class OnScreenButtonStyleOverride : StyleElementOverride<OnScreenButtonStyle,
-                                                   OnScreenButtonStyleOverride, IOnScreenButtonStyle>,
+    public sealed partial class OnScreenButtonStyleOverride : StyleElementOverride<OnScreenButtonStyle,
+                                                   OnScreenButtonStyleOverride, IOnScreenButtonStyle, OnScreenButtonStyleTypes>,
                                                IOnScreenButtonStyle
     {
         #region Fields and Autoproperties
@@ -34,7 +34,7 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         private OverridableColor _textColor;
 
         [SerializeField, OnValueChanged(nameof(OnChanged)), SmartLabelChildren, SmartLabel]
-        private OverridableFontStyleOverride _font;
+        private OverridableFontStyleTypes _font;
 
         [SerializeField, OnValueChanged(nameof(OnChanged)), SmartLabelChildren, SmartLabel]
         private OverridableOnScreenButtonSpriteStyle _spriteStyle;
@@ -98,11 +98,11 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
         {
             using (_PRF_RegisterOverrideSubscriptions.Auto())
             {
-                _spriteColor.Changed.Event += OnChanged;
-                _textColor.Changed.Event += OnChanged;
-                _font.Changed.Event += OnChanged;
-                _spriteStyle.Changed.Event += OnChanged;
-                _textStyle.Changed.Event += OnChanged;
+                _spriteColor.SubscribeToChanges(OnChanged);
+                _textColor.SubscribeToChanges(OnChanged);
+                _font.SubscribeToChanges(OnChanged);
+                _spriteStyle.SubscribeToChanges(OnChanged);
+                _textStyle.SubscribeToChanges(OnChanged);
             }
         }
 
@@ -120,7 +120,7 @@ namespace Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons
             set => _textColor.OverrideValue(value);
         }
 
-        public FontStyleOverride Font
+        public FontStyleTypes Font
         {
             get => _font.Get(Defaults.Font);
             set => _font.OverrideValue(value);

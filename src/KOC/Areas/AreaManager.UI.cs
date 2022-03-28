@@ -76,21 +76,6 @@ namespace Appalachia.Prototype.KOC.Areas
             await AppaTask.CompletedTask;
         }
 
-        protected async AppaTask InitializeUI(Initializer initializer)
-        {
-            using (_PRF_Initialize.Auto())
-            {
-                areaMetadata.UpdateControl(
-                    ref areaMetadata.rootCanvas,
-                    ref rootCanvas,
-                    gameObject,
-                    areaObjectName
-                );
-            }
-
-            await AppaTask.CompletedTask;
-        }
-
         #region Profiling
 
         protected static readonly ProfilerMarker _PRF_HideAreaInterface =

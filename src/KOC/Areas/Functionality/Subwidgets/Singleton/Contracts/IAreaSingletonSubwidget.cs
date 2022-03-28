@@ -4,7 +4,7 @@ namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton.Cont
 {
     public interface
         IAreaSingletonSubwidget<TISubwidget, out TISubwidgetMetadata> : IApplicationSingletonSubwidget<TISubwidget,
-            TISubwidgetMetadata>
+            TISubwidgetMetadata>, IAreaSubwidget
         where TISubwidget : class, IAreaSingletonSubwidget<TISubwidget, TISubwidgetMetadata>
         where TISubwidgetMetadata : class, IAreaSingletonSubwidgetMetadata<TISubwidget, TISubwidgetMetadata>
     {

@@ -121,6 +121,8 @@ namespace Appalachia.Prototype.KOC.Areas
                     false
                 );
 
+                _featuresObject.transform.SetSiblingIndex(_featuresObject.transform.parent.childCount - 1);
+
                 _featuresObject.GetOrAddComponent(ref _featureManager);
 
                 _featureManager.Functionality = _featureSet;

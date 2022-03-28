@@ -4,6 +4,7 @@ using Appalachia.CI.Constants;
 using Appalachia.CI.Integration.Attributes;
 using Appalachia.CI.Integration.Core;
 using Appalachia.Core.Attributes;
+using Appalachia.Core.ControlModel.Extensions;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.UI.Functionality.Design.Controls.Template;
 using Appalachia.Utility.Extensions;
@@ -73,18 +74,17 @@ namespace Appalachia.Prototype.KOC.Areas
             }
         }
 
-        private void InitializeEditor(Initializer initializer, string fullObjectName)
+        private void InitializeEditor(Initializer initializer)
         {
             using (_PRF_InitializeEditor.Auto())
             {
-                TemplateControlConfig.RefreshAndApply(
-                    ref areaMetadata.templates,
-                    false,
+                TemplateControl.Refresh(
                     ref templates,
                     RootCanvas.ScaledCanvas.gameObject,
-                    fullObjectName,
-                    this
+                    nameof(templates)
                 );
+
+                areaMetadata.templates.Apply(templates);
             }
         }
 

@@ -12,22 +12,22 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
     {
         #region Fields and Autoproperties
 
-        [InlineProperty, HideLabel, BoxGroup(APPASTR.Game_State)]
+        [InlineProperty, HideLabel, FoldoutGroup(APPASTR.Game_State)]
         public DatabaseConfigurationSettings gameState;
 
-        [InlineProperty, HideLabel, BoxGroup(APPASTR.Metadata)]
+        [InlineProperty, HideLabel, FoldoutGroup(APPASTR.Metadata)]
         public DatabaseConfigurationSettings metadata;
 
-        [InlineProperty, HideLabel, BoxGroup(APPASTR.User)]
+        [InlineProperty, HideLabel, FoldoutGroup(APPASTR.User)]
         public DatabaseConfigurationSettings user;
 
-        [InlineProperty, HideLabel, BoxGroup(APPASTR.Game_State)]
+        [InlineProperty, HideLabel, FoldoutGroup(APPASTR.Game_State)]
         public DatabaseLocationConfiguration gameStateSaveLocation;
 
-        [InlineProperty, HideLabel, BoxGroup(APPASTR.Metadata)]
+        [InlineProperty, HideLabel, FoldoutGroup(APPASTR.Metadata)]
         public DatabaseLocationConfiguration metadataSaveLocation;
 
-        [InlineProperty, HideLabel, BoxGroup(APPASTR.User)]
+        [InlineProperty, HideLabel, FoldoutGroup(APPASTR.User)]
         public DatabaseLocationConfiguration userSaveLocation;
 
         #endregion

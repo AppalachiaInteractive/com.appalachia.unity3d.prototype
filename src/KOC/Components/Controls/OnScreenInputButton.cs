@@ -6,6 +6,7 @@ using Appalachia.Prototype.KOC.Components.OnScreenButtons;
 using Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons;
 using Appalachia.Prototype.KOC.Extensions;
 using Appalachia.UI.Core.Extensions;
+using Appalachia.UI.Styling.Fonts;
 using Appalachia.Utility.Async;
 using Appalachia.Utility.Extensions;
 using Appalachia.Utility.Strings;
@@ -79,22 +80,6 @@ namespace Appalachia.Prototype.KOC.Components.Controls
                             );
                         }
                     }
-                    else if (metadata.style == null)
-                    {
-                        metadata.MarkAsModified();
-
-                        if (metadata.style == null)
-                        {
-                            StaticContext.Log.Error(
-                                ZString.Format(
-                                    "Missing [{0}] for [{1}] {2}.",
-                                    nameof(OnScreenButtonStyleOverride),
-                                    nameof(OnScreenButtonMetadata),
-                                    targetName
-                                )
-                            );
-                        }
-                    }
                 }
             }
 #endif
@@ -113,7 +98,8 @@ namespace Appalachia.Prototype.KOC.Components.Controls
                 var baseName = ZString.Format("{0} - {1}", nameof(OnScreenInputButton), targetName);
 
                 var uiStyle = LifetimeComponentManager.lifetimeMetadata.uiStyle;
-                var fontStyle = uiStyle.onScreenButtonStyle.Font;
+                var fontStyleType = uiStyle.onScreenButtonStyle.Font;
+                var fontStyle = StyleLookup.GetFont(fontStyleType);
 
                 gameObject.name = baseName;
 
@@ -134,8 +120,7 @@ namespace Appalachia.Prototype.KOC.Components.Controls
 
         #region Profiling
 
-        private static readonly ProfilerMarker
-            _PRF_Populate = new ProfilerMarker(_PRF_PFX + nameof(Populate));
+        private static readonly ProfilerMarker _PRF_Populate = new ProfilerMarker(_PRF_PFX + nameof(Populate));
 
         #endregion
     }

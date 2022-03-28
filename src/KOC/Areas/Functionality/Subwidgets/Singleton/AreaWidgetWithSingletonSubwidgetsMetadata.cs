@@ -8,7 +8,7 @@ using Appalachia.Prototype.KOC.Areas.Functionality.Widgets;
 namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Singleton
 {
     [CallStaticConstructorInEditor]
-    public abstract class AreaWidgetWithSingletonSubwidgetsMetadata<TISubwidget, TISubwidgetMetadata, TWidget,
+    public abstract partial class AreaWidgetWithSingletonSubwidgetsMetadata<TISubwidget, TISubwidgetMetadata, TWidget,
                                                                     TWidgetMetadata, TFeature, TFeatureMetadata,
                                                                     TAreaManager, TAreaMetadata> :
         ApplicationWidgetWithSingletonSubwidgetsMetadata<TISubwidget, TISubwidgetMetadata, TWidget, TWidgetMetadata,

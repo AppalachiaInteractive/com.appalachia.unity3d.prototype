@@ -6,26 +6,6 @@ namespace Appalachia.Prototype.KOC.Extensions
 {
     public static class InputActionExtensions
     {
-#if UNITY_EDITOR
-        public static InputActionReference[] InputActionReferences =>
-            AssetDatabaseManager.FindAssets<InputActionReference>().ToArray();
-#endif
-
-#if UNITY_EDITOR
-        public static InputActionReference GetReference(this InputAction action)
-        {
-            foreach (var reference in InputActionReferences)
-            {
-                if (reference.action.id == action.id)
-                {
-                    return reference;
-                }
-            }
-
-            return null;
-        }
-#endif
-
         public static string ToFormattedName(this InputActionReference action)
         {
             return action.action.ToFormattedName();
@@ -51,5 +31,22 @@ namespace Appalachia.Prototype.KOC.Extensions
 
             return ZString.Format("{0}/{1}", mapName, actionName);
         }
+#if UNITY_EDITOR
+        public static InputActionReference[] InputActionReferences =>
+            AssetDatabaseManager.FindAssets<InputActionReference>().ToArray();
+
+        public static InputActionReference GetReference(this InputAction action)
+        {
+            foreach (var reference in InputActionReferences)
+            {
+                if (reference.action.id == action.id)
+                {
+                    return reference;
+                }
+            }
+
+            return null;
+        }
+#endif
     }
 }

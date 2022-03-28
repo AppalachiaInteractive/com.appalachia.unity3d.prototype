@@ -3,28 +3,28 @@ using Appalachia.Core.Attributes.Editing;
 using Appalachia.Core.Objects.Initialization;
 using Appalachia.Core.Objects.Root;
 using Appalachia.Prototype.KOC.Components.Styling.OnScreenButtons;
-using Appalachia.Prototype.KOC.Extensions;
 using Appalachia.UI.Styling;
 using Appalachia.Utility.Async;
 using TMPro;
 using Unity.Profiling;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 {
     [SmartLabelChildren, SmartLabel]
     [CallStaticConstructorInEditor]
-    public sealed class OnScreenButtonMetadata : AppalachiaObject<OnScreenButtonMetadata>
+    public sealed partial class OnScreenButtonMetadata : AppalachiaObject<OnScreenButtonMetadata>
     {
         static OnScreenButtonMetadata()
         {
-            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleLookup = i);
         }
 
         #region Static Fields and Autoproperties
 
-        private static StyleElementDefaultLookup _styleElementDefaultLookup;
+        private static StyleElementDefaultLookup _styleLookup;
 
         #endregion
 
@@ -32,7 +32,8 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 
         public InputActionReference actionReference;
 
-        public OnScreenButtonStyleOverride style;
+        [FormerlySerializedAs("style")]
+        public OnScreenButtonStyleTypes styleType;
 
         #endregion
 
@@ -46,6 +47,10 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
                 {
                     return;
                 }
+
+                var style = _styleLookup
+                   .GetOverride<OnScreenButtonStyle, OnScreenButtonStyleOverride, IOnScreenButtonStyle,
+                        OnScreenButtonStyleTypes>(styleType);
 
                 style.ToApplicable.Apply(match, image);
             }
@@ -62,7 +67,11 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
                     return;
                 }
 
-                style.ToApplicable.Apply(actionReference, match, text);
+                var style = _styleLookup
+                   .GetOverride<OnScreenButtonStyle, OnScreenButtonStyleOverride, IOnScreenButtonStyle,
+                        OnScreenButtonStyleTypes>(styleType);
+
+                style.ToApplicable.Apply(actionReference, match, text, _styleLookup);
             }
         }
 
@@ -75,58 +84,16 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons
 
             using (_PRF_Initialize.Auto())
             {
-                initializer.Do(
-                    this,
-                    nameof(OnScreenButtonStyleOverride),
-                    style == null,
-                    () =>
-                    {
-                        if ((actionReference == null) || (style != null))
-                        {
-                            return;
-                        }
-
-                        var targetName = actionReference.ToFormattedName();
-
-                        style = OnScreenButtonStyleOverride.LoadOrCreateNew(targetName);
-                    }
-                );
-                if (actionReference != null)
-                {
-                    var targetName = actionReference.ToFormattedName();
-
-                    if (style.name != targetName)
-                    {
-                        style.Rename(targetName);
-                        MarkAsModified();
-                    }
-                }
+                styleType = OnScreenButtonStyleTypes.Default;
             }
 #endif
         }
 
-        #region Menu Items
-
-#if UNITY_EDITOR
-        [UnityEditor.MenuItem(
-            PKG.Menu.Assets.Base + nameof(OnScreenButtonMetadata),
-            priority = PKG.Menu.Assets.Priority
-        )]
-        public static void CreateAsset()
-        {
-            CreateNew<OnScreenButtonMetadata>();
-        }
-#endif
-
-        #endregion
-
         #region Profiling
 
-        private static readonly ProfilerMarker _PRF_ApplyImage =
-            new ProfilerMarker(_PRF_PFX + nameof(ApplyImage));
+        private static readonly ProfilerMarker _PRF_ApplyImage = new ProfilerMarker(_PRF_PFX + nameof(ApplyImage));
 
-        private static readonly ProfilerMarker _PRF_ApplyText =
-            new ProfilerMarker(_PRF_PFX + nameof(ApplyText));
+        private static readonly ProfilerMarker _PRF_ApplyText = new ProfilerMarker(_PRF_PFX + nameof(ApplyText));
 
         #endregion
     }

@@ -5,21 +5,21 @@ using Appalachia.Prototype.KOC.Areas.Functionality.Templates.Tooltips.Widgets;
 namespace Appalachia.Prototype.KOC.Areas.Functionality.Templates.Tooltips
 {
     [CallStaticConstructorInEditor]
-    public abstract class TooltipsFeature<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
+    public abstract class AreaTooltipsFeature<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
                                           TAreaMetadata> : AreaFeature<TFeature, TFeatureMetadata, TAreaManager,
         TAreaMetadata>
         where TWidget : AreaTooltipsWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
             TAreaMetadata>
         where TWidgetMetadata : AreaTooltipsWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
             TAreaManager, TAreaMetadata>
-        where TFeature : TooltipsFeature<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
+        where TFeature : AreaTooltipsFeature<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
             TAreaMetadata>
-        where TFeatureMetadata : TooltipsFeatureMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+        where TFeatureMetadata : AreaTooltipsFeatureMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
             TAreaManager, TAreaMetadata>
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
-        static TooltipsFeature()
+        static AreaTooltipsFeature()
         {
             FunctionalitySet.RegisterWidget<TWidget>(_dependencyTracker, i => _tooltipsWidget = i);
         }

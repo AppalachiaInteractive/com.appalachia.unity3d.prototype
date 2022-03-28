@@ -1,7 +1,9 @@
+using System;
 using Appalachia.Core.Attributes;
 using Appalachia.Prototype.KOC.Application.Features.Widgets;
 using Appalachia.Prototype.KOC.Areas.Functionality.Features;
 using Appalachia.Prototype.KOC.Areas.Functionality.Services;
+using Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets;
 
 namespace Appalachia.Prototype.KOC.Areas.Functionality.Widgets
 {
@@ -20,5 +22,8 @@ namespace Appalachia.Prototype.KOC.Areas.Functionality.Widgets
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
+        public void ForEachSubwidget(Action<IAreaSubwidget> forEachAction)
+        {
+        }
     }
 }

@@ -4,7 +4,7 @@ namespace Appalachia.Prototype.KOC.Areas.Functionality.Subwidgets.Instanced.Cont
 {
     public interface
         IAreaInstancedSubwidget<TISubwidget, TISubwidgetMetadata> : IApplicationInstancedSubwidget<TISubwidget,
-            TISubwidgetMetadata>
+            TISubwidgetMetadata>, IAreaSubwidget
         where TISubwidget : class, IAreaInstancedSubwidget<TISubwidget, TISubwidgetMetadata>
         where TISubwidgetMetadata : class, IAreaInstancedSubwidgetMetadata<TISubwidget, TISubwidgetMetadata>
     {

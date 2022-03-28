@@ -269,11 +269,6 @@ namespace Appalachia.Prototype.KOC
                     return;
                 }
 
-                if (name != nameof(ApplicationManager))
-                {
-                    name = nameof(ApplicationManager);
-                }
-
                 if (_lifetimeComponentManager == null)
                 {
                     Context.Log.Error(
@@ -298,7 +293,7 @@ namespace Appalachia.Prototype.KOC
                     _areaStates = ApplicationAreaStateCollection.CreateNew(this);
                 }
 
-                _areaStates.Areas.Changed.Event += OnChanged;
+                _areaStates.Areas.Changed.Event +=(OnChanged);
                 _areaStates.Initialize(this);
 
                 if (AppalachiaApplication.IsPlaying)

@@ -6,25 +6,20 @@ using Appalachia.Utility.Async;
 namespace Appalachia.Prototype.KOC.Areas.Functionality.Templates.Tooltips.Widgets
 {
     [CallStaticConstructorInEditor]
-    public abstract class TooltipsWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
-                                                 TAreaMetadata> : AreaWidgetMetadata<TWidget, TWidgetMetadata, TFeature,
-        TFeatureMetadata, TAreaManager, TAreaMetadata>
-        where TWidget : TooltipsWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
+    public abstract class AreaTooltipsWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
+                                                     TAreaMetadata> : AreaWidgetMetadata<TWidget, TWidgetMetadata,
+        TFeature, TFeatureMetadata, TAreaManager, TAreaMetadata>
+        where TWidget : AreaTooltipsWidget<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
             TAreaMetadata>
-        where TWidgetMetadata : TooltipsWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+        where TWidgetMetadata : AreaTooltipsWidgetMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
             TAreaManager, TAreaMetadata>
-        where TFeature : TooltipsFeature<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
+        where TFeature : AreaTooltipsFeature<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata, TAreaManager,
             TAreaMetadata>
-        where TFeatureMetadata : TooltipsFeatureMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
+        where TFeatureMetadata : AreaTooltipsFeatureMetadata<TWidget, TWidgetMetadata, TFeature, TFeatureMetadata,
             TAreaManager, TAreaMetadata>
         where TAreaManager : AreaManager<TAreaManager, TAreaMetadata>
         where TAreaMetadata : AreaMetadata<TAreaManager, TAreaMetadata>
     {
-        static TooltipsWidgetMetadata()
-        {
-        }
-
-        
         /// <inheritdoc />
         protected override async AppaTask Initialize(Initializer initializer)
         {

@@ -37,16 +37,16 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
 
         public ActiveDatabaseConfiguration activeConfiguration;
 
-        [SmartLabel, BoxGroup(APPASTR.Developer), ReadOnly]
+        [SmartLabel, FoldoutGroup(APPASTR.Developer), ReadOnly]
         public UserSpecificDatabaseEnvironmentConfiguration developer;
 
-        [SmartLabel, BoxGroup(APPASTR.Developer), ReadOnly]
+        [SmartLabel, FoldoutGroup(APPASTR.Developer), ReadOnly]
         public UserSpecificDatabaseEnvironmentConfiguration developer2;
 
-        [SmartLabel, BoxGroup(APPASTR.Editor), ReadOnly]
+        [SmartLabel, FoldoutGroup(APPASTR.Editor), ReadOnly]
         public DatabaseEnvironmentConfiguration editor;
 
-        [SmartLabel, BoxGroup(APPASTR.Runtime), ReadOnly]
+        [SmartLabel, FoldoutGroup(APPASTR.Runtime), ReadOnly]
         public DatabaseEnvironmentConfiguration runtime;
 
         #endregion
@@ -241,8 +241,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
         private static readonly ProfilerMarker _PRF_GetFileExtension =
             new ProfilerMarker(_PRF_PFX + nameof(GetFileExtension));
 
-        private static readonly ProfilerMarker
-            _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
+        private static readonly ProfilerMarker _PRF_OnEnable = new ProfilerMarker(_PRF_PFX + nameof(OnEnable));
 
         #endregion
 
@@ -333,8 +332,7 @@ namespace Appalachia.Prototype.KOC.Data.Configuration
                     nameof(developer2),
                     ref developer2,
                     true,
-                    (DataLocation.ApplicationData, DatabaseTechnology.Json,
-                        APPASTR.EncryptionKeys.DB_DEVELOPER2_USER),
+                    (DataLocation.ApplicationData, DatabaseTechnology.Json, APPASTR.EncryptionKeys.DB_DEVELOPER2_USER),
                     (DataLocation.LocalApplicationData, DatabaseTechnology.Json,
                         APPASTR.EncryptionKeys.DB_DEVELOPER2_METADATA),
                     (DataLocation.CommonApplicationData, DatabaseTechnology.Json,

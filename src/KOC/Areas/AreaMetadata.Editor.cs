@@ -36,6 +36,7 @@ namespace Appalachia.Prototype.KOC.Areas
         {
             using (_PRF_InitializeEditor.Auto())
             {
+                TemplateControlConfig.Refresh(ref templates, false, this);
             }
         }
 

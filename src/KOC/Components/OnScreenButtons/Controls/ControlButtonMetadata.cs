@@ -111,7 +111,7 @@ namespace Appalachia.Prototype.KOC.Components.OnScreenButtons.Controls
                 }
                 catch (Exception ex)
                 {
-                    Context.Log.Error(ZString.Format("Error finding images for {0}", data), ex);
+                    Context.Log.Error(ZString.Format("Error finding images for {0}", data), null, ex);
                 }
             }
         }

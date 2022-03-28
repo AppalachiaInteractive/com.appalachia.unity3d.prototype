@@ -10,19 +10,19 @@ namespace Appalachia.Prototype.KOC.Behaviours
         static AppalachiaApplicationBehaviour()
         {
             RegisterDependency<LifetimeComponentManager>(i => _lifetimeComponentManager = i);
-            RegisterDependency<StyleElementDefaultLookup>(i => _styleElementDefaultLookup = i);
+            RegisterDependency<StyleElementDefaultLookup>(i => _styleLookup = i);
         }
 
         #region Static Fields and Autoproperties
 
         private static LifetimeComponentManager _lifetimeComponentManager;
 
-        private static StyleElementDefaultLookup _styleElementDefaultLookup;
+        private static StyleElementDefaultLookup _styleLookup;
 
         #endregion
 
         protected static LifetimeComponentManager LifetimeComponentManager => _lifetimeComponentManager;
 
-        protected static StyleElementDefaultLookup StyleElementDefaultLookup => _styleElementDefaultLookup;
+        protected static StyleElementDefaultLookup StyleLookup => _styleLookup;
     }
 }

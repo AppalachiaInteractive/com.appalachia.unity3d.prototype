@@ -671,7 +671,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Select"",
+                    ""name"": ""Press"",
                     ""type"": ""PassThrough"",
                     ""id"": ""45620a36-af93-4be8-8888-372a02c959cb"",
                     ""expectedControlType"": ""Button"",
@@ -689,7 +689,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AlternateSelect"",
+                    ""name"": ""AlternatePress"",
                     ""type"": ""PassThrough"",
                     ""id"": ""4bf04a24-80ef-422d-b6c2-49e40b7fe2ae"",
                     ""expectedControlType"": ""Button"",
@@ -698,7 +698,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Menu"",
+                    ""name"": ""ContextMenu"",
                     ""type"": ""PassThrough"",
                     ""id"": ""b9eaa43b-4f96-43d4-b0c4-47a09c321f0d"",
                     ""expectedControlType"": ""Button"",
@@ -1001,7 +1001,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Menu"",
+                    ""action"": ""ContextMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1012,7 +1012,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Menu"",
+                    ""action"": ""ContextMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1023,7 +1023,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Menu"",
+                    ""action"": ""ContextMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1034,18 +1034,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""AlternateSelect"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e3a19a5e-fbb3-4e1c-98ed-7a30f8303c66"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""AlternateSelect"",
+                    ""action"": ""AlternatePress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1056,7 +1045,7 @@ namespace Appalachia.Prototype.KOC.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""AlternateSelect"",
+                    ""action"": ""AlternatePress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1095,12 +1084,23 @@ namespace Appalachia.Prototype.KOC.Input
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3145b77b-be7e-4a6f-b41f-d02189265713"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""55fbc301-3687-4451-b4ac-13deb0648ce3"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Select"",
+                    ""action"": ""Press"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1460,10 +1460,10 @@ namespace Appalachia.Prototype.KOC.Input
             m_GenericMenu_Submit = m_GenericMenu.FindAction("Submit", throwIfNotFound: true);
             m_GenericMenu_Cancel = m_GenericMenu.FindAction("Cancel", throwIfNotFound: true);
             m_GenericMenu_Point = m_GenericMenu.FindAction("Point", throwIfNotFound: true);
-            m_GenericMenu_Select = m_GenericMenu.FindAction("Select", throwIfNotFound: true);
+            m_GenericMenu_Press = m_GenericMenu.FindAction("Press", throwIfNotFound: true);
             m_GenericMenu_Scroll = m_GenericMenu.FindAction("Scroll", throwIfNotFound: true);
-            m_GenericMenu_AlternateSelect = m_GenericMenu.FindAction("AlternateSelect", throwIfNotFound: true);
-            m_GenericMenu_Menu = m_GenericMenu.FindAction("Menu", throwIfNotFound: true);
+            m_GenericMenu_AlternatePress = m_GenericMenu.FindAction("AlternatePress", throwIfNotFound: true);
+            m_GenericMenu_ContextMenu = m_GenericMenu.FindAction("ContextMenu", throwIfNotFound: true);
             // In Game Menu
             m_InGameMenu = asset.FindActionMap("In Game Menu", throwIfNotFound: true);
             // Pause Menu
@@ -1704,10 +1704,10 @@ namespace Appalachia.Prototype.KOC.Input
         private readonly InputAction m_GenericMenu_Submit;
         private readonly InputAction m_GenericMenu_Cancel;
         private readonly InputAction m_GenericMenu_Point;
-        private readonly InputAction m_GenericMenu_Select;
+        private readonly InputAction m_GenericMenu_Press;
         private readonly InputAction m_GenericMenu_Scroll;
-        private readonly InputAction m_GenericMenu_AlternateSelect;
-        private readonly InputAction m_GenericMenu_Menu;
+        private readonly InputAction m_GenericMenu_AlternatePress;
+        private readonly InputAction m_GenericMenu_ContextMenu;
         public struct GenericMenuActions
         {
             private @KOCInputActions m_Wrapper;
@@ -1716,10 +1716,10 @@ namespace Appalachia.Prototype.KOC.Input
             public InputAction @Submit => m_Wrapper.m_GenericMenu_Submit;
             public InputAction @Cancel => m_Wrapper.m_GenericMenu_Cancel;
             public InputAction @Point => m_Wrapper.m_GenericMenu_Point;
-            public InputAction @Select => m_Wrapper.m_GenericMenu_Select;
+            public InputAction @Press => m_Wrapper.m_GenericMenu_Press;
             public InputAction @Scroll => m_Wrapper.m_GenericMenu_Scroll;
-            public InputAction @AlternateSelect => m_Wrapper.m_GenericMenu_AlternateSelect;
-            public InputAction @Menu => m_Wrapper.m_GenericMenu_Menu;
+            public InputAction @AlternatePress => m_Wrapper.m_GenericMenu_AlternatePress;
+            public InputAction @ContextMenu => m_Wrapper.m_GenericMenu_ContextMenu;
             public InputActionMap Get() { return m_Wrapper.m_GenericMenu; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1741,18 +1741,18 @@ namespace Appalachia.Prototype.KOC.Input
                     @Point.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPoint;
                     @Point.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPoint;
                     @Point.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPoint;
-                    @Select.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnSelect;
-                    @Select.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnSelect;
-                    @Select.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnSelect;
+                    @Press.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPress;
+                    @Press.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPress;
+                    @Press.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnPress;
                     @Scroll.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnScroll;
                     @Scroll.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnScroll;
                     @Scroll.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnScroll;
-                    @AlternateSelect.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternateSelect;
-                    @AlternateSelect.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternateSelect;
-                    @AlternateSelect.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternateSelect;
-                    @Menu.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnMenu;
-                    @Menu.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnMenu;
-                    @Menu.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnMenu;
+                    @AlternatePress.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternatePress;
+                    @AlternatePress.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternatePress;
+                    @AlternatePress.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnAlternatePress;
+                    @ContextMenu.started -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnContextMenu;
+                    @ContextMenu.performed -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnContextMenu;
+                    @ContextMenu.canceled -= m_Wrapper.m_GenericMenuActionsCallbackInterface.OnContextMenu;
                 }
                 m_Wrapper.m_GenericMenuActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1769,18 +1769,18 @@ namespace Appalachia.Prototype.KOC.Input
                     @Point.started += instance.OnPoint;
                     @Point.performed += instance.OnPoint;
                     @Point.canceled += instance.OnPoint;
-                    @Select.started += instance.OnSelect;
-                    @Select.performed += instance.OnSelect;
-                    @Select.canceled += instance.OnSelect;
+                    @Press.started += instance.OnPress;
+                    @Press.performed += instance.OnPress;
+                    @Press.canceled += instance.OnPress;
                     @Scroll.started += instance.OnScroll;
                     @Scroll.performed += instance.OnScroll;
                     @Scroll.canceled += instance.OnScroll;
-                    @AlternateSelect.started += instance.OnAlternateSelect;
-                    @AlternateSelect.performed += instance.OnAlternateSelect;
-                    @AlternateSelect.canceled += instance.OnAlternateSelect;
-                    @Menu.started += instance.OnMenu;
-                    @Menu.performed += instance.OnMenu;
-                    @Menu.canceled += instance.OnMenu;
+                    @AlternatePress.started += instance.OnAlternatePress;
+                    @AlternatePress.performed += instance.OnAlternatePress;
+                    @AlternatePress.canceled += instance.OnAlternatePress;
+                    @ContextMenu.started += instance.OnContextMenu;
+                    @ContextMenu.performed += instance.OnContextMenu;
+                    @ContextMenu.canceled += instance.OnContextMenu;
                 }
             }
         }
@@ -1995,10 +1995,10 @@ namespace Appalachia.Prototype.KOC.Input
             void OnSubmit(InputAction.CallbackContext context);
             void OnCancel(InputAction.CallbackContext context);
             void OnPoint(InputAction.CallbackContext context);
-            void OnSelect(InputAction.CallbackContext context);
+            void OnPress(InputAction.CallbackContext context);
             void OnScroll(InputAction.CallbackContext context);
-            void OnAlternateSelect(InputAction.CallbackContext context);
-            void OnMenu(InputAction.CallbackContext context);
+            void OnAlternatePress(InputAction.CallbackContext context);
+            void OnContextMenu(InputAction.CallbackContext context);
         }
         public interface IInGameMenuActions
         {
